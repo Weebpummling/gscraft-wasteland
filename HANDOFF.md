@@ -62,7 +62,9 @@ the apostrophe problem in shell heredocs, and the `clear_column(x, z, from_y)` a
 
 ## 4. Release assets (GitHub Releases, tag `handoff-2026-09-02`)
 
-Large binaries are not in git. The release carries the client pack, the server mod set, the
+Large binaries are not in git. Twenty assets, 5.7 GB in all, put up by `tools/release_upload.py`
+(re-runnable; it skips what is already there). If an asset is missing from the release page, run it
+again from a machine with the GitHub CLI signed in and the files in a local folder. The release carries the client pack, the server mod set, the
 pristine world region set, the edited v5 region set, and the server backup archives. Player
 identity files from the server root (ops, whitelist, user caches) are deliberately not published.
 
