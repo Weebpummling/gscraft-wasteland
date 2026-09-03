@@ -16,9 +16,9 @@ reads against are in `incoming\renders\v6\` and `docs/renders/`.
 | sites | PASS | all seven rectangles present and complete; the two ship boxes above the cut are empty |
 | pads | WARN | five pads 99.7 % level across their apron; the hub's apron 89 % (its ramps start inside the measured ring); outlines complete on all six |
 | tower | PASS | pad flat at 99; stage 0 (concrete, steel, fence, scaffolding) present; nothing else built |
-| camp | WARN | crater untouched vs the pre-gen copy; NPC sites clear, but two rim sites are uneven (see §2.5) |
-| water | WARN | the plaza is an island; two of the three road lines cross real water (see §2.1) |
-| distances | WARN | industrial plant and FR-06 are 418 m apart (see §2.4) |
+| camp | WARN | crater untouched vs the pre-gen copy; all six NPC pads level (height spread 0–1); the only built columns on a site are the spine passing through Marshall's gate |
+| water | PASS | the plaza now has 5–7 % water in its margin; all four built roads have no water on their line |
+| distances | WARN (accepted) | industrial plant and FR-06 are 418 m apart (see §2.4); plaza 2.09 km W, Novo 1.06 km, hub 6.18 km |
 | border | PASS | 10,000 blocks centred 1900, 1250; spawn 19 94 26 |
 
 ## 2. Issues raised for the owner, and the decisions taken (2026-09-03)
@@ -39,8 +39,11 @@ range: x −1952…−1793, z 848…991, 2.1 km WEST of the camp (a ring search 
 pre-generated terrain, scored on water, buildings, height spread and water along the road line). The
 old hospital pad is restored to lake from the pristine set. Roads are now routed by `tools/roads.py`
 (least-cost path on 8-block cells, water ×40, buildings ×80, slope) and built 7 wide with causeways
-only where unavoidable: spine 1,405 m with 8 m of water, west road 2,189 m dry, runway road 1,392 m
-with 16 m of water, settlement road 513 m dry.
+only where unavoidable. As built and re-measured along each centre line: spine 1,405 m, no water, road
+surface on 96 % of the line (longest break 4 m); west road 2,189 m, no water, 95 % (14 m); runway road
+1,392 m, no water, 81 % (32 m) where it threads generated blocks; settlement road 513 m, no water, 89 %
+(8 m). The breaks are Lost Cities buildings and streets the line runs into: the road stops at the wall
+and resumes past it, which the generated city's own streets carry.
 
 ### 2.2 Cities — the wasteland is one-fifth city with highways everywhere
 Sampling every 25th chunk: about 20 % of land chunks carry a Lost Cities fingerprint (street blocks,
@@ -91,7 +94,7 @@ Immersive Vehicles already chunk-loads vehicles on roads (`chunkloadVehicles: tr
 | Ships over the hub | gone; verified empty above the cut |
 | 5,7xx chunks without light / heightmaps | expected: every edited chunk; the game recomputes on first load |
 | Lootr: 1.12 chests came across as plain chests with their surviving vanilla items | expected; the design's typed loot arrives by datapack anyway |
-| Voice chat tried to bind the Bisect IP locally | fixed in the local config only |
+| Voice chat tried to bind the Bisect IP locally | server-ip is empty in the local property profiles; the hosted profile keeps the IP |
 | `superbwarfare` is the second-largest block namespace in the world (6.1 M palette entries) | the Lost Cities apocalypse pack builds with its sandbags and barricades; nothing to do |
 
 ## 4. What Phase A (the visual pass) should look at, in order

@@ -28,6 +28,11 @@ release assets; nothing needed lives only on the original workstation.
   local server as `wasteland-v6` with tower stage 0 placed and the lock scripts armed. `tools/reviewv6.py`
   audits the whole world; its report and the findings are in `docs/gscraft-map-review-v6.md`. Phase A (the
   owner's visual pass) is next, then roads and the camp buildings.
+- **Finished world (v6, 2026-09-03 08:00):** `G:\GSCraft\server\wasteland-v6` on the working machine, and GitHub
+  release `build-v6-2026-09-03` (four zips: three region parts under 1.9 GB and a meta zip with level.dat, data,
+  entities, datapacks, serverconfig). Owner decisions after the review: plaza on dry land west of the camp, cities
+  kept, roads routed and built (`tools/roads.py`, `buildmap/routes_v6.json`), camp NPC pads, clear-ring, projectile
+  sweep + simulation distance 10. Deploy to the hosted server = section 6 below.
 - **Still to do**: KubeJS state machine for the location loop (clock, target draw, countdown,
   waves, boss); FTB Quests book and home-claim marker; horror rates measured in play; an in-game
   flight through every site and pad; Superb Warfare small-arms toggle; old-world housekeeping on the

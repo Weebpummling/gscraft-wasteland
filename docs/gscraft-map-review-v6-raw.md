@@ -1,4 +1,4 @@
-# Map review: G:\GSCraft\server\wasteland-v6  (2026-09-03 04:28)
+# Map review: G:\GSCraft\server\wasteland-v6  (2026-09-03 07:49)
 
 ## chunks: **FAIL**
 ```
@@ -11,9 +11,9 @@
  "data_versions": {
   "3465": 421201
  },
- "light_off": 5763,
- "no_heightmap": 5782,
- "seconds": 1887
+ "light_off": 6373,
+ "no_heightmap": 6392,
+ "seconds": 1229
 }
 ```
 
@@ -21,12 +21,12 @@
 ```
 {
  "namespaces": {
-  "minecraft": 52183519,
-  "superbwarfare": 6113392,
-  "immersiveengineering": 2331721,
-  "immersive_weathering": 1587070,
-  "apotheosis": 13302,
-  "farmersdelight": 4611,
+  "minecraft": 52180662,
+  "superbwarfare": 6113403,
+  "immersiveengineering": 2331693,
+  "immersive_weathering": 1585757,
+  "apotheosis": 13299,
+  "farmersdelight": 4607,
   "factory_blocks": 3690,
   "chisel": 1191,
   "refurbished_furniture": 1014,
@@ -60,11 +60,11 @@
 }
 ```
 - {'site': 'settlement', 'dest': [3520, 640, 3791, 927], 'chunks': 306, 'missing_chunks': 0, 'placed_blocks': 84644}
-- {'site': 'novo', 'dest': [992, 96, 1135, 255], 'chunks': 90, 'missing_chunks': 0, 'placed_blocks': 14390}
-- {'site': 'plaza', 'dest': [688, 2368, 847, 2511], 'chunks': 90, 'missing_chunks': 0, 'placed_blocks': 260452}
-- {'site': 'biogen_s', 'dest': [2976, 2528, 3039, 2591], 'chunks': 16, 'missing_chunks': 0, 'placed_blocks': 5777}
+- {'site': 'novo', 'dest': [992, 96, 1135, 255], 'chunks': 90, 'missing_chunks': 0, 'placed_blocks': 14655}
+- {'site': 'plaza', 'dest': [-1952, 848, -1793, 991], 'chunks': 90, 'missing_chunks': 0, 'placed_blocks': 260452}
+- {'site': 'biogen_s', 'dest': [2976, 2528, 3039, 2591], 'chunks': 16, 'missing_chunks': 0, 'placed_blocks': 6008}
 - {'site': 'biogen_n', 'dest': [2976, 2608, 2991, 2639], 'chunks': 2, 'missing_chunks': 0, 'placed_blocks': 4256}
-- {'site': 'sewers', 'dest': [720, 2400, 815, 2495], 'chunks': 36, 'missing_chunks': 0, 'placed_blocks': 161345}
+- {'site': 'sewers', 'dest': [-1920, 880, -1825, 975], 'chunks': 36, 'missing_chunks': 0, 'placed_blocks': 161345}
 - {'site': 'hub', 'dest': [5600, 1184, 6431, 1823], 'chunks': 2080, 'missing_chunks': 0, 'placed_blocks': 693968}
 
 ## pads: **WARN**
@@ -72,11 +72,11 @@
 ```
 {}
 ```
-- {'name': 'radio_tower', 'y': 99, 'terrain_columns': 1015, 'at_level': 1014, 'share_at_level': 0.999, 'min': 99, 'max': 102, 'border_share': 1.0}
-- {'name': 'novo_site', 'y': 70, 'terrain_columns': 320, 'at_level': 319, 'share_at_level': 0.997, 'min': 70, 'max': 73, 'border_share': 1.0}
-- {'name': 'plaza', 'y': 70, 'terrain_columns': 320, 'at_level': 319, 'share_at_level': 0.997, 'min': 70, 'max': 73, 'border_share': 1.0}
-- {'name': 'settlement', 'y': 80, 'terrain_columns': 576, 'at_level': 575, 'share_at_level': 0.998, 'min': 80, 'max': 83, 'border_share': 1.0}
-- {'name': 'airfield', 'y': 67, 'terrain_columns': 6064, 'at_level': 6044, 'share_at_level': 0.997, 'min': 63, 'max': 70, 'border_share': 1.0}
+- {'name': 'radio_tower', 'y': 99, 'terrain_columns': 1015, 'at_level': 996, 'share_at_level': 0.981, 'min': 91, 'max': 102, 'border_share': 1.0}
+- {'name': 'novo_site', 'y': 70, 'terrain_columns': 298, 'at_level': 292, 'share_at_level': 0.98, 'min': 62, 'max': 73, 'border_share': 0.85}
+- {'name': 'plaza', 'y': 70, 'terrain_columns': 517, 'at_level': 502, 'share_at_level': 0.971, 'min': 70, 'max': 82, 'border_share': 1.0}
+- {'name': 'settlement', 'y': 80, 'terrain_columns': 571, 'at_level': 564, 'share_at_level': 0.988, 'min': 75, 'max': 83, 'border_share': 1.0}
+- {'name': 'airfield', 'y': 67, 'terrain_columns': 6030, 'at_level': 6009, 'share_at_level': 0.997, 'min': 63, 'max': 70, 'border_share': 0.98}
 - {'name': 'hub', 'y': 82, 'terrain_columns': 1488, 'at_level': 1323, 'share_at_level': 0.889, 'min': 71, 'max': 102, 'border_share': 1.0}
 
 ## tower: **PASS**
@@ -97,53 +97,47 @@
 ```
 
 ## camp: **WARN**
-- WARN: Walker yard: surface spread 22 blocks
-- WARN: Michael plant: surface spread 28 blocks
+- WARN: Marshall gatehouse: 9 built columns on the site
 ```
 {
  "crater_diff_columns": 0,
  "crater_sampled": 1024,
  "npc_sites": {
   "Marshall gatehouse": {
-   "built_columns": 0,
-   "surface_min": 109,
-   "surface_max": 116
+   "built_columns": 9,
+   "surface_min": 110,
+   "surface_max": 111
   },
   "Walker yard": {
    "built_columns": 0,
-   "surface_min": 87,
-   "surface_max": 109
+   "surface_min": 94,
+   "surface_max": 94
   },
   "Tony clinic": {
    "built_columns": 0,
    "surface_min": 84,
-   "surface_max": 89
+   "surface_max": 84
   },
   "Michael plant": {
    "built_columns": 0,
-   "surface_min": 84,
-   "surface_max": 112
+   "surface_min": 108,
+   "surface_max": 108
   },
   "Tune shack": {
    "built_columns": 0,
-   "surface_min": 84,
-   "surface_max": 94
+   "surface_min": 85,
+   "surface_max": 85
   },
   "James lookout": {
    "built_columns": 0,
    "surface_min": 88,
-   "surface_max": 89
+   "surface_max": 88
   }
  }
 }
 ```
 
-## water: **WARN**
-- WARN: plaza: 43% water around the site (causeway needed)
-- WARN: plaza: 35% water around the site (causeway needed)
-- WARN: road spine camp->Novo->district: 56 m of water in 6 crossing(s)
-- WARN: road district->plaza: 440 m of water in 6 crossing(s)
-- WARN: road district->runway: 236 m of water in 6 crossing(s)
+## water: **PASS**
 ```
 {
  "sites": [
@@ -153,11 +147,11 @@
   },
   {
    "site": "novo_site",
-   "water_share_around": 0.062
+   "water_share_around": 0.06
   },
   {
    "site": "plaza",
-   "water_share_around": 0.431
+   "water_share_around": 0.066
   },
   {
    "site": "settlement",
@@ -177,11 +171,11 @@
   },
   {
    "site": "novo",
-   "water_share_around": 0.047
+   "water_share_around": 0.045
   },
   {
    "site": "plaza",
-   "water_share_around": 0.352
+   "water_share_around": 0.052
   },
   {
    "site": "biogen_s",
@@ -193,31 +187,37 @@
   },
   {
    "site": "sewers",
-   "water_share_around": 0.002
+   "water_share_around": 0.0
   },
   {
    "site": "hub",
-   "water_share_around": 0.044
+   "water_share_around": 0.043
   }
  ],
  "roads": {
-  "spine camp->Novo->district": {
-   "samples": 258,
-   "water_samples": 14,
-   "water_metres": 56,
-   "crossings": 6
+  "spine_camp_novo_district": {
+   "samples": 524,
+   "water_samples": 0,
+   "water_metres": 0,
+   "crossings": 0
   },
-  "district->plaza": {
-   "samples": 267,
-   "water_samples": 110,
-   "water_metres": 440,
-   "crossings": 6
+  "west_road_camp_plaza": {
+   "samples": 820,
+   "water_samples": 0,
+   "water_metres": 0,
+   "crossings": 0
   },
-  "district->runway": {
-   "samples": 263,
-   "water_samples": 59,
-   "water_metres": 236,
-   "crossings": 6
+  "district_runway": {
+   "samples": 520,
+   "water_samples": 0,
+   "water_metres": 0,
+   "crossings": 0
+  },
+  "district_settlement": {
+   "samples": 191,
+   "water_samples": 0,
+   "water_metres": 0,
+   "crossings": 0
   }
  }
 }
@@ -230,10 +230,10 @@
  "from_camp_m": {
   "settlement": 3720,
   "novo": 1060,
-  "plaza": 2537,
+  "plaza": 2094,
   "biogen_s": 3927,
   "biogen_n": 3950,
-  "sewers": 2545,
+  "sewers": 2097,
   "hub": 6181,
   "residential": 2031,
   "plant": 2336,
