@@ -1,0 +1,102 @@
+[
+ {
+  "name": "radio_tower",
+  "size": [
+   128,
+   128
+  ],
+  "blocks": [
+   2023,
+   -184,
+   2150,
+   -57
+  ],
+  "purpose": "Endgame objective: the mast, its transmitter hall and a walled compound",
+  "chunks": [
+   126,
+   -12,
+   134,
+   -4
+  ]
+ },
+ {
+  "name": "substation",
+  "size": [
+   160,
+   160
+  ],
+  "blocks": [
+   215,
+   1415,
+   374,
+   1574
+  ],
+  "purpose": "Power: transformer yard, switch house, perimeter and approach",
+  "chunks": [
+   13,
+   88,
+   23,
+   98
+  ]
+ },
+ {
+  "name": "water_treatment",
+  "size": [
+   192,
+   160
+  ],
+  "blocks": [
+   3570,
+   711,
+   3761,
+   870
+  ],
+  "purpose": "Water and biodiesel: settling basins, pump house, tank farm",
+  "chunks": [
+   223,
+   44,
+   235,
+   54
+  ]
+ },
+ {
+  "name": "hospital",
+  "size": [
+   192,
+   192
+  ],
+  "blocks": [
+   675,
+   2367,
+   866,
+   2558
+  ],
+  "purpose": "Medical: main block, wings, car park and a defensible perimeter",
+  "chunks": [
+   42,
+   147,
+   54,
+   159
+  ]
+ },
+ {
+  "name": "airfield",
+  "size": [
+   512,
+   192
+  ],
+  "blocks": [
+   2959,
+   2519,
+   3470,
+   2710
+  ],
+  "purpose": "Aircraft and heavy vehicles: 400-block runway, apron, hangars, tower",
+  "chunks": [
+   184,
+   157,
+   216,
+   169
+  ]
+ }
+]

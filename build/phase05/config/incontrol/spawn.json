@@ -1,0 +1,153 @@
+[
+  {
+    "dimension": "minecraft:overworld",
+    "when": "onjoin",
+    "mob": [
+      "minecraft:zombie",
+      "minecraft:zombie_villager",
+      "minecraft:husk",
+      "minecraft:drowned"
+    ],
+    "spawntype": [
+      "mob_summoned",
+      "reinforcement",
+      "event",
+      "triggered",
+      "command"
+    ],
+    "result": "default"
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "when": "onjoin",
+    "mob": [
+      "minecraft:pillager",
+      "minecraft:vindicator",
+      "minecraft:evoker",
+      "minecraft:ravager"
+    ],
+    "result": "default"
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "when": "onjoin",
+    "mob": [
+      "minecraft:zombie",
+      "minecraft:zombie_villager",
+      "minecraft:husk",
+      "minecraft:drowned"
+    ],
+    "mincount": {
+      "amount": 24,
+      "mob": [
+        "minecraft:zombie",
+        "minecraft:zombie_villager",
+        "minecraft:husk",
+        "minecraft:drowned"
+      ],
+      "perplayer": true
+    },
+    "result": "deny"
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "when": "onjoin",
+    "mob": [
+      "minecraft:skeleton",
+      "minecraft:stray"
+    ],
+    "mincount": {
+      "amount": 4,
+      "mob": [
+        "minecraft:skeleton",
+        "minecraft:stray"
+      ],
+      "perplayer": true
+    },
+    "result": "deny"
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "when": "onjoin",
+    "mob": [
+      "minecraft:spider",
+      "minecraft:cave_spider"
+    ],
+    "mincount": {
+      "amount": 3,
+      "mob": [
+        "minecraft:spider",
+        "minecraft:cave_spider"
+      ],
+      "perplayer": true
+    },
+    "result": "deny"
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "spawner": true,
+    "hostile": true,
+    "when": "onjoin",
+    "mincount": 12,
+    "result": "deny"
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "when": "onjoin",
+    "mob": [
+      "minecraft:zombie",
+      "minecraft:zombie_villager",
+      "minecraft:husk",
+      "minecraft:drowned"
+    ],
+    "result": "default"
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "when": "onjoin",
+    "mob": [
+      "minecraft:skeleton",
+      "minecraft:stray"
+    ],
+    "result": "default"
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "when": "onjoin",
+    "mob": [
+      "minecraft:spider",
+      "minecraft:cave_spider"
+    ],
+    "result": "default"
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "hostile": true,
+    "when": "onjoin",
+    "result": "deny"
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "when": "finalize",
+    "mob": [
+      "minecraft:zombie",
+      "minecraft:zombie_villager",
+      "minecraft:husk",
+      "minecraft:drowned"
+    ],
+    "result": "allow",
+    "healthmultiply": 1.25,
+    "speedmultiply": 1.08,
+    "followrangemultiply": 1.15
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "when": "finalize",
+    "mob": [
+      "minecraft:skeleton",
+      "minecraft:stray"
+    ],
+    "result": "allow",
+    "followrangemultiply": 1.1
+  }
+]

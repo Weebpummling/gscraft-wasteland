@@ -1,0 +1,7 @@
+*.jar
+*.zip
+*.mca
+pull/
+worlds/
+__pycache__/
+*.log

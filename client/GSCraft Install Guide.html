@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GSCraft — how to join</title>
+<style>
+  :root { --ink:#1e2320; --soft:#5b6259; --rule:#c9c7bb; --accent:#7c7211; --ground:#ecebe4; --card:#f7f6f1; }
+  body { margin:0; background:var(--ground); color:var(--ink); font: 16px/1.6 "Segoe UI", Helvetica, Arial, sans-serif; }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 32px 22px 80px; }
+  h1 { font-size: 34px; line-height:1.1; margin: 0 0 6px; }
+  h2 { font-size: 21px; margin: 40px 0 10px; border-bottom: 2px solid var(--ink); padding-bottom: 4px; }
+  .lead { color: var(--soft); margin: 0 0 18px; }
+  .addr { background: var(--card); border: 1px solid var(--rule); padding: 12px 16px; font-family: Consolas, monospace; font-size: 17px; margin: 14px 0 6px; }
+  ol li, ul li { margin-bottom: 9px; }
+  code { font-family: Consolas, monospace; background: #e2e1d8; padding: 1px 5px; border-radius: 3px; font-size: 0.93em; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 15px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--soft); }
+  .tag { display:inline-block; font-size: 11px; letter-spacing:.12em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 1px 7px; border-radius: 3px; margin-left: 8px; vertical-align: middle; }
+  a { color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>GSCraft — how to join</h1>
+  <p class="lead">Minecraft <b>1.20.1</b>, Forge <b>47.4.10</b>, about 100 mods. Everything you need is in one zip. Two ways in: the first is three clicks, the second is for people who insist on the official launcher.</p>
+
+  <div class="addr">Server: 199.115.76.82:9150 &nbsp;&nbsp;(also gamesla308.bisecthosting.com:9150)</div>
+  <p class="lead">It is already in your server list after either install.</p>
+
+  <h2>Way 1 — Prism Launcher <span class="tag">recommended · 5 minutes</span></h2>
+  <ol>
+    <li><b>Install Prism Launcher</b> from <a href="https://prismlauncher.org/download">prismlauncher.org/download</a> — Windows, macOS and Linux builds are there. Install it and open it once.</li>
+    <li><b>Sign in:</b> top-right <b>Accounts → Manage Accounts → Add Microsoft</b>, then follow the code login. This is your normal Minecraft account.</li>
+    <li><b>Download <code>GSCraft-Client.zip</code></b> from the shared Google Drive link (about 480 MB). Do not unzip it.</li>
+    <li>In Prism click <b>Add Instance</b> (top-left) → left column <b>Import</b> → <b>Browse</b> → pick <code>GSCraft-Client.zip</code> → <b>OK</b>. Prism unpacks the instance, downloads Minecraft 1.20.1 and Forge 47.4.10 itself, and shows a <b>GSCraft</b> tile.</li>
+    <li><b>Java:</b> Prism asks for Java on first launch if it cannot find one. Choose <b>Auto-download</b> (or Settings → Java → <b>Auto-detect / Download</b> and pick <b>Java 17</b>). 1.20.1 wants Java <b>17</b>, not 21.</li>
+    <li><b>Memory</b> is preset to 6 GB for the instance. If your PC has 8 GB of RAM total, right-click the GSCraft tile → <b>Edit → Settings → Java → Maximum memory allocation</b> and set <b>4096 MB</b>.</li>
+    <li><b>Play.</b> Double-click the tile. First launch takes 2–4 minutes while mods load. Then <b>Multiplayer → GSCraft → Join Server</b>.</li>
+  </ol>
+  <p>That is it. Voice chat (Simple Voice Chat, push-to-talk <b>V</b>) works out of the box on the same address.</p>
+
+  <h2>Way 2 — official Minecraft launcher <span class="tag">manual</span></h2>
+  <ol>
+    <li>Install <b>Java 17</b>: <a href="https://adoptium.net/temurin/releases/?version=17">adoptium.net Temurin 17</a> (Windows x64 <code>.msi</code>, tick “Set JAVA_HOME” during install).</li>
+    <li>Run the official launcher once with plain <b>1.20.1</b> selected so the game files exist, then close it.</li>
+    <li>Download the Forge installer: <a href="https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.10/forge-1.20.1-47.4.10-installer.jar">forge-1.20.1-47.4.10-installer.jar</a> — run it, keep <b>Install client</b>, click <b>OK</b>.</li>
+    <li>Download <code>GSCraft-Client.zip</code> from the Drive link and unzip it. Inside is a folder <code>GSCraft\.minecraft\</code> containing <code>mods</code>, <code>config</code>, <code>tacz</code>, <code>kubejs</code>, <code>defaultconfigs</code> and <code>servers.dat</code>.</li>
+    <li>Copy those five folders <b>and</b> <code>servers.dat</code> into your game folder:
+      <ul>
+        <li>Windows: <code>%APPDATA%\.minecraft\</code> (paste that into the Explorer address bar)</li>
+        <li>macOS: <code>~/Library/Application Support/minecraft/</code></li>
+        <li>Linux: <code>~/.minecraft/</code></li>
+      </ul>
+      If a <code>mods</code> folder already exists there with other mods in it, empty it first — foreign mods will get you rejected by the server.</li>
+    <li>In the launcher pick the <b>forge</b> profile (1.20.1-47.4.10) → <b>Edit → More options → JVM arguments</b>: change <code>-Xmx2G</code> to <b><code>-Xmx6G</code></b> (or <code>-Xmx4G</code> on an 8 GB machine). Save.</li>
+    <li><b>Play</b>, wait for the mods to load, <b>Multiplayer → GSCraft → Join Server</b>.</li>
+  </ol>
+
+  <h2>If something goes wrong</h2>
+  <table>
+    <tr><th>Symptom</th><th>Fix</th></tr>
+    <tr><td>“Incompatible FML modded server” / missing or extra mods listed</td><td>Your <code>mods</code> folder is not exactly the one in the zip. Delete it and copy it again from the zip.</td></tr>
+    <tr><td>Game closes at once with a Java error</td><td>Wrong Java. It must be Java <b>17</b> (Prism: Settings → Java; official launcher: the Forge profile’s Java executable).</td></tr>
+    <tr><td>Very low FPS or out-of-memory crash</td><td>Raise memory to 6 GB if the PC has 16 GB; lower render distance to 8 in Video Settings.</td></tr>
+    <tr><td>Cannot hear anyone</td><td>Voice chat key is <b>V</b> (push to talk). Settings → Controls → Simple Voice Chat lets you switch to voice activation.</td></tr>
+    <tr><td>Server shows “Can’t connect”</td><td>The server restarts a few times a day for maintenance; wait a minute and retry. If it stays down, message the admin.</td></tr>
+  </table>
+
+  <h2>What is in the pack</h2>
+  <p>Lost Cities ruined-city world, TaCZ and Superb Warfare guns and vehicles, Immersive Engineering tech, The Hordes blood-moon nights, Lootr instanced loot, FTB Quests progression, Xaero maps (press <b>M</b>), and a light dose of horror. The rules of the server are in the quest book (open it from the inventory).</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,272 @@
+{
+ "Lootr": {
+  "slug": "lootr",
+  "version": "0.7.35.94",
+  "filename": "lootr-forge-1.20-0.7.35.94.jar",
+  "url": "https://cdn.modrinth.com/data/EltpO5cN/versions/mWTXC1ZX/lootr-forge-1.20-0.7.35.94.jar",
+  "sha512": "a04c6371376bfdac2b10cbb2bb9af7ded10ac26faaeb252b59aab2f02c2b2064c2c4ab665fb6ea218243e89d6f237d878c6951638bb948edead2c0a604dd023a",
+  "sha1": "1ec77a7df8adbf3290a296bf25b8f99f37a60020",
+  "date": "2025-11-26",
+  "requires": []
+ },
+ "Improved Mobs": {
+  "slug": "improved-mobs",
+  "version": "1.20.1-1.13.7-forge",
+  "filename": "improvedmobs-1.20.1-1.13.7-forge.jar",
+  "url": "https://cdn.modrinth.com/data/23MovWyi/versions/hQPzm4z2/improvedmobs-1.20.1-1.13.7-forge.jar",
+  "sha512": "942642182e41ea186ddc5e829782b42a31c8473564a33ff5254fbaf505a5209494923df6522ca6395121da3e9fb9c52630ac9f3ddba259a2edfd6ffd158c3f94",
+  "sha1": "88f2f837b5b218b8a4e04b09656568b90416af34",
+  "date": "2026-06-19",
+  "requires": [
+   "tenshilib"
+  ]
+ },
+ "Canary": {
+  "slug": "canary",
+  "version": "mc1.20.1-0.3.3",
+  "filename": "canary-mc1.20.1-0.3.3.jar",
+  "url": "https://cdn.modrinth.com/data/qa2H4BS9/versions/lauzXB0n/canary-mc1.20.1-0.3.3.jar",
+  "sha512": "38f0bec7967f9d354e46dacdbe7d284ef823270dc737a7388adde157c45a025e53d77e04a00a582900666b85402c461bee4b80345fc7f03edb5c2b96708442bd",
+  "sha1": "898abd9e337ef1c677ce93f5589497a09c7e9850",
+  "date": "2024-02-08",
+  "requires": []
+ },
+ "Xaero Minimap": {
+  "slug": "xaeros-minimap",
+  "version": "forge-1.20.1-26.4.2",
+  "filename": "xaerominimap-forge-1.20.1-26.4.2.jar",
+  "url": "https://cdn.modrinth.com/data/1bokaNcj/versions/A1JacFsh/xaerominimap-forge-1.20.1-26.4.2.jar",
+  "sha512": "6bf30d544f79e7ecf0a2522c1294cb8bbb1eaf731f428b1ae10edce20d0eacf831f407625c844bf4ee84816a78897a206e59525a0fb4722c4081d330b0c12500",
+  "sha1": "8f5f747a33e787aaa3827b00eb0ad098966499ff",
+  "date": "2026-07-17",
+  "requires": []
+ },
+ "Xaero World Map": {
+  "slug": "xaeros-world-map",
+  "version": "forge-1.20.1-1.45.0",
+  "filename": "xaeroworldmap-forge-1.20.1-1.45.0.jar",
+  "url": "https://cdn.modrinth.com/data/NcUtCpym/versions/3fGuLVo4/xaeroworldmap-forge-1.20.1-1.45.0.jar",
+  "sha512": "c874f83bfca4d4de1b403f07674adaf8079c07f3e41cb78e7f968301a022480d225144267decf8c75affa92ea7a66d6100263b7732829bb80639d3bb499fc587",
+  "sha1": "856b0317f31646ffe3b39a52b604bc7ee8822321",
+  "date": "2026-08-21",
+  "requires": []
+ },
+ "The Man From The Fog": {
+  "slug": "the-man-from-the-fog",
+  "version": "1.4",
+  "filename": "The-Man-From-The-Fog-1.4-1.20.1.jar",
+  "url": "https://cdn.modrinth.com/data/hIZHlLOF/versions/iAoDHcJv/The-Man-From-The-Fog-1.4-1.20.1.jar",
+  "sha512": "d9d4f8f91ea935b7e1f9c3412aeb86c97a814b334da01f70ca08155928f74201899aaacf6c655cf6c8102c1be996397587c762920c8fcb10e7d12b92ba874a4f",
+  "sha1": "a6f5b667e10bc5ac24230b541f1f356dae1a42b1",
+  "date": "2024-11-29",
+  "requires": [
+   "geckolib"
+  ]
+ },
+ "KubeJS": {
+  "slug": "kubejs",
+  "version": "2001.6.5-build.26+forge",
+  "filename": "kubejs-forge-2001.6.5-build.26.jar",
+  "url": "https://cdn.modrinth.com/data/umyGl7zF/versions/hVR2xUSr/kubejs-forge-2001.6.5-build.26.jar",
+  "sha512": "71ef9e5eb5f3bead86b635b42ad305d075c6487e631217b281d938193dcdc5fe0ff6bae8c86dd4e069726223a66e8690c0610f736c5a62910f60fd80edd575c1",
+  "sha1": "8b0cc9797d4ed00fd2d1002d58960af8b32012ae",
+  "date": "2026-05-01",
+  "requires": [
+   "architectury-api",
+   "rhino"
+  ]
+ },
+ "Rhino": {
+  "slug": "rhino",
+  "version": "2001.2.3-build.10+forge",
+  "filename": "rhino-forge-2001.2.3-build.10.jar",
+  "url": "https://cdn.modrinth.com/data/sk9knFPE/versions/uNALdylI/rhino-forge-2001.2.3-build.10.jar",
+  "sha512": "4eb6a635f3eff3baa158539bd55344421cf69b15e28f7da8bf55f370a11c071f3525063a6f81b67fbfca550ad8aaab7e6208df87f65ca6ed2851edd46f032b58",
+  "sha1": "c83c9b719a6bab33fbd2b3f2f680eb3adbfc1aa1",
+  "date": "2025-02-12",
+  "requires": []
+ },
+ "Simple Voice Chat": {
+  "slug": "simple-voice-chat",
+  "version": "forge-1.20.1-2.6.22",
+  "filename": "voicechat-forge-1.20.1-2.6.22.jar",
+  "url": "https://cdn.modrinth.com/data/9eGKb6K1/versions/S11m0QIb/voicechat-forge-1.20.1-2.6.22.jar",
+  "sha512": "23c8b3a593fe506af8d8e0edc0afb45349777d5cdea41ffc3fa99afc2e3b9bc7770bb9951f674017ea5b3c23e111b0c6031ebd61820c9a0b5191e3992d9c8798",
+  "sha1": "ad9179e30cb7b3ffb42b3d9b8e2e9408b473d7fa",
+  "date": "2026-08-08",
+  "requires": []
+ },
+ "Apotheosis": {
+  "slug": "apotheosis",
+  "version": "7.4.8",
+  "filename": "Apotheosis-1.20.1-7.4.8.jar",
+  "url": "https://cdn.modrinth.com/data/rqFWfVlz/versions/tT3CLYvK/Apotheosis-1.20.1-7.4.8.jar",
+  "sha512": "40709a506f96e407d0d34f07e38916bd7238b2b56d54e806063fcc99ccc9fd97d8913afa57c5edfe58f71e2ea5f67c07510a8b5130cb8d9e16e7142b18e4a96c",
+  "sha1": "e508c4724a24f0c80836818fcdd3df6424b1fc40",
+  "date": "2026-06-19",
+  "requires": [
+   "apothic-attributes",
+   "patchouli",
+   "placebo"
+  ]
+ },
+ "Chipped": {
+  "slug": "chipped",
+  "version": "3.0.7",
+  "filename": "chipped-forge-1.20.1-3.0.7.jar",
+  "url": "https://cdn.modrinth.com/data/BAscRYKm/versions/pi3f4er3/chipped-forge-1.20.1-3.0.7.jar",
+  "sha512": "be1871655e213cf488d5049058200e03655f63b5922b6031af142d79d8958dca6653e7fa501f1aa2fda5544ad44a4f593521a7927a516e99579406a23a187045",
+  "sha1": "25ee2a0846059d8f21d28b94b7e0229b60cb5499",
+  "date": "2024-10-15",
+  "requires": [
+   "athena-ctm",
+   "resourceful-lib"
+  ]
+ },
+ "Resourceful Lib": {
+  "slug": "resourceful-lib",
+  "version": "2.1.29",
+  "filename": "resourcefullib-forge-1.20.1-2.1.29.jar",
+  "url": "https://cdn.modrinth.com/data/G1hIVOrD/versions/OhsHaCcW/resourcefullib-forge-1.20.1-2.1.29.jar",
+  "sha512": "8dbe951d431545a7d18081a8b11a52a248e6d8ff9862ae6462b0f5a6f57ff523af12704c3adb071ae99a7c5c1dd895bd7875dea59f9c4956c1597a668b6e8820",
+  "sha1": "6fc590a7c56a720fec57e290cbb0a106efbb3ffa",
+  "date": "2024-08-24",
+  "requires": []
+ },
+ "Immersive Vehicles": {
+  "slug": "immersive-vehicles",
+  "version": "24.0.0-1.20.1",
+  "filename": "Immersive Vehicles-1.20.1-24.0.0.jar",
+  "url": "https://cdn.modrinth.com/data/BCzBuhJ5/versions/xBHmZvmC/Immersive%20Vehicles-1.20.1-24.0.0.jar",
+  "sha512": "9f5acbef86883347a9a14f28efdbff29e8817e131bf2ef99897a90842f169dbd4a9428d35480fded1d8a5f0e4931d5711877244782d5cab59b5cbd903a960199",
+  "sha1": "efe6962bf0304eb7ac234daa75551bf8e30ef3b7",
+  "date": "2026-04-16",
+  "requires": []
+ },
+ "TaCZ": {
+  "slug": "timeless-and-classics-zero",
+  "version": "1.1.8-hotfix",
+  "filename": "tacz-1.20.1-1.1.8-hotfix.jar",
+  "url": "https://cdn.modrinth.com/data/SzzJttH8/versions/yOVIzIJR/tacz-1.20.1-1.1.8-hotfix.jar",
+  "sha512": "bf35bd51dfe39fdffc3f4f7b6695e85348b64807e2977bca813decdfbe4c2d7cd5e15c437e42a012aaa067e271b02cd92f3d32e4fa08d36fedc141e668a115c6",
+  "sha1": "bddafeea4c9c1132ed720c30fbaedfe5ab25e846",
+  "date": "2026-05-25",
+  "requires": []
+ },
+ "TenshiLib": {
+  "slug": "tenshilib",
+  "version": "1.20.1-1.7.6",
+  "filename": "tenshilib-1.20.1-1.7.6-forge.jar",
+  "url": "https://cdn.modrinth.com/data/P2rffivS/versions/5elJ9ZTS/tenshilib-1.20.1-1.7.6-forge.jar",
+  "sha512": "492f11b0a999af306f07b363d8edfad9849ce7294e2609755eee906d1502b00feebd4304c6cd9bfe1a85ffbda0de5b6224a37693c4eb4b42ae664d61a23d8666",
+  "sha1": "4a8f6ac745297430e64b50466f338c2b2aa8b101",
+  "date": "2024-04-06",
+  "requires": []
+ },
+ "Apothic Attributes": {
+  "slug": "apothic-attributes",
+  "version": "1.3.7",
+  "filename": "ApothicAttributes-1.20.1-1.3.7.jar",
+  "url": "https://cdn.modrinth.com/data/DGaH8Rh0/versions/fwL9CWGd/ApothicAttributes-1.20.1-1.3.7.jar",
+  "sha512": "d0b7a9dac9e0d34cdec49afd9a3c9f5382dcfac69b18a7c7a600d4537cf2653368a00333389c8e7c9fdacf952e0e4f921464309e257a3dd992f1ba26f4ce6836",
+  "sha1": "1dc0744d17f0861fe6b067798d39abce9d8e0e86",
+  "date": "2026-06-19",
+  "requires": [
+   "placebo"
+  ]
+ },
+ "Placebo": {
+  "slug": "placebo",
+  "version": "8.6.3",
+  "filename": "Placebo-1.20.1-8.6.3.jar",
+  "url": "https://cdn.modrinth.com/data/tCkE8p2N/versions/6SkuAGoz/Placebo-1.20.1-8.6.3.jar",
+  "sha512": "c23990465e26336f476c3b05a897bcf0c8660ae7338756b325f6bf81d0dee34b609474c62293f394acac818637ab03f92c776d104c8b8e86f3786395f5c4d623",
+  "sha1": "e85f53de2e582a79ce25ff1df1e7b5b5fc08440f",
+  "date": "2026-06-14",
+  "requires": []
+ },
+ "FTB Chunks": {
+  "source": "curseforge",
+  "file_id": 8216874,
+  "filename": "ftb-chunks-forge-2001.3.8.jar",
+  "url": "https://edge.forgecdn.net/files/8216/874/ftb-chunks-forge-2001.3.8.jar",
+  "sha256": "783f7aa42089b6f72500801284796f7cc8eb641ecddcf76f65bf586c017efb02",
+  "modids": [
+   "ftbchunks"
+  ],
+  "requires": []
+ },
+ "FTB Quests": {
+  "source": "curseforge",
+  "file_id": 8078538,
+  "filename": "ftb-quests-forge-2001.4.22.jar",
+  "url": "https://edge.forgecdn.net/files/8078/538/ftb-quests-forge-2001.4.22.jar",
+  "sha256": "9ea9d159a78a2724cfe0457b024680fdb52a2126eff9cfa5280a30578f647a68",
+  "modids": [
+   "ftbquests"
+  ],
+  "requires": []
+ },
+ "IV Official Content Pack": {
+  "slug": "immersive-vehicles-official-content-pack",
+  "version": "29",
+  "filename": "MTS Official Pack-1.20.1-V29.jar",
+  "url": "https://cdn.modrinth.com/data/C7TiPPJz/versions/PNN5h914/MTS%20Official%20Pack-1.20.1-V29.jar",
+  "sha512": "b7af0f74b3ad2eed9ec8100ec84e27781e43717f470dee5ecdee9cc8c572468179e2f05425315e04cce839f6f324122e83dd092c6d7e7967c03922d56086a700",
+  "sha1": "9307186fe7f109f0fcc8397bb4457cb956822b88",
+  "date": "2026-04-18",
+  "requires": []
+ },
+ "IV Official Automobile Pack": {
+  "slug": "immersive-vehicles-official-automobile-pack",
+  "version": "OAmP-V3",
+  "filename": "OAmP-1.20.1-V3.jar",
+  "url": "https://cdn.modrinth.com/data/OP76SB7W/versions/Er1webCv/OAmP-1.20.1-V3.jar",
+  "sha512": "fac30c08af4f00080a0e263d1855aebdbf7ea474b770ed37eee541abf9e0f8cf3b28ce6845268e402ce752e27e1f2fcd7ce9e14dd1244253cab9f24c7f1e8cb1",
+  "sha1": "d466e3c54b0ded1b53b408eb3fd9fa840cfff2c6",
+  "date": "2026-04-16",
+  "requires": []
+ },
+ "FTB Library": {
+  "source": "curseforge",
+  "file_id": 8226927,
+  "filename": "ftb-library-forge-2001.2.13.jar",
+  "url": "https://edge.forgecdn.net/files/8226/927/ftb-library-forge-2001.2.13.jar",
+  "sha256": "41810281b65336265cae2c88412022d02f2f0a3f28c66a06173d86f98acf14a7",
+  "modids": [
+   "ftblibrary"
+  ],
+  "requires": []
+ },
+ "FTB Teams": {
+  "source": "curseforge",
+  "file_id": 7499810,
+  "filename": "ftb-teams-forge-2001.3.2.jar",
+  "url": "https://edge.forgecdn.net/files/7499/810/ftb-teams-forge-2001.3.2.jar",
+  "sha256": "b1cb4d82ea9f137a87e12a7aaf3329619294b56f7d70337dfd557a76e10b6e07",
+  "modids": [
+   "ftbteams"
+  ],
+  "requires": []
+ },
+ "Item Filters": {
+  "source": "curseforge",
+  "file_id": 4838266,
+  "filename": "item-filters-forge-2001.1.0-build.59.jar",
+  "url": "https://edge.forgecdn.net/files/4838/266/item-filters-forge-2001.1.0-build.59.jar",
+  "sha256": "99417b1342ba51ccb9611b17ab01fc1299971aa34e8f9d2a8b3c63df5713eb49",
+  "modids": [
+   "itemfilters"
+  ],
+  "requires": []
+ },
+ "The Lost Cities": {
+  "slug": "the-lost-cities",
+  "version": "1.20-7.5.3",
+  "filename": "lostcities-1.20-7.5.3.jar",
+  "url": "https://cdn.modrinth.com/data/8VDCUS3b/versions/lOvBYez2/lostcities-1.20-7.5.3.jar",
+  "sha512": "9d6c3c67063f4480dcd40a612854a7d63f049c9a63d18eb95a2276f427faae575ca4f24aa9bdb6daac2f9df9721c94fca9fd0b5af865932f29bbe4b6c3194d84",
+  "date": "2026-08-31",
+  "requires": []
+ }
+}

@@ -1,0 +1,672 @@
+<title>Wasteland Server Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#E4E3DC;
+  --surface:#F2F1EB;
+  --surface-2:#DAD9D1;
+  --ink:#1D201C;
+  --ink-soft:#585C53;
+  --ink-faint:#83877D;
+  --rule:#C6C5BB;
+  --rule-hard:#9FA096;
+  --accent:#7C7211;
+  --accent-bright:#A79A18;
+  --warn:#8C3928;
+  --verify:#3F6560;
+  --shadow:rgba(29,32,28,.10);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#15171A;
+    --surface:#1D2024;
+    --surface-2:#262A2E;
+    --ink:#E6E4DB;
+    --ink-soft:#A2A69C;
+    --ink-faint:#767B72;
+    --rule:#333840;
+    --rule-hard:#4A505A;
+    --accent:#D4C24A;
+    --accent-bright:#E4D262;
+    --warn:#D0705C;
+    --verify:#7FAAA4;
+    --shadow:rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#15171A;
+  --surface:#1D2024;
+  --surface-2:#262A2E;
+  --ink:#E6E4DB;
+  --ink-soft:#A2A69C;
+  --ink-faint:#767B72;
+  --rule:#333840;
+  --rule-hard:#4A505A;
+  --accent:#D4C24A;
+  --accent-bright:#E4D262;
+  --warn:#D0705C;
+  --verify:#7FAAA4;
+  --shadow:rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Archivo","Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px 96px}
+
+/* ---------- masthead ---------- */
+.mast{
+  border-bottom:3px solid var(--ink);
+  padding:52px 0 22px;
+  margin-bottom:44px;
+}
+.mast .eyebrow{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:18px;
+}
+.mast h1{
+  font-family:"Oswald","Arial Narrow",sans-serif;
+  font-weight:600;text-transform:uppercase;letter-spacing:.01em;
+  font-size:clamp(38px,7vw,68px);line-height:1.02;margin:0 0 16px;
+  text-wrap:balance;
+}
+.mast .standfirst{
+  font-size:18px;color:var(--ink-soft);max-width:62ch;margin:0;
+}
+.mast .strip{
+  display:flex;flex-wrap:wrap;gap:0 32px;margin-top:26px;
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11.5px;
+  letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase;
+}
+.mast .strip b{color:var(--ink);font-weight:500}
+
+/* ---------- sections ---------- */
+section{margin:0 0 60px;scroll-margin-top:20px}
+h2{
+  font-family:"Oswald","Arial Narrow",sans-serif;
+  font-weight:600;text-transform:uppercase;letter-spacing:.03em;
+  font-size:26px;line-height:1.15;margin:0 0 6px;text-wrap:balance;
+}
+.h2rule{height:2px;background:var(--ink);margin-bottom:22px}
+h3{
+  font-family:"Oswald","Arial Narrow",sans-serif;
+  font-weight:500;text-transform:uppercase;letter-spacing:.05em;
+  font-size:16px;margin:34px 0 10px;color:var(--ink);
+}
+p{margin:0 0 15px;max-width:70ch}
+ul,ol{margin:0 0 15px;padding-left:22px;max-width:70ch}
+li{margin-bottom:7px}
+strong{font-weight:600}
+code{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.87em;background:var(--surface-2);
+  padding:1px 5px;border-radius:2px;color:var(--ink);
+}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---------- decision block ---------- */
+.decision{
+  background:var(--surface);
+  border:1px solid var(--rule-hard);
+  border-left:6px solid var(--accent);
+  padding:22px 26px 18px;margin:0 0 26px;
+  box-shadow:0 1px 0 var(--shadow);
+}
+.decision .tag{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);display:block;margin-bottom:9px;
+}
+.decision .verdict{
+  font-family:"Oswald","Arial Narrow",sans-serif;
+  font-size:23px;font-weight:500;text-transform:uppercase;letter-spacing:.02em;
+  line-height:1.2;margin:0 0 12px;
+}
+.decision p:last-child{margin-bottom:0}
+
+.flag{
+  border-left:4px solid var(--warn);
+  background:var(--surface);
+  padding:14px 18px;margin:0 0 22px;
+}
+.flag .tag{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--warn);display:block;margin-bottom:6px;
+}
+.flag p:last-child{margin-bottom:0}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:0 0 24px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+th{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-faint);text-align:left;font-weight:400;
+  padding:10px 14px 9px;border-bottom:1px solid var(--rule-hard);
+  white-space:nowrap;
+}
+td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+td.mod{font-weight:600;white-space:nowrap}
+td.ver{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px;color:var(--ink-soft);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+.chip{
+  display:inline-block;font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  padding:2px 7px;border:1px solid currentColor;border-radius:2px;
+  white-space:nowrap;line-height:1.5;
+}
+.chip.core{color:var(--warn)}
+.chip.sup{color:var(--verify)}
+.chip.opt{color:var(--ink-faint)}
+.chip.ok{color:var(--verify)}
+.chip.chk{color:var(--accent)}
+
+/* ---------- pull list ---------- */
+.pull{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1px;background:var(--rule-hard);border:1px solid var(--rule-hard);
+  margin:0 0 22px;
+}
+.pull > div{background:var(--surface);padding:16px 18px}
+.pull h4{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 9px;font-weight:400;
+}
+.pull p{font-size:14px;margin:0;color:var(--ink-soft);max-width:none}
+.pull code{font-size:12.5px;background:var(--surface-2)}
+
+/* ---------- phases ---------- */
+.phase{
+  display:grid;grid-template-columns:64px 1fr;gap:0 22px;
+  padding:20px 0;border-top:1px solid var(--rule);
+}
+.phase:last-of-type{border-bottom:1px solid var(--rule)}
+.phase .num{
+  font-family:"Oswald","Arial Narrow",sans-serif;
+  font-size:40px;font-weight:600;line-height:.9;color:var(--rule-hard);
+  font-variant-numeric:tabular-nums;
+}
+.phase h3{margin:0 0 6px}
+.phase p{margin:0 0 10px;font-size:15px}
+.gate{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:12px;color:var(--ink-soft);
+  border-left:3px solid var(--verify);padding:5px 0 5px 12px;
+  max-width:70ch;
+}
+.gate b{color:var(--verify);font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:10.5px}
+
+/* ---------- endgame loop ---------- */
+.loop{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;margin:0 0 24px;
+}
+.loop > div{
+  background:var(--surface);border:1px solid var(--rule-hard);padding:16px 18px;
+}
+.loop .step{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:8px;
+}
+.loop h4{
+  font-family:"Oswald","Arial Narrow",sans-serif;font-weight:500;
+  text-transform:uppercase;letter-spacing:.03em;font-size:15px;margin:0 0 7px;
+}
+.loop p{font-size:14px;margin:0;color:var(--ink-soft);max-width:none}
+
+/* ---------- cut list ---------- */
+.cut{list-style:none;padding:0;max-width:none}
+.cut li{
+  display:grid;grid-template-columns:minmax(0,26ch) 1fr;gap:0 22px;
+  padding:12px 0;border-bottom:1px solid var(--rule);margin:0;
+}
+.cut b{font-weight:600}
+.cut span{color:var(--ink-soft);font-size:15px}
+
+/* ---------- sources ---------- */
+.sources{font-size:13.5px;color:var(--ink-soft)}
+.sources li{margin-bottom:5px}
+.scope{
+  border-top:2px solid var(--ink);padding-top:18px;margin-top:44px;
+  font-size:14px;color:var(--ink-soft);
+}
+.scope h3{margin-top:0}
+
+@media (max-width:640px){
+  .wrap{padding:0 18px 72px}
+  .phase{grid-template-columns:44px 1fr;gap:0 14px}
+  .phase .num{font-size:28px}
+  .cut li{grid-template-columns:1fr;gap:4px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="eyebrow">Server rebuild specification · Bisect Hosting</div>
+  <h1>Wasteland Server Blueprint</h1>
+  <p class="standfirst">A version lock, a mod stack tied to design pillars, a real endgame loop, and a phased rebuild sequence with a pass/fail gate at every stage.</p>
+  <div class="strip">
+    <span>Target <b>1.20.1 Forge</b></span>
+    <span>World <b>Full reset</b></span>
+    <span>RAM <b>10–12 GB</b></span>
+    <span>Pillars <b>6</b></span>
+  </div>
+</header>
+
+<section>
+  <h2>The decision that governs everything</h2>
+  <div class="h2rule"></div>
+
+  <div class="decision">
+    <span class="tag">Version lock</span>
+    <p class="verdict">Minecraft 1.20.1 on Forge</p>
+    <p>Not NeoForge, not 1.21.1. The binding constraint is <strong>TaCZ</strong> — the modern firearms mod that carries the whole weapons pillar. It has only ever shipped official Forge builds, and the newest is 1.20.1 (1.1.8-hotfix, May 2026). The 1.21.1 NeoForge build is an unofficial community port whose own notes warn that 1.20.1 world data is incompatible and that gun packs need a separate upgrader mod.</p>
+    <p>Every other load-bearing mod — Lost Cities, Superb Warfare, Enhanced Celestials, Improved Mobs, Lootr, Immersive Vehicles — has a maintained official 1.20.1 Forge build. 1.20.1 is the only version where the entire stack is first-party. Building on 1.21.1 buys newer worldgen and costs you the one mod you cannot replace.</p>
+  </div>
+
+  <div class="decision">
+    <span class="tag">World</span>
+    <p class="verdict">The map resets. There is no migration path.</p>
+    <p>Lost Cities is the cornerstone of the setting — it replaces the overworld with a ruined cityscape rather than adding structures to one. It is a world generator, so it cannot be applied to existing terrain. If the current world is kept, the post-apocalyptic setting is off the table and the whole design collapses back into "vanilla with guns."</p>
+    <p>Announce the reset early and make it the season boundary. If anything on the current world matters, export it as a schematic before shutdown, not after.</p>
+  </div>
+
+  <div class="flag">
+    <span class="tag">Constraint worth knowing now</span>
+    <p>Mixing loaders is what produced the current mess. A 1.20.1 Forge server cannot run Fabric jars, and bridge layers that claim otherwise are the single most common source of the "works alone, crashes together" failures you're describing. One loader, one version, no exceptions — including for a mod someone really wants.</p>
+  </div>
+</section>
+
+<section>
+  <h2>What I need to audit what's there</h2>
+  <div class="h2rule"></div>
+  <p>The review half of this can't start without the server's own files. Pull these from the Bisect panel — file manager, or SFTP into a zip — and the audit runs off them directly.</p>
+
+  <div class="pull">
+    <div>
+      <h4>Server identity</h4>
+      <p>Panel screenshot showing server type, MC version, loader build, allocated RAM, and the full startup command including JVM flags and Java version.</p>
+    </div>
+    <div>
+      <h4>Mod inventory</h4>
+      <p>Full filename listing of <code>mods/</code>. Filenames carry the version strings — that listing alone identifies most conflicts.</p>
+    </div>
+    <div>
+      <h4>Configuration</h4>
+      <p><code>config/</code>, <code>defaultconfigs/</code>, <code>kubejs/</code>, <code>scripts/</code>, <code>datapacks/</code> — zipped whole, not sampled.</p>
+    </div>
+    <div>
+      <h4>Failure record</h4>
+      <p>All of <code>crash-reports/</code>, plus the last three <code>logs/</code> files. Crashes name the incompatible pair outright.</p>
+    </div>
+    <div>
+      <h4>Runtime state</h4>
+      <p><code>server.properties</code>, <code>ops.json</code>, <code>whitelist.json</code>, world folder size, and the dimension folder listing.</p>
+    </div>
+    <div>
+      <h4>Provenance</h4>
+      <p>Whether this was installed from a Bisect one-click modpack and which one — and its version. That tells us what's pack baggage versus deliberate.</p>
+    </div>
+    <div>
+      <h4>Population</h4>
+      <p>Typical and peak concurrent players, and whether anyone expects their builds to survive. This sizes the hardware and settles the reset conversation.</p>
+    </div>
+  </div>
+
+  <h3>What the audit reports back</h3>
+  <ul>
+    <li><strong>Loader/version conflicts</strong> — jars built for a different MC version or loader than the server runs.</li>
+    <li><strong>Duplicate function</strong> — two mods doing the same job, the usual cause of registry collisions and doubled worldgen. Modpack merges produce these by the dozen.</li>
+    <li><strong>Dead weight</strong> — mods with no dependent and no gameplay role, each one still costing boot time and memory.</li>
+    <li><strong>Abandoned dependencies</strong> — mods whose last release predates the server's MC version, which are the ones that break on every future update.</li>
+    <li><strong>Config drift</strong> — settings that contradict each other across mods, e.g. two mods both claiming spawn control.</li>
+    <li><strong>Client/server split errors</strong> — client-only jars on the server and vice versa.</li>
+    <li><strong>Crash attribution</strong> — every crash report resolved to a named mod pair.</li>
+  </ul>
+  <p>The output is a per-mod disposition: <em>keep</em>, <em>replace</em>, or <em>cut</em>, each with a reason. Nothing carries forward into the new build without one.</p>
+</section>
+
+<section>
+  <h2>Pillars and the stack that serves them</h2>
+  <div class="h2rule"></div>
+  <p>Every mod in the build answers to a pillar. A mod that serves no pillar does not ship — that rule, applied without exception, is what stops the rebuild becoming the thing you're replacing. Roles: <span class="chip core">Load-bearing</span> the pillar fails without it · <span class="chip sup">Supporting</span> makes it work properly · <span class="chip opt">Optional</span> flavour, cut first under load.</p>
+
+  <h3>I · Setting — the ruined cityscape</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Mod</th><th>Role</th><th>Build</th><th>What it does here</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">The Lost Cities</td><td><span class="chip core">Load-bearing</span></td><td class="ver">1.20-7.5.3</td><td>Replaces the overworld with ruined city: skyscrapers, highways, subways, flooded districts, loot rooms. The entire setting rests on this one mod's profile config.</td></tr>
+        <tr><td class="mod">Wasteland Worldgen</td><td><span class="chip sup">Supporting</span></td><td class="ver">verify</td><td>Scorched, dried-out terrain for the gaps between cities, so the wilderness reads as the same apocalypse rather than as normal Minecraft.</td></tr>
+        <tr><td class="mod">FTB Chunks</td><td><span class="chip sup">Supporting</span></td><td class="ver">1.20.1</td><td>Claims and force-loading. Necessary once mobs can break blocks — see the horde-night tuning note below.</td></tr>
+        <tr><td class="mod">Xaero's Minimap + Worldmap</td><td><span class="chip sup">Supporting</span></td><td class="ver">1.20.1</td><td>A city map is unreadable without one. Waypoints are what make district-by-district exploration legible.</td></tr>
+        <tr><td class="mod">Factory Blocks · Chisel · AntiBlocks Rechiseled · Chipped</td><td><span class="chip sup">Supporting</span></td><td class="ver">1.20.1</td><td>Build dependencies — the blocks the players' existing sceneries are made of (511 k, 96 k and 14 k placed blocks). Chipped makes Factory Blocks craftable again.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Lost Cities' profile is the single highest-leverage config file on the server. City density, rubble level, building height variance, and whether wilderness gaps exist between cities are all set here, and they determine whether the world feels like a dense urban crawl or a scattered ruin field. Tune this before anything else and re-generate test worlds until it reads right.</p>
+
+  <h3>II · Weapons — modern firearms</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Mod</th><th>Role</th><th>Build</th><th>What it does here</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">TaCZ</td><td><span class="chip core">Load-bearing</span></td><td class="ver">1.1.8-hotfix</td><td>Modern firearms with animated reloads, attachments, and a gun-pack system. Pins the server to Forge 1.20.1. Gun packs are data-driven, so the arsenal is curated rather than fixed.</td></tr>
+        <tr><td class="mod">Superb Warfare</td><td><span class="chip core">Load-bearing</span></td><td class="ver">0.8.7 (Forge)</td><td>Heavy weapons and armoured vehicles — tanks, helicopters, APCs, drones, artillery. This is the tech ceiling the endgame climbs toward.</td></tr>
+        <tr><td class="mod">TaCZ default gun pack + Keerdm</td><td><span class="chip sup">Supporting</span></td><td class="ver">n/a</td><td>The stock pack for the arsenal; Keerdm for Lost Cities loot and apocalypse structures. The server's chaoszpack is dropped — its manifest hard-requires five cut mods.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="flag">
+    <span class="tag">Overlap to resolve at build time</span>
+    <p>TaCZ and Superb Warfare both add small arms. Running both unmanaged gives players two parallel, non-interoperable ammo economies. Decide the split early: <strong>TaCZ owns personal weapons, Superb Warfare owns vehicles and crew-served weapons</strong>, and disable SBW's small arms in its config. This is the kind of duplication that makes a server feel incoherent even when nothing crashes.</p>
+  </div>
+
+  <h3>III · Vehicles — mobility as progression</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Mod</th><th>Role</th><th>Build</th><th>What it does here</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">Immersive Vehicles (MTS)</td><td><span class="chip core">Load-bearing</span></td><td class="ver">1.20.1-22.18.0</td><td>Content-pack driven cars, trucks and aircraft with fuel systems. The pack model means you choose the vehicle roster rather than accepting one.</td></tr>
+        <tr><td class="mod">Ultimate Car Mod</td><td><span class="chip opt">Optional</span></td><td class="ver">1.20.1</td><td>Alternative if MTS pack management proves fiddly. Adds road-building blocks and a biodiesel chain — good fit for reclaiming highways, but do not run both.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p><strong>Immersive Engineering</strong> is the one tech mod the cut list makes an exception for: its concrete, scaffolding, wiring and diesel generators are the setting's own materials, and its biodiesel chain supplies the fuel economy below. It stays trimmed in config; Create and every other tech tree go.</p>
+  <p>Fuel is the design lever here. Make it a refined resource with a real production chain and vehicles become a progression tier rather than a spawn-in toy — you earn the truck, then you earn the fuel to use it, then the highway network becomes yours. Set fuel consumption before players get vehicles; raising it later reads as a nerf.</p>
+
+  <h3>IV · Looting — the core survival loop</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Mod</th><th>Role</th><th>Build</th><th>What it does here</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">Lootr</td><td><span class="chip core">Load-bearing</span></td><td class="ver">0.7.35.94</td><td>Per-player instanced loot containers. On a looting server this is non-negotiable — without it, whoever logs in first empties the map and everyone else explores a corpse.</td></tr>
+        <tr><td class="mod">Apotheosis</td><td><span class="chip sup">Supporting</span></td><td class="ver">verify</td><td>Affixed gear so loot has a quality axis, not just a tier axis. Turns "another rifle" into "a rifle worth carrying home."</td></tr>
+        <tr><td class="mod">Sophisticated Backpacks</td><td><span class="chip sup">Supporting</span></td><td class="ver">1.20.1</td><td>Inventory pressure is what makes a looting run a decision. Backpacks with upgrade tiers make carry capacity itself a progression track.</td></tr>
+        <tr><td class="mod">PlayerRevive</td><td><span class="chip sup">Supporting</span></td><td class="ver">2.0.31</td><td>Downed state with teammate revive instead of instant death. Fits a co-op looter better than a corpse mod, and is already on the current server.</td></tr>
+        <tr><td class="mod">Corpse</td><td><span class="chip opt">Optional</span></td><td class="ver">1.20.1</td><td>Death recovery for when nobody is there to revive you.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>V · Threat — factions and horde nights</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Mod</th><th>Role</th><th>Build</th><th>What it does here</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">The Hordes</td><td><span class="chip core">Load-bearing</span></td><td class="ver">1.5.4c</td><td>Scheduled horde events that path to players in waves, scale with day count, block sleep, and carry an infection mechanic that turns dead players into zombies. This is the horde-night engine — already installed and tuned on the current server.</td></tr>
+        <tr><td class="mod">Enhanced Celestials</td><td><span class="chip opt">Optional</span></td><td class="ver">5.0.3.1</td><td>Blood-moon sky and spawn multipliers. Layer it on The Hordes for the visual if wanted; not needed for the mechanic.</td></tr>
+        <tr><td class="mod">In Control!</td><td><span class="chip core">Load-bearing</span></td><td class="ver">1.20.1</td><td>Rule-based spawn control by dimension, biome, structure and game state. This is the mod that turns generic hostile mobs into <em>faction territory</em> — the tool that actually builds the setting.</td></tr>
+        <tr><td class="mod">Improved Mobs</td><td><span class="chip core">Load-bearing</span></td><td class="ver">1.20.1-1.13.7</td><td>Mobs that path around obstacles, break blocks, wear armour and use items. Without it a "horde assault" is mobs standing outside a wall.</td></tr>
+        <tr><td class="mod">Bandits: Outlaw Mobs / Raiders</td><td><span class="chip sup">Supporting</span></td><td class="ver">verify</td><td>Human hostiles with melee and ranged variants that spawn in groups — the visual and mechanical basis for rival human factions.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="flag">
+    <span class="tag">The negative finding worth planning around</span>
+    <p><strong>FactionCraft does not exist on 1.20.1.</strong> The obvious answer to "hostile NPC factions that patrol, raid, and fight each other" was last released for 1.19.2 and is unmaintained. There is no drop-in replacement.</p>
+    <p>So factions are <strong>authored, not installed</strong>: In Control! rules define which mobs spawn in which districts and under which conditions, human-hostile mobs supply the bodies, and loot tables and gear give each faction a signature. This is more configuration work than any other part of the build — budget for it explicitly rather than discovering it in week three.</p>
+  </div>
+  <div class="flag">
+    <span class="tag">The hardest tuning problem on the server</span>
+    <p>Improved Mobs' block-breaking is what makes horde night matter and what will destroy every base you have if left open. Constrain it on three axes: restrict breakable blocks to a whitelist of soft materials, enable the aggressive tier only during a blood moon, and lean on FTB Chunks claims for permanent bases. Test this against a purpose-built base on the staging server before it ever touches live.</p>
+  </div>
+
+  <h3>VI · Horror — the thing in the fog</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Mod</th><th>Role</th><th>Build</th><th>What it does here</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">The Man From The Fog</td><td><span class="chip sup">Supporting</span></td><td class="ver">1.20.1</td><td>A stalker that watches from distance, closes when ignored, and vanishes or turns aggressive when looked at. Forge 1.20.1 — this is why the version lock also serves the horror pillar.</td></tr>
+        <tr><td class="mod">The One Who Watches</td><td><span class="chip sup">Supporting</span></td><td class="ver">1.20.1</td><td>Ambient dread rather than combat — surveillance, disorientation, escalating pressure. Pairs well with Man From The Fog if the rates on both are turned down.</td></tr>
+        <tr><td class="mod">Sound Physics Remastered</td><td><span class="chip opt">Optional</span></td><td class="ver">1.20.1</td><td>Occlusion and reverb. In an empty concrete city this does more for atmosphere than any entity does.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Both horror mods default to rates tuned for solo play. On a populated server, the same rate means the entity is on screen constantly and stops being frightening within a week. Cut spawn frequency hard — aim for a player encountering something roughly once every few sessions, not every night. Rarity <em>is</em> the mechanic.</p>
+
+  <h3>Infrastructure — not a pillar, but non-negotiable</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Mod</th><th>Role</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">ModernFix</td><td><span class="chip core">Load-bearing</span></td><td>Boot time, memory, and a long list of mod-loading bug fixes. The first thing to install on any large Forge server.</td></tr>
+        <tr><td class="mod">FerriteCore</td><td><span class="chip core">Load-bearing</span></td><td>Large reduction in blockstate and registry memory. Directly buys headroom for more content.</td></tr>
+        <tr><td class="mod">Canary</td><td><span class="chip core">Load-bearing</span></td><td>Lithium's Forge fork — mob AI, collisions, chunk ticking. Behaviour-neutral, pure throughput.</td></tr>
+        <tr><td class="mod">Spark</td><td><span class="chip core">Load-bearing</span></td><td>The profiler. Every lag complaint is answered with a Spark report, never with a guess.</td></tr>
+        <tr><td class="mod">Chunky</td><td><span class="chip core">Load-bearing</span></td><td>Pre-generates the world. Lost Cities generation is expensive; doing it live is what makes exploration servers stutter.</td></tr>
+        <tr><td class="mod">FTB Quests</td><td><span class="chip core">Load-bearing</span></td><td>The progression spine. Carries the endgame structure below.</td></tr>
+        <tr><td class="mod">KubeJS</td><td><span class="chip sup">Supporting</span></td><td>Server scripting — recipe gating, event hooks, and the state machine behind the strongpoint system.</td></tr>
+        <tr><td class="mod">Simple Voice Chat</td><td><span class="chip opt">Optional</span></td><td>Proximity voice does more for a horror-tinged survival server than most content mods.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>The endgame problem, and a structure that answers it</h2>
+  <div class="h2rule"></div>
+  <p>You named the real difficulty: "amass weapons and tech to explore more locations" is a treadmill with no terminus. It fails on this engine for a specific reason — Minecraft has infinite space and no attrition, so <em>reaching</em> a place can never stay expensive. Once you have the gear, every remaining location is the same location.</p>
+  <p>The old premise had the Tarkov problem: once the players have max gear, every location is the same loop. So the cost moves from gear to <strong>time</strong>. Territory you can lose is the only scarcity the engine reliably provides, and with five players the loss has to be threatened one place at a time.</p>
+
+  <h3>Strongpoints</h3>
+  <p>Place five fixed, rare, faction-garrisoned compounds in the wasteland ring around the player district (their footprints are drawn in the world and on the district map) — a power substation, a water treatment plant, a hospital, an airfield, and a radio tower. Each can be cleared, and once cleared, <em>held</em>. Holding one grants a persistent server-wide unlock:</p>
+  <ul>
+    <li><strong>Substation</strong> — powers electric infrastructure and charging.</li>
+    <li><strong>Water treatment</strong> — clean water, and the biodiesel chain that fuels vehicles.</li>
+    <li><strong>Hospital</strong> — medical crafting and reduced death penalty.</li>
+    <li><strong>Airfield</strong> — unlocks aircraft and heavy vehicle recipes.</li>
+    <li><strong>Radio tower</strong> — the endgame objective, see below.</li>
+  </ul>
+  <p><strong>Taking a location starts a clock.</strong> The players get a set amount of time to build defences, structures and gear at that location before it is attacked on a set cycle. If they are defeated, or die, the position is lost and must be retaken from the garrison. If they win, the position is held, and holding it buys more time to explore and clear the next points of interest. <strong>Every cleared POI joins the pool</strong> from which the game draws, at random, the one that will be attacked next, with a warning ahead of time like a 7 Days to Die blood moon: the radio tower broadcast and the quest book name the site and the night. One site per attack; five players cannot hold five compounds and are never asked to. Every location also yields the loot that repairs the radio tower.</p>
+
+  <h3>The Signal: a finale that comes to you</h3>
+  <p>Repairing the radio tower needs the loot every held location drops. <strong>Completing it starts a countdown to the big one.</strong> When the timer runs out the finale is a wave defence at the players' main base, the hideout they have been living in, never at a strongpoint: escalating waves against the base, and the final wave carries the boss. The base is whichever claim the group marks as home in the quest book. The fight happens on ground the players built, with everything they own on the table.</p>
+
+  <div class="loop">
+    <div><div class="step">Loop · 01</div><h4>Scavenge</h4><p>Instanced city loot funds the first assault. Gear is the entry fee, not the goal.</p></div>
+    <div><div class="step">Loop &middot; 02</div><h4>Take</h4><p>Clear a garrisoned location. The clock starts: a set time to fortify it before the first attack. Each held location unlocks a tech tier and adds itself to the target pool.</p></div>
+    <div><div class="step">Loop &middot; 03</div><h4>Defend</h4><p>On the cycle the game draws one held location and warns the players. Win and it stays held, with more time to explore; lose or die and it must be retaken.</p></div>
+    <div><div class="step">Loop &middot; 04</div><h4>Signal</h4><p>Tower repaired from the loot the locations drop, the countdown runs, and the waves come to the main base. The last wave brings the boss. Then the season increments and it starts harder.</p></div>
+  </div>
+
+  <p>The seasonal reset at the end is what keeps the server alive past completion. Bump the difficulty tier, reset the garrisons, open a new loot tier, keep the map. A server that can be finished and then has nothing is a server that empties the week after someone finishes it.</p>
+  <p>Implementation is FTB Quests for the visible progression and the home-claim marker, In Control! for garrison composition, KubeJS for the location state machine, the clock, the target draw, the countdown and the wave director, and The Hordes for the attack nights. All four are already in the stack for other reasons.</p>
+</section>
+
+<section>
+  <h2>Hardware and operating standard</h2>
+  <div class="h2rule"></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Item</th><th>Setting</th><th>Reasoning</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">RAM</td><td class="ver">10–12 GB</td><td>Sits in the recommended band for 80–150 mod packs. Do not over-allocate — a larger heap gives the garbage collector more to scan and can lower TPS.</td></tr>
+        <tr><td class="mod">JVM heap</td><td class="ver">-Xms = -Xmx</td><td>Prevents the JVM spending time resizing the heap during play.</td></tr>
+        <tr><td class="mod">Java</td><td class="ver">17</td><td>What 1.20.1 Forge targets. Not 21.</td></tr>
+        <tr><td class="mod">CPU</td><td class="ver">Highest single-thread tier available</td><td>Chunk generation and mob AI are the bottlenecks, and both are largely single-threaded. Lost Cities generation is heavier than vanilla.</td></tr>
+        <tr><td class="mod">View distance</td><td class="ver">8 · sim 6</td><td>Dense city chunks hold far more block entities than vanilla terrain. Start conservative and raise it only against a Spark report.</td></tr>
+        <tr><td class="mod">Pre-generation</td><td class="ver">Chunky, ±5000 blocks</td><td>Run to completion before launch. Generating city chunks live under player load is the main cause of exploration stutter.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Operating rules that stop the mess coming back</h3>
+  <ul>
+    <li><strong>A staging server exists.</strong> The cheapest Bisect tier running the same pack. Nothing reaches live that hasn't booted and been played on staging.</li>
+    <li><strong>The district map lives at <a href="https://claude.ai/code/artifact/c76b1bb4-c845-4252-9ab8-17ee4fc10c3f">Wasteland District Map</a>:</strong> every player build, the five strongpoint pads with sizes and coordinates, and the starting area.</li>
+<li><strong>Every mod is version-pinned.</strong> <code>build/manifest.json</code> and <code>build/additions.json</code> hold exact filenames, hashes and declared dependencies for the whole set. "Latest" is how a working server breaks overnight.</li>
+    <li><strong>One change at a time after launch.</strong> Add a mod, run it for a few days, check Spark. Batched changes make attribution impossible — which is how the current server got where it is.</li>
+    <li><strong>Configs are versioned.</strong> Keep <code>config/</code>, <code>kubejs/</code> and the quest book in a git repo. Rolling back a bad tuning pass should take a minute.</li>
+    <li><strong>Backups are tested.</strong> An untested backup is not a backup. Restore one to staging before you need it for real.</li>
+    <li><strong>Every mod answers to a pillar.</strong> The single rule that matters most. A mod that is merely interesting is what turns a designed server back into a pile.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Rebuild sequence</h2>
+  <div class="h2rule"></div>
+  <p>Bottom-up, on the existing Bisect instance. Nobody has played since January 2026, so the live server is the staging server until launch. Each phase has a gate; a phase that fails its gate is re-run, not carried forward.</p>
+
+  <h3>What carries over, and how</h3>
+  <ul>
+    <li><strong>Jars marked Keep in the audit are copied off the current server</strong>, not re-downloaded — the running builds are the known-good ones. Two exceptions: TaCZ moves to 1.1.8-hotfix, and LC²H is re-pinned against Lost Cities 7.4.x.</li>
+    <li><strong>Configs that carry:</strong> <code>incontrol/spawn.json</code> and <code>spawner.json</code> with the mech entries removed; <code>MobFactions.toml</code> likewise; <code>dynamicview.json</code>; <code>tacz-common.toml</code>; <code>superbwarfare-*.toml</code>; <code>bandits.json</code>; <code>hostilevillages.json</code>; <code>guardvillagers-common.toml</code>; <code>zombieawareness/</code>; <code>lostcities/</code> with the chosen profile. Everything else regenerates.</li>
+    <li><strong>The player builds move by transplant, not by keeping the world.</strong> The live player district (chunks x 56…193, z 24…129), the spawn structure, and eleven never-transplanted old-world sites are copied chunk-by-chunk into the new world after it generates, with cut-mod blocks remapped. Details in the audit's <em>Player builds</em> section.</li>
+    <li><strong>Nothing else moves.</strong> Not the world wholesale, not <code>config/</code>, not <code>defaultconfigs/</code>, <code>logs/</code> or <code>crash-reports/</code>. The orphan configs end here.</li>
+    <li><strong>Additions</strong>, resolved on Modrinth to exact 1.20.1 Forge builds and hash-verified into <code>build/mods</code>: Lootr 0.7.35.94, Improved Mobs 1.13.7 (+ TenshiLib), FTB Chunks, Quests 2001.4.22, Library 2001.2.13, Teams 2001.3.2 and Item Filters (CurseForge CDN by file id — FTB does not publish on Modrinth), Canary 0.3.3, Xaero's Minimap 26.4.2 + World Map 1.45.0, The Man From The Fog 1.4, Immersive Vehicles 24.0.0, KubeJS 2001.6.5 (+ Rhino, Architectury), Simple Voice Chat 2.6.22, Apotheosis 7.4.8 (+ Apothic Attributes), Chipped 3.0.7 (+ Resourceful Lib), TaCZ 1.1.8-hotfix, Lost Cities 7.5.3. LC²H was tried and cut: its 3.5.0 build pins Lost Cities to a window narrower than one minor version.</li>
+    <li><strong>The client pack is a by-product of the manifest.</strong> A Modrinth-format <code>.mrpack</code> built from the same pinned list, with CurseForge-only jars carried as overrides, so every player runs exactly the server's set.</li>
+  </ul>
+
+  <h3>Nothing is deleted — old content is renamed aside</h3>
+  <ul>
+    <li><strong><code>/mods</code>, <code>/config</code> and <code>/defaultconfigs</code> were renamed to <code>…_old_20260902</code></strong> through the panel API, and the new world uses a new level name, so the old worlds are never touched and every step reverses with a rename. This replaces the panel-side wipe that an earlier version of this plan called for.</li>
+    <li><strong>No panel backup exists or can:</strong> this plan allows zero backup slots. The rollback is the complete local snapshot already taken — every world, mods, libraries, tacz, configs, logs — under <code>Minecraft Server Tools\pull\</code>. Nothing on the server is wiped until that folder is confirmed intact.</li>
+    <li><strong>Startup → <code>AIKARS_ENABLED = 1</code>.</strong> The panel derives Xms from allocated memory; confirm it equals Xmx afterwards.</li>
+    <li><strong>Housekeeping deferred to launch:</strong> the remnant worlds, the stray root <code>region/</code>, <code>world/</code>, <code>serverconfig/</code>, <code>mods alternate/</code>, <code>tacz_backup/</code>, the 531 MB zip and <code>hs_err_pid123.log</code> are deleted only after the new world is proven and the transplant verified — they are all in the local snapshot regardless.</li>
+  </ul>
+
+  <div class="phase">
+    <div class="num">01</div>
+    <div>
+      <h3>Preserve and pin</h3>
+      <p><strong>Done:</strong> full local snapshot (all four worlds, mods, libraries, tacz, configs, logs, crash reports); every world scanned; build sites, dependencies, transplant plan and remap table produced; the four 1.21 datapacks removed from the live world. <strong>Remaining:</strong> pull every Keep jar into <code>build/</code> with hashes, resolve the additions, write <code>manifest.json</code>, build the client <code>.mrpack</code>.</p>
+      <div class="gate"><b>Gate</b><br>Every jar in the manifest hashed and present locally. Client pack builds. Backup archive visible in the panel.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="num">02</div>
+    <div>
+      <h3>Skeleton</h3>
+      <p><strong>Done 2026-09-02 15:12.</strong> Old content renamed aside; six jars — ModernFix, FerriteCore, Canary, Spark, Chunky, BHStats — into a fresh <code>/mods</code>; <code>server.properties</code> rewritten (throwaway world, view 10, simulation 6, whitelist on, watchdog restored); <code>AIKARS_ENABLED=1</code>; restart.</p>
+      <div class="gate"><b>Gate · passed</b><br>Boot in 9.9 s, 0 ERROR lines, 25 benign warnings, 1.6 GB idle heap against 5.2 GB before.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="num">03</div>
+    <div>
+      <h3>World generation</h3>
+      <p><strong>Done 2026-09-02.</strong> Lost Cities 7.5.3 alone — LC²H cut after two failed gates on version coupling. Two things learned the hard way: 7.5 ships no world preset, so <code>level-type</code> stays default and the city is switched on by <code>selectedProfile</code> in <code>defaultconfigs/lostcities-server.toml</code> before the world's first boot; and the old server's profile JSONs must not be carried — its <code>improved.json</code> referenced Pomkots World assets and crashed level load. Four throwaway worlds were generated and their spawn regions scanned: <code>rarecities</code> put no city within 400 blocks; <code>onlycities</code> was towers wall to wall with no wilderness; <code>improved</code> crashes on 7.5.3 even with stock profiles; <strong><code>wasteland</code></strong> — dense city on dead terrain, every one of the sixty most-built spawn chunks city fabric — is the setting, and is the profile of the real world.</p>
+      <div class="gate"><b>Gate · passed</b><br>Four test worlds generated and scanned. Profile <code>wasteland</code> committed via <code>defaultconfigs</code>; the real <code>wasteland</code> world created on a fresh seed with 0 errors.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="num">04</div>
+    <div>
+      <h3>Transplant the player district</h3>
+      <p><strong>Done 2026-09-02 16:40.</strong> <code>runplan.py</code> wrote all 32 rectangles — 14,430 chunks — through <code>remap_full.json</code> (354 mappings), every block resolving in the new pack. The region and entity files were uploaded into <code>/wasteland/</code> with the POI cache cleared, and the library&#8217;s region pulled back byte-identical: chunk (131, 90) scans at 1,603 placed blocks and 402 block entities. A second pass then cleaned what the old world carried inside the chunks: 47 spawners pointing at mobs from cut mods now spawn zombies, 35 stray entity records from cut mods are gone, and 1,168 unopened chests whose loot tables no longer exist were retargeted — the cut pack&#8217;s city loot to Lost Cities&#8217; own city chest, ammo to Keerdm&#8217;s TaCZ ammo chest, dungeon-flavoured tables to the vanilla dungeon, village professions to their vanilla counterparts, and the 1.21-only trial-chamber tables to the dungeon. Boot after: no unknown-block or skipped-entity lines. <strong>Terrain joined 2026-09-02 17:31:</strong> the transplanted ground sits 40 to 80 blocks below the wasteland plateau, so after Chunky generated the neighbours every rectangle edge was measured (13,072 columns, 68% off by three blocks or more) and ramped at a 34-degree bank up to 96 blocks wide, lakes kept in their basins, buildings left standing. Residual: 19.6%, of which all but 187 columns are building walls. The five strongpoints are laid out as compounds in the wasteland ring around the district (128 x 128 up to a 512 x 192 airfield), levelled, outlined and ramped; the 384 x 384 starting area is cleared to natural ground and outlined; world spawn is on the structure plaza at 19, 94, 26. <strong>Every old-world copy was re-read in full on 2026-09-02 evening</strong> (the October world, the larger September zip, the live world, the orphaned root region, every dimension) and rendered top-down: the September and October worlds share one seed and differ only in explored terrain; the one custom cityscape is the FR-06 complex (starship hangar, reactor plaza, stadium, refinery wing), and it is inside the transplanted district, rendered identical from the new world. The live world also held generated Lost Cities towns and two player rail causeways west of the district, which were not carried. Still to do: fly it.</p>
+      <div class="gate"><b>Gate &middot; passed on scan, flight pending</b><br>Library region byte-identical on the server; expected block-entity counts present; boot clean of chunk, block and entity warnings. In-game flight through each site still to do.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="num">05</div>
+    <div>
+      <h3>Combat and mobility</h3>
+      <p><strong>Installed 2026-09-02 15:40</strong> as part of the full pinned set (95 jars, 102 mod IDs). TaCZ 1.1.8 with its default gun pack, the fire-control extension, and Keerdm. Superb Warfare with MCSP and vvp. Immersive Engineering. Immersive Vehicles with the two official packs — their model files log eleven cosmetic warnings a boot, which is the packs' business, not ours. Superb Warfare's small-arms toggle is still to be set.</p>
+      <div class="gate"><b>Gate · boot passed, balance open</b><br>Full set boots clean: 12 error lines, every one in a known-benign set (eleven Immersive Vehicles pack model quirks and one Forge dist probe). Small-arms overlap and the in-game craft routes are checked in play.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="num">06</div>
+    <div>
+      <h3>Loot and progression</h3>
+      <p><strong>Installed.</strong> Lootr, Sophisticated Backpacks, PlayerRevive, Custom Starting Gear, Farmer's Delight, Apotheosis, FTB Chunks, FTB Quests. Factory Blocks ships its mason table recipe twice, once in the Chipped 2.x format that fails on 3.x and once in the 3.x format that works; the server datapack overrides the broken copy and KubeJS removes the duplicate, so the bench works and the boot is clean. Loot tables per district tier are still to be written.</p>
+      <div class="gate"><b>Gate</b><br>A fresh spawn reaches a first firearm in one session. No district drops endgame gear. Claims block block-breaking inside them.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="num">07</div>
+    <div>
+      <h3>Factions and threat</h3>
+      <p><strong>Installed and configured.</strong> The carried In Control! rules with the mech entries removed, Mob Factions likewise, Zombie Awareness, The Hordes on a freshly generated 1.5.4c config, Improved Mobs, Bandits, Hostile and Guard Villagers, Recruits. Per-district faction rules and the Improved Mobs block-breaking constraints are still to be authored.</p>
+      <div class="gate"><b>Gate</b><br>Two horde events survived on a purpose-built test base, base standing, fight still hard. No spawn rule references a cut mod.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="num">08</div>
+    <div>
+      <h3>Endgame structure</h3>
+      <p>Strongpoint placement, the KubeJS state machine, the quest book, the Signal trigger, the season-increment path.</p>
+      <div class="gate"><b>Gate</b><br>Full loop walked end to end in creative, including the finale and the season reset.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="num">09</div>
+    <div>
+      <h3>Atmosphere</h3>
+      <p><strong>Installed with rates cut:</strong> Eyes in the Darkness at one eye per player on a 600-tick cycle (300 at midnight) instead of 2–3 every 150; The Knocker on <code>rare</code>; The Man From The Fog at defaults pending measurement.</p>
+      <div class="gate"><b>Gate</b><br>Encounter rate measured over several sessions, not guessed.</div>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="num">10</div>
+    <div>
+      <h3>Pre-generation and launch</h3>
+      <p>Chunky to completion, backup schedule set in the panel and one restore tested, whitelist populated, client pack published to the players.</p>
+      <div class="gate"><b>Gate &middot; in progress</b><br>Pre-gen complete (14 rectangles, 19,369 chunks, 2026-09-02 17:10). Whitelist off by decision: five players, open door. Client pack built: GSCraft-Client.zip, 452 MB, a Prism Launcher instance with the install guide inside. Old-world housekeeping still pending.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>The cut list</h2>
+  <div class="h2rule"></div>
+  <p>Categories to keep out of this build regardless of how good the individual mod is. Each one is a specific way a themed server loses its theme.</p>
+  <ul class="cut">
+    <li><b>Magic and fantasy content packs</b><span>Directly contradicts the setting. The most common single cause of a themed server drifting into generic kitchen-sink.</span></li>
+    <li><b>Large tech mods (AE2, Mekanism, Create at scale)</b><span>Each brings a full parallel progression that competes with the strongpoint loop and pulls players into base automation instead of the city. Immersive Engineering is the single exception, kept for its fuel chain and industrial look.</span></li>
+    <li><b>Additional dimensions</b><span>Splits an already thin player population across maps and drains the city of the people who make it feel dangerous.</span></li>
+    <li><b>A second gun mod</b><span>Two ammo economies, two attachment systems, two balance curves. Pick one lane per weapon class and hold it.</span></li>
+    <li><b>Anything Fabric-only</b><span>Not installable on this stack. Bridge layers that claim otherwise are a leading source of the failure mode being replaced.</span></li>
+    <li><b>Convenience mods that shortcut travel</b><span>Waystones, teleport commands, and flight undercut exploration and vehicles at once — the two pillars the server is built on.</span></li>
+    <li><b>Unmaintained mods</b><span>Anything whose last release predates 1.20.1 is a permanent block on ever updating the server.</span></li>
+  </ul>
+</section>
+
+<div class="scope">
+  <h3>Verification status</h3>
+  <p>Load-bearing mods were checked against their listings for 1.20.1 Forge availability and current build numbers as of September 2026: Lost Cities, TaCZ, Superb Warfare, Enhanced Celestials, Improved Mobs, Lootr, Immersive Vehicles, Ultimate Car Mod, The Man From The Fog, The One Who Watches, and the performance stack. Rows marked <span class="chip chk">verify</span> — Wasteland Worldgen, Apotheosis, Bandits: Outlaw Mobs, Raiders — are known to exist but their exact 1.20.1 Forge builds were not confirmed and must be pinned during phase 01. Scape and Run: Parasites was considered for the endgame antagonist and left out: its maintained line is 1.12.2 and later-version support could not be confirmed.</p>
+  <p>The live server has since been audited in full; see the <a href="https://claude.ai/code/artifact/7c1b7a04-810c-4502-97e3-986a01f1f2c4">GSCraft Server Audit</a> for the per-jar disposition. Adjustments from that audit are folded into the tables above: Lost Cities build, The Hordes as the horde engine, PlayerRevive, and the Immersive Engineering exception.</p>
+
+  <h3>Sources</h3>
+  <ul class="sources">
+    <li><a href="https://www.curseforge.com/minecraft/mc-mods/the-lost-cities/files/all">The Lost Cities — file listing (CurseForge)</a></li>
+    <li><a href="https://modrinth.com/mod/timeless-and-classics-zero/versions">TaCZ — version listing (Modrinth)</a> · <a href="https://modrinth.com/mod/tacz-1.21.1">unofficial 1.21.1 NeoForge port</a></li>
+    <li><a href="https://modrinth.com/mod/superb-warfare">Superb Warfare (Modrinth)</a></li>
+    <li><a href="https://www.curseforge.com/minecraft/mc-mods/enhanced-celestials/files/all">Enhanced Celestials — file listing (CurseForge)</a></li>
+    <li><a href="https://modrinth.com/mod/improved-mobs/versions">Improved Mobs — version listing (Modrinth)</a></li>
+    <li><a href="https://www.curseforge.com/minecraft/mc-mods/lootr">Lootr (CurseForge)</a></li>
+    <li><a href="https://www.curseforge.com/minecraft/mc-mods/minecraft-transport-simulator/files/6820656">Immersive Vehicles 1.20.1-22.18.0 (CurseForge)</a></li>
+    <li><a href="https://www.curseforge.com/minecraft/mc-mods/the-man-from-the-fog">The Man From The Fog (CurseForge)</a> · <a href="https://www.curseforge.com/minecraft/mc-mods/the-one-who-watches">The One Who Watches (CurseForge)</a></li>
+    <li><a href="https://www.curseforge.com/minecraft/mc-mods/factioncraft">FactionCraft (CurseForge)</a> — last release 1.19.2</li>
+    <li><a href="https://wisehosting.com/blog/10-best-minecraft-server-optimization-mods">Server optimization mod comparison</a> · <a href="https://www.bisecthosting.com/blog/an-introduction-to-modded-servers-and-modpacks">BisectHosting modded server guidance</a></li>
+  </ul>
+</div>
+
+</div>

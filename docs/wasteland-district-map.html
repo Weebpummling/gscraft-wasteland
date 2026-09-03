@@ -1,0 +1,571 @@
+<title>Wasteland District Map</title>
+<style>
+:root{--ground:#E4E3DC;--surface:#F2F1EB;--ink:#1D201C;--ink-soft:#585C53;--ink-faint:#83877D;--rule:#C6C5BB;--accent:#7C7211;--warn:#8C3928;--verify:#3F6560;--site:#7A5C2E;--ruin:#A9A398;--water:#4C7A96}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ground:#15171A;--surface:#1D2024;--ink:#E6E4DB;--ink-soft:#A2A69C;--ink-faint:#767B72;--rule:#333840;--accent:#D4C24A;--warn:#D0705C;--verify:#7FAAA4;--site:#C69A5B;--ruin:#4E545C;--water:#6FA3C4}}
+:root[data-theme="dark"]{--ground:#15171A;--surface:#1D2024;--ink:#E6E4DB;--ink-soft:#A2A69C;--ink-faint:#767B72;--rule:#333840;--accent:#D4C24A;--warn:#D0705C;--verify:#7FAAA4;--site:#C69A5B;--ruin:#4E545C;--water:#6FA3C4}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"Archivo","Segoe UI",Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55}
+.wrap{max-width:1240px;margin:0 auto;padding:28px 24px 80px}
+h1{font-family:"Oswald","Arial Narrow",sans-serif;text-transform:uppercase;font-weight:600;font-size:38px;line-height:1.05;margin:0 0 6px}
+.sub{color:var(--ink-soft);margin:0 0 18px;max-width:78ch}
+.mapwrap{overflow-x:auto;border:1px solid var(--rule);background:var(--surface)}
+svg{display:block;min-width:900px}
+.ground{fill:var(--surface)} .grid{stroke:var(--rule);stroke-width:1}
+.tick{font:11px "JetBrains Mono",ui-monospace,monospace;fill:var(--ink-faint)}
+.tr-live{fill:var(--ink-faint);fill-opacity:.10;stroke:var(--ink-faint);stroke-width:1.2}
+.tr-old{fill:var(--ink-faint);fill-opacity:.10;stroke:var(--ink-faint);stroke-width:1;stroke-dasharray:4 3}
+.prov{font:600 10.5px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;fill:var(--ink-soft)}
+.ruin{fill:var(--ruin);fill-opacity:.45;stroke:none}
+.small{fill:var(--site);fill-opacity:.45;stroke:none}
+.site{fill:var(--site);fill-opacity:.75;stroke:var(--ink);stroke-width:.8}
+.num{font:700 11px "Oswald","Arial Narrow",sans-serif;fill:#fff;paint-order:stroke;stroke:#1D201C;stroke-width:2.5px}
+.pad{fill:var(--accent);fill-opacity:.35;stroke:var(--accent);stroke-width:2}
+.start{fill:var(--verify);fill-opacity:.22;stroke:var(--verify);stroke-width:2}
+.crater{fill:var(--water);fill-opacity:.7;stroke:none}
+.lbl{font:600 11px "Oswald","Arial Narrow",sans-serif;letter-spacing:.06em;fill:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:10px 24px;margin:12px 0 26px;font-size:13px;color:var(--ink-soft)}
+.legend span::before{content:"";display:inline-block;width:14px;height:10px;margin-right:7px;vertical-align:-1px;border:1px solid}
+.l-site::before{background:var(--site);border-color:var(--ink)} .l-small::before{background:color-mix(in srgb,var(--site) 45%,transparent);border-color:transparent}
+.l-ruin::before{background:color-mix(in srgb,var(--ruin) 45%,transparent);border-color:transparent}
+.l-pad::before{background:color-mix(in srgb,var(--accent) 35%,transparent);border-color:var(--accent)}
+.l-start::before{background:color-mix(in srgb,var(--verify) 22%,transparent);border-color:var(--verify)}
+.l-live::before{background:color-mix(in srgb,var(--ink-faint) 10%,transparent);border-color:var(--ink-faint)}
+.l-old::before{background:color-mix(in srgb,var(--ink-faint) 10%,transparent);border-color:var(--ink-faint);border-style:dashed}
+.l-water::before{background:var(--water);border-color:var(--water)}
+h2{font-family:"Oswald","Arial Narrow",sans-serif;text-transform:uppercase;font-weight:600;font-size:22px;margin:30px 0 8px;border-bottom:2px solid var(--ink);padding-bottom:4px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{text-align:left;font:11px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);padding:8px 10px;border-bottom:1px solid var(--rule)}
+td{padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+td.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px;white-space:nowrap} td.num{font-weight:700}
+.tablewrap{overflow-x:auto} p{max-width:78ch}
+</style>
+<div class="wrap">
+<h1>Wasteland District Map</h1>
+<p class="sub">Top-down, north up, block coordinates. What was transplanted from the prior builds and where it sits, the player builds that matter by name, the generated ruin clusters that came along inside the district rectangle, the five strongpoint compounds in the wasteland ring around the district, and the starting area around the spawn lake.</p>
+<div class="mapwrap"><svg viewBox="0 0 1180 838" width="1180" height="838" xmlns="http://www.w3.org/2000/svg"><line class="grid" x1="68.1" y1="0" x2="68.1" y2="838"/><text class="tick" x="70.1" y="834">x 0</text>
+<line class="grid" x1="181.5" y1="0" x2="181.5" y2="838"/><text class="tick" x="183.5" y="834">x 500</text>
+<line class="grid" x1="295.0" y1="0" x2="295.0" y2="838"/><text class="tick" x="297.0" y="834">x 1000</text>
+<line class="grid" x1="408.5" y1="0" x2="408.5" y2="838"/><text class="tick" x="410.5" y="834">x 1500</text>
+<line class="grid" x1="521.9" y1="0" x2="521.9" y2="838"/><text class="tick" x="523.9" y="834">x 2000</text>
+<line class="grid" x1="635.4" y1="0" x2="635.4" y2="838"/><text class="tick" x="637.4" y="834">x 2500</text>
+<line class="grid" x1="748.8" y1="0" x2="748.8" y2="838"/><text class="tick" x="750.8" y="834">x 3000</text>
+<line class="grid" x1="862.3" y1="0" x2="862.3" y2="838"/><text class="tick" x="864.3" y="834">x 3500</text>
+<line class="grid" x1="975.8" y1="0" x2="975.8" y2="838"/><text class="tick" x="977.8" y="834">x 4000</text>
+<line class="grid" x1="1089.2" y1="0" x2="1089.2" y2="838"/><text class="tick" x="1091.2" y="834">x 4500</text>
+<line class="grid" x1="0" y1="67.9" x2="1180" y2="67.9"/><text class="tick" x="3" y="64.9">z 0</text>
+<line class="grid" x1="0" y1="181.2" x2="1180" y2="181.2"/><text class="tick" x="3" y="178.2">z 500</text>
+<line class="grid" x1="0" y1="294.4" x2="1180" y2="294.4"/><text class="tick" x="3" y="291.4">z 1000</text>
+<line class="grid" x1="0" y1="407.7" x2="1180" y2="407.7"/><text class="tick" x="3" y="404.7">z 1500</text>
+<line class="grid" x1="0" y1="520.9" x2="1180" y2="520.9"/><text class="tick" x="3" y="517.9">z 2000</text>
+<line class="grid" x1="0" y1="634.2" x2="1180" y2="634.2"/><text class="tick" x="3" y="631.2">z 2500</text>
+<line class="grid" x1="0" y1="747.4" x2="1180" y2="747.4"/><text class="tick" x="3" y="744.4">z 3000</text>
+<rect class="ground" x="0" y="0" width="1180" height="838"/>
+<rect class="tr-live" x="271.4" y="154.9" width="501.0" height="384.1"/>
+<rect class="tr-live" x="64.4" y="64.3" width="14.5" height="14.5"/>
+<rect class="tr-live" x="325.9" y="96.9" width="25.4" height="21.7"/>
+<rect class="tr-old" x="649.0" y="147.7" width="14.5" height="14.5"/>
+<rect class="tr-old" x="638.1" y="147.7" width="10.9" height="10.9"/>
+<rect class="tr-old" x="311.3" y="763.7" width="10.9" height="10.9"/>
+<rect class="tr-old" x="845.1" y="299.9" width="10.9" height="10.9"/>
+<rect class="tr-old" x="768.8" y="238.3" width="10.9" height="14.5"/>
+<rect class="tr-old" x="322.2" y="582.5" width="10.9" height="10.9"/>
+<rect class="tr-old" x="772.4" y="376.0" width="10.9" height="10.9"/>
+<rect class="tr-old" x="325.9" y="760.1" width="10.9" height="10.9"/>
+<rect class="tr-old" x="1135.5" y="756.5" width="10.9" height="10.9"/>
+<rect class="tr-old" x="972.1" y="763.7" width="10.9" height="10.9"/>
+<rect class="tr-old" x="376.7" y="578.9" width="10.9" height="10.9"/>
+<rect class="tr-old" x="289.6" y="611.5" width="10.9" height="14.5"/>
+<rect class="tr-old" x="529.2" y="546.3" width="14.5" height="10.9"/>
+<rect class="tr-old" x="805.1" y="299.9" width="10.9" height="14.5"/>
+<rect class="tr-old" x="964.9" y="763.7" width="10.9" height="10.9"/>
+<rect class="tr-old" x="968.5" y="756.5" width="10.9" height="10.9"/>
+<rect class="tr-old" x="289.6" y="600.6" width="10.9" height="10.9"/>
+<rect class="tr-old" x="296.8" y="694.9" width="10.9" height="10.9"/>
+<rect class="tr-old" x="1012.1" y="756.5" width="10.9" height="10.9"/>
+<rect class="tr-old" x="768.8" y="252.8" width="10.9" height="10.9"/>
+<rect class="tr-old" x="315.0" y="789.1" width="10.9" height="10.9"/>
+<rect class="tr-old" x="362.2" y="713.0" width="10.9" height="10.9"/>
+<rect class="tr-old" x="300.4" y="713.0" width="10.9" height="10.9"/>
+<rect class="tr-old" x="797.9" y="241.9" width="10.9" height="10.9"/>
+<rect class="tr-old" x="1055.6" y="727.5" width="10.9" height="10.9"/>
+<rect class="tr-old" x="776.1" y="343.4" width="10.9" height="10.9"/>
+<rect class="tr-old" x="365.8" y="673.1" width="10.9" height="10.9"/>
+<rect class="tr-old" x="282.3" y="727.5" width="10.9" height="10.9"/>
+<rect class="tr-old" x="325.9" y="734.7" width="10.9" height="10.9"/>
+<text class="prov" x="277.4" y="148.9">TRANSPLANTED DISTRICT (live world, same coordinates) chunks 56-193 / 24-129</text>
+<text class="prov" x="295.0" y="611.5">OLD-WORLD SITES, moved +2240 / +1424 blocks (dashed)</text>
+<rect class="ruin" x="177.0" y="144.0" width="43.6" height="79.7"/>
+<rect class="ruin" x="333.1" y="339.7" width="65.4" height="68.9"/>
+<rect class="ruin" x="289.6" y="115.1" width="47.2" height="47.1"/>
+<rect class="ruin" x="271.4" y="260.0" width="58.1" height="50.7"/>
+<rect class="ruin" x="133.4" y="328.9" width="32.7" height="32.6"/>
+<rect class="ruin" x="220.6" y="234.6" width="39.9" height="39.9"/>
+<rect class="ruin" x="151.6" y="274.5" width="32.7" height="36.2"/>
+<rect class="ruin" x="532.8" y="513.7" width="39.9" height="29.0"/>
+<rect class="ruin" x="623.6" y="452.1" width="39.9" height="39.9"/>
+<rect class="ruin" x="166.1" y="118.7" width="29.0" height="25.4"/>
+<rect class="ruin" x="514.7" y="506.4" width="21.8" height="21.7"/>
+<rect class="ruin" x="587.3" y="383.2" width="36.3" height="32.6"/>
+<rect class="ruin" x="311.3" y="198.4" width="29.0" height="36.2"/>
+<rect class="ruin" x="86.2" y="249.1" width="36.3" height="54.4"/>
+<rect class="ruin" x="347.6" y="263.6" width="14.5" height="21.7"/>
+<rect class="ruin" x="115.3" y="231.0" width="18.2" height="18.1"/>
+<rect class="ruin" x="329.5" y="506.4" width="29.0" height="10.9"/>
+<rect class="ruin" x="100.8" y="292.6" width="14.5" height="10.9"/>
+<rect class="ruin" x="659.9" y="430.3" width="14.5" height="18.1"/>
+<rect class="ruin" x="275.0" y="484.7" width="21.8" height="25.4"/>
+<rect class="ruin" x="271.4" y="433.9" width="14.5" height="21.7"/>
+<rect class="ruin" x="561.9" y="520.9" width="10.9" height="7.2"/>
+<rect class="ruin" x="460.2" y="71.6" width="21.8" height="21.7"/>
+<rect class="ruin" x="416.6" y="502.8" width="14.5" height="7.2"/>
+<rect class="ruin" x="329.5" y="100.6" width="18.2" height="14.5"/>
+<rect class="ruin" x="645.4" y="470.2" width="21.8" height="7.2"/>
+<rect class="ruin" x="373.1" y="158.5" width="10.9" height="14.5"/>
+<rect class="ruin" x="336.8" y="260.0" width="10.9" height="21.7"/>
+<rect class="ruin" x="278.7" y="430.3" width="10.9" height="10.9"/>
+<rect class="ruin" x="271.4" y="423.1" width="7.3" height="7.2"/>
+<rect class="ruin" x="271.4" y="477.4" width="3.6" height="14.5"/>
+<rect class="ruin" x="583.6" y="452.1" width="14.5" height="7.2"/>
+<rect class="ruin" x="311.3" y="299.9" width="3.6" height="3.6"/>
+<rect class="ruin" x="369.4" y="459.3" width="7.3" height="3.6"/>
+<rect class="ruin" x="659.9" y="205.6" width="10.9" height="10.9"/>
+<rect class="ruin" x="518.3" y="433.9" width="18.2" height="18.1"/>
+<rect class="ruin" x="347.6" y="191.2" width="10.9" height="18.1"/>
+<rect class="ruin" x="187.9" y="314.4" width="10.9" height="10.9"/>
+<rect class="ruin" x="285.9" y="238.3" width="10.9" height="10.9"/>
+<rect class="ruin" x="329.5" y="89.7" width="10.9" height="7.2"/>
+<rect class="ruin" x="474.7" y="408.6" width="7.3" height="10.9"/>
+<rect class="ruin" x="776.1" y="379.6" width="3.6" height="3.6"/>
+<rect class="ruin" x="144.3" y="357.8" width="3.6" height="3.6"/>
+<rect class="ruin" x="420.3" y="263.6" width="3.6" height="7.2"/>
+<rect class="ruin" x="380.3" y="484.7" width="7.3" height="3.6"/>
+<rect class="ruin" x="463.8" y="212.9" width="7.3" height="3.6"/>
+<rect class="ruin" x="718.0" y="412.2" width="7.3" height="7.2"/>
+<rect class="ruin" x="503.8" y="535.4" width="7.3" height="7.2"/>
+<rect class="ruin" x="467.5" y="267.3" width="3.6" height="7.2"/>
+<rect class="ruin" x="565.5" y="336.1" width="7.3" height="3.6"/>
+<rect class="ruin" x="336.8" y="318.0" width="7.3" height="7.2"/>
+<rect class="ruin" x="137.1" y="67.9" width="3.6" height="7.2"/>
+<rect class="ruin" x="282.3" y="173.0" width="3.6" height="3.6"/>
+<rect class="ruin" x="300.4" y="698.5" width="3.6" height="3.6"/>
+<rect class="ruin" x="540.1" y="513.7" width="3.6" height="3.6"/>
+<rect class="ruin" x="380.3" y="502.8" width="3.6" height="3.6"/>
+<rect class="ruin" x="79.0" y="299.9" width="7.3" height="3.6"/>
+<rect class="ruin" x="336.8" y="154.9" width="3.6" height="7.2"/>
+<rect class="ruin" x="296.8" y="502.8" width="3.6" height="7.2"/>
+<rect class="ruin" x="463.8" y="473.8" width="3.6" height="3.6"/>
+<rect class="ruin" x="104.4" y="78.8" width="3.6" height="3.6"/>
+<rect class="ruin" x="129.8" y="96.9" width="3.6" height="3.6"/>
+<rect class="ruin" x="670.8" y="151.3" width="3.6" height="3.6"/>
+<rect class="ruin" x="975.8" y="767.3" width="3.6" height="3.6"/>
+<rect class="ruin" x="318.6" y="792.7" width="3.6" height="3.6"/>
+<rect class="ruin" x="213.3" y="325.2" width="3.6" height="3.6"/>
+<rect class="ruin" x="227.8" y="216.5" width="3.6" height="3.6"/>
+<rect class="ruin" x="503.8" y="517.3" width="3.6" height="3.6"/>
+<rect class="ruin" x="968.5" y="767.3" width="3.6" height="3.6"/>
+<rect class="ruin" x="347.6" y="136.8" width="3.6" height="3.6"/>
+<rect class="ruin" x="122.5" y="133.2" width="10.9" height="14.5"/>
+<rect class="ruin" x="972.1" y="760.1" width="3.6" height="3.6"/>
+<rect class="ruin" x="267.8" y="216.5" width="3.6" height="3.6"/>
+<rect class="ruin" x="656.3" y="488.3" width="3.6" height="3.6"/>
+<rect class="small" x="641.7" y="151.3" width="3.6" height="3.6"/>
+<rect class="small" x="187.9" y="292.6" width="7.3" height="18.1"/>
+<rect class="small" x="456.6" y="491.9" width="14.5" height="14.5"/>
+<rect class="small" x="380.3" y="212.9" width="25.4" height="3.6"/>
+<rect class="small" x="580.0" y="405.0" width="10.9" height="7.2"/>
+<rect class="small" x="449.3" y="401.3" width="14.5" height="18.1"/>
+<rect class="small" x="576.4" y="462.9" width="7.3" height="10.9"/>
+<rect class="small" x="645.4" y="252.8" width="3.6" height="18.1"/>
+<rect class="small" x="318.6" y="452.1" width="10.9" height="10.9"/>
+<rect class="small" x="492.9" y="365.1" width="10.9" height="18.1"/>
+<rect class="small" x="576.4" y="397.7" width="7.3" height="3.6"/>
+<rect class="small" x="674.4" y="462.9" width="14.5" height="7.2"/>
+<rect class="small" x="489.2" y="408.6" width="7.3" height="7.2"/>
+<rect class="small" x="242.4" y="136.8" width="7.3" height="3.6"/>
+<rect class="small" x="315.0" y="767.3" width="3.6" height="3.6"/>
+<rect class="small" x="485.6" y="263.6" width="7.3" height="10.9"/>
+<rect class="small" x="609.1" y="278.1" width="7.3" height="10.9"/>
+<rect class="small" x="576.4" y="390.5" width="3.6" height="3.6"/>
+<rect class="small" x="630.8" y="444.8" width="7.3" height="7.2"/>
+<rect class="small" x="445.7" y="437.6" width="7.3" height="10.9"/>
+<rect class="small" x="496.5" y="241.9" width="7.3" height="3.6"/>
+<rect class="small" x="271.4" y="462.9" width="7.3" height="10.9"/>
+<rect class="small" x="213.3" y="191.2" width="3.6" height="3.6"/>
+<rect class="small" x="848.7" y="303.5" width="3.6" height="3.6"/>
+<rect class="small" x="325.9" y="586.1" width="3.6" height="3.6"/>
+<rect class="small" x="529.2" y="314.4" width="7.3" height="14.5"/>
+<rect class="small" x="431.2" y="386.8" width="10.9" height="10.9"/>
+<rect class="small" x="296.8" y="165.8" width="7.3" height="10.9"/>
+<rect class="small" x="772.4" y="241.9" width="3.6" height="7.2"/>
+<rect class="small" x="612.7" y="158.5" width="7.3" height="3.6"/>
+<rect class="small" x="492.9" y="535.4" width="7.3" height="7.2"/>
+<rect class="small" x="329.5" y="763.7" width="3.6" height="3.6"/>
+<rect class="small" x="474.7" y="499.2" width="7.3" height="7.2"/>
+<rect class="small" x="198.8" y="125.9" width="3.6" height="3.6"/>
+<rect class="small" x="721.6" y="430.3" width="14.5" height="10.9"/>
+<rect class="small" x="521.9" y="212.9" width="7.3" height="7.2"/>
+<rect class="small" x="333.1" y="238.3" width="7.3" height="10.9"/>
+<rect class="small" x="1139.2" y="760.1" width="3.6" height="3.6"/>
+<rect class="small" x="271.4" y="328.9" width="3.6" height="7.2"/>
+<rect class="small" x="249.6" y="372.3" width="7.3" height="10.9"/>
+<rect class="small" x="507.4" y="412.2" width="7.3" height="3.6"/>
+<rect class="small" x="380.3" y="582.5" width="3.6" height="3.6"/>
+<rect class="small" x="583.6" y="520.9" width="7.3" height="3.6"/>
+<rect class="small" x="362.2" y="488.3" width="7.3" height="10.9"/>
+<rect class="small" x="514.7" y="325.2" width="3.6" height="7.2"/>
+<rect class="small" x="97.1" y="336.1" width="3.6" height="3.6"/>
+<rect class="small" x="278.7" y="484.7" width="3.6" height="3.6"/>
+<rect class="small" x="580.0" y="502.8" width="10.9" height="7.2"/>
+<rect class="small" x="336.8" y="462.9" width="3.6" height="7.2"/>
+<rect class="small" x="253.2" y="216.5" width="7.3" height="3.6"/>
+<rect class="small" x="463.8" y="241.9" width="10.9" height="3.6"/>
+<rect class="small" x="529.2" y="296.2" width="3.6" height="10.9"/>
+<rect class="small" x="246.0" y="104.2" width="7.3" height="3.6"/>
+<rect class="small" x="543.7" y="408.6" width="7.3" height="10.9"/>
+<rect class="small" x="663.5" y="144.0" width="10.9" height="7.2"/>
+<rect class="small" x="467.5" y="459.3" width="3.6" height="10.9"/>
+<rect class="small" x="354.9" y="151.3" width="7.3" height="10.9"/>
+<rect class="small" x="155.2" y="173.0" width="14.5" height="7.2"/>
+<rect class="small" x="561.9" y="212.9" width="7.3" height="3.6"/>
+<rect class="small" x="496.5" y="459.3" width="3.6" height="10.9"/>
+<rect class="small" x="158.8" y="147.7" width="3.6" height="3.6"/>
+<rect class="small" x="148.0" y="111.4" width="3.6" height="3.6"/>
+<rect class="small" x="307.7" y="423.1" width="3.6" height="7.2"/>
+<rect class="small" x="714.4" y="390.5" width="7.3" height="3.6"/>
+<rect class="small" x="558.2" y="394.1" width="10.9" height="7.2"/>
+<rect class="small" x="434.8" y="212.9" width="7.3" height="3.6"/>
+<rect class="small" x="551.0" y="423.1" width="7.3" height="3.6"/>
+<rect class="small" x="137.1" y="100.6" width="7.3" height="3.6"/>
+<rect class="small" x="420.3" y="462.9" width="7.3" height="3.6"/>
+<rect class="small" x="438.4" y="441.2" width="3.6" height="7.2"/>
+<rect class="small" x="336.8" y="437.6" width="3.6" height="7.2"/>
+<rect class="small" x="1015.7" y="760.1" width="3.6" height="3.6"/>
+<rect class="small" x="656.3" y="191.2" width="7.3" height="7.2"/>
+<rect class="small" x="601.8" y="325.2" width="10.9" height="7.2"/>
+<rect class="small" x="373.1" y="325.2" width="3.6" height="7.2"/>
+<rect class="small" x="227.8" y="310.7" width="7.3" height="7.2"/>
+<rect class="small" x="474.7" y="488.3" width="3.6" height="7.2"/>
+<rect class="small" x="536.4" y="307.1" width="7.3" height="3.6"/>
+<rect class="small" x="336.8" y="412.2" width="3.6" height="7.2"/>
+<rect class="small" x="144.3" y="318.0" width="7.3" height="3.6"/>
+<rect class="small" x="213.3" y="173.0" width="7.3" height="3.6"/>
+<rect class="small" x="580.0" y="339.7" width="3.6" height="3.6"/>
+<rect class="small" x="209.7" y="314.4" width="7.3" height="7.2"/>
+<rect class="small" x="293.2" y="604.3" width="3.6" height="3.6"/>
+<rect class="small" x="300.4" y="241.9" width="3.6" height="7.2"/>
+<rect class="small" x="670.8" y="299.9" width="3.6" height="3.6"/>
+<rect class="small" x="351.3" y="100.6" width="7.3" height="3.6"/>
+<rect class="small" x="384.0" y="158.5" width="3.6" height="3.6"/>
+<rect class="small" x="507.4" y="256.4" width="3.6" height="3.6"/>
+<rect class="small" x="362.2" y="444.8" width="3.6" height="3.6"/>
+<rect class="small" x="140.7" y="198.4" width="3.6" height="3.6"/>
+<rect class="small" x="431.2" y="241.9" width="10.9" height="10.9"/>
+<rect class="small" x="387.6" y="499.2" width="7.3" height="3.6"/>
+<rect class="small" x="264.1" y="169.4" width="7.3" height="3.6"/>
+<rect class="small" x="108.0" y="147.7" width="3.6" height="7.2"/>
+<rect class="small" x="492.9" y="401.3" width="7.3" height="3.6"/>
+<rect class="small" x="256.9" y="354.2" width="3.6" height="3.6"/>
+<rect class="small" x="148.0" y="100.6" width="7.3" height="3.6"/>
+<rect class="small" x="354.9" y="241.9" width="7.3" height="3.6"/>
+<rect class="small" x="227.8" y="198.4" width="3.6" height="3.6"/>
+<rect class="small" x="318.6" y="390.5" width="7.3" height="3.6"/>
+<rect class="small" x="369.4" y="499.2" width="7.3" height="7.2"/>
+<rect class="small" x="260.5" y="223.8" width="7.3" height="3.6"/>
+<rect class="small" x="547.3" y="470.2" width="3.6" height="3.6"/>
+<rect class="small" x="580.0" y="430.3" width="3.6" height="3.6"/>
+<rect class="small" x="351.3" y="347.0" width="3.6" height="3.6"/>
+<rect class="small" x="529.2" y="339.7" width="14.5" height="7.2"/>
+<rect class="small" x="772.4" y="256.4" width="3.6" height="3.6"/>
+<rect class="small" x="271.4" y="412.2" width="3.6" height="7.2"/>
+<rect class="small" x="543.7" y="452.1" width="3.6" height="3.6"/>
+<rect class="small" x="518.3" y="408.6" width="3.6" height="3.6"/>
+<rect class="small" x="699.8" y="401.3" width="3.6" height="3.6"/>
+<rect class="small" x="282.3" y="100.6" width="3.6" height="3.6"/>
+<rect class="small" x="456.6" y="459.3" width="3.6" height="3.6"/>
+<rect class="small" x="456.6" y="212.9" width="3.6" height="3.6"/>
+<rect class="small" x="536.4" y="260.0" width="3.6" height="3.6"/>
+<rect class="small" x="227.8" y="209.3" width="3.6" height="3.6"/>
+<rect class="small" x="365.8" y="716.6" width="3.6" height="3.6"/>
+<rect class="small" x="503.8" y="466.6" width="3.6" height="3.6"/>
+<rect class="small" x="151.6" y="180.3" width="3.6" height="3.6"/>
+<rect class="small" x="304.1" y="716.6" width="3.6" height="3.6"/>
+<rect class="small" x="282.3" y="136.8" width="3.6" height="3.6"/>
+<rect class="small" x="336.8" y="332.5" width="3.6" height="3.6"/>
+<rect class="small" x="416.6" y="220.1" width="3.6" height="3.6"/>
+<rect class="small" x="329.5" y="423.1" width="3.6" height="3.6"/>
+<rect class="small" x="260.5" y="140.4" width="3.6" height="3.6"/>
+<rect class="small" x="478.4" y="241.9" width="3.6" height="3.6"/>
+<rect class="small" x="336.8" y="491.9" width="3.6" height="3.6"/>
+<rect class="small" x="620.0" y="477.4" width="3.6" height="3.6"/>
+<rect class="small" x="514.7" y="234.6" width="3.6" height="3.6"/>
+<rect class="small" x="93.5" y="100.6" width="3.6" height="3.6"/>
+<rect class="small" x="344.0" y="212.9" width="3.6" height="3.6"/>
+<rect class="small" x="551.0" y="441.2" width="3.6" height="3.6"/>
+<rect class="small" x="344.0" y="408.6" width="3.6" height="3.6"/>
+<rect class="small" x="442.0" y="412.2" width="3.6" height="3.6"/>
+<rect class="small" x="576.4" y="455.7" width="3.6" height="3.6"/>
+<rect class="small" x="503.8" y="524.5" width="3.6" height="3.6"/>
+<rect class="small" x="750.7" y="386.8" width="3.6" height="3.6"/>
+<rect class="small" x="89.9" y="183.9" width="3.6" height="3.6"/>
+<rect class="small" x="478.4" y="481.1" width="3.6" height="3.6"/>
+<rect class="small" x="362.2" y="165.8" width="7.3" height="3.6"/>
+<rect class="small" x="482.0" y="281.7" width="3.6" height="3.6"/>
+<rect class="small" x="60.8" y="158.5" width="3.6" height="3.6"/>
+<rect class="small" x="82.6" y="256.4" width="3.6" height="3.6"/>
+<rect class="small" x="351.3" y="212.9" width="3.6" height="3.6"/>
+<rect class="small" x="373.1" y="481.1" width="3.6" height="3.6"/>
+<rect class="small" x="623.6" y="158.5" width="3.6" height="3.6"/>
+<rect class="small" x="667.2" y="318.0" width="3.6" height="3.6"/>
+<rect class="small" x="184.3" y="350.6" width="3.6" height="3.6"/>
+<rect class="small" x="511.0" y="158.5" width="3.6" height="3.6"/>
+<rect class="small" x="543.7" y="354.2" width="7.3" height="7.2"/>
+<rect class="small" x="133.4" y="86.1" width="3.6" height="3.6"/>
+<rect class="small" x="507.4" y="510.0" width="3.6" height="3.6"/>
+<rect class="small" x="678.0" y="245.5" width="7.3" height="7.2"/>
+<rect class="small" x="394.8" y="165.8" width="3.6" height="3.6"/>
+<rect class="small" x="594.5" y="354.2" width="3.6" height="3.6"/>
+<rect class="small" x="623.6" y="314.4" width="3.6" height="3.6"/>
+<rect class="small" x="518.3" y="535.4" width="3.6" height="3.6"/>
+<rect class="small" x="779.7" y="347.0" width="3.6" height="3.6"/>
+<rect class="small" x="68.1" y="278.1" width="3.6" height="3.6"/>
+<rect class="small" x="452.9" y="191.2" width="3.6" height="3.6"/>
+<rect class="small" x="264.1" y="245.5" width="3.6" height="3.6"/>
+<rect class="small" x="300.4" y="100.6" width="3.6" height="3.6"/>
+<rect class="small" x="551.0" y="379.6" width="3.6" height="3.6"/>
+<rect class="small" x="442.0" y="227.4" width="3.6" height="3.6"/>
+<rect class="small" x="155.2" y="318.0" width="3.6" height="3.6"/>
+<rect class="small" x="155.2" y="245.5" width="3.6" height="3.6"/>
+<rect class="small" x="191.5" y="245.5" width="3.6" height="3.6"/>
+<rect class="small" x="285.9" y="357.8" width="3.6" height="3.6"/>
+<rect class="small" x="300.4" y="318.0" width="3.6" height="3.6"/>
+<rect class="small" x="129.8" y="256.4" width="3.6" height="3.6"/>
+<rect class="small" x="434.8" y="339.7" width="3.6" height="3.6"/>
+<rect class="small" x="358.5" y="107.8" width="3.6" height="3.6"/>
+<rect class="small" x="137.1" y="318.0" width="3.6" height="3.6"/>
+<rect class="small" x="423.9" y="430.3" width="3.6" height="3.6"/>
+<rect class="small" x="634.5" y="433.9" width="3.6" height="3.6"/>
+<rect class="small" x="108.0" y="93.3" width="3.6" height="3.6"/>
+<rect class="small" x="434.8" y="495.6" width="3.6" height="3.6"/>
+<rect class="small" x="456.6" y="524.5" width="3.6" height="3.6"/>
+<rect class="small" x="768.8" y="386.8" width="3.6" height="3.6"/>
+<rect class="small" x="474.7" y="260.0" width="3.6" height="3.6"/>
+<rect class="small" x="485.6" y="535.4" width="3.6" height="3.6"/>
+<rect class="small" x="663.5" y="136.8" width="3.6" height="3.6"/>
+<rect class="small" x="148.0" y="212.9" width="3.6" height="3.6"/>
+<rect class="small" x="129.8" y="310.7" width="3.6" height="3.6"/>
+<rect class="small" x="358.5" y="212.9" width="3.6" height="3.6"/>
+<rect class="small" x="144.3" y="176.7" width="3.6" height="3.6"/>
+<rect class="small" x="623.6" y="390.5" width="3.6" height="3.6"/>
+<rect class="small" x="148.0" y="205.6" width="3.6" height="3.6"/>
+<rect class="small" x="645.4" y="274.5" width="3.6" height="3.6"/>
+<rect class="small" x="707.1" y="390.5" width="3.6" height="3.6"/>
+<rect class="small" x="235.1" y="281.7" width="3.6" height="3.6"/>
+<rect class="small" x="670.8" y="357.8" width="3.6" height="3.6"/>
+<rect class="small" x="489.2" y="212.9" width="3.6" height="3.6"/>
+<rect class="small" x="699.8" y="430.3" width="3.6" height="3.6"/>
+<rect class="small" x="68.1" y="339.7" width="3.6" height="3.6"/>
+<rect class="small" x="191.5" y="336.1" width="3.6" height="3.6"/>
+<rect class="small" x="126.2" y="86.1" width="3.6" height="3.6"/>
+<rect class="small" x="213.3" y="234.6" width="3.6" height="3.6"/>
+<rect class="small" x="467.5" y="183.9" width="3.6" height="3.6"/>
+<rect class="small" x="594.5" y="361.5" width="3.6" height="3.6"/>
+<rect class="small" x="474.7" y="448.4" width="3.6" height="3.6"/>
+<rect class="small" x="801.5" y="245.5" width="3.6" height="3.6"/>
+<rect class="small" x="151.6" y="71.6" width="3.6" height="3.6"/>
+<rect class="small" x="300.4" y="78.8" width="3.6" height="3.6"/>
+<rect class="small" x="282.3" y="462.9" width="3.6" height="3.6"/>
+<rect class="small" x="373.1" y="423.1" width="3.6" height="3.6"/>
+<rect class="small" x="500.1" y="365.1" width="3.6" height="3.6"/>
+<rect class="small" x="685.3" y="365.1" width="3.6" height="3.6"/>
+<rect class="small" x="670.8" y="274.5" width="3.6" height="3.6"/>
+<rect class="small" x="569.1" y="292.6" width="3.6" height="3.6"/>
+<rect class="small" x="699.8" y="394.1" width="3.6" height="3.6"/>
+<rect class="small" x="699.8" y="412.2" width="3.6" height="3.6"/>
+<rect class="small" x="282.3" y="419.5" width="3.6" height="3.6"/>
+<rect class="small" x="514.7" y="466.6" width="3.6" height="3.6"/>
+<rect class="small" x="191.5" y="104.2" width="3.6" height="3.6"/>
+<rect class="small" x="1059.3" y="731.1" width="3.6" height="3.6"/>
+<rect class="small" x="256.9" y="307.1" width="3.6" height="3.6"/>
+<rect class="small" x="137.1" y="173.0" width="3.6" height="3.6"/>
+<rect class="small" x="561.9" y="441.2" width="3.6" height="3.6"/>
+<rect class="small" x="227.8" y="231.0" width="3.6" height="3.6"/>
+<rect class="small" x="191.5" y="383.2" width="3.6" height="3.6"/>
+<rect class="small" x="376.7" y="307.1" width="3.6" height="3.6"/>
+<rect class="small" x="692.6" y="426.7" width="3.6" height="3.6"/>
+<rect class="small" x="681.7" y="499.2" width="3.6" height="3.6"/>
+<rect class="small" x="561.9" y="136.8" width="3.6" height="3.6"/>
+<rect class="small" x="576.4" y="220.1" width="3.6" height="3.6"/>
+<rect class="small" x="267.8" y="397.7" width="3.6" height="3.6"/>
+<rect class="small" x="609.1" y="462.9" width="3.6" height="3.6"/>
+<rect class="small" x="256.9" y="281.7" width="3.6" height="3.6"/>
+<rect class="small" x="561.9" y="481.1" width="3.6" height="3.6"/>
+<rect class="small" x="285.9" y="731.1" width="3.6" height="3.6"/>
+<rect class="small" x="42.7" y="115.1" width="3.6" height="3.6"/>
+<rect class="small" x="369.4" y="676.7" width="3.6" height="3.6"/>
+<rect class="small" x="580.0" y="383.2" width="3.6" height="3.6"/>
+<rect class="small" x="627.2" y="147.7" width="3.6" height="3.6"/>
+<rect class="small" x="652.6" y="506.4" width="3.6" height="3.6"/>
+<rect class="small" x="57.2" y="256.4" width="3.6" height="3.6"/>
+<rect class="small" x="649.0" y="441.2" width="3.6" height="3.6"/>
+<rect class="small" x="235.1" y="220.1" width="7.3" height="7.2"/>
+<rect class="small" x="329.5" y="738.3" width="3.6" height="3.6"/>
+<rect class="small" x="376.7" y="125.9" width="3.6" height="3.6"/>
+<rect class="small" x="293.2" y="473.8" width="3.6" height="3.6"/>
+<rect class="small" x="609.1" y="292.6" width="7.3" height="7.2"/>
+<rect class="small" x="659.9" y="357.8" width="3.6" height="3.6"/>
+<rect class="small" x="108.0" y="343.4" width="3.6" height="7.2"/>
+<rect class="small" x="667.2" y="191.2" width="3.6" height="3.6"/>
+<rect class="small" x="289.6" y="325.2" width="3.6" height="3.6"/>
+<rect class="small" x="213.3" y="118.7" width="3.6" height="3.6"/>
+<rect class="small" x="612.7" y="332.5" width="10.9" height="10.9"/>
+<rect class="small" x="703.5" y="444.8" width="7.3" height="3.6"/>
+<rect class="small" x="300.4" y="455.7" width="3.6" height="3.6"/>
+<rect class="small" x="482.0" y="528.2" width="3.6" height="3.6"/>
+<rect class="small" x="249.6" y="115.1" width="3.6" height="3.6"/>
+<rect class="small" x="590.9" y="343.4" width="3.6" height="3.6"/>
+<rect class="small" x="438.4" y="332.5" width="3.6" height="3.6"/>
+<rect class="small" x="594.5" y="477.4" width="3.6" height="3.6"/>
+<rect class="small" x="137.1" y="372.3" width="3.6" height="3.6"/>
+<rect class="small" x="264.1" y="194.8" width="3.6" height="3.6"/>
+<rect class="small" x="293.2" y="615.1" width="3.6" height="7.2"/>
+<rect class="small" x="547.3" y="241.9" width="3.6" height="3.6"/>
+<rect class="small" x="173.4" y="147.7" width="3.6" height="3.6"/>
+<rect class="small" x="728.9" y="365.1" width="3.6" height="3.6"/>
+<rect class="small" x="630.8" y="510.0" width="3.6" height="3.6"/>
+<rect class="small" x="362.2" y="89.7" width="3.6" height="3.6"/>
+<rect class="small" x="547.3" y="194.8" width="3.6" height="3.6"/>
+<rect class="small" x="398.5" y="249.1" width="3.6" height="3.6"/>
+<rect class="small" x="514.7" y="372.3" width="3.6" height="3.6"/>
+<rect class="small" x="532.8" y="549.9" width="7.3" height="3.6"/>
+<rect class="small" x="213.3" y="78.8" width="3.6" height="3.6"/>
+<rect class="small" x="49.9" y="281.7" width="3.6" height="3.6"/>
+<rect class="small" x="659.9" y="285.4" width="3.6" height="3.6"/>
+<rect class="small" x="209.7" y="136.8" width="3.6" height="3.6"/>
+<rect class="small" x="253.2" y="82.4" width="3.6" height="3.6"/>
+<rect class="small" x="358.5" y="332.5" width="3.6" height="3.6"/>
+<rect class="small" x="808.8" y="303.5" width="3.6" height="7.2"/>
+<rect class="small" x="630.8" y="365.1" width="3.6" height="3.6"/>
+<rect class="small" x="376.7" y="238.3" width="3.6" height="3.6"/>
+<rect class="small" x="311.3" y="183.9" width="3.6" height="3.6"/>
+<rect class="small" x="347.6" y="426.7" width="3.6" height="7.2"/>
+<rect class="small" x="620.0" y="278.1" width="3.6" height="3.6"/>
+<rect class="small" x="394.8" y="332.5" width="3.6" height="3.6"/>
+<rect class="small" x="696.2" y="310.7" width="3.6" height="3.6"/>
+<rect class="small" x="554.6" y="368.7" width="3.6" height="7.2"/>
+<rect class="small" x="307.7" y="386.8" width="3.6" height="3.6"/>
+<rect class="small" x="162.5" y="93.3" width="3.6" height="3.6"/>
+<rect class="small" x="601.8" y="502.8" width="3.6" height="3.6"/>
+<rect class="small" x="732.5" y="394.1" width="3.6" height="3.6"/>
+<rect class="small" x="612.7" y="354.2" width="3.6" height="3.6"/>
+<rect class="small" x="231.5" y="86.1" width="3.6" height="3.6"/>
+<rect class="small" x="177.0" y="100.6" width="3.6" height="3.6"/>
+<rect class="small" x="93.5" y="75.2" width="3.6" height="3.6"/>
+<rect class="small" x="384.0" y="270.9" width="3.6" height="3.6"/>
+<rect class="small" x="551.0" y="357.8" width="7.3" height="7.2"/>
+<rect class="small" x="543.7" y="368.7" width="7.3" height="3.6"/>
+<rect class="small" x="514.7" y="354.2" width="18.2" height="7.2"/>
+<rect class="small" x="536.4" y="350.6" width="7.3" height="7.2"/>
+<rect class="small" x="540.1" y="154.9" width="3.6" height="3.6"/>
+<rect class="small" x="68.1" y="140.4" width="3.6" height="3.6"/>
+<rect class="small" x="227.8" y="328.9" width="3.6" height="3.6"/>
+<rect class="small" x="521.9" y="231.0" width="3.6" height="3.6"/>
+<rect class="small" x="547.3" y="234.6" width="3.6" height="3.6"/>
+<rect class="small" x="500.1" y="386.8" width="3.6" height="3.6"/>
+<rect class="small" x="659.9" y="325.2" width="3.6" height="3.6"/>
+<rect class="small" x="409.4" y="231.0" width="3.6" height="3.6"/>
+<rect class="small" x="623.6" y="292.6" width="7.3" height="3.6"/>
+<rect class="small" x="630.8" y="285.4" width="7.3" height="3.6"/>
+<rect class="small" x="561.9" y="343.4" width="3.6" height="7.2"/>
+<rect class="small" x="580.0" y="350.6" width="7.3" height="7.2"/>
+<rect class="small" x="572.8" y="328.9" width="7.3" height="7.2"/>
+<rect class="small" x="518.3" y="343.4" width="3.6" height="3.6"/>
+<rect class="small" x="590.9" y="368.7" width="3.6" height="3.6"/>
+<rect class="small" x="583.6" y="263.6" width="3.6" height="3.6"/>
+<rect class="small" x="547.3" y="433.9" width="3.6" height="3.6"/>
+<rect class="small" x="485.6" y="357.8" width="3.6" height="3.6"/>
+<rect class="small" x="601.8" y="336.1" width="3.6" height="3.6"/>
+<rect class="small" x="249.6" y="347.0" width="3.6" height="3.6"/>
+<rect class="small" x="590.9" y="332.5" width="3.6" height="3.6"/>
+<rect class="small" x="572.8" y="343.4" width="3.6" height="3.6"/>
+<rect class="small" x="285.9" y="202.0" width="3.6" height="3.6"/>
+<rect class="site" x="565.5" y="158.5" width="87.1" height="119.6"/>
+<text class="num" x="608.9" y="222.2" text-anchor="middle">1</text>
+<rect class="site" x="641.7" y="372.3" width="50.8" height="65.2"/>
+<text class="num" x="667.0" y="408.8" text-anchor="middle">2</text>
+<rect class="site" x="500.1" y="263.6" width="105.3" height="61.6"/>
+<text class="num" x="552.7" y="298.3" text-anchor="middle">3</text>
+<rect class="site" x="423.9" y="328.9" width="72.6" height="72.5"/>
+<text class="num" x="460.1" y="369.0" text-anchor="middle">4</text>
+<rect class="site" x="369.4" y="379.6" width="50.8" height="90.6"/>
+<text class="num" x="394.7" y="428.8" text-anchor="middle">5</text>
+<rect class="site" x="405.7" y="165.8" width="25.4" height="18.1"/>
+<text class="num" x="418.3" y="178.7" text-anchor="middle">6</text>
+<rect class="site" x="482.0" y="423.1" width="32.7" height="39.9"/>
+<text class="num" x="498.2" y="446.9" text-anchor="middle">7</text>
+<rect class="site" x="652.6" y="151.3" width="7.3" height="7.2"/>
+<text class="num" x="656.1" y="158.8" text-anchor="middle">8</text>
+<rect class="site" x="525.6" y="241.9" width="29.0" height="10.9"/>
+<text class="num" x="540.0" y="251.2" text-anchor="middle">9</text>
+<rect class="site" x="503.8" y="299.9" width="18.2" height="25.4"/>
+<text class="num" x="512.7" y="316.4" text-anchor="middle">10</text>
+<rect class="site" x="529.2" y="383.2" width="21.8" height="21.7"/>
+<text class="num" x="540.0" y="398.0" text-anchor="middle">11</text>
+<rect class="site" x="605.4" y="419.5" width="25.4" height="36.2"/>
+<text class="num" x="618.0" y="441.5" text-anchor="middle">12</text>
+<rect class="site" x="554.6" y="227.4" width="21.8" height="39.9"/>
+<text class="num" x="565.4" y="251.2" text-anchor="middle">13</text>
+<rect class="site" x="68.1" y="67.9" width="7.3" height="7.2"/>
+<text class="num" x="71.6" y="75.5" text-anchor="middle">14</text>
+<rect class="site" x="336.8" y="173.0" width="18.2" height="32.6"/>
+<text class="num" x="345.7" y="193.2" text-anchor="middle">15</text>
+<rect class="start" x="28.1" y="28.1" width="87.1" height="87.0"/>
+<text class="lbl" x="31.1" y="127.8">STARTING AREA 384x384</text>
+<rect class="crater" x="64.4" y="64.3" width="14.5" height="14.5"/>
+<rect class="pad" x="527.1" y="26.3" width="29.0" height="29.0"/>
+<text class="lbl" x="530.1" y="21.3">RADIO TOWER 128x128</text>
+<rect class="pad" x="116.9" y="388.4" width="36.3" height="36.2"/>
+<text class="lbl" x="119.9" y="383.4">SUBSTATION 160x160</text>
+<rect class="pad" x="878.2" y="229.0" width="43.6" height="36.2"/>
+<text class="lbl" x="881.2" y="224.0">WATER TREATMENT 192x160</text>
+<rect class="pad" x="221.2" y="604.0" width="43.6" height="43.5"/>
+<text class="lbl" x="224.2" y="599.0">HOSPITAL 192x192</text>
+<rect class="pad" x="739.5" y="638.5" width="116.2" height="43.5"/>
+<text class="lbl" x="742.5" y="633.5">AIRFIELD 512x192</text></svg></div>
+<div class="legend"><span class="l-site">numbered player builds (table below)</span><span class="l-small">320 small player scatters</span><span class="l-ruin">74 generated ruin clusters carried with the district</span><span class="l-live">transplanted from the live world, same coordinates</span><span class="l-old">transplanted from the old world, moved +2240 / +1424</span><span class="l-pad">strongpoint compounds</span><span class="l-start">starting area</span><span class="l-water">spawn lake and structure</span></div>
+<h2>Transplanted areas</h2>
+<p>Two sources. The <b>live world</b> (the last world the server ran) already held the player district at chunks 56 to 193 by 24 to 129 plus the spawn structure and one outlier; those 14,644 chunks were copied at the same coordinates. The <b>old world</b> (the 2025 world) had 29 sites the previous admin never moved; they were copied with the same offset the admin had used for everything else, +140 / +89 chunks, so old and live content keep their relative positions. Everything inside those rectangles came across, ruins included: the grey clusters are Lost Cities apocalypse-pack buildings (cracked stone brick, spawner, chest, blast furnace, or the campfire, sign and decorated-pot camps), not player work.</p>
+<h2>Player builds</h2>
+<div class="tablewrap"><table><tr><th>#</th><th>Build</th><th>Size</th><th>Blocks</th><th>Placed</th><th>Source</th><th>What it is</th></tr><tr><td class="num">1</td><td><b>FR-06 complex</b></td><td class="mono">384 x 528</td><td class="mono">x 2192..2575<br>z 400..927</td><td class="mono">1,033,809</td><td>live world</td><td>the custom cyberpunk cityscape: starship hangar FR-06 on its island, walled reactor plaza with the stadium, factory-block decks; 964 bookshelves, 885 sculk sensors, 728 dispensers</td></tr>
+<tr><td class="num">2</td><td><b>Stone complex</b></td><td class="mono">224 x 288</td><td class="mono">x 2528..2751<br>z 1344..1631</td><td class="mono">258,579</td><td>live world</td><td>smooth stone and terracotta, sculk traps and 99 spawners</td></tr>
+<tr><td class="num">3</td><td><b>Industrial plant</b></td><td class="mono">464 x 272</td><td class="mono">x 1904..2367<br>z 864..1135</td><td class="mono">248,081</td><td>live world</td><td>west wing of the cityscape: cyan and magenta refinery, 1,209 fluid pipes, tanks, razor wire</td></tr>
+<tr><td class="num">4</td><td><b>Hempcrete compound</b></td><td class="mono">320 x 320</td><td class="mono">x 1568..1887<br>z 1152..1471</td><td class="mono">100,784</td><td>live world</td><td>walled compound, 405 ceiling lights, razor wire, IE wiring</td></tr>
+<tr><td class="num">5</td><td><b>Residential block</b></td><td class="mono">224 x 400</td><td class="mono">x 1328..1551<br>z 1376..1775</td><td class="mono">95,209</td><td>live world</td><td>stone brick and white concrete housing, 168 chests, 92 beds</td></tr>
+<tr><td class="num">6</td><td><b>Acacia hall</b></td><td class="mono">112 x 80</td><td class="mono">x 1488..1599<br>z 432..511</td><td class="mono">77,730</td><td>live world</td><td>43k acacia wood, redstone connectors</td></tr>
+<tr><td class="num">7</td><td><b>Stone-brick houses</b></td><td class="mono">144 x 176</td><td class="mono">x 1824..1967<br>z 1568..1743</td><td class="mono">13,390</td><td>live world</td><td>stone brick, oak, campfires and cabinets</td></tr>
+<tr><td class="num">8</td><td><b>Hopper array</b></td><td class="mono">32 x 32</td><td class="mono">x 2576..2607<br>z 368..399</td><td class="mono">13,222</td><td>old world</td><td>old world: 325 hoppers under terracotta; moved with the +140/+89 offset</td></tr>
+<tr><td class="num">9</td><td><b>Prismarine hall</b></td><td class="mono">128 x 48</td><td class="mono">x 2016..2143<br>z 768..815</td><td class="mono">12,945</td><td>live world</td><td>prismarine with sculk sensors</td></tr>
+<tr><td class="num">10</td><td><b>Copper tower</b></td><td class="mono">80 x 112</td><td class="mono">x 1920..1999<br>z 1024..1135</td><td class="mono">10,524</td><td>live world</td><td>waxed copper, 38 decorated pots</td></tr>
+<tr><td class="num">11</td><td><b>Library</b></td><td class="mono">96 x 96</td><td class="mono">x 2032..2127<br>z 1392..1487</td><td class="mono">10,433</td><td>live world</td><td>615 signs, 356 barrels, 306 beehives; 2,010 block entities in 96x96</td></tr>
+<tr><td class="num">12</td><td><b>Mud village</b></td><td class="mono">112 x 160</td><td class="mono">x 2368..2479<br>z 1552..1711</td><td class="mono">10,063</td><td>live world</td><td>packed mud and spruce, 52 beds</td></tr>
+<tr><td class="num">13</td><td><b>Factory annex</b></td><td class="mono">96 x 176</td><td class="mono">x 2144..2239<br>z 704..879</td><td class="mono">9,845</td><td>live world</td><td>factory blocks and basalt, sculk sensors</td></tr>
+<tr><td class="num">14</td><td><b>Spawn structure</b></td><td class="mono">32 x 32</td><td class="mono">x 0..31<br>z 0..31</td><td class="mono">7,961</td><td>live world</td><td>Warium refinery build on the lake island; world spawn on its plaza</td></tr>
+<tr><td class="num">15</td><td><b>Glass tower</b></td><td class="mono">80 x 144</td><td class="mono">x 1184..1263<br>z 464..607</td><td class="mono">5,087</td><td>live world</td><td>white glass and quartz pillars</td></tr></table></div>
+<h2>Location pool</h2>
+<p>The endgame does not ask five players to hold every site. Taking a location starts a clock to fortify it; on each cycle the game draws one held location, warns the players, and attacks that one. The pool is every location taken so far. It opens with the custom structures already in the district and the five compounds around it:</p>
+<div class="tablewrap"><table><tr><th>Location</th><th>Kind</th><th>Blocks</th><th>Why it works as a location</th></tr>
+<tr><td><b>FR-06 complex</b></td><td>custom, transplanted</td><td class="mono">x 2192..2575<br>z 400..927</td><td>Hangar, plaza and stadium: the natural airfield and the showpiece</td></tr>
+<tr><td><b>Industrial plant</b></td><td>custom, transplanted</td><td class="mono">x 1904..2367<br>z 864..1135</td><td>Refinery and tank farm: water and fuel</td></tr>
+<tr><td><b>Hempcrete compound</b></td><td>custom, transplanted</td><td class="mono">x 1568..1887<br>z 1152..1471</td><td>Walled, lit, wired: a ready garrison</td></tr>
+<tr><td><b>Stone complex</b></td><td>custom, transplanted</td><td class="mono">x 2528..2751<br>z 1344..1631</td><td>Trapped interior, 99 spawners: a clear-and-hold dungeon</td></tr>
+<tr><td><b>Residential block</b></td><td>custom, transplanted</td><td class="mono">x 1328..1551<br>z 1376..1775</td><td>Housing to defend street by street</td></tr>
+<tr><td><b>Library</b></td><td>custom, transplanted</td><td class="mono">x 2032..2127<br>z 1392..1487</td><td>Dense interior, the intel site</td></tr>
+</table></div>
+<h2>Strongpoint compounds</h2>
+<div class="tablewrap"><table><tr><th>Site</th><th>Footprint</th><th>Blocks</th><th>What the footprint has to hold</th></tr><tr><td><b>RADIO TOWER</b></td><td class="mono">128 x 128</td><td class="mono">x 2023..2150<br>z -184..-57</td><td>Endgame objective: the mast, its transmitter hall and a walled compound</td></tr>
+<tr><td><b>SUBSTATION</b></td><td class="mono">160 x 160</td><td class="mono">x 215..374<br>z 1415..1574</td><td>Power: transformer yard, switch house, perimeter and approach</td></tr>
+<tr><td><b>WATER TREATMENT</b></td><td class="mono">192 x 160</td><td class="mono">x 3570..3761<br>z 711..870</td><td>Water and biodiesel: settling basins, pump house, tank farm</td></tr>
+<tr><td><b>HOSPITAL</b></td><td class="mono">192 x 192</td><td class="mono">x 675..866<br>z 2367..2558</td><td>Medical: main block, wings, car park and a defensible perimeter</td></tr>
+<tr><td><b>AIRFIELD</b></td><td class="mono">512 x 192</td><td class="mono">x 2959..3470<br>z 2519..2710</td><td>Aircraft and heavy vehicles: 400-block runway, apron, hangars, tower</td></tr></table></div>
+<p>Sized as compounds to hold on a horde night, not as single buildings: the mega-base is 384 x 528 and the industrial district 464 x 272, so anything smaller than a city block reads as a shed next to them. They sit in the wasteland ring around the district because nothing that size fits between the builds; each is levelled to the median ground (above any water it touches), cleared, ramped into the surrounding terrain, and outlined in yellow concrete with corner posts as the cut line for a paste or a hand build.</p>
+<h2>Starting area</h2>
+<p>Blocks -176 to 207 on both axes, 384 x 384, centred on the spawn structure. The structure stands in the old lake at level 62 at the bottom of a basin whose walls are ramped up to the plateau over 96 blocks; the whole square is cleared of city ruins down to natural ground and a yellow concrete line follows the ground along its border. World spawn is the structure plaza at 19, 94, 26.</p>
+</div>

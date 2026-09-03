@@ -1,0 +1,646 @@
+<title>GSCraft Server Audit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#E4E3DC;
+  --surface:#F2F1EB;
+  --surface-2:#DAD9D1;
+  --ink:#1D201C;
+  --ink-soft:#585C53;
+  --ink-faint:#83877D;
+  --rule:#C6C5BB;
+  --rule-hard:#9FA096;
+  --accent:#7C7211;
+  --accent-bright:#A79A18;
+  --warn:#8C3928;
+  --verify:#3F6560;
+  --shadow:rgba(29,32,28,.10);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#15171A;
+    --surface:#1D2024;
+    --surface-2:#262A2E;
+    --ink:#E6E4DB;
+    --ink-soft:#A2A69C;
+    --ink-faint:#767B72;
+    --rule:#333840;
+    --rule-hard:#4A505A;
+    --accent:#D4C24A;
+    --accent-bright:#E4D262;
+    --warn:#D0705C;
+    --verify:#7FAAA4;
+    --shadow:rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#15171A;
+  --surface:#1D2024;
+  --surface-2:#262A2E;
+  --ink:#E6E4DB;
+  --ink-soft:#A2A69C;
+  --ink-faint:#767B72;
+  --rule:#333840;
+  --rule-hard:#4A505A;
+  --accent:#D4C24A;
+  --accent-bright:#E4D262;
+  --warn:#D0705C;
+  --verify:#7FAAA4;
+  --shadow:rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Archivo","Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px 96px}
+
+/* ---------- masthead ---------- */
+.mast{
+  border-bottom:3px solid var(--ink);
+  padding:52px 0 22px;
+  margin-bottom:44px;
+}
+.mast .eyebrow{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:18px;
+}
+.mast h1{
+  font-family:"Oswald","Arial Narrow",sans-serif;
+  font-weight:600;text-transform:uppercase;letter-spacing:.01em;
+  font-size:clamp(38px,7vw,68px);line-height:1.02;margin:0 0 16px;
+  text-wrap:balance;
+}
+.mast .standfirst{
+  font-size:18px;color:var(--ink-soft);max-width:62ch;margin:0;
+}
+.mast .strip{
+  display:flex;flex-wrap:wrap;gap:0 32px;margin-top:26px;
+  font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11.5px;
+  letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase;
+}
+.mast .strip b{color:var(--ink);font-weight:500}
+
+/* ---------- sections ---------- */
+section{margin:0 0 60px;scroll-margin-top:20px}
+h2{
+  font-family:"Oswald","Arial Narrow",sans-serif;
+  font-weight:600;text-transform:uppercase;letter-spacing:.03em;
+  font-size:26px;line-height:1.15;margin:0 0 6px;text-wrap:balance;
+}
+.h2rule{height:2px;background:var(--ink);margin-bottom:22px}
+h3{
+  font-family:"Oswald","Arial Narrow",sans-serif;
+  font-weight:500;text-transform:uppercase;letter-spacing:.05em;
+  font-size:16px;margin:34px 0 10px;color:var(--ink);
+}
+p{margin:0 0 15px;max-width:70ch}
+ul,ol{margin:0 0 15px;padding-left:22px;max-width:70ch}
+li{margin-bottom:7px}
+strong{font-weight:600}
+code{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:.87em;background:var(--surface-2);
+  padding:1px 5px;border-radius:2px;color:var(--ink);
+}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ---------- decision block ---------- */
+.decision{
+  background:var(--surface);
+  border:1px solid var(--rule-hard);
+  border-left:6px solid var(--accent);
+  padding:22px 26px 18px;margin:0 0 26px;
+  box-shadow:0 1px 0 var(--shadow);
+}
+.decision .tag{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);display:block;margin-bottom:9px;
+}
+.decision .verdict{
+  font-family:"Oswald","Arial Narrow",sans-serif;
+  font-size:23px;font-weight:500;text-transform:uppercase;letter-spacing:.02em;
+  line-height:1.2;margin:0 0 12px;
+}
+.decision p:last-child{margin-bottom:0}
+
+.flag{
+  border-left:4px solid var(--warn);
+  background:var(--surface);
+  padding:14px 18px;margin:0 0 22px;
+}
+.flag .tag{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--warn);display:block;margin-bottom:6px;
+}
+.flag p:last-child{margin-bottom:0}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:0 0 24px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
+th{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-faint);text-align:left;font-weight:400;
+  padding:10px 14px 9px;border-bottom:1px solid var(--rule-hard);
+  white-space:nowrap;
+}
+td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+td.mod{font-weight:600;white-space:nowrap}
+td.ver{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px;color:var(--ink-soft);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+.chip{
+  display:inline-block;font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  padding:2px 7px;border:1px solid currentColor;border-radius:2px;
+  white-space:nowrap;line-height:1.5;
+}
+.chip.core{color:var(--warn)}
+.chip.sup{color:var(--verify)}
+.chip.opt{color:var(--ink-faint)}
+.chip.ok{color:var(--verify)}
+.chip.chk{color:var(--accent)}
+
+/* ---------- pull list ---------- */
+.pull{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:1px;background:var(--rule-hard);border:1px solid var(--rule-hard);
+  margin:0 0 22px;
+}
+.pull > div{background:var(--surface);padding:16px 18px}
+.pull h4{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 9px;font-weight:400;
+}
+.pull p{font-size:14px;margin:0;color:var(--ink-soft);max-width:none}
+.pull code{font-size:12.5px;background:var(--surface-2)}
+
+/* ---------- phases ---------- */
+.phase{
+  display:grid;grid-template-columns:64px 1fr;gap:0 22px;
+  padding:20px 0;border-top:1px solid var(--rule);
+}
+.phase:last-of-type{border-bottom:1px solid var(--rule)}
+.phase .num{
+  font-family:"Oswald","Arial Narrow",sans-serif;
+  font-size:40px;font-weight:600;line-height:.9;color:var(--rule-hard);
+  font-variant-numeric:tabular-nums;
+}
+.phase h3{margin:0 0 6px}
+.phase p{margin:0 0 10px;font-size:15px}
+.gate{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:12px;color:var(--ink-soft);
+  border-left:3px solid var(--verify);padding:5px 0 5px 12px;
+  max-width:70ch;
+}
+.gate b{color:var(--verify);font-weight:500;letter-spacing:.08em;text-transform:uppercase;font-size:10.5px}
+
+/* ---------- endgame loop ---------- */
+.loop{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;margin:0 0 24px;
+}
+.loop > div{
+  background:var(--surface);border:1px solid var(--rule-hard);padding:16px 18px;
+}
+.loop .step{
+  font-family:"JetBrains Mono",ui-monospace,monospace;
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:8px;
+}
+.loop h4{
+  font-family:"Oswald","Arial Narrow",sans-serif;font-weight:500;
+  text-transform:uppercase;letter-spacing:.03em;font-size:15px;margin:0 0 7px;
+}
+.loop p{font-size:14px;margin:0;color:var(--ink-soft);max-width:none}
+
+/* ---------- cut list ---------- */
+.cut{list-style:none;padding:0;max-width:none}
+.cut li{
+  display:grid;grid-template-columns:minmax(0,26ch) 1fr;gap:0 22px;
+  padding:12px 0;border-bottom:1px solid var(--rule);margin:0;
+}
+.cut b{font-weight:600}
+.cut span{color:var(--ink-soft);font-size:15px}
+
+/* ---------- sources ---------- */
+.sources{font-size:13.5px;color:var(--ink-soft)}
+.sources li{margin-bottom:5px}
+.scope{
+  border-top:2px solid var(--ink);padding-top:18px;margin-top:44px;
+  font-size:14px;color:var(--ink-soft);
+}
+.scope h3{margin-top:0}
+
+@media (max-width:640px){
+  .wrap{padding:0 18px 72px}
+  .phase{grid-template-columns:44px 1fr;gap:0 14px}
+  .phase .num{font-size:28px}
+  .cut li{grid-template-columns:1fr;gap:4px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<div class="wrap">
+
+<header class="mast">
+  <div class="eyebrow">Server audit · GSCraft · Bisect node la308</div>
+  <h1>GSCraft Server Audit</h1>
+  <p class="standfirst">What the server actually runs, how it broke, what is salvageable, and a keep / replace / cut verdict on all 138 jars.</p>
+  <div class="strip">
+    <span>Loader <b>Forge 47.4.10 · MC 1.20.1</b></span>
+    <span>Java <b>17.0.20.1</b></span>
+    <span>Jars <b>138</b> · mod IDs <b>189</b></span>
+    <span>RAM <b>8 GB</b></span>
+    <span>Last player <b>2026-01-16</b></span>
+  </div>
+</header>
+
+<section>
+  <h2>Verdict</h2>
+  <div class="h2rule"></div>
+
+  <div class="decision">
+    <span class="tag">Rebuild</span>
+    <p class="verdict">Rebuild from a clean install. Nothing here argues for repair.</p>
+    <p>The server boots and stays up, so the damage is not the crashing kind — it is content-level. Loot chests that generate empty, a gun mod whose entire crafting chain fails, a Fabric API bundle running inside Forge, five separate weapon systems, a 1.21 jar that Forge silently ignores, and config folders from at least two other modpacks on other loaders. Every one of those is invisible in the panel and present in the logs.</p>
+    <p>The good news is real: the loader and version already match the target (Forge 1.20.1), roughly a third of the jars carry straight into the rebuild, and the zombie-apocalypse spawn design in In Control! and Mob Factions is genuinely good work worth keeping.</p>
+  </div>
+
+  <div class="decision">
+    <span class="tag">World</span>
+    <p class="verdict">The server has been empty since 16 January 2026.</p>
+    <p>Five players have ever joined; three were regulars. Activity peaked in July 2025 (57 join-days that month), fell to 9 in January 2026, and stopped. The only traffic since is a vanilla client at 213.152.161.54 probing the port every 42 minutes — a server-list scanner, not a person. Whitelist is off and the server is open to the internet.</p>
+    <p>Nobody to displace — but the world holds player-made sceneries that survive the reset by transplant, not by keeping the map. See <em>Player builds</em> below.</p>
+  </div>
+</section>
+
+<section>
+  <h2>How it got here</h2>
+  <div class="h2rule"></div>
+  <p>Three independent records tell the same story.</p>
+
+  <h3>The crash log is thirty-three dependency errors and one out-of-memory</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Date</th><th>Crashes</th><th>What was missing or mismatched</th></tr></thead>
+      <tbody>
+        <tr><td class="ver">2025-07-18</td><td class="ver">4</td><td>KubeJS added without its Rhino dependency. KubeJS was later removed rather than fixed.</td></tr>
+        <tr><td class="ver">2025-09-07</td><td class="ver">1</td><td><strong>OutOfMemoryError: Java heap space</strong> while ticking the world — at ~152 mods on 8 GB. The server now carries 189.</td></tr>
+        <tr><td class="ver">2025-09-12</td><td class="ver">6</td><td>MCSP and vvp vehicle packs installed against the wrong Superb Warfare version.</td></tr>
+        <tr><td class="ver">2025-10-30</td><td class="ver">11</td><td>chaoszpack_structures without Berezka API and Create Deco; Immersive Weathering without Moonlight; then Keerdm and chaoszpack against a Lost Cities build too old for them.</td></tr>
+        <tr><td class="ver">2025-12-02</td><td class="ver">4</td><td>Moving Elevators without SuperMartijn642's libraries; chaoszpack without Survival Instinct.</td></tr>
+        <tr><td class="ver">2025-12-12</td><td class="ver">2</td><td>Magnum Torch without Puzzles Lib; Create Big Cannons without Ritchie's Projectile Lib.</td></tr>
+        <tr><td class="ver">2025-12-23</td><td class="ver">6</td><td>Create Big Cannons against the wrong Create; then a Superb Warfare hotfix build whose MCSP mixin failed to inject. Resolved by swapping to the "final" build.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>Every non-memory crash is the same event: a jar dropped in, restart, crash, another jar dropped in. That is the process the rebuild replaces with a pinned manifest and a staging server.</p>
+
+  <h3>The mod count only ever went up</h3>
+  <p>152 mod IDs in July 2025 → 157 in August → 164 in September → 184 on 30 October (one session added twenty) → 189 by January 2026. Nothing was ever removed except KubeJS. The out-of-memory crash happened at the low end of that curve.</p>
+
+  <h3>The config folder holds three modpacks' worth of leftovers</h3>
+  <ul>
+    <li><strong>Nine YUNG's "Better…" config files named <code>-neoforge-1_21</code>, plus three matching folders</strong> — from a NeoForge 1.21 pack. None of these mods are installed.</li>
+    <li><strong><code>c2me.toml</code> and <code>lithium.properties</code></strong> — Fabric-only performance mods. They cannot run on this server and never have.</li>
+    <li><strong><code>neoforge-common.toml</code>, <code>neoforge-server.toml</code></strong> — NeoForge's own config, on a Forge server.</li>
+    <li>Gravestone, Spore, Tree Harvester, Library Ferret, Better Village, Immersive Optimization — configs for mods no longer present. Two <code>.bak</code> files of Iron's Spellbooks server config alongside the live one.</li>
+    <li><strong>The Hordes config folder is from Hordes 1.6.0 for Minecraft 1.21</strong> (<code>hordes-info.json</code> says so) while the installed jar is 1.5.4c for 1.20.1. Its horde table references <code>minecraft:bogged</code>, a 1.21 mob, and errors at load. The mod falls back to its default table.</li>
+  </ul>
+
+  <h3>The server root is littered the same way</h3>
+  <ul>
+    <li><strong>Two world folders.</strong> <code>Escape From Minenkrafte</code> is the live world; <code>Escape From Minecraft</code> (December 2025) is a remnant of an earlier one — 21 entries, mostly stats and server config.</li>
+    <li><strong>A stray <code>region/</code> at the root</strong> holding sixteen <code>.mca</code> files from October 2025, plus a stray <code>world/</code> and a stray <code>serverconfig/create-server.toml</code>. Someone unpacked a world in the wrong place.</li>
+    <li><strong>A 531 MB zip</strong> (<code>73160fed-…</code>, September 2025) sitting in the root — an old upload or backup that was never removed. It is the single largest object on the server.</li>
+    <li><code>mods alternate/</code> (empty) and <code>tacz_backup/</code> (empty) — abandoned stashes.</li>
+    <li><strong>Four of the live world's six datapacks are 1.21 builds</strong> — AFK Announcer, Show Dimension In Name, Sleep, and Farmer's Delight cutting recipes for Twilight Forest, all tagged <code>[1.21]</code> on a 1.20.1 server. The other two are No More Phantoms and a Superb Warfare uniform pack.</li>
+    <li><code>hs_err_pid123.log</code> from <strong>10 June 2026</strong>: a hard JVM crash (SIGSEGV) twenty seconds into boot. The stack is Spark's async profiler sampling the server thread during class loading — a profiler session had been left running across a restart, and the JVM race that triggers is a known one on that Java build. Not a mod fault; a reason never to leave <code>/spark profiler</code> running unattended.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>What is broken right now</h2>
+  <div class="h2rule"></div>
+  <p>From the current boot log: 73 error lines, 80 warnings, in the order a player would feel them.</p>
+
+  <div class="flag">
+    <span class="tag">Log noise, not a defect</span>
+    <p><strong>Six Keerdm Zombie Essentials loot tables fail to parse</strong> — its <code>_vics</code> variants, which reference Vic's Point Blank items. The first version of this page called them empty chests. Keerdm's own Lost Cities conditions (<code>car_loot.json</code>, <code>chestloot.json</code>) reference only the <code>_tacz</code> twins, so nothing generates from the broken tables; they are dead files shipped for a Point Blank configuration. Seventy error lines a boot, zero player impact.</p>
+  </div>
+
+  <div class="flag">
+    <span class="tag">Player-facing · crafting</span>
+    <p><strong>Warium's crafting chain is dead.</strong> Twenty-nine <code>crusty_chunks:assembly</code> recipes fail with "invalid or unsupported recipe type", and its <code>burnt:firestarter</code> tag reference points at a mod that isn't installed. The jar also ships without a mixin refmap — a development build. Nothing Warium adds can be made.</p>
+    <p>Also unbuildable: Factory Blocks' two mason-table recipes (need Chipped, absent); Survival Instinct's and dtrch's recipes reference items their own jars never register.</p>
+  </div>
+
+  <div class="flag">
+    <span class="tag">Stability · loader</span>
+    <p><strong>Fabric API 0.92.2 — the umbrella plus 43 API modules — is loaded inside Forge, bundled by <code>txnilib</code>.</strong> Moonlight logs an explicit warning that this "can easily lead to poor compatibility"; <code>fabric-object-builder-v1</code> throws a mixin injection error against villager trades at runtime; <code>fabric-screen-api-v1</code> tries to patch client-only classes on the dedicated server. Reading every kept jar's <code>mods.toml</code> settled who needs it: <strong>Chunk Activity Tracker</strong>, a minor performance mod, is the only dependent. It is cut, and txnilib leaves with it. (An earlier version of this page guessed From The Fog; the manifest says otherwise. From The Fog's failing <code>watching:check</code> function is a separate defect.)</p>
+  </div>
+
+  <div class="flag">
+    <span class="tag">Dead weight · wrong version</span>
+    <p><code>lostsouls-1.21-5.0.0.jar</code> is a Minecraft 1.21 jar. It does not appear in the loaded-mod registry — Forge skipped it silently. <code>MineTraps-1.20.2</code> is a 1.20.2 build running on 1.20.1; it loaded, which is luck rather than compatibility.</p>
+  </div>
+
+  <div class="flag">
+    <span class="tag">Noise · 586 lines per boot</span>
+    <p>Engineered Compatibility skips 586 recipes for mods that are not present (Botania, Ars Nouveau, Blood Magic, Pam's, Eidolon…). Harmless in-game; it is a third of the boot log and it hides the errors above.</p>
+  </div>
+
+  <h3>Lower-impact defects, for completeness</h3>
+  <ul>
+    <li><strong>LC²H</strong> (Lost Cities multithreading) targets three classes that do not exist in Lost Cities 7.4.6 — <code>CityPlan</code>, <code>ServerChunkCache$ChunkHolderProvider</code> — so part of it silently no-ops. It also runs with <code>Debug: ENABLED</code>. Version mismatch between the two.</li>
+    <li><strong>Seven Botania recipes</strong> fail with no Botania installed; <strong>eight <code>liquidburner</code> fuel recipes</strong> return a null serializer. Their source is a jar, not a datapack — the world's six datapacks are unrelated (see below) — and remains unattributed; it does not survive the rebuild either way.</li>
+    <li>Compat mixins with absent targets, all harmless: Does It Tick → FTB Chunks; Parties → Apotheosis; Create Big Cannons → Framed Blocks; Pomkots Mechs → client <code>Camera</code> on the server.</li>
+    <li><code>#hordes:infection_cures</code> tag missing — the 1.21 config folder again.</li>
+    <li>Guard Villagers config "not correct, correcting" on every boot — a stale file the mod rewrites each time.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>What overlaps</h2>
+  <div class="h2rule"></div>
+  <p>This is the "mess" in the sense that matters for design — not crashes, but five things doing one job.</p>
+
+  <h3>Five weapon systems</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>System</th><th>Jars</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">TaCZ</td><td>tacz 1.1.7-hotfix, chaoszpack (gun pack + Lost Cities loot), fire-control extension, Keerdm (loot/structures)</td><td>Personal weapons lane. Keep; update to 1.1.8.</td></tr>
+        <tr><td class="mod">Superb Warfare</td><td>superbwarfare 0.8.8-final, MCSP (armour pack), vvp (vehicle pack)</td><td>Vehicle and crew-served lane. Keep; disable its small arms.</td></tr>
+        <tr><td class="mod">Gunfire Overhaul</td><td>1 jar</td><td>Third small-arms system. Cut.</td></tr>
+        <tr><td class="mod">Warium</td><td>1 jar, 12 MB</td><td>Cannons, guns, nukes, own tech chain — and broken. Cut.</td></tr>
+        <tr><td class="mod">Create Big Cannons</td><td>+ Create, Create Deco, Ritchie's lib</td><td>Artillery via a full tech mod. Superb Warfare covers artillery. Cut.</td></tr>
+        <tr><td class="mod">Pillagers Gun · Better Weaponry · Divine Weaponry</td><td>3 jars</td><td>Pillagers Gun arms the illager faction — optional keep. The other two are melee/fantasy. Cut.</td></tr>
+        <tr><td class="mod">Explosion Overhaul</td><td>1 jar, <strong>163 MB</strong></td><td>Crater destruction with direct async chunk writes. On a persistent server with nukes and artillery this is the griefing multiplier. Cut. Explosive Enhancement (client visuals) can stay.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>TaCZ ammo has <code>ExplosiveAmmoDestroysBlock = true</code>. With no claims mod installed (Does It Tick is configured for FTB Chunks, which isn't there), every base is currently one explosive round away from a hole.</p>
+
+  <h3>Two full tech trees</h3>
+  <p>Create (+ Deco, + Big Cannons) and Immersive Engineering (+ Engineers Delight, + Engineered Compatibility) are both installed. The blueprint's cut list rules out large tech mods, and Create goes. <strong>Immersive Engineering is the one exception worth arguing for:</strong> its concrete, scaffolding, wiring, and diesel generators are the visual language of the setting, and its biodiesel chain is exactly the fuel economy the vehicle pillar needs. Keep IE alone, trimmed in config; cut the compat jars.</p>
+
+  <h3>Six horror entities, all at default rates</h3>
+  <p>From The Fog, Eyes in the Darkness (2–3 eyes per player at all times, cycle every 150 ticks), Horror Element Mod (21 MB, kitchen-sink), The Knocker ("common"), Dark Doppelganger (600 HP boss casting Iron's Spellbooks spells), From The Caves. Each tuned for solo play; together they are on screen constantly. The blueprint's rule stands: two entities, rare.</p>
+
+  <h3>Three raid schedulers</h3>
+  <p>The Hordes (every 10 days, midnight, 8 per wave, cap 30, infection on), Bandits (every 5–15 days, 5–10 attackers), and vanilla raids via the illager faction. They do not know about each other, so they stack. Pick The Hordes as the horde-night engine and fold the others into In Control! rules.</p>
+
+  <h3>Theme drift</h3>
+  <p>Twilight Forest and its villages, Iron's Spellbooks, Divine Weaponry, Alex's Caves (75 MB), Backrooms Eternal, Goblin Traders, Doggy Talents, Waystones, Moving Elevators, Chisel, Reddens Lanterns, Waterframes. None serve a pillar. Twilight Forest alone has 95 lines of In Control! spawn caps written for it in the backup rules file — effort spent taming a mod that should not be there.</p>
+</section>
+
+<section>
+  <h2>What is worth keeping</h2>
+  <div class="h2rule"></div>
+  <p>Someone did real design work here. It carries forward.</p>
+  <ul>
+    <li><strong>The In Control! zombie-apocalypse layer.</strong> <code>spawn.json</code> denies all natural hostiles in the overworld except zombies, skeletons, spiders, illagers and mechs; caps zombies at 24 per player, skeletons at 4, spiders at 3; gives zombies +25% health, +8% speed, +15% follow range. <code>spawner.json</code> adds a custom spawner at 0.55 zombies/second in darkness, daytime pillager patrols away from villages, and rare mech spawns. It is coherent, tuned, and exactly the scaffold the faction-territory rules in the blueprint build on. The <code>spawn BACKUP.json</code> is an older, more elaborate version with Twilight Forest caps — the current one is the better one.</li>
+    <li><strong>Mob Factions.</strong> Five factions defined — zombie, skeleton, illager, piglin, civilian — with enemies and allies, and the Knocker filed under zombie, the mechs under illager. This is the minimum viable "factions fight each other" layer, and it already works.</li>
+    <li><strong>The Hordes,</strong> once its config is regenerated for 1.5.4c. Wave scaling, day-count gating, infection with zombie-player spawns, sleep blocked during the event. This is a better horde-night engine than the blueprint's Enhanced Celestials pick, and it is already tuned. The blueprint is updated to match.</li>
+    <li><strong>chaoszpack + Keerdm</strong> — the TaCZ gun pack with Lost Cities loot integration and apocalypse structures. This is the curated pack the blueprint asked for. Keep, and patch the six broken loot tables with a datapack override.</li>
+    <li><strong>Dynamic View</strong> is correctly configured (view 3–10, simulation 2–6, targeting 40 ms ticks) and is what makes the <code>view-distance=32 / simulation-distance=32</code> in <code>server.properties</code> survivable. Fix the properties to match so removing Dynamic View can never detonate the server.</li>
+    <li><strong>PlayerRevive</strong> (downed state, teammates revive) fits a co-op looter better than a corpse mod. Keep it; the blueprint's Corpse entry becomes optional.</li>
+    <li><strong>Hostile Villages, Guard Villagers, Recruits</strong> — a civilian faction with defenders and recruitable NPCs. Keep.</li>
+    <li><strong>Underground Bunkers, Doomsday Decoration, Immersive Weathering, Refurbished Furniture</strong> — the setting's set-dressing. Keep.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Player builds</h2>
+  <div class="h2rule"></div>
+  <p>Four worlds were pulled off the server and every region file was read: the July 2025 original (near-empty), the Oct–Dec 2025 world plus a September zip of it that sat in the root, the orphaned root <code>region/</code>, and the live world. Every chunk was decoded to its block palette; chunks were classified as built or generated, clustered into sites, and the two big worlds were matched against each other by content signature.</p>
+
+  <div class="decision">
+    <span class="tag">Finding</span>
+    <p class="verdict">The live world already holds every old build. Someone transplanted them once before.</p>
+    <p>479 old-world chunks reappear in the live world byte-for-byte at chunk offset (+140, +89) — blocks (+2240, +1424) — and another 891 reappear edited. The block the previous admin moved spans old chunks x −84…53, z −64…40; in the live world it is x 56…193, z 25…129. The old world is therefore not a second source of builds, with eleven small exceptions outside that block that never made the trip — among them the beacon and hopper array at old blocks (336…367, −1056…−1025): 253 beacons, 325 hoppers.</p>
+  </div>
+
+  <h3>The live player district</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Site</th><th>Blocks (x, z)</th><th>Size</th><th>What it is</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">Mega-base</td><td class="ver">2192…2575, 400…927</td><td class="ver">436 chunks · 1.03 M placed · 6,425 BEs</td><td>A 17-layer <code>factory_blocks:factory</code> platform (432 k blocks) carrying concrete structures, 964 chiseled bookshelves, 885 sculk sensors, 728 dispensers, a gray-concrete tower and command blocks.</td></tr>
+        <tr><td class="mod">Industrial district</td><td class="ver">1904…2367, 864…1135</td><td class="ver">182 chunks · 248 k · 4,071 BEs</td><td>Chisel concrete variants, IE machinery — 1,209 fluid pipes, 636 structural arms, 222 tank blocks — Factory Blocks wireframe and AntiBlocks lighting.</td></tr>
+        <tr><td class="mod">Hempcrete compound</td><td class="ver">1568…1887, 1152…1471</td><td class="ver">139 chunks · 101 k · 1,474 BEs</td><td>IE hempcrete brick and concrete with Chisel tiling, 405 ceiling lights, 311 razor wire, furnished interiors.</td></tr>
+        <tr><td class="mod">Acacia hall</td><td class="ver">1488…1599, 432…511</td><td class="ver">31 chunks · 78 k</td><td>43 k acacia wood on mossy stone brick.</td></tr>
+        <tr><td class="mod">Library</td><td class="ver">2032…2127, 1392…1487</td><td class="ver">21 chunks · 2,010 BEs</td><td>615 signs, 356 barrels, 306 beehives, 302 chiseled bookshelves.</td></tr>
+        <tr><td class="mod">Spawn structure</td><td class="ver">0…31, 0…31</td><td class="ver">4 chunks · 8 k</td><td>Warium concrete and armour blocks — the one site whose material is being cut; it is remapped to IE concrete.</td></tr>
+        <tr><td class="mod">Village, farms, houses</td><td class="ver">inside the district</td><td class="ver">~20 small sites</td><td>Vanilla builds with Farmer's Delight and Refurbished Furniture interiors.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>What the builds depend on</h3>
+  <p>Counting only placed blocks — ores, Lost Cities filler (in this pack the city ground is IE hempcrete, millions of blocks of it) and the Backrooms dimension excluded — and only sites that do not repeat elsewhere (the apocalypse packs' chest-spawner-blast-furnace buildings recur twenty-six times; a player build is one of a kind):</p>
+  <ul>
+    <li><strong>Kept anyway:</strong> Immersive Engineering 79 k, Superb Warfare 1.1 k, Refurbished Furniture, Farmer's Delight, Doomsday Decoration.</li>
+    <li><strong>Moved from cut to keep as build dependencies:</strong> <code>factory_blocks</code> 511 k blocks (41 kinds), <code>chisel</code> 96 k (62 kinds), <code>antiblocksrechiseled</code> 14 k (47 kinds).</li>
+    <li><strong>Remapped rather than kept</strong> — 9.1 k blocks across Warium (56 kinds, mostly structural concrete and coloured armour), Create Deco catwalks, Create track and cut deepslate, Survival Instinct props, stone lanterns, Moving Elevators, Waterframes, Doggy Talents, Waystones — each mapped to a vanilla or IE block of the same role in <code>remap.json</code>.</li>
+    <li><strong>Already missing today:</strong> Spore, DimDoors and Modern Structures blocks in the old world are worldgen from mods removed long ago, not builds.</li>
+  </ul>
+
+  <h3>How they move</h3>
+  <p>Chunk-level transplant between region files (<code>transplant.py</code>): the live district rectangle — chunks x 56…193, z 24…129, blocks 896…3103 × 384…2079 — is copied into the new world at the same coordinates, plus the spawn structure and one outlier, plus the eleven never-transplanted old sites at the known offset. Block entities, ticks and heightmaps shift with the chunk; structure references are dropped; entities move from the <code>entities/</code> region set; POI files are regenerated. The tool's typed NBT round-trips all 29,273 live chunks byte-for-byte, and a four-chunk trial transplant re-scanned with identical signatures.</p>
+  <p>The panel offers no backups on this plan (<code>TooManyBackupsException: limit of 0</code>), so the rollback is the complete local snapshot: every world, <code>mods/</code>, <code>libraries/</code>, <code>tacz/</code>, configs, logs and crash reports — about 2.5 GB under <code>Minecraft Server Tools\pull\</code>.</p>
+</section>
+
+<section>
+  <h2>Gaps against the blueprint</h2>
+  <div class="h2rule"></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Blueprint mod</th><th>On server</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">Lootr</td><td><span class="chip core">Absent</span></td><td>Per-player loot instancing. The single most important mod for a looter server, and the one whose absence explains "first player empties the map." Pinned: 0.7.35.94.</td></tr>
+        <tr><td class="mod">Improved Mobs</td><td><span class="chip core">Absent</span></td><td>Zombie Awareness covers sensing (scent, sound, block-hitting) but not block-breaking or item use. Horde night needs both.</td></tr>
+        <tr><td class="mod">Claims (FTB Chunks)</td><td><span class="chip core">Absent</span></td><td>No base protection at all, on a server with artillery and explosive ammo.</td></tr>
+        <tr><td class="mod">Immersive Vehicles</td><td><span class="chip sup">Absent</span></td><td>Only military vehicles exist (Superb Warfare, MCSP, vvp). No civilian cars, no fuel economy. Resolved: 24.0.0 for 1.20.1 on Modrinth.</td></tr>
+        <tr><td class="mod">Canary</td><td><span class="chip sup">Absent</span></td><td>ModernFix, FerriteCore, Spark, Chunky all present. Canary is the missing third of the performance stack.</td></tr>
+        <tr><td class="mod">FTB Quests</td><td><span class="chip sup">Absent</span></td><td>RealmRPG Quests is installed instead — a small alternative that cannot carry the strongpoint structure. FTB publishes on CurseForge only; Quests 2001.4.22, Library 2001.2.13, Teams 2001.3.2 and Item Filters were pulled from its CDN by file id.</td></tr>
+        <tr><td class="mod">Xaero's map</td><td><span class="chip opt">Absent</span></td><td>Ping Wheel is present. No map at all on a city the size of the overworld.</td></tr>
+        <tr><td class="mod">Apotheosis</td><td><span class="chip opt">Absent</span></td><td>Parties has an Apotheosis compat mixin, suggesting it was once here.</td></tr>
+        <tr><td class="mod">Enhanced Celestials</td><td><span class="chip opt">Absent</span></td><td>Superseded by The Hordes, which is present and better suited. Blueprint updated.</td></tr>
+        <tr><td class="mod">Lost Cities</td><td><span class="chip ok">7.4.6</span></td><td>Newer than the build the blueprint cited (7.1.8). Blueprint corrected to 7.4.6 or later.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Hardware and JVM</h2>
+  <div class="h2rule"></div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Item</th><th>Current</th><th>Finding</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">Heap</td><td class="ver">-Xms128M -Xmx8192M</td><td>Xms should equal Xmx, but the Bisect egg hard-codes both and rejects <code>-Xms</code>/<code>-Xmx</code> in <code>CUSTOM_ARGS</code>. Not fixable from the panel; the JVM grows the heap on demand.</td></tr>
+        <tr><td class="mod">Aikar's flags</td><td class="ver">disabled</td><td>Now on: the G1 flag set is in <code>CUSTOM_ARGS</code> and shows in the rendered invocation; <code>AIKARS_ENABLED=1</code> as well.</td></tr>
+        <tr><td class="mod">Idle memory</td><td class="ver">5.2 GB used, 0 players</td><td>That is the resting heap with 189 mods. The OOM crash in September 2025 happened at 152. The rebuild's smaller stack fixes this more reliably than a bigger plan would.</td></tr>
+        <tr><td class="mod">CPU</td><td class="ver">800% (8 threads)</td><td>On an AMD Ryzen 7 9700X host (16 cores, Debian 12). Adequate; boot takes 25 seconds.</td></tr>
+        <tr><td class="mod">view / simulation distance</td><td class="ver">32 / 32 in properties</td><td>Dynamic View clamps both (3–10 / 2–6), so the real values are sane. Write 10 / 6 into <code>server.properties</code> so the ceiling is never 32.</td></tr>
+        <tr><td class="mod">Watchdog</td><td class="ver">max-tick-time = -1</td><td>Disabled. Common on modded servers to survive chunk generation; it also means a hung server never restarts itself.</td></tr>
+        <tr><td class="mod">Whitelist</td><td class="ver">off · online-mode on</td><td>Ten slots, three real players, open to the internet and being scanned. Turn the whitelist on.</td></tr>
+        <tr><td class="mod">Ops</td><td class="ver">6 at level 4</td><td>Six full operators for a three-player server. Review at rebuild.</td></tr>
+        <tr><td class="mod">Lost Cities profile</td><td class="ver">two different answers</td><td><code>server.properties</code> says <code>improved</code>; the mod config says <code>rarecities</code>. Moot after the reset — pick one and set both.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <h2>Disposition</h2>
+  <div class="h2rule"></div>
+  <p>Every jar in <code>mods/</code>. Libraries follow their dependents: a library survives only if something that needs it does.</p>
+
+  <h3>Keep · carries into the rebuild as-is</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Jar</th><th>Serves</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">superbwarfare 0.8.8-final</td><td>Weapons · vehicles</td><td>Vehicle and crew-served lane. Disable small arms in config.</td></tr>
+        <tr><td class="mod">MCSP 1.0.8</td><td>Vehicles</td><td>Superb Warfare armour pack (BMD, Bradley, Typhoon).</td></tr>
+        <tr><td class="mod">lostcities 7.4.6</td><td>Setting</td><td>Updated to 7.5.3 (August 2026) during phase 03.</td></tr>
+                <tr><td class="mod">chaoszproject-bandits</td><td>Threat</td><td>Human hostiles.</td></tr>
+        <tr><td class="mod">incontrol 9.3.3</td><td>Threat</td><td>Plus <code>spawn.json</code> and <code>spawner.json</code>. Remove the mech entries.</td></tr>
+        <tr><td class="mod">mob_factions</td><td>Threat</td><td>Remove the mech entries from <code>MobFactions.toml</code>.</td></tr>
+        <tr><td class="mod">zombieawareness</td><td>Threat</td><td>Sensing layer.</td></tr>
+        <tr><td class="mod">guardvillagers · hostilevillages · recruits</td><td>Threat · factions</td><td>Civilian faction.</td></tr>
+        <tr><td class="mod">PlayerRevive</td><td>Looting · survival</td><td>Downed state.</td></tr>
+        <tr><td class="mod">sophisticatedbackpacks + core</td><td>Looting</td><td></td></tr>
+        <tr><td class="mod">CustomStartingGear</td><td>Survival</td><td></td></tr>
+        <tr><td class="mod">UndergroundBunkers · doomsday_decoration · immersive_weathering · refurbished_furniture</td><td>Setting</td><td>Set-dressing that fits.</td></tr>
+        <tr><td class="mod">ImmersiveEngineering</td><td>Vehicles · fuel</td><td>The one tech tree. Trim in config.</td></tr>
+        <tr><td class="mod">FarmersDelight</td><td>Survival</td><td>Food depth. Optional.</td></tr>
+        <tr><td class="mod">modernfix · ferritecore · spark · Chunky</td><td>Infrastructure</td><td></td></tr>
+        <tr><td class="mod">AI-Improvements · letmedespawn · LongNbtKiller · chunksending · dynview · FastFurnace · FastSuite · FastWorkbench · recipeessentials · LeavesBeGone · getittogetherdrops</td><td>Infrastructure</td><td>Performance set, all healthy. Chunk Activity Tracker is dropped — it is the one jar that requires txnilib.</td></tr>
+        <tr><td class="mod">Ping-Wheel · appleskin · worldedit · BHStats</td><td>Infrastructure</td><td>QoL, admin, host stats.</td></tr>
+        <tr><td class="mod">ParCool · bettercombat · sedparties · MagnumTorch · Pillagers Gun</td><td>Optional</td><td>Urban traversal, melee, parties, base spawn-suppression, armed illagers. Each fine on its own; none load-bearing.</td></tr>
+        <tr><td class="mod">factory_blocks · chisel · antiblocksrechiseled</td><td>Build dependency</td><td>The players' sceneries are made of these: 511 k Factory Blocks, 96 k Chisel variants, 14 k AntiBlocks. Kept for the blocks; add Chipped so Factory Blocks stays craftable.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Keep · with a required action</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Jar</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">tacz 1.1.7-hotfix</td><td>Update to 1.1.8-hotfix (May 2026). Then confirm <code>tacz_fire_control_extension</code>, which was built against 1.1.4, still loads.</td></tr>
+        <tr><td class="mod">Keerdm Zombie Essentials 1.4</td><td>Nothing to fix — the failing <code>_vics</code> tables are unused. Keep as-is.</td></tr>
+        <tr><td class="mod">The-Hordes 1.5.4c</td><td>Delete <code>config/hordes/</code> so the mod regenerates a 1.20.1 config. The current folder is from 1.6.0 / 1.21.</td></tr>
+        <tr><td class="mod">lc2h 2.1.1</td><td><strong>Cut.</strong> LC²H 3.5.0 needs Lost Cities ≥ 7.4.11 and its spawn mixin breaks on 7.5.x — a pin window too narrow to maintain. Two phase-03 gates failed on it in sequence; Chunky pre-generation covers what it optimizes.</td></tr>
+        <tr><td class="mod">vvp 0.2.0</td><td>Alpha vehicle pack. Test on staging; keep if stable.</td></tr>
+        <tr><td class="mod">EyesInTheDarkness · the_knocker</td><td>The two horror entities that stay. Eyes: raise <code>SpawnCycleInterval</code>, drop <code>MaxEyesAroundPlayer</code> to 1. Knocker: <code>spawn_rate = "rare"</code>.</td></tr>
+        <tr><td class="mod">lukis-grand-capitals</td><td>11 MB of city structures — potentially strong for the setting. Generate a test world and look before deciding.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Replace</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Jar</th><th>Replace with</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">From-The-Fog (watching) 1.9.2</td><td>The Man From The Fog 1.4 (Forge-native)</td><td>Universal Forge/Fabric jar whose datapack function fails at load.</td></tr>
+        <tr><td class="mod">chaoszpack 1.3.7</td><td>TaCZ's default gun pack + Keerdm</td><td>Its manifest declares <em>mandatory</em> dependencies on Create, Create Deco, Horror Element Mod, MineTraps and Survival Instinct — five cut mods. Keerdm already carries the Lost Cities loot and structures. Fallback if the pack's guns are wanted back: edit its <code>mods.toml</code> to make those optional.</td></tr>
+        <tr><td class="mod">chunkactivitytracker</td><td>Nothing</td><td>The only mod that requires txnilib (the Fabric API bundle).</td></tr>
+        <tr><td class="mod">MineTraps 1.20.2</td><td>A 1.20.1 build, or nothing</td><td>Wrong-version jar.</td></tr>
+        <tr><td class="mod">realmrpg_quests</td><td>FTB Quests</td><td>Needs to carry the strongpoint progression.</td></tr>
+        <tr><td class="mod">mobsunscreen</td><td>Nothing</td><td>Redundant — The Hordes already sets <code>zombiesBurn = false</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Cut</h3>
+  <ul class="cut">
+    <li><b>txnilib</b><span>Bundles all of Fabric API into Forge. Goes with From The Fog's replacement.</span></li>
+    <li><b>lostsouls-1.21</b><span>1.21 jar; not even loading.</span></li>
+    <li><b>Warium</b><span>Broken recipe chain, dev build, third weapon lane, nukes.</span></li>
+    <li><b>Explosion-Overhaul</b><span>163 MB; crater destruction with direct chunk writes.</span></li>
+    <li><b>Gunfire Overhaul · better_weaponry · Divine_Weaponry</b><span>Extra weapon lanes; fantasy.</span></li>
+    <li><b>create · createbigcannons · createdeco · ritchiesprojectilelib</b><span>Second tech tree; artillery covered by Superb Warfare.</span></li>
+    <li><b>engineeredcompatibility · Engineers Delight</b><span>586 dead recipes; compat for a mod being cut.</span></li>
+    <li><b>twilightforest · tf_dnv</b><span>Extra dimension; fantasy. 95 lines of spawn caps written for it are also deleted.</span></li>
+    <li><b>irons_spellbooks · darkdoppelganger</b><span>Magic; the boss casts its spells.</span></li>
+    <li><b>alexscaves</b><span>75 MB of fantasy caves.</span></li>
+    <li><b>Backrooms-Eternal-Refurnished</b><span>Off-theme dimension.</span></li>
+    <li><b>pomkotsmechs · extension · pomkotsworld</b><span>Sci-fi drift; alpha builds; client mixin on the server. Also removed from In Control! and Mob Factions rules.</span></li>
+    <li><b>horror_element_mod · from_the_caves</b><span>Two horror entities is the cap; these are the kitchen-sink ones.</span></li>
+    <li><b>Neruina</b><span>Swallows entity-tick exceptions. A rebuild needs to see its crashes.</span></li>
+    <li><b>waystones · do_a_barrel_roll · netherportalfix</b><span>Travel shortcuts and flight — the cut list.</span></li>
+    <li><b>DoggyTalentsNext · goblintraders · tinymobfarm · nyfsspiders · horsecombatcontrols · movingelevators</b><span>Off-theme or trivialising. Moving Elevators is the one to reconsider for tower traversal.</span></li>
+    <li><b>reddens_stone_lanterns · waterframes</b><span>Decoration that doesn't serve the setting; the few placed blocks are remapped during the transplant.</span></li>
+    <li><b>survival_instinct · dtrch · lrarmor · tmted</b><span>Broken or unidentified small jars. The pillar rule cuts them regardless of what they turn out to be.</span></li>
+    <li><b>lostcities-autogen · does_it_tick</b><span>Profile generator not needed once the profile is locked; Does It Tick targets an absent FTB Chunks.</span></li>
+  </ul>
+
+  <h3>Libraries · follow their dependents</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Library</th><th>Depended on by</th><th>Fate</th></tr></thead>
+      <tbody>
+        <tr><td class="mod">geckolib · azurelib · player-animation-lib · curios · caelus</td><td>Superb Warfare, MCSP, horror entities, backpacks, bettercombat/parcool</td><td>Keep (caelus only if do_a_barrel_roll survived — it doesn't; cut)</td></tr>
+        <tr><td class="mod">berezka_api</td><td>chaoszpack</td><td>Cut — went with chaoszpack; nothing else declares it</td></tr>
+        <tr><td class="mod">coroutil</td><td>Zombie Awareness</td><td>Keep</td></tr>
+        <tr><td class="mod">cupboard</td><td>chunksending, dynview, recipeessentials</td><td>Keep</td></tr>
+        <tr><td class="mod">PuzzlesLib</td><td>LeavesBeGone, MagnumTorch</td><td>Keep</td></tr>
+        <tr><td class="mod">CreativeCore</td><td>PlayerRevive</td><td>Keep</td></tr>
+        <tr><td class="mod">framework</td><td>Refurbished Furniture</td><td>Keep</td></tr>
+        <tr><td class="mod">moonlight</td><td>Immersive Weathering</td><td>Keep</td></tr>
+        <tr><td class="mod">Patchouli</td><td>Immersive Engineering</td><td>Keep while IE stays</td></tr>
+        <tr><td class="mod">cloth-config · architectury · Atlas Lib · almanac · placebo</td><td>bettercombat · Factory Blocks, Chisel, KubeJS · The Hordes · Let Me Despawn · the Fast* trio and Apotheosis</td><td>Keep — each confirmed from a kept jar's manifest</td></tr>
+        <tr><td class="mod">kotlinforforge · fzzy_config · uilib · collective</td><td>No kept mod declares them</td><td>Cut</td></tr>
+        <tr><td class="mod">citadel · terrablender</td><td>Alex's Caves</td><td>Cut with it (TerraBlender returns if a wasteland worldgen mod needs it)</td></tr>
+        <tr><td class="mod">athena · cryonicconfig</td><td>Chisel, Factory Blocks</td><td>Keep — their dependents are build dependencies</td></tr>
+        <tr><td class="mod">balm</td><td>Waystones, Nether Portal Fix</td><td>Cut</td></tr>
+        <tr><td class="mod">supermartijn642 core + config</td><td>Moving Elevators</td><td>Cut</td></tr>
+        <tr><td class="mod">ritchiesprojectilelib</td><td>Create Big Cannons</td><td>Cut</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Client-side ambience · optional, harmless on the server</h3>
+  <p><code>leawind_third_person</code>, <code>Pretty Rain</code>, <code>particular</code>, <code>wakes</code>, <code>sounds_of_the_forest</code>, <code>explosiveenhancement</code>. They belong in the client pack; on the server they only cost boot time.</p>
+</section>
+
+<div class="scope">
+  <h3>Coverage</h3>
+  <p><strong>Read in full:</strong> the <code>/mods</code> listing (138 jars), <code>latest.log</code> (1,761 lines), all 34 crash reports, all 962 archived logs (mod count, lag, memory, joins), all 513 files in <code>config/</code> including every In Control! rule file and the faction, horde, horror and weapon configs, <code>defaultconfigs/</code>, <code>server.properties</code>, <code>ops.json</code>, <code>whitelist.json</code>, and the server's allocation and startup definition from the panel API.</p>
+  <p><strong>Corrected after publication:</strong> the first version of this page reported that directory listings through the panel API had failed all session and attributed it to the node. That was wrong. The listings were being sent with paths rewritten by the local Git Bash shell (<code>/mods</code> arriving as <code>C:/Program Files/Git/mods</code>), and the panel answers a nonexistent path with the same <code>DaemonConnectionException</code> it would give for a real outage. With path conversion off, every listing works. <code>/kubejs</code> does not exist. The world's <code>datapacks/</code> folder is listed above. The server root, both world folders and the stray directories have been inventoried. The only remaining unattributed item is which jar ships the seven Botania recipes.</p>
+  <p><strong>Builds:</strong> all four worlds' overworld region files read in full — 63 + 16 + 6 + 49 files, 29,273 live chunks — plus the old world's nether, Twilight Forest, Backrooms and DimDoors dimensions for the dependency tally. The four <code>[1.21]</code> datapacks were deleted from the live world after it was copied; SBW uniforms and No More Phantoms remain.</p>
+  <p><strong>Inferred, not read:</strong> that From The Fog is txnilib's dependent (from the jar being a universal Forge/Fabric build). <strong>Unidentified:</strong> <code>tmted</code>, <code>dtrch</code>, <code>lrarmor</code> — no listing found; their disposition does not depend on identity.</p>
+  <p><strong>Review passes on this document:</strong> one structural self-check of the page, one cross-check of every count and date against the extracted outputs (which corrected three figures), one correction pass after the root listing succeeded, and one build-analysis pass whose site classifier was revised three times against the data. No independent review.</p>
+
+  <h3>Sources</h3>
+  <ul class="sources">
+    <li>Server files pulled 2026-09-02 via the Bisect panel client API: <code>server.properties</code>, <code>ops.json</code>, <code>whitelist.json</code>, <code>logs/latest.log</code>, <code>mods/</code> listing, <code>config.zip</code> (513 files), <code>crash-reports.zip</code> (34), <code>logs.zip</code> (965), <code>defaultconfigs.zip</code>.</li>
+    <li>Panel API: server details (limits, image, invocation), startup variables, resource utilisation.</li>
+    <li><a href="https://www.curseforge.com/minecraft/mc-mods/txnilib">TxniLib (CurseForge)</a> · <a href="https://modrinth.com/mod/lc2h">LC²H (Modrinth)</a> · <a href="https://www.curseforge.com/minecraft/mc-mods/warium">Warium (CurseForge)</a> · <a href="https://www.curseforge.com/minecraft/mc-mods/twilight-forest-dungeons-villages">tf_dnv (CurseForge)</a> · <a href="https://www.curseforge.com/minecraft/mc-mods/parties">Parties (CurseForge)</a></li>
+    <li>Companion document: <a href="https://claude.ai/code/artifact/98c0d7b4-dd8c-418e-a528-e509d1890917">Wasteland Server Blueprint</a> — the target this audit measures against.</li>
+  </ul>
+</div>
+
+</div>

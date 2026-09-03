@@ -1,0 +1,544 @@
+[
+ {
+  "source": "live",
+  "offset": [
+   0,
+   0
+  ],
+  "chunks": [
+   56,
+   24,
+   193,
+   129
+  ],
+  "what": "player district (12 major sites)",
+  "chunk_count": 14628
+ },
+ {
+  "source": "live",
+  "offset": [
+   0,
+   0
+  ],
+  "chunks": [
+   -1,
+   -1,
+   2,
+   2
+  ],
+  "what": "live outlier site",
+  "chunk_count": 4,
+  "placed": 7961,
+  "block_entities": 52
+ },
+ {
+  "source": "live",
+  "offset": [
+   0,
+   0
+  ],
+  "chunks": [
+   71,
+   8,
+   77,
+   13
+  ],
+  "what": "live outlier site",
+  "chunk_count": 12,
+  "placed": 7894,
+  "block_entities": 18
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   20,
+   -67,
+   23,
+   -64
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 3,
+  "placed": 13222,
+  "block_entities": 332
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   17,
+   -67,
+   19,
+   -65
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 4290,
+  "block_entities": 42
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -73,
+   103,
+   -71,
+   105
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 2377,
+  "block_entities": 5
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   74,
+   -25,
+   76,
+   -23
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 1902,
+  "block_entities": 19
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   53,
+   -42,
+   55,
+   -39
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 2,
+  "placed": 1606,
+  "block_entities": 29
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -70,
+   53,
+   -68,
+   55
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 1821,
+  "block_entities": 1
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   54,
+   -4,
+   56,
+   -2
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 1505,
+  "block_entities": 4
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -69,
+   102,
+   -67,
+   104
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 1465,
+  "block_entities": 1
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   154,
+   101,
+   156,
+   103
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 1273,
+  "block_entities": 9
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   109,
+   103,
+   111,
+   105
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 483,
+  "block_entities": 48
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -55,
+   52,
+   -53,
+   54
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 1203,
+  "block_entities": 4
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -79,
+   61,
+   -77,
+   64
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 2,
+  "placed": 136,
+  "block_entities": 42
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -13,
+   43,
+   -10,
+   45
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 2,
+  "placed": 123,
+  "block_entities": 42
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   63,
+   -25,
+   65,
+   -22
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 2,
+  "placed": 97,
+  "block_entities": 42
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   107,
+   103,
+   109,
+   105
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 274,
+  "block_entities": 32
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   108,
+   101,
+   110,
+   103
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 243,
+  "block_entities": 30
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -79,
+   58,
+   -77,
+   60
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 650,
+  "block_entities": 8
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -77,
+   84,
+   -75,
+   86
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 681,
+  "block_entities": 5
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   120,
+   101,
+   122,
+   103
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 721,
+  "block_entities": 1
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   53,
+   -38,
+   55,
+   -36
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 506,
+  "block_entities": 10
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -72,
+   110,
+   -70,
+   112
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 479,
+  "block_entities": 5
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -59,
+   89,
+   -57,
+   91
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 454,
+  "block_entities": 1
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -76,
+   89,
+   -74,
+   91
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 438,
+  "block_entities": 1
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   61,
+   -41,
+   63,
+   -39
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 267,
+  "block_entities": 5
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   132,
+   93,
+   134,
+   95
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 260,
+  "block_entities": 5
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   55,
+   -13,
+   57,
+   -11
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 314,
+  "block_entities": 2
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -58,
+   78,
+   -56,
+   80
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 233,
+  "block_entities": 6
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -81,
+   93,
+   -79,
+   95
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 241,
+  "block_entities": 5
+ },
+ {
+  "source": "old",
+  "offset": [
+   140,
+   89
+  ],
+  "chunks": [
+   -69,
+   95,
+   -67,
+   97
+  ],
+  "what": "old never-transplanted site",
+  "chunk_count": 1,
+  "placed": 184,
+  "block_entities": 5
+ }
+]

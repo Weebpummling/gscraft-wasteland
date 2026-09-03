@@ -1,0 +1,4910 @@
+[
+ {
+  "world": "live",
+  "blocks": [
+   2192,
+   400,
+   2575,
+   927
+  ],
+  "placed": 1033809,
+  "be": 6425,
+  "top": "factory_blocks:factory"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2528,
+   1344,
+   2751,
+   1631
+  ],
+  "placed": 258579,
+  "be": 838,
+  "top": "minecraft:smooth_stone"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1904,
+   864,
+   2367,
+   1135
+  ],
+  "placed": 248081,
+  "be": 4071,
+  "top": "chisel:cut/light_gray_concrete"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   480,
+   336,
+   671,
+   687
+  ],
+  "placed": 142660,
+  "be": 698,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1168,
+   1200,
+   1455,
+   1503
+  ],
+  "placed": 118550,
+  "be": 621,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1568,
+   1152,
+   1887,
+   1471
+  ],
+  "placed": 100784,
+  "be": 1474,
+  "top": "immersiveengineering:hempcrete_brick"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   976,
+   208,
+   1183,
+   415
+  ],
+  "placed": 99905,
+  "be": 501,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1328,
+   1376,
+   1551,
+   1775
+  ],
+  "placed": 95209,
+  "be": 746,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1488,
+   432,
+   1599,
+   511
+  ],
+  "placed": 77730,
+  "be": 55,
+  "top": "minecraft:acacia_wood"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   896,
+   848,
+   1151,
+   1071
+  ],
+  "placed": 76487,
+  "be": 1943,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   288,
+   1152,
+   431,
+   1295
+  ],
+  "placed": 65634,
+  "be": 258,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   672,
+   736,
+   847,
+   911
+  ],
+  "placed": 63692,
+  "be": 253,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   368,
+   912,
+   511,
+   1071
+  ],
+  "placed": 50101,
+  "be": 209,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2048,
+   1968,
+   2223,
+   2095
+  ],
+  "placed": 40310,
+  "be": 162,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2448,
+   1696,
+   2623,
+   1871
+  ],
+  "placed": 39436,
+  "be": 180,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   432,
+   224,
+   559,
+   335
+  ],
+  "placed": 27972,
+  "be": 127,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1968,
+   1936,
+   2063,
+   2031
+  ],
+  "placed": 27918,
+  "be": 145,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2288,
+   1392,
+   2447,
+   1535
+  ],
+  "placed": 27849,
+  "be": 158,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1072,
+   576,
+   1199,
+   735
+  ],
+  "placed": 26541,
+  "be": 101,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   80,
+   800,
+   239,
+   1039
+  ],
+  "placed": 26009,
+  "be": 1389,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1232,
+   864,
+   1295,
+   959
+  ],
+  "placed": 21122,
+  "be": 104,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   208,
+   720,
+   287,
+   799
+  ],
+  "placed": 19344,
+  "be": 75,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1152,
+   1936,
+   1279,
+   1983
+  ],
+  "placed": 16818,
+  "be": 103,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   144,
+   992,
+   207,
+   1039
+  ],
+  "placed": 16068,
+  "be": 101,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2608,
+   1600,
+   2671,
+   1679
+  ],
+  "placed": 14301,
+  "be": 115,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   912,
+   1840,
+   1007,
+   1951
+  ],
+  "placed": 14101,
+  "be": 74,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1824,
+   1568,
+   1967,
+   1743
+  ],
+  "placed": 13390,
+  "be": 306,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   2576,
+   368,
+   2607,
+   399
+  ],
+  "placed": 13222,
+  "be": 332,
+  "top": "minecraft:red_terracotta"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2016,
+   768,
+   2143,
+   815
+  ],
+  "placed": 12945,
+  "be": 37,
+  "top": "minecraft:prismarine"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   896,
+   1616,
+   959,
+   1711
+  ],
+  "placed": 12057,
+  "be": 43,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2176,
+   2000,
+   2223,
+   2031
+  ],
+  "placed": 11038,
+  "be": 26,
+  "top": "minecraft:polished_blackstone"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1920,
+   1024,
+   1999,
+   1135
+  ],
+  "placed": 10524,
+  "be": 86,
+  "top": "minecraft:waxed_copper_block"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2032,
+   1392,
+   2127,
+   1487
+  ],
+  "placed": 10433,
+  "be": 2010,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2368,
+   1552,
+   2479,
+   1711
+  ],
+  "placed": 10063,
+  "be": 286,
+  "top": "minecraft:packed_mud"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2144,
+   704,
+   2239,
+   879
+  ],
+  "placed": 9845,
+  "be": 81,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1728,
+   16,
+   1823,
+   111
+  ],
+  "placed": 9321,
+  "be": 768,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1536,
+   1920,
+   1599,
+   1951
+  ],
+  "placed": 8642,
+  "be": 58,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   0,
+   0,
+   31,
+   31
+  ],
+  "placed": 7961,
+  "be": 52,
+  "top": "crusty_chunks:structural_concrete"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1152,
+   144,
+   1231,
+   207
+  ],
+  "placed": 7894,
+  "be": 18,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2544,
+   1776,
+   2639,
+   1807
+  ],
+  "placed": 6921,
+  "be": 25,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1344,
+   400,
+   1391,
+   463
+  ],
+  "placed": 6498,
+  "be": 59,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1184,
+   848,
+   1231,
+   943
+  ],
+  "placed": 5416,
+  "be": 11,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1184,
+   464,
+   1263,
+   607
+  ],
+  "placed": 5087,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   928,
+   1600,
+   975,
+   1647
+  ],
+  "placed": 4663,
+  "be": 34,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   2528,
+   368,
+   2543,
+   383
+  ],
+  "placed": 4290,
+  "be": 42,
+  "top": "minecraft:red_terracotta"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   528,
+   992,
+   559,
+   1071
+  ],
+  "placed": 3743,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   896,
+   1568,
+   927,
+   1599
+  ],
+  "placed": 3725,
+  "be": 29,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   896,
+   1808,
+   911,
+   1871
+  ],
+  "placed": 3671,
+  "be": 21,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1712,
+   1872,
+   1775,
+   1935
+  ],
+  "placed": 3588,
+  "be": 0,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2272,
+   1696,
+   2335,
+   1727
+  ],
+  "placed": 3481,
+  "be": 21,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1376,
+   640,
+   1487,
+   655
+  ],
+  "placed": 3402,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2256,
+   1488,
+   2303,
+   1519
+  ],
+  "placed": 3339,
+  "be": 233,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1072,
+   1024,
+   1087,
+   1039
+  ],
+  "placed": 3312,
+  "be": 9,
+  "top": "minecraft:polished_blackstone"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1680,
+   1472,
+   1743,
+   1551
+  ],
+  "placed": 3249,
+  "be": 199,
+  "top": "minecraft:spruce_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2240,
+   1744,
+   2271,
+   1791
+  ],
+  "placed": 3227,
+  "be": 223,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1328,
+   1728,
+   1359,
+   1743
+  ],
+  "placed": 3182,
+  "be": 1,
+  "top": "minecraft:polished_blackstone"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2544,
+   816,
+   2559,
+   895
+  ],
+  "placed": 3178,
+  "be": 2,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1104,
+   1696,
+   1151,
+   1743
+  ],
+  "placed": 3012,
+  "be": 229,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2608,
+   608,
+   2655,
+   655
+  ],
+  "placed": 2871,
+  "be": 2,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1872,
+   1312,
+   1919,
+   1391
+  ],
+  "placed": 2589,
+  "be": 48,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1984,
+   1616,
+   2063,
+   1695
+  ],
+  "placed": 2564,
+  "be": 257,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1232,
+   544,
+   1279,
+   623
+  ],
+  "placed": 2513,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2240,
+   1456,
+   2271,
+   1471
+  ],
+  "placed": 2468,
+  "be": 94,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2672,
+   1744,
+   2735,
+   1775
+  ],
+  "placed": 2455,
+  "be": 10,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1856,
+   1504,
+   1887,
+   1535
+  ],
+  "placed": 2423,
+  "be": 203,
+  "top": "minecraft:smooth_stone"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   768,
+   304,
+   799,
+   319
+  ],
+  "placed": 2408,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   1088,
+   3088,
+   1103,
+   3103
+  ],
+  "placed": 2377,
+  "be": 5,
+  "top": "minecraft:green_terracotta"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1840,
+   864,
+   1871,
+   911
+  ],
+  "placed": 2368,
+  "be": 32,
+  "top": "minecraft:light_gray_concrete"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2384,
+   928,
+   2415,
+   975
+  ],
+  "placed": 2366,
+  "be": 10,
+  "top": "minecraft:pearlescent_froglight"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2240,
+   1424,
+   2255,
+   1439
+  ],
+  "placed": 2329,
+  "be": 59,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2480,
+   1664,
+   2511,
+   1695
+  ],
+  "placed": 2317,
+  "be": 17,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   528,
+   1088,
+   575,
+   1135
+  ],
+  "placed": 2226,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1664,
+   1632,
+   1695,
+   1679
+  ],
+  "placed": 2207,
+  "be": 0,
+  "top": "minecraft:farmland"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1888,
+   768,
+   1919,
+   783
+  ],
+  "placed": 2206,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   896,
+   1744,
+   927,
+   1791
+  ],
+  "placed": 2148,
+  "be": 90,
+  "top": "minecraft:mangrove_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   640,
+   544,
+   655,
+   559
+  ],
+  "placed": 1925,
+  "be": 4,
+  "top": "minecraft:cracked_deepslate_tiles"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   3440,
+   1040,
+   3455,
+   1055
+  ],
+  "placed": 1902,
+  "be": 19,
+  "top": "minecraft:smooth_stone"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   1136,
+   2288,
+   1151,
+   2303
+  ],
+  "placed": 1821,
+  "be": 1,
+  "top": "minecraft:green_terracotta"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   960,
+   752,
+   1007,
+   799
+  ],
+  "placed": 1724,
+  "be": 6,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1152,
+   96,
+   1199,
+   127
+  ],
+  "placed": 1677,
+  "be": 7,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2032,
+   1088,
+   2063,
+   1151
+  ],
+  "placed": 1676,
+  "be": 9,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1600,
+   1408,
+   1647,
+   1455
+  ],
+  "placed": 1637,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1008,
+   432,
+   1039,
+   479
+  ],
+  "placed": 1618,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   3104,
+   768,
+   3119,
+   799
+  ],
+  "placed": 1606,
+  "be": 29,
+  "top": "minecraft:spruce_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1792,
+   1504,
+   1823,
+   1551
+  ],
+  "placed": 1602,
+  "be": 5,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2400,
+   400,
+   2431,
+   415
+  ],
+  "placed": 1592,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   3120,
+   1376,
+   3135,
+   1391
+  ],
+  "placed": 1505,
+  "be": 4,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1872,
+   2064,
+   1903,
+   2095
+  ],
+  "placed": 1500,
+  "be": 2,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   336,
+   1280,
+   351,
+   1295
+  ],
+  "placed": 1481,
+  "be": 6,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   1152,
+   3072,
+   1167,
+   3087
+  ],
+  "placed": 1465,
+  "be": 1,
+  "top": "minecraft:cyan_terracotta"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1792,
+   1904,
+   1823,
+   1935
+  ],
+  "placed": 1435,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   576,
+   256,
+   591,
+   271
+  ],
+  "placed": 1392,
+  "be": 0,
+  "top": "minecraft:polished_blackstone"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2880,
+   1600,
+   2943,
+   1647
+  ],
+  "placed": 1391,
+  "be": 70,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2000,
+   640,
+   2031,
+   671
+  ],
+  "placed": 1314,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1168,
+   752,
+   1199,
+   799
+  ],
+  "placed": 1313,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   4720,
+   3056,
+   4735,
+   3071
+  ],
+  "placed": 1273,
+  "be": 9,
+  "top": "minecraft:smooth_stone"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   896,
+   1152,
+   911,
+   1183
+  ],
+  "placed": 1258,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   800,
+   1344,
+   831,
+   1391
+  ],
+  "placed": 1237,
+  "be": 56,
+  "top": "minecraft:dark_oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1936,
+   1520,
+   1967,
+   1535
+  ],
+  "placed": 1223,
+  "be": 55,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   1376,
+   2272,
+   1391,
+   2287
+  ],
+  "placed": 1203,
+  "be": 4,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2272,
+   2000,
+   2303,
+   2015
+  ],
+  "placed": 1168,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1552,
+   864,
+   1567,
+   895
+  ],
+  "placed": 1153,
+  "be": 3,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1296,
+   1856,
+   1327,
+   1903
+  ],
+  "placed": 1133,
+  "be": 91,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1968,
+   1136,
+   1983,
+   1167
+  ],
+  "placed": 1059,
+  "be": 9,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   128,
+   1184,
+   143,
+   1199
+  ],
+  "placed": 997,
+  "be": 3,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1376,
+   1840,
+   1407,
+   1855
+  ],
+  "placed": 987,
+  "be": 3,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1744,
+   640,
+   1775,
+   655
+  ],
+  "placed": 976,
+  "be": 3,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   928,
+   1840,
+   943,
+   1855
+  ],
+  "placed": 971,
+  "be": 0,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2256,
+   1920,
+   2303,
+   1951
+  ],
+  "placed": 969,
+  "be": 15,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1184,
+   1744,
+   1199,
+   1775
+  ],
+  "placed": 966,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2864,
+   1520,
+   2895,
+   1551
+  ],
+  "placed": 953,
+  "be": 6,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   816,
+   656,
+   847,
+   671
+  ],
+  "placed": 924,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1744,
+   768,
+   1791,
+   783
+  ],
+  "placed": 917,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2032,
+   1008,
+   2047,
+   1055
+  ],
+  "placed": 904,
+  "be": 2,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   784,
+   160,
+   815,
+   175
+  ],
+  "placed": 903,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2096,
+   1504,
+   2127,
+   1551
+  ],
+  "placed": 891,
+  "be": 2,
+  "top": "minecraft:packed_mud"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2624,
+   336,
+   2671,
+   367
+  ],
+  "placed": 888,
+  "be": 6,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1760,
+   1728,
+   1775,
+   1775
+  ],
+  "placed": 886,
+  "be": 0,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1920,
+   2064,
+   1951,
+   2095
+  ],
+  "placed": 868,
+  "be": 10,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1264,
+   368,
+   1295,
+   415
+  ],
+  "placed": 865,
+  "be": 10,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1760,
+   880,
+   1775,
+   911
+  ],
+  "placed": 855,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   384,
+   464,
+   447,
+   495
+  ],
+  "placed": 851,
+  "be": 33,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2176,
+   640,
+   2207,
+   655
+  ],
+  "placed": 839,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1888,
+   1728,
+   1903,
+   1775
+  ],
+  "placed": 834,
+  "be": 17,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   400,
+   352,
+   415,
+   367
+  ],
+  "placed": 821,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2192,
+   1184,
+   2223,
+   1199
+  ],
+  "placed": 817,
+  "be": 11,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1184,
+   1104,
+   1215,
+   1135
+  ],
+  "placed": 814,
+  "be": 4,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   352,
+   192,
+   367,
+   207
+  ],
+  "placed": 812,
+  "be": 10,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1056,
+   1568,
+   1071,
+   1599
+  ],
+  "placed": 806,
+  "be": 14,
+  "top": "minecraft:orange_terracotta"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   304,
+   0,
+   319,
+   31
+  ],
+  "placed": 804,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2848,
+   1424,
+   2879,
+   1439
+  ],
+  "placed": 782,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2160,
+   1440,
+   2207,
+   1471
+  ],
+  "placed": 781,
+  "be": 4,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1616,
+   640,
+   1647,
+   655
+  ],
+  "placed": 777,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   944,
+   464,
+   959,
+   479
+  ],
+  "placed": 768,
+  "be": 2,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2128,
+   1568,
+   2159,
+   1583
+  ],
+  "placed": 764,
+  "be": 0,
+  "top": "minecraft:packed_mud"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   304,
+   144,
+   335,
+   159
+  ],
+  "placed": 748,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1552,
+   1744,
+   1583,
+   1759
+  ],
+  "placed": 735,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1632,
+   1648,
+   1647,
+   1679
+  ],
+  "placed": 730,
+  "be": 144,
+  "top": "minecraft:spruce_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1184,
+   1632,
+   1199,
+   1663
+  ],
+  "placed": 722,
+  "be": 10,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   4176,
+   3056,
+   4191,
+   3071
+  ],
+  "placed": 721,
+  "be": 1,
+  "top": "minecraft:smooth_stone"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2592,
+   544,
+   2623,
+   575
+  ],
+  "placed": 716,
+  "be": 22,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2352,
+   1136,
+   2399,
+   1167
+  ],
+  "placed": 712,
+  "be": 4,
+  "top": "minecraft:packed_mud"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1344,
+   1136,
+   1359,
+   1167
+  ],
+  "placed": 709,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   704,
+   1072,
+   735,
+   1103
+  ],
+  "placed": 706,
+  "be": 6,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1792,
+   1856,
+   1807,
+   1887
+  ],
+  "placed": 697,
+  "be": 4,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2064,
+   1056,
+   2095,
+   1071
+  ],
+  "placed": 694,
+  "be": 4,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1184,
+   1520,
+   1199,
+   1551
+  ],
+  "placed": 685,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   336,
+   1104,
+   367,
+   1119
+  ],
+  "placed": 684,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   1024,
+   2784,
+   1039,
+   2799
+  ],
+  "placed": 681,
+  "be": 5,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   640,
+   464,
+   671,
+   479
+  ],
+  "placed": 678,
+  "be": 0,
+  "top": "minecraft:white_stained_glass"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2256,
+   1200,
+   2271,
+   1215
+  ],
+  "placed": 673,
+  "be": 4,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2080,
+   1968,
+   2095,
+   1983
+  ],
+  "placed": 662,
+  "be": 8,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   624,
+   1088,
+   655,
+   1119
+  ],
+  "placed": 651,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   992,
+   2368,
+   1007,
+   2383
+  ],
+  "placed": 650,
+  "be": 8,
+  "top": "minecraft:polished_andesite"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1024,
+   768,
+   1039,
+   799
+  ],
+  "placed": 641,
+  "be": 0,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2656,
+   1024,
+   2671,
+   1039
+  ],
+  "placed": 635,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1248,
+   144,
+   1279,
+   159
+  ],
+  "placed": 633,
+  "be": 2,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1392,
+   400,
+   1407,
+   415
+  ],
+  "placed": 631,
+  "be": 0,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1936,
+   832,
+   1951,
+   847
+  ],
+  "placed": 625,
+  "be": 8,
+  "top": "minecraft:polished_andesite"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1376,
+   1920,
+   1391,
+   1935
+  ],
+  "placed": 619,
+  "be": 3,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   48,
+   1024,
+   79,
+   1039
+  ],
+  "placed": 619,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1296,
+   1664,
+   1311,
+   1679
+  ],
+  "placed": 617,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1184,
+   384,
+   1199,
+   415
+  ],
+  "placed": 609,
+  "be": 3,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1008,
+   1920,
+   1023,
+   1951
+  ],
+  "placed": 608,
+  "be": 14,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   320,
+   576,
+   335,
+   591
+  ],
+  "placed": 608,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1600,
+   768,
+   1647,
+   815
+  ],
+  "placed": 601,
+  "be": 35,
+  "top": "minecraft:cut_sandstone"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1408,
+   1904,
+   1439,
+   1919
+  ],
+  "placed": 601,
+  "be": 0,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   864,
+   448,
+   895,
+   463
+  ],
+  "placed": 591,
+  "be": 12,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   176,
+   352,
+   191,
+   383
+  ],
+  "placed": 591,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1872,
+   1472,
+   1903,
+   1487
+  ],
+  "placed": 591,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   832,
+   1264,
+   847,
+   1279
+  ],
+  "placed": 567,
+  "be": 24,
+  "top": "minecraft:spruce_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   352,
+   144,
+   383,
+   159
+  ],
+  "placed": 560,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1744,
+   1792,
+   1759,
+   1807
+  ],
+  "placed": 558,
+  "be": 6,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1264,
+   768,
+   1295,
+   783
+  ],
+  "placed": 552,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   704,
+   576,
+   719,
+   591
+  ],
+  "placed": 548,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1104,
+   1424,
+   1135,
+   1439
+  ],
+  "placed": 542,
+  "be": 0,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   160,
+   48,
+   175,
+   63
+  ],
+  "placed": 539,
+  "be": 6,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1328,
+   1904,
+   1359,
+   1935
+  ],
+  "placed": 528,
+  "be": 14,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   848,
+   688,
+   879,
+   703
+  ],
+  "placed": 524,
+  "be": 0,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2112,
+   1776,
+   2127,
+   1791
+  ],
+  "placed": 519,
+  "be": 8,
+  "top": "minecraft:deepslate_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2256,
+   1600,
+   2271,
+   1615
+  ],
+  "placed": 518,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1248,
+   1232,
+   1263,
+   1247
+  ],
+  "placed": 517,
+  "be": 11,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2032,
+   1200,
+   2095,
+   1231
+  ],
+  "placed": 514,
+  "be": 34,
+  "top": "createdeco:industrial_iron_catwalk"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   3104,
+   832,
+   3119,
+   847
+  ],
+  "placed": 506,
+  "be": 10,
+  "top": "minecraft:deepslate_tiles"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   896,
+   1520,
+   911,
+   1551
+  ],
+  "placed": 499,
+  "be": 15,
+  "top": "minecraft:light_gray_concrete"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2096,
+   1696,
+   2111,
+   1711
+  ],
+  "placed": 498,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1984,
+   1504,
+   1999,
+   1519
+  ],
+  "placed": 494,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   272,
+   128,
+   287,
+   143
+  ],
+  "placed": 493,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2784,
+   1472,
+   2799,
+   1487
+  ],
+  "placed": 492,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   944,
+   144,
+   959,
+   159
+  ],
+  "placed": 491,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2656,
+   368,
+   2671,
+   383
+  ],
+  "placed": 489,
+  "be": 1,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   4000,
+   3088,
+   4015,
+   3103
+  ],
+  "placed": 483,
+  "be": 48,
+  "top": "minecraft:polished_granite"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1712,
+   1728,
+   1727,
+   1743
+  ],
+  "placed": 482,
+  "be": 0,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   1104,
+   3200,
+   1119,
+   3215
+  ],
+  "placed": 479,
+  "be": 5,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1712,
+   640,
+   1727,
+   655
+  ],
+  "placed": 471,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2064,
+   848,
+   2079,
+   863
+  ],
+  "placed": 460,
+  "be": 0,
+  "top": "factory_blocks:wgpanel"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   704,
+   624,
+   719,
+   639
+  ],
+  "placed": 454,
+  "be": 2,
+  "top": "minecraft:quartz_block"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   1312,
+   2864,
+   1327,
+   2879
+  ],
+  "placed": 454,
+  "be": 1,
+  "top": "createdeco:industrial_iron_catwalk"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1920,
+   1760,
+   1935,
+   1775
+  ],
+  "placed": 451,
+  "be": 3,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   368,
+   496,
+   383,
+   511
+  ],
+  "placed": 450,
+  "be": 1,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   1040,
+   2864,
+   1055,
+   2879
+  ],
+  "placed": 438,
+  "be": 1,
+  "top": "createdeco:industrial_iron_catwalk"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   944,
+   304,
+   959,
+   319
+  ],
+  "placed": 437,
+  "be": 5,
+  "top": "minecraft:stripped_spruce_log"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1184,
+   1168,
+   1199,
+   1183
+  ],
+  "placed": 437,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1536,
+   672,
+   1551,
+   687
+  ],
+  "placed": 434,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1152,
+   1568,
+   1167,
+   1583
+  ],
+  "placed": 432,
+  "be": 9,
+  "top": "minecraft:red_terracotta"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   848,
+   320,
+   863,
+   335
+  ],
+  "placed": 431,
+  "be": 2,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1808,
+   768,
+   1823,
+   783
+  ],
+  "placed": 429,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1184,
+   1872,
+   1199,
+   1887
+  ],
+  "placed": 416,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2432,
+   1808,
+   2447,
+   1823
+  ],
+  "placed": 409,
+  "be": 11,
+  "top": "minecraft:light_gray_concrete"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1968,
+   736,
+   1983,
+   751
+  ],
+  "placed": 407,
+  "be": 6,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   112,
+   144,
+   127,
+   159
+  ],
+  "placed": 393,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1216,
+   640,
+   1231,
+   655
+  ],
+  "placed": 389,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2128,
+   1648,
+   2143,
+   1663
+  ],
+  "placed": 389,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1216,
+   1504,
+   1231,
+   1519
+  ],
+  "placed": 385,
+  "be": 11,
+  "top": "minecraft:light_gray_concrete"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1648,
+   1520,
+   1663,
+   1535
+  ],
+  "placed": 385,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2240,
+   1712,
+   2255,
+   1727
+  ],
+  "placed": 381,
+  "be": 11,
+  "top": "minecraft:light_gray_concrete"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1920,
+   2016,
+   1935,
+   2031
+  ],
+  "placed": 380,
+  "be": 11,
+  "top": "minecraft:light_gray_concrete"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   3008,
+   1408,
+   3023,
+   1423
+  ],
+  "placed": 380,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   96,
+   512,
+   111,
+   527
+  ],
+  "placed": 378,
+  "be": 16,
+  "top": "minecraft:spruce_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1808,
+   1824,
+   1823,
+   1839
+  ],
+  "placed": 377,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1296,
+   432,
+   1327,
+   447
+  ],
+  "placed": 365,
+  "be": 21,
+  "top": "minecraft:spruce_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1824,
+   944,
+   1839,
+   959
+  ],
+  "placed": 364,
+  "be": 0,
+  "top": "minecraft:chain"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   -32,
+   400,
+   -17,
+   415
+  ],
+  "placed": 363,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   640,
+   1136,
+   655,
+   1151
+  ],
+  "placed": 361,
+  "be": 3,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   64,
+   832,
+   79,
+   847
+  ],
+  "placed": 361,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1248,
+   640,
+   1263,
+   655
+  ],
+  "placed": 361,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1344,
+   1824,
+   1359,
+   1839
+  ],
+  "placed": 360,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2448,
+   400,
+   2463,
+   415
+  ],
+  "placed": 348,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2640,
+   1104,
+   2655,
+   1119
+  ],
+  "placed": 348,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   512,
+   1248,
+   527,
+   1263
+  ],
+  "placed": 345,
+  "be": 2,
+  "top": "minecraft:spruce_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1952,
+   400,
+   1967,
+   415
+  ],
+  "placed": 344,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2096,
+   1264,
+   2127,
+   1295
+  ],
+  "placed": 342,
+  "be": 5,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   288,
+   80,
+   303,
+   95
+  ],
+  "placed": 342,
+  "be": 1,
+  "top": "minecraft:bubble_column"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1936,
+   1952,
+   1951,
+   1967
+  ],
+  "placed": 340,
+  "be": 12,
+  "top": "immersiveengineering:concrete"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2688,
+   784,
+   2719,
+   815
+  ],
+  "placed": 339,
+  "be": 8,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1440,
+   432,
+   1455,
+   447
+  ],
+  "placed": 339,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2320,
+   1264,
+   2335,
+   1279
+  ],
+  "placed": 334,
+  "be": 8,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   704,
+   656,
+   719,
+   671
+  ],
+  "placed": 329,
+  "be": 3,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2448,
+   1088,
+   2463,
+   1103
+  ],
+  "placed": 327,
+  "be": 4,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1984,
+   2064,
+   1999,
+   2079
+  ],
+  "placed": 322,
+  "be": 0,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   3136,
+   1232,
+   3151,
+   1247
+  ],
+  "placed": 314,
+  "be": 2,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   0,
+   928,
+   15,
+   943
+  ],
+  "placed": 313,
+  "be": 2,
+  "top": "minecraft:spruce_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1696,
+   544,
+   1711,
+   559
+  ],
+  "placed": 313,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   864,
+   784,
+   879,
+   799
+  ],
+  "placed": 313,
+  "be": 0,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1024,
+   144,
+   1039,
+   159
+  ],
+  "placed": 313,
+  "be": 0,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2128,
+   1376,
+   2143,
+   1391
+  ],
+  "placed": 313,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1648,
+   704,
+   1663,
+   719
+  ],
+  "placed": 312,
+  "be": 3,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   384,
+   1104,
+   399,
+   1119
+  ],
+  "placed": 310,
+  "be": 0,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   384,
+   784,
+   399,
+   799
+  ],
+  "placed": 309,
+  "be": 0,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   544,
+   784,
+   559,
+   799
+  ],
+  "placed": 309,
+  "be": 0,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   960,
+   1280,
+   975,
+   1295
+  ],
+  "placed": 309,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1024,
+   1104,
+   1039,
+   1119
+  ],
+  "placed": 309,
+  "be": 0,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   272,
+   832,
+   287,
+   847
+  ],
+  "placed": 307,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1616,
+   1200,
+   1631,
+   1215
+  ],
+  "placed": 307,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1280,
+   176,
+   1295,
+   191
+  ],
+  "placed": 306,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   304,
+   1104,
+   319,
+   1119
+  ],
+  "placed": 300,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1568,
+   1600,
+   1583,
+   1615
+  ],
+  "placed": 296,
+  "be": 5,
+  "top": "minecraft:stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2496,
+   1616,
+   2511,
+   1631
+  ],
+  "placed": 294,
+  "be": 7,
+  "top": "minecraft:packed_mud"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   176,
+   112,
+   191,
+   127
+  ],
+  "placed": 294,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1616,
+   1888,
+   1631,
+   1903
+  ],
+  "placed": 292,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1712,
+   2016,
+   1727,
+   2031
+  ],
+  "placed": 289,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   3088,
+   1408,
+   3103,
+   1423
+  ],
+  "placed": 284,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1792,
+   848,
+   1807,
+   863
+  ],
+  "placed": 283,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1840,
+   2064,
+   1855,
+   2079
+  ],
+  "placed": 283,
+  "be": 0,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2624,
+   304,
+   2639,
+   319
+  ],
+  "placed": 283,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   352,
+   640,
+   367,
+   655
+  ],
+  "placed": 282,
+  "be": 1,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   272,
+   1072,
+   287,
+   1087
+  ],
+  "placed": 280,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1280,
+   640,
+   1295,
+   655
+  ],
+  "placed": 278,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1920,
+   1984,
+   1935,
+   1999
+  ],
+  "placed": 278,
+  "be": 2,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   336,
+   480,
+   351,
+   495
+  ],
+  "placed": 278,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2448,
+   1424,
+   2463,
+   1439
+  ],
+  "placed": 278,
+  "be": 0,
+  "top": "minecraft:white_stained_glass"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   352,
+   608,
+   367,
+   623
+  ],
+  "placed": 275,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2544,
+   912,
+   2559,
+   927
+  ],
+  "placed": 274,
+  "be": 3,
+  "top": "minecraft:packed_mud"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   3968,
+   3088,
+   3983,
+   3103
+  ],
+  "placed": 274,
+  "be": 32,
+  "top": "minecraft:polished_granite"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2816,
+   1424,
+   2831,
+   1439
+  ],
+  "placed": 273,
+  "be": 2,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   736,
+   944,
+   751,
+   959
+  ],
+  "placed": 272,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2656,
+   1280,
+   2671,
+   1295
+  ],
+  "placed": 272,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1232,
+   304,
+   1247,
+   319
+  ],
+  "placed": 271,
+  "be": 2,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1856,
+   640,
+   1871,
+   655
+  ],
+  "placed": 271,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2784,
+   1600,
+   2799,
+   1615
+  ],
+  "placed": 271,
+  "be": 0,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   0,
+   1200,
+   15,
+   1215
+  ],
+  "placed": 270,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   544,
+   1184,
+   559,
+   1199
+  ],
+  "placed": 270,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   256,
+   80,
+   271,
+   95
+  ],
+  "placed": 269,
+  "be": 1,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   640,
+   736,
+   655,
+   751
+  ],
+  "placed": 269,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1760,
+   512,
+   1775,
+   527
+  ],
+  "placed": 269,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2320,
+   1296,
+   2335,
+   1311
+  ],
+  "placed": 268,
+  "be": 4,
+  "top": "minecraft:dark_oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1792,
+   1680,
+   1807,
+   1695
+  ],
+  "placed": 267,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   3232,
+   784,
+   3247,
+   799
+  ],
+  "placed": 267,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   368,
+   16,
+   383,
+   31
+  ],
+  "placed": 266,
+  "be": 3,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1024,
+   48,
+   1039,
+   63
+  ],
+  "placed": 266,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   944,
+   1744,
+   959,
+   1759
+  ],
+  "placed": 265,
+  "be": 0,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1344,
+   1568,
+   1359,
+   1583
+  ],
+  "placed": 264,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1904,
+   1312,
+   1919,
+   1327
+  ],
+  "placed": 264,
+  "be": 0,
+  "top": "minecraft:spruce_wood"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2720,
+   1312,
+   2735,
+   1327
+  ],
+  "placed": 263,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2656,
+   912,
+   2671,
+   927
+  ],
+  "placed": 262,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2208,
+   992,
+   2223,
+   1007
+  ],
+  "placed": 262,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2784,
+   1440,
+   2799,
+   1455
+  ],
+  "placed": 261,
+  "be": 0,
+  "top": "minecraft:white_stained_glass"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2784,
+   1520,
+   2799,
+   1535
+  ],
+  "placed": 261,
+  "be": 0,
+  "top": "minecraft:white_stained_glass"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   944,
+   1552,
+   959,
+   1567
+  ],
+  "placed": 260,
+  "be": 2,
+  "top": "minecraft:quartz_block"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1968,
+   1760,
+   1983,
+   1775
+  ],
+  "placed": 260,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   544,
+   160,
+   559,
+   175
+  ],
+  "placed": 260,
+  "be": 0,
+  "top": "minecraft:white_stained_glass"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   4368,
+   2928,
+   4383,
+   2943
+  ],
+  "placed": 260,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   832,
+   1056,
+   847,
+   1071
+  ],
+  "placed": 258,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   304,
+   464,
+   319,
+   479
+  ],
+  "placed": 258,
+  "be": 0,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2176,
+   1648,
+   2191,
+   1663
+  ],
+  "placed": 258,
+  "be": 0,
+  "top": "minecraft:packed_mud"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   704,
+   720,
+   719,
+   735
+  ],
+  "placed": 254,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   544,
+   1392,
+   559,
+   1407
+  ],
+  "placed": 254,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   240,
+   288,
+   287,
+   351
+  ],
+  "placed": 253,
+  "be": 36,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1360,
+   1056,
+   1375,
+   1071
+  ],
+  "placed": 253,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2752,
+   1584,
+   2767,
+   1599
+  ],
+  "placed": 253,
+  "be": 0,
+  "top": "minecraft:white_stained_glass"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2704,
+   1904,
+   2719,
+   1919
+  ],
+  "placed": 253,
+  "be": 0,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2176,
+   304,
+   2191,
+   319
+  ],
+  "placed": 252,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2240,
+   672,
+   2255,
+   687
+  ],
+  "placed": 252,
+  "be": 0,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   880,
+   1456,
+   895,
+   1471
+  ],
+  "placed": 251,
+  "be": 1,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2384,
+   1744,
+   2399,
+   1759
+  ],
+  "placed": 250,
+  "be": 0,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   832,
+   944,
+   847,
+   959
+  ],
+  "placed": 248,
+  "be": 7,
+  "top": "minecraft:spruce_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2176,
+   1824,
+   2191,
+   1839
+  ],
+  "placed": 243,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   3984,
+   3056,
+   3999,
+   3071
+  ],
+  "placed": 243,
+  "be": 30,
+  "top": "minecraft:polished_granite"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   960,
+   2928,
+   975,
+   2943
+  ],
+  "placed": 241,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   -112,
+   208,
+   -97,
+   223
+  ],
+  "placed": 237,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   1328,
+   2688,
+   1343,
+   2703
+  ],
+  "placed": 233,
+  "be": 6,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2256,
+   1392,
+   2271,
+   1407
+  ],
+  "placed": 230,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2464,
+   352,
+   2479,
+   367
+  ],
+  "placed": 224,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2576,
+   1936,
+   2591,
+   1951
+  ],
+  "placed": 200,
+  "be": 14,
+  "top": "minecraft:cracked_deepslate_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   -48,
+   832,
+   -33,
+   847
+  ],
+  "placed": 188,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2560,
+   1648,
+   2575,
+   1663
+  ],
+  "placed": 185,
+  "be": 14,
+  "top": "minecraft:cracked_deepslate_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   736,
+   672,
+   767,
+   703
+  ],
+  "placed": 184,
+  "be": 9,
+  "top": "minecraft:spruce_planks"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   1152,
+   2960,
+   1167,
+   2975
+  ],
+  "placed": 184,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1360,
+   256,
+   1375,
+   271
+  ],
+  "placed": 177,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   992,
+   1792,
+   1007,
+   1807
+  ],
+  "placed": 173,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2384,
+   992,
+   2415,
+   1023
+  ],
+  "placed": 168,
+  "be": 17,
+  "top": "minecraft:packed_mud"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2608,
+   1280,
+   2623,
+   1295
+  ],
+  "placed": 166,
+  "be": 10,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   176,
+   1216,
+   191,
+   1247
+  ],
+  "placed": 165,
+  "be": 14,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2640,
+   544,
+   2655,
+   559
+  ],
+  "placed": 162,
+  "be": 6,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   976,
+   1136,
+   991,
+   1151
+  ],
+  "placed": 160,
+  "be": 10,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   640,
+   224,
+   655,
+   239
+  ],
+  "placed": 158,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2400,
+   1168,
+   2447,
+   1215
+  ],
+  "placed": 153,
+  "be": 33,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2800,
+   1664,
+   2831,
+   1679
+  ],
+  "placed": 153,
+  "be": 11,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1024,
+   1712,
+   1039,
+   1727
+  ],
+  "placed": 153,
+  "be": 7,
+  "top": "minecraft:cyan_concrete"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1824,
+   2032,
+   1839,
+   2047
+  ],
+  "placed": 152,
+  "be": 6,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   800,
+   208,
+   815,
+   223
+  ],
+  "placed": 146,
+  "be": 10,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2304,
+   1216,
+   2319,
+   1231
+  ],
+  "placed": 142,
+  "be": 6,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1632,
+   1168,
+   1647,
+   1183
+  ],
+  "placed": 142,
+  "be": 5,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2320,
+   1808,
+   2335,
+   1823
+  ],
+  "placed": 139,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   304,
+   1344,
+   319,
+   1359
+  ],
+  "placed": 138,
+  "be": 10,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   864,
+   560,
+   879,
+   575
+  ],
+  "placed": 136,
+  "be": 10,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   992,
+   2416,
+   1007,
+   2447
+  ],
+  "placed": 136,
+  "be": 42,
+  "top": "minecraft:cobweb"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2112,
+   768,
+   2127,
+   783
+  ],
+  "placed": 135,
+  "be": 5,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   464,
+   352,
+   479,
+   367
+  ],
+  "placed": 134,
+  "be": 10,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2912,
+   1312,
+   2927,
+   1327
+  ],
+  "placed": 134,
+  "be": 6,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2480,
+   1952,
+   2495,
+   1967
+  ],
+  "placed": 132,
+  "be": 10,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1296,
+   96,
+   1311,
+   111
+  ],
+  "placed": 132,
+  "be": 6,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2112,
+   560,
+   2127,
+   575
+  ],
+  "placed": 132,
+  "be": 5,
+  "top": "minecraft:oak_slab"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1456,
+   800,
+   1471,
+   815
+  ],
+  "placed": 128,
+  "be": 10,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1968,
+   1344,
+   1983,
+   1359
+  ],
+  "placed": 123,
+  "be": 6,
+  "top": "minecraft:spruce_wood"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   2048,
+   2128,
+   2079,
+   2143
+  ],
+  "placed": 123,
+  "be": 42,
+  "top": "minecraft:cobweb"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   640,
+   48,
+   655,
+   63
+  ],
+  "placed": 122,
+  "be": 10,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   -80,
+   944,
+   -65,
+   959
+  ],
+  "placed": 121,
+  "be": 10,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2608,
+   960,
+   2623,
+   975
+  ],
+  "placed": 121,
+  "be": 10,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   624,
+   304,
+   639,
+   319
+  ],
+  "placed": 113,
+  "be": 10,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   816,
+   64,
+   831,
+   79
+  ],
+  "placed": 104,
+  "be": 10,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   880,
+   656,
+   895,
+   671
+  ],
+  "placed": 103,
+  "be": 6,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1280,
+   1168,
+   1295,
+   1183
+  ],
+  "placed": 100,
+  "be": 5,
+  "top": "minecraft:stripped_spruce_log"
+ },
+ {
+  "world": "old-only",
+  "blocks": [
+   3264,
+   1040,
+   3279,
+   1071
+  ],
+  "placed": 97,
+  "be": 42,
+  "top": "minecraft:cobweb"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2480,
+   1312,
+   2495,
+   1327
+  ],
+  "placed": 96,
+  "be": 10,
+  "top": "minecraft:cobbled_deepslate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1360,
+   752,
+   1375,
+   767
+  ],
+  "placed": 81,
+  "be": 5,
+  "top": "minecraft:bubble_column"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1072,
+   512,
+   1087,
+   527
+  ],
+  "placed": 80,
+  "be": 10,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1232,
+   1584,
+   1247,
+   1615
+  ],
+  "placed": 72,
+  "be": 12,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2432,
+   928,
+   2447,
+   943
+  ],
+  "placed": 66,
+  "be": 5,
+  "top": "minecraft:packed_mud"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1440,
+   1168,
+   1455,
+   1183
+  ],
+  "placed": 63,
+  "be": 10,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2768,
+   1072,
+   2783,
+   1087
+  ],
+  "placed": 60,
+  "be": 10,
+  "top": "minecraft:oak_planks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2144,
+   1328,
+   2159,
+   1359
+  ],
+  "placed": 54,
+  "be": 10,
+  "top": "minecraft:packed_mud"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1056,
+   1408,
+   1071,
+   1423
+  ],
+  "placed": 48,
+  "be": 6,
+  "top": "minecraft:dirt_path"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   416,
+   112,
+   431,
+   127
+  ],
+  "placed": 44,
+  "be": 6,
+  "top": "minecraft:cut_sandstone"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2352,
+   1920,
+   2367,
+   1935
+  ],
+  "placed": 44,
+  "be": 6,
+  "top": "minecraft:cracked_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2928,
+   1440,
+   2943,
+   1455
+  ],
+  "placed": 43,
+  "be": 7,
+  "top": "minecraft:mossy_stone_bricks"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2592,
+   1856,
+   2607,
+   1871
+  ],
+  "placed": 43,
+  "be": 6,
+  "top": "minecraft:smooth_basalt"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2400,
+   1264,
+   2415,
+   1279
+  ],
+  "placed": 41,
+  "be": 8,
+  "top": "minecraft:bubble_column"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   720,
+   80,
+   735,
+   95
+  ],
+  "placed": 41,
+  "be": 5,
+  "top": "minecraft:cut_sandstone"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   480,
+   144,
+   495,
+   159
+  ],
+  "placed": 38,
+  "be": 6,
+  "top": "minecraft:bubble_column"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   112,
+   32,
+   127,
+   47
+  ],
+  "placed": 38,
+  "be": 5,
+  "top": "minecraft:cut_sandstone"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1392,
+   896,
+   1407,
+   911
+  ],
+  "placed": 37,
+  "be": 6,
+  "top": "minecraft:bubble_column"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2128,
+   1280,
+   2159,
+   1311
+  ],
+  "placed": 32,
+  "be": 10,
+  "top": "minecraft:packed_mud"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2096,
+   1328,
+   2127,
+   1343
+  ],
+  "placed": 31,
+  "be": 9,
+  "top": "minecraft:packed_mud"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1968,
+   1264,
+   2047,
+   1295
+  ],
+  "placed": 30,
+  "be": 30,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2064,
+   1248,
+   2095,
+   1279
+  ],
+  "placed": 29,
+  "be": 13,
+  "top": "minecraft:dark_oak_wood"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2080,
+   384,
+   2095,
+   399
+  ],
+  "placed": 28,
+  "be": 7,
+  "top": "minecraft:cut_sandstone"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   0,
+   320,
+   15,
+   335
+  ],
+  "placed": 26,
+  "be": 6,
+  "top": "minecraft:stripped_oak_log"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   704,
+   1152,
+   719,
+   1167
+  ],
+  "placed": 23,
+  "be": 6,
+  "top": "minecraft:cobweb"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2000,
+   720,
+   2015,
+   735
+  ],
+  "placed": 22,
+  "be": 6,
+  "top": "minecraft:cobweb"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2112,
+   736,
+   2127,
+   751
+  ],
+  "placed": 20,
+  "be": 11,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1904,
+   1408,
+   1919,
+   1423
+  ],
+  "placed": 20,
+  "be": 5,
+  "top": "minecraft:oak_fence_gate"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2608,
+   1136,
+   2623,
+   1151
+  ],
+  "placed": 19,
+  "be": 6,
+  "top": "minecraft:stripped_oak_log"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1504,
+   720,
+   1519,
+   735
+  ],
+  "placed": 17,
+  "be": 6,
+  "top": "minecraft:cobweb"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2448,
+   992,
+   2479,
+   1007
+  ],
+  "placed": 15,
+  "be": 15,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2480,
+   960,
+   2511,
+   975
+  ],
+  "placed": 10,
+  "be": 10,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2176,
+   1216,
+   2191,
+   1247
+  ],
+  "placed": 10,
+  "be": 10,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2256,
+   1248,
+   2287,
+   1279
+  ],
+  "placed": 10,
+  "be": 10,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2224,
+   1152,
+   2255,
+   1183
+  ],
+  "placed": 8,
+  "be": 9,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1984,
+   1216,
+   1999,
+   1231
+  ],
+  "placed": 7,
+  "be": 7,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2304,
+   1328,
+   2319,
+   1343
+  ],
+  "placed": 7,
+  "be": 7,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2272,
+   864,
+   2287,
+   879
+  ],
+  "placed": 6,
+  "be": 6,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2112,
+   1616,
+   2127,
+   1631
+  ],
+  "placed": 6,
+  "be": 4,
+  "top": "farmersdelight:wild_carrots"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   1840,
+   1280,
+   1855,
+   1295
+  ],
+  "placed": 5,
+  "be": 5,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2352,
+   1184,
+   2367,
+   1199
+  ],
+  "placed": 5,
+  "be": 5,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   800,
+   1232,
+   815,
+   1247
+  ],
+  "placed": 4,
+  "be": 5,
+  "top": "minecraft:chest"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2304,
+   1168,
+   2319,
+   1183
+  ],
+  "placed": 4,
+  "be": 4,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   2224,
+   1216,
+   2239,
+   1231
+  ],
+  "placed": 4,
+  "be": 4,
+  "top": "minecraft:sculk_sensor"
+ },
+ {
+  "world": "live",
+  "blocks": [
+   960,
+   592,
+   975,
+   607
+  ],
+  "placed": 3,
+  "be": 4,
+  "top": "minecraft:spawner"
+ }
+]

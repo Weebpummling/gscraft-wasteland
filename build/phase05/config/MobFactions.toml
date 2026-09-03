@@ -1,0 +1,7 @@
+
+[Default]
+	Factions = "zombie, skeleton, illager, piglin, civilian"
+	Entities = "[zombie, zombie_villager, husk, drowned, zombified_piglin, zoglin, the_knocker:knocker, the_knocker:knockerdeadanimal, the_knocker:knockerstalk, the_knocker:knockerstalklooked, the_knocker:knockerswim], [skeleton, stray, wither_skeleton], [pillager, vindicator, ravager, evoker, vex], [piglin, piglin_brute, zombified_piglin], [villager, iron_golem, guardvillagers:guard]"
+	Enemies = "[illager, piglin, civilian], [illager, piglin, civilian], [zombie, skeleton, piglin, civilian], [zombie, skeleton, illager], [zombie, skeleton, illager]"
+	Allies = "[skeleton], [zombie], [], [], []"
+
