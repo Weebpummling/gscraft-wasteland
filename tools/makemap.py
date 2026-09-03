@@ -2,11 +2,13 @@
 import json, html as H, sys
 from pathlib import Path
 
-SP = Path(__file__).parent
-TOOLS = Path(r"C:\GSCraft\tools")
-rows = json.load(open(SP / "worlds/buildmap/site_inventory.json"))
+ROOT = Path(__file__).resolve().parent.parent   # repo root
+SP = ROOT / "buildmap"
+DOCS = ROOT / "docs"
+TOOLS = ROOT / "tools"
+rows = json.load(open(SP / "site_inventory.json"))
 sps = json.load(open(TOOLS / "strongpoints.json"))
-plan = json.load(open(SP / "worlds/buildmap/transplant_plan.json"))
+plan = json.load(open(SP / "transplant_plan.json"))
 start = json.loads(sys.argv[1]) if len(sys.argv) > 1 else [-176, -176, 207, 207]
 crater = [-16, -16, 47, 47]
 
@@ -171,5 +173,5 @@ page = f"""<title>Wasteland District Map</title>
 <h2>Starting area</h2>
 <p>Blocks {start[0]} to {start[2]} on both axes, {sw} x {sh}, centred on the spawn structure. The structure stands in the old lake at level 62 at the bottom of a basin whose walls are ramped up to the plateau over 96 blocks; the whole square is cleared of city ruins down to natural ground and a yellow concrete line follows the ground along its border. World spawn is the structure plaza at 19, 94, 26.</p>
 </div>"""
-(SP / "wasteland-district-map.html").write_text(page, encoding="utf-8")
+(DOCS / "wasteland-district-map.html").write_text(page, encoding="utf-8")
 print("map written", len(page), "major:", [r["name"] for r in major], "small:", nsmall, "ruins:", nruin)

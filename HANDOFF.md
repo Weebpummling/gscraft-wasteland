@@ -1,0 +1,76 @@
+# Handoff: picking the work up on another machine
+
+State as of 2026-09-02 evening. Everything below is reproducible from this repository plus the
+release assets; nothing needed lives only on the original workstation.
+
+## 1. What exists right now
+
+- **Server**: Bisect Hosting, Forge 1.20.1-47.4.10, 102 mod IDs, world `wasteland` (Lost Cities
+  7.5.3, profile `wasteland`, seed 2404991234066556536). Public address 199.115.76.82:9150.
+  Whitelist off, MOTD "GSCraft Wasteland - test build", world spawn 19 94 26 on the spawn structure.
+- **World content**: the player district and 29 old-world sites transplanted through a 354-entry
+  block remap; the FR-06 complex verified pixel-identical; five compound pads (radio tower 128x128,
+  substation 160x160, water treatment 192x160, hospital 192x192, airfield 512x192) levelled,
+  outlined in yellow concrete and ramped; a 384x384 starting area cleared and outlined; every
+  transplant edge ramped (residual gaps of 3+ blocks: 19.6% of edge columns, all but 187 at buildings).
+- **Boot gate**: 12 error lines, all benign (11 Immersive Vehicles pack model quirks, 1 Forge dist
+  probe); 43 warnings. Anything else on a future boot is new.
+- **Backup**: the whole server root as of 2026-09-02 (3.1 GB) is in the release assets.
+- **Still to do**: KubeJS state machine for the location loop (clock, target draw, countdown,
+  waves, boss); FTB Quests book and home-claim marker; horror rates measured in play; an in-game
+  flight through every site and pad; Superb Warfare small-arms toggle; old-world housekeeping on the
+  server (`mods_old_20260902`, `config_old_20260902`, `defaultconfigs_old_20260902`, the two old
+  world folders, the 557 MB zip) only after the flight.
+- **Open question**: the custom cyberpunk city the owner remembers is not in any world copy that
+  was on this server. The only custom cityscape found is the FR-06 complex. When the city's file
+  turns up, the transplant pipeline below takes it.
+
+## 2. Setting up at home
+
+1. Python 3.12 with `numpy` and `pillow` (`pip install numpy pillow`). Nothing else.
+2. Clone this repo. Create `~/.bisect/config.json`:
+   ```json
+   {"panel": "https://games.bisecthosting.com", "token": "<your ptlc_ client API key>", "server": "493d6256"}
+   ```
+   The key comes from the panel's Account > API Credentials page. Never commit it.
+3. Download the release assets you need (see section 4) and unpack:
+   - `GSCraft-Client.zip`: the Prism Launcher instance for players (import as-is).
+   - `gscraft-server-mods-1.20.1.zip`: the pinned server jar set, into `tools/build/mods/`.
+   - `wasteland-region-pristine-v2.zip`: the pre-edit, post-pregen region files, into
+     `scratch/worlds/wasteland/region/`.
+   - the `server-backup-2026-09-02-*.zip` files: the old server, every folder as a zip.
+4. Test the panel link: `python tools/bisectpanel.py resources` (Git Bash: `export MSYS_NO_PATHCONV=1`
+   first, or use PowerShell).
+
+## 3. The tools, in the order the work uses them
+
+| Step | Tool | Notes |
+|---|---|---|
+| Read a world | `scanregion.py`, `worldscan.py`, `topdown.py` | `topdown.py <region dir> out.png --scale 2` renders any region folder. |
+| Find builds | `buildmap.py` | Produces the site list and the transplant plan. |
+| Remap blocks | `planblocks.py`, `makeremap.py` | `KEEP` in `planblocks.py` is the namespace set of the current mod list. |
+| Transplant | `transplant.py`, `runplan.py` | Dry-run first (`--dry-run`), then write; runs long, background it. |
+| Clean up | `fixspawners.py <world>` | Cut-mod spawners, stray entities, dead loot tables. |
+| Pre-generate | `pregen.py <plan.json>` | Drives Chunky through the panel console. |
+| Terrain | `runpass.py`, `terrain.py`, `strongpoints.py` | Always start from the pristine region set; upload with the server stopped; delete `/wasteland/poi`. |
+| Server | `bisectpanel.py`, `backup.py`, `mcping.py` | `pull` compresses server-side and downloads; `putdir` uploads a folder. |
+| Map page | `makemap.py` | Regenerates `docs/wasteland-district-map.html` from `buildmap/`. |
+
+Traps that cost time, all documented in `docs/notes/`: Git Bash path conversion, the panel's
+Cloudflare user-agent check, the `files/contents` POST, archives that are ZIP regardless of name,
+the apostrophe problem in shell heredocs, and the `clear_column(x, z, from_y)` argument order.
+
+## 4. Release assets (GitHub Releases, tag `handoff-2026-09-02`)
+
+Large binaries are not in git. The release carries the client pack, the server mod set, the
+pristine world region set, the edited v5 region set, and the server backup archives. Player
+identity files from the server root (ops, whitelist, user caches) are deliberately not published.
+
+## 5. The design
+
+`docs/wasteland-server-blueprint.html` is the design and the phase-by-phase record;
+`docs/gscraft-server-audit.html` is the audit of the server as found;
+`docs/wasteland-district-map.html` is the map with every build named, the location pool and the pads.
+The endgame loop in force: take a location, a clock starts to fortify it; each cycle the game draws
+one held location and warns; lose or die and retake it; every location drops radio-tower loot; tower
+done starts a countdown; waves come to the players' own base; the last wave brings the boss.
