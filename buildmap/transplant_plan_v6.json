@@ -1,0 +1,164 @@
+[
+ {
+  "source": "settlement",
+  "source_dir": "G:/GSCraft/scratch/upgrade/world/world",
+  "chunks": [
+   -27,
+   92,
+   -11,
+   109
+  ],
+  "offset": [
+   247,
+   -52
+  ],
+  "dy": 16,
+  "what": "the settlement (east compound) -> water pad re-cut 288x304, ground 78-86",
+  "dest_blocks": [
+   3520,
+   640,
+   3791,
+   927
+  ],
+  "chunk_count": 306
+ },
+ {
+  "source": "novo",
+  "source_dir": "G:/GSCraft/scratch/upgrade/novo_industrial/world",
+  "chunks": [
+   39,
+   9,
+   47,
+   18
+  ],
+  "offset": [
+   23,
+   -3
+  ],
+  "dy": -160,
+  "what": "Novo Expograd Industrial Zone -> spine site x 992..1135 z 96..255; superflat source ground y 230, dy -160 -> 70",
+  "dest_blocks": [
+   992,
+   96,
+   1135,
+   255
+  ],
+  "chunk_count": 90
+ },
+ {
+  "source": "plaza",
+  "source_dir": "G:/GSCraft/scratch/upgrade/financial_plaza/world",
+  "chunks": [
+   -27,
+   -73,
+   -18,
+   -65
+  ],
+  "offset": [
+   -95,
+   126
+  ],
+  "dy": 16,
+  "what": "Financial Plaza -> dry site 2.1 km WEST of the camp (pad y 70), dy +16 (superflat ground 54 -> 70)",
+  "dest_blocks": [
+   -1952,
+   848,
+   -1793,
+   991
+  ],
+  "chunk_count": 90
+ },
+ {
+  "source": "biogen_s",
+  "source_dir": "G:/GSCraft/scratch/upgrade/biogen_strip/world",
+  "chunks": [
+   29,
+   -63,
+   32,
+   -60
+  ],
+  "offset": [
+   157,
+   221
+  ],
+  "dy": 64,
+  "what": "Bio Gen south group -> airfield pad west end, ground 67",
+  "dest_blocks": [
+   2976,
+   2528,
+   3039,
+   2591
+  ],
+  "chunk_count": 16
+ },
+ {
+  "source": "biogen_n",
+  "source_dir": "G:/GSCraft/scratch/upgrade/biogen_strip/world",
+  "chunks": [
+   30,
+   -75,
+   30,
+   -74
+  ],
+  "offset": [
+   156,
+   238
+  ],
+  "dy": 64,
+  "what": "Bio Gen north group -> airfield pad west end, ground 67",
+  "dest_blocks": [
+   2976,
+   2608,
+   2991,
+   2639
+  ],
+  "chunk_count": 2
+ },
+ {
+  "source": "sewers",
+  "source_dir": "G:/GSCraft/scratch/upgrade/sewers/world",
+  "chunks": [
+   -59,
+   -20,
+   -54,
+   -15
+  ],
+  "offset": [
+   -61,
+   75
+  ],
+  "dy": -16,
+  "sections_below_y": 48,
+  "what": "sewers under the plaza (west site), dy -16, sections below y 48 only",
+  "dest_blocks": [
+   -1920,
+   880,
+   -1825,
+   975
+  ],
+  "chunk_count": 36
+ },
+ {
+  "source": "hub",
+  "source_dir": "G:/GSCraft/scratch/upgrade/world/world",
+  "chunks": [
+   -91,
+   96,
+   -40,
+   135
+  ],
+  "offset": [
+   441,
+   -22
+  ],
+  "dy": 16,
+  "what": "Novo Expograd city (hub, ships cut) -> air ring 6.0 km E; dy 16 or 32 from the pregen render",
+  "dest_blocks": [
+   5600,
+   1184,
+   6431,
+   1823
+  ],
+  "chunk_count": 2080
+ }
+]

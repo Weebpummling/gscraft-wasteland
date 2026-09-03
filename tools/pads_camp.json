@@ -1,0 +1,68 @@
+[
+ {
+  "name": "walker_yard",
+  "blocks": [
+   56,
+   76,
+   103,
+   115
+  ],
+  "y": 94,
+  "note": "Walker's yard 40x32 + 4 apron; ground 87..110, median 94, cut 49% fill 45%"
+ },
+ {
+  "name": "michael_plant",
+  "blocks": [
+   -44,
+   96,
+   -5,
+   127
+  ],
+  "y": 108,
+  "note": "Michael's plant 32x24 + 4 apron at the crater edge; ground 79..114 (bimodal), pad at 108 = a terrace above the lake; crater rect protected"
+ },
+ {
+  "name": "marshall_gate",
+  "blocks": [
+   146,
+   -4,
+   177,
+   19
+  ],
+  "y": 111,
+  "note": "gatehouse 24x16 + apron; ground 109..117"
+ },
+ {
+  "name": "tony_clinic",
+  "blocks": [
+   -104,
+   -104,
+   -77,
+   -81
+  ],
+  "y": 84,
+  "note": "clinic 20x16 + apron; ground 84..90"
+ },
+ {
+  "name": "tune_shack",
+  "blocks": [
+   36,
+   -124,
+   59,
+   -101
+  ],
+  "y": 85,
+  "note": "radio shack 16x16 + apron; ground 83..92"
+ },
+ {
+  "name": "james_lookout",
+  "blocks": [
+   -154,
+   -154,
+   -139,
+   -139
+  ],
+  "y": 88,
+  "note": "lookout 8x8 + apron; ground 87..90"
+ }
+]

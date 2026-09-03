@@ -1,0 +1,68 @@
+[
+ {
+  "name": "radio_tower",
+  "blocks": [
+   64,
+   -144,
+   191,
+   -17
+  ],
+  "y": 99,
+  "note": "in the camp; measured flattest 128x128, median 99"
+ },
+ {
+  "name": "novo_site",
+  "blocks": [
+   984,
+   88,
+   1143,
+   263
+  ],
+  "y": 70,
+  "note": "Novo Industrial Zone + apron; source is a superflat with ground at y 230 (spawn y 4 was a lie): dy -160 -> 70; pregen terrain median 71"
+ },
+ {
+  "name": "plaza",
+  "blocks": [
+   -1976,
+   840,
+   -1801,
+   999
+  ],
+  "y": 70,
+  "note": "Financial Plaza on DRY land 2.1 km west of the camp (owner: dry land); pregen terrain median 65, water 9% in the margin, unbuilt; pad 176x160 at 70 = superflat ground 54 + 16"
+ },
+ {
+  "name": "settlement",
+  "blocks": [
+   3512,
+   632,
+   3799,
+   935
+  ],
+  "y": 80,
+  "note": "old water pad re-cut 288x304; source ground 62-70 + 16"
+ },
+ {
+  "name": "airfield",
+  "blocks": [
+   2959,
+   2519,
+   3470,
+   2710
+  ],
+  "y": 67,
+  "note": "runway east 430 m + Bio Gen west end; +3 from v5 so Bio Gen (ground 3 + 64) sits on it"
+ },
+ {
+  "name": "hub",
+  "blocks": [
+   5592,
+   1176,
+   6439,
+   1831
+  ],
+  "y": 82,
+  "note": "832x640 + apron; pregen terrain median 71 (p10 62 = water, p90 89); hub source edge ground ~66 + dy 16 = 82"
+ }
+]

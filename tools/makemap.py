@@ -45,8 +45,8 @@ for r in plan:
     x1, z1, x2, z2 = r["chunks"]; dx, dz = r["offset"]
     rects.append((r["source"], [(x1 + dx) * 16, (z1 + dz) * 16, (x2 + dx) * 16 + 15, (z2 + dz) * 16 + 15]))
 
-X1, Z1, X2, Z2 = -300, -300, 4900, 3400
-W, HGT = 1180, 838
+X1, Z1, X2, Z2 = -300, -300, 6600, 3400
+W, HGT = 1380, 740
 sx = W / (X2 - X1); sz = HGT / (Z2 - Z1)
 px = lambda x: (x - X1) * sx
 pz = lambda z: (z - Z1) * sz
@@ -91,6 +91,19 @@ for p in sps:
     x1, z1, x2, z2 = p["blocks"]
     parts.append(rect(p["blocks"], "pad"))
     parts.append(f'<text class="lbl" x="{px(x1) + 3:.1f}" y="{pz(z1) - 5:.1f}">{NAMESP[p["name"]]} {p["size"][0]}x{p["size"][1]}</text>')
+# --- v6 layout layer (docs/gscraft-map-layout-v6.md): planned transplants, pads, the tower in the camp
+plan6 = json.load(open(SP / "transplant_plan_v6.json")) if (SP / "transplant_plan_v6.json").exists() else []
+pads6 = json.load(open(TOOLS / "pads_v6.json")) if (TOOLS / "pads_v6.json").exists() else []
+for p6 in pads6:
+    parts.append(rect(p6["blocks"], "pad6"))
+    parts.append(f'<text class="lbl6" x="{px(p6["blocks"][0]) + 3:.1f}" y="{pz(p6["blocks"][1]) - 3:.1f}">pad {H.escape(p6["name"])} y{p6["y"]}</text>')
+V6NAMES = {"settlement": "the settlement", "novo": "Novo Industrial Zone (SP1)", "plaza": "Financial Plaza (SP5)", "biogen_s": "Bio Gen",
+           "biogen_n": "", "sewers": "sewers (below)", "hub": "NOVO EXPOGRAD - the hub (air ring)"}
+for r6 in plan6:
+    parts.append(rect(r6["dest_blocks"], "v6"))
+    nm6 = V6NAMES.get(r6["source"], r6["source"])
+    if nm6: parts.append(f'<text class="lbl6" x="{px(r6["dest_blocks"][0]) + 3:.1f}" y="{pz(r6["dest_blocks"][3]) + 11:.1f}">{H.escape(nm6)} dy{r6.get("dy", 0)}</text>')
+parts.append(f'<text class="prov" x="{px(4700):.1f}" y="{pz(-150):.1f}">V6 LAYOUT (magenta): planned transplants and pads; tower in the camp; border 10 km centred 1900,1250</text>')
 svg = "\n".join(grid + parts)
 
 mrows = "\n".join(
@@ -116,6 +129,9 @@ h1{font-family:"Oswald","Arial Narrow",sans-serif;text-transform:uppercase;font-
 .sub{color:var(--ink-soft);margin:0 0 18px;max-width:78ch}
 .mapwrap{overflow-x:auto;border:1px solid var(--rule);background:var(--surface)}
 svg{display:block;min-width:900px}
+.v6{fill:rgba(220,40,200,.18);stroke:#d028c8;stroke-width:1.4}
+.pad6{fill:none;stroke:#d028c8;stroke-width:1;stroke-dasharray:4 3}
+.lbl6{font:600 10px system-ui,sans-serif;fill:#a0109a}
 .ground{fill:var(--surface)} .grid{stroke:var(--rule);stroke-width:1}
 .tick{font:11px "JetBrains Mono",ui-monospace,monospace;fill:var(--ink-faint)}
 .tr-live{fill:var(--ink-faint);fill-opacity:.10;stroke:var(--ink-faint);stroke-width:1.2}

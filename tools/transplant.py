@@ -172,9 +172,45 @@ def _same_family(a: str, b: str) -> bool:
     return False
 
 
-def shift_chunk(name, root, dx, dz, remap, unmapped):
-    """Shift a parsed chunk by (dx,dz) chunks in place; remap block names; return namespaces seen."""
+def shift_chunk(name, root, dx, dz, remap, unmapped, dy=0):
+    """Shift a parsed chunk by (dx,dz) chunks (and dy blocks, a multiple of 16) in place; remap block names;
+    return namespaces seen. A vertical shift relabels sections, drops what leaves the world, fills the
+    sections that appear below with deepslate/stone, and drops heightmaps/light so the game recomputes."""
     bx, bz = dx * 16, dz * 16
+    if dy % 16:
+        raise ValueError("dy must be a multiple of 16")
+    ks = dy // 16
+    if ks:
+        secs = root.get("sections", (T_LIST, (T_COMPOUND, [])))[1][1]
+        template = next((s for s in secs if "biomes" in s), None)
+        def is_air(sec):
+            bs = sec.get("block_states")
+            if not bs: return True
+            return all(p["Name"][1] in ("minecraft:air", "minecraft:cave_air", "minecraft:void_air") for p in bs[1]["palette"][1][1])
+        solid = [sec["Y"][1] for sec in secs if not is_air(sec)]
+        floor = (min(solid) if solid else 0) + ks          # lowest solid section after the shift: everything under it is fill
+        kept_secs = []
+        for sec in secs:
+            ny = sec["Y"][1] + ks
+            if -4 <= ny <= 19 and not (ks > 0 and ny < floor and is_air(sec)):
+                sec["Y"] = (T_BYTE, ny); kept_secs.append(sec)
+        present = {s["Y"][1] for s in kept_secs}
+        for ny in range(-4, 20):
+            if ny in present or not (ks > 0 and ny < floor): continue
+            fill = "minecraft:deepslate" if ny < 0 else "minecraft:stone"
+            sec = {"Y": (T_BYTE, ny), "block_states": (T_COMPOUND, {"palette": (T_LIST, (T_COMPOUND, [{"Name": (T_STRING, fill)}]))})}
+            if template is not None: sec["biomes"] = template["biomes"]
+            kept_secs.append(sec)
+        kept_secs.sort(key=lambda s: s["Y"][1])
+        root["sections"] = (T_LIST, (T_COMPOUND, kept_secs))
+        root.pop("Heightmaps", None); root["isLightOn"] = (T_BYTE, 0)
+        for be in root.get("block_entities", (T_LIST, (T_COMPOUND, [])))[1][1]:
+            if "y" in be: be["y"] = (T_INT, be["y"][1] + dy)
+        for key in ("block_ticks", "fluid_ticks"):
+            if key in root:
+                for t in root[key][1][1]:
+                    if "y" in t: t["y"] = (T_INT, t["y"][1] + dy)
+        root.pop("PostProcessing", None)
     root["xPos"] = (T_INT, root["xPos"][1] + dx)
     root["zPos"] = (T_INT, root["zPos"][1] + dz)
     namespaces = {}
@@ -216,15 +252,15 @@ def shift_chunk(name, root, dx, dz, remap, unmapped):
     return namespaces
 
 
-def shift_entities_chunk(root, dx, dz):
+def shift_entities_chunk(root, dx, dz, dy=0):
     bx, bz = dx * 16, dz * 16
     if "Position" in root:
         p = root["Position"][1]; root["Position"] = (T_INTS, [p[0] + dx, p[1] + dz])
     for ent in root.get("Entities", (T_LIST, (T_COMPOUND, [])))[1][1]:
         if "Pos" in ent:
             et, pos = ent["Pos"][1]
-            ent["Pos"] = (T_LIST, (et, [pos[0] + bx, pos[1], pos[2] + bz]))
-        for k, d in (("TileX", bx), ("TileZ", bz)):
+            ent["Pos"] = (T_LIST, (et, [pos[0] + bx, pos[1] + dy, pos[2] + bz]))
+        for k, d in (("TileX", bx), ("TileY", dy), ("TileZ", bz)):
             if k in ent: ent[k] = (ent[k][0], ent[k][1] + d)
 
 

@@ -33,6 +33,9 @@ compound as the suburb. Total footprint about 1.3 × 1.0 km.
 
 ## 2. Where it goes
 
+*Superseded 2026-09-03 by `docs/gscraft-map-layout-v6.md` (the placement sheet: 10 km box, tower in the
+camp, every rect with offset and dy). Kept for the reasoning.*
+
 Siting rules (from the map plan and the scale note): inside the 5 km box, at least 1 km from the
 crater so the finale stays a different fight, at least 500 m from the nearest pad, on ground that
 is dry or can be made dry with one `pad` pass, reachable by the road spine.

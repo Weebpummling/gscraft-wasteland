@@ -17,11 +17,11 @@
   },
   "minSimulationDist": {
     "desc:": "The minimum simulation distance allowed to use. Default: 4, minimum 1, maximum 200",
-    "minSimulationDist": 2
+    "minSimulationDist": 4
   },
   "maxSimulationDist": {
     "desc:": "The maximum simulation distance allowed to use. Default: 10, minimum 1, maximum 200",
-    "maxSimulationDist": 6
+    "maxSimulationDist": 10
   },
   "adjustSimulationDistance": {
     "desc:": "Enables automatic simulation distance adjustment. Default: true",

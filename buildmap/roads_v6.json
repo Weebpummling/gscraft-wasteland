@@ -1,0 +1,66 @@
+[
+ {
+  "name": "spine_camp_novo_district",
+  "points": [
+   [
+    173,
+    8
+   ],
+   [
+    984,
+    176
+   ],
+   [
+    1064,
+    264
+   ],
+   [
+    900,
+    384
+   ]
+  ],
+  "width": 7
+ },
+ {
+  "name": "west_road_camp_plaza",
+  "points": [
+   [
+    -176,
+    40
+   ],
+   [
+    -1780,
+    924
+   ]
+  ],
+  "width": 7
+ },
+ {
+  "name": "district_runway",
+  "points": [
+   [
+    2368,
+    1552
+   ],
+   [
+    2959,
+    2615
+   ]
+  ],
+  "width": 7
+ },
+ {
+  "name": "district_settlement",
+  "points": [
+   [
+    3103,
+    783
+   ],
+   [
+    3512,
+    783
+   ]
+  ],
+  "width": 7
+ }
+]

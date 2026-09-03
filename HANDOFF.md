@@ -22,6 +22,12 @@ release assets; nothing needed lives only on the original workstation.
   Order of work from here: (1) a mob-free **visual pass** over the v5 world; (2) decide the map plan and the
   base/hideout upgrade system (both in `docs/wasteland-server-blueprint.html`); (3) intake of the foreign
   1.12.2 worlds (`docs/notes/gscraft-foreign-worlds.md`); then the items below.
+- **2026-09-03 late (this machine):** the 10 km box is pre-generated (tools/localpregen.py cycles the server
+  every ~12k chunks; Lost Cities' caches OOM it otherwise) and the **v6 world is built** by `tools/buildv6.py`
+  (substation pad restored, six pads, seven transplants with vertical shift, smooth, ramps) and staged on the
+  local server as `wasteland-v6` with tower stage 0 placed and the lock scripts armed. `tools/reviewv6.py`
+  audits the whole world; its report and the findings are in `docs/gscraft-map-review-v6.md`. Phase A (the
+  owner's visual pass) is next, then roads and the camp buildings.
 - **Still to do**: KubeJS state machine for the location loop (clock, target draw, countdown,
   waves, boss); FTB Quests book and home-claim marker; horror rates measured in play; an in-game
   flight through every site and pad; Superb Warfare small-arms toggle; old-world housekeeping on the
@@ -84,8 +90,45 @@ identity files from the server root (ops, whitelist, user caches) are deliberate
 results and the six candidate rectangles; `docs/notes/gscraft-scale-and-travel.md` sizes the map against travel times
 (5 km square border, roads, timers for the loop); `docs/notes/gscraft-foreign-builds-plan.md` is the step-by-step plan for
 bringing the 1.12.2 builds (the Novo Expograd city and its districts, ships excluded) into the wasteland world.
-`docs/gscraft-map-design.md` is the map design for review (draft 3: 10 km square border, three ranges, strongpoints are player-built structures, radio tower custom and repaired part by part);
+`docs/gscraft-map-design.md` is THE design the world build and tests are made from (draft 5: 10 km border, three ranges, camp with six NPC buildings, strongpoints are player-built structures, Tarkov-style item ladder with bulky loot-only components, storage as a base function, trips table, build order with test gates);
+`docs/gscraft-map-layout-v6.md` is the placement sheet behind the design (every rect, offset, dy and pad level; tower in the camp, locked);
+`docs/gscraft-quests.md` is every quest and task (77, six NPC chapters, scaled by act and distance, tower gated on progress);
 `docs/notes/gscraft-scale-and-travel.md` holds the speed and travel tables behind it.
 The endgame loop in force: take a location, a clock starts to fortify it; each cycle the game draws
 one held location and warns; lose or die and retake it; every location drops radio-tower loot; tower
 done starts a countdown; waves come to the players' own base; the last wave brings the boss.
+
+## 6. Deploying v6 to the hosted server (panel commands, run by hand)
+
+The panel client tool refuses nothing, but the working-machine assistant is not allowed to run
+destructive panel calls, so the deploy is a hand-run sequence from PowerShell in `tools\`
+(`~\.bisect\config.json` holds the key). `<W>` is the finished world folder
+(`G:\GSCraft\server\wasteland-v6` - the staged copy, which also has tower stage 0 placed), `<B>` the repo's `build\` folder.
+
+1. `python bisectpanel.py power stop` - wait until `python bisectpanel.py resources` says offline.
+2. Swap the rebuild folders back (the rollback left them beside the old ones):
+   `python bisectpanel.py mv /mods /mods_old_20260902` ; `python bisectpanel.py mv /mods_wasteland_20260902 /mods`
+   and the same two renames for `config` and `defaultconfigs`.
+3. `python bisectpanel.py mkdir /kubejs/startup_scripts` then
+   `python bisectpanel.py putdir <B>\kubejs\server_scripts /kubejs/server_scripts` and
+   `python bisectpanel.py putdir <B>\kubejs\startup_scripts /kubejs/startup_scripts`.
+4. The world (about 5.3 GB, resumable - `putdir` uploads every file in one folder):
+   `python bisectpanel.py mkdir /wasteland-v6` then `putdir` for `<W>
+egion -> /wasteland-v6/region`,
+   `<W>\entities -> /wasteland-v6/entities`, `<W>\data -> /wasteland-v6/data`,
+   `<W>\serverconfig -> /wasteland-v6/serverconfig` (take the local server's copy of serverconfig:
+   `G:\GSCraft\server\wasteland-v6\serverconfig`), `put <W>\level.dat /wasteland-v6`, and the datapack:
+   `mkdir` + `putdir` for each folder under `<B>\datapacks\gscraft` into `/wasteland-v6/datapacks/gscraft/...`
+   (pack.mcmeta at the top, then data/gscraft/functions, data/gscraft/structures, and the loot-table and
+   recipe folders).
+5. `python bisectpanel.py put <B>\phase03\server.properties.v6 /` then rename it on the server:
+   `python bisectpanel.py mv /server.properties /server.properties.old` ;
+   `python bisectpanel.py mv /server.properties.v6 /server.properties`.
+6. `python bisectpanel.py setvar AIKARS_ENABLED 1` and `setvar CUSTOM_ARGS "<the Aikar -XX set from
+   docs/notes/gscraft-phase-log.md phase 02>"`.
+7. `python bisectpanel.py power start`; after two minutes `python bisectpanel.py cat /logs/latest.log`
+   should show Done with the benign error set (11 Immersive Vehicles model quirks + 1 dist probe) and the
+   two `[gscraft]` lines from the KubeJS scripts; `python mcping.py 199.115.76.82 9150` answers with
+   MOTD "GSCraft Wasteland - test build v6". Tower stage 0 is already in the region files.
+8. Afterwards: the old world folders (`Escape From Minenkrafte`, `Escape From Minecraft`, `wasteland`
+   if present, `world`, `region`, the 557 MB zip) can go once the flight has happened.

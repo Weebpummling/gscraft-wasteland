@@ -1,0 +1,87 @@
+{
+ "origin": [
+  107,
+  100,
+  -101
+ ],
+ "size": [
+  41,
+  90,
+  41
+ ],
+ "pad": [
+  64,
+  -144,
+  191,
+  -17
+ ],
+ "place": "place template gscraft:tower_stage_N 107 100 -101",
+ "stages": [
+  {
+   "stage": 0,
+   "template": "gscraft:tower_stage_0",
+   "function": "gscraft:tower_stage_0",
+   "blocks": 457,
+   "palette": 8,
+   "part": "as found",
+   "source": "world build",
+   "materials": "-",
+   "adds": "ruined plinth, leg stubs, wrecked hall, broken fence"
+  },
+  {
+   "stage": 1,
+   "template": "gscraft:tower_stage_1",
+   "function": "gscraft:tower_stage_1",
+   "blocks": 748,
+   "palette": 4,
+   "part": "Mast section kit",
+   "source": "heavy anchor cable (Novo Expograd)",
+   "materials": "6 steel frame + 2 fastener kit, Workshop 2",
+   "adds": "mast to full height, cross braces, four guy anchors and wires"
+  },
+  {
+   "stage": 2,
+   "template": "gscraft:tower_stage_2",
+   "function": "gscraft:tower_stage_2",
+   "blocks": 139,
+   "palette": 4,
+   "part": "Cooling loop",
+   "source": "industrial pump (industrial plant)",
+   "materials": "2 filter cartridge + 2 coolant + 2 sealed tubing, Water 2",
+   "adds": "two coolant tanks, pipe run, radiator bank at the mast base"
+  },
+  {
+   "stage": 3,
+   "template": "gscraft:tower_stage_3",
+   "function": "gscraft:tower_stage_3",
+   "blocks": 164,
+   "palette": 13,
+   "part": "Generator kit",
+   "source": "transformer core (FR-06 reactor plaza)",
+   "materials": "2 wiring harness + 1 motor assembly, Generator 2",
+   "adds": "generator shed, relays on the mast, aviation lights and floodlights come on"
+  },
+  {
+   "stage": 4,
+   "template": "gscraft:tower_stage_4",
+   "function": "gscraft:tower_stage_4",
+   "blocks": 248,
+   "palette": 12,
+   "part": "Transmitter",
+   "source": "military circuit board (Financial Plaza)",
+   "materials": "2 circuit assembly + 1 wiring harness, Radio 2",
+   "adds": "hall repaired and fitted out, dish on the roof"
+  },
+  {
+   "stage": 5,
+   "template": "gscraft:tower_stage_5",
+   "function": "gscraft:tower_stage_5",
+   "blocks": 55,
+   "palette": 6,
+   "part": "Antenna array",
+   "source": "phased array element (the hub, air ring only)",
+   "materials": "4 antenna element + 1 circuit assembly, Radio 3",
+   "adds": "spire, dipoles, and the beacon that proves the tower is live"
+  }
+ ]
+}

@@ -20,7 +20,24 @@ import transplant as tp  # noqa: E402
 from planblocks import KEEP  # noqa: E402
 
 
-def run_rect(src_world: Path, dst_world: Path, rect, offset, remap, dry, agg: Counter):
+def stack_into(existing_raw, name, root, below_y):
+    """Merge only the sections of `root` below block y `below_y` into the chunk already at the destination
+    (existing_raw: decompressed NBT bytes or None). Block entities follow the same split."""
+    cut = below_y // 16
+    if existing_raw is None:
+        return tp.W().root(name, root)
+    ename, eroot = tp.R(existing_raw).root()
+    esecs = [sec for sec in eroot.get("sections", (tp.T_LIST, (tp.T_COMPOUND, [])))[1][1] if sec["Y"][1] >= cut]
+    nsecs = [sec for sec in root.get("sections", (tp.T_LIST, (tp.T_COMPOUND, [])))[1][1] if sec["Y"][1] < cut]
+    eroot["sections"] = (tp.T_LIST, (tp.T_COMPOUND, sorted(esecs + nsecs, key=lambda s: s["Y"][1])))
+    ebes = [be for be in eroot.get("block_entities", (tp.T_LIST, (tp.T_COMPOUND, [])))[1][1] if be.get("y", (0, 0))[1] >= below_y]
+    nbes = [be for be in root.get("block_entities", (tp.T_LIST, (tp.T_COMPOUND, [])))[1][1] if be.get("y", (0, 0))[1] < below_y]
+    eroot["block_entities"] = (tp.T_LIST, (tp.T_COMPOUND, ebes + nbes))
+    eroot.pop("Heightmaps", None); eroot["isLightOn"] = (tp.T_BYTE, 0)
+    return tp.W().root(ename, eroot)
+
+
+def run_rect(src_world: Path, dst_world: Path, rect, offset, remap, dry, agg: Counter, dy=0, sections_below_y=None):
     src = src_world / "region"
     dst = dst_world / "region"
     x1, z1, x2, z2 = rect
@@ -36,16 +53,22 @@ def run_rect(src_world: Path, dst_world: Path, rect, offset, remap, dry, agg: Co
                 continue
             ts, comp, raw = entry
             name, root = tp.R(raw).root()
-            ns = tp.shift_chunk(name, root, dx, dz, remap, {})
+            ns = tp.shift_chunk(name, root, dx, dz, remap, {}, dy)
             agg.update(ns)
             if not dry:
                 ncx, ncz = cx + dx, cz + dz
-                by_dst.setdefault(tp.region_of(ncx, ncz), {})[tp.slot_of(ncx, ncz)] = (ts, 2, tp.W().root(name, root))
+                if sections_below_y is not None:
+                    by_dst.setdefault(tp.region_of(ncx, ncz), {})[tp.slot_of(ncx, ncz)] = (ts, name, root)   # stacked later
+                else:
+                    by_dst.setdefault(tp.region_of(ncx, ncz), {})[tp.slot_of(ncx, ncz)] = (ts, 2, tp.W().root(name, root))
             moved += 1
     if not dry:
         for (rx, rz), slots in by_dst.items():
             path = dst / f"r.{rx}.{rz}.mca"
             existing = tp.read_region_raw(path)
+            if sections_below_y is not None:
+                slots = {slot: (ts, 2, stack_into(existing[slot][2] if slot in existing else None, name, root, sections_below_y))
+                         for slot, (ts, name, root) in slots.items()}
             existing.update(slots)
             tp.write_region(path, existing)
             poi = dst_world / "poi" / f"r.{rx}.{rz}.mca"
@@ -63,7 +86,7 @@ def run_rect(src_world: Path, dst_world: Path, rect, offset, remap, dry, agg: Co
                         continue
                     ts, comp, raw = entry
                     name, root = tp.R(raw).root()
-                    tp.shift_entities_chunk(root, dx, dz)
+                    tp.shift_entities_chunk(root, dx, dz, dy)
                     ncx, ncz = cx + dx, cz + dz
                     by_e.setdefault(tp.region_of(ncx, ncz), {})[tp.slot_of(ncx, ncz)] = (ts, 2, tp.W().root(name, root))
             for (rx, rz), slots in by_e.items():
@@ -79,14 +102,15 @@ def main(argv):
     dry = "--dry-run" in argv
     plan = json.loads(Path(a["--plan"]).read_text(encoding="utf-8"))
     remap = {k: v for k, v in json.loads(Path(a["--remap"]).read_text(encoding="utf-8")).items() if not k.startswith("_")}
-    worlds = {"live": Path(a["--live"]), "old": Path(a["--old"])}
+    worlds = {"live": Path(a["--live"]), "old": Path(a["--old"])} if "--live" in a else {}
     dst = Path(a.get("--dst", "")) if not dry else Path(".")
     agg = Counter()
     total = 0
     for i, r in enumerate(plan, 1):
-        n = run_rect(worlds[r["source"]], dst, r["chunks"], r["offset"], remap, dry, agg)
+        src_world = Path(r["source_dir"]) if r.get("source_dir") else worlds[r["source"]]   # source_dir: any world folder
+        n = run_rect(src_world, dst, r["chunks"], r["offset"], remap, dry, agg, r.get("dy", 0), r.get("sections_below_y"))
         total += n
-        print(f"[{i:>2}/{len(plan)}] {r['source']:<4} {r['chunks']} offset {r['offset']} -> {n} chunks {'(dry)' if dry else 'written'}")
+        print(f"[{i:>2}/{len(plan)}] {r['source']:<12} {r['chunks']} offset {r['offset']} dy {r.get('dy', 0)} -> {n} chunks {'(dry)' if dry else 'written'}")
     print(f"\nchunks {'inspected' if dry else 'written'}: {total}")
     print("palette namespaces after remap:")
     outside = []

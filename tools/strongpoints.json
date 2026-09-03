@@ -6,17 +6,17 @@
    128
   ],
   "blocks": [
-   2023,
-   -184,
-   2150,
-   -57
+   64,
+   -144,
+   191,
+   -17
   ],
-  "purpose": "Endgame objective: the mast, its transmitter hall and a walled compound",
+  "purpose": "Endgame objective, IN THE CAMP (north-east corner, pad y 99): the mast, its transmitter hall and a walled compound",
   "chunks": [
-   126,
-   -12,
-   134,
-   -4
+   4,
+   -9,
+   11,
+   -2
   ]
  },
  {

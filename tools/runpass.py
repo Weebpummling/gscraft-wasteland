@@ -20,6 +20,7 @@ def main(argv):
     w, plan, spfile = argv[1], argv[2], argv[3]
     sx1, sz1, sx2, sz2 = argv[4:8]
     crater = ["-16", "-16", "47", "47"]
+    tower = ["64", "-144", "191", "-17"]          # the radio tower compound in the camp: never cleared or smoothed over
     sps = json.load(open(spfile))
     t = time.time(); ys = {}
     for p in sps:
@@ -28,7 +29,7 @@ def main(argv):
         out = run("pad", w, x1, z1, x2, z2, "--label", p["name"])
         ys[p["name"]] = int(out.split("at y=")[1].split(":")[0])
     print("=== clear starting area ===", flush=True)
-    run("pad", w, sx1, sz1, sx2, sz2, "--protect", *crater, "--label", "starting_area", "--clear-only")
+    run("pad", w, sx1, sz1, sx2, sz2, "--protect", *crater, *tower, "--label", "starting_area", "--clear-only")
     print("=== smooth ===", flush=True); run("smooth", w, plan)
     for p in sps:
         x1, z1, x2, z2 = map(str, p["blocks"])
