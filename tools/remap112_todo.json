@@ -1,0 +1,6292 @@
+{
+ "note": "modded blocks inside the six candidate rectangles of the 1.12.2 saves; fill 'to' with a 1.20.1 block (or 'air'); unmapped -> light_gray_concrete placeholder",
+ "rects": {
+  "world_hub": {
+   "save": "world",
+   "blocks": [
+    -1456,
+    1536,
+    -625,
+    2175
+   ]
+  },
+  "world_east_site": {
+   "save": "world",
+   "blocks": [
+    -432,
+    1472,
+    -161,
+    1759
+   ]
+  },
+  "financial_plaza": {
+   "save": "Financial Plaza Quarantine - Copy-20230610-220632",
+   "blocks": [
+    -432,
+    -1168,
+    -273,
+    -1025
+   ]
+  },
+  "novo_industrial": {
+   "save": "Novo Expograd Industrial Zone-20230212-005027",
+   "blocks": [
+    624,
+    144,
+    767,
+    303
+   ]
+  },
+  "sewers": {
+   "save": "SewerPVP-20230220-161204",
+   "blocks": [
+    -944,
+    -320,
+    -849,
+    -225
+   ]
+  },
+  "biogen_strip": {
+   "save": "Bio Gen Offices Restricted Areas",
+   "blocks": [
+    464,
+    -1200,
+    527,
+    -945
+   ]
+  }
+ },
+ "blocks": [
+  {
+   "name": "chisel:antiblock",
+   "count": 129759,
+   "metas": [
+    0,
+    1,
+    2,
+    4,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "novo_industrial",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:stone_decoration",
+   "count": 94816,
+   "metas": [
+    4,
+    5,
+    6
+   ],
+   "rects": [
+    "financial_plaza",
+    "novo_industrial",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:factory",
+   "count": 92687,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "novo_industrial",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:generic_blocks",
+   "count": 81131,
+   "metas": [
+    0,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "novo_industrial",
+    "sewers",
+    "world_east_site",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:basalt1",
+   "count": 41556,
+   "metas": [
+    5,
+    8
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:technical",
+   "count": 15195,
+   "metas": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    9,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "novo_industrial",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "srparasites:infestremain",
+   "count": 14318,
+   "metas": [
+    0,
+    1
+   ],
+   "rects": [
+    "financial_plaza",
+    "novo_industrial",
+    "sewers",
+    "world_east_site",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:concrete_lightgray1",
+   "count": 13350,
+   "metas": [
+    4,
+    5,
+    7,
+    10,
+    12,
+    13
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "simplylight:illuminant_block_on",
+   "count": 13266,
+   "metas": [
+    0,
+    1
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:road_block_standard",
+   "count": 12919,
+   "metas": [
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:factory1",
+   "count": 12616,
+   "metas": [
+    0,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_steel",
+   "count": 6897,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip",
+    "financial_plaza",
+    "world_east_site",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:sheetmetal_slab",
+   "count": 6558,
+   "metas": [
+    0,
+    1,
+    3,
+    5,
+    6,
+    7,
+    8,
+    10
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:technical1",
+   "count": 6213,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:metal_decoration1",
+   "count": 6199,
+   "metas": [
+    0,
+    1,
+    2,
+    5,
+    6
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:technicalnew",
+   "count": 5674,
+   "metas": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    7
+   ],
+   "rects": [
+    "financial_plaza",
+    "novo_industrial",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_tower_large",
+   "count": 5265,
+   "metas": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    8,
+    9,
+    10,
+    11,
+    14
+   ],
+   "rects": [
+    "novo_industrial"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:glass",
+   "count": 4762,
+   "metas": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    9,
+    10,
+    12,
+    14,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "simplylight:edge_light",
+   "count": 4467,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:laboratory",
+   "count": 4152,
+   "metas": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    10,
+    12,
+    13,
+    14,
+    15
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:sheetmetal",
+   "count": 4025,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_stairs_concrete_tile",
+   "count": 3587,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "count": 3022,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:brick_concrete",
+   "count": 2923,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip",
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:concrete_black1",
+   "count": 2819,
+   "metas": [
+    4,
+    8,
+    9
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:street_block_b",
+   "count": 2671,
+   "metas": [
+    5,
+    6,
+    9,
+    10,
+    11
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_tower_small",
+   "count": 2450,
+   "metas": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "rects": [
+    "novo_industrial",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:road_block_yellow",
+   "count": 2413,
+   "metas": [
+    15
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "simplylight:wall_lamp",
+   "count": 2409,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:glass1",
+   "count": 2371,
+   "metas": [
+    0,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "torchmaster:invisible_light",
+   "count": 2330,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:concrete_smooth",
+   "count": 1955,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_quad_green_rusted",
+   "count": 1913,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:metal_decoration2",
+   "count": 1854,
+   "metas": [
+    0,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:blocksteel",
+   "count": 1800,
+   "metas": [
+    1,
+    2,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:futura",
+   "count": 1687,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:metal_decoration1_slab",
+   "count": 1613,
+   "metas": [
+    1,
+    2,
+    6
+   ],
+   "rects": [
+    "novo_industrial",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_framed_green_rusted",
+   "count": 1594,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "novo_industrial",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:storage",
+   "count": 1558,
+   "metas": [
+    2,
+    8
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:brick_concrete_cracked",
+   "count": 1541,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip",
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:steel_grate",
+   "count": 1495,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:brick_light",
+   "count": 1491,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_quad",
+   "count": 1442,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_stairs_hempcrete",
+   "count": 1334,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_rim",
+   "count": 1284,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:fence_metal",
+   "count": 1279,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:brick_concrete_mossy",
+   "count": 1266,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip",
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_rim_green",
+   "count": 1213,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:brick_concrete_broken",
+   "count": 1171,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip",
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_framed_marked",
+   "count": 1113,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "financial_plaza",
+    "novo_industrial",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_framed_red",
+   "count": 1073,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "novo_industrial",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:railing_normal",
+   "count": 1063,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersivepetroleum:stone_decoration",
+   "count": 996,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_block_well",
+   "count": 931,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "simplylight:rodlamp",
+   "count": 931,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:block_scrap",
+   "count": 862,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:street_block_a",
+   "count": 852,
+   "metas": [
+    5,
+    6
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_block_fluidtank",
+   "count": 840,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_chungus",
+   "count": 804,
+   "metas": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    8,
+    9,
+    10,
+    11,
+    13
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:fluid_duct_mk2",
+   "count": 791,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:steel_scaffold",
+   "count": 777,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "biogen_strip",
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:ironpane",
+   "count": 760,
+   "metas": [
+    2,
+    3,
+    5,
+    6,
+    7,
+    11,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "novo_industrial",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:reinforced_sand",
+   "count": 734,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:paper",
+   "count": 718,
+   "metas": [
+    1,
+    6
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:cobblestone2",
+   "count": 710,
+   "metas": [
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:glasspane",
+   "count": 696,
+   "metas": [
+    0,
+    2,
+    6,
+    9,
+    12,
+    14
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:yellow_chevron_right_a",
+   "count": 663,
+   "metas": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_rim_rusted",
+   "count": 663,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:voidstone",
+   "count": 661,
+   "metas": [
+    3,
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:barbed_wire",
+   "count": 658,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_framed_green",
+   "count": 633,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:reinforced_brick",
+   "count": 631,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "simplylight:lightbulb",
+   "count": 624,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:barrier_concrete_2_mid",
+   "count": 610,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:rail_highspeed",
+   "count": 589,
+   "metas": [
+    0,
+    1,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_framed_rusted",
+   "count": 585,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "financial_plaza",
+    "novo_industrial",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_block_refinery",
+   "count": 583,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "novo_industrial"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_rim_green_rusted",
+   "count": 563,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:electric_fence",
+   "count": 562,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "novo_industrial",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:glassdyedblue",
+   "count": 560,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:energizedvoidstone",
+   "count": 560,
+   "metas": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:iter",
+   "count": 537,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    12
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:gold",
+   "count": 524,
+   "metas": [
+    0,
+    3,
+    4,
+    6,
+    7,
+    8,
+    10
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:concrete_white1",
+   "count": 515,
+   "metas": [
+    0,
+    7
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:large_vehicle_door",
+   "count": 504,
+   "metas": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_framed",
+   "count": 491,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:road_block_concrete_2",
+   "count": 484,
+   "metas": [
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_quad_rusted",
+   "count": 466,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "novo_industrial",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_rusted",
+   "count": 416,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_quad_green",
+   "count": 402,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:red_cable",
+   "count": 383,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_east_site",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:brick_obsidian",
+   "count": 377,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:steel_scaffolding_stairs1",
+   "count": 355,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:ancient_scrap",
+   "count": 347,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:road_block_gravel",
+   "count": 343,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    13
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:sliding_seal_door",
+   "count": 336,
+   "metas": [
+    1,
+    7,
+    12,
+    13,
+    14,
+    15
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_bat9000",
+   "count": 315,
+   "metas": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    10,
+    11,
+    12
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "simplylight:illuminant_panel",
+   "count": 311,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_block_turbofan",
+   "count": 304,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_titanium",
+   "count": 301,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip",
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_beryllium",
+   "count": 301,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_block_blast",
+   "count": 294,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:tile_lab_broken",
+   "count": 258,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:line_yellow_straight_thick",
+   "count": 251,
+   "metas": [
+    0,
+    1
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:cobblestone1",
+   "count": 247,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:steel_wall",
+   "count": 240,
+   "metas": [
+    4,
+    5
+   ],
+   "rects": [
+    "biogen_strip"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:blockaluminum",
+   "count": 233,
+   "metas": [
+    1,
+    15
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:connector",
+   "count": 225,
+   "metas": [
+    4,
+    5,
+    8
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:secure_access_door",
+   "count": 225,
+   "metas": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    12,
+    13,
+    14,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:reinforced_stone",
+   "count": 218,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:block_charcoal1",
+   "count": 218,
+   "metas": [
+    13
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:steel_poles",
+   "count": 213,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "biogen_strip",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:line_yellow_straight_full",
+   "count": 211,
+   "metas": [
+    0,
+    1
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:red_wire_coated",
+   "count": 199,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_east_site",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:concrete_pillar",
+   "count": 198,
+   "metas": [
+    0,
+    4,
+    8
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:glasspane1",
+   "count": 198,
+   "metas": [
+    0,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:tyrian",
+   "count": 190,
+   "metas": [
+    1,
+    8,
+    12
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:steel_beam",
+   "count": 190,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_green_rusted",
+   "count": 175,
+   "metas": [
+    1,
+    2
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "twilightforest:iron_ladder",
+   "count": 169,
+   "metas": [
+    2,
+    4,
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:round_airlock_door",
+   "count": 160,
+   "metas": [
+    1,
+    2,
+    3,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    14,
+    15
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "opframe:opframe",
+   "count": 159,
+   "metas": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:glassdyedyellow",
+   "count": 157,
+   "metas": [
+    4
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_tungsten",
+   "count": 155,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip",
+    "financial_plaza",
+    "world_east_site",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:tactile_crossing_bumps",
+   "count": 155,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:decon",
+   "count": 153,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:water_door",
+   "count": 153,
+   "metas": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:ladder_tungsten",
+   "count": 149,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_quad_marked",
+   "count": 145,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:stonebrick2",
+   "count": 143,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:reinforced_light",
+   "count": 142,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip",
+    "world_east_site",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:plasma_heater",
+   "count": 136,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    12
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:metal_ladder",
+   "count": 133,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_red",
+   "count": 129,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "novo_industrial",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:glasspanedyedred",
+   "count": 129,
+   "metas": [
+    1,
+    2
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:reinforced_glass",
+   "count": 126,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_east_site",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:andesite1",
+   "count": 124,
+   "metas": [
+    13,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "twilightforest:nagastone_stairs",
+   "count": 122,
+   "metas": [
+    1,
+    4,
+    5,
+    7,
+    8,
+    10,
+    12,
+    13,
+    14
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_quad_red",
+   "count": 118,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:factory_titanium_hull",
+   "count": 118,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:iron",
+   "count": 107,
+   "metas": [
+    13
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_block_vault",
+   "count": 107,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "novo_industrial"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:yellow_barrel",
+   "count": 106,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:concrete_asbestos",
+   "count": 104,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:drain_cover_2",
+   "count": 102,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "twilightforest:tower_wood",
+   "count": 101,
+   "metas": [
+    2,
+    3,
+    4
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:planks-dark-oak",
+   "count": 98,
+   "metas": [
+    11,
+    13
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe",
+   "count": 95,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_large_turbine",
+   "count": 90,
+   "metas": [
+    1,
+    4,
+    5,
+    8,
+    9,
+    10,
+    11,
+    14
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:glowstone1",
+   "count": 87,
+   "metas": [
+    2,
+    15
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:railing_bend",
+   "count": 85,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_port_fluidtank",
+   "count": 84,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:barrier_tall_mid",
+   "count": 84,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:lapis",
+   "count": 82,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:barrier_tall_edge",
+   "count": 81,
+   "metas": [
+    1,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_port_well",
+   "count": 76,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:bar_stool",
+   "count": 76,
+   "metas": [
+    0,
+    1,
+    3,
+    4,
+    5,
+    6,
+    7,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:qe_sliding",
+   "count": 72,
+   "metas": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:block_tantalium",
+   "count": 71,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:cloth_device",
+   "count": 69,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:concrete_white2",
+   "count": 68,
+   "metas": [
+    15
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:door_metal",
+   "count": 68,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    8,
+    9
+   ],
+   "rects": [
+    "biogen_strip",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "twilightforest:spiral_bricks",
+   "count": 67,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    7,
+    9
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:seal_frame",
+   "count": 66,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:turret_maxwell",
+   "count": 64,
+   "metas": [
+    2,
+    3,
+    4,
+    5,
+    12,
+    13,
+    14,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:blockbronze",
+   "count": 63,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_rim_red",
+   "count": 59,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:glassdyedorange",
+   "count": 58,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_block_ams_limiter",
+   "count": 54,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "twilightforest:nagastone_pillar",
+   "count": 54,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_slab",
+   "count": 53,
+   "metas": [
+    4
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:treated_wood",
+   "count": 53,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_east_site"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_rim_marked",
+   "count": 52,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:fake_light_source",
+   "count": 52,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:street_light_5",
+   "count": 52,
+   "metas": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:rbmk_console",
+   "count": 50,
+   "metas": [
+    1,
+    2,
+    3,
+    5,
+    15
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:seal_hatch",
+   "count": 49,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "simplylight:illuminant_block",
+   "count": 49,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:inflatable_castle",
+   "count": 49,
+   "metas": [
+    0,
+    6
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:blast_door",
+   "count": 49,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_red_copper",
+   "count": 49,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_east_site",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:carpet_red",
+   "count": 48,
+   "metas": [
+    15
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:blockplatinum",
+   "count": 48,
+   "metas": [
+    15
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_plate_compact_launcher",
+   "count": 48,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_port_compact_launcher",
+   "count": 48,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:carpet_magenta",
+   "count": 48,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:diamond",
+   "count": 46,
+   "metas": [
+    15
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:barrier_bars_edge_concrete_1",
+   "count": 45,
+   "metas": [
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:drain_cover_1",
+   "count": 43,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:concrete_lightblue1",
+   "count": 42,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:ladder_red",
+   "count": 42,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "torchmaster:mega_torch",
+   "count": 41,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "twilightforest:castle_stairs",
+   "count": 40,
+   "metas": [
+    4,
+    5,
+    6,
+    7
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "twilightforest:knightmetal_block",
+   "count": 38,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "torchmaster:feral_flare_lantern",
+   "count": 38,
+   "metas": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:valentines",
+   "count": 37,
+   "metas": [
+    2,
+    3,
+    7,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:tape_recorder",
+   "count": 37,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "biogen_strip",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_block_silo_hatch",
+   "count": 36,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_stairs_concrete_leaded",
+   "count": 36,
+   "metas": [
+    0,
+    2,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:blockcobalt",
+   "count": 36,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:metal_device1",
+   "count": 35,
+   "metas": [
+    6,
+    11
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:barrier_bars_edge_concrete_1_double",
+   "count": 34,
+   "metas": [
+    0,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:control_panel0",
+   "count": 34,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:concrete_white",
+   "count": 32,
+   "metas": [
+    8
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:modern_sliding_door",
+   "count": 32,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:blockinvar",
+   "count": 32,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:curtains_open",
+   "count": 31,
+   "metas": [
+    0,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_lead",
+   "count": 30,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:storage_slab",
+   "count": 30,
+   "metas": [
+    2,
+    4,
+    8
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:desk_stone",
+   "count": 30,
+   "metas": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_port_refinery",
+   "count": 30,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "novo_industrial"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:concrete_black",
+   "count": 28,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:sliding_blast_door",
+   "count": 28,
+   "metas": [
+    1,
+    4,
+    5,
+    7,
+    10,
+    11,
+    13
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:cabinet_kitchen",
+   "count": 27,
+   "metas": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:line_white_straight_thick",
+   "count": 26,
+   "metas": [
+    0,
+    1
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:bollard_2",
+   "count": 24,
+   "metas": [
+    3,
+    13
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:concrete_lightgray",
+   "count": 24,
+   "metas": [
+    2,
+    7,
+    8,
+    12,
+    15
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_marked",
+   "count": 24,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:ladder_steel",
+   "count": 24,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:door_bunker",
+   "count": 24,
+   "metas": [
+    0,
+    1,
+    3,
+    4,
+    5,
+    8,
+    9
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:door_office",
+   "count": 24,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    8,
+    9
+   ],
+   "rects": [
+    "biogen_strip",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "twilightforest:castle_door",
+   "count": 24,
+   "metas": [
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_stairs_concrete",
+   "count": 24,
+   "metas": [
+    0,
+    1,
+    4,
+    5,
+    7
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:freezer",
+   "count": 22,
+   "metas": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:fridge",
+   "count": 22,
+   "metas": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:road_block_muddy",
+   "count": 21,
+   "metas": [
+    11,
+    13
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_fluidtank",
+   "count": 21,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:ladder_lead",
+   "count": 20,
+   "metas": [
+    4,
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:toilet",
+   "count": 20,
+   "metas": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_well",
+   "count": 19,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:cup",
+   "count": 19,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:steel_scaffolding_stairs0",
+   "count": 19,
+   "metas": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:pole_satellite_receiver",
+   "count": 19,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "biogen_strip",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:bookshelf_darkoak",
+   "count": 19,
+   "metas": [
+    0,
+    1,
+    5,
+    7
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:tv",
+   "count": 18,
+   "metas": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:qe_containment",
+   "count": 18,
+   "metas": [
+    1,
+    4,
+    5,
+    7,
+    10,
+    11,
+    12,
+    13
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "torchmaster:terrain_lighter",
+   "count": 18,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:factory_titanium_furnace",
+   "count": 18,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "biogen_strip"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:pole_top",
+   "count": 17,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip",
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:pribris_digamma",
+   "count": 17,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "thuttech:lift",
+   "count": 17,
+   "metas": [
+    0,
+    1,
+    9,
+    13
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:wooden_decoration",
+   "count": 17,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_east_site"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_port_turbofan",
+   "count": 16,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:voidstonerunic",
+   "count": 16,
+   "metas": [
+    5,
+    6
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:line_white_far_side",
+   "count": 16,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:stonebrick1",
+   "count": 16,
+   "metas": [
+    9
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:carpet_black",
+   "count": 15,
+   "metas": [
+    0,
+    15
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:hatch_box_yellow",
+   "count": 14,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:hedge_jungle",
+   "count": 14,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:barrel_corroded",
+   "count": 14,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:barrier_bars_edge_concrete_2",
+   "count": 14,
+   "metas": [
+    1,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:line_red_straight_thick",
+   "count": 14,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:line_white_side_single",
+   "count": 13,
+   "metas": [
+    2,
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cookingforblockheads:fridge",
+   "count": 13,
+   "metas": [
+    0,
+    1,
+    2,
+    8,
+    10
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_electric_furnace_off",
+   "count": 13,
+   "metas": [
+    3,
+    5
+   ],
+   "rects": [
+    "biogen_strip",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:block_niobium",
+   "count": 13,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:kerb_standard",
+   "count": 12,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:compact_launcher",
+   "count": 12,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:planks-oak",
+   "count": 12,
+   "metas": [
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:block_lead",
+   "count": 12,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:barrier_bars_edge",
+   "count": 12,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:bedside_cabinet_acacia",
+   "count": 12,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:bookshelf_oak",
+   "count": 12,
+   "metas": [
+    4,
+    8
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:ladder_red_top",
+   "count": 12,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_difurnace_off",
+   "count": 12,
+   "metas": [
+    5
+   ],
+   "rects": [
+    "biogen_strip"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:blinds_birch_open",
+   "count": 11,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_generator",
+   "count": 11,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_east_site",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:stereo",
+   "count": 11,
+   "metas": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:desk_diorite",
+   "count": 11,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:counter_sink",
+   "count": 11,
+   "metas": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:planks-birch",
+   "count": 10,
+   "metas": [
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "simplylight:illuminant_slab",
+   "count": 10,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:ladder_titanium",
+   "count": 10,
+   "metas": [
+    4,
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:spinny_light",
+   "count": 10,
+   "metas": [
+    0,
+    2,
+    4,
+    5
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:paint_letter_yellow_op",
+   "count": 10,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    9,
+    11
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:desk_dark_oak",
+   "count": 10,
+   "metas": [
+    1,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:bookshelf_spruce",
+   "count": 10,
+   "metas": [
+    0,
+    8
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:crate_weapon",
+   "count": 10,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:ladder_iron",
+   "count": 10,
+   "metas": [
+    3,
+    5
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:wool_red",
+   "count": 9,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:glowstone",
+   "count": 9,
+   "metas": [
+    11
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:wool_cyan",
+   "count": 9,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:shower_bottom",
+   "count": 9,
+   "metas": [
+    0,
+    2
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:shower_top",
+   "count": 9,
+   "metas": [
+    0,
+    2
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:shower_head_off",
+   "count": 9,
+   "metas": [
+    0,
+    2
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:desk_oak",
+   "count": 9,
+   "metas": [
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:table_andesite",
+   "count": 8,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:deco_pipe_green",
+   "count": 8,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:block_sulfur",
+   "count": 8,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:washing_machine",
+   "count": 8,
+   "metas": [
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cookingforblockheads:cooking_table",
+   "count": 8,
+   "metas": [
+    2,
+    3,
+    4
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:paint_letter_yellow_qr",
+   "count": 8,
+   "metas": [
+    8,
+    10
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:line_yellow_far_side",
+   "count": 8,
+   "metas": [
+    2,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "srparasites:gore",
+   "count": 8,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:couch",
+   "count": 8,
+   "metas": [
+    1,
+    2
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:plate",
+   "count": 8,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:counter",
+   "count": 8,
+   "metas": [
+    0,
+    1,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:oven",
+   "count": 8,
+   "metas": [
+    0,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:computer",
+   "count": 8,
+   "metas": [
+    0,
+    1,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_refinery",
+   "count": 8,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "novo_industrial"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:ladder_aluminium",
+   "count": 8,
+   "metas": [
+    5
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:manhole_cover_round",
+   "count": 7,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:desk_spruce",
+   "count": 7,
+   "metas": [
+    1,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_battery",
+   "count": 7,
+   "metas": [
+    2,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_east_site",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:cabinet_jungle",
+   "count": 7,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:grill",
+   "count": 7,
+   "metas": [
+    0,
+    2
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:microwave",
+   "count": 7,
+   "metas": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cookingforblockheads:oven",
+   "count": 7,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:red_entry",
+   "count": 7,
+   "metas": [
+    3,
+    6,
+    10,
+    14
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:red_no",
+   "count": 7,
+   "metas": [
+    3,
+    6,
+    10,
+    14
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:cabinet_stone",
+   "count": 7,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "twilightforest:underbrick",
+   "count": 7,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:planks-spruce",
+   "count": 6,
+   "metas": [
+    6
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:table_diorite",
+   "count": 6,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_radar",
+   "count": 6,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:tv_stand",
+   "count": 6,
+   "metas": [
+    0,
+    2,
+    3
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:white_merge_arrow",
+   "count": 6,
+   "metas": [
+    2,
+    6
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:pink_stairs",
+   "count": 6,
+   "metas": [
+    0,
+    2,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:blender",
+   "count": 6,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:esky",
+   "count": 6,
+   "metas": [
+    0,
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cookingforblockheads:counter",
+   "count": 6,
+   "metas": [
+    2,
+    3,
+    10,
+    11
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:boxcar",
+   "count": 6,
+   "metas": [
+    2,
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cookingforblockheads:sink",
+   "count": 6,
+   "metas": [
+    0,
+    2,
+    8,
+    9
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:paint_letter_yellow_ij",
+   "count": 6,
+   "metas": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_controller",
+   "count": 6,
+   "metas": [
+    2,
+    5
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:red_barrel",
+   "count": 6,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:paint_letter_yellow_cd",
+   "count": 6,
+   "metas": [
+    0,
+    1,
+    2,
+    3,
+    8,
+    10
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:white_stop",
+   "count": 6,
+   "metas": [
+    6,
+    7,
+    10,
+    11,
+    14,
+    15
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:fusion_heater",
+   "count": 6,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "world_east_site"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:cookie_jar",
+   "count": 6,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:bookshelf_jungle",
+   "count": 6,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:speed_bump",
+   "count": 6,
+   "metas": [
+    12
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:barrier_concrete_edge_1",
+   "count": 6,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:factory_titanium_core",
+   "count": 6,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "biogen_strip"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:table_oak",
+   "count": 5,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "twilightforest:root",
+   "count": 5,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:reinforced_lamp_off",
+   "count": 5,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:aluminum_scaffolding_stairs1",
+   "count": 5,
+   "metas": [
+    0,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:basin",
+   "count": 5,
+   "metas": [
+    2,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:railing_end_flipped_self",
+   "count": 5,
+   "metas": [
+    2,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:bin",
+   "count": 5,
+   "metas": [
+    0,
+    1,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:white_only",
+   "count": 5,
+   "metas": [
+    2,
+    7,
+    11,
+    15
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:white_turn",
+   "count": 5,
+   "metas": [
+    2,
+    7,
+    11,
+    15
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:wooden_device0",
+   "count": 5,
+   "metas": [
+    0,
+    2
+   ],
+   "rects": [
+    "world_east_site",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:crate_iron",
+   "count": 5,
+   "metas": [
+    2,
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:yellow_arrow_diagonal",
+   "count": 5,
+   "metas": [
+    0,
+    1,
+    3,
+    4
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:bm_power_box",
+   "count": 5,
+   "metas": [
+    6,
+    8,
+    10
+   ],
+   "rects": [
+    "financial_plaza",
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:block_charcoal",
+   "count": 5,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_turbofan",
+   "count": 4,
+   "metas": [
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:turret_cwis",
+   "count": 4,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_storage_drum",
+   "count": 4,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "vehicle:traffic_cone",
+   "count": 4,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_port_ams_limiter",
+   "count": 4,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:bollard_3",
+   "count": 4,
+   "metas": [
+    10
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:brick_concrete_marked",
+   "count": 4,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:coffee_table_oak",
+   "count": 4,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:lamp_off",
+   "count": 4,
+   "metas": [
+    3,
+    14
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:chopping_board",
+   "count": 4,
+   "metas": [
+    1,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:desk_cabinet_spruce",
+   "count": 4,
+   "metas": [
+    0,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:paint_letter_yellow_kl",
+   "count": 4,
+   "metas": [
+    9,
+    11
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:railing_end_self",
+   "count": 4,
+   "metas": [
+    2,
+    3,
+    4
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:crate_steel",
+   "count": 4,
+   "metas": [
+    2,
+    5
+   ],
+   "rects": [
+    "biogen_strip",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cookingforblockheads:cutting_board",
+   "count": 4,
+   "metas": [
+    3,
+    4,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:chair_oak",
+   "count": 4,
+   "metas": [
+    0,
+    2,
+    3
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:cabinet_acacia",
+   "count": 4,
+   "metas": [
+    0,
+    1,
+    3
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:grand_chair_bottom",
+   "count": 4,
+   "metas": [
+    0,
+    1,
+    3
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:grand_chair_top",
+   "count": 4,
+   "metas": [
+    0,
+    1,
+    3
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:table_stone",
+   "count": 4,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:vault_door",
+   "count": 4,
+   "metas": [
+    3,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "novo_industrial"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:barrier_wall_edge_concrete_2_double",
+   "count": 4,
+   "metas": [
+    0,
+    2
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:turret_friendly",
+   "count": 4,
+   "metas": [
+    3,
+    5,
+    12
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:crate_lead",
+   "count": 4,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_dineutronium_battery",
+   "count": 3,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "srparasites:infestedbush",
+   "count": 3,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "immersiveengineering:metal_device0",
+   "count": 3,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:modern_table",
+   "count": 3,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:chair_dark_oak",
+   "count": 3,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:coffee_table_andesite",
+   "count": 3,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:seal_controller",
+   "count": 3,
+   "metas": [
+    4,
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:chair_spruce",
+   "count": 3,
+   "metas": [
+    2,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:digital_clock",
+   "count": 3,
+   "metas": [
+    0,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:barrier_bars_edge_2",
+   "count": 3,
+   "metas": [
+    0,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:curtains_closed",
+   "count": 3,
+   "metas": [
+    0,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "weather2:weather_machine",
+   "count": 3,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:toaster",
+   "count": 3,
+   "metas": [
+    0,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:bedside_cabinet_jungle",
+   "count": 3,
+   "metas": [
+    0,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:reactor_element",
+   "count": 3,
+   "metas": [
+    0,
+    1
+   ],
+   "rects": [
+    "world_east_site",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:railing_end_floor",
+   "count": 3,
+   "metas": [
+    4,
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:railing_end_flipped_floor",
+   "count": 3,
+   "metas": [
+    4,
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:fairy_light",
+   "count": 3,
+   "metas": [
+    0,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:chair_acacia",
+   "count": 3,
+   "metas": [
+    0,
+    1,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:modern_chair",
+   "count": 3,
+   "metas": [
+    1,
+    3
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:crate",
+   "count": 3,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:white_right",
+   "count": 3,
+   "metas": [
+    7,
+    11,
+    15
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:red_keep",
+   "count": 3,
+   "metas": [
+    6,
+    10,
+    14
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:red_clear",
+   "count": 3,
+   "metas": [
+    6,
+    10,
+    14
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:glassdyedlime",
+   "count": 3,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:table_birch",
+   "count": 3,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "openmodularturrets:laser_turret",
+   "count": 2,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "openmodularturrets:rail_gun_turret",
+   "count": 2,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:launch_pad",
+   "count": 2,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "vehicle:fluid_pipe",
+   "count": 2,
+   "metas": [
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:white_left",
+   "count": 2,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:couch_jeb",
+   "count": 2,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:modern_couch",
+   "count": 2,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:lox_barrel",
+   "count": 2,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:concrete_gray",
+   "count": 2,
+   "metas": [
+    6
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:ams_limiter",
+   "count": 2,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:obsidian",
+   "count": 2,
+   "metas": [
+    15
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:manhole_cover_square",
+   "count": 2,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:candle",
+   "count": 2,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_centrifuge",
+   "count": 2,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_uf6_tank",
+   "count": 2,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_puf6_tank",
+   "count": 2,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_microwave",
+   "count": 2,
+   "metas": [
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:crashed_bomb",
+   "count": 2,
+   "metas": [
+    2,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "twilightforest:mine_trapdoor",
+   "count": 2,
+   "metas": [
+    10
+   ],
+   "rects": [
+    "sewers",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:modern_bed_top",
+   "count": 2,
+   "metas": [
+    2,
+    4
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:modern_bed_bottom",
+   "count": 2,
+   "metas": [
+    4,
+    6
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:bollard_1",
+   "count": 2,
+   "metas": [
+    4,
+    5
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:yellow_merge_arrow",
+   "count": 2,
+   "metas": [
+    3,
+    7
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:paint_letter_yellow_ab",
+   "count": 2,
+   "metas": [
+    0,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:chair_diorite",
+   "count": 2,
+   "metas": [
+    0,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:desk_cabinet_diorite",
+   "count": 2,
+   "metas": [
+    0,
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:paint_letter_yellow_ef",
+   "count": 2,
+   "metas": [
+    1,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:paint_letter_yellow_mn",
+   "count": 2,
+   "metas": [
+    9,
+    11
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:paint_letter_yellow_yz",
+   "count": 2,
+   "metas": [
+    1,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cookingforblockheads:cow_jar",
+   "count": 2,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "financial_plaza",
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:cabinet_andesite",
+   "count": 2,
+   "metas": [
+    2,
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:reactor_computer",
+   "count": 2,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:table_spruce",
+   "count": 2,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:blocktin",
+   "count": 2,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:crate",
+   "count": 2,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:cabinet_diorite",
+   "count": 2,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "srparasites:infestedstain",
+   "count": 1,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "openmodularturrets:turret_base",
+   "count": 1,
+   "metas": [
+    4
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:bench",
+   "count": 1,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "chisel:carpet_green",
+   "count": 1,
+   "metas": [
+    15
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:coffee_table_granite",
+   "count": 1,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "twilightforest:canopy_gate",
+   "count": 1,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:brick_jungle_glyph",
+   "count": 1,
+   "metas": [
+    15
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:bedside_cabinet_andesite",
+   "count": 1,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:desk_cabinet_jungle",
+   "count": 1,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:silo_hatch",
+   "count": 1,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "customnpcs:npcmailbox",
+   "count": 1,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:crate_ammo",
+   "count": 1,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:dishwasher",
+   "count": 1,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_diesel",
+   "count": 1,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:ceiling_fan",
+   "count": 1,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:chair_jungle",
+   "count": 1,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_epress",
+   "count": 1,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "furenikusroads:line_white_straight_double",
+   "count": 1,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cookingforblockheads:toaster",
+   "count": 1,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cookingforblockheads:cabinet",
+   "count": 1,
+   "metas": [
+    11
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "torchmaster:dread_lamp",
+   "count": 1,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_reactor_small",
+   "count": 1,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_block_reactor_small",
+   "count": 1,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:dummy_port_reactor_small",
+   "count": 1,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:geiger",
+   "count": 1,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "cfm:printer",
+   "count": 1,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:nuke_man",
+   "count": 1,
+   "metas": [
+    2
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:block_uranium",
+   "count": 1,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:machine_nuke_furnace_off",
+   "count": 1,
+   "metas": [
+    4
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:broadcaster_pc",
+   "count": 1,
+   "metas": [
+    5
+   ],
+   "rects": [
+    "world_hub"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:cable_switch",
+   "count": 1,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "world_east_site"
+   ],
+   "to": null
+  },
+  {
+   "name": "cookingforblockheads:milk_jar",
+   "count": 1,
+   "metas": [
+    3
+   ],
+   "rects": [
+    "financial_plaza"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:geysir_vapor",
+   "count": 1,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "novo_industrial"
+   ],
+   "to": null
+  },
+  {
+   "name": "srparasites:parasitecanister",
+   "count": 1,
+   "metas": [
+    1
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "cookingforblockheads:tool_rack",
+   "count": 1,
+   "metas": [
+    4
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "twilightforest:trophy",
+   "count": 1,
+   "metas": [
+    4
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  },
+  {
+   "name": "hbm:block_waste_painted",
+   "count": 1,
+   "metas": [
+    0
+   ],
+   "rects": [
+    "sewers"
+   ],
+   "to": null
+  }
+ ]
+}

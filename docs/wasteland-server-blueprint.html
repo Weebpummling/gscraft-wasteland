@@ -467,6 +467,7 @@ td.ver{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px;colo
   <p>The old premise had the Tarkov problem: once the players have max gear, every location is the same loop. So the cost moves from gear to <strong>time</strong>. Territory you can lose is the only scarcity the engine reliably provides, and with five players the loss has to be threatened one place at a time.</p>
 
   <h3>Strongpoints</h3>
+  <p><em>Superseded 2026-09-03 (owner):</em> the four custom compounds below (substation, water treatment, hospital, airfield) are dropped. Strongpoints are now <strong>player-built structures</strong> from the transplanted district and from the scanned 1.12.2 worlds, each owning one role; the levelled pads are reused as landing zones for the transplants. Only the <strong>radio tower</strong> stays custom, and it is repaired progressively, part by part, with the model changing in the world as each part is installed. The roster, roles and the tower parts are in <code>docs/gscraft-map-design.md</code>. The paragraphs below are kept as the record of the earlier plan.</p>
   <p>Place five fixed, rare, faction-garrisoned compounds in the wasteland ring around the player district (their footprints are drawn in the world and on the district map) — a power substation, a water treatment plant, a hospital, an airfield, and a radio tower. Each can be cleared, and once cleared, <em>held</em>. Holding one grants a persistent server-wide unlock:</p>
   <ul>
     <li><strong>Substation</strong> — powers electric infrastructure and charging.</li>
@@ -492,6 +493,80 @@ td.ver{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12.5px;colo
 </section>
 
 <section>
+  <h2>Base and hideout upgrades</h2>
+  <div class="h2rule"></div>
+  <p><em>Owner's request, 2026-09-03. Design, not yet built.</em> The home base is the one place the finale comes to, so it deserves a progression of its own. The hideout has a fixed set of <strong>functions</strong>, each with levels. Every level is bought with a <strong>bundle of materials collected in the overworld</strong>, and the materials are typed by where they come from, so the city's building types and the five strongpoints all matter to what the base can do. Nothing in the base is bought with money or generic scrap alone; every upgrade sends the players out to a specific kind of place.</p>
+
+  <h3>Functions (draft list)</h3>
+  <ul>
+    <li><strong>Workshop</strong> — crafting tiers: what the bench and the Immersive Engineering machines will make.</li>
+    <li><strong>Generator</strong> — power: lighting, charging, IE machinery running at all.</li>
+    <li><strong>Water</strong> — clean water, then the biodiesel chain for vehicles.</li>
+    <li><strong>Medical</strong> — first aid crafting, revive range, reduced death penalty.</li>
+    <li><strong>Radio / intel</strong> — the map, and the warnings: a higher level gives more notice before an attack and names the target earlier.</li>
+    <li><strong>Garage</strong> — vehicle repair, fuel storage, heavier vehicle recipes.</li>
+    <li><strong>Armoury</strong> — the gun bench, ammunition presses, attachments.</li>
+    <li><strong>Walls and defences</strong> — barricade recipes, guard villagers, turret or trap unlocks for the wave defence.</li>
+    <li><strong>Storage, farm and kitchen</strong> — the quiet upgrades that make a base a home.</li>
+  </ul>
+
+  <h3>Materials, typed by source</h3>
+  <ul>
+    <li><strong>Generic</strong> — scrap metal, wiring, plastic, concrete mix: from any ruin, in every city chest. Never enough on its own.</li>
+    <li><strong>Typed components</strong> — found only at the strongpoint that owns the role (draft 3 of the map design: Novo Expograd → steel and vehicle parts; the industrial plant → filters and chemicals; FR-06 → transformers, copper and avionics; Financial Plaza → circuits and antenna parts; Bio Gen Offices → medical supplies), with small amounts in the matching district builds. Lost Cities building types carry the smaller versions.</li>
+    <li><strong>Rare</strong> — dropped only by strongpoint garrisons and the attack waves, so holding ground is the only way to the top levels.</li>
+  </ul>
+
+  <h3>How it would be built on this stack</h3>
+  <ul>
+    <li><strong>FTB Quests</strong> — one chapter per function; each level is a quest with item-submission tasks (the bundle) and a command reward. The book is also the UI: the players see every level and its cost.</li>
+    <li><strong>KubeJS</strong> — the reward command flips a server-side stage; the script gates recipes on stages, spawns guard villagers, extends the warning length, and unlocks the vehicle and gun recipes. Same script family as the location loop.</li>
+    <li><strong>FTB Chunks</strong> — the claim marked as home is the base; upgrades are per team, not per player.</li>
+    <li><strong>Loot tables</strong> — typed components are added by datapack to the Lost Cities chest tables by building type (the Keerdm conditions already select by type) and to the strongpoint loot.</li>
+  </ul>
+  <p><strong>Rules to hold to:</strong> each level costs more of the same kind rather than a new kind; losing the base in the finale damages functions (a repair cost) rather than deleting them; and the upgrade tree is finished before the first season starts, because a base that can grow is what makes the finale worth defending.</p>
+  <p><strong>Open decisions:</strong> number of levels per function (three is enough); whether upgrades are physical multiblocks the players must build or abstract levels in the book; and which functions, if any, are locked behind holding a specific strongpoint rather than only its loot.</p>
+
+  <h2>Map design: plans for a generated world</h2>
+  <div class="h2rule"></div>
+  <p>The world is generated, not built: Lost Cities 7.5.3 on the <code>wasteland</code> profile lays out the cities, and the only hand-placed content is the transplanted player district, the five compound pads and the starting area. So map design here means deciding <strong>where the players are</strong> relative to what the generator makes, and what the generator is told to make. Four plans, then a recommendation.</p>
+
+  <h3>What is already fixed</h3>
+  <ul>
+    <li>Spawn at 19 94 26 on the Warium structure, in a crater pit at the old lake. The 384×384 starting area around it (x/z −176…207) is cleared and outlined.</li>
+    <li>The player district, blocks 896…3103 × 384…2079: the FR-06 complex, industrial plant, hempcrete compound, stone complex, residential block, library, mega-base, plus ~320 small scatters and 74 generated ruin clusters carried with it. Its nearest edge is about 900 blocks east of spawn.</li>
+    <li>The five compound pads in the wasteland ring, 1.5 to 4 km from spawn: substation (south, ~1.5 km), radio tower (east, ~2.1 km), hospital (south-east, ~2.5 km), water treatment (east, ~3.6 km), airfield (far south-east, ~3.9 km).</li>
+    <li>Only the district rectangles and the pads are pre-generated; everything else appears as players reach it.</li>
+  </ul>
+
+  <h3>Plan A — Crater hub (the current layout)</h3>
+  <p>The crater is home. The district is the near-field to loot, the pads are the objectives at increasing distance, and distance is the difficulty curve. <strong>For:</strong> already built; the base is defensible ground the players did not have to find; the empty first kilometre teaches vehicles early. <strong>Against:</strong> the first hour is a walk through nothing; the generator's own cities may or may not fall between spawn and the district, and that is decided by the seed, not by us.</p>
+
+  <h3>Plan B — City start, base inside the district</h3>
+  <p>Spawn moves to the district edge (the library or the residential block) and the home base is a cleared city block. <strong>For:</strong> immediate density and loot; the transplanted builds are seen in the first ten minutes. <strong>Against:</strong> horde nights inside a city are pathing chaos and the Lost Cities spawners sit next to the base; the finale has no open ground.</p>
+
+  <h3>Plan C — Extraction ring</h3>
+  <p>The district is hostile territory and never home. Home stays at the crater; every trip into the city is an expedition with a return, and the pads are the forward bases the players take and hold. This is the plan that fits the base-upgrade system best, because typed materials only come from typed places and every run has a shopping list. <strong>For:</strong> the loop is legible and the map's structure (home ring → city → far pads) matches the progression. <strong>Against:</strong> needs the road or rail from the crater to the district to exist, or the vehicles to arrive early.</p>
+
+  <h3>Plan D — Seasonal relocation</h3>
+  <p>Each season the home base must be re-founded at a held strongpoint; the crater is season one only, and the finale moves with the base. <strong>For:</strong> every pad gets its turn as a home and the map is used end to end. <strong>Against:</strong> five players re-building a base every season is churn, and the base-upgrade tree resets or has to travel. Park it as a later-season option.</p>
+
+  <h3>Recommendation</h3>
+  <p><strong>A + C:</strong> keep the crater as home, treat the district as expedition ground, tier the pads by distance, and give the first kilometre a spine: a road or the old rail causeway from the crater to the district's west edge, built once by the terrain tools. Then the generation-side decisions:</p>
+  <ul>
+    <li><strong>World border:</strong> a 10 km square centred on (1900, 1250), set once for this build. One map, three ranges: foot (0–1.5 km), road (1.5–4 km, the pads and the district, the only holdable sites) and air (4.5–6.5 km, expedition-only sites from the foreign worlds and generated cities). About 390,000 chunks, one overnight Chunky run, ~6 GB. The full reasoning, the travel tables and the open decisions are in <code>docs/gscraft-map-design.md</code>. Seasons and border growth are a future idea and nothing in this build depends on them.</li>
+    <li><strong>Roads before anything else:</strong> cars are only cars on a surface. A spine from the crater to the district and on to the two nearest pads, with causeways at every water crossing, is what makes the vehicle tier real. Vehicle speeds on street, wasteland and rubble are measured on the visual pass before any timer is set from them.</li>
+    <li><strong>Pre-generate</strong> the whole box inside the border with Chunky once the layout is final, so the visual pass sees the world the players will see and the server never generates during a horde.</li>
+    <li><strong>Lost Cities profile knobs</strong> to review on the visual pass: city rarity and size between spawn and the district (the empty kilometre), building damage, and whether a generated town should be seeded near the crater as the first loot stop.</li>
+    <li><strong>Spawn placement rule</strong> for new players: at the crater, never at a pad; the quest book's first chapter walks the spine.</li>
+  </ul>
+
+  <h3>Visual pass first</h3>
+  <p>Before any of this is decided, the current world gets a flight with no mobs: the local test server on the <code>visual</code> profile (peaceful, creative). Checklist: every transplanted site from ground level; every ramp at a transplant edge; the five pads and their outlines; the crater rim; the generated cities that fall between spawn and the district; the two old rail causeways west of the district, for reuse as the spine. Findings go in the district map page.</p>
+
+  <h3>Foreign worlds</h3>
+  <p>Builds arriving from other people's worlds are a separate problem: the saves received on 2026-09-03 are <strong>Forge 1.12.2</strong> (pre-flattening numeric block IDs, 2,910 registered blocks across ~30 mods). They cannot be loaded by 1.20.1 and vanilla's upgrader drops every modded block. The intake procedure that keeps them is in <code>docs/notes/gscraft-foreign-worlds.md</code>.</p>
+
   <h2>Hardware and operating standard</h2>
   <div class="h2rule"></div>
   <div class="tablewrap">

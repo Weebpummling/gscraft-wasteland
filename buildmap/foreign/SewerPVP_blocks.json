@@ -1,0 +1,3906 @@
+{
+ "save": "SewerPVP-20230220-161204",
+ "chunks": 4044,
+ "distinct": 776,
+ "namespaces": {
+  "minecraft": 62329879,
+  "chisel": 2867598,
+  "hbm": 1853784,
+  "dynamictrees": 952543,
+  "mw": 573119,
+  "immersiveengineering": 293668,
+  "furenikusroads": 113422,
+  "dynamictreesbop": 10362,
+  "harvestcraft": 5136,
+  "futuremc": 4896,
+  "simplylight": 517,
+  "biomesoplenty": 316,
+  "srparasites": 117,
+  "twilightforest": 110,
+  "cfm": 60,
+  "thuttech": 6,
+  "cookingforblockheads": 4
+ },
+ "blocks": [
+  {
+   "name": "minecraft:stone",
+   "meta": 0,
+   "count": 39114000
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 0,
+   "count": 7761071
+  },
+  {
+   "name": "minecraft:bedrock",
+   "meta": 0,
+   "count": 3014770
+  },
+  {
+   "name": "minecraft:dirt",
+   "meta": 0,
+   "count": 2471045
+  },
+  {
+   "name": "minecraft:stone",
+   "meta": 5,
+   "count": 2137616
+  },
+  {
+   "name": "minecraft:stone",
+   "meta": 1,
+   "count": 2054215
+  },
+  {
+   "name": "minecraft:stone",
+   "meta": 3,
+   "count": 1993709
+  },
+  {
+   "name": "chisel:marble2",
+   "meta": 15,
+   "count": 1422775
+  },
+  {
+   "name": "chisel:limestone2",
+   "meta": 15,
+   "count": 1047179
+  },
+  {
+   "name": "minecraft:gravel",
+   "meta": 0,
+   "count": 997691
+  },
+  {
+   "name": "minecraft:coal_ore",
+   "meta": 0,
+   "count": 639779
+  },
+  {
+   "name": "minecraft:grass",
+   "meta": 0,
+   "count": 531371
+  },
+  {
+   "name": "chisel:basalt2",
+   "meta": 15,
+   "count": 384935
+  },
+  {
+   "name": "minecraft:lava",
+   "meta": 0,
+   "count": 365749
+  },
+  {
+   "name": "minecraft:iron_ore",
+   "meta": 0,
+   "count": 362868
+  },
+  {
+   "name": "hbm:ore_lignite",
+   "meta": 0,
+   "count": 250391
+  },
+  {
+   "name": "minecraft:sand",
+   "meta": 0,
+   "count": 249277
+  },
+  {
+   "name": "dynamictrees:leaves0",
+   "meta": 4,
+   "count": 229820
+  },
+  {
+   "name": "dynamictrees:leaves0",
+   "meta": 0,
+   "count": 205934
+  },
+  {
+   "name": "mw:sulfurore",
+   "meta": 0,
+   "count": 198760
+  },
+  {
+   "name": "hbm:ore_tungsten",
+   "meta": 0,
+   "count": 172002
+  },
+  {
+   "name": "minecraft:snow_layer",
+   "meta": 0,
+   "count": 149607
+  },
+  {
+   "name": "hbm:ore_copper",
+   "meta": 0,
+   "count": 142784
+  },
+  {
+   "name": "mw:leadore",
+   "meta": 0,
+   "count": 132770
+  },
+  {
+   "name": "hbm:ore_lead",
+   "meta": 0,
+   "count": 122096
+  },
+  {
+   "name": "mw:tinore",
+   "meta": 0,
+   "count": 121135
+  },
+  {
+   "name": "mw:graphiteore",
+   "meta": 0,
+   "count": 120111
+  },
+  {
+   "name": "hbm:stone_depth",
+   "meta": 0,
+   "count": 116355
+  },
+  {
+   "name": "furenikusroads:generic_blocks",
+   "meta": 3,
+   "count": 113391
+  },
+  {
+   "name": "hbm:ore_oil",
+   "meta": 0,
+   "count": 111511
+  },
+  {
+   "name": "minecraft:redstone_ore",
+   "meta": 0,
+   "count": 107262
+  },
+  {
+   "name": "hbm:ore_titanium",
+   "meta": 0,
+   "count": 99935
+  },
+  {
+   "name": "immersiveengineering:ore",
+   "meta": 0,
+   "count": 88794
+  },
+  {
+   "name": "hbm:ore_sulfur",
+   "meta": 0,
+   "count": 87774
+  },
+  {
+   "name": "hbm:ore_aluminium",
+   "meta": 0,
+   "count": 85550
+  },
+  {
+   "name": "hbm:ore_niter",
+   "meta": 0,
+   "count": 74257
+  },
+  {
+   "name": "dynamictrees:leaves0",
+   "meta": 5,
+   "count": 73986
+  },
+  {
+   "name": "dynamictrees:leaves0",
+   "meta": 2,
+   "count": 68603
+  },
+  {
+   "name": "hbm:ore_thorium",
+   "meta": 0,
+   "count": 68575
+  },
+  {
+   "name": "hbm:ore_uranium",
+   "meta": 0,
+   "count": 67849
+  },
+  {
+   "name": "minecraft:sandstone",
+   "meta": 0,
+   "count": 66026
+  },
+  {
+   "name": "hbm:gas_flammable",
+   "meta": 0,
+   "count": 61008
+  },
+  {
+   "name": "dynamictrees:leaves0",
+   "meta": 3,
+   "count": 57894
+  },
+  {
+   "name": "immersiveengineering:ore",
+   "meta": 3,
+   "count": 56887
+  },
+  {
+   "name": "hbm:ore_rare",
+   "meta": 0,
+   "count": 56250
+  },
+  {
+   "name": "minecraft:tallgrass",
+   "meta": 1,
+   "count": 55082
+  },
+  {
+   "name": "dynamictrees:leaves0",
+   "meta": 1,
+   "count": 53000
+  },
+  {
+   "name": "immersiveengineering:ore",
+   "meta": 2,
+   "count": 51837
+  },
+  {
+   "name": "hbm:cluster_iron",
+   "meta": 0,
+   "count": 45330
+  },
+  {
+   "name": "dynamictrees:leaves0",
+   "meta": 8,
+   "count": 39371
+  },
+  {
+   "name": "dynamictrees:sprucebranch",
+   "meta": 0,
+   "count": 38057
+  },
+  {
+   "name": "minecraft:gold_ore",
+   "meta": 0,
+   "count": 38042
+  },
+  {
+   "name": "immersiveengineering:stone_decoration",
+   "meta": 4,
+   "count": 37043
+  },
+  {
+   "name": "hbm:ore_beryllium",
+   "meta": 0,
+   "count": 35964
+  },
+  {
+   "name": "hbm:cluster_aluminium",
+   "meta": 0,
+   "count": 35457
+  },
+  {
+   "name": "hbm:ore_fluorite",
+   "meta": 0,
+   "count": 35119
+  },
+  {
+   "name": "dynamictrees:sprucebranch",
+   "meta": 1,
+   "count": 33105
+  },
+  {
+   "name": "hbm:gas_explosive",
+   "meta": 0,
+   "count": 29803
+  },
+  {
+   "name": "hbm:ore_coal_oil",
+   "meta": 0,
+   "count": 26426
+  },
+  {
+   "name": "immersiveengineering:ore",
+   "meta": 4,
+   "count": 26012
+  },
+  {
+   "name": "hbm:cluster_titanium",
+   "meta": 0,
+   "count": 24232
+  },
+  {
+   "name": "hbm:ore_depth_zirconium",
+   "meta": 0,
+   "count": 24007
+  },
+  {
+   "name": "immersiveengineering:ore",
+   "meta": 1,
+   "count": 23252
+  },
+  {
+   "name": "dynamictrees:oakbranch",
+   "meta": 0,
+   "count": 21969
+  },
+  {
+   "name": "dynamictrees:oakbranch",
+   "meta": 1,
+   "count": 21837
+  },
+  {
+   "name": "hbm:ore_depth_cinnebar",
+   "meta": 0,
+   "count": 20047
+  },
+  {
+   "name": "minecraft:lapis_ore",
+   "meta": 0,
+   "count": 15227
+  },
+  {
+   "name": "minecraft:flowing_lava",
+   "meta": 0,
+   "count": 13832
+  },
+  {
+   "name": "minecraft:leaves",
+   "meta": 1,
+   "count": 13627
+  },
+  {
+   "name": "minecraft:diamond_ore",
+   "meta": 0,
+   "count": 13478
+  },
+  {
+   "name": "dynamictrees:leaves0",
+   "meta": 10,
+   "count": 12869
+  },
+  {
+   "name": "minecraft:planks",
+   "meta": 0,
+   "count": 12815
+  },
+  {
+   "name": "hbm:ore_asbestos",
+   "meta": 0,
+   "count": 12343
+  },
+  {
+   "name": "hbm:ore_australium",
+   "meta": 0,
+   "count": 11462
+  },
+  {
+   "name": "minecraft:monster_egg",
+   "meta": 0,
+   "count": 11300
+  },
+  {
+   "name": "dynamictrees:leaves0",
+   "meta": 11,
+   "count": 10851
+  },
+  {
+   "name": "dynamictrees:leaves0",
+   "meta": 9,
+   "count": 10706
+  },
+  {
+   "name": "hbm:ore_cobalt",
+   "meta": 0,
+   "count": 10388
+  },
+  {
+   "name": "minecraft:leaves",
+   "meta": 0,
+   "count": 9614
+  },
+  {
+   "name": "dynamictrees:oakbranch",
+   "meta": 2,
+   "count": 8098
+  },
+  {
+   "name": "dynamictrees:sprucebranch",
+   "meta": 2,
+   "count": 8096
+  },
+  {
+   "name": "minecraft:fence",
+   "meta": 0,
+   "count": 8021
+  },
+  {
+   "name": "immersiveengineering:ore",
+   "meta": 5,
+   "count": 7503
+  },
+  {
+   "name": "minecraft:leaves",
+   "meta": 8,
+   "count": 7466
+  },
+  {
+   "name": "minecraft:leaves",
+   "meta": 9,
+   "count": 7335
+  },
+  {
+   "name": "minecraft:snow_layer",
+   "meta": 1,
+   "count": 6303
+  },
+  {
+   "name": "minecraft:cobblestone",
+   "meta": 0,
+   "count": 6298
+  },
+  {
+   "name": "hbm:ore_cinnebar",
+   "meta": 0,
+   "count": 6232
+  },
+  {
+   "name": "dynamictrees:birchbranch",
+   "meta": 1,
+   "count": 5818
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 1,
+   "count": 5525
+  },
+  {
+   "name": "hbm:cluster_depth_iron",
+   "meta": 0,
+   "count": 5498
+  },
+  {
+   "name": "dynamictrees:oakbranch",
+   "meta": 3,
+   "count": 5269
+  },
+  {
+   "name": "dynamictrees:sprucebranch",
+   "meta": 4,
+   "count": 4992
+  },
+  {
+   "name": "minecraft:clay",
+   "meta": 0,
+   "count": 4987
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 9,
+   "count": 4908
+  },
+  {
+   "name": "dynamictrees:rootydirt",
+   "meta": 0,
+   "count": 4861
+  },
+  {
+   "name": "minecraft:tallgrass",
+   "meta": 2,
+   "count": 4845
+  },
+  {
+   "name": "minecraft:double_plant",
+   "meta": 11,
+   "count": 4517
+  },
+  {
+   "name": "dynamictrees:birchbranch",
+   "meta": 0,
+   "count": 4355
+  },
+  {
+   "name": "minecraft:obsidian",
+   "meta": 0,
+   "count": 4346
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 0,
+   "count": 4282
+  },
+  {
+   "name": "hbm:cluster_depth_tungsten",
+   "meta": 0,
+   "count": 4224
+  },
+  {
+   "name": "hbm:cluster_depth_titanium",
+   "meta": 0,
+   "count": 4118
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 2,
+   "count": 3991
+  },
+  {
+   "name": "dynamictrees:sprucebranch",
+   "meta": 3,
+   "count": 3817
+  },
+  {
+   "name": "dynamictrees:sprucebranch",
+   "meta": 5,
+   "count": 3699
+  },
+  {
+   "name": "dynamictrees:oakbranch",
+   "meta": 7,
+   "count": 3580
+  },
+  {
+   "name": "dynamictrees:sprucebranch",
+   "meta": 7,
+   "count": 3389
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 3,
+   "count": 3355
+  },
+  {
+   "name": "dynamictrees:oakbranch",
+   "meta": 4,
+   "count": 3326
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 4,
+   "count": 2954
+  },
+  {
+   "name": "minecraft:ice",
+   "meta": 0,
+   "count": 2916
+  },
+  {
+   "name": "dynamictrees:leaves0",
+   "meta": 6,
+   "count": 2840
+  },
+  {
+   "name": "dynamictrees:leaves0",
+   "meta": 7,
+   "count": 2832
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 8,
+   "count": 2664
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 5,
+   "count": 2584
+  },
+  {
+   "name": "minecraft:web",
+   "meta": 0,
+   "count": 2508
+  },
+  {
+   "name": "dynamictrees:sprucebranch",
+   "meta": 6,
+   "count": 2310
+  },
+  {
+   "name": "minecraft:double_plant",
+   "meta": 3,
+   "count": 2292
+  },
+  {
+   "name": "minecraft:log",
+   "meta": 0,
+   "count": 2256
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 6,
+   "count": 2230
+  },
+  {
+   "name": "dynamictrees:oakbranch",
+   "meta": 5,
+   "count": 2158
+  },
+  {
+   "name": "chisel:factory",
+   "meta": 8,
+   "count": 2029
+  },
+  {
+   "name": "minecraft:mossy_cobblestone",
+   "meta": 0,
+   "count": 2018
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 7,
+   "count": 1918
+  },
+  {
+   "name": "minecraft:double_plant",
+   "meta": 2,
+   "count": 1879
+  },
+  {
+   "name": "minecraft:lava",
+   "meta": 2,
+   "count": 1859
+  },
+  {
+   "name": "minecraft:red_flower",
+   "meta": 0,
+   "count": 1734
+  },
+  {
+   "name": "chisel:factory",
+   "meta": 15,
+   "count": 1727
+  },
+  {
+   "name": "futuremc:sweet_berry_bush",
+   "meta": 1,
+   "count": 1711
+  },
+  {
+   "name": "futuremc:cornflower",
+   "meta": 0,
+   "count": 1618
+  },
+  {
+   "name": "minecraft:rail",
+   "meta": 0,
+   "count": 1607
+  },
+  {
+   "name": "minecraft:yellow_flower",
+   "meta": 0,
+   "count": 1584
+  },
+  {
+   "name": "hbm:stone_gneiss",
+   "meta": 0,
+   "count": 1477
+  },
+  {
+   "name": "dynamictrees:birchbranch",
+   "meta": 2,
+   "count": 1462
+  },
+  {
+   "name": "minecraft:log",
+   "meta": 1,
+   "count": 1456
+  },
+  {
+   "name": "chisel:factory",
+   "meta": 4,
+   "count": 1420
+  },
+  {
+   "name": "minecraft:lava",
+   "meta": 10,
+   "count": 1412
+  },
+  {
+   "name": "minecraft:emerald_ore",
+   "meta": 0,
+   "count": 1412
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 10,
+   "count": 1395
+  },
+  {
+   "name": "dynamictrees:oakbranch",
+   "meta": 6,
+   "count": 1351
+  },
+  {
+   "name": "minecraft:snow_layer",
+   "meta": 2,
+   "count": 1338
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 12,
+   "count": 1271
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 2,
+   "count": 1259
+  },
+  {
+   "name": "minecraft:lava",
+   "meta": 4,
+   "count": 1223
+  },
+  {
+   "name": "chisel:technical",
+   "meta": 15,
+   "count": 1217
+  },
+  {
+   "name": "minecraft:rail",
+   "meta": 1,
+   "count": 1126
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 3,
+   "count": 1123
+  },
+  {
+   "name": "futuremc:lily_of_the_valley",
+   "meta": 0,
+   "count": 1113
+  },
+  {
+   "name": "harvestcraft:windygarden",
+   "meta": 0,
+   "count": 1094
+  },
+  {
+   "name": "minecraft:lava",
+   "meta": 6,
+   "count": 1050
+  },
+  {
+   "name": "dynamictrees:birchbranch",
+   "meta": 3,
+   "count": 1048
+  },
+  {
+   "name": "minecraft:grass_path",
+   "meta": 0,
+   "count": 1047
+  },
+  {
+   "name": "harvestcraft:shadedgarden",
+   "meta": 0,
+   "count": 1026
+  },
+  {
+   "name": "chisel:technical",
+   "meta": 12,
+   "count": 993
+  },
+  {
+   "name": "minecraft:stonebrick",
+   "meta": 1,
+   "count": 984
+  },
+  {
+   "name": "minecraft:stonebrick",
+   "meta": 2,
+   "count": 978
+  },
+  {
+   "name": "minecraft:stonebrick",
+   "meta": 0,
+   "count": 936
+  },
+  {
+   "name": "harvestcraft:pammaple",
+   "meta": 0,
+   "count": 893
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 1,
+   "count": 867
+  },
+  {
+   "name": "chisel:factory",
+   "meta": 1,
+   "count": 815
+  },
+  {
+   "name": "minecraft:red_flower",
+   "meta": 3,
+   "count": 766
+  },
+  {
+   "name": "chisel:antiblock",
+   "meta": 0,
+   "count": 764
+  },
+  {
+   "name": "chisel:factory",
+   "meta": 6,
+   "count": 717
+  },
+  {
+   "name": "dynamictrees:birchbranch",
+   "meta": 4,
+   "count": 664
+  },
+  {
+   "name": "minecraft:red_flower",
+   "meta": 4,
+   "count": 608
+  },
+  {
+   "name": "chisel:factory",
+   "meta": 2,
+   "count": 532
+  },
+  {
+   "name": "hbm:waste_earth",
+   "meta": 0,
+   "count": 504
+  },
+  {
+   "name": "hbm:steel_grate",
+   "meta": 7,
+   "count": 503
+  },
+  {
+   "name": "minecraft:snow_layer",
+   "meta": 3,
+   "count": 499
+  },
+  {
+   "name": "hbm:deco_pipe_quad_green_rusted",
+   "meta": 2,
+   "count": 495
+  },
+  {
+   "name": "minecraft:farmland",
+   "meta": 0,
+   "count": 476
+  },
+  {
+   "name": "minecraft:red_flower",
+   "meta": 6,
+   "count": 468
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 11,
+   "count": 451
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 14,
+   "count": 429
+  },
+  {
+   "name": "minecraft:red_flower",
+   "meta": 2,
+   "count": 421
+  },
+  {
+   "name": "minecraft:lava",
+   "meta": 12,
+   "count": 402
+  },
+  {
+   "name": "minecraft:red_flower",
+   "meta": 5,
+   "count": 398
+  },
+  {
+   "name": "minecraft:wooden_slab",
+   "meta": 8,
+   "count": 384
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 15,
+   "count": 384
+  },
+  {
+   "name": "chisel:factory1",
+   "meta": 3,
+   "count": 369
+  },
+  {
+   "name": "chisel:technical1",
+   "meta": 15,
+   "count": 348
+  },
+  {
+   "name": "minecraft:red_flower",
+   "meta": 8,
+   "count": 347
+  },
+  {
+   "name": "futuremc:sweet_berry_bush",
+   "meta": 3,
+   "count": 308
+  },
+  {
+   "name": "dynamictrees:birchbranch",
+   "meta": 5,
+   "count": 306
+  },
+  {
+   "name": "minecraft:brown_mushroom",
+   "meta": 0,
+   "count": 302
+  },
+  {
+   "name": "immersiveengineering:sheetmetal",
+   "meta": 3,
+   "count": 285
+  },
+  {
+   "name": "minecraft:planks",
+   "meta": 1,
+   "count": 283
+  },
+  {
+   "name": "minecraft:red_flower",
+   "meta": 7,
+   "count": 283
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 13,
+   "count": 280
+  },
+  {
+   "name": "minecraft:dirt",
+   "meta": 2,
+   "count": 274
+  },
+  {
+   "name": "harvestcraft:pammaple",
+   "meta": 2,
+   "count": 261
+  },
+  {
+   "name": "chisel:technical1",
+   "meta": 0,
+   "count": 257
+  },
+  {
+   "name": "minecraft:stonebrick",
+   "meta": 3,
+   "count": 252
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_stairs_hempcrete",
+   "meta": 7,
+   "count": 242
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_stairs_hempcrete",
+   "meta": 6,
+   "count": 241
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 12,
+   "count": 237
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_stairs_hempcrete",
+   "meta": 4,
+   "count": 231
+  },
+  {
+   "name": "hbm:steel_grate",
+   "meta": 6,
+   "count": 227
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 1,
+   "count": 222
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_stairs_hempcrete",
+   "meta": 5,
+   "count": 207
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 13,
+   "count": 201
+  },
+  {
+   "name": "hbm:deco_pipe_quad_green_rusted",
+   "meta": 1,
+   "count": 187
+  },
+  {
+   "name": "hbm:deco_pipe_framed_marked",
+   "meta": 2,
+   "count": 182
+  },
+  {
+   "name": "chisel:factory",
+   "meta": 13,
+   "count": 180
+  },
+  {
+   "name": "dynamictrees:birchbranch",
+   "meta": 6,
+   "count": 179
+  },
+  {
+   "name": "hbm:deco_pipe_framed_green_rusted",
+   "meta": 2,
+   "count": 178
+  },
+  {
+   "name": "minecraft:double_plant",
+   "meta": 5,
+   "count": 177
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 2,
+   "count": 175
+  },
+  {
+   "name": "minecraft:lava",
+   "meta": 8,
+   "count": 175
+  },
+  {
+   "name": "minecraft:lava",
+   "meta": 14,
+   "count": 168
+  },
+  {
+   "name": "chisel:glass",
+   "meta": 14,
+   "count": 168
+  },
+  {
+   "name": "harvestcraft:pamavocado",
+   "meta": 0,
+   "count": 165
+  },
+  {
+   "name": "harvestcraft:pamhazelnut",
+   "meta": 0,
+   "count": 162
+  },
+  {
+   "name": "hbm:deco_pipe_framed",
+   "meta": 2,
+   "count": 158
+  },
+  {
+   "name": "chisel:factory",
+   "meta": 7,
+   "count": 151
+  },
+  {
+   "name": "hbm:deco_pipe_quad_green",
+   "meta": 2,
+   "count": 147
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 3,
+   "count": 146
+  },
+  {
+   "name": "harvestcraft:soggygarden",
+   "meta": 0,
+   "count": 144
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 9,
+   "count": 143
+  },
+  {
+   "name": "hbm:deco_pipe_rim_rusted",
+   "meta": 2,
+   "count": 142
+  },
+  {
+   "name": "harvestcraft:pamwalnut",
+   "meta": 0,
+   "count": 137
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 4,
+   "count": 135
+  },
+  {
+   "name": "minecraft:snow_layer",
+   "meta": 4,
+   "count": 135
+  },
+  {
+   "name": "hbm:deco_pipe_framed_green_rusted",
+   "meta": 0,
+   "count": 135
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 0,
+   "count": 134
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 12,
+   "count": 134
+  },
+  {
+   "name": "minecraft:double_plant",
+   "meta": 4,
+   "count": 132
+  },
+  {
+   "name": "hbm:deco_pipe_rim",
+   "meta": 2,
+   "count": 131
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 7,
+   "count": 125
+  },
+  {
+   "name": "harvestcraft:pamapple",
+   "meta": 0,
+   "count": 124
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 5,
+   "count": 124
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 8,
+   "count": 124
+  },
+  {
+   "name": "chisel:ironpane",
+   "meta": 11,
+   "count": 123
+  },
+  {
+   "name": "biomesoplenty:poison",
+   "meta": 1,
+   "count": 123
+  },
+  {
+   "name": "minecraft:bookshelf",
+   "meta": 0,
+   "count": 122
+  },
+  {
+   "name": "hbm:deco_pipe_green_rusted",
+   "meta": 2,
+   "count": 122
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 6,
+   "count": 121
+  },
+  {
+   "name": "harvestcraft:pamspiderweb",
+   "meta": 0,
+   "count": 120
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 9,
+   "count": 114
+  },
+  {
+   "name": "chisel:factory1",
+   "meta": 2,
+   "count": 114
+  },
+  {
+   "name": "immersiveengineering:metal_decoration2",
+   "meta": 7,
+   "count": 112
+  },
+  {
+   "name": "minecraft:red_mushroom",
+   "meta": 0,
+   "count": 111
+  },
+  {
+   "name": "harvestcraft:pampawpaw",
+   "meta": 0,
+   "count": 110
+  },
+  {
+   "name": "harvestcraft:pamsoursop",
+   "meta": 0,
+   "count": 110
+  },
+  {
+   "name": "immersiveengineering:sheetmetal",
+   "meta": 5,
+   "count": 108
+  },
+  {
+   "name": "harvestcraft:pamcherry",
+   "meta": 0,
+   "count": 107
+  },
+  {
+   "name": "hbm:railing_normal",
+   "meta": 4,
+   "count": 107
+  },
+  {
+   "name": "minecraft:reeds",
+   "meta": 0,
+   "count": 106
+  },
+  {
+   "name": "harvestcraft:pamnutmeg",
+   "meta": 0,
+   "count": 106
+  },
+  {
+   "name": "immersiveengineering:sheetmetal",
+   "meta": 9,
+   "count": 106
+  },
+  {
+   "name": "minecraft:double_plant",
+   "meta": 1,
+   "count": 103
+  },
+  {
+   "name": "hbm:fence_metal",
+   "meta": 0,
+   "count": 98
+  },
+  {
+   "name": "immersiveengineering:sheetmetal",
+   "meta": 0,
+   "count": 98
+  },
+  {
+   "name": "minecraft:mob_spawner",
+   "meta": 0,
+   "count": 97
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 8,
+   "count": 95
+  },
+  {
+   "name": "hbm:deco_pipe_framed_green_rusted",
+   "meta": 1,
+   "count": 95
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 15,
+   "count": 93
+  },
+  {
+   "name": "srparasites:infestremain",
+   "meta": 1,
+   "count": 92
+  },
+  {
+   "name": "immersiveengineering:sheetmetal",
+   "meta": 6,
+   "count": 91
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 4,
+   "count": 88
+  },
+  {
+   "name": "hbm:deco_pipe_framed_green",
+   "meta": 2,
+   "count": 87
+  },
+  {
+   "name": "minecraft:glass_pane",
+   "meta": 0,
+   "count": 87
+  },
+  {
+   "name": "harvestcraft:pampear",
+   "meta": 0,
+   "count": 84
+  },
+  {
+   "name": "immersiveengineering:metal_decoration1_slab",
+   "meta": 2,
+   "count": 84
+  },
+  {
+   "name": "biomesoplenty:poison",
+   "meta": 0,
+   "count": 80
+  },
+  {
+   "name": "twilightforest:tower_wood",
+   "meta": 4,
+   "count": 80
+  },
+  {
+   "name": "mw:trusses",
+   "meta": 0,
+   "count": 78
+  },
+  {
+   "name": "harvestcraft:pamgooseberry",
+   "meta": 0,
+   "count": 77
+  },
+  {
+   "name": "hbm:railing_normal",
+   "meta": 5,
+   "count": 77
+  },
+  {
+   "name": "immersiveengineering:sheetmetal_slab",
+   "meta": 6,
+   "count": 76
+  },
+  {
+   "name": "harvestcraft:pamchestnut",
+   "meta": 0,
+   "count": 75
+  },
+  {
+   "name": "hbm:block_scrap",
+   "meta": 0,
+   "count": 74
+  },
+  {
+   "name": "harvestcraft:pamplum",
+   "meta": 0,
+   "count": 73
+  },
+  {
+   "name": "minecraft:water",
+   "meta": 14,
+   "count": 73
+  },
+  {
+   "name": "hbm:deco_pipe_rim",
+   "meta": 0,
+   "count": 71
+  },
+  {
+   "name": "biomesoplenty:planks_0",
+   "meta": 5,
+   "count": 71
+  },
+  {
+   "name": "hbm:deco_pipe_framed_red",
+   "meta": 2,
+   "count": 68
+  },
+  {
+   "name": "hbm:deco_pipe_rim",
+   "meta": 1,
+   "count": 66
+  },
+  {
+   "name": "chisel:blockaluminum",
+   "meta": 1,
+   "count": 65
+  },
+  {
+   "name": "harvestcraft:frostgarden",
+   "meta": 0,
+   "count": 65
+  },
+  {
+   "name": "chisel:factory",
+   "meta": 3,
+   "count": 64
+  },
+  {
+   "name": "dynamictrees:birchbranch",
+   "meta": 7,
+   "count": 63
+  },
+  {
+   "name": "chisel:technical1",
+   "meta": 3,
+   "count": 63
+  },
+  {
+   "name": "chisel:blockbronze",
+   "meta": 1,
+   "count": 63
+  },
+  {
+   "name": "hbm:deco_pipe_framed_marked",
+   "meta": 0,
+   "count": 62
+  },
+  {
+   "name": "minecraft:chest",
+   "meta": 5,
+   "count": 61
+  },
+  {
+   "name": "chisel:factory",
+   "meta": 14,
+   "count": 60
+  },
+  {
+   "name": "chisel:factory",
+   "meta": 10,
+   "count": 60
+  },
+  {
+   "name": "minecraft:oak_stairs",
+   "meta": 1,
+   "count": 59
+  },
+  {
+   "name": "minecraft:oak_stairs",
+   "meta": 0,
+   "count": 58
+  },
+  {
+   "name": "futuremc:sweet_berry_bush",
+   "meta": 2,
+   "count": 56
+  },
+  {
+   "name": "minecraft:spruce_fence",
+   "meta": 0,
+   "count": 55
+  },
+  {
+   "name": "hbm:deco_pipe_framed",
+   "meta": 1,
+   "count": 54
+  },
+  {
+   "name": "hbm:waste_planks",
+   "meta": 0,
+   "count": 53
+  },
+  {
+   "name": "immersiveengineering:treated_wood",
+   "meta": 0,
+   "count": 53
+  },
+  {
+   "name": "hbm:deco_pipe_quad_rusted",
+   "meta": 1,
+   "count": 52
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_slab",
+   "meta": 4,
+   "count": 52
+  },
+  {
+   "name": "hbm:deco_pipe_framed",
+   "meta": 0,
+   "count": 52
+  },
+  {
+   "name": "chisel:technicalnew",
+   "meta": 1,
+   "count": 52
+  },
+  {
+   "name": "immersiveengineering:sheetmetal",
+   "meta": 7,
+   "count": 52
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 4,
+   "count": 50
+  },
+  {
+   "name": "minecraft:wheat",
+   "meta": 6,
+   "count": 50
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_stairs_hempcrete",
+   "meta": 1,
+   "count": 49
+  },
+  {
+   "name": "futuremc:chain",
+   "meta": 0,
+   "count": 49
+  },
+  {
+   "name": "minecraft:wool",
+   "meta": 13,
+   "count": 49
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 10,
+   "count": 48
+  },
+  {
+   "name": "mw:trusses",
+   "meta": 1,
+   "count": 48
+  },
+  {
+   "name": "hbm:steel_poles",
+   "meta": 4,
+   "count": 48
+  },
+  {
+   "name": "hbm:deco_pipe_quad_marked",
+   "meta": 1,
+   "count": 47
+  },
+  {
+   "name": "harvestcraft:beehive",
+   "meta": 0,
+   "count": 46
+  },
+  {
+   "name": "immersiveengineering:sheetmetal",
+   "meta": 10,
+   "count": 46
+  },
+  {
+   "name": "hbm:deco_pipe_rim_green",
+   "meta": 1,
+   "count": 46
+  },
+  {
+   "name": "hbm:deco_pipe_framed_rusted",
+   "meta": 1,
+   "count": 46
+  },
+  {
+   "name": "hbm:deco_pipe_framed_marked",
+   "meta": 1,
+   "count": 45
+  },
+  {
+   "name": "minecraft:flowing_lava",
+   "meta": 6,
+   "count": 44
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 10,
+   "count": 44
+  },
+  {
+   "name": "chisel:glass",
+   "meta": 1,
+   "count": 42
+  },
+  {
+   "name": "minecraft:wheat",
+   "meta": 4,
+   "count": 42
+  },
+  {
+   "name": "hbm:deco_pipe_framed_red",
+   "meta": 1,
+   "count": 41
+  },
+  {
+   "name": "minecraft:wheat",
+   "meta": 5,
+   "count": 41
+  },
+  {
+   "name": "hbm:deco_pipe_framed_green",
+   "meta": 1,
+   "count": 40
+  },
+  {
+   "name": "minecraft:wheat",
+   "meta": 2,
+   "count": 39
+  },
+  {
+   "name": "minecraft:flowing_lava",
+   "meta": 1,
+   "count": 38
+  },
+  {
+   "name": "hbm:deco_pipe_framed_green",
+   "meta": 0,
+   "count": 38
+  },
+  {
+   "name": "minecraft:spruce_stairs",
+   "meta": 2,
+   "count": 38
+  },
+  {
+   "name": "minecraft:flowing_lava",
+   "meta": 4,
+   "count": 37
+  },
+  {
+   "name": "hbm:deco_pipe_framed_rusted",
+   "meta": 0,
+   "count": 37
+  },
+  {
+   "name": "minecraft:oak_stairs",
+   "meta": 2,
+   "count": 37
+  },
+  {
+   "name": "chisel:blockcobalt",
+   "meta": 1,
+   "count": 36
+  },
+  {
+   "name": "minecraft:spruce_stairs",
+   "meta": 3,
+   "count": 36
+  },
+  {
+   "name": "simplylight:lightbulb",
+   "meta": 3,
+   "count": 35
+  },
+  {
+   "name": "hbm:large_vehicle_door",
+   "meta": 7,
+   "count": 35
+  },
+  {
+   "name": "minecraft:wheat",
+   "meta": 3,
+   "count": 35
+  },
+  {
+   "name": "minecraft:double_wooden_slab",
+   "meta": 0,
+   "count": 32
+  },
+  {
+   "name": "chisel:blockinvar",
+   "meta": 1,
+   "count": 32
+  },
+  {
+   "name": "minecraft:wheat",
+   "meta": 7,
+   "count": 31
+  },
+  {
+   "name": "hbm:rbmk_console",
+   "meta": 1,
+   "count": 30
+  },
+  {
+   "name": "immersiveengineering:connector",
+   "meta": 5,
+   "count": 30
+  },
+  {
+   "name": "simplylight:lightbulb",
+   "meta": 4,
+   "count": 30
+  },
+  {
+   "name": "hbm:steel_grate",
+   "meta": 5,
+   "count": 30
+  },
+  {
+   "name": "chisel:glass",
+   "meta": 15,
+   "count": 30
+  },
+  {
+   "name": "chisel:factory",
+   "meta": 5,
+   "count": 30
+  },
+  {
+   "name": "minecraft:stone_slab",
+   "meta": 4,
+   "count": 30
+  },
+  {
+   "name": "minecraft:stone_slab",
+   "meta": 0,
+   "count": 30
+  },
+  {
+   "name": "hbm:deco_pipe_quad_rusted",
+   "meta": 2,
+   "count": 29
+  },
+  {
+   "name": "harvestcraft:pamwalnut",
+   "meta": 2,
+   "count": 29
+  },
+  {
+   "name": "minecraft:chest",
+   "meta": 3,
+   "count": 28
+  },
+  {
+   "name": "simplylight:lightbulb",
+   "meta": 2,
+   "count": 28
+  },
+  {
+   "name": "hbm:deco_pipe_quad",
+   "meta": 2,
+   "count": 28
+  },
+  {
+   "name": "immersiveengineering:sheetmetal",
+   "meta": 4,
+   "count": 28
+  },
+  {
+   "name": "minecraft:potatoes",
+   "meta": 7,
+   "count": 28
+  },
+  {
+   "name": "minecraft:carrots",
+   "meta": 4,
+   "count": 28
+  },
+  {
+   "name": "minecraft:snow_layer",
+   "meta": 5,
+   "count": 27
+  },
+  {
+   "name": "chisel:technical",
+   "meta": 13,
+   "count": 27
+  },
+  {
+   "name": "hbm:steel_grate",
+   "meta": 0,
+   "count": 26
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_stairs_hempcrete",
+   "meta": 2,
+   "count": 26
+  },
+  {
+   "name": "simplylight:lightbulb",
+   "meta": 5,
+   "count": 25
+  },
+  {
+   "name": "hbm:water_door",
+   "meta": 7,
+   "count": 24
+  },
+  {
+   "name": "hbm:deco_pipe_rim_green",
+   "meta": 2,
+   "count": 23
+  },
+  {
+   "name": "hbm:steel_grate",
+   "meta": 2,
+   "count": 23
+  },
+  {
+   "name": "hbm:deco_pipe_rim_rusted",
+   "meta": 0,
+   "count": 23
+  },
+  {
+   "name": "minecraft:carrots",
+   "meta": 2,
+   "count": 23
+  },
+  {
+   "name": "minecraft:double_stone_slab",
+   "meta": 0,
+   "count": 23
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 6,
+   "count": 23
+  },
+  {
+   "name": "harvestcraft:pammaple",
+   "meta": 1,
+   "count": 22
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 1,
+   "count": 22
+  },
+  {
+   "name": "biomesoplenty:wood_slab_1",
+   "meta": 0,
+   "count": 22
+  },
+  {
+   "name": "harvestcraft:pamplum",
+   "meta": 2,
+   "count": 22
+  },
+  {
+   "name": "minecraft:chest",
+   "meta": 4,
+   "count": 21
+  },
+  {
+   "name": "chisel:technical",
+   "meta": 6,
+   "count": 21
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_stairs_hempcrete",
+   "meta": 0,
+   "count": 21
+  },
+  {
+   "name": "hbm:deco_steel",
+   "meta": 0,
+   "count": 21
+  },
+  {
+   "name": "chisel:blocksteel",
+   "meta": 1,
+   "count": 20
+  },
+  {
+   "name": "minecraft:carrots",
+   "meta": 7,
+   "count": 20
+  },
+  {
+   "name": "minecraft:carrots",
+   "meta": 6,
+   "count": 20
+  },
+  {
+   "name": "minecraft:potatoes",
+   "meta": 5,
+   "count": 20
+  },
+  {
+   "name": "immersiveengineering:sheetmetal_slab",
+   "meta": 0,
+   "count": 19
+  },
+  {
+   "name": "hbm:deco_pipe_quad_green_rusted",
+   "meta": 0,
+   "count": 19
+  },
+  {
+   "name": "hbm:railing_normal",
+   "meta": 2,
+   "count": 19
+  },
+  {
+   "name": "chisel:glasspane",
+   "meta": 12,
+   "count": 19
+  },
+  {
+   "name": "minecraft:torch",
+   "meta": 3,
+   "count": 19
+  },
+  {
+   "name": "minecraft:carrots",
+   "meta": 5,
+   "count": 19
+  },
+  {
+   "name": "harvestcraft:pamnutmeg",
+   "meta": 2,
+   "count": 18
+  },
+  {
+   "name": "minecraft:potatoes",
+   "meta": 3,
+   "count": 18
+  },
+  {
+   "name": "minecraft:potatoes",
+   "meta": 4,
+   "count": 18
+  },
+  {
+   "name": "minecraft:chest",
+   "meta": 2,
+   "count": 17
+  },
+  {
+   "name": "hbm:steel_grate",
+   "meta": 1,
+   "count": 17
+  },
+  {
+   "name": "hbm:deco_pipe_rim_green",
+   "meta": 0,
+   "count": 17
+  },
+  {
+   "name": "twilightforest:tower_wood",
+   "meta": 2,
+   "count": 17
+  },
+  {
+   "name": "immersiveengineering:wooden_decoration",
+   "meta": 0,
+   "count": 17
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 5,
+   "count": 17
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 3,
+   "count": 16
+  },
+  {
+   "name": "mw:trusses",
+   "meta": 3,
+   "count": 16
+  },
+  {
+   "name": "simplylight:lightbulb",
+   "meta": 1,
+   "count": 16
+  },
+  {
+   "name": "chisel:glass",
+   "meta": 4,
+   "count": 16
+  },
+  {
+   "name": "minecraft:potatoes",
+   "meta": 2,
+   "count": 16
+  },
+  {
+   "name": "minecraft:carrots",
+   "meta": 3,
+   "count": 16
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 7,
+   "count": 16
+  },
+  {
+   "name": "futuremc:lantern",
+   "meta": 1,
+   "count": 15
+  },
+  {
+   "name": "hbm:deco_pipe_quad_rusted",
+   "meta": 0,
+   "count": 15
+  },
+  {
+   "name": "mw:barrel",
+   "meta": 0,
+   "count": 15
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 2,
+   "count": 15
+  },
+  {
+   "name": "hbm:pribris_digamma",
+   "meta": 0,
+   "count": 15
+  },
+  {
+   "name": "immersiveengineering:sheetmetal",
+   "meta": 8,
+   "count": 15
+  },
+  {
+   "name": "chisel:futura",
+   "meta": 0,
+   "count": 15
+  },
+  {
+   "name": "hbm:ladder_red",
+   "meta": 2,
+   "count": 15
+  },
+  {
+   "name": "minecraft:oak_stairs",
+   "meta": 3,
+   "count": 15
+  },
+  {
+   "name": "hbm:deco_pipe_rim_green_rusted",
+   "meta": 1,
+   "count": 14
+  },
+  {
+   "name": "minecraft:iron_door",
+   "meta": 2,
+   "count": 14
+  },
+  {
+   "name": "minecraft:iron_door",
+   "meta": 9,
+   "count": 14
+  },
+  {
+   "name": "hbm:ladder_red",
+   "meta": 5,
+   "count": 14
+  },
+  {
+   "name": "chisel:glass",
+   "meta": 2,
+   "count": 14
+  },
+  {
+   "name": "minecraft:brick_stairs",
+   "meta": 1,
+   "count": 14
+  },
+  {
+   "name": "harvestcraft:pamspiderweb",
+   "meta": 2,
+   "count": 14
+  },
+  {
+   "name": "minecraft:torch",
+   "meta": 1,
+   "count": 13
+  },
+  {
+   "name": "furenikusroads:road_block_gravel",
+   "meta": 7,
+   "count": 13
+  },
+  {
+   "name": "hbm:deco_pipe_rim_green_rusted",
+   "meta": 2,
+   "count": 13
+  },
+  {
+   "name": "immersiveengineering:sheetmetal",
+   "meta": 2,
+   "count": 13
+  },
+  {
+   "name": "dynamictrees:rootydirtspecies",
+   "meta": 0,
+   "count": 12
+  },
+  {
+   "name": "hbm:reinforced_brick",
+   "meta": 0,
+   "count": 12
+  },
+  {
+   "name": "hbm:round_airlock_door",
+   "meta": 7,
+   "count": 12
+  },
+  {
+   "name": "simplylight:edge_light",
+   "meta": 2,
+   "count": 12
+  },
+  {
+   "name": "hbm:deco_pipe_quad",
+   "meta": 1,
+   "count": 12
+  },
+  {
+   "name": "minecraft:potatoes",
+   "meta": 6,
+   "count": 12
+  },
+  {
+   "name": "minecraft:stone_slab",
+   "meta": 12,
+   "count": 12
+  },
+  {
+   "name": "dynamictreesbop:leaves_flowering",
+   "meta": 11,
+   "count": 12
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 8,
+   "count": 11
+  },
+  {
+   "name": "minecraft:fire",
+   "meta": 3,
+   "count": 11
+  },
+  {
+   "name": "srparasites:gore",
+   "meta": 0,
+   "count": 11
+  },
+  {
+   "name": "minecraft:iron_door",
+   "meta": 8,
+   "count": 11
+  },
+  {
+   "name": "chisel:technical",
+   "meta": 14,
+   "count": 11
+  },
+  {
+   "name": "harvestcraft:pampear",
+   "meta": 2,
+   "count": 11
+  },
+  {
+   "name": "hbm:railing_normal",
+   "meta": 3,
+   "count": 11
+  },
+  {
+   "name": "minecraft:torch",
+   "meta": 4,
+   "count": 11
+  },
+  {
+   "name": "dynamictrees:fruit",
+   "meta": 3,
+   "count": 11
+  },
+  {
+   "name": "minecraft:fire",
+   "meta": 0,
+   "count": 10
+  },
+  {
+   "name": "futuremc:bee_nest",
+   "meta": 0,
+   "count": 10
+  },
+  {
+   "name": "hbm:rbmk_console",
+   "meta": 5,
+   "count": 10
+  },
+  {
+   "name": "hbm:decon",
+   "meta": 0,
+   "count": 10
+  },
+  {
+   "name": "cfm:bar_stool",
+   "meta": 0,
+   "count": 10
+  },
+  {
+   "name": "chisel:technicalnew",
+   "meta": 0,
+   "count": 10
+  },
+  {
+   "name": "furenikusroads:road_block_gravel",
+   "meta": 5,
+   "count": 10
+  },
+  {
+   "name": "harvestcraft:pamavocado",
+   "meta": 2,
+   "count": 10
+  },
+  {
+   "name": "chisel:glass",
+   "meta": 10,
+   "count": 9
+  },
+  {
+   "name": "hbm:crate_weapon",
+   "meta": 0,
+   "count": 9
+  },
+  {
+   "name": "hbm:deco_pipe_quad_green",
+   "meta": 1,
+   "count": 9
+  },
+  {
+   "name": "mw:serverrackrightalt",
+   "meta": 0,
+   "count": 9
+  },
+  {
+   "name": "minecraft:brick_stairs",
+   "meta": 0,
+   "count": 9
+  },
+  {
+   "name": "minecraft:ladder",
+   "meta": 2,
+   "count": 9
+  },
+  {
+   "name": "srparasites:gore",
+   "meta": 8,
+   "count": 8
+  },
+  {
+   "name": "minecraft:fire",
+   "meta": 2,
+   "count": 8
+  },
+  {
+   "name": "minecraft:snow_layer",
+   "meta": 6,
+   "count": 8
+  },
+  {
+   "name": "hbm:sliding_seal_door",
+   "meta": 14,
+   "count": 8
+  },
+  {
+   "name": "minecraft:iron_door",
+   "meta": 3,
+   "count": 8
+  },
+  {
+   "name": "hbm:ladder_aluminium",
+   "meta": 5,
+   "count": 8
+  },
+  {
+   "name": "hbm:deco_pipe_framed_rusted",
+   "meta": 2,
+   "count": 8
+  },
+  {
+   "name": "hbm:sliding_seal_door",
+   "meta": 1,
+   "count": 8
+  },
+  {
+   "name": "hbm:deco_pipe_marked",
+   "meta": 1,
+   "count": 8
+  },
+  {
+   "name": "mw:barrel",
+   "meta": 1,
+   "count": 8
+  },
+  {
+   "name": "simplylight:edge_light",
+   "meta": 1,
+   "count": 8
+  },
+  {
+   "name": "minecraft:wall_banner",
+   "meta": 5,
+   "count": 8
+  },
+  {
+   "name": "hbm:steel_grate",
+   "meta": 3,
+   "count": 8
+  },
+  {
+   "name": "biomesoplenty:poison",
+   "meta": 2,
+   "count": 8
+  },
+  {
+   "name": "immersiveengineering:steel_scaffolding_stairs1",
+   "meta": 1,
+   "count": 8
+  },
+  {
+   "name": "harvestcraft:pamapple",
+   "meta": 2,
+   "count": 8
+  },
+  {
+   "name": "minecraft:torch",
+   "meta": 2,
+   "count": 8
+  },
+  {
+   "name": "minecraft:flowing_lava",
+   "meta": 2,
+   "count": 7
+  },
+  {
+   "name": "mw:serverrackleftalt",
+   "meta": 1,
+   "count": 7
+  },
+  {
+   "name": "hbm:steel_beam",
+   "meta": 5,
+   "count": 7
+  },
+  {
+   "name": "immersiveengineering:steel_scaffolding_stairs1",
+   "meta": 0,
+   "count": 7
+  },
+  {
+   "name": "hbm:ladder_iron",
+   "meta": 3,
+   "count": 7
+  },
+  {
+   "name": "twilightforest:underbrick",
+   "meta": 2,
+   "count": 7
+  },
+  {
+   "name": "mw:serverrackright",
+   "meta": 0,
+   "count": 7
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 11,
+   "count": 6
+  },
+  {
+   "name": "hbm:sliding_seal_door",
+   "meta": 7,
+   "count": 6
+  },
+  {
+   "name": "mw:trusses",
+   "meta": 2,
+   "count": 6
+  },
+  {
+   "name": "hbm:steel_beam",
+   "meta": 3,
+   "count": 6
+  },
+  {
+   "name": "biomesoplenty:wood_slab_1",
+   "meta": 11,
+   "count": 6
+  },
+  {
+   "name": "hbm:ladder_red_top",
+   "meta": 5,
+   "count": 6
+  },
+  {
+   "name": "hbm:barbed_wire",
+   "meta": 2,
+   "count": 6
+  },
+  {
+   "name": "immersiveengineering:connector",
+   "meta": 8,
+   "count": 6
+  },
+  {
+   "name": "hbm:deco_pipe_framed_red",
+   "meta": 0,
+   "count": 6
+  },
+  {
+   "name": "hbm:ladder_steel",
+   "meta": 4,
+   "count": 6
+  },
+  {
+   "name": "immersiveengineering:steel_scaffolding_stairs1",
+   "meta": 2,
+   "count": 6
+  },
+  {
+   "name": "hbm:barbed_wire",
+   "meta": 4,
+   "count": 6
+  },
+  {
+   "name": "hbm:barrel_corroded",
+   "meta": 0,
+   "count": 6
+  },
+  {
+   "name": "hbm:water_door",
+   "meta": 1,
+   "count": 6
+  },
+  {
+   "name": "immersiveengineering:connector",
+   "meta": 4,
+   "count": 6
+  },
+  {
+   "name": "hbm:tape_recorder",
+   "meta": 5,
+   "count": 6
+  },
+  {
+   "name": "hbm:steel_poles",
+   "meta": 2,
+   "count": 6
+  },
+  {
+   "name": "hbm:steel_poles",
+   "meta": 3,
+   "count": 6
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 12,
+   "count": 5
+  },
+  {
+   "name": "minecraft:fire",
+   "meta": 1,
+   "count": 5
+  },
+  {
+   "name": "minecraft:fire",
+   "meta": 4,
+   "count": 5
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 9,
+   "count": 5
+  },
+  {
+   "name": "mw:supply_drop",
+   "meta": 2,
+   "count": 5
+  },
+  {
+   "name": "mw:vent_end",
+   "meta": 2,
+   "count": 5
+  },
+  {
+   "name": "hbm:steel_beam",
+   "meta": 4,
+   "count": 5
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 10,
+   "count": 5
+  },
+  {
+   "name": "chisel:block_charcoal",
+   "meta": 2,
+   "count": 5
+  },
+  {
+   "name": "mw:explosive_barrel",
+   "meta": 2,
+   "count": 5
+  },
+  {
+   "name": "furenikusroads:road_block_gravel",
+   "meta": 10,
+   "count": 5
+  },
+  {
+   "name": "mw:barrel",
+   "meta": 2,
+   "count": 5
+  },
+  {
+   "name": "minecraft:wall_banner",
+   "meta": 4,
+   "count": 5
+  },
+  {
+   "name": "hbm:ladder_tungsten",
+   "meta": 4,
+   "count": 5
+  },
+  {
+   "name": "mw:serverrackleft",
+   "meta": 0,
+   "count": 5
+  },
+  {
+   "name": "mw:serverrackleftalt3",
+   "meta": 0,
+   "count": 5
+  },
+  {
+   "name": "minecraft:wooden_pressure_plate",
+   "meta": 0,
+   "count": 5
+  },
+  {
+   "name": "minecraft:wooden_door",
+   "meta": 3,
+   "count": 5
+  },
+  {
+   "name": "minecraft:wooden_door",
+   "meta": 8,
+   "count": 5
+  },
+  {
+   "name": "minecraft:stone_stairs",
+   "meta": 2,
+   "count": 5
+  },
+  {
+   "name": "minecraft:stone_stairs",
+   "meta": 0,
+   "count": 5
+  },
+  {
+   "name": "minecraft:lit_redstone_ore",
+   "meta": 0,
+   "count": 4
+  },
+  {
+   "name": "hbm:ore_gneiss_iron",
+   "meta": 0,
+   "count": 4
+  },
+  {
+   "name": "futuremc:bee_nest",
+   "meta": 4,
+   "count": 4
+  },
+  {
+   "name": "minecraft:snow",
+   "meta": 0,
+   "count": 4
+  },
+  {
+   "name": "hbm:ladder_red",
+   "meta": 3,
+   "count": 4
+  },
+  {
+   "name": "mw:locker",
+   "meta": 2,
+   "count": 4
+  },
+  {
+   "name": "mw:serverrackrightalt",
+   "meta": 1,
+   "count": 4
+  },
+  {
+   "name": "hbm:rbmk_console",
+   "meta": 2,
+   "count": 4
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 13,
+   "count": 4
+  },
+  {
+   "name": "futuremc:soul_fire_lantern",
+   "meta": 1,
+   "count": 4
+  },
+  {
+   "name": "thuttech:lift",
+   "meta": 1,
+   "count": 4
+  },
+  {
+   "name": "hbm:sliding_seal_door",
+   "meta": 13,
+   "count": 4
+  },
+  {
+   "name": "hbm:rbmk_console",
+   "meta": 3,
+   "count": 4
+  },
+  {
+   "name": "hbm:deco_pipe_marked",
+   "meta": 0,
+   "count": 4
+  },
+  {
+   "name": "chisel:carpet_black",
+   "meta": 0,
+   "count": 4
+  },
+  {
+   "name": "mw:wooden_crate",
+   "meta": 1,
+   "count": 4
+  },
+  {
+   "name": "hbm:crate_lead",
+   "meta": 0,
+   "count": 4
+  },
+  {
+   "name": "twilightforest:tower_wood",
+   "meta": 3,
+   "count": 4
+  },
+  {
+   "name": "mw:wooden_crate",
+   "meta": 0,
+   "count": 4
+  },
+  {
+   "name": "minecraft:carpet",
+   "meta": 14,
+   "count": 4
+  },
+  {
+   "name": "minecraft:wall_banner",
+   "meta": 2,
+   "count": 4
+  },
+  {
+   "name": "chisel:iron",
+   "meta": 13,
+   "count": 4
+  },
+  {
+   "name": "simplylight:edge_light",
+   "meta": 4,
+   "count": 4
+  },
+  {
+   "name": "hbm:machine_controller",
+   "meta": 2,
+   "count": 4
+  },
+  {
+   "name": "harvestcraft:pamhazelnut",
+   "meta": 2,
+   "count": 4
+  },
+  {
+   "name": "harvestcraft:pamsoursop",
+   "meta": 2,
+   "count": 4
+  },
+  {
+   "name": "minecraft:spruce_door",
+   "meta": 9,
+   "count": 4
+  },
+  {
+   "name": "minecraft:ladder",
+   "meta": 3,
+   "count": 4
+  },
+  {
+   "name": "minecraft:brick_block",
+   "meta": 0,
+   "count": 4
+  },
+  {
+   "name": "minecraft:wooden_door",
+   "meta": 9,
+   "count": 4
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 13,
+   "count": 4
+  },
+  {
+   "name": "dynamictrees:fruit",
+   "meta": 2,
+   "count": 4
+  },
+  {
+   "name": "harvestcraft:pampawpaw",
+   "meta": 2,
+   "count": 4
+  },
+  {
+   "name": "minecraft:rail",
+   "meta": 8,
+   "count": 3
+  },
+  {
+   "name": "srparasites:gore",
+   "meta": 1,
+   "count": 3
+  },
+  {
+   "name": "hbm:ore_gneiss_copper",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "srparasites:parasitecanister",
+   "meta": 1,
+   "count": 3
+  },
+  {
+   "name": "minecraft:rail",
+   "meta": 6,
+   "count": 3
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 5,
+   "count": 3
+  },
+  {
+   "name": "mw:dumpster",
+   "meta": 3,
+   "count": 3
+  },
+  {
+   "name": "mw:office_chair_2",
+   "meta": 3,
+   "count": 3
+  },
+  {
+   "name": "minecraft:bed",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "minecraft:bed",
+   "meta": 8,
+   "count": 3
+  },
+  {
+   "name": "hbm:ladder_iron",
+   "meta": 5,
+   "count": 3
+  },
+  {
+   "name": "cfm:table_birch",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "hbm:ladder_steel",
+   "meta": 3,
+   "count": 3
+  },
+  {
+   "name": "mw:wooden_crate",
+   "meta": 2,
+   "count": 3
+  },
+  {
+   "name": "mw:medical_crate",
+   "meta": 2,
+   "count": 3
+  },
+  {
+   "name": "mw:dumpster",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "mw:ammo_box",
+   "meta": 2,
+   "count": 3
+  },
+  {
+   "name": "mw:filingcabinet",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "mw:camera_rotated",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "cfm:freezer",
+   "meta": 1,
+   "count": 3
+  },
+  {
+   "name": "cfm:fridge",
+   "meta": 1,
+   "count": 3
+  },
+  {
+   "name": "hbm:barbed_wire",
+   "meta": 5,
+   "count": 3
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 6,
+   "count": 3
+  },
+  {
+   "name": "futuremc:campfire",
+   "meta": 6,
+   "count": 3
+  },
+  {
+   "name": "minecraft:iron_door",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "futuremc:campfire",
+   "meta": 4,
+   "count": 3
+  },
+  {
+   "name": "harvestcraft:pamchestnut",
+   "meta": 2,
+   "count": 3
+  },
+  {
+   "name": "mw:locker",
+   "meta": 1,
+   "count": 3
+  },
+  {
+   "name": "hbm:large_vehicle_door",
+   "meta": 8,
+   "count": 3
+  },
+  {
+   "name": "hbm:large_vehicle_door",
+   "meta": 9,
+   "count": 3
+  },
+  {
+   "name": "mw:duelfloodlight",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "hbm:water_door",
+   "meta": 8,
+   "count": 3
+  },
+  {
+   "name": "furenikusroads:barrier_concrete_2_mid",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "cfm:desk_dark_oak",
+   "meta": 1,
+   "count": 3
+  },
+  {
+   "name": "cfm:grill",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "hbm:water_door",
+   "meta": 9,
+   "count": 3
+  },
+  {
+   "name": "mw:explosive_barrel",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "mw:serverrackleftalt",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "minecraft:wall_banner",
+   "meta": 3,
+   "count": 3
+  },
+  {
+   "name": "hbm:ladder_red_top",
+   "meta": 2,
+   "count": 3
+  },
+  {
+   "name": "minecraft:rail",
+   "meta": 2,
+   "count": 3
+  },
+  {
+   "name": "immersiveengineering:wooden_device0",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "minecraft:stone_stairs",
+   "meta": 3,
+   "count": 3
+  },
+  {
+   "name": "harvestcraft:pamapple",
+   "meta": 1,
+   "count": 3
+  },
+  {
+   "name": "hbm:pole_top",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "hbm:pole_satellite_receiver",
+   "meta": 2,
+   "count": 3
+  },
+  {
+   "name": "hbm:pole_satellite_receiver",
+   "meta": 3,
+   "count": 3
+  },
+  {
+   "name": "hbm:pole_satellite_receiver",
+   "meta": 4,
+   "count": 3
+  },
+  {
+   "name": "minecraft:pumpkin",
+   "meta": 2,
+   "count": 2
+  },
+  {
+   "name": "hbm:ore_gneiss_asbestos",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "minecraft:rail",
+   "meta": 5,
+   "count": 2
+  },
+  {
+   "name": "mw:electric_box",
+   "meta": 3,
+   "count": 2
+  },
+  {
+   "name": "mw:electric_box",
+   "meta": 2,
+   "count": 2
+  },
+  {
+   "name": "hbm:spinny_light",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "mw:camera_rotated",
+   "meta": 3,
+   "count": 2
+  },
+  {
+   "name": "hbm:bm_power_box",
+   "meta": 10,
+   "count": 2
+  },
+  {
+   "name": "hbm:rbmk_console",
+   "meta": 15,
+   "count": 2
+  },
+  {
+   "name": "chisel:ironpane",
+   "meta": 3,
+   "count": 2
+  },
+  {
+   "name": "thuttech:lift",
+   "meta": 13,
+   "count": 2
+  },
+  {
+   "name": "mw:desk_middle_alt1",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "mw:desk_shelf_alt3",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "hbm:steel_beam",
+   "meta": 2,
+   "count": 2
+  },
+  {
+   "name": "hbm:round_airlock_door",
+   "meta": 9,
+   "count": 2
+  },
+  {
+   "name": "chisel:blocktin",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "hbm:deco_pipe_quad_green",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "hbm:ladder_red",
+   "meta": 4,
+   "count": 2
+  },
+  {
+   "name": "hbm:ladder_red_top",
+   "meta": 4,
+   "count": 2
+  },
+  {
+   "name": "simplylight:lightbulb",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "mw:russian_weapons_case",
+   "meta": 3,
+   "count": 2
+  },
+  {
+   "name": "mw:duelfloodlight",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "hbm:deco_pipe_rim_rusted",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "immersiveengineering:stone_decoration_stairs_hempcrete",
+   "meta": 3,
+   "count": 2
+  },
+  {
+   "name": "mw:ceiling_tv",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "mw:electric_box_opened",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "cfm:couch",
+   "meta": 2,
+   "count": 2
+  },
+  {
+   "name": "hbm:crate",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "cfm:crate",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "hbm:water_door",
+   "meta": 14,
+   "count": 2
+  },
+  {
+   "name": "mw:barrel",
+   "meta": 3,
+   "count": 2
+  },
+  {
+   "name": "mw:vent_end",
+   "meta": 3,
+   "count": 2
+  },
+  {
+   "name": "hbm:sliding_seal_door",
+   "meta": 12,
+   "count": 2
+  },
+  {
+   "name": "hbm:water_door",
+   "meta": 12,
+   "count": 2
+  },
+  {
+   "name": "hbm:red_barrel",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "chisel:bookshelf_oak",
+   "meta": 8,
+   "count": 2
+  },
+  {
+   "name": "chisel:laboratory",
+   "meta": 4,
+   "count": 2
+  },
+  {
+   "name": "chisel:laboratory",
+   "meta": 5,
+   "count": 2
+  },
+  {
+   "name": "cfm:bar_stool",
+   "meta": 4,
+   "count": 2
+  },
+  {
+   "name": "cfm:bar_stool",
+   "meta": 14,
+   "count": 2
+  },
+  {
+   "name": "mw:monitor",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "biomesoplenty:poison",
+   "meta": 3,
+   "count": 2
+  },
+  {
+   "name": "mw:serverrackrightalt",
+   "meta": 2,
+   "count": 2
+  },
+  {
+   "name": "minecraft:wall_sign",
+   "meta": 3,
+   "count": 2
+  },
+  {
+   "name": "chisel:technical1",
+   "meta": 2,
+   "count": 2
+  },
+  {
+   "name": "cfm:freezer",
+   "meta": 3,
+   "count": 2
+  },
+  {
+   "name": "cfm:fridge",
+   "meta": 3,
+   "count": 2
+  },
+  {
+   "name": "cfm:cabinet_acacia",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "cfm:cabinet_diorite",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "cfm:plate",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "mw:explosive_barrel",
+   "meta": 3,
+   "count": 2
+  },
+  {
+   "name": "mw:locker",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "mw:electric_box_opened",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 14,
+   "count": 2
+  },
+  {
+   "name": "mw:fridge_closed",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "minecraft:rail",
+   "meta": 4,
+   "count": 2
+  },
+  {
+   "name": "minecraft:flowing_water",
+   "meta": 14,
+   "count": 2
+  },
+  {
+   "name": "hbm:geysir_vapor",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "minecraft:wool",
+   "meta": 15,
+   "count": 2
+  },
+  {
+   "name": "minecraft:spruce_stairs",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "minecraft:spruce_door",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "minecraft:furnace",
+   "meta": 2,
+   "count": 2
+  },
+  {
+   "name": "minecraft:iron_bars",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "minecraft:rail",
+   "meta": 9,
+   "count": 2
+  },
+  {
+   "name": "minecraft:wooden_door",
+   "meta": 2,
+   "count": 2
+  },
+  {
+   "name": "minecraft:waterlily",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "minecraft:pumpkin",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "harvestcraft:pampear",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "hbm:crashed_bomb",
+   "meta": 4,
+   "count": 1
+  },
+  {
+   "name": "hbm:ladder_red_top",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "mw:laptop",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "mw:desk_middle",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "hbm:tape_recorder",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "mw:ammo_box",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "mw:ammo_box",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "cfm:tv",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "cfm:tv_stand",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "mw:electric_box_opened",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "minecraft:birch_door",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "minecraft:birch_door",
+   "meta": 9,
+   "count": 1
+  },
+  {
+   "name": "mw:vent_end",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "mw:outdoor_chair_rotated",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "cookingforblockheads:oven",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "cfm:toilet",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "mw:wooden_crate_opened",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "minecraft:wall_sign",
+   "meta": 4,
+   "count": 1
+  },
+  {
+   "name": "mw:caution_sign",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "mw:supply_drop",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "mw:filingcabinet_opened",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "mw:office_chair_2",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "mw:radio",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "hbm:round_airlock_door",
+   "meta": 8,
+   "count": 1
+  },
+  {
+   "name": "hbm:round_airlock_door",
+   "meta": 15,
+   "count": 1
+  },
+  {
+   "name": "minecraft:bed",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "minecraft:bed",
+   "meta": 9,
+   "count": 1
+  },
+  {
+   "name": "futuremc:campfire",
+   "meta": 7,
+   "count": 1
+  },
+  {
+   "name": "hbm:barbed_wire",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 7,
+   "count": 1
+  },
+  {
+   "name": "mw:wooden_crate_opened",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "mw:supply_drop",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "mw:hanging_body",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "mw:dumpster",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "hbm:bm_power_box",
+   "meta": 8,
+   "count": 1
+  },
+  {
+   "name": "cfm:tv",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "cfm:tv_stand",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "futuremc:campfire",
+   "meta": 5,
+   "count": 1
+  },
+  {
+   "name": "hbm:steel_grate",
+   "meta": 4,
+   "count": 1
+  },
+  {
+   "name": "mw:wooden_crate_opened",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "mw:electric_box",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "mw:radio_rotated",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "hbm:large_vehicle_door",
+   "meta": 15,
+   "count": 1
+  },
+  {
+   "name": "mw:forklift_alt",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "mw:duelfloodlight",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "simplylight:edge_light_top",
+   "meta": 11,
+   "count": 1
+  },
+  {
+   "name": "mw:ammo_box",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "mw:forklift_alt",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "hbm:boxcar",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "harvestcraft:pamcherry",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "hbm:water_door",
+   "meta": 15,
+   "count": 1
+  },
+  {
+   "name": "hbm:water_door",
+   "meta": 10,
+   "count": 1
+  },
+  {
+   "name": "hbm:water_door",
+   "meta": 11,
+   "count": 1
+  },
+  {
+   "name": "biomesoplenty:cherry_door_block",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "biomesoplenty:cherry_door_block",
+   "meta": 9,
+   "count": 1
+  },
+  {
+   "name": "mw:office_chair",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "hbm:door_metal",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "hbm:door_metal",
+   "meta": 8,
+   "count": 1
+  },
+  {
+   "name": "chisel:technical",
+   "meta": 4,
+   "count": 1
+  },
+  {
+   "name": "cookingforblockheads:tool_rack",
+   "meta": 4,
+   "count": 1
+  },
+  {
+   "name": "cfm:toilet",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "cfm:grand_chair_top",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "cfm:grand_chair_bottom",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "twilightforest:trophy",
+   "meta": 4,
+   "count": 1
+  },
+  {
+   "name": "twilightforest:mine_trapdoor",
+   "meta": 10,
+   "count": 1
+  },
+  {
+   "name": "mw:trash_bin",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "mw:serverrackright",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "hbm:block_waste_painted",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "hbm:water_door",
+   "meta": 4,
+   "count": 1
+  },
+  {
+   "name": "hbm:water_door",
+   "meta": 5,
+   "count": 1
+  },
+  {
+   "name": "minecraft:wall_sign",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "biomesoplenty:fir_door_block",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "biomesoplenty:fir_door_block",
+   "meta": 8,
+   "count": 1
+  },
+  {
+   "name": "cookingforblockheads:oven",
+   "meta": 5,
+   "count": 1
+  },
+  {
+   "name": "cfm:tv",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "cfm:stereo",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "cfm:modern_chair",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "simplylight:edge_light",
+   "meta": 11,
+   "count": 1
+  },
+  {
+   "name": "mw:russian_weapons_case",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "mw:camera_rotated",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "mw:weapons_locker",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "mw:serverrackright",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "minecraft:wooden_slab",
+   "meta": 9,
+   "count": 1
+  },
+  {
+   "name": "minecraft:acacia_fence_gate",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "mw:radio_rotated",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "cfm:chair_oak",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "cfm:chair_oak",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "cfm:tv",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "minecraft:skull",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "hbm:yellow_barrel",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "mw:fridge_open",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "cookingforblockheads:oven",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "cfm:cabinet_acacia",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "cfm:lamp_off",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "cfm:computer",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "harvestcraft:pamwalnut",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "minecraft:flowing_lava",
+   "meta": 8,
+   "count": 1
+  },
+  {
+   "name": "minecraft:flowing_lava",
+   "meta": 10,
+   "count": 1
+  },
+  {
+   "name": "minecraft:stone_stairs",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "minecraft:spruce_door",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "minecraft:spruce_door",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "minecraft:spruce_door",
+   "meta": 5,
+   "count": 1
+  },
+  {
+   "name": "minecraft:spruce_door",
+   "meta": 8,
+   "count": 1
+  },
+  {
+   "name": "minecraft:reeds",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "hbm:crashed_bomb",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "harvestcraft:pamgooseberry",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "dynamictrees:fruit",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "minecraft:pumpkin",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "minecraft:wooden_door",
+   "meta": 0,
+   "count": 1
+  },
+  {
+   "name": "minecraft:wooden_door",
+   "meta": 5,
+   "count": 1
+  },
+  {
+   "name": "harvestcraft:pamhazelnut",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "hbm:soyuz_capsule",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "hbm:crashed_bomb",
+   "meta": 5,
+   "count": 1
+  },
+  {
+   "name": "hbm:safe",
+   "meta": 2,
+   "count": 1
+  }
+ ]
+}

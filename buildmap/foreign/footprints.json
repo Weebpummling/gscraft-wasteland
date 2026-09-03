@@ -1,0 +1,1396 @@
+{
+ "Bio_Gen_Offices_Restricted_Areas": [
+  {
+   "chunks": 2,
+   "cx": [
+    30,
+    30
+   ],
+   "cz": [
+    -75,
+    -74
+   ],
+   "blocks": [
+    480,
+    -1200,
+    495,
+    -1169
+   ],
+   "placed": 2542,
+   "top": [
+    "minecraft:brick_block",
+    "minecraft:brick_stairs",
+    "minecraft:stonebrick",
+    "hbm:steel_wall",
+    "minecraft:iron_bars"
+   ],
+   "tiles": {
+    "hbm:tileentity_deco_block": 120,
+    "minecraft:chest": 7,
+    "hbm:tileentity_machine_electric_furnace": 6,
+    "minecraft:hopper": 6
+   }
+  },
+  {
+   "chunks": 4,
+   "cx": [
+    29,
+    30
+   ],
+   "cz": [
+    -62,
+    -60
+   ],
+   "blocks": [
+    464,
+    -992,
+    495,
+    -945
+   ],
+   "placed": 2251,
+   "top": [
+    "minecraft:brick_block",
+    "minecraft:stonebrick",
+    "minecraft:brick_stairs",
+    "hbm:steel_wall",
+    "hbm:reinforced_light"
+   ],
+   "tiles": {
+    "hbm:tileentity_deco_block": 116,
+    "minecraft:chest": 6,
+    "hbm:tileentity_machine_difurnace": 6,
+    "hbm:tileentity_machine_electric_furnace": 5
+   }
+  },
+  {
+   "chunks": 2,
+   "cx": [
+    31,
+    32
+   ],
+   "cz": [
+    -63,
+    -63
+   ],
+   "blocks": [
+    496,
+    -1008,
+    527,
+    -993
+   ],
+   "placed": 1274,
+   "top": [
+    "hbm:brick_concrete",
+    "hbm:brick_light",
+    "hbm:brick_concrete_mossy",
+    "hbm:brick_concrete_cracked",
+    "hbm:deco_steel"
+   ],
+   "tiles": {
+    "minecraft:flower_pot": 5,
+    "hbm:tileentity_deco_pole_satellite_receiver": 5,
+    "minecraft:chest": 3,
+    "minecraft:sign": 2
+   }
+  }
+ ],
+ "Financial_Plaza_Quarantine": [
+  {
+   "chunks": 64,
+   "cx": [
+    -27,
+    -18
+   ],
+   "cz": [
+    -73,
+    -65
+   ],
+   "blocks": [
+    -432,
+    -1168,
+    -273,
+    -1025
+   ],
+   "placed": 231249,
+   "top": [
+    "minecraft:concrete",
+    "chisel:antiblock",
+    "chisel:factory",
+    "simplylight:illuminant_block_on",
+    "immersiveengineering:stone_decoration"
+   ],
+   "tiles": {
+    "hbm:tileentity_dummy": 214,
+    "immersiveengineering:woodenpost": 128,
+    "immersiveengineering:structuralarm": 88,
+    "hbm:tileentity_wire_coated": 76
+   }
+  },
+  {
+   "chunks": 7,
+   "cx": [
+    -42,
+    -40
+   ],
+   "cz": [
+    -63,
+    -61
+   ],
+   "blocks": [
+    -672,
+    -1008,
+    -625,
+    -961
+   ],
+   "placed": 4566,
+   "top": [
+    "hbm:reinforced_sand",
+    "hbm:brick_light",
+    "hbm:brick_concrete",
+    "hbm:deco_steel",
+    "hbm:fence_metal"
+   ],
+   "tiles": {
+    "hbm:tileentity_wire_coated": 46,
+    "minecraft:chest": 13,
+    "minecraft:sign": 4,
+    "minecraft:mob_spawner": 4
+   }
+  },
+  {
+   "chunks": 4,
+   "cx": [
+    -39,
+    -38
+   ],
+   "cz": [
+    -79,
+    -78
+   ],
+   "blocks": [
+    -624,
+    -1264,
+    -593,
+    -1233
+   ],
+   "placed": 3344,
+   "top": [
+    "hbm:brick_concrete",
+    "hbm:reinforced_sand",
+    "hbm:deco_steel",
+    "hbm:brick_concrete_mossy",
+    "hbm:brick_light"
+   ],
+   "tiles": {
+    "hbm:tileentity_wire_coated": 46,
+    "minecraft:chest": 5,
+    "minecraft:flower_pot": 4,
+    "minecraft:sign": 4
+   }
+  },
+  {
+   "chunks": 4,
+   "cx": [
+    -15,
+    -14
+   ],
+   "cz": [
+    -80,
+    -78
+   ],
+   "blocks": [
+    -240,
+    -1280,
+    -209,
+    -1233
+   ],
+   "placed": 3032,
+   "top": [
+    "hbm:brick_concrete",
+    "hbm:reinforced_sand",
+    "hbm:brick_light",
+    "hbm:fence_metal",
+    "hbm:deco_steel"
+   ],
+   "tiles": {
+    "hbm:tileentity_wire_coated": 46,
+    "hbm:tileentity_machine_puf6_tank": 2,
+    "hbm:tileentity_machine_uf6_tank": 2,
+    "hbm:tileentity_machine_centrifuge": 2
+   }
+  },
+  {
+   "chunks": 6,
+   "cx": [
+    -23,
+    -21
+   ],
+   "cz": [
+    -61,
+    -59
+   ],
+   "blocks": [
+    -368,
+    -976,
+    -321,
+    -929
+   ],
+   "placed": 2826,
+   "top": [
+    "hbm:reinforced_brick",
+    "hbm:brick_concrete",
+    "hbm:brick_concrete_mossy",
+    "hbm:brick_concrete_cracked",
+    "hbm:deco_steel"
+   ],
+   "tiles": {
+    "hbm:tileentity_wire_coated": 73,
+    "hbm:tileentity_machine_battery": 3,
+    "minecraft:chest": 3,
+    "minecraft:sign": 3
+   }
+  },
+  {
+   "chunks": 3,
+   "cx": [
+    -20,
+    -19
+   ],
+   "cz": [
+    -82,
+    -81
+   ],
+   "blocks": [
+    -320,
+    -1312,
+    -289,
+    -1281
+   ],
+   "placed": 2165,
+   "top": [
+    "hbm:deco_titanium",
+    "hbm:deco_steel",
+    "hbm:deco_beryllium",
+    "minecraft:stone_slab",
+    "hbm:brick_concrete"
+   ],
+   "tiles": {
+    "minecraft:chest": 4
+   }
+  },
+  {
+   "chunks": 2,
+   "cx": [
+    -7,
+    -7
+   ],
+   "cz": [
+    -74,
+    -73
+   ],
+   "blocks": [
+    -112,
+    -1184,
+    -97,
+    -1153
+   ],
+   "placed": 2119,
+   "top": [
+    "hbm:deco_titanium",
+    "hbm:deco_steel",
+    "hbm:brick_concrete",
+    "hbm:brick_concrete_mossy",
+    "minecraft:stone_slab"
+   ],
+   "tiles": {
+    "minecraft:chest": 3
+   }
+  },
+  {
+   "chunks": 2,
+   "cx": [
+    -4,
+    -4
+   ],
+   "cz": [
+    -74,
+    -73
+   ],
+   "blocks": [
+    -64,
+    -1184,
+    -49,
+    -1153
+   ],
+   "placed": 1975,
+   "top": [
+    "hbm:deco_titanium",
+    "hbm:deco_steel",
+    "hbm:brick_concrete",
+    "hbm:brick_concrete_mossy",
+    "minecraft:stone_slab"
+   ],
+   "tiles": {
+    "minecraft:chest": 3
+   }
+  },
+  {
+   "chunks": 3,
+   "cx": [
+    -33,
+    -32
+   ],
+   "cz": [
+    -68,
+    -67
+   ],
+   "blocks": [
+    -528,
+    -1088,
+    -497,
+    -1057
+   ],
+   "placed": 1958,
+   "top": [
+    "minecraft:brick_block",
+    "minecraft:brick_stairs",
+    "minecraft:stonebrick",
+    "hbm:steel_wall"
+   ],
+   "tiles": {
+    "hbm:tileentity_deco_block": 102,
+    "minecraft:chest": 7,
+    "minecraft:hopper": 6,
+    "hbm:tileentity_machine_electric_furnace": 6
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    -42,
+    -42
+   ],
+   "cz": [
+    -65,
+    -65
+   ],
+   "blocks": [
+    -672,
+    -1040,
+    -657,
+    -1025
+   ],
+   "placed": 1375,
+   "top": [
+    "hbm:deco_steel",
+    "hbm:reinforced_brick",
+    "hbm:steel_scaffold",
+    "hbm:fence_metal"
+   ],
+   "tiles": {
+    "hbm:tileentity_wire_coated": 73,
+    "hbm:tileentity_crate_iron": 3,
+    "hbm:tileentity_machine_battery": 3,
+    "minecraft:sign": 1
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    -13,
+    -13
+   ],
+   "cz": [
+    -83,
+    -83
+   ],
+   "blocks": [
+    -208,
+    -1328,
+    -193,
+    -1313
+   ],
+   "placed": 1206,
+   "top": [
+    "hbm:deco_steel",
+    "hbm:reinforced_brick",
+    "hbm:steel_scaffold",
+    "hbm:red_wire_coated"
+   ],
+   "tiles": {
+    "hbm:tileentity_wire_coated": 73,
+    "hbm:tileentity_machine_battery": 3,
+    "hbm:tileentity_crate_iron": 2,
+    "minecraft:sign": 1
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    -29,
+    -29
+   ],
+   "cz": [
+    -48,
+    -48
+   ],
+   "blocks": [
+    -464,
+    -768,
+    -449,
+    -753
+   ],
+   "placed": 564,
+   "top": [
+    "minecraft:stonebrick",
+    "minecraft:wooden_slab",
+    "minecraft:bookshelf",
+    "minecraft:planks"
+   ],
+   "tiles": {
+    "minecraft:chest": 8,
+    "minecraft:mob_spawner": 4
+   }
+  }
+ ],
+ "Novo_Expograd_Industrial_Zone": [
+  {
+   "chunks": 41,
+   "cx": [
+    39,
+    47
+   ],
+   "cz": [
+    9,
+    18
+   ],
+   "blocks": [
+    624,
+    144,
+    767,
+    303
+   ],
+   "placed": 26572,
+   "top": [
+    "furenikusroads:generic_blocks",
+    "immersiveengineering:stone_decoration",
+    "chisel:factory",
+    "chisel:technicalnew",
+    "hbm:machine_tower_large"
+   ],
+   "tiles": {
+    "hbm:tileentity_dummy": 632,
+    "immersiveengineering:ieslab": 600,
+    "hbm:tileentity_proxy_combo": 76,
+    "hbm:tileentity_dummy_fluid_port": 30
+   }
+  },
+  {
+   "chunks": 2,
+   "cx": [
+    38,
+    38
+   ],
+   "cz": [
+    25,
+    26
+   ],
+   "blocks": [
+    608,
+    400,
+    623,
+    431
+   ],
+   "placed": 2601,
+   "top": [
+    "minecraft:brick_block",
+    "minecraft:brick_stairs",
+    "minecraft:stonebrick",
+    "hbm:steel_wall",
+    "furenikusroads:generic_blocks"
+   ],
+   "tiles": {
+    "hbm:tileentity_deco_block": 120,
+    "minecraft:chest": 7,
+    "minecraft:hopper": 6,
+    "hbm:tileentity_machine_difurnace": 6
+   }
+  },
+  {
+   "chunks": 2,
+   "cx": [
+    18,
+    18
+   ],
+   "cz": [
+    15,
+    16
+   ],
+   "blocks": [
+    288,
+    240,
+    303,
+    271
+   ],
+   "placed": 1474,
+   "top": [
+    "hbm:brick_concrete",
+    "hbm:brick_concrete_mossy",
+    "hbm:brick_concrete_cracked",
+    "hbm:brick_concrete_broken",
+    "furenikusroads:generic_blocks"
+   ],
+   "tiles": {
+    "minecraft:chest": 3,
+    "minecraft:sign": 2,
+    "hbm:tileentity_launch_pad": 1
+   }
+  },
+  {
+   "chunks": 2,
+   "cx": [
+    44,
+    45
+   ],
+   "cz": [
+    24,
+    24
+   ],
+   "blocks": [
+    704,
+    384,
+    735,
+    399
+   ],
+   "placed": 1454,
+   "top": [
+    "hbm:brick_concrete",
+    "hbm:brick_concrete_mossy",
+    "hbm:brick_concrete_cracked",
+    "furenikusroads:generic_blocks"
+   ],
+   "tiles": {
+    "minecraft:chest": 3,
+    "minecraft:sign": 2,
+    "hbm:tileentity_launch_pad": 1
+   }
+  },
+  {
+   "chunks": 2,
+   "cx": [
+    49,
+    49
+   ],
+   "cz": [
+    22,
+    23
+   ],
+   "blocks": [
+    784,
+    352,
+    799,
+    383
+   ],
+   "placed": 1097,
+   "top": [
+    "minecraft:stonebrick",
+    "hbm:deco_steel",
+    "furenikusroads:generic_blocks",
+    "minecraft:wooden_slab",
+    "hbm:deco_red_copper"
+   ],
+   "tiles": {
+    "minecraft:chest": 13,
+    "hbm:tileentity_cable": 10,
+    "hbm:tileentity_wire_coated": 10,
+    "minecraft:mob_spawner": 4
+   }
+  },
+  {
+   "chunks": 2,
+   "cx": [
+    20,
+    21
+   ],
+   "cz": [
+    18,
+    18
+   ],
+   "blocks": [
+    320,
+    288,
+    351,
+    303
+   ],
+   "placed": 1044,
+   "top": [
+    "hbm:brick_concrete",
+    "hbm:brick_concrete_mossy",
+    "hbm:brick_concrete_cracked",
+    "furenikusroads:generic_blocks",
+    "hbm:brick_concrete_broken"
+   ],
+   "tiles": {
+    "hbm:tileentity_launch_pad": 1,
+    "minecraft:chest": 1
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    28,
+    28
+   ],
+   "cz": [
+    5,
+    5
+   ],
+   "blocks": [
+    448,
+    80,
+    463,
+    95
+   ],
+   "placed": 636,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:wooden_slab",
+    "minecraft:planks"
+   ],
+   "tiles": {
+    "minecraft:chest": 8,
+    "minecraft:mob_spawner": 4
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    52,
+    52
+   ],
+   "cz": [
+    4,
+    4
+   ],
+   "blocks": [
+    832,
+    64,
+    847,
+    79
+   ],
+   "placed": 633,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:wooden_slab",
+    "minecraft:bookshelf"
+   ],
+   "tiles": {
+    "minecraft:chest": 8,
+    "minecraft:mob_spawner": 4
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    43,
+    43
+   ],
+   "cz": [
+    0,
+    0
+   ],
+   "blocks": [
+    688,
+    0,
+    703,
+    15
+   ],
+   "placed": 631,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:wooden_slab",
+    "minecraft:planks"
+   ],
+   "tiles": {
+    "minecraft:chest": 8,
+    "minecraft:mob_spawner": 4
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    55,
+    55
+   ],
+   "cz": [
+    19,
+    19
+   ],
+   "blocks": [
+    880,
+    304,
+    895,
+    319
+   ],
+   "placed": 622,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:wooden_slab",
+    "minecraft:bookshelf"
+   ],
+   "tiles": {
+    "minecraft:chest": 8,
+    "minecraft:mob_spawner": 4
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    53,
+    53
+   ],
+   "cz": [
+    18,
+    18
+   ],
+   "blocks": [
+    848,
+    288,
+    863,
+    303
+   ],
+   "placed": 506,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:wooden_slab",
+    "minecraft:planks"
+   ],
+   "tiles": {
+    "minecraft:chest": 7,
+    "minecraft:mob_spawner": 4
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    31,
+    31
+   ],
+   "cz": [
+    11,
+    11
+   ],
+   "blocks": [
+    496,
+    176,
+    511,
+    191
+   ],
+   "placed": 505,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:wooden_slab",
+    "minecraft:planks"
+   ],
+   "tiles": {
+    "minecraft:chest": 7,
+    "minecraft:mob_spawner": 4
+   }
+  }
+ ],
+ "SewerPVP": [
+  {
+   "chunks": 31,
+   "cx": [
+    -59,
+    -54
+   ],
+   "cz": [
+    -20,
+    -15
+   ],
+   "blocks": [
+    -944,
+    -320,
+    -849,
+    -225
+   ],
+   "placed": 58338,
+   "top": [
+    "immersiveengineering:stone_decoration",
+    "chisel:factory",
+    "chisel:technical",
+    "hbm:deco_pipe_quad_green_rusted",
+    "furenikusroads:generic_blocks"
+   ],
+   "tiles": {
+    "immersiveengineering:ieslab": 231,
+    "minecraft:tiletrusses": 148,
+    "immersiveengineering:structuralarm": 112,
+    "minecraft:tilebarrel": 30
+   }
+  },
+  {
+   "chunks": 2,
+   "cx": [
+    -77,
+    -76
+   ],
+   "cz": [
+    -14,
+    -13
+   ],
+   "blocks": [
+    -1232,
+    -224,
+    -1201,
+    -193
+   ],
+   "placed": 1026,
+   "top": [
+    "minecraft:stonebrick",
+    "minecraft:wooden_slab",
+    "furenikusroads:generic_blocks",
+    "minecraft:fence",
+    "minecraft:bookshelf"
+   ],
+   "tiles": {
+    "minecraft:chest": 11,
+    "minecraft:mob_spawner": 8
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    -59,
+    -59
+   ],
+   "cz": [
+    -6,
+    -6
+   ],
+   "blocks": [
+    -944,
+    -96,
+    -929,
+    -81
+   ],
+   "placed": 614,
+   "top": [
+    "minecraft:stonebrick",
+    "minecraft:wooden_slab",
+    "furenikusroads:generic_blocks",
+    "minecraft:planks"
+   ],
+   "tiles": {
+    "minecraft:chest": 8,
+    "minecraft:mob_spawner": 4
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    -40,
+    -40
+   ],
+   "cz": [
+    -21,
+    -21
+   ],
+   "blocks": [
+    -640,
+    -336,
+    -625,
+    -321
+   ],
+   "placed": 586,
+   "top": [
+    "minecraft:stonebrick",
+    "minecraft:wooden_slab",
+    "furenikusroads:generic_blocks",
+    "minecraft:planks"
+   ],
+   "tiles": {
+    "minecraft:chest": 8,
+    "minecraft:mob_spawner": 4
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    -60,
+    -60
+   ],
+   "cz": [
+    -33,
+    -33
+   ],
+   "blocks": [
+    -960,
+    -528,
+    -945,
+    -513
+   ],
+   "placed": 449,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:wooden_slab",
+    "minecraft:planks"
+   ],
+   "tiles": {
+    "minecraft:chest": 7,
+    "minecraft:mob_spawner": 3,
+    "futuremc:beehive": 1
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    -68,
+    -68
+   ],
+   "cz": [
+    -50,
+    -50
+   ],
+   "blocks": [
+    -1088,
+    -800,
+    -1073,
+    -785
+   ],
+   "placed": 357,
+   "top": [
+    "minecraft:planks",
+    "furenikusroads:generic_blocks",
+    "minecraft:fence",
+    "minecraft:rail"
+   ],
+   "tiles": {}
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    -62,
+    -62
+   ],
+   "cz": [
+    -48,
+    -48
+   ],
+   "blocks": [
+    -992,
+    -768,
+    -977,
+    -753
+   ],
+   "placed": 345,
+   "top": [
+    "minecraft:planks",
+    "immersiveengineering:treated_wood",
+    "minecraft:wool",
+    "furenikusroads:generic_blocks"
+   ],
+   "tiles": {
+    "immersiveengineering:woodencrate": 1
+   }
+  },
+  {
+   "chunks": 1,
+   "cx": [
+    -73,
+    -73
+   ],
+   "cz": [
+    -9,
+    -9
+   ],
+   "blocks": [
+    -1168,
+    -144,
+    -1153,
+    -129
+   ],
+   "placed": 300,
+   "top": [
+    "minecraft:planks",
+    "minecraft:oak_stairs",
+    "furenikusroads:generic_blocks",
+    "minecraft:glass_pane"
+   ],
+   "tiles": {}
+  }
+ ],
+ "world": [
+  {
+   "chunks": 754,
+   "cx": [
+    -91,
+    -40
+   ],
+   "cz": [
+    96,
+    135
+   ],
+   "blocks": [
+    -1456,
+    1536,
+    -625,
+    2175
+   ],
+   "placed": 1417635,
+   "top": [
+    "minecraft:red_sandstone",
+    "furenikusroads:generic_blocks",
+    "chisel:factory",
+    "minecraft:planks",
+    "minecraft:wool"
+   ],
+   "tiles": {
+    "immersiveengineering:ieslab": 7275,
+    "hbm:tileentity_dummy": 1269,
+    "minecraft:sign": 1264,
+    "immersiveengineering:structuralarm": 1221
+   }
+  },
+  {
+   "chunks": 158,
+   "cx": [
+    -27,
+    -11
+   ],
+   "cz": [
+    92,
+    109
+   ],
+   "blocks": [
+    -432,
+    1472,
+    -161,
+    1759
+   ],
+   "placed": 220016,
+   "top": [
+    "furenikusroads:generic_blocks",
+    "minecraft:red_sandstone",
+    "minecraft:stonebrick",
+    "minecraft:double_stone_slab",
+    "minecraft:iron_bars"
+   ],
+   "tiles": {
+    "minecraft:species_tile_entity": 19,
+    "minecraft:chest": 13,
+    "minecraft:mob_spawner": 6,
+    "immersiveengineering:woodencrate": 3
+   }
+  },
+  {
+   "chunks": 141,
+   "cx": [
+    -15,
+    11
+   ],
+   "cz": [
+    119,
+    149
+   ],
+   "blocks": [
+    -240,
+    1904,
+    191,
+    2399
+   ],
+   "placed": 112657,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:rail",
+    "minecraft:redstone_torch",
+    "minecraft:golden_rail"
+   ],
+   "tiles": {
+    "minecraft:mob_spawner": 76,
+    "minecraft:chest": 35,
+    "hbm:tileentity_deco_pole_satellite_receiver": 3,
+    "hbm:tileentity_crashed_bomb": 1
+   }
+  },
+  {
+   "chunks": 122,
+   "cx": [
+    -71,
+    -51
+   ],
+   "cz": [
+    59,
+    89
+   ],
+   "blocks": [
+    -1136,
+    944,
+    -801,
+    1439
+   ],
+   "placed": 77115,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:rail",
+    "minecraft:redstone_torch",
+    "minecraft:double_stone_slab2"
+   ],
+   "tiles": {
+    "minecraft:mob_spawner": 42,
+    "minecraft:chest": 15,
+    "minecraft:species_tile_entity": 5,
+    "hbm:tileentity_machine_broadcaster": 1
+   }
+  },
+  {
+   "chunks": 54,
+   "cx": [
+    -21,
+    -11
+   ],
+   "cz": [
+    149,
+    161
+   ],
+   "blocks": [
+    -336,
+    2384,
+    -161,
+    2591
+   ],
+   "placed": 74056,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:double_stone_slab",
+    "minecraft:cobblestone_wall",
+    "minecraft:stained_glass"
+   ],
+   "tiles": {
+    "minecraft:mob_spawner": 99,
+    "minecraft:chest": 50
+   }
+  },
+  {
+   "chunks": 67,
+   "cx": [
+    -41,
+    -29
+   ],
+   "cz": [
+    78,
+    92
+   ],
+   "blocks": [
+    -656,
+    1248,
+    -449,
+    1487
+   ],
+   "placed": 68694,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:double_stone_slab2",
+    "minecraft:iron_bars",
+    "minecraft:stained_glass"
+   ],
+   "tiles": {
+    "minecraft:mob_spawner": 151,
+    "minecraft:chest": 43,
+    "hbm:tileentity_crashed_bomb": 1
+   }
+  },
+  {
+   "chunks": 42,
+   "cx": [
+    -27,
+    -17
+   ],
+   "cz": [
+    130,
+    139
+   ],
+   "blocks": [
+    -432,
+    2080,
+    -257,
+    2239
+   ],
+   "placed": 60879,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:double_stone_slab2",
+    "minecraft:cobblestone_wall",
+    "minecraft:double_stone_slab"
+   ],
+   "tiles": {
+    "minecraft:mob_spawner": 60,
+    "minecraft:chest": 17,
+    "minecraft:species_tile_entity": 2
+   }
+  },
+  {
+   "chunks": 42,
+   "cx": [
+    -88,
+    -81
+   ],
+   "cz": [
+    87,
+    95
+   ],
+   "blocks": [
+    -1408,
+    1392,
+    -1281,
+    1535
+   ],
+   "placed": 53149,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:double_stone_slab",
+    "minecraft:cobblestone_wall",
+    "minecraft:double_stone_slab2"
+   ],
+   "tiles": {
+    "minecraft:mob_spawner": 74,
+    "minecraft:chest": 32
+   }
+  },
+  {
+   "chunks": 40,
+   "cx": [
+    -80,
+    -74
+   ],
+   "cz": [
+    147,
+    156
+   ],
+   "blocks": [
+    -1280,
+    2352,
+    -1169,
+    2511
+   ],
+   "placed": 52131,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:double_stone_slab",
+    "minecraft:cobblestone_wall",
+    "minecraft:iron_bars"
+   ],
+   "tiles": {
+    "minecraft:mob_spawner": 47,
+    "minecraft:species_tile_entity": 25,
+    "minecraft:chest": 13
+   }
+  },
+  {
+   "chunks": 38,
+   "cx": [
+    -41,
+    -31
+   ],
+   "cz": [
+    141,
+    150
+   ],
+   "blocks": [
+    -656,
+    2256,
+    -481,
+    2415
+   ],
+   "placed": 46032,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:double_stone_slab",
+    "minecraft:cobblestone_wall",
+    "minecraft:iron_bars"
+   ],
+   "tiles": {
+    "minecraft:mob_spawner": 57,
+    "minecraft:species_tile_entity": 23,
+    "minecraft:chest": 17
+   }
+  },
+  {
+   "chunks": 46,
+   "cx": [
+    -58,
+    -50
+   ],
+   "cz": [
+    137,
+    149
+   ],
+   "blocks": [
+    -928,
+    2192,
+    -785,
+    2399
+   ],
+   "placed": 36210,
+   "top": [
+    "minecraft:stonebrick",
+    "furenikusroads:generic_blocks",
+    "minecraft:double_stone_slab",
+    "minecraft:cobblestone_wall",
+    "minecraft:planks"
+   ],
+   "tiles": {
+    "minecraft:mob_spawner": 33,
+    "minecraft:species_tile_entity": 17,
+    "minecraft:chest": 13,
+    "immersiveengineering:woodencrate": 1
+   }
+  },
+  {
+   "chunks": 21,
+   "cx": [
+    -45,
+    -40
+   ],
+   "cz": [
+    152,
+    159
+   ],
+   "blocks": [
+    -720,
+    2432,
+    -625,
+    2559
+   ],
+   "placed": 34517,
+   "top": [
+    "minecraft:stonebrick",
+    "minecraft:double_stone_slab",
+    "furenikusroads:generic_blocks",
+    "minecraft:cobblestone_wall",
+    "minecraft:stained_glass_pane"
+   ],
+   "tiles": {
+    "minecraft:mob_spawner": 50,
+    "minecraft:chest": 19,
+    "minecraft:species_tile_entity": 7
+   }
+  }
+ ]
+}

@@ -1,0 +1,582 @@
+{
+ "save": "Bio Gen Offices Restricted Areas",
+ "chunks": 1258,
+ "distinct": 114,
+ "namespaces": {
+  "minecraft": 1291269,
+  "hbm": 3319,
+  "harvestcraft": 164
+ },
+ "blocks": [
+  {
+   "name": "minecraft:dirt",
+   "meta": 0,
+   "count": 641742
+  },
+  {
+   "name": "minecraft:bedrock",
+   "meta": 0,
+   "count": 320968
+  },
+  {
+   "name": "minecraft:grass",
+   "meta": 0,
+   "count": 320295
+  },
+  {
+   "name": "minecraft:cobblestone",
+   "meta": 0,
+   "count": 3312
+  },
+  {
+   "name": "minecraft:brick_block",
+   "meta": 0,
+   "count": 2676
+  },
+  {
+   "name": "minecraft:brick_stairs",
+   "meta": 2,
+   "count": 736
+  },
+  {
+   "name": "hbm:brick_concrete",
+   "meta": 0,
+   "count": 711
+  },
+  {
+   "name": "minecraft:stonebrick",
+   "meta": 0,
+   "count": 620
+  },
+  {
+   "name": "hbm:brick_light",
+   "meta": 0,
+   "count": 561
+  },
+  {
+   "name": "hbm:brick_concrete_mossy",
+   "meta": 0,
+   "count": 459
+  },
+  {
+   "name": "hbm:deco_steel",
+   "meta": 0,
+   "count": 439
+  },
+  {
+   "name": "hbm:brick_concrete_cracked",
+   "meta": 0,
+   "count": 236
+  },
+  {
+   "name": "minecraft:web",
+   "meta": 0,
+   "count": 235
+  },
+  {
+   "name": "minecraft:stonebrick",
+   "meta": 3,
+   "count": 186
+  },
+  {
+   "name": "harvestcraft:windygarden",
+   "meta": 0,
+   "count": 164
+  },
+  {
+   "name": "minecraft:iron_bars",
+   "meta": 0,
+   "count": 148
+  },
+  {
+   "name": "hbm:reinforced_light",
+   "meta": 0,
+   "count": 142
+  },
+  {
+   "name": "hbm:steel_wall",
+   "meta": 4,
+   "count": 120
+  },
+  {
+   "name": "hbm:steel_wall",
+   "meta": 5,
+   "count": 120
+  },
+  {
+   "name": "hbm:factory_titanium_hull",
+   "meta": 0,
+   "count": 118
+  },
+  {
+   "name": "hbm:brick_concrete_broken",
+   "meta": 0,
+   "count": 80
+  },
+  {
+   "name": "minecraft:glass",
+   "meta": 0,
+   "count": 58
+  },
+  {
+   "name": "hbm:deco_red_copper",
+   "meta": 0,
+   "count": 54
+  },
+  {
+   "name": "minecraft:flowing_lava",
+   "meta": 0,
+   "count": 34
+  },
+  {
+   "name": "minecraft:glass_pane",
+   "meta": 0,
+   "count": 33
+  },
+  {
+   "name": "hbm:deco_tungsten",
+   "meta": 0,
+   "count": 32
+  },
+  {
+   "name": "hbm:steel_scaffold",
+   "meta": 4,
+   "count": 28
+  },
+  {
+   "name": "hbm:steel_poles",
+   "meta": 4,
+   "count": 27
+  },
+  {
+   "name": "minecraft:ladder",
+   "meta": 3,
+   "count": 18
+  },
+  {
+   "name": "minecraft:stone_brick_stairs",
+   "meta": 4,
+   "count": 15
+  },
+  {
+   "name": "minecraft:chest",
+   "meta": 5,
+   "count": 13
+  },
+  {
+   "name": "hbm:tape_recorder",
+   "meta": 3,
+   "count": 12
+  },
+  {
+   "name": "hbm:deco_lead",
+   "meta": 0,
+   "count": 12
+  },
+  {
+   "name": "hbm:machine_difurnace_off",
+   "meta": 5,
+   "count": 12
+  },
+  {
+   "name": "hbm:machine_electric_furnace_off",
+   "meta": 3,
+   "count": 12
+  },
+  {
+   "name": "hbm:fusion_heater",
+   "meta": 1,
+   "count": 12
+  },
+  {
+   "name": "minecraft:stone_brick_stairs",
+   "meta": 5,
+   "count": 11
+  },
+  {
+   "name": "minecraft:stone_brick_stairs",
+   "meta": 6,
+   "count": 11
+  },
+  {
+   "name": "minecraft:stone_brick_stairs",
+   "meta": 7,
+   "count": 11
+  },
+  {
+   "name": "hbm:steel_poles",
+   "meta": 3,
+   "count": 10
+  },
+  {
+   "name": "hbm:red_cable",
+   "meta": 0,
+   "count": 10
+  },
+  {
+   "name": "hbm:red_wire_coated",
+   "meta": 0,
+   "count": 10
+  },
+  {
+   "name": "hbm:reinforced_glass",
+   "meta": 0,
+   "count": 10
+  },
+  {
+   "name": "minecraft:stone_stairs",
+   "meta": 0,
+   "count": 8
+  },
+  {
+   "name": "minecraft:chest",
+   "meta": 4,
+   "count": 8
+  },
+  {
+   "name": "minecraft:stone_brick_stairs",
+   "meta": 2,
+   "count": 8
+  },
+  {
+   "name": "minecraft:stone_brick_stairs",
+   "meta": 0,
+   "count": 8
+  },
+  {
+   "name": "minecraft:stone_brick_stairs",
+   "meta": 1,
+   "count": 8
+  },
+  {
+   "name": "minecraft:lit_furnace",
+   "meta": 3,
+   "count": 8
+  },
+  {
+   "name": "minecraft:stone_stairs",
+   "meta": 5,
+   "count": 6
+  },
+  {
+   "name": "minecraft:flower_pot",
+   "meta": 15,
+   "count": 6
+  },
+  {
+   "name": "minecraft:crafting_table",
+   "meta": 0,
+   "count": 6
+  },
+  {
+   "name": "hbm:factory_titanium_core",
+   "meta": 0,
+   "count": 6
+  },
+  {
+   "name": "minecraft:hopper",
+   "meta": 3,
+   "count": 6
+  },
+  {
+   "name": "hbm:factory_titanium_furnace",
+   "meta": 3,
+   "count": 6
+  },
+  {
+   "name": "minecraft:stone_brick_stairs",
+   "meta": 3,
+   "count": 6
+  },
+  {
+   "name": "minecraft:hopper",
+   "meta": 2,
+   "count": 6
+  },
+  {
+   "name": "minecraft:heavy_weighted_pressure_plate",
+   "meta": 0,
+   "count": 6
+  },
+  {
+   "name": "minecraft:brick_stairs",
+   "meta": 0,
+   "count": 6
+  },
+  {
+   "name": "minecraft:brick_stairs",
+   "meta": 1,
+   "count": 6
+  },
+  {
+   "name": "minecraft:brick_stairs",
+   "meta": 3,
+   "count": 6
+  },
+  {
+   "name": "hbm:pole_top",
+   "meta": 0,
+   "count": 5
+  },
+  {
+   "name": "hbm:deco_titanium",
+   "meta": 0,
+   "count": 4
+  },
+  {
+   "name": "hbm:tape_recorder",
+   "meta": 2,
+   "count": 4
+  },
+  {
+   "name": "hbm:pole_satellite_receiver",
+   "meta": 4,
+   "count": 4
+  },
+  {
+   "name": "hbm:door_office",
+   "meta": 8,
+   "count": 4
+  },
+  {
+   "name": "hbm:factory_titanium_furnace",
+   "meta": 2,
+   "count": 4
+  },
+  {
+   "name": "hbm:factory_titanium_furnace",
+   "meta": 4,
+   "count": 4
+  },
+  {
+   "name": "hbm:factory_titanium_furnace",
+   "meta": 5,
+   "count": 4
+  },
+  {
+   "name": "minecraft:iron_block",
+   "meta": 0,
+   "count": 4
+  },
+  {
+   "name": "minecraft:anvil",
+   "meta": 2,
+   "count": 4
+  },
+  {
+   "name": "minecraft:flowing_lava",
+   "meta": 2,
+   "count": 4
+  },
+  {
+   "name": "minecraft:oak_stairs",
+   "meta": 5,
+   "count": 4
+  },
+  {
+   "name": "hbm:tape_recorder",
+   "meta": 5,
+   "count": 3
+  },
+  {
+   "name": "hbm:steel_poles",
+   "meta": 5,
+   "count": 3
+  },
+  {
+   "name": "hbm:pole_satellite_receiver",
+   "meta": 2,
+   "count": 3
+  },
+  {
+   "name": "hbm:door_metal",
+   "meta": 0,
+   "count": 3
+  },
+  {
+   "name": "hbm:door_metal",
+   "meta": 8,
+   "count": 3
+  },
+  {
+   "name": "minecraft:oak_stairs",
+   "meta": 4,
+   "count": 3
+  },
+  {
+   "name": "minecraft:trapdoor",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "minecraft:oak_stairs",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "minecraft:wall_sign",
+   "meta": 4,
+   "count": 2
+  },
+  {
+   "name": "hbm:red_barrel",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "hbm:door_office",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "minecraft:flowing_lava",
+   "meta": 10,
+   "count": 2
+  },
+  {
+   "name": "minecraft:chest",
+   "meta": 3,
+   "count": 2
+  },
+  {
+   "name": "minecraft:monster_egg",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "minecraft:monster_egg",
+   "meta": 5,
+   "count": 2
+  },
+  {
+   "name": "minecraft:monster_egg",
+   "meta": 2,
+   "count": 2
+  },
+  {
+   "name": "hbm:steel_poles",
+   "meta": 2,
+   "count": 2
+  },
+  {
+   "name": "hbm:crashed_bomb",
+   "meta": 4,
+   "count": 2
+  },
+  {
+   "name": "hbm:door_office",
+   "meta": 2,
+   "count": 2
+  },
+  {
+   "name": "hbm:door_office",
+   "meta": 9,
+   "count": 2
+  },
+  {
+   "name": "hbm:block_meteor",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "hbm:machine_generator",
+   "meta": 0,
+   "count": 2
+  },
+  {
+   "name": "hbm:reactor_element",
+   "meta": 1,
+   "count": 2
+  },
+  {
+   "name": "minecraft:oak_stairs",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "hbm:door_metal",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "hbm:door_metal",
+   "meta": 9,
+   "count": 1
+  },
+  {
+   "name": "hbm:door_office",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "hbm:crate_steel",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "hbm:pole_satellite_receiver",
+   "meta": 5,
+   "count": 1
+  },
+  {
+   "name": "hbm:pole_satellite_receiver",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "hbm:door_office",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "minecraft:oak_stairs",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "hbm:tape_recorder",
+   "meta": 4,
+   "count": 1
+  },
+  {
+   "name": "minecraft:chest",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "minecraft:stone_stairs",
+   "meta": 3,
+   "count": 1
+  },
+  {
+   "name": "hbm:machine_battery",
+   "meta": 4,
+   "count": 1
+  },
+  {
+   "name": "hbm:machine_battery",
+   "meta": 5,
+   "count": 1
+  },
+  {
+   "name": "hbm:fusion_hatch",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "hbm:cable_switch",
+   "meta": 1,
+   "count": 1
+  },
+  {
+   "name": "hbm:crashed_bomb",
+   "meta": 2,
+   "count": 1
+  },
+  {
+   "name": "hbm:safe",
+   "meta": 2,
+   "count": 1
+  }
+ ]
+}

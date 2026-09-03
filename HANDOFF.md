@@ -16,6 +16,12 @@ release assets; nothing needed lives only on the original workstation.
 - **Boot gate**: 12 error lines, all benign (11 Immersive Vehicles pack model quirks, 1 Forge dist
   probe); 43 warnings. Anything else on a future boot is new.
 - **Backup**: the whole server root as of 2026-09-02 (3.1 GB) is in the release assets.
+- **2026-09-03**: the hosted server was ROLLED BACK to the pre-rebuild pack and world (`Escape From
+  Minenkrafte`, old mods, Aikar flags off); the rebuild folders sit beside it as `*_wasteland_20260902`.
+  All rebuild work now happens on a local test server (see `README-local.md` on the working machine).
+  Order of work from here: (1) a mob-free **visual pass** over the v5 world; (2) decide the map plan and the
+  base/hideout upgrade system (both in `docs/wasteland-server-blueprint.html`); (3) intake of the foreign
+  1.12.2 worlds (`docs/notes/gscraft-foreign-worlds.md`); then the items below.
 - **Still to do**: KubeJS state machine for the location loop (clock, target draw, countdown,
   waves, boss); FTB Quests book and home-claim marker; horror rates measured in play; an in-game
   flight through every site and pad; Superb Warfare small-arms toggle; old-world housekeeping on the
@@ -55,6 +61,7 @@ release assets; nothing needed lives only on the original workstation.
 | Terrain | `runpass.py`, `terrain.py`, `strongpoints.py` | Always start from the pristine region set; upload with the server stopped; delete `/wasteland/poi`. |
 | Server | `bisectpanel.py`, `backup.py`, `mcping.py` | `pull` compresses server-side and downloads; `putdir` uploads a folder. |
 | Map page | `makemap.py` | Regenerates `docs/wasteland-district-map.html` from `buildmap/`. |
+| Radio tower | `tower.py build` | Writes the six repair-stage structure templates + functions into `build/datapacks/gscraft` and the stage render. |
 
 Traps that cost time, all documented in `docs/notes/`: Git Bash path conversion, the panel's
 Cloudflare user-agent check, the `files/contents` POST, archives that are ZIP regardless of name,
@@ -62,17 +69,23 @@ the apostrophe problem in shell heredocs, and the `clear_column(x, z, from_y)` a
 
 ## 4. Release assets (GitHub Releases, tag `handoff-2026-09-02`)
 
-Large binaries are not in git. Twenty assets, 5.7 GB in all, put up by `tools/release_upload.py`
+Large binaries are not in git. Fifteen assets (the five old-world/map archives were removed on 2026-09-03; they live on the working machine and the office box), put up by `tools/release_upload.py`
 (re-runnable; it skips what is already there). If an asset is missing from the release page, run it
 again from a machine with the GitHub CLI signed in and the files in a local folder. The release carries the client pack, the server mod set, the
-pristine world region set, the edited v5 region set, and the server backup archives. Player
+pristine world region set, the edited v5 region set, and the non-world server backup archives. Player
 identity files from the server root (ops, whitelist, user caches) are deliberately not published.
 
 ## 5. The design
 
 `docs/wasteland-server-blueprint.html` is the design and the phase-by-phase record;
 `docs/gscraft-server-audit.html` is the audit of the server as found;
-`docs/wasteland-district-map.html` is the map with every build named, the location pool and the pads.
+`docs/wasteland-district-map.html` is the map with every build named, the location pool and the pads;
+`docs/notes/gscraft-foreign-worlds.md` is the intake plan for builds arriving from 1.12.2 saves, with the census
+results and the six candidate rectangles; `docs/notes/gscraft-scale-and-travel.md` sizes the map against travel times
+(5 km square border, roads, timers for the loop); `docs/notes/gscraft-foreign-builds-plan.md` is the step-by-step plan for
+bringing the 1.12.2 builds (the Novo Expograd city and its districts, ships excluded) into the wasteland world.
+`docs/gscraft-map-design.md` is the map design for review (draft 3: 10 km square border, three ranges, strongpoints are player-built structures, radio tower custom and repaired part by part);
+`docs/notes/gscraft-scale-and-travel.md` holds the speed and travel tables behind it.
 The endgame loop in force: take a location, a clock starts to fortify it; each cycle the game draws
 one held location and warns; lose or die and retake it; every location drops radio-tower loot; tower
 done starts a countdown; waves come to the players' own base; the last wave brings the boss.
