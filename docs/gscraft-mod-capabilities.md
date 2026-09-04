@@ -87,7 +87,10 @@ ordered by how much it would add for how little it costs, with a recommendation 
 - **Install guide:** EMI and Ping Wheel keys added for the players.
 - **Military vehicles:** blueprint-gated quest rewards (crafting §2.1) - the strip above removes their default recipes.
 
-Still words, not files: the IV `craftingoverrides.json` for the civilian roster, Recruits at the gatehouse, Guard
+Still words, not files: the IV crafting overrides for the civilian roster (`mtsconfig.json` general.dumpCraftingConfig is now
+true, so the next server boot writes the full crafting listing to `config/mts/`; the override file's shape is
+`overrides -> packID -> itemName -> {commonMaterialLists, extraMaterialLists, repairMaterialLists, returnedMaterialLists}`
+per the jar's `JSONConfigCraftingOverrides`), Recruits at the gatehouse, Guard
 Villagers per tier, the Boss Spawner as the assault source, the Salvaging Table in the yard, Sophisticated Backpacks
 upgrade gating, ParCool ziplines, Farmer's Delight hunger - all Phase C/D script and template work.
 
