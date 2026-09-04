@@ -62,7 +62,10 @@ def main(a):
             if time.time() - t0 > 1200: p.kill(); note("boot timeout"); return 1
             time.sleep(3)
         note(f"life {life}: Done after {int(time.time() - t0)} s")
-        for c in (first if life == 1 else ["chunky continue"]):
+        # a saved, not-cancelled Chunky task (config/chunky/tasks) means a previous run was interrupted: continue it
+        task = sdir / "config/chunky/tasks/minecraft/overworld.properties"
+        resume = life > 1 or (task.exists() and "cancelled=false" in task.read_text(errors="replace"))
+        for c in (["chunky continue"] if resume else first):
             send(c)
         time.sleep(5)
         if life > 1 and re.search(r"No tasks to continue|no task", tail(), re.I):

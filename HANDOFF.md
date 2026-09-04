@@ -76,6 +76,11 @@ on it (2 h 15 min, cycling), `tools/place_kept.py <server>` (batches of six: for
 build`, the camp functions (`gscraft:camp_ruins`, `camp_torches`, `dossiers`, `furnish_novo`, `furnish_financial`),
 `reviewv6.py`, release, deploy (section 6). Details: `docs/gscraft-structure-plan.md` section 3, route A'.
 
+**The Woods (owner, 2026-09-04):** a Tarkov-style wilderness zone, x 400..2400 z -3500..-1500 (2 x 2 km, 2.9 km NNE of the
+camp, 65 % forest, no snow), built AFTER the v7 pre-generation: carve the rectangle, regenerate it under the `woods` Lost
+Cities profile (no cities/highways/railways/scattered buildings; identical terrain), five sparse structures, a road spur
+from Novo. Plan and quest hooks: `docs/gscraft-woods-plan.md`. Not built yet.
+
 **Not started:** Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
 `camp.py` (the six NPC buildings as templates onto their pads); the systems (KubeJS items, blueprints,
 stages, the strongpoint loop and timers; FTB Quests chapters from `docs/gscraft-quests.md`; loot tables

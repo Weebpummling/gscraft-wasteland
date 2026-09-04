@@ -1,0 +1,264 @@
+{
+  "xsize": 16,
+  "zsize": 16,
+  "palette": {
+    "palette": [
+      {
+        "char": " ",
+        "block": "minecraft:air"
+      },
+      {
+        "char": "b",
+        "block": "immersiveengineering:sheetmetal_iron"
+      },
+      {
+        "char": "c",
+        "block": "minecraft:spruce_planks"
+      },
+      {
+        "char": "d",
+        "block": "minecraft:birch_log[axis=x]"
+      },
+      {
+        "char": "e",
+        "block": "minecraft:orange_wool"
+      },
+      {
+        "char": "f",
+        "block": "minecraft:structure_void"
+      },
+      {
+        "char": "g",
+        "block": "minecraft:yellow_wool"
+      },
+      {
+        "char": "h",
+        "block": "minecraft:repeater[delay=2,facing=east,locked=false,powered=false]"
+      },
+      {
+        "char": "i",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=0,south=none,west=side]"
+      },
+      {
+        "char": "j",
+        "block": "minecraft:gray_glazed_terracotta[facing=east]"
+      },
+      {
+        "char": "k",
+        "block": "minecraft:redstone_torch[lit=true]"
+      },
+      {
+        "char": "l",
+        "block": "minecraft:purple_wool"
+      },
+      {
+        "char": "m",
+        "block": "minecraft:dropper[facing=west,triggered=false]"
+      },
+      {
+        "char": "n",
+        "block": "minecraft:redstone_wire[east=up,north=none,power=15,south=none,west=side]"
+      },
+      {
+        "char": "o",
+        "block": "minecraft:magenta_wool"
+      },
+      {
+        "char": "p",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=0,south=side,west=none]"
+      },
+      {
+        "char": "q",
+        "block": "minecraft:redstone_wire[east=up,north=side,power=0,south=none,west=none]"
+      },
+      {
+        "char": "r",
+        "block": "minecraft:redstone_wire[east=up,north=none,power=14,south=none,west=side]"
+      },
+      {
+        "char": "s",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=0,south=up,west=none]"
+      },
+      {
+        "char": "t",
+        "block": "minecraft:redstone_block"
+      },
+      {
+        "char": "u",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=13,south=none,west=side]"
+      },
+      {
+        "char": "v",
+        "block": "minecraft:gray_glazed_terracotta[facing=north]"
+      },
+      {
+        "char": "w",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=0,south=side,west=none]"
+      },
+      {
+        "char": "x",
+        "block": "minecraft:redstone_wire[east=side,north=side,power=0,south=none,west=none]"
+      },
+      {
+        "char": "y",
+        "block": "minecraft:obsidian"
+      },
+      {
+        "char": "z",
+        "block": "minecraft:repeater[delay=4,facing=west,locked=false,powered=false]"
+      },
+      {
+        "char": "A",
+        "block": "minecraft:redstone_wall_torch[facing=south,lit=true]"
+      },
+      {
+        "char": "B",
+        "block": "minecraft:piston[extended=true,facing=east]"
+      },
+      {
+        "char": "D",
+        "block": "minecraft:piston_head[facing=east,short=false,type=normal]"
+      },
+      {
+        "char": "E",
+        "block": "minecraft:redstone_wire[east=none,north=up,power=0,south=none,west=side]"
+      },
+      {
+        "char": "F",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=12,south=none,west=side]"
+      },
+      {
+        "char": "G",
+        "block": "minecraft:spruce_slab[type=top,waterlogged=false]"
+      }
+    ]
+  },
+  "slices": [
+    [
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      "  bbbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "    bbbbbbbbbbbb",
+      "     bbbbbbbbbbb",
+      "      bbbbbbbbbb",
+      "        bbbbbbbb",
+      "         bbbbbbb",
+      "b           bbbb"
+    ],
+    [
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      "  bbbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "    bbbbbbbbbbbb",
+      "     bbbbbbbbbbb",
+      "      bbbbbbbbbb",
+      "        bbbbbbbb",
+      "         bbbbbbb",
+      "b           bbbb"
+    ],
+    [
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      "  bbbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "    bbbbbbbbbbbb",
+      "     bbbbbbbbbbb",
+      "      bbbbbbbbbb",
+      "        bbbbbbbb",
+      "         bbbbbbb",
+      "b           bbbb"
+    ],
+    [
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      "  bbbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "    bbbbbbbbbbbb",
+      "     bbbbbbbbbbb",
+      "      bbbbbbbbbb",
+      "        bbbbbbbb",
+      "         bbbbbbb",
+      "b           bbbb"
+    ],
+    [
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      "  bbbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "    bbbbbbbbbbbb",
+      "     bbbbbbbbbbb",
+      "      bbbbbbbbbb",
+      "        bbbbbbbb",
+      "         bbbbbbb",
+      "b           bbbb"
+    ],
+    [
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      "  bbbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "    bbbbbbbbbbbb",
+      "     bbbbbbbbbbb",
+      "      bbbbbbbbbb",
+      "        bbbbbbbb",
+      "         bbbbbbb",
+      "c           bbbb"
+    ],
+    [
+      "bccccccccccccccc",
+      "bccccccccccccccc",
+      "bccccccccccccccc",
+      "bbcccccccccccccc",
+      " bcccccccccccccc",
+      " bcccccccccccccc",
+      " bbccccccccccccc",
+      "  bccccccccccccc",
+      "   bcccccccccccc",
+      "   bbccccccccccc",
+      "    bccccccccccc",
+      "     bbccccccccc",
+      "      bbcccccccc",
+      "        bbcccccc",
+      "         bbbbccc",
+      "            bbbb"
+    ]
+  ]
+}

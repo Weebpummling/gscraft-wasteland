@@ -86,6 +86,7 @@ road 1.5–4 km, air 4.5–6.5 km.
 | **Bio Gen offices, north group** | loot site | 2976 2608 2991 2639 (chunk 186 × 163..164) | 16×32 | 4.0 km SE | `biogen_strip` chunk 30 × −75..−74 | +64 | same | v5 pad |
 | **The hub — Novo Expograd** | air-ring prize, never attacked | 5600 1184 6431 1823 (chunks 350..401 × 74..113) | 832×640 | 6.0 km E | `world_hub` (y ≤ 103, ships cut) | +16 (edge ground ≈66 → 82) | new pad, y 82; pregen terrain median 71, p90 89, 12% water | generated |
 | Radio tower | endgame | camp, §2 | 128×128 | 0.1 km | `tools/tower.py` | — | y 99 | v5 |
+| **The Woods** (planned) | wilderness zone, quest focus | 400 −3500 2400 −1500 | 2000×2000 | 2.9 km NNE | regenerated under the `woods` LC profile (no city); 5 sparse structures; `docs/gscraft-woods-plan.md` | — | none | generated |
 | Old substation pad | — | 215 1415 374 1574 | 160×160 | 1.5 km S | pristine chunks copied back | — | restored | v5 |
 
 The library, hempcrete compound, stone complex, mud village, acacia hall, glass tower and the small

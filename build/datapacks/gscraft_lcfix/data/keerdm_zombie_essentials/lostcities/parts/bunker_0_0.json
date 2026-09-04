@@ -1,0 +1,1272 @@
+{
+  "xsize": 16,
+  "zsize": 16,
+  "palette": {
+    "palette": [
+      {
+        "char": " ",
+        "block": "minecraft:air"
+      },
+      {
+        "char": "b",
+        "block": "immersiveengineering:sheetmetal_iron"
+      },
+      {
+        "char": "c",
+        "block": "minecraft:blue_wool"
+      },
+      {
+        "char": "d",
+        "block": "minecraft:stone[weathering=false]"
+      },
+      {
+        "char": "e",
+        "block": "minecraft:structure_void"
+      },
+      {
+        "char": "f",
+        "block": "minecraft:stone_bricks[weathering=false]"
+      },
+      {
+        "char": "g",
+        "block": "minecraft:obsidian"
+      },
+      {
+        "char": "h",
+        "block": "minecraft:purple_wool"
+      },
+      {
+        "char": "i",
+        "block": "minecraft:repeater[delay=4,facing=west,locked=false,powered=false]"
+      },
+      {
+        "char": "j",
+        "block": "minecraft:redstone_wall_torch[facing=south,lit=true]"
+      },
+      {
+        "char": "k",
+        "block": "minecraft:piston[extended=true,facing=east]"
+      },
+      {
+        "char": "l",
+        "block": "minecraft:piston_head[facing=east,short=false,type=normal]"
+      },
+      {
+        "char": "m",
+        "block": "minecraft:cyan_wool"
+      },
+      {
+        "char": "n",
+        "block": "minecraft:yellow_wool"
+      },
+      {
+        "char": "o",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=0,south=none,west=side]"
+      },
+      {
+        "char": "p",
+        "block": "minecraft:redstone_wire[east=none,north=up,power=0,south=none,west=side]"
+      },
+      {
+        "char": "q",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=12,south=none,west=side]"
+      },
+      {
+        "char": "r",
+        "block": "minecraft:gray_glazed_terracotta[facing=north]"
+      },
+      {
+        "char": "s",
+        "block": "minecraft:gray_glazed_terracotta[facing=east]"
+      },
+      {
+        "char": "t",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=0,south=side,west=none]"
+      },
+      {
+        "char": "u",
+        "block": "minecraft:spruce_slab[type=top,waterlogged=false]"
+      },
+      {
+        "char": "v",
+        "block": "minecraft:oak_stairs[facing=west,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "w",
+        "block": "minecraft:stone_button[face=wall,facing=west,powered=false]"
+      },
+      {
+        "char": "x",
+        "block": "minecraft:iron_block"
+      },
+      {
+        "char": "y",
+        "block": "minecraft:oak_stairs[facing=north,half=bottom,shape=outer_left,waterlogged=false]"
+      },
+      {
+        "char": "z",
+        "block": "minecraft:oak_wall_sign[facing=west,waterlogged=false]"
+      },
+      {
+        "char": "A",
+        "block": "minecraft:oak_stairs[facing=north,half=top,shape=inner_left,waterlogged=false]"
+      },
+      {
+        "char": "B",
+        "block": "minecraft:oak_stairs[facing=west,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "D",
+        "block": "minecraft:oak_stairs[facing=north,half=top,shape=outer_left,waterlogged=false]"
+      },
+      {
+        "char": "E",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=6,south=side,west=none]"
+      },
+      {
+        "char": "F",
+        "block": "minecraft:redstone_wire[east=up,north=none,power=7,south=none,west=side]"
+      },
+      {
+        "char": "G",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=5,south=side,west=none]"
+      },
+      {
+        "char": "H",
+        "block": "minecraft:redstone_wire[east=none,north=none,power=7,south=up,west=up]"
+      },
+      {
+        "char": "I",
+        "block": "minecraft:piston_head[facing=west,short=false,type=normal]"
+      },
+      {
+        "char": "J",
+        "block": "minecraft:piston[extended=true,facing=west]"
+      },
+      {
+        "char": "K",
+        "block": "minecraft:piston_head[facing=west,short=false,type=sticky]"
+      },
+      {
+        "char": "L",
+        "block": "minecraft:sticky_piston[extended=true,facing=west]"
+      },
+      {
+        "char": "M",
+        "block": "minecraft:redstone_wire[east=none,north=none,power=8,south=up,west=side]"
+      },
+      {
+        "char": "N",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=8,south=none,west=up]"
+      },
+      {
+        "char": "O",
+        "block": "minecraft:slime_block"
+      },
+      {
+        "char": "P",
+        "block": "minecraft:repeater[delay=2,facing=east,locked=false,powered=true]"
+      },
+      {
+        "char": "Q",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=6,south=none,west=side]"
+      },
+      {
+        "char": "R",
+        "block": "minecraft:redstone_wire[east=side,north=side,power=9,south=up,west=none]"
+      },
+      {
+        "char": "S",
+        "block": "minecraft:sticky_piston[extended=false,facing=up]"
+      },
+      {
+        "char": "T",
+        "block": "minecraft:sticky_piston[extended=false,facing=down]"
+      },
+      {
+        "char": "U",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=10,south=up,west=none]"
+      },
+      {
+        "char": "V",
+        "block": "minecraft:redstone_wire[east=up,north=side,power=11,south=none,west=none]"
+      },
+      {
+        "char": "W",
+        "block": "minecraft:redstone_wire[east=none,north=none,power=12,south=up,west=side]"
+      },
+      {
+        "char": "X",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=14,south=up,west=none]"
+      },
+      {
+        "char": "Y",
+        "block": "minecraft:gray_glazed_terracotta[facing=south]"
+      },
+      {
+        "char": "Z",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=14,south=none,west=up]"
+      },
+      {
+        "char": "0",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=13,south=none,west=side]"
+      },
+      {
+        "char": "1",
+        "block": "minecraft:redstone_wire[east=side,north=side,power=15,south=side,west=none]"
+      },
+      {
+        "char": "2",
+        "block": "minecraft:redstone_block"
+      },
+      {
+        "char": "3",
+        "block": "minecraft:oak_wall_sign[facing=south,waterlogged=false]"
+      },
+      {
+        "char": "4",
+        "block": "minecraft:repeater[delay=2,facing=east,locked=false,powered=false]"
+      },
+      {
+        "char": "5",
+        "block": "minecraft:redstone_torch[lit=true]"
+      },
+      {
+        "char": "6",
+        "block": "minecraft:dropper[facing=west,triggered=false]"
+      },
+      {
+        "char": "7",
+        "block": "minecraft:redstone_wire[east=up,north=none,power=15,south=none,west=side]"
+      },
+      {
+        "char": "8",
+        "block": "minecraft:magenta_wool"
+      },
+      {
+        "char": "9",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=0,south=side,west=none]"
+      },
+      {
+        "char": "~",
+        "block": "minecraft:redstone_wire[east=up,north=side,power=0,south=none,west=none]"
+      },
+      {
+        "char": "Ͱ",
+        "block": "minecraft:redstone_wire[east=up,north=none,power=14,south=none,west=side]"
+      },
+      {
+        "char": "ͱ",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=0,south=up,west=none]"
+      },
+      {
+        "char": "Ͳ",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=13,south=none,west=side]"
+      },
+      {
+        "char": "ͳ",
+        "block": "minecraft:redstone_wire[east=side,north=side,power=0,south=none,west=none]"
+      },
+      {
+        "char": "ʹ",
+        "block": "minecraft:oak_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "͵",
+        "block": "minecraft:oak_stairs[facing=north,half=bottom,shape=outer_right,waterlogged=false]"
+      },
+      {
+        "char": "Ͷ",
+        "block": "minecraft:oak_stairs[facing=north,half=top,shape=inner_right,waterlogged=false]"
+      },
+      {
+        "char": "ͷ",
+        "block": "minecraft:oak_stairs[facing=east,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "͸",
+        "block": "minecraft:oak_stairs[facing=north,half=top,shape=outer_right,waterlogged=false]"
+      },
+      {
+        "char": "͹",
+        "block": "minecraft:stone_button[face=wall,facing=east,powered=false]"
+      },
+      {
+        "char": "ͺ",
+        "block": "minecraft:oak_wall_sign[facing=east,waterlogged=false]"
+      },
+      {
+        "char": "ͻ",
+        "block": "minecraft:oak_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "ͼ",
+        "block": "minecraft:dropper[facing=west,triggered=true]"
+      },
+      {
+        "char": "ͽ",
+        "block": "minecraft:observer[facing=south,powered=false]"
+      },
+      {
+        "char": ";",
+        "block": "minecraft:observer[facing=west,powered=false]"
+      }
+    ]
+  },
+  "slices": [
+    [
+      "            bdnn",
+      "         bbbbeee",
+      "        bbbbbeee",
+      "      bbbbbbbeee",
+      "     bbbbbbbbeee",
+      "    bbbbbbbbbeee",
+      "   bbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "  bbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb"
+    ],
+    [
+      "            bn4o",
+      "         bbbbees",
+      "        bbbbbeee",
+      "      bbbbbbbeee",
+      "     bbbbbbbbeee",
+      "    bbbbbbbbbeee",
+      "   bbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "  bbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb"
+    ],
+    [
+      "            b5eh",
+      "         bbbbeee",
+      "        bbbbbeee",
+      "      bbbbbbbeee",
+      "     bbbbbbbbeee",
+      "    bbbbbbbbbeee",
+      "   bbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "  bbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb"
+    ],
+    [
+      "            bneo",
+      "         bbbbees",
+      "        bbbbbeee",
+      "      bbbbbbbe6e",
+      "     bbbbbbbbmme",
+      "    bbbbbbbbbmee",
+      "   bbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "  bbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb"
+    ],
+    [
+      "            b7ne",
+      "         bbbbeee",
+      "        bbbbb86e",
+      "      bbbbbbbeee",
+      "     bbbbbbbb9oe",
+      "    bbbbbbbbb~mm",
+      "   bbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "  bbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb"
+    ],
+    [
+      "            beͰn",
+      "         bbbbeee",
+      "        bbbbbͱee",
+      "      bbbbbbb8ee",
+      "     bbbbbbbb88e",
+      "    bbbbbbbbbeoo",
+      "   bbbbbbbbbbbbb",
+      "   bbbbbbbbbbbbb",
+      "  bbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      " bbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb"
+    ],
+    [
+      "            bbeͲ",
+      "         bbbbesr",
+      "        bbdddere",
+      "      bbdddddtre",
+      "     bbddddddͳor",
+      "    bddddddddddd",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            benn",
+      "         bbbbbss",
+      "        bbbbbbse",
+      "      bbbbeeeʹse",
+      "     bbbeeeeeʹse",
+      "    bbbeeeeee͵xe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            bn4o",
+      "         bbbbbss",
+      "        bbbbbbse",
+      "      bbbbeeeese",
+      "     bbbeeeeeese",
+      "    bbbeeeeeeexe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            b5eh",
+      "         bbbbbss",
+      "        bbbbbbse",
+      "      bbbbeeeese",
+      "     bbbeeeeeese",
+      "    bbbeeeeeeexe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            bneo",
+      "         bbbbbss",
+      "        bbbbbbse",
+      "      bbbbeeeͶ6e",
+      "     bbbeeeeeͷms",
+      "    bbbeeeeee͸xx",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            b7nb",
+      "         bbbbess",
+      "        bbddd86e",
+      "      bbdddddese",
+      "     bbdddddd9os",
+      "    bdddddddd~mm",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            beͰn",
+      "         bbbbess",
+      "        bbdddͱse",
+      "      bbddddd8se",
+      "     bbdddddd88s",
+      "    bddddddddeoo",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            beeͲ",
+      "         bbbbesr",
+      "        bbdddere",
+      "      bbdddddtre",
+      "     bbddddddͳor",
+      "    bddddddddddd",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            benn",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeʹse",
+      "     bbbeeeeeʹx͹",
+      "    bbbeeeeee͵xe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            bnee",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeese",
+      "     bbbeeeeeexͺ",
+      "    bbbeeeeeeexe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            b5eh",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeese",
+      "     bbbeeeeeese",
+      "    bbbeeeeeeexe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            bneo",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeͻ6e",
+      "     bbbeeeeeͷms",
+      "    bbbeeeeee͸xx",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            b7ne",
+      "         bbbbess",
+      "        bbddd86e",
+      "      bbdddddese",
+      "     bbdddddd9os",
+      "    bdddddddd~mm",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            beͰn",
+      "         bbbbess",
+      "        bbdddͱse",
+      "      bbddddd8se",
+      "     bbdddddd88s",
+      "    bddddddddeoo",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            beeͲ",
+      "         bbbbesr",
+      "        bbdddere",
+      "      bbdddddtre",
+      "     bbddddddͳor",
+      "    bddddddddddd",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            benn",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeʹse",
+      "     bbbeeeeeʹx͹",
+      "    bbbeeeeee͵xe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            bnee",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeese",
+      "     bbbeeeeeexͺ",
+      "    bbbeeeeeeexe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            b5eh",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeese",
+      "     bbbeeeeeese",
+      "    bbbeeeeeeexe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            bneo",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeͻ6e",
+      "     bbbeeeeeͷms",
+      "    bbbeeeeee͸xx",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            b7ne",
+      "         bbbbess",
+      "        bbddd86e",
+      "      bbdddddese",
+      "     bbdddddd9os",
+      "    bdddddddd~mm",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            beͰn",
+      "         bbbbess",
+      "        bbdddͱse",
+      "      bbddddd8se",
+      "     bbdddddd88s",
+      "    bddddddddeoo",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            beeͲ",
+      "         bbbbesr",
+      "        bbdddere",
+      "      bbdddddtre",
+      "     bbddddddͳor",
+      "    bddddddddddd",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            benn",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeʹse",
+      "     bbbeeeeeʹx͹",
+      "    bbbeeeeee͵xe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            bnee",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeese",
+      "     bbbeeeeeexͺ",
+      "    bbbeeeeeeexe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            b5eh",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeese",
+      "     bbbeeeeeese",
+      "    bbbeeeeeeexe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            bneo",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeͻ6e",
+      "     bbbeeeeeͷms",
+      "    bbbeeeeee͸xx",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            b7ne",
+      "         bbbbess",
+      "        bbddd8ͼe",
+      "      bbdddddese",
+      "     bbdddddd9os",
+      "    bdddddddd~mm",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            beͰn",
+      "         bbbbess",
+      "        bbdddͱse",
+      "      bbddddd8se",
+      "     bbdddddd88s",
+      "    bddddddddeoo",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            beeͲ",
+      "         bbbbesr",
+      "        bbdddere",
+      "      bbdddddtre",
+      "     bbddddddͳor",
+      "    bddddddddddd",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            benn",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeʹse",
+      "     bbbeeeeeʹx͹",
+      "    bbbeeeeee͵xe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            bnee",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeese",
+      "     bbbeeeeeexͺ",
+      "    bbbeeeeeeexe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            b5eh",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeese",
+      "     bbbeeeeeese",
+      "    bbbeeeeeeexe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            bneo",
+      "         bbbbess",
+      "        bbbbbbse",
+      "      bbbbeeeͻ6e",
+      "     bbbeeeeeͷms",
+      "    bbbeeeeee͸xx",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            b7ne",
+      "         bbbbess",
+      "        bbddd8ͼe",
+      "      bbdddddese",
+      "     bbdddddd9os",
+      "    bdddddddd~mm",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            beͰn",
+      "         bbbbess",
+      "        bbdddͱse",
+      "      bbddddd8se",
+      "     bbdddddd88s",
+      "    bddddddddeoo",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            beeͲ",
+      "         bbbbesr",
+      "        bbdddere",
+      "      bbdddddtre",
+      "     bbddddddͳor",
+      "    bddddddddddd",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            benn",
+      "         bbbbess",
+      "        bbbbbese",
+      "      bbbbbbbese",
+      "     bbbeebbbex͹",
+      "    bbbeeeeeebxe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            bn4o",
+      "         bbbbess",
+      "        bbbbbese",
+      "      bbbbbbbese",
+      "     bbbeebbbexͺ",
+      "    bbbeeeeeebxe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            b5eh",
+      "         bbbbess",
+      "        bbbbbesͽ",
+      "      bbbbbbbesO",
+      "     bbbeebbbese",
+      "    bbbeeeeeebxe",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            bneo",
+      "         bbbbess",
+      "        bbbbbese",
+      "      bbbbbbbe6;",
+      "     bbbeebbbmms",
+      "    bbbeeeeeebxx",
+      "   bbbeeeeeeeeee",
+      "   bbeeeeeeeeeee",
+      "  bbeeeeeeeeeeee",
+      " bbbeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      " bbeeeeeeeeeeeee",
+      "bbbeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee",
+      "bbeeeeeeeeeeeeee"
+    ],
+    [
+      "            b7ne",
+      "         bbbbess",
+      "        bbddd86;",
+      "      bbdddddese",
+      "     bbdddddd9os",
+      "    bdddddddd~mm",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            beͰn",
+      "         bbbbess",
+      "        bbdddͱsO",
+      "      bbddddd8sO",
+      "     bbdddddd88s",
+      "    bddddddddeoo",
+      "   bbddddddddddd",
+      "   bdddddddddddd",
+      "  bddddddddddddd",
+      " bbddddddddddddd",
+      " bdddddddddddddd",
+      " bdddddddddddddd",
+      "bbdddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd",
+      "bddddddddddddddd"
+    ],
+    [
+      "            beeͲ",
+      "         bbbbesr",
+      "        bbffferb",
+      "      bbffffftrb",
+      "     bbffffffͳor",
+      "    bfffffffffdf",
+      "   bbfffffffffff",
+      "   bffffffffffff",
+      "  bfffffffffffff",
+      " bbfffffffffffff",
+      " bffffffffffffff",
+      " bffffffffffffff",
+      "bbffffffffffffff",
+      "bfffffffffffffff",
+      "bfffffffffffffff",
+      "bfffffffffffffff"
+    ],
+    [
+      "            bbbb",
+      "         bbbb ss",
+      "        bbbbb s ",
+      "      bbbbbbbbs ",
+      "     bbb  bbbbx͹",
+      "    bbb    bbbx ",
+      "   bbb          ",
+      "   bb           ",
+      "  bb            ",
+      " bbb            ",
+      " bb             ",
+      " bb             ",
+      "bbb             ",
+      "bb              ",
+      "bb              ",
+      "bb              "
+    ],
+    [
+      "            bbbb",
+      "         bbbbess",
+      "        bbbbbese",
+      "      bbbbbbbbse",
+      "     bbb  bbbbxͺ",
+      "    bbb    bbbxe",
+      "   bbb          ",
+      "   bb           ",
+      "  bb            ",
+      " bbb            ",
+      " bb             ",
+      " bb             ",
+      "bbb             ",
+      "bb              ",
+      "bb              ",
+      "bb              "
+    ],
+    [
+      "            bbbb",
+      "         bbbbess",
+      "        bbbbbese",
+      "      bbbbbbbbse",
+      "     bbb  bbbbse",
+      "    bbb    bbbxe",
+      "   bbb          ",
+      "   bb           ",
+      "  bb            ",
+      " bbb            ",
+      " bb             ",
+      " bb             ",
+      "bbb             ",
+      "bb              ",
+      "bb              ",
+      "bb              "
+    ],
+    [
+      "d           bbbb",
+      "         bbbbbbb",
+      "        bbbbbbbb",
+      "      bbbbbbbbbb",
+      "     bbb  bbbbbb",
+      "    bbb    bbbxx",
+      "   bbb          ",
+      "   bb           ",
+      "  bb            ",
+      " bbb            ",
+      " bb             ",
+      " bb             ",
+      "bbb             ",
+      "bb              ",
+      "bb              ",
+      "bb              "
+    ]
+  ]
+}

@@ -1,0 +1,392 @@
+{
+  "xsize": 16,
+  "zsize": 16,
+  "palette": {
+    "palette": [
+      {
+        "char": " ",
+        "block": "minecraft:air"
+      },
+      {
+        "char": "b",
+        "block": "minecraft:structure_void"
+      },
+      {
+        "char": "c",
+        "block": "immersiveengineering:sheetmetal_iron"
+      },
+      {
+        "char": "d",
+        "block": "minecraft:blue_wool"
+      },
+      {
+        "char": "e",
+        "block": "minecraft:gray_glazed_terracotta[facing=east]"
+      },
+      {
+        "char": "f",
+        "block": "minecraft:stone_bricks[weathering=false]"
+      },
+      {
+        "char": "g",
+        "block": "minecraft:obsidian"
+      },
+      {
+        "char": "h",
+        "block": "minecraft:stone_button[face=wall,facing=west,powered=false]"
+      },
+      {
+        "char": "i",
+        "block": "minecraft:iron_block"
+      },
+      {
+        "char": "j",
+        "block": "minecraft:stripped_oak_log[axis=y]"
+      },
+      {
+        "char": "k",
+        "block": "minecraft:spruce_log[axis=y]"
+      },
+      {
+        "char": "l",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=6,south=side,west=none]"
+      },
+      {
+        "char": "m",
+        "block": "minecraft:redstone_wire[east=up,north=none,power=7,south=none,west=side]"
+      },
+      {
+        "char": "n",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=5,south=side,west=none]"
+      },
+      {
+        "char": "o",
+        "block": "minecraft:redstone_wire[east=none,north=none,power=7,south=up,west=up]"
+      },
+      {
+        "char": "p",
+        "block": "minecraft:piston_head[facing=west,short=false,type=normal]"
+      },
+      {
+        "char": "q",
+        "block": "minecraft:piston[extended=true,facing=west]"
+      },
+      {
+        "char": "r",
+        "block": "minecraft:piston_head[facing=west,short=false,type=sticky]"
+      },
+      {
+        "char": "s",
+        "block": "minecraft:sticky_piston[extended=true,facing=west]"
+      },
+      {
+        "char": "t",
+        "block": "minecraft:oak_wall_sign[facing=west,waterlogged=false]"
+      },
+      {
+        "char": "u",
+        "block": "minecraft:purple_wool"
+      },
+      {
+        "char": "v",
+        "block": "minecraft:redstone_wire[east=none,north=none,power=8,south=up,west=side]"
+      },
+      {
+        "char": "w",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=8,south=none,west=up]"
+      },
+      {
+        "char": "x",
+        "block": "minecraft:slime_block"
+      },
+      {
+        "char": "y",
+        "block": "minecraft:repeater[delay=2,facing=east,locked=false,powered=true]"
+      },
+      {
+        "char": "z",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=6,south=none,west=side]"
+      },
+      {
+        "char": "A",
+        "block": "minecraft:repeater[delay=4,facing=west,locked=false,powered=false]"
+      },
+      {
+        "char": "B",
+        "block": "minecraft:redstone_wall_torch[facing=south,lit=true]"
+      },
+      {
+        "char": "D",
+        "block": "minecraft:redstone_wire[east=side,north=side,power=9,south=up,west=none]"
+      },
+      {
+        "char": "E",
+        "block": "minecraft:piston[extended=true,facing=east]"
+      },
+      {
+        "char": "F",
+        "block": "minecraft:piston_head[facing=east,short=false,type=normal]"
+      },
+      {
+        "char": "G",
+        "block": "minecraft:sticky_piston[extended=false,facing=up]"
+      },
+      {
+        "char": "H",
+        "block": "minecraft:stripped_oak_log[axis=x]"
+      },
+      {
+        "char": "I",
+        "block": "minecraft:orange_wool"
+      },
+      {
+        "char": "J",
+        "block": "minecraft:sticky_piston[extended=false,facing=down]"
+      },
+      {
+        "char": "K",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=10,south=up,west=none]"
+      },
+      {
+        "char": "L",
+        "block": "minecraft:spruce_planks"
+      },
+      {
+        "char": "M",
+        "block": "minecraft:yellow_wool"
+      },
+      {
+        "char": "N",
+        "block": "minecraft:redstone_wire[east=up,north=side,power=11,south=none,west=none]"
+      },
+      {
+        "char": "O",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=0,south=none,west=side]"
+      },
+      {
+        "char": "P",
+        "block": "minecraft:redstone_wire[east=none,north=up,power=0,south=none,west=side]"
+      },
+      {
+        "char": "Q",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=12,south=none,west=side]"
+      },
+      {
+        "char": "R",
+        "block": "minecraft:gray_glazed_terracotta[facing=north]"
+      },
+      {
+        "char": "S",
+        "block": "minecraft:stripped_spruce_wood[axis=x]"
+      },
+      {
+        "char": "T",
+        "block": "minecraft:stripped_spruce_wood[axis=z]"
+      },
+      {
+        "char": "U",
+        "block": "minecraft:redstone_wire[east=none,north=none,power=12,south=up,west=side]"
+      },
+      {
+        "char": "V",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=0,south=side,west=none]"
+      },
+      {
+        "char": "W",
+        "block": "minecraft:spruce_slab[type=top,waterlogged=false]"
+      },
+      {
+        "char": "X",
+        "block": "minecraft:stone_button[face=wall,facing=east,powered=false]"
+      },
+      {
+        "char": "Y",
+        "block": "minecraft:repeater[delay=2,facing=east,locked=false,powered=false]"
+      },
+      {
+        "char": "Z",
+        "block": "minecraft:oak_wall_sign[facing=east,waterlogged=false]"
+      },
+      {
+        "char": "0",
+        "block": "minecraft:redstone_torch[lit=true]"
+      },
+      {
+        "char": "1",
+        "block": "minecraft:observer[facing=south,powered=false]"
+      },
+      {
+        "char": "2",
+        "block": "minecraft:dropper[facing=west,triggered=false]"
+      },
+      {
+        "char": "3",
+        "block": "minecraft:observer[facing=west,powered=false]"
+      },
+      {
+        "char": "4",
+        "block": "minecraft:redstone_wire[east=up,north=none,power=15,south=none,west=side]"
+      },
+      {
+        "char": "5",
+        "block": "minecraft:magenta_wool"
+      },
+      {
+        "char": "6",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=0,south=side,west=none]"
+      },
+      {
+        "char": "7",
+        "block": "minecraft:redstone_wire[east=up,north=side,power=0,south=none,west=none]"
+      },
+      {
+        "char": "8",
+        "block": "minecraft:redstone_wire[east=up,north=none,power=14,south=none,west=side]"
+      },
+      {
+        "char": "9",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=0,south=up,west=none]"
+      },
+      {
+        "char": "~",
+        "block": "minecraft:cyan_concrete"
+      },
+      {
+        "char": "Ͱ",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=13,south=none,west=side]"
+      },
+      {
+        "char": "ͱ",
+        "block": "minecraft:redstone_wire[east=side,north=side,power=0,south=none,west=none]"
+      }
+    ]
+  },
+  "slices": [
+    [
+      "bbbbbbbbbbbbbbcc",
+      "kbbbbbbbbbbbbbcc",
+      "bkbbbbbbbbbbbbcc",
+      "bbkbbbbbbbbbbccc",
+      "bbbbbbbbbbbbbcc ",
+      "bbbbbkbbbbbbbcc ",
+      "bbbbbbkbbbbbccc ",
+      "bbbbbbbkbbbbcc  ",
+      "bbbbbbbbkbbcc   ",
+      "bbbbbbbbbkccc   ",
+      "bbbbbbbbbccc    ",
+      "bbbbbbbbccc     ",
+      "bbbbbbcccc      ",
+      "bbbccccc        ",
+      "ccccccc         ",
+      "cccc            "
+    ],
+    [
+      "bbbbbbbbbbbbbbcc",
+      "kbbbbbbbbbbbbbcc",
+      "bkbbbbbbbbbbbbcc",
+      "bbkbbbbbbbbbbccc",
+      "bbbbbbbbbbbbbcc ",
+      "bbbbbkbbbbbbbcc ",
+      "bbbbbbkbbbbbccc ",
+      "bbbbbbbkbbbbcc  ",
+      "bbbbbbbbkbbcc   ",
+      "bbbbbbbbbkccc   ",
+      "bbbbbbbbbccc    ",
+      "bbbbbbbbccc     ",
+      "bbbbbbcccc      ",
+      "bbbccccc        ",
+      "ccccccc         ",
+      "cccc            "
+    ],
+    [
+      "bbbbbbbbbbbbbbcc",
+      "kbbbbbbbbbbbbbcc",
+      "bkbbbbbbbbbbbbcc",
+      "bbkbbbbbbbbbbccc",
+      "bbbbbbbbbbbbbcc ",
+      "bbbbbkbbbbbbbcc ",
+      "bbbbbbkbbbbbccc ",
+      "bbbbbbbkbbbbcc  ",
+      "bbbbbbbbkbbcc   ",
+      "bbbbbbbbbkccc   ",
+      "bbbbbbbbbccc    ",
+      "bbbbbbbbccc     ",
+      "bbbbbbcccc      ",
+      "bbbccccc        ",
+      "ccccccc         ",
+      "cccc            "
+    ],
+    [
+      "bbbbbbbbbbbbbbcc",
+      "kbbbbbbbbbbbbbcc",
+      "bkbbbbbbbbbbbbcc",
+      "bbkbbbbbbbbbbccc",
+      "bbbkkbbbbbbbbcc ",
+      "bbbbbkbbbbbbbcc ",
+      "bbbbbbkbbbbbccc ",
+      "bbbbbbbkbbbbcc  ",
+      "bbbbbbbbkbbcc   ",
+      "bbbbbbbbbkccc   ",
+      "bbbbbbbbbccc    ",
+      "bbbbbbbbccc     ",
+      "bbbbbbcccc      ",
+      "bbbccccc        ",
+      "ccccccc         ",
+      "cccc            "
+    ],
+    [
+      "IIIIIIIIIIIIIIII",
+      "IIIIIIIIIIIIIIII",
+      "IIIIIIIIIIIIIIII",
+      "IIIIIIIIIIIIIIII",
+      "IIIIIIIIIIIIIII ",
+      "IIIIIIIIIIIIIII ",
+      "IIIIIIIIIIIIIII ",
+      "IIIIIIIIIIIIII  ",
+      "IIIIIIIIIIIII   ",
+      "IIIIIIIIIIIII   ",
+      "IIIIIIIIIIII    ",
+      "IIIIIIIIIII     ",
+      "IIIIIIIIII      ",
+      "IIIIIIII        ",
+      "IIIIIII         ",
+      "IIII            "
+    ],
+    [
+      "IIIIIIIIIIIIIIII",
+      "IIIIIIIIIIIIIIII",
+      "IIIIIIIIIIIIIIII",
+      "IIIIIIIIIIIIIIII",
+      "IIIIIIIIIIIIIII ",
+      "IIIIIIIIIIIIIII ",
+      "IIIIIIIIIIIIIII ",
+      "IIIIIIIIIIIIII  ",
+      "IIIIIIIIIIIII   ",
+      "IIIIIIIIIIIII   ",
+      "IIIIIIIIIIII    ",
+      "IIIIIIIIIII     ",
+      "IIIIIIIIII      ",
+      "IIIIIIII        ",
+      "IIIIIII         ",
+      "IIII            "
+    ],
+    [
+      "ffffffffffffffff",
+      "ffffffffffffffff",
+      "ffffffffffffffff",
+      "ffffffffffffffff",
+      "fffffffffffffff ",
+      "fffffffffffffff ",
+      "fffffffffffffff ",
+      "ffffffffffffff  ",
+      "fffffffffffff   ",
+      "fffffffffffff   ",
+      "ffffffffffff    ",
+      "fffffffffff     ",
+      "ffffffffff      ",
+      "ffffffff        ",
+      "fffffff         ",
+      "ffff           g"
+    ]
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "blocks": [
+    {
+      "random": 24,
+      "block": "minecraft:cobblestone_wall"
+	},
+    {
+      "random": 21,
+      "block": "minecraft:mossy_cobblestone_wall"
+    },
+    {
+      "random": 9,
+      "block": "minecraft:stone_brick_wall"
+	},
+    {
+      "random": 16,
+      "block": "minecraft:cobblestone_wall"
+    },
+    {
+      "random": 20,
+      "block": "minecraft:mossy_cobblestone_wall"
+	},
+    {
+      "random": 18,
+      "block": "minecraft:stone_brick_wall"
+    },
+    {
+      "random": 8,
+      "block": "minecraft:iron_bars"
+    },
+    {
+      "random": 2,
+      "block": "minecraft:air"
+	},
+    {
+      "random": 1000,
+      "block": "minecraft:mossy_cobblestone_wall"
+    }
+  ]
+}

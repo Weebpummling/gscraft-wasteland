@@ -1,0 +1,154 @@
+{
+  "xsize": 16,
+  "zsize": 16,
+  "palette": {
+    "palette": [
+      {
+        "char": " ",
+        "block": "minecraft:air"
+      },
+      {
+        "char": "b",
+        "block": "minecraft:structure_void"
+      },
+      {
+        "char": "c",
+        "block": "immersiveengineering:sheetmetal_iron"
+      },
+      {
+        "char": "d",
+        "block": "minecraft:gray_glazed_terracotta[facing=east]"
+      },
+      {
+        "char": "e",
+        "block": "minecraft:piston_head[facing=west,short=false,type=normal]"
+      },
+      {
+        "char": "f",
+        "block": "minecraft:piston[extended=true,facing=west]"
+      },
+      {
+        "char": "g",
+        "block": "minecraft:blue_wool"
+      },
+      {
+        "char": "h",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=14,south=up,west=none]"
+      },
+      {
+        "char": "i",
+        "block": "minecraft:gray_glazed_terracotta[facing=south]"
+      },
+      {
+        "char": "j",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=14,south=none,west=up]"
+      },
+      {
+        "char": "k",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=13,south=none,west=side]"
+      },
+      {
+        "char": "l",
+        "block": "minecraft:iron_block"
+      },
+      {
+        "char": "m",
+        "block": "minecraft:redstone_wire[east=side,north=side,power=15,south=side,west=none]"
+      },
+      {
+        "char": "n",
+        "block": "minecraft:redstone_block"
+      },
+      {
+        "char": "o",
+        "block": "minecraft:oak_wall_sign[facing=south,waterlogged=false]"
+      },
+      {
+        "char": "p",
+        "block": "minecraft:obsidian"
+      },
+      {
+        "char": "q",
+        "block": "minecraft:stone_button[face=wall,facing=east,powered=false]"
+      },
+      {
+        "char": "r",
+        "block": "minecraft:oak_wall_sign[facing=east,waterlogged=false]"
+      }
+    ]
+  },
+  "slices": [
+    [
+      "ccbbbbbbbbbbbbbb",
+      "ccbbbbbbbbbbbbbb",
+      "ccbbbbbbbbbbbbbb",
+      "cccbbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      " cccbbbbbbbbbbbb",
+      "  ccbbbbbbbbbbbb",
+      "   ccbbbbbbbbbbb",
+      "   cccbbbbbbbbbb",
+      "    cccbbbbbbbbb",
+      "     cccbbbbbbbb",
+      "      ccccbbbbbb",
+      "        cccccbbb",
+      "         ccccccc",
+      "c           cccc"
+    ],
+    [
+      "ccbbbbbbbbbbbbbb",
+      "ccbbbbbbbbbbbbbb",
+      "ccbbbbbbbbbbbbbb",
+      "cccbbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      " cccbbbbbbbbbbbb",
+      "  ccbbbbbbbbbbbb",
+      "   ccbbbbbbbbbbb",
+      "   cccbbbbbbbbbb",
+      "    cccbbbbbbbbb",
+      "     cccbbbbbbbb",
+      "      ccccbbbbbb",
+      "        cccccbbb",
+      "         ccccccc",
+      "            cccc"
+    ],
+    [
+      "ccbbbbbbbbbbbbbb",
+      "ccbbbbbbbbbbbbbb",
+      "ccbbbbbbbbbbbbbb",
+      "cccbbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      " cccbbbbbbbbbbbb",
+      "  ccbbbbbbbbbbbb",
+      "   ccbbbbbbbbbbb",
+      "   cccbbbbbbbbbb",
+      "    cccbbbbbbbbb",
+      "     cccbbbbbbbb",
+      "      ccccbbbbbb",
+      "        cccccbbb",
+      "         ccccccc",
+      "            cccc"
+    ],
+    [
+      "ccbbbbbbbbbbbbbb",
+      "ccbbbbbbbbbbbbbb",
+      "ccbbbbbbbbbbbbbb",
+      "cccbbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      " cccbbbbbbbbbbbb",
+      "  ccbbbbbbbbbbbb",
+      "   ccbbbbbbbbbbb",
+      "   cccbbbbbbbbbb",
+      "    cccbbbbbbbbb",
+      "     cccbbbbbbbb",
+      "      ccccbbbbbb",
+      "        cccccbbb",
+      "         ccccccc",
+      "p           cccc"
+    ]
+  ]
+}

@@ -53,8 +53,18 @@ def carve_dir(src: Path, dst: Path, rects, dry, label):
 def main(a):
     if len(a) < 3: sys.exit(__doc__)
     src, dst, dry = Path(a[1]), Path(a[2]), "--dry-run" in a
-    rects = kept_rects()
-    print(f"keeping {len(rects)} rectangles (camp + {len(rects) - 1} v5 transplant rects)")
+    if "--drop-rect" in a:
+        # the Woods mode: drop only the chunks INSIDE the given block rectangle, keep everything else
+        i = a.index("--drop-rect"); x0, z0, x1, z1 = map(int, a[i + 1:i + 5])
+        drop = (x0 >> 4, z0 >> 4, x1 >> 4, z1 >> 4)
+        global inside
+        _inside = inside
+        inside = lambda cx, cz, rects: not _inside(cx, cz, [drop])
+        rects = [drop]
+        print(f"dropping chunks inside blocks {x0} {z0} {x1} {z1} (chunks {drop}); keeping the rest")
+    else:
+        rects = kept_rects()
+        print(f"keeping {len(rects)} rectangles (camp + {len(rects) - 1} v5 transplant rects)")
     if not dry:
         if dst.exists(): shutil.rmtree(dst)
         dst.mkdir(parents=True)

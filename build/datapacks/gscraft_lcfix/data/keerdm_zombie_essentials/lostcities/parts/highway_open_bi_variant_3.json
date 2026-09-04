@@ -1,0 +1,661 @@
+{
+  "meta": [
+    {
+      "key": "support",
+      "char": "v"
+    }
+  ],
+  "xsize": 16,
+  "zsize": 16,
+  "palette": {
+    "palette": [
+      {
+        "char": "ʹ",
+        "block": "minecraft:moss_block"
+      },
+      {
+        "char": "C",
+        "block": "minecraft:chest[facing=north]",
+        "loot": "car_loot"
+      },
+      {
+        "char": "͵",
+        "block": "minecraft:stone_brick_slab[type=top,waterlogged=false,weathering=true]"
+      },
+      {
+        "char": "Ͷ",
+        "block": "minecraft:mossy_cobblestone"
+      },
+      {
+        "char": "ͷ",
+        "block": "minecraft:black_wool"
+      },
+      {
+        "char": "͸",
+        "block": "minecraft:mossy_cobblestone"
+      },
+      {
+        "char": "͹",
+        "block": "minecraft:cobblestone_slab[type=top,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "ͺ",
+        "block": "minecraft:cobblestone_slab[type=top,waterlogged=false,weathering=true]"
+      },
+      {
+        "char": "ͻ",
+        "block": "minecraft:stone_brick_stairs[facing=west,half=top,shape=straight,waterlogged=false,weathering=true]"
+      },
+      {
+        "char": "ͼ",
+        "block": "minecraft:mossy_stone_bricks"
+      },
+      {
+        "char": "ͽ",
+        "block": "minecraft:stone_brick_slab[type=top,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": ";",
+        "block": "minecraft:white_carpet"
+      },
+      {
+        "char": "Ϳ",
+        "block": "minecraft:mossy_cobblestone_slab[type=top,waterlogged=false]"
+      },
+      {
+        "char": "΀",
+        "block": "minecraft:blue_carpet"
+      },
+      {
+        "char": "΁",
+        "block": "minecraft:green_carpet"
+      },
+      {
+        "char": "΂",
+        "block": "minecraft:dark_oak_planks"
+      },
+      {
+        "char": "΃",
+        "block": "minecraft:black_stained_glass"
+      },
+      {
+        "char": "΄",
+        "block": "minecraft:stone_brick_slab[type=bottom,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "΅",
+        "block": "minecraft:mossy_cobblestone_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "Ά",
+        "block": "minecraft:mossy_cobblestone_stairs[facing=west,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "·",
+        "block": "minecraft:cobblestone_stairs[facing=east,half=bottom,shape=straight,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "Έ",
+        "block": "minecraft:jungle_stairs[facing=north,half=top,shape=inner_right,waterlogged=false]"
+      },
+      {
+        "char": "Ή",
+        "block": "minecraft:cobblestone_slab[type=double,waterlogged=false,weathering=true]"
+      },
+      {
+        "char": "Ί",
+        "block": "minecraft:jungle_stairs[facing=east,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "΋",
+        "block": "minecraft:jungle_slab[type=double,waterlogged=false]"
+      },
+      {
+        "char": "Ό",
+        "block": "minecraft:jungle_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "΍",
+        "block": "minecraft:cobblestone[weathering=false]"
+      },
+      {
+        "char": "Ύ",
+        "block": "minecraft:cobblestone_stairs[facing=south,half=bottom,shape=straight,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "Ώ",
+        "block": "minecraft:cobblestone_stairs[facing=south,half=top,shape=straight,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "ΐ",
+        "block": "minecraft:cobblestone_slab[type=double,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "Β",
+        "block": "minecraft:nether_brick_stairs[facing=west,half=top,shape=straight,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "Γ",
+        "block": "minecraft:cobblestone_stairs[facing=north,half=top,shape=straight,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "Δ",
+        "block": "minecraft:cobblestone_stairs[facing=north,half=bottom,shape=straight,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "Ε",
+        "block": "minecraft:cobblestone_stairs[facing=west,half=bottom,shape=straight,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "Ζ",
+        "block": "minecraft:jungle_stairs[facing=north,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "Η",
+        "block": "minecraft:light_gray_carpet"
+      },
+      {
+        "char": "Θ",
+        "block": "minecraft:red_carpet"
+      },
+      {
+        "char": "Ι",
+        "block": "minecraft:cobblestone_stairs[facing=south,half=bottom,shape=straight,waterlogged=false,weathering=true]"
+      },
+      {
+        "char": "Κ",
+        "block": "minecraft:jungle_stairs[facing=south,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "Λ",
+        "block": "minecraft:black_stained_glass_pane[east=false,north=false,south=true,waterlogged=false,west=false]"
+      },
+      {
+        "char": "Μ",
+        "block": "minecraft:glass"
+      },
+      {
+        "char": "Ν",
+        "block": "minecraft:glass_pane[east=false,north=true,south=true,waterlogged=false,west=true]"
+      },
+      {
+        "char": "Ξ",
+        "block": "minecraft:iron_trapdoor[facing=south,half=bottom,open=false,powered=false,waterlogged=false]"
+      },
+      {
+        "char": "Ο",
+        "block": "minecraft:black_carpet"
+      },
+      {
+        "char": "Π",
+        "block": "minecraft:glass_pane[east=false,north=true,south=true,waterlogged=false,west=false]"
+      },
+      {
+        "char": "Ρ",
+        "block": "minecraft:black_stained_glass_pane[east=false,north=true,south=false,waterlogged=false,west=false]"
+      },
+      {
+        "char": "΢",
+        "block": "minecraft:nether_brick_slab[type=top,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "Σ",
+        "block": "minecraft:jungle_slab[type=top,waterlogged=false]"
+      },
+      {
+        "char": "Τ",
+        "block": "minecraft:quartz_block"
+      },
+      {
+        "char": "Υ",
+        "block": "minecraft:nether_brick_fence[east=true,north=false,south=false,waterlogged=false,west=true]"
+      },
+      {
+        "char": "Φ",
+        "block": "minecraft:jungle_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "Χ",
+        "block": "minecraft:jungle_stairs[facing=south,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "Ψ",
+        "block": "minecraft:nether_brick_stairs[facing=east,half=top,shape=straight,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "Ω",
+        "block": "minecraft:jungle_stairs[facing=west,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "Ϊ",
+        "block": "minecraft:quartz_slab[type=double,waterlogged=false]"
+      },
+      {
+        "char": "Ϋ",
+        "block": "minecraft:nether_brick_fence[east=true,north=true,south=true,waterlogged=false,west=false]"
+      },
+      {
+        "char": "ά",
+        "block": "minecraft:quartz_slab[type=top,waterlogged=false]"
+      },
+      {
+        "char": "έ",
+        "block": "minecraft:quartz_stairs[facing=north,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "ή",
+        "block": "minecraft:nether_brick_stairs[facing=north,half=bottom,shape=straight,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "ί",
+        "block": "minecraft:black_stained_glass_pane[east=false,north=true,south=true,waterlogged=false,west=false]"
+      },
+      {
+        "char": "ΰ",
+        "block": "minecraft:glass_pane[east=true,north=true,south=true,waterlogged=false,west=true]"
+      },
+      {
+        "char": "α",
+        "block": "minecraft:quartz_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "β",
+        "block": "minecraft:nether_brick_fence[east=false,north=true,south=true,waterlogged=false,west=true]"
+      },
+      {
+        "char": "γ",
+        "block": "minecraft:quartz_slab[type=bottom,waterlogged=false]"
+      },
+      {
+        "char": "δ",
+        "block": "minecraft:nether_brick_slab[type=bottom,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "ε",
+        "block": "minecraft:dark_oak_planks"
+      },
+      {
+        "char": "ζ",
+        "block": "minecraft:cobblestone_stairs[facing=east,half=top,shape=straight,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "η",
+        "block": "minecraft:quartz_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "θ",
+        "block": "minecraft:mossy_cobblestone_stairs[facing=west,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "ι",
+        "block": "minecraft:black_stained_glass_pane[east=true,north=false,south=false,waterlogged=false,west=false]"
+      },
+      {
+        "char": "κ",
+        "block": "minecraft:glass_pane[east=false,north=true,south=false,waterlogged=false,west=true]"
+      },
+      {
+        "char": "λ",
+        "block": "minecraft:nether_brick_fence[east=false,north=true,south=false,waterlogged=false,west=true]"
+      },
+      {
+        "char": "μ",
+        "block": "minecraft:nether_brick_fence[east=false,north=false,south=false,waterlogged=false,west=false]"
+      },
+      {
+        "char": "ν",
+        "block": "minecraft:stone_brick_slab[type=bottom,waterlogged=false]"
+      },
+      {
+        "char": "ξ",
+        "block": "minecraft:mossy_stone_brick_slab[type=bottom,waterlogged=false]"
+      },
+      {
+        "char": "ο",
+        "block": "minecraft:spruce_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "π",
+        "block": "minecraft:spruce_stairs[facing=south,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "ρ",
+        "block": "minecraft:mossy_cobblestone_slab[type=bottom,waterlogged=false]"
+      },
+      {
+        "char": "ς",
+        "block": "minecraft:mossy_stone_brick_slab[type=bottom,waterlogged=false]"
+      },
+      {
+        "char": "σ",
+        "block": "minecraft:nether_brick_stairs[facing=east,half=bottom,shape=straight,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "τ",
+        "block": "minecraft:spruce_slab[type=double,waterlogged=false]"
+      },
+      {
+        "char": "υ",
+        "block": "minecraft:spruce_stairs[facing=north,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "φ",
+        "block": "minecraft:cobblestone_slab[type=bottom,waterlogged=false,weathering=true]"
+      },
+      {
+        "char": "χ",
+        "block": "minecraft:cobblestone_slab[type=bottom,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "ω",
+        "block": "minecraft:spruce_slab[type=bottom,waterlogged=false]"
+      },
+      {
+        "char": "ϊ",
+        "block": "minecraft:spruce_stairs[facing=south,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "ϋ",
+        "block": "minecraft:quartz_stairs[facing=south,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "ό",
+        "block": "minecraft:mossy_cobblestone_wall[east=tall,north=none,south=low,up=true,waterlogged=false,west=tall]"
+      },
+      {
+        "char": "ύ",
+        "block": "minecraft:quartz_stairs[facing=west,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "ώ",
+        "block": "minecraft:spruce_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "Ϗ",
+        "block": "minecraft:cobblestone[weathering=true]"
+      },
+      {
+        "char": "ϐ",
+        "block": "minecraft:campfire[facing=east,lit=false,signal_fire=false,waterlogged=false]"
+      },
+      {
+        "char": "ϑ",
+        "block": "minecraft:red_concrete"
+      },
+      {
+        "char": "ϒ",
+        "block": "minecraft:yellow_concrete"
+      },
+      {
+        "char": "ϓ",
+        "block": "minecraft:mossy_cobblestone_wall[east=none,north=none,south=none,up=true,waterlogged=false,west=tall]"
+      },
+      {
+        "char": "ϔ",
+        "block": "minecraft:mossy_cobblestone_wall[east=low,north=none,south=none,up=false,waterlogged=false,west=low]"
+      },
+      {
+        "char": "ϕ",
+        "block": "minecraft:mossy_cobblestone_wall[east=none,north=none,south=none,up=true,waterlogged=false,west=none]"
+      },
+      {
+        "char": "ϖ",
+        "block": "minecraft:quartz_stairs[facing=south,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "ϗ",
+        "block": "minecraft:glass_pane[east=true,north=true,south=true,waterlogged=false,west=false]"
+      },
+      {
+        "char": "Ϙ",
+        "block": "minecraft:mossy_cobblestone_wall[east=none,north=low,south=none,up=true,waterlogged=false,west=low]"
+      },
+      {
+        "char": "ϙ",
+        "block": "minecraft:stone_slab[type=bottom,waterlogged=false,weathering=true]"
+      },
+      {
+        "char": "Ϛ",
+        "block": "minecraft:stone_slab[type=bottom,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "ϛ",
+        "block": "minecraft:nether_brick_slab[type=double,waterlogged=false,weathering=false]"
+      },
+      {
+        "char": "Ϝ",
+        "block": "minecraft:quartz_stairs[facing=west,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "ϝ",
+        "block": "minecraft:nether_brick_fence[east=false,north=false,south=true,waterlogged=false,west=true]"
+      },
+      {
+        "char": "Ϟ",
+        "block": "minecraft:mossy_cobblestone_slab[type=double,waterlogged=false]"
+      },
+      {
+        "char": "ϟ",
+        "block": "minecraft:nether_brick_fence[east=false,north=false,south=false,waterlogged=false,west=true]"
+      }
+    ]
+  },
+  "slices": [
+    [
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRνuuRRRRRRR",
+      "RRRRξνξνuRRRRRRR",
+      "RRοπνρςάάςRRRRRR",
+      "uuστ͹͹͹͹͹Ϳuuuuuu",
+      "uuουρφςάͼξuuuuuu",
+      "RRRερςρνςRRRRRRR",
+      "RRRρνρξξνRRRRRRR",
+      "RRRRRξςξχRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR",
+      "RRRRRRRuuRRRRRRR"
+    ],
+    [
+      "w~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~:~~~~~~:~~~~~",
+      "~~~~΂~~~~~~~~~~~",
+      "~~~΂~~~~~~~~~~~~",
+      "~ωϊττμϋ~~~~ʹͷͿ~~",
+      "~στττόΪύά~ͿͺͿͿ~~",
+      "~ωώϏʹ͸έ~ͼ~ͼͷͷͿ~~",
+      "~:΂~~~~~~~~:~~~~",
+      "~~~~~~~~~C~;~~~~",
+      "~~~~~~~~~~~Θ:~~~",
+      "~~~~~~~~~:~~~ϐ~~",
+      "~~~~~:~~~:~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~"
+    ],
+    [
+      "w~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~ϑϒϑϒϑϒϑϒ~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~ϑ~ττΥΪϋϋγ͸͸ϓ~~~",
+      "~ϒ~΍τϔΪΪΪ~~ϒ~~~~",
+      "~ϑ͸τͶ~ʹέʹγͶγϕ~~~",
+      "~ϒ~~~~~~~~~ϒ~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~:~~~",
+      "~~~~~~~~~:~~~~~~",
+      "~~~~~ϒϑϒϑϒ~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~"
+    ],
+    [
+      "w~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~Λ~~~~~~~~~~~~",
+      "~~~ͶΜμϖͼͶͼϋάϖ~~~",
+      "~~~ϗΜ~ΪΪΪΪΪΪ~~~~",
+      "~~~ϗ͸~ηͶηέέάϕ~~~",
+      "~~~Ρ~~~~::::~~~~",
+      "~~~~~~~~::::~~~~",
+      "~~~~~~~~:::::~~~",
+      "~~~~~~~~~:~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~"
+    ],
+    [
+      "w~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~ωμ~~~͸ͶͶϖ~~~",
+      "~~~ω~~~ʹγΪΪͶΪ~~~",
+      "~~~~~~~~~ʹη΍Ϙ~~~",
+      "~~~~~~~~ΗΗΗΗ~~~~",
+      "~~~~~~~~ΗΗΗΗ~~~~",
+      "~~~~~~~~ΗΗΗΗ~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~"
+    ],
+    [
+      "w~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~͸ϖϕ~~~",
+      "~~~~~~~~~γ͸ͼ~~~~",
+      "~~~~~~~~~~γ~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~"
+    ],
+    [
+      "w~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~"
+    ],
+    [
+      "w~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~"
+    ],
+    [
+      "w~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~"
+    ],
+    [
+      "w~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~"
+    ],
+    [
+      "w~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~"
+    ],
+    [
+      "w~~~~~~~~~~~~~~~",
+      "w~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~",
+      "~~~~~~~~~~~~~~~~"
+    ]
+  ]
+}

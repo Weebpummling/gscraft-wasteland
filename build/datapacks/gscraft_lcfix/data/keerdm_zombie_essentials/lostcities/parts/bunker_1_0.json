@@ -1,0 +1,1272 @@
+{
+  "xsize": 16,
+  "zsize": 16,
+  "palette": {
+    "palette": [
+      {
+        "char": " ",
+        "block": "minecraft:air"
+      },
+      {
+        "char": "b",
+        "block": "immersiveengineering:sheetmetal_iron"
+      },
+      {
+        "char": "c",
+        "block": "minecraft:blue_wool"
+      },
+      {
+        "char": "d",
+        "block": "minecraft:stone[weathering=false]"
+      },
+      {
+        "char": "e",
+        "block": "minecraft:structure_void"
+      },
+      {
+        "char": "f",
+        "block": "minecraft:stone_bricks[weathering=false]"
+      },
+      {
+        "char": "g",
+        "block": "minecraft:obsidian"
+      },
+      {
+        "char": "h",
+        "block": "minecraft:purple_wool"
+      },
+      {
+        "char": "i",
+        "block": "minecraft:repeater[delay=4,facing=west,locked=false,powered=false]"
+      },
+      {
+        "char": "j",
+        "block": "minecraft:redstone_wall_torch[facing=south,lit=true]"
+      },
+      {
+        "char": "k",
+        "block": "minecraft:piston[extended=true,facing=east]"
+      },
+      {
+        "char": "l",
+        "block": "minecraft:piston_head[facing=east,short=false,type=normal]"
+      },
+      {
+        "char": "m",
+        "block": "minecraft:cyan_wool"
+      },
+      {
+        "char": "n",
+        "block": "minecraft:yellow_wool"
+      },
+      {
+        "char": "o",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=0,south=none,west=side]"
+      },
+      {
+        "char": "p",
+        "block": "minecraft:redstone_wire[east=none,north=up,power=0,south=none,west=side]"
+      },
+      {
+        "char": "q",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=12,south=none,west=side]"
+      },
+      {
+        "char": "r",
+        "block": "minecraft:gray_glazed_terracotta[facing=north]"
+      },
+      {
+        "char": "s",
+        "block": "minecraft:gray_glazed_terracotta[facing=east]"
+      },
+      {
+        "char": "t",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=0,south=side,west=none]"
+      },
+      {
+        "char": "u",
+        "block": "minecraft:spruce_slab[type=top,waterlogged=false]"
+      },
+      {
+        "char": "v",
+        "block": "minecraft:oak_stairs[facing=west,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "w",
+        "block": "minecraft:stone_button[face=wall,facing=west,powered=false]"
+      },
+      {
+        "char": "x",
+        "block": "minecraft:iron_block"
+      },
+      {
+        "char": "y",
+        "block": "minecraft:oak_stairs[facing=north,half=bottom,shape=outer_left,waterlogged=false]"
+      },
+      {
+        "char": "z",
+        "block": "minecraft:oak_wall_sign[facing=west,waterlogged=false]"
+      },
+      {
+        "char": "A",
+        "block": "minecraft:oak_stairs[facing=north,half=top,shape=inner_left,waterlogged=false]"
+      },
+      {
+        "char": "B",
+        "block": "minecraft:oak_stairs[facing=west,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "D",
+        "block": "minecraft:oak_stairs[facing=north,half=top,shape=outer_left,waterlogged=false]"
+      },
+      {
+        "char": "E",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=6,south=side,west=none]"
+      },
+      {
+        "char": "F",
+        "block": "minecraft:redstone_wire[east=up,north=none,power=7,south=none,west=side]"
+      },
+      {
+        "char": "G",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=5,south=side,west=none]"
+      },
+      {
+        "char": "H",
+        "block": "minecraft:redstone_wire[east=none,north=none,power=7,south=up,west=up]"
+      },
+      {
+        "char": "I",
+        "block": "minecraft:piston_head[facing=west,short=false,type=normal]"
+      },
+      {
+        "char": "J",
+        "block": "minecraft:piston[extended=true,facing=west]"
+      },
+      {
+        "char": "K",
+        "block": "minecraft:piston_head[facing=west,short=false,type=sticky]"
+      },
+      {
+        "char": "L",
+        "block": "minecraft:sticky_piston[extended=true,facing=west]"
+      },
+      {
+        "char": "M",
+        "block": "minecraft:redstone_wire[east=none,north=none,power=8,south=up,west=side]"
+      },
+      {
+        "char": "N",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=8,south=none,west=up]"
+      },
+      {
+        "char": "O",
+        "block": "minecraft:slime_block"
+      },
+      {
+        "char": "P",
+        "block": "minecraft:repeater[delay=2,facing=east,locked=false,powered=true]"
+      },
+      {
+        "char": "Q",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=6,south=none,west=side]"
+      },
+      {
+        "char": "R",
+        "block": "minecraft:redstone_wire[east=side,north=side,power=9,south=up,west=none]"
+      },
+      {
+        "char": "S",
+        "block": "minecraft:sticky_piston[extended=false,facing=up]"
+      },
+      {
+        "char": "T",
+        "block": "minecraft:sticky_piston[extended=false,facing=down]"
+      },
+      {
+        "char": "U",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=10,south=up,west=none]"
+      },
+      {
+        "char": "V",
+        "block": "minecraft:redstone_wire[east=up,north=side,power=11,south=none,west=none]"
+      },
+      {
+        "char": "W",
+        "block": "minecraft:redstone_wire[east=none,north=none,power=12,south=up,west=side]"
+      },
+      {
+        "char": "X",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=14,south=up,west=none]"
+      },
+      {
+        "char": "Y",
+        "block": "minecraft:gray_glazed_terracotta[facing=south]"
+      },
+      {
+        "char": "Z",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=14,south=none,west=up]"
+      },
+      {
+        "char": "0",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=13,south=none,west=side]"
+      },
+      {
+        "char": "1",
+        "block": "minecraft:redstone_wire[east=side,north=side,power=15,south=side,west=none]"
+      },
+      {
+        "char": "2",
+        "block": "minecraft:redstone_block"
+      },
+      {
+        "char": "3",
+        "block": "minecraft:oak_wall_sign[facing=south,waterlogged=false]"
+      },
+      {
+        "char": "4",
+        "block": "minecraft:repeater[delay=2,facing=east,locked=false,powered=false]"
+      },
+      {
+        "char": "5",
+        "block": "minecraft:redstone_torch[lit=true]"
+      },
+      {
+        "char": "6",
+        "block": "minecraft:dropper[facing=west,triggered=false]"
+      },
+      {
+        "char": "7",
+        "block": "minecraft:redstone_wire[east=up,north=none,power=15,south=none,west=side]"
+      },
+      {
+        "char": "8",
+        "block": "minecraft:magenta_wool"
+      },
+      {
+        "char": "9",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=0,south=side,west=none]"
+      },
+      {
+        "char": "~",
+        "block": "minecraft:redstone_wire[east=up,north=side,power=0,south=none,west=none]"
+      },
+      {
+        "char": "Ͱ",
+        "block": "minecraft:redstone_wire[east=up,north=none,power=14,south=none,west=side]"
+      },
+      {
+        "char": "ͱ",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=0,south=up,west=none]"
+      },
+      {
+        "char": "Ͳ",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=13,south=none,west=side]"
+      },
+      {
+        "char": "ͳ",
+        "block": "minecraft:redstone_wire[east=side,north=side,power=0,south=none,west=none]"
+      },
+      {
+        "char": "ʹ",
+        "block": "minecraft:oak_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "͵",
+        "block": "minecraft:oak_stairs[facing=north,half=bottom,shape=outer_right,waterlogged=false]"
+      },
+      {
+        "char": "Ͷ",
+        "block": "minecraft:oak_stairs[facing=north,half=top,shape=inner_right,waterlogged=false]"
+      },
+      {
+        "char": "ͷ",
+        "block": "minecraft:oak_stairs[facing=east,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "͸",
+        "block": "minecraft:oak_stairs[facing=north,half=top,shape=outer_right,waterlogged=false]"
+      },
+      {
+        "char": "͹",
+        "block": "minecraft:stone_button[face=wall,facing=east,powered=false]"
+      },
+      {
+        "char": "ͺ",
+        "block": "minecraft:oak_wall_sign[facing=east,waterlogged=false]"
+      },
+      {
+        "char": "ͻ",
+        "block": "minecraft:oak_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "ͼ",
+        "block": "minecraft:dropper[facing=west,triggered=true]"
+      },
+      {
+        "char": "ͽ",
+        "block": "minecraft:observer[facing=south,powered=false]"
+      },
+      {
+        "char": ";",
+        "block": "minecraft:observer[facing=west,powered=false]"
+      }
+    ]
+  },
+  "slices": [
+    [
+      "eeeb            ",
+      "eeebbbb         ",
+      "eeebbbbb        ",
+      "eeebbbbbbb      ",
+      "eeebbbbbbbb     ",
+      "eeebbbbbbbbb    ",
+      "bbbbbbbbbbbbb   ",
+      "bbbbbbbbbbbbb   ",
+      "bbbbbbbbbbbbbb  ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb"
+    ],
+    [
+      "eeeb            ",
+      "eeebbbb         ",
+      "geebbbbb        ",
+      "eeebbbbbbb      ",
+      "eeebbbbbbbb     ",
+      "eeebbbbbbbbb    ",
+      "bbbbbbbbbbbbb   ",
+      "bbbbbbbbbbbbb   ",
+      "bbbbbbbbbbbbbb  ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb"
+    ],
+    [
+      "heeb            ",
+      "eeebbbb         ",
+      "egebbbbb        ",
+      "eeebbbbbbb      ",
+      "eeebbbbbbbb     ",
+      "eeebbbbbbbbb    ",
+      "bbbbbbbbbbbbb   ",
+      "bbbbbbbbbbbbb   ",
+      "bbbbbbbbbbbbbb  ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb"
+    ],
+    [
+      "iheb            ",
+      "ejebbbb         ",
+      "eklbbbbb        ",
+      "eeebbbbbbb      ",
+      "eeebbbbbbbb     ",
+      "eeebbbbbbbbb    ",
+      "bbbbbbbbbbbbb   ",
+      "bbbbbbbbbbbbb   ",
+      "bbbbbbbbbbbbbb  ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb"
+    ],
+    [
+      "eeeb            ",
+      "eeebbbb         ",
+      "eeebbbbb        ",
+      "eeebbbbbbb      ",
+      "eeebbbbbbbb     ",
+      "mmebbbbbbbbb    ",
+      "bbbbbbbbbbbbb   ",
+      "bbbbbbbbbbbbb   ",
+      "bbbbbbbbbbbbbb  ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb"
+    ],
+    [
+      "neeb            ",
+      "klebbbb         ",
+      "eeebbbbb        ",
+      "eeebbbbbbb      ",
+      "emebbbbbbbb     ",
+      "opebbbbbbbbb    ",
+      "bbbbbbbbbbbbb   ",
+      "bbbbbbbbbbbbb   ",
+      "bbbbbbbbbbbbbb  ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbb ",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb",
+      "bbbbbbbbbbbbbbbb"
+    ],
+    [
+      "qbbb            ",
+      "rsebbbb         ",
+      "egedddbb        ",
+      "erddddddbb      ",
+      "stdddddddbb     ",
+      "dudddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "eeeb            ",
+      "ssbbbbb         ",
+      "esbbbbbb        ",
+      "esveeebbbb      ",
+      "wxveeeeebbb     ",
+      "exyeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "eeeb            ",
+      "ssbbbbb         ",
+      "esbbbbbb        ",
+      "eseeeebbbb      ",
+      "zxeeeeeebbb     ",
+      "exeeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "heeb            ",
+      "ssbbbbb         ",
+      "egbbbbbb        ",
+      "eseeeebbbb      ",
+      "eseeeeeebbb     ",
+      "exeeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "iheb            ",
+      "sjbbbbb         ",
+      "eklbbbbb        ",
+      "esAeeebbbb      ",
+      "ssBeeeeebbb     ",
+      "xxDeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "beeb            ",
+      "ssebbbb         ",
+      "esedddbb        ",
+      "esedddddbb      ",
+      "sseddddddbb     ",
+      "mmdddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "neeb            ",
+      "klebbbb         ",
+      "esedddbb        ",
+      "esedddddbb      ",
+      "smeddddddbb     ",
+      "opdddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "qeeb            ",
+      "rsebbbb         ",
+      "esedddbb        ",
+      "eredddddbb      ",
+      "steddddddbb     ",
+      "dudddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "eeeb            ",
+      "ssebbbb         ",
+      "esbbbbbb        ",
+      "esveeebbbb      ",
+      "wxveeeeebbb     ",
+      "exyeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "eeeb            ",
+      "ssebbbb         ",
+      "esbbbbbb        ",
+      "eseeeebbbb      ",
+      "zxeeeeeebbb     ",
+      "exeeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "heeb            ",
+      "ssebbbb         ",
+      "egbbbbbb        ",
+      "eseeeebbbb      ",
+      "eseeeeeebbb     ",
+      "exeeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "iheb            ",
+      "sjebbbb         ",
+      "eklbbbbb        ",
+      "esAeeebbbb      ",
+      "ssBeeeeebbb     ",
+      "xxDeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "eeeb            ",
+      "ssebbbb         ",
+      "esedddbb        ",
+      "esedddddbb      ",
+      "sseddddddbb     ",
+      "mmdddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "neeb            ",
+      "klebbbb         ",
+      "esedddbb        ",
+      "esedddddbb      ",
+      "smeddddddbb     ",
+      "opdddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "qeeb            ",
+      "rsebbbb         ",
+      "esedddbb        ",
+      "eredddddbb      ",
+      "steddddddbb     ",
+      "dudddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "eeeb            ",
+      "ssebbbb         ",
+      "esbbbbbb        ",
+      "esveeebbbb      ",
+      "wxveeeeebbb     ",
+      "exyeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "eeeb            ",
+      "ssebbbb         ",
+      "esbbbbbb        ",
+      "eseeeebbbb      ",
+      "zxeeeeeebbb     ",
+      "exeeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "heeb            ",
+      "ssebbbb         ",
+      "egbbbbbb        ",
+      "eseeeebbbb      ",
+      "eseeeeeebbb     ",
+      "exeeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "iheb            ",
+      "sjebbbb         ",
+      "eklbbbbb        ",
+      "esAeeebbbb      ",
+      "ssBeeeeebbb     ",
+      "xxDeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "eeeb            ",
+      "ssebbbb         ",
+      "esedddbb        ",
+      "esedddddbb      ",
+      "sseddddddbb     ",
+      "mmdddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "neeb            ",
+      "klebbbb         ",
+      "esedddbb        ",
+      "esedddddbb      ",
+      "smeddddddbb     ",
+      "opdddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "qeeb            ",
+      "rsebbbb         ",
+      "esedddbb        ",
+      "eredddddbb      ",
+      "steddddddbb     ",
+      "dudddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "eeeb            ",
+      "ssebbbb         ",
+      "esbbbbbb        ",
+      "esveeebbbb      ",
+      "wxveeeeebbb     ",
+      "exyeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "eeeb            ",
+      "ssebbbb         ",
+      "esbbbbbb        ",
+      "eseeeebbbb      ",
+      "zxeeeeeebbb     ",
+      "exeeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "heeb            ",
+      "ssebbbb         ",
+      "egbbbbbb        ",
+      "eseeeebbbb      ",
+      "eseeeeeebbb     ",
+      "exeeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "iheb            ",
+      "sjebbbb         ",
+      "eklbbbbb        ",
+      "esAeeebbbb      ",
+      "ssBeeeeebbb     ",
+      "xxDeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "eeeb            ",
+      "ssebbbb         ",
+      "esedddbb        ",
+      "esedddddbb      ",
+      "sseddddddbb     ",
+      "mmdddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "neeb            ",
+      "klebbbb         ",
+      "esedddbb        ",
+      "esedddddbb      ",
+      "smeddddddbb     ",
+      "opdddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "qeeb            ",
+      "rsebbbb         ",
+      "esedddbb        ",
+      "eredddddbb      ",
+      "steddddddbb     ",
+      "dudddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "eeeb            ",
+      "ssebbbb         ",
+      "esbbbbbb        ",
+      "esveeebbbb      ",
+      "wxveeeeebbb     ",
+      "exyeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "eeeb            ",
+      "ssebbbb         ",
+      "esbbbbbb        ",
+      "eseeeebbbb      ",
+      "zxeeeeeebbb     ",
+      "exeeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "heeb            ",
+      "ssebbbb         ",
+      "egbbbbbb        ",
+      "eseeeebbbb      ",
+      "eseeeeeebbb     ",
+      "exeeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "iheb            ",
+      "sjebbbb         ",
+      "eklbbbbb        ",
+      "esAeeebbbb      ",
+      "ssBeeeeebbb     ",
+      "xxDeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "eeeb            ",
+      "ssebbbb         ",
+      "esedddbb        ",
+      "esedddddbb      ",
+      "sseddddddbb     ",
+      "mmdddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "neeb            ",
+      "klebbbb         ",
+      "esedddbb        ",
+      "esedddddbb      ",
+      "smeddddddbb     ",
+      "opdddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "qeeb            ",
+      "rsebbbb         ",
+      "esedddbb        ",
+      "eredddddbb      ",
+      "steddddddbb     ",
+      "dudddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "eccc            ",
+      "sceeecb         ",
+      "egeeebbb        ",
+      "eseeeebbbb      ",
+      "wxebbbeebbb     ",
+      "exbeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "eEFc            ",
+      "sGeccHb         ",
+      "IJKLccbb        ",
+      "eseeeebbbb      ",
+      "zxebbbeebbb     ",
+      "exbeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "heeM            ",
+      "ssecNeb         ",
+      "OgeePQbb        ",
+      "Oseeeebbbb      ",
+      "esebbbeebbb     ",
+      "exbeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "ihee            ",
+      "sjeRebb         ",
+      "Oklcbbbb        ",
+      "Sseceebbbb      ",
+      "ssebbbeebbb     ",
+      "xxbeeeeeebbb    ",
+      "eeeeeeeeeebbb   ",
+      "eeeeeeeeeeebb   ",
+      "eeeeeeeeeeeebb  ",
+      "eeeeeeeeeeeebbb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebb ",
+      "eeeeeeeeeeeeebbb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb",
+      "eeeeeeeeeeeeeebb"
+    ],
+    [
+      "eeeb            ",
+      "sseebbb         ",
+      "TseUbbbb        ",
+      "Osecceddbb      ",
+      "sseeeedddbb     ",
+      "mmdddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "neeb            ",
+      "klebbbb         ",
+      "Oseebbbb        ",
+      "OseVceddbb      ",
+      "smeeeedddbb     ",
+      "opdddddddddb    ",
+      "dddddddddddbb   ",
+      "ddddddddddddb   ",
+      "dddddddddddddb  ",
+      "dddddddddddddbb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddb ",
+      "ddddddddddddddbb",
+      "dddddddddddddddb",
+      "dddddddddddddddb",
+      "dddddddddddddddb"
+    ],
+    [
+      "qeeb            ",
+      "rsebbbb         ",
+      "bsebbbbb        ",
+      "brceWfffbb      ",
+      "stcccffffbb     ",
+      "fudffffffffb    ",
+      "fffffffffffbb   ",
+      "ffffffffffffb   ",
+      "fffffffffffffb  ",
+      "fffffffffffffbb ",
+      "ffffffffffffffb ",
+      "ffffffffffffffb ",
+      "ffffffffffffffbb",
+      "fffffffffffffffb",
+      "fffffffffffffffb",
+      "fffffffffffffffb"
+    ],
+    [
+      "bbbb            ",
+      "ss bbbb         ",
+      "IJcbbbbb        ",
+      " sXeeebbbb      ",
+      " YcZ0b  bbb     ",
+      " xbbb    bbb    ",
+      "          bbb   ",
+      "           bb   ",
+      "            bb  ",
+      "            bbb ",
+      "             bb ",
+      "             bb ",
+      "             bbb",
+      "              bb",
+      "              bb",
+      "              bb"
+    ],
+    [
+      "bbbb            ",
+      "ssebbbb         ",
+      "esebbbbb        ",
+      "eseeeebbbb      ",
+      "eY1eeb  bbb     ",
+      "ex2bb    bbb    ",
+      "  3       bbb   ",
+      "           bb   ",
+      "            bb  ",
+      "            bbb ",
+      "             bb ",
+      "             bb ",
+      "             bbb",
+      "              bb",
+      "              bb",
+      "              bb"
+    ],
+    [
+      "bbbb            ",
+      "ssebbbb         ",
+      "esebbbbb        ",
+      "eseeebbbbb      ",
+      "eseeeb  bbb     ",
+      "exbbb    bbb    ",
+      "          bbb   ",
+      "           bb   ",
+      "            bb  ",
+      "            bbb ",
+      "             bb ",
+      "             bb ",
+      "             bbb",
+      "              bb",
+      "              bb",
+      "              bb"
+    ],
+    [
+      "bbbb            ",
+      "bbbbbbb         ",
+      "bbbbbbbb        ",
+      "bbbbbbbbbb      ",
+      "bbbbbb  bbb     ",
+      "xxbbb    bbb    ",
+      "          bbb   ",
+      "           bb   ",
+      "            bb  ",
+      "            bbb ",
+      "             bb ",
+      "             bb ",
+      "             bbb",
+      "              bb",
+      "              bb",
+      "              bb"
+    ]
+  ]
+}

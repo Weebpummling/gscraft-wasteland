@@ -1,0 +1,261 @@
+{
+  "palette": [
+    {
+      "char": "R",
+      "variant": "asphalt",
+      "damaged": "minecraft:iron_bars"
+    },
+    {
+      "char": ";",
+      "block": "minecraft:furnace",
+      "damaged": "minecraft:iron_bars",
+      "tag": {
+        "Items": [
+          {
+            "Slot": 0,
+            "id": "minecraft:coal",
+            "Count": 10
+          }
+        ]
+      }
+    },
+    {
+      "char": "Q",
+      "variant": "quartz",
+      "damaged": "minecraft:iron_bars"
+    },
+    {
+      "char": "u",
+      "variant": "stonebrick",
+      "damaged": "minecraft:iron_bars"
+    },
+    {
+      "char": "S",
+      "variant": "asphalt",
+      "damaged": "minecraft:iron_bars"
+    },
+    {
+      "char": "b",
+      "block": "minecraft:structure_void"
+    },
+    {
+      "char": "B",
+      "variant": "stonebrick",
+      "damaged": "minecraft:iron_bars"
+    },
+    {
+      "char": "v",
+      "variant": "stonebrick",
+      "damaged": "minecraft:iron_bars"
+    },
+    {
+      "char": "y",
+      "variant": "stonebrick",
+      "damaged": "minecraft:iron_bars"
+    },
+    {
+      "char": "x",
+      "variant": "stonebrick",
+      "damaged": "minecraft:iron_bars"
+    },
+    {
+      "char": "w",
+      "variant": "stone_wall",
+      "damaged": "minecraft:iron_bars"
+    },
+    {
+      "char": ":",
+      "blocks": [
+        {
+          "random": 31,
+          "block": "minecraft:iron_bars"
+        },
+        {
+          "random": 31,
+          "block": "minecraft:iron_bars"
+        },
+        {
+          "random": 31,
+          "block": "minecraft:iron_bars"
+        },
+        {
+          "random": 31,
+          "block": "minecraft:iron_bars"
+        },
+        {
+          "random": 1000,
+          "block": "minecraft:air"
+        }
+      ]
+    },
+    {
+      "char": "A",
+      "block": "minecraft:stone_brick_stairs[facing=west,half=bottom,shape=straight]"
+    },
+    {
+      "char": "t",
+      "block": "minecraft:stone_brick_stairs[facing=east,half=bottom,shape=straight]"
+    },
+    {
+      "char": "z",
+      "block": "minecraft:stone_brick_stairs[facing=north,half=bottom,shape=straight]"
+    },
+    {
+      "char": "c",
+      "block": "minecraft:stone_brick_stairs[facing=south,half=bottom,shape=straight]"
+    },
+    {
+      "char": "d",
+      "block": "minecraft:stone_brick_stairs[facing=north,half=top,shape=straight]"
+    },
+    {
+      "char": "(",
+      "blocks": [
+        {
+          "random": 42,
+          "block": "minecraft:diorite_stairs[facing=north,half=bottom,shape=straight]"
+        },
+        {
+          "random": 42,
+          "block": "minecraft:quartz_stairs[facing=north,half=bottom,shape=straight]"
+        },
+        {
+          "random": 6,
+          "block": "minecraft:calcite"
+        },
+        {
+          "random": 38,
+          "block": "minecraft:polished_diorite_stairs[facing=north,half=bottom,shape=straight]"
+        },
+        {
+          "random": 1000,
+          "block": "minecraft:polished_diorite_stairs[facing=north,half=bottom,shape=straight]"
+        }
+      ]
+    },
+    {
+      "char": ")",
+      "blocks": [
+        {
+          "random": 42,
+          "block": "minecraft:diorite_stairs[facing=south,half=bottom,shape=straight]"
+        },
+        {
+          "random": 42,
+          "block": "minecraft:quartz_stairs[facing=south,half=bottom,shape=straight]"
+        },
+        {
+          "random": 6,
+          "block": "minecraft:calcite"
+        },
+        {
+          "random": 38,
+          "block": "minecraft:polished_diorite_stairs[facing=south,half=bottom,shape=straight]"
+        },
+        {
+          "random": 1000,
+          "block": "minecraft:polished_diorite_stairs[facing=south,half=bottom,shape=straight]"
+        }
+      ]
+    },
+    {
+      "char": "_",
+      "blocks": [
+        {
+          "random": 35,
+          "block": "minecraft:stone_slab[type=bottom]"
+        },
+        {
+          "random": 7,
+          "block": "minecraft:mossy_cobblestone_slab[type=bottom]"
+        },
+        {
+          "random": 20,
+          "block": "minecraft:mossy_stone_brick_slab[type=bottom]"
+        },
+        {
+          "random": 24,
+          "block": "minecraft:cobblestone_slab[type=bottom]"
+        },
+        {
+          "random": 7,
+          "block": "minecraft:moss_block"
+        },
+        {
+          "random": 5,
+          "block": "minecraft:air"
+        },
+        {
+          "random": 1000,
+          "block": "minecraft:smooth_stone_slab[type=bottom]"
+        }
+      ]
+    },
+    {
+      "char": "/",
+      "blocks": [
+        {
+          "random": 35,
+          "block": "minecraft:stone_stairs[facing=west,half=bottom,shape=straight]"
+        },
+        {
+          "random": 7,
+          "block": "minecraft:mossy_cobblestone_stairs[facing=west,half=bottom,shape=straight]"
+        },
+        {
+          "random": 20,
+          "block": "minecraft:mossy_cobblestone_stairs[facing=west,half=bottom,shape=straight]"
+        },
+        {
+          "random": 24,
+          "block": "minecraft:cobblestone_stairs[facing=west,half=bottom,shape=straight]"
+        },
+        {
+          "random": 7,
+          "block": "minecraft:moss_block"
+        },
+        {
+          "random": 5,
+          "block": "minecraft:air"
+        },
+        {
+          "random": 1000,
+          "block": "minecraft:mossy_cobblestone_stairs[facing=west,half=bottom,shape=straight]"
+        }
+      ]
+    },
+    {
+      "char": "=",
+      "blocks": [
+        {
+          "random": 35,
+          "block": "minecraft:stone_slab[type=bottom]"
+        },
+        {
+          "random": 7,
+          "block": "minecraft:mossy_cobblestone_slab[type=bottom]"
+        },
+        {
+          "random": 20,
+          "block": "minecraft:mossy_stone_brick_slab[type=bottom]"
+        },
+        {
+          "random": 24,
+          "block": "minecraft:cobblestone_slab[type=bottom]"
+        },
+        {
+          "random": 7,
+          "block": "minecraft:moss_block"
+        },
+        {
+          "random": 5,
+          "block": "minecraft:air"
+        },
+        {
+          "random": 1000,
+          "block": "minecraft:smooth_stone_slab[type=bottom]"
+        }
+      ]
+    }
+  ]
+}

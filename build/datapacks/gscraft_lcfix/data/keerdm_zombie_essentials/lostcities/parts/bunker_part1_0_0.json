@@ -1,0 +1,328 @@
+{
+  "xsize": 16,
+  "zsize": 16,
+  "palette": {
+    "palette": [
+      {
+        "char": " ",
+        "block": "minecraft:air"
+      },
+      {
+        "char": "b",
+        "block": "minecraft:structure_void"
+      },
+      {
+        "char": "c",
+        "block": "immersiveengineering:sheetmetal_iron"
+      },
+      {
+        "char": "d",
+        "block": "minecraft:gray_glazed_terracotta[facing=east]"
+      },
+      {
+        "char": "e",
+        "block": "minecraft:oak_stairs[facing=west,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "f",
+        "block": "minecraft:stone_button[face=wall,facing=west,powered=false]"
+      },
+      {
+        "char": "g",
+        "block": "minecraft:iron_block"
+      },
+      {
+        "char": "h",
+        "block": "minecraft:stripped_oak_log[axis=y]"
+      },
+      {
+        "char": "i",
+        "block": "minecraft:oak_stairs[facing=north,half=bottom,shape=outer_left,waterlogged=false]"
+      },
+      {
+        "char": "j",
+        "block": "minecraft:spruce_log[axis=y]"
+      },
+      {
+        "char": "k",
+        "block": "minecraft:oak_wall_sign[facing=west,waterlogged=false]"
+      },
+      {
+        "char": "l",
+        "block": "minecraft:purple_wool"
+      },
+      {
+        "char": "m",
+        "block": "minecraft:obsidian"
+      },
+      {
+        "char": "n",
+        "block": "minecraft:repeater[delay=4,facing=west,locked=false,powered=false]"
+      },
+      {
+        "char": "o",
+        "block": "minecraft:redstone_wall_torch[facing=south,lit=true]"
+      },
+      {
+        "char": "p",
+        "block": "minecraft:piston[extended=true,facing=east]"
+      },
+      {
+        "char": "q",
+        "block": "minecraft:piston_head[facing=east,short=false,type=normal]"
+      },
+      {
+        "char": "r",
+        "block": "minecraft:oak_stairs[facing=north,half=top,shape=inner_left,waterlogged=false]"
+      },
+      {
+        "char": "s",
+        "block": "minecraft:oak_stairs[facing=west,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "t",
+        "block": "minecraft:stripped_oak_log[axis=x]"
+      },
+      {
+        "char": "u",
+        "block": "minecraft:oak_stairs[facing=north,half=top,shape=outer_left,waterlogged=false]"
+      },
+      {
+        "char": "v",
+        "block": "minecraft:orange_wool"
+      },
+      {
+        "char": "w",
+        "block": "minecraft:spruce_planks"
+      },
+      {
+        "char": "x",
+        "block": "minecraft:yellow_wool"
+      },
+      {
+        "char": "y",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=0,south=none,west=side]"
+      },
+      {
+        "char": "z",
+        "block": "minecraft:redstone_wire[east=none,north=up,power=0,south=none,west=side]"
+      },
+      {
+        "char": "A",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=12,south=none,west=side]"
+      },
+      {
+        "char": "B",
+        "block": "minecraft:gray_glazed_terracotta[facing=north]"
+      },
+      {
+        "char": "D",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=0,south=side,west=none]"
+      },
+      {
+        "char": "E",
+        "block": "minecraft:spruce_slab[type=top,waterlogged=false]"
+      },
+      {
+        "char": "F",
+        "block": "minecraft:oak_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "G",
+        "block": "minecraft:stone_button[face=wall,facing=east,powered=false]"
+      },
+      {
+        "char": "H",
+        "block": "minecraft:oak_stairs[facing=north,half=bottom,shape=outer_right,waterlogged=false]"
+      },
+      {
+        "char": "I",
+        "block": "minecraft:oak_wall_sign[facing=east,waterlogged=false]"
+      },
+      {
+        "char": "J",
+        "block": "minecraft:redstone_torch[lit=true]"
+      },
+      {
+        "char": "K",
+        "block": "minecraft:oak_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "L",
+        "block": "minecraft:dropper[facing=west,triggered=false]"
+      },
+      {
+        "char": "M",
+        "block": "minecraft:oak_stairs[facing=east,half=top,shape=straight,waterlogged=false]"
+      },
+      {
+        "char": "N",
+        "block": "minecraft:oak_stairs[facing=north,half=top,shape=outer_right,waterlogged=false]"
+      },
+      {
+        "char": "O",
+        "block": "minecraft:redstone_wire[east=up,north=none,power=15,south=none,west=side]"
+      },
+      {
+        "char": "P",
+        "block": "minecraft:magenta_wool"
+      },
+      {
+        "char": "Q",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=0,south=side,west=none]"
+      },
+      {
+        "char": "R",
+        "block": "minecraft:redstone_wire[east=up,north=side,power=0,south=none,west=none]"
+      },
+      {
+        "char": "S",
+        "block": "minecraft:redstone_wire[east=up,north=none,power=14,south=none,west=side]"
+      },
+      {
+        "char": "T",
+        "block": "minecraft:redstone_wire[east=none,north=side,power=0,south=up,west=none]"
+      },
+      {
+        "char": "U",
+        "block": "minecraft:cyan_concrete"
+      },
+      {
+        "char": "V",
+        "block": "minecraft:redstone_wire[east=side,north=none,power=13,south=none,west=side]"
+      },
+      {
+        "char": "W",
+        "block": "minecraft:redstone_wire[east=side,north=side,power=0,south=none,west=none]"
+      }
+    ]
+  },
+  "slices": [
+    [
+      "            cbxx",
+      "         ccccbdd",
+      "        ccccccdb",
+      "      ccccbbbFdb",
+      "     cccbbbbbFgG",
+      "    cccbbbbbbHhb",
+      "   cccbbbbbbbbbb",
+      "   ccbbbbbbbbbbb",
+      "  ccbbbbbbbbbbbb",
+      " cccbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      "cccbbbbbbbbbbbbb",
+      "ccbbbbbbbbbbbbbj",
+      "ccbbbbbbbbbbbbjb",
+      "ccbbbbbbbbbbbjjb"
+    ],
+    [
+      "            cx  ",
+      "         ccccbdd",
+      "        ccccccdb",
+      "      ccccbbbbdb",
+      "     cccbbbbbbgI",
+      "    cccbbbbbbbhb",
+      "   cccbbbbbbbbbb",
+      "   ccbbbbbbbbbbb",
+      "  ccbbbbbbbbbbbb",
+      " cccbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      "cccbbbbbbbbbbbbb",
+      "ccbbbbbbbbbbbbbj",
+      "ccbbbbbbbbbbbbjb",
+      "ccbbbbbbbbbbbjjb"
+    ],
+    [
+      "            cJbl",
+      "         ccccbdd",
+      "        ccccccdb",
+      "      ccccbbbbdb",
+      "     cccbbbbbbdb",
+      "    cccbbbbbbbhb",
+      "   cccbbbbbbbbbb",
+      "   ccbbbbbbbbbbb",
+      "  ccbbbbbbbbbbbb",
+      " cccbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      "cccbbbbbbbbbbbbb",
+      "ccbbbbbbbbbbbbbj",
+      "ccbbbbbbbbbbbbjb",
+      "ccbbbbbbbbbbbjjb"
+    ],
+    [
+      "            cxby",
+      "         ccccbdd",
+      "        ccccccdb",
+      "      ccccbbbKLb",
+      "     cccbbbbbMvd",
+      "    cccbbbbbbNht",
+      "   cccbbbbbbbbbb",
+      "   ccbbbbbbbbbbb",
+      "  ccbbbbbbbbbbbb",
+      " cccbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      " ccbbbbbbbbbbbbb",
+      "cccbbbbbbbbbbbbb",
+      "ccbbbbbbbbbbbbbj",
+      "ccbbbbbbbbbbbbjb",
+      "ccbbbbbbbbbbbjjb"
+    ],
+    [
+      "            vOxb",
+      "         vvvvbdd",
+      "        vvvvvPLb",
+      "      vvvvvvvbdb",
+      "     vvvvvvvvQyd",
+      "    vvvvvvvvvRvv",
+      "   vvvvvvvvvvwww",
+      "   vvvvvvvvvvwww",
+      "  vvvvvvvvvvvvvv",
+      " vvvvvvvvvvvvvvv",
+      " vvvvvvvvvvvvvvv",
+      " vvvvvvvvvvvvvvv",
+      "vvvvvvvvvvvvvvvv",
+      "vvvvvvvvvvvvvvvv",
+      "vvvvvvvvvvvvvvvv",
+      "vvvvvvvvvvvvvvvv"
+    ],
+    [
+      "            vbSx",
+      "         vvvvbdd",
+      "        vvvvvTdb",
+      "      vvvvvvvPdb",
+      "     vvvvvvvvPPd",
+      "    vvvvvvvvvbyy",
+      "   vvvvvvvvvvwww",
+      "   vvvvvvvvvvwww",
+      "  vvvvvvvvvvvvvv",
+      " vvvvvvvvvvvvvvv",
+      " vvvvvvvvvvvvvvv",
+      " vvvvvvvvvvvvvvv",
+      "vvvvvvvvvvvvvvvv",
+      "vvvvvvvvvvvvvvvv",
+      "vvvvvvvvvvvvvvvv",
+      "vvvvvvvvvvvvvvvv"
+    ],
+    [
+      "U           vbbV",
+      "         vvvvbdB",
+      "        vvvvvbBb",
+      "      vvvvvvvDBb",
+      "     vvvvvvvvWyB",
+      "    vvvvvvvvvwww",
+      "   vvvvvvvvvvwww",
+      "   vvvvvvvvvvwww",
+      "  vvvvvvvvvvvvvv",
+      " vvvvvvvvvvvvvvv",
+      " vvvvvvvvvvvvvvv",
+      " vvvvvvvvvvvvvvv",
+      "vvvvvvvvvvvvvvvv",
+      "vvvvvvvvvvvvvvvv",
+      "vvvvvvvvvvvvvvvv",
+      "vvvvvvvvvvvvvvvv"
+    ]
+  ]
+}

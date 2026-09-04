@@ -1,0 +1,59 @@
+{
+  "palette": [
+      {
+      "char": "X",
+      "block": "minecraft:stone",
+      "damaged": "minecraft:iron_bars"
+	},
+    {
+	  "char": "$",
+      "block": "minecraft:stone_slab[type=double]",
+      "damaged": "minecraft:iron_bars"
+    },
+    {
+	  "char": "#",
+      "blocks": [
+        {
+          "random": 15,
+          "block": "minecraft:stone",
+		  "damaged": "minecraft:iron_bars"
+        },
+        {
+          "random": 10,
+          "block": "minecraft:mossy_stone_brick_slab",
+		  "damaged": "minecraft:iron_bars"
+        },
+        {
+          "random": 10,
+          "block": "minecraft:stone_stairs",
+		  "damaged": "minecraft:iron_bars"
+        },
+        { 
+          "random": 30,
+          "block": "minecraft:mossy_cobblestone",
+		  "damaged": "minecraft:iron_bars"
+        },
+        {
+          "random": 30,
+          "block": "minecraft:cracked_stone_bricks",
+		  "damaged": "minecraft:iron_bars"
+        },
+        {
+		  "random": 15,
+          "block": "minecraft:moss_block",
+		  "damaged": "minecraft:iron_bars"
+		},
+        {
+          "random": 3,
+          "block": "minecraft:iron_bars",
+		  "damaged": "minecraft:iron_bars"
+		},
+        {
+          "random": 1000,
+          "block": "minecraft:moss_block",
+		  "damaged": "minecraft:iron_bars"
+	    }
+      ]
+    }
+  ]
+}
