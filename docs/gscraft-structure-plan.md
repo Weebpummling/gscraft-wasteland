@@ -87,6 +87,38 @@ the pipeline, and the scars of route B would need a smoothing pass anyway. The v
 Phase B list; **until it lands, mob spawning stays off** (HANDOFF), which also keeps the 439 boss
 spawners quiet.
 
+
+## 5. City and wilderness — the balance (measured 2026-09-04)
+
+Measured on the built v6 world, every chunk of the 10 km box classified (`tools/landuse.py`,
+`docs/renders/landuse_v6.png`; v7 keeps the seed and the profile outside the Woods, so the figures
+hold): **32 % of the box is water; of the land, 5.9 % is Lost Cities city and 94 % is wilderness.**
+
+| Ring | Water | City (of land) | Wilderness (of land) |
+|---|---|---|---|
+| foot | 26 % | 3.9 % | 96 % |
+| road | 37 % | 6.1 % | 94 % |
+| air | 31 % | 6.0 % | 94 % |
+
+A chunk counts as city when its palettes carry Lost Cities' fills for this pack (hempcrete ground,
+Superb Warfare sandbags, or a spawner beside cracked stone brick). The v6 review's "one fifth of the
+land" was a sample every 25th chunk that also counted highway and street chunks; by the building
+fingerprint the cities themselves are one land chunk in seventeen, thinnest in the foot range.
+
+**Verdict: the balance is already right.** Six per cent city with the highways as the wilderness's
+landmarks is "islands of ruin you see coming"; the `gscraft_wasteland` profile that was staged to
+halve the city count (`cityChance 0.004`) has been **withdrawn** — it would have left the box near
+empty — and v7 stands as built. The density that was wrong was the generated *structures*, and §2
+fixed that.
+
+**Wilderness objectives.** The Woods (design §2.3, `gscraft-woods-plan.md`) carries them: sixteen
+quests across the six chapters plus Teddy's outpost, in the one zone where the land is deliberately
+emptied. `tools/wilderness_plan.py` is the complement for the rest of the box — it reads the land-use
+grid and proposes open-ground spots off the roads (trig points, a spring, herb patches, dead convoys,
+relay masts, fuel caches; `buildmap/wilderness_v7.json`) — kept as a planner, not as quests, until the
+Woods has been played. The Line (design §2.6) is the other answer already built: six small buildings
+along a power line through 94 %-wild ground into the residential block.
+
 ## 4. What Phase A should still look at
 
 The visual pass is the check on this plan: fly four of the kept boss towers and four bunkers

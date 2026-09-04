@@ -71,8 +71,8 @@ pylons — `tools/theline.py` → `gscraft:theline`, `buildmap/theline_v7.json`,
 quests §7.5 (L1–L6, L6 gates R3; 144 quests). Placed on the hosted v6 world with force-loading. **For v7 add
 `gscraft:theline` to the camp-functions step** (after roads: it reads ground from the built world, so re-run
 `theline.py` against the v7 region set first and re-upload `line_*.nbt` + the function). `tools/landuse.py` measures
-city/wilderness per chunk (§5 of the structure plan); the `gscraft_wasteland` LC profile (cityChance 0.004) is staged
-for a possible v8, not in v7.
+city/wilderness per chunk (§5 of the structure plan): 6 % of the land is city by the building fingerprint, so the
+balance stands and the lower-density LC profile that was staged is withdrawn.
 
 **Handoff state:** the hosted server runs v6 with EMI in `/mods` (client pack rebuilt with EMI on 2026-09-03: `G:/GSCraft/release-v7/GSCraft-Client.zip`), ruins v2, torches, dossier
 and site chests in place; the datapack on the server matches `build/datapacks/gscraft` except `dossiers_fill`, parked
