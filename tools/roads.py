@@ -25,6 +25,7 @@ sys.path.insert(0, str(HERE))
 from terrain import World, smooth_column, column_is_built, water_top, FILL, NATURAL, PLANT, LIQUID, AIR
 
 CELL = 8
+MARGIN = 512      # blocks of search room around each segment's bounding box
 ROAD = "minecraft:black_concrete"
 KERB = "minecraft:gray_concrete"
 LINE = "minecraft:white_concrete"
@@ -50,6 +51,10 @@ def route(world, a, b):
     """A* from block a to block b over 8-block cells."""
     grid = Grid(world)
     s = (a[0] // CELL, a[1] // CELL); t = (b[0] // CELL, b[1] // CELL)
+    # search box: the waypoints' bounding box plus MARGIN blocks each way. Without it A* over hilly ground
+    # wanders across the world, decoding every chunk it touches (the 1.6 km Woods spur reached 23 GB).
+    bi0, bi1 = min(s[0], t[0]) - MARGIN // CELL, max(s[0], t[0]) + MARGIN // CELL
+    bj0, bj1 = min(s[1], t[1]) - MARGIN // CELL, max(s[1], t[1]) + MARGIN // CELL
     def h(n): return max(abs(n[0] - t[0]), abs(n[1] - t[1]))
     openq = [(h(s), 0, s, None)]; came = {}; best = {s: 0}
     while openq:
@@ -57,12 +62,13 @@ def route(world, a, b):
         if n in came: continue
         came[n] = p
         if n == t: break
+        if n == t: break
         cn = grid.cell(*n)
         for di in (-1, 0, 1):
             for dj in (-1, 0, 1):
                 if not di and not dj: continue
                 m = (n[0] + di, n[1] + dj)
-                if m in came: continue
+                if m in came or not (bi0 <= m[0] <= bi1 and bj0 <= m[1] <= bj1): continue
                 cm = grid.cell(*m)
                 if cm is None: continue
                 step = 1.414 if di and dj else 1.0

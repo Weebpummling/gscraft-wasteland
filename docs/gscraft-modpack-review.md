@@ -75,7 +75,7 @@ considered and not taken; the entries stay as documentation and are **not instal
 | `flashlight-2.1.0-forge-1.20.1.jar` (Dynamic Flashlight 2.1.0, 2026-08-02) | `https://cdn.modrinth.com/data/SemszBhn/versions/dkQtiEhc/flashlight-2.1.0-forge-1.20.1.jar` | 93,543 B | sha1 `bcb2b2085c55015279ac96113ee8b12e65ebffaf`; sha512 `45e97d9f…611530` | **done 2026-09-04** (owner-approved): hash-verified, in `server/mods`, the Prism instance, `build/manifest.json` (sha256 from the file), `build/additions.json`, appended to `release-v7/GSCraft-Client.zip`; still to do by hand: the hosted `/mods` (HANDOFF §6) and the Drive re-issue |
 | `emi-1.1.24+1.20.1+forge.jar` (EMI 1.1.24, already pinned) | local copy `G:/GSCraft/release-v7/` (sha256 checked against the manifest) | 1,121,750 B | `server/mods`, the Prism instance `mods` — **done 2026-09-04**; the hosted server and the client zip already had it |
 
-The jar was appended to `GSCraft-Client.zip` (the Prism-export layout, `.minecraft/mods/`); re-issue it on the Drive link,
+Distribution moved to the packwiz pack and the `client-installer-2026-09-04` release on 2026-09-04 (`notes/gscraft-one-click-install.md`); the old `GSCraft-Client.zip` is superseded. Re-issue nothing on Drive,
 and add one line to `client/GSCraft Install Guide.md` ("Flashlight: right-click to switch on, sneak +
 right-click with a battery to reload"). The manifest's `sha256` for the flashlight jar is computed
 from the downloaded file, never copied from a listing.

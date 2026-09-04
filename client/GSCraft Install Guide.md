@@ -1,24 +1,31 @@
 # GSCraft — how to join
 
 Minecraft **1.20.1**, Forge **47.4.10**, about 100 mods. Everything you need is in one zip.
-Two ways in. The first one is three clicks; the second is for people who insist on the official launcher.
+Two ways in. The first is one file; the second is for people who insist on the official launcher.
 
 Server address: **199.115.76.82:9150** (also `gamesla308.bisecthosting.com:9150`). It is already in your server list after either install.
 
 ---
 
-## Way 1 — Prism Launcher (recommended, ~5 minutes)
+## Way 1 — one file (Windows, ~2 minutes of clicking)
 
-1. **Install Prism Launcher** from https://prismlauncher.org/download — Windows, macOS and Linux builds are there. Install it and open it once.
-2. **Sign in:** top-right **Accounts → Manage Accounts → Add Microsoft**, then follow the code login. This is your normal Minecraft account.
-3. **Download `GSCraft-Client.zip`** from the shared Google Drive link (about 480 MB). Do not unzip it.
-4. In Prism click **Add Instance** (top-left) → left column **Import** → **Browse** → pick `GSCraft-Client.zip` → **OK**.
-   Prism unpacks the instance, downloads Minecraft 1.20.1 and Forge 47.4.10 itself, and shows a **GSCraft** tile.
-5. **Java:** Prism asks for Java on first launch if it cannot find one. Choose **Auto-download** (or in Settings → Java → **Auto-detect / Download** and pick **Java 17**). 1.20.1 wants Java **17**, not 21.
-6. **Memory** is preset to 6 GB for the instance. If your PC has 8 GB of RAM total, right-click the GSCraft tile → **Edit → Settings → Java → Maximum memory allocation** and set **4096 MB**.
-7. **Play.** Double-click the tile. First launch takes 2–4 minutes while mods load. Then **Multiplayer → GSCraft → Join Server**.
+1. Download **`GSCraft-Setup.cmd`** from the release page
+   https://github.com/Weebpummling/gscraft-wasteland/releases/tag/client-installer-2026-09-04 and double-click it.
+   Windows may show "unknown publisher" — choose *Run anyway*. It installs Prism Launcher (portable, into
+   `%LOCALAPPDATA%\GSCraft`) and imports the GSCraft instance.
+2. Prism opens and asks you to **sign in** with your Microsoft account (your normal Minecraft account). Java 17 is
+   downloaded by Prism itself.
+3. Press **Play** on the GSCraft tile. The first launch downloads the pack (about 450 MB) and then starts the game;
+   every later launch checks for pack updates in a few seconds and starts. **Multiplayer → GSCraft → Join Server.**
 
-That is it. Voice chat (Simple Voice Chat, push-to-talk **V**) works out of the box on the same address.
+Already have Prism, or on macOS / Linux: install Prism, sign in, **Add Instance → Import**, and paste
+`https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/GSCraft-Instance.zip`
+(self-updating) — or `GSCraft.mrpack` from the same page for a one-shot import (also works in Modrinth App / ATLauncher).
+
+**Memory:** the instance is preset to 6 GB. On an 8 GB PC: right-click the tile → **Edit → Settings → Java → Maximum
+memory allocation** and set **4096 MB**.
+
+Voice chat (Simple Voice Chat, push-to-talk **V**) works out of the box on the same address.
 
 Flashlight (Dynamic Flashlight): right-click to switch it on; sneak + right-click while holding a battery to reload it.
 
