@@ -68,6 +68,28 @@ ordered by how much it would add for how little it costs, with a recommendation 
 - Lukis Grand Capitals, Hostile Villages, Underground Bunkers: every generated structure in the 10 km
   box counted and positioned in `tools/structures_v6.json` (see the design's loot-site list).
 
+## 5b. Done on 2026-09-04
+
+- **Station-only rule, the recipe half:** `build/kubejs/server_scripts/gscraft_recipes.js` removes every bench recipe (the
+  vanilla crafting table, IE's crafting table and Engineer's Workbench, the Refurbished Furniture workbench, Superb
+  Warfare's assembling and reforging tables, all eleven Immersive Vehicles benches and the fuel pump), the Superb Warfare
+  defence items (Walls 1-3 station orders later), every vvp / MCSP vehicle assembling recipe and the fourteen Superb Warfare
+  vehicles outside the roster. The inert crafting table (block interaction) and the station block are Phase C.
+- **Improved Mobs by distance:** `Difficulty type = DISTANCESPAWN`, difficulty 0 inside 1.5 km of the camp, 3 from 1.5 km,
+  6 from 2.5 km, 10 from 4 km, 15 in the air ring - the three ranges of the design, measured from the world spawn. It was
+  GLOBAL (time-based) before, so the "hardens with distance" line in §3 was not true until now.
+- **sedparties:** `useFTBTeams = true` - the party is the FTB team; xp share was already on.
+- **Lootr:** `refresh_modids = ["gscraft"]`, `refresh_value = 120000` (5 in-game days = the attack cycle): the site and
+  component chests that carry `gscraft:` tables refresh on the loop's rhythm; Lost Cities chests stay one-shot per player.
+- **Apotheosis:** `Boss Spawn Cooldown` set to its maximum, which stops the mod's random surface bosses; elites come only
+  from the garrison tables and the Boss Spawner (§2).
+- **Install guide:** EMI and Ping Wheel keys added for the players.
+- **Military vehicles:** blueprint-gated quest rewards (crafting §2.1) - the strip above removes their default recipes.
+
+Still words, not files: the IV `craftingoverrides.json` for the civilian roster, Recruits at the gatehouse, Guard
+Villagers per tier, the Boss Spawner as the assault source, the Salvaging Table in the yard, Sophisticated Backpacks
+upgrade gating, ParCool ziplines, Farmer's Delight hunger - all Phase C/D script and template work.
+
 ## 6. What this changes in the documents
 
 Nothing in draft 6 is contradicted. The six rows of §1 are additions to Phase C and D that use

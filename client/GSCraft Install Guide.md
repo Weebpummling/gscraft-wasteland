@@ -46,8 +46,10 @@ That is it. Voice chat (Simple Voice Chat, push-to-talk **V**) works out of the 
 | Game closes at once with a Java error | Wrong Java. It must be Java **17** (Prism: Settings → Java; official launcher: the Forge profile's Java executable). |
 | Very low FPS or out-of-memory crash | Raise memory to 6 GB if the PC has 16 GB; lower render distance to 8 in Video Settings. |
 | Cannot hear anyone | Voice chat key is **V** (push to talk). Settings → Controls → Simple Voice Chat lets you switch to voice activation. |
+| Want to point at something | Ping Wheel: **mouse button 5** by default places a marker everyone in the team sees for a few seconds; rebind under Controls → Ping Wheel. |
+| What does this item do | EMI: hover it and press **R** for recipes, **U** for uses. Note: most recipes are made at the camp's stations, not a crafting table. |
 | Server shows “Can't connect” | The server restarts a few times a day for maintenance; wait a minute and retry. If it stays down, message the admin. |
 
 ## What is in the pack (short version)
 
-Lost Cities ruined-city world, TaCZ and Superb Warfare guns and vehicles, Immersive Engineering tech, The Hordes blood-moon nights, Lootr instanced loot, FTB Quests progression, Xaero maps (press **M**), and a light dose of horror. The rules of the server are in the quest book (press the quest-book key or open it from the inventory).
+Lost Cities ruined-city world, TaCZ and Superb Warfare guns and vehicles, Immersive Engineering tech, The Hordes blood-moon nights, Lootr instanced loot, FTB Quests progression, Xaero maps (press **M**), EMI as the recipe viewer (hover an item and press **R**), Ping Wheel to mark a spot for the team (default **mouse button 5**, rebind it under Controls if your mouse has none), and a light dose of horror. The rules of the server are in the quest book (press the quest-book key or open it from the inventory).
