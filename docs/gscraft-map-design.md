@@ -24,6 +24,8 @@ death.
 Bradley) are **blueprint-gated quest rewards, mid and late game** - W-M1 in Act III, W-B3 and X6 in Act IV - never
 unlocked by a yard tier alone (`gscraft-crafting.md` §2.1, `gscraft-quests.md`).
 
+**Onboarding (2026-09-04):** how all of this is taught in play rather than read - `gscraft-onboarding.md`.
+
 ---
 
 ## 1. The game in one paragraph

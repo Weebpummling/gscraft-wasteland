@@ -140,6 +140,8 @@ do not, but they are fully generated so it no longer matters there).
   the camp and its six NPCs, strongpoints, the item ladder, storage, hideout functions, the loop and
   timers, the tower, tech stack, build order with test gates.
 - `docs/gscraft-quests.md` - all 77 quests, six NPC chapters, what FTB Quests needs from KubeJS.
+- `docs/gscraft-onboarding.md` - how the game teaches itself: the first session minute by minute, each system's
+  teaching moment, the book as a journal, the survivor's notebook (Patchouli), what Phase C must build for it.
 - `docs/gscraft-map-layout-v6.md` - every rectangle, offset, vertical shift and pad level as built; the
   tower lock; roads.
 - `docs/gscraft-map-review-v6.md` - the audit, the issues raised and the decisions taken.
