@@ -93,7 +93,7 @@ Positions are first cut, to be adjusted on the visual pass against the rebuilt s
 | NPC | Building | Footprint (blocks) | Where on the rim | What is in it |
 |---|---|---|---|---|
 | **Marshall** | the gatehouse | 24×16 | east gate, x 150…173 × z 0…15, where the spine leaves the camp | the map table, the tower parts rack (empty until parts arrive), the strongpoint board; players pass him on every trip east |
-| **Walker the Foreman** | the yard | 40×32 | south-east, x 60…99 × z 80…111 | the Engineer's Workbench (the only one), garage bays, a vehicle lot, scrap piles |
+| **Walker the Foreman** | the yard | 40×32 | south-east, x 60…99 × z 80…111 | the workshop benches (crafting §4), garage bays, a vehicle lot, scrap piles |
 | **Tony the Medic** | the clinic | 20×16 | north-west, x −100…−81 × z −100…−85 | beds, the med station, a PlayerRevive point |
 | **Michael the Engineer** | the plant | 32×24 | south, x −40…−9 × z 100…123, at the crater edge above the lake | generator shed, water collector, tanks, the fuel pump |
 | **Tune the Technician** | the radio shack | 16×16 with a 12-block mast | at the tower compound's west gate, x 40…55 × z −120…−105 | the small mast (a visible echo of the tower), the map board, the intel desk |
@@ -171,7 +171,7 @@ it is not used for these six. No gameplay mod is added (EMI, a client-side recip
 | Michael the Engineer | Generator, Water | bring 3 wire spools, a power cord, a water filter | wiring-harness and filter blueprints | hold the plant; coolant; hold FR-06; the cooling loop, then the generator kit |
 | Tune the Technician | Radio / intel | bring a circuit board, 2 capacitors, a broken radio | circuit-assembly blueprint; the map | hold Financial Plaza; antenna elements; the transmitter, then the antenna array |
 | James the Scout | expeditions | visit the glass tower, the acacia hall and the library | waypoints; the expedition board | the settlement by car; the hub by air; the phased array element |
-| Marshall | the strongpoint loop and the tower | **none: he talks once all five introductions are done** | the tower chapter and the strongpoint board | take → hold → defend; five parts in order; the beacon; the finale |
+| Marshall | the strongpoint loop and the tower | **none: he talks once all five introductions are done, and the tower chapter opens with him (owner, 2026-09-04)** | the tower chapter and the strongpoint board | take → hold → defend; five parts in order; the beacon; the finale |
 
 
 ### 3.6 NPC building tiers
@@ -262,7 +262,7 @@ visits, because scouting, looting and the take are separate quests in three diff
 | Tier | How you get it | Stack |
 |---|---|---|
 | **Small items** (40, §4.2) | loot only, everywhere, by building type | 4–8, tools and valuables 1 |
-| **Intermediates** | crafted at Walker's Engineer's Workbench from blueprints the NPCs hand out per base-function level | 4 |
+| **Intermediates** | ordered at the stations (crafting §4) from blueprints the NPCs hand out per base-function level | 4 |
 | **Complete parts** | intermediates **plus one loot-only component** | 1, bulky |
 | **Loot-only components** | at the strongpoint that owns the role, or the hub; no recipe exists | 1, bulky |
 
@@ -281,7 +281,7 @@ crafting chain and a trip.
 | Tools | wrench, pliers, screwdriver set, hand drill, welding torch | garages, Novo, FR-06 hangar | 1 |
 | Valuables | broken radio, computer parts, hard drive, folder of documents | offices, Financial Plaza, the hub | 1 |
 
-### 4.3 Intermediates (blueprints at the IE Engineer's Workbench, `gscraft` category)
+### 4.3 Intermediates (blueprints = team stages `bp_<recipe>`, ordered at the stations; the "blueprint from" column follows the quest tables)
 
 | Intermediate | Recipe | Blueprint from |
 |---|---|---|
@@ -322,13 +322,13 @@ part's shopping list is 6–10 different items, so the budget is spent on **vari
 - Small items stack 4–8; intermediates 4; complete parts and components **stack 1 and are bulky**:
   no backpack, Slowness and no sprint while carried (KubeJS item + player tick; backpack exclusion
   through the backpack mod's config if it has one, else a KubeJS insert check).
-- Death drops everything except the secure pack (keepInventory off; PlayerRevive makes it rare).
+- Death drops everything except the secure pack (keepInventory off; PlayerRevive makes it rare). **Rules of play (owner defaults, 2026-09-04):** respawn is the camp (world spawn 19 94 26; a bed at the clinic from T-B1 moves it); a downed player bleeds out in 5 minutes unless revived (range 4 m, 6 m from Medical 1, 8 m from T-B2); a late joiner or sixth player receives the team's stages (all progress stages are **team** stages via FTB Teams; only the first-time onboarding lines and `revives_3` are per player), the starting kit and the introductions as a tour; the fortify clock, warning and defence tick only while **two or more** team members are online - a defence that would start with fewer waits for the next login; a restart mid-assault keeps the contested slot, the clocks and the marker, and the interrupted wave restarts from its beginning; pvp and friendly fire are off; the sleep percentage is 100 so nights are never skipped; hunger stays on and is fed from Marshall's kitchen (D3) and canned goods in the loot tables; the world border warns at 200 blocks and does no damage.
 - **Storage is Walker's function**, on Sophisticated Backpacks in the Curios slot:
 
 | Storage | Unlocks | Carried |
 |---|---|---|
 | 1 | basic backpack; the stash crates at the claim | +27 |
-| 2 | iron backpack; stack upgrade ×2; a car with a cargo crate | +54, +27–54 in the car |
+| 2 | iron backpack; stack upgrade ×2 (the cargo crate is W7's, Garage 1) | +54, +27–54 in the car |
 | 3 | gold backpack; **everlasting upgrade** (survives death: the secure container); truck cargo | +81, +108 in the truck |
 | 4 | diamond backpack; aircraft cargo | +108 |
 
@@ -379,8 +379,8 @@ and no site is ever drawn while the players are elsewhere — the only fights ar
 |---|---|---|
 | Assault (the take) | 5 min from marker placement | waves every 45 s from the site edges; garrison scaled to players present |
 | Fortify clock | 2 in-game days (40 min) after `held` | build up, run the loot; nothing attacks during it |
-| **The defence** | the warning starts when the fortify clock ends, **on this site only** | warning = max(10 min, foot travel camp → site), so 12–15 min for the ring; the board shows the whole countdown (fortify + warning) from the moment the site is held |
-| Component respawn | every 2 in-game days while held and defended | doubled once every site is held (R6) |
+| **The defence** | the warning starts when the fortify clock ends, **on this site only** | warning = a flat 10 minutes (owner, 2026-09-04; every built site is under 10 min on foot); the board shows the whole countdown (fortify + warning) from the moment the site is held |
+| Component respawn | every 2 in-game days while the site is **held** (the one rule; Lootr's 5-day refresh is for ordinary loot only - owner, 2026-09-04) | doubled once every site is held (R6) |
 | Finale countdown after the beacon lights | 3 in-game days (60 min) | waves at the base, the last one carries the boss |
 
 **One contested site at a time.** The marker is refused while another site is still contested, so

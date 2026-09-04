@@ -34,6 +34,10 @@ now has one.
 
 ## B. Owner decisions (each with the default this audit recommends)
 
+**Decided 2026-09-04:** B1 = **after the introductions** (Marshall speaks and the tower chapter opens together;
+stages stay part-gated). B30 = **a research-backed finale design, not the dragon by default** (`gscraft-finale.md`).
+Every other row: **the default, applied** in the same commit as this note.
+
 | # | Question | Where it shows | Recommended default |
 |---|---|---|---|
 | B1 | **Tower chapter gate**: after the five introductions (design), after R1 (onboard), or R2+R3+R4 + Workshop 2 + Water 2 + Storage 2 + car (quests) | design L13/176, onboard §2, quests L33-35 | the quests' gate (end of Act II); design and onboard adopt it. Marshall *speaks* after the introductions; the *tower chapter* opens at the gate |

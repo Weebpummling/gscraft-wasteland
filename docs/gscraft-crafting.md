@@ -87,12 +87,12 @@ vehicle in a second.
 |---|---|
 | Quad | 2 steel frame, 1 motor assembly, 4 wheel, 1 fuel tank |
 | Runabout | 4 steel frame, 1 motor assembly, 4 wheel, 1 fuel tank, 1 wiring harness, 2 glass |
-| Boat | 12 planks, 1 fastener kit (speedboat: + 1 motor assembly, 1 fuel tank, 2 steel frame) |
+| Boat | 12 planks, 1 fastener kit (speedboat: + 1 motor assembly, 1 small battery pack, 2 steel frame) |
 | Van | 6 steel frame, 1 motor assembly, 4 wheel, 1 fuel tank, 1 wiring harness, 1 cargo crate |
-| Truck | 8 steel frame, 1 **heavy diesel engine** (Novo), 6 wheel, 2 fuel tank, 1 cargo crate |
+| Truck | 8 steel frame, 1 **heavy diesel engine** (Novo), 6 wheel, 1 medium battery pack, 1 cargo crate |
 | Light aircraft | 8 steel frame, 1 **avionics module** (FR-06), 2 motor assembly, 2 wheel, 2 fuel tank, 2 circuit assembly, 4 glass |
 | Light helicopter | 6 steel frame, 1 **avionics module**, 1 **transformer core**, 2 motor assembly, 2 fuel tank, 1 circuit assembly |
-| Armoured car | 12 steel frame, 4 plate (§5.1), 1 heavy diesel engine, 6 wheel, 2 fuel tank, 1 **reactor control module** |
+| Armoured car | 12 steel frame, 4 plate (§5.1), 1 heavy diesel engine, 6 wheel, 1 medium battery pack, 1 **reactor control module** |
 
 Every vehicle above the quad needs a loot-only component, so every tier of the garage is a trip
 to a held site — the same rule as the tower parts.
@@ -115,11 +115,11 @@ bench can do and the quest book says when. Reaching a yard tier never unlocks a 
 
 | Vehicle | Recipe |
 |---|---|
-| Humvee RWS | 10 steel frame, 6 plate, 1 heavy diesel engine, 4 wheel, 2 fuel tank, 1 **military circuit board**, 1 gun frame + barrel (the turret) |
-| Black Hawk | 12 steel frame, 2 **avionics module**, 1 **transformer core**, 4 motor assembly, 3 fuel tank, 2 circuit assembly, 1 **satellite receiver** |
-| M3A3 Bradley | 16 steel frame, 8 plate, 1 heavy diesel engine, 2 fuel tank, 1 **reactor control module**, 1 **military circuit board**, 1 gun frame + barrel (the 25 mm), 2 wiring harness |
+| Humvee RWS | 10 steel frame, 6 plate, 1 heavy diesel engine, 4 wheel, 1 medium battery pack, 1 **military circuit board**, 1 gun frame + barrel (the turret) |
+| Black Hawk | 12 steel frame, 2 **avionics module**, 1 **transformer core**, 4 motor assembly, 1 large battery pack, 2 circuit assembly, 1 **satellite receiver** |
+| M3A3 Bradley | 16 steel frame, 8 plate, 1 heavy diesel engine, 1 large battery pack, 1 **reactor control module**, 1 **military circuit board**, 1 gun frame + barrel (the 25 mm), 2 wiring harness |
 
-Both are electric under Superb Warfare and draw from the battery packs of §5.5; the exact registry ids are
+Both are electric under Superb Warfare and draw from the battery packs of §5.5 - so their recipes carry battery packs, not fuel tanks (owner default, 2026-09-04); the exact registry ids are
 read off the jars at Phase D (`vvp:` and `mcsp:` namespaces, 81 entities between them).
 
 ---
@@ -141,7 +141,7 @@ and the results are waiting when the team comes home.
 | Intermediate | fastener kit, steel frame, harness, filter cartridge, circuit assembly, med kit, gun frame, barrel | 2 min | start it, sort the loot, collect |
 | Equipment | firearms, armour, tools, attachments, packs | 5 min (tier 1 gear) to 10 min (tier 3) | start it before a short errand |
 | Trip-length | complete parts, vehicles, base upgrade kits, the claim marker | **20 min** | one trip out and back |
-| Tower parts | the five hand-ins for stages 1–5 | 30 min | a long trip, or two |
+| Tower parts | the five hand-ins for stages 1–5 | 20 min (a trip-length order) | a long trip, or two |
 
 Workshop tiers (§4) cut these: ×0.85 at tier 1, ×0.7 at tier 2, ×0.5 at tier 3 — so a tower part
 is 15 minutes at the finished workshop, still a trip. Nothing ever crafts instantly except the
@@ -222,7 +222,7 @@ blocks are not craftable.
 | Wheel | 2 metal scrap + 1 silicone tube | Walker, W7 |
 | Fuel tank | 4 metal scrap + 1 sealed tubing | Walker, W7 |
 
-**Salvage** is what loot gives instead of a gun: a *damaged* weapon (one item per class, e.g.
+**Salvage** is what loot gives instead of a gun: a *damaged* weapon, and the **Apotheosis Salvaging Table in Walker's yard (tier 2)** is where it is broken down into parts (owner default, 2026-09-04; the mechanic is the mod's, the input is ours) - one item per class, e.g.
 "damaged rifle") that counts as a gun frame + barrel in any recipe of its class. Ammunition drops
 in loot in small amounts as before; casings and powder are craftable so it never runs dry.
 

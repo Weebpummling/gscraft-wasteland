@@ -30,7 +30,10 @@ Rules that hold across every chapter:
   only there, two or three trips), then Marshall's take (place the marker, win the 5-minute
   assault). The marker is refused until the first two are done. The owning NPC's hold quest
   completes on the site's own first attack, which always comes at the end of the fortify clock.
-- **The tower unlocks late.** Marshall opens the tower chapter only after **significant progress**:
+- **The tower chapter opens with Marshall** (owner, 2026-09-04). When the five introductions are done Marshall speaks,
+  the strongpoint board lights and the tower chapter appears in the book at the same moment; X1 is the briefing.
+  The stages themselves stay gated by their parts, so the chapter is visible early and completed late. (Superseded
+  text follows for the record.) Draft 2 gated it on **significant progress**:
   three strongpoints held (Novo, the block, the plant), Workshop 2, **Water 2**, Storage 2, and a
   car built. That is the end of Act II at the earliest. (Draft 1 said Generator 2, which is M9's
   reward for holding FR-06 in Act III and would have kept the chapter shut a whole act longer than
@@ -64,14 +67,14 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
-| W1 | Nuts and bolts | I | camp ruins | hand in 8 bolts, 8 nuts, 1 wrench | — | fastener-kit and hand-tool blueprints; your personal work station is bound (crafting §4) |
+| W1 | Nuts and bolts | I | camp ruins | hand in 8 bolts, 8 nuts | — | a wrench; fastener-kit and hand-tool blueprints; your personal work station is bound (crafting §4) |
 | W2 | A place for everything | I | camp | craft and hand in 2 fastener kits | W1 | **Storage 1**: basic backpack recipe, stash crates at the claim |
 | W3 | Frame of mind | I | camp, glass tower | hand in 12 metal scrap; show a welding torch | W2 | steel-frame blueprint, **Workshop 1** (IE machine recipes) |
 | W4 | The toolbox | I | camp | show a toolbox (crafted) | W3 | Workshop 1 effects; 16 iron ingots |
 | W5 | East, a mile | I | **Novo**, 1.06 km E on the spine | hand in 6 spark plugs, 12 metal scrap, 4 motor oil — Novo's drops | W4, J-S1 | stage `novo_looted`; Marshall R2 opens |
 | W6 | Hold the yard | I→II | Novo | stage `novo_held`; stage `novo_defended` (Novo's own first attack, at the end of its fortify clock) | W5, Marshall R2 | **Workshop 2**; **Storage 2**: iron backpack, stack upgrade ×2 |
 | W7 | Wheels | II | camp, Novo | hand in 1 motor assembly, 4 steel frames, 1 car battery | W6, M2 | **Garage 1**: quad and runabout recipes, wheel and fuel-tank blueprints, cargo crate; a full tank and 2 fuel cans; stage `car_built` when one is crafted |
-| W8 | Fuel run | II | camp | hand in 2 fuel cans | W7, M7 | fuel recipes at the garage pump |
+| W8 | Fuel run | II | camp | hand in 2 fuel cans | W7, M7 | fuel-can refill recipe (at Michael's plant pump, M-B2; Walker's drum rack stores them) |
 | W9 | Heavy metal | III | Novo | hand in 1 heavy diesel engine, 2 motor assemblies | W8, `novo_held` | **Garage 2**: truck recipe |
 | W10 | The big pack | III | Novo | hand in a second heavy anchor cable (Novo respawns them while held), 2 fastener kits | W9 | **Storage 3**: gold backpack, **everlasting upgrade** (the secure pack), truck cargo |
 | W11 | Mast section kit | II–III | camp | show 1 mast section kit (6 steel frames + 2 fastener kits + heavy anchor cable) | W6, `novo_held` | the kit is Marshall's X2 hand-in |
@@ -94,8 +97,8 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
-| T1 | Field dressing | I | camp ruins | hand in 4 bandages, 2 painkillers | — | med-kit blueprint |
-| T2 | Stock the clinic | I | camp | craft and hand in 2 med kits | T1 | **Medical 1**: revive range up; the clinic cures infection; 4 med kits back |
+| T1 | Field dressing | I | camp ruins | hand in 4 bandages, 2 painkillers | — | med-kit blueprint; the clinic cures infection from now on |
+| T2 | Stock the clinic | I | camp | craft and hand in 2 med kits | T1 | **Medical 1**: revive range up (4 m → 6 m); 4 med kits back |
 | T3 | Neighbours | II | **residential block**, 1.9 km | hand in 3 blood bags, 4 syringes, 2 antiseptic — the block's drops | T2, J-S2 | stage `residential_looted`; Marshall R3 opens |
 | T4 | Take the block | II | residential block | stage `residential_held` (Marshall's assault won) | T3, Marshall R3 | 8 bandages, 4 antiseptic |
 | T5 | Hold the block | II | residential block | stage `residential_defended` (the block's first attack) | T4 | **Medical 2**: reduced death penalty; the med kit cures infection in the field |
@@ -149,7 +152,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | U10 | Technician's ear | IV | everywhere | hand in one of every electrical item (8) | U9 | Radio 3 effects: the coming attack's composition on the board from the moment the marker is placed |
 | U-B1 | Mast up | I | camp | hand in 6 metal scrap, 2 wire spools, 1 circuit assembly | U2 | **shack tier 1**: mast to 24 with a dish, the map wall |
 | U-B2 | Antenna field | III | camp, Financial Plaza | hand in 4 steel frames, 4 antenna elements, 1 encrypted radio (the plaza respawns them while held) | U-B1, `financial_defended` | **shack tier 2**: antenna field, intel desk; the contested site's countdown on the board |
-| U-B3 | Uplink | IV | camp, the hub | hand in 8 antenna elements, 2 circuit assemblies, 1 satellite receiver | U-B2, U9 | **shack tier 3**: mast to 40 with an aviation light, second dish, roof receiver; the coming attack's composition on the board |
+| U-B3 | Uplink | IV | camp, the hub | hand in 8 antenna elements, 2 circuit assemblies, 1 satellite receiver | U-B2, U9 | **shack tier 3**: mast to 40 with an aviation light, second dish, roof receiver (the board's readouts come from Radio 2 and 3) |
 
 ---
 
@@ -174,7 +177,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | J10 | Cartographer | IV | everywhere | reach every named site on the map (location, 20) | J9 | a named backpack |
 | J11 | Every ruin | IV | everywhere | hand in one of each of the forty small items | J10 | the Collector analogue: an extra everlasting slot |
 | J-B1 | A flag on it | I | camp | hand in 16 planks, 4 fastener kits, 1 folder of documents | J1 | **lookout tier 1**: platform, ladder, a flag |
-| J-B2 | The spotlight | III | camp, the far ring | hand in 4 steel frames, 2 light bulbs, 1 car battery, 3 valuables from the settlement | J-B1, J4 | **lookout tier 2**: 30 tall, a night spotlight; waypoints shared to the whole team |
+| J-B2 | The spotlight | III | camp, the far ring | hand in 4 steel frames, 2 light bulbs, 1 car battery, 3 valuables from the settlement | J-B1, J4 | **lookout tier 2**: 30 tall, a night spotlight (waypoint sharing is Radio 1's) |
 | J-B3 | The cabin | IV | camp, the hub | hand in 8 steel frames, 16 glass, 1 satellite receiver | J-B2, J7 | **lookout tier 3**: 40 tall, glass cabin, telescope, waypoint beacon; every named site marked |
 
 ---
@@ -215,7 +218,7 @@ is still contested — one fight at a time, in this order.
 
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
-| X1 | The tower | II | the tower compound in the camp | reach the tower (location); checkmark after Marshall's briefing | the gate above | the tower chapter; the parts rack at the gatehouse |
+| X1 | The tower | I | the tower compound in the camp | walk to the tower (location); checkmark after Marshall's briefing | the five introductions (with R1) | the tower chapter's stage list; the parts rack's five hooks are named |
 | X2 | Mast section kit | II | camp, Novo | hand in 1 mast section kit | X1, W11 | **stage 1** placed; the mast stands |
 | X3 | Cooling loop | II | camp, the plant | hand in 1 cooling loop | X2, M6 | **stage 2** placed |
 | X4 | Generator kit | III | camp, FR-06 | hand in 1 generator kit | X3, M10 | **stage 3** placed; the lights come on |
@@ -229,7 +232,7 @@ is still contested — one fight at a time, in this order.
 
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
-| R-B1 | A gate | I–II | camp | hand in 32 concrete, 4 steel frames, 2 fastener kits | R2 | **gatehouse tier 1**: the gate, wall stubs, the parts rack |
+| R-B1 | A gate | I–II | camp | hand in 32 concrete, 4 steel frames, 2 fastener kits | R2 | **gatehouse tier 1**: the gate, wall stubs (the parts rack stands from tier 0) |
 | R-B2 | Watchtowers | II–III | camp, Novo | hand in 64 concrete, 8 steel frames, 1 heavy anchor cable | R-B1, R3, R4 | **gatehouse tier 2**: walled gate, two watchtowers, barricades; guard villagers at the gate |
 | R-B3 | Blast doors | IV | camp, FR-06 | hand in 128 concrete, 8 steel frames, 1 reactor control module | R-B2, X4 | **gatehouse tier 3**: blast doors, floodlights, the board as a lit wall map; the finale's first wave breaks on the gate |
 
@@ -269,7 +272,7 @@ function levels (`workshop_1`…`radio_3`). Items the script owns: the five doss
 marker. The loop script keeps, per site, the fortify deadline, the first-attack flag and the
 component-container state and the single `contested` slot; all clocks count online ticks only. Rewards run commands:
 `kubejs stage add`, `function gscraft:tower_stage_N`, `function gscraft:camp_<npc>_<tier>` (the
-building tiers, which also re-summon the NPC), `give` for blueprints (an IE blueprint item
+building tiers, which also re-summon the NPC), a team stage `bp_<recipe>` for blueprints (the book says "blueprint", the mechanism is the stage - crafting §4; the old text: an IE blueprint item
 with the `gscraft` category NBT). Location tasks use the site rectangles from the district map;
 the six NPC building rectangles are locked by the tower-lock script (a list of rectangles, quest
 functions exempt), so a `*-B` reward is the only thing that ever changes them; dossier chests are placed and filled by `gscraft:dossiers` at the coordinates in `tools/dossiers.json`; the only kill task left is the sewers (U6); every other clearing is the assault event, whose

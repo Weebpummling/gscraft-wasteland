@@ -37,12 +37,12 @@ are met.
 | 0:05 | Right-click any survivor: the quest book opens on their chapter's first quest. It asks for things (8 bolts, 8 nuts, a wrench). | hand-ins; that NPCs want junk; where the book is | The NPC's one line, in their voice, then the task in one line. |
 | 0:06–0:25 | The camp's own ruins. **Lootr** chests glow for the player who has not opened them; the wrecks have the hardware, the tents the bandages, the shed the wire. | looting; instanced loot ("your chests are your chests"); the item names | Item tooltips carry one line each ("Bolt - Walker wants these"). No quest text. |
 | 0:25 | First hand-in to Walker. Reward: two blueprints and *"your station is bound to you - put it down"*. | the reward loop; **stations** exist | Walker: "Good. Set your station down somewhere inside the wire. It'll only ever answer to you." |
-| 0:27 | Placing the personal station; the fastener-kit recipe is in it; an order takes 60 s. The player waits, or walks off and comes back. | **timed orders**; the tool slot (the wrench goes in it) | Station UI header: "Order - 0:58". Nothing else. |
+| 0:27 | Placing the personal station; the fastener-kit recipe is in it; an order takes 2 minutes (the Intermediate class). The player waits, or walks off and comes back. | **timed orders** (the tool slot is met at W3, when the steel frame wants the torch) | Station UI header: "Order - 1:58". Nothing else. |
 | 0:30 | W2 asks for two fastener kits; the second order is queued while the player loots for Tony. | orders run while you do other things | — |
 | 0:35–1:00 | The other four introductions in the same ruins (Tony's bandages, Michael's wire and filter, Tune's circuit board and broken radio, James's three locations). Michael's hand-in turns the **camp lights on** (his tier-1 function runs a datapack function). Tune's hand-in reveals the **map wall**. | each NPC owns one thing; rewards are visible in the world | Each NPC: one line. Michael: "There. Now we can see what's coming." |
 | 1:00 | Dusk. Nothing spawns inside the torches; the Man From The Fog is heard, once, far off. | the camp is safe **because of the torches**; the horror is out there | — |
 | 1:05 | James's J1: the glass tower (1.3 km) and the acacia hall (1.55 km). The first walk out along the spine. **Xaero** shows the road; **Ping Wheel** is explained by Tune's line. | the map, waypoints, pings; roads lead somewhere; distance costs time | Tune: "Press M for the map. Middle-mouse pings a spot for everyone." (the only control ever explained in chat) |
-| 1:30 | Back at camp with a backpack from W2 (Storage 1). Marshall, silent until now, **speaks**: the strongpoint board lights one tile - Novo, the industrial yard 1.06 km east along the spine, state *unknown*. | the loop exists; there is one target | Marshall: "Five of you, one town's worth of ruins. Start with the industrial yard east along the road. Ask James what's in it first." |
+| 1:30 | Back at camp with a backpack from W2 (Storage 1). Marshall, silent until now, **speaks**: the strongpoint board lights one tile - Novo, the industrial yard 1.06 km east along the spine, state *unknown* - and the tower chapter appears in the book with its five empty hooks named. | the loop exists; there is one target; the tower is the long game | Marshall: "Five of you, one town's worth of ruins. Start with the industrial yard east along the road. Ask James what's in it first." |
 | Session 2 | James J-S1: reach Novo, find the dossier (the board turns *scouted*, shows the garrison). Walker W5: two or three loot runs (*looted*). Marshall R2: the marker, the five-minute assault, the fortify clock, the first attack at its end (*held*, then *defended*). | the whole **site ladder**, one state per trip, each state a colour on the board and a banner at the site | Each state change is one radio line from Tune and a board tile changing colour. |
 
 By the end of session two the players have looted, ordered, carried, walked, scouted, taken, held and
@@ -53,7 +53,7 @@ defended - every verb the game has - without one paragraph of instructions.
 | System | First met | How it is shown | What names it (≤ 2 sentences) | The failure that teaches |
 |---|---|---|---|---|
 | Looting / Lootr | camp ruins, minute 6 | glowing chests; wrecks with visible props | tooltip on the first item picked up | opening a chest a friend already opened still has loot: "your chests are your chests" is learned, not read |
-| Stations and timed orders | W1 reward | the station block placed by the player; a countdown in its UI | Walker's one line | ordering without a wrench in the tool slot: the UI says "needs: wrench" |
+| Stations and timed orders | W1 reward | the station block placed by the player; a countdown in its UI | Walker's one line | ordering a steel frame without the torch in the tool slot (W3): the UI says "needs: welding torch" |
 | Blueprints as stages | W1, W3 | recipes appear in the station only after the quest | the quest reward line "blueprint: steel frame" | trying to order something not yet unlocked: the recipe is simply not listed |
 | Backpack, bulky items | W2 (Storage 1), W11 (the kit) | the pack in the Curios slot; the first bulky item gives Slowness and no sprint | one chat line the first time only: "Too heavy to run with. Cars carry these." | walking home slowly once |
 | Map, waypoints, pings | J1 | Xaero map, the road drawn on it; James's tier-2 shares waypoints | Tune's control line | getting lost is short: the spine is visible from any hill |
@@ -78,8 +78,8 @@ The quest book (FTB Quests) is the **journal**. Rules for every quest in `gscraf
    in the book.
 3. **Reward line** names the thing in the world it changes ("the camp lights", "Storage 2: the iron
    pack"), because the reward is the explanation.
-4. **No chapter is visible before its NPC has spoken.** Marshall's chapter does not exist in the book
-   until the five introductions are done; the tower chapter does not exist until R1. The book grows
+4. **No chapter is visible before its NPC has spoken.** Marshall's chapter and the tower chapter both appear
+   the moment the five introductions are done (owner, 2026-09-04); the tower's stages then stay locked by their parts. The book grows
    with the game; a full book on day one is a manual.
 5. **Field notes** - one extra chapter that fills itself: advancement-triggered entries of two lines
    each, written when something happens for the first time (first infection, first bulky item, first
