@@ -129,7 +129,8 @@ def main():
     # index.toml and pack.toml
     lines = ['hash-format = "sha256"', ""]
     for rel, h, meta in sorted(index_files):
-        lines += ["[[files]]", f"file = {toml_str(rel)}", f'hash = "{h}"'] + (["metafile = true"] if meta else []) + [""]
+        extra = ["metafile = true"] if meta else (["preserve = true"] if rel == "servers.dat" else [])   # never clobber a player's server list
+        lines += ["[[files]]", f"file = {toml_str(rel)}", f'hash = "{h}"'] + extra + [""]
     (OUT / "index.toml").write_bytes("\n".join(lines).encode("utf-8"))
     (OUT / "pack.toml").write_bytes((
         f'name = "GSCraft"\nauthor = "GSCraft"\nversion = {toml_str(VERSION)}\npack-format = "packwiz:1.1.0"\n\n'
@@ -183,6 +184,60 @@ def main():
         "pause",
         "exit /b 1", ""])
     (ASSETS / "GSCraft-Setup.cmd").write_bytes(cmd.encode("ascii"))
+    # the official-launcher route: portable Java 17, Forge --installClient, packwiz into .minecraft, 6 GB on the forge profile
+    ps = "powershell -NoProfile -ExecutionPolicy Bypass -Command "
+    tls = "[Net.ServicePointManager]::SecurityProtocol='Tls12'; "
+    vcmd = "\r\n".join([
+        "@echo off", "setlocal", "title GSCraft setup (official Minecraft launcher)",
+        'set "MC=%APPDATA%\\.minecraft"',
+        'if not "%~1"=="" set "MC=%~1"',
+        'set "JDIR=%LOCALAPPDATA%\\GSCraft\\java"',
+        'set "JAVA_URL=https://api.adoptium.net/v3/binary/latest/17/ga/windows/x64/jre/hotspot/normal/eclipse?project=jdk"',
+        'set "FORGE_URL=https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.10/forge-1.20.1-47.4.10-installer.jar"',
+        f'set "BOOT_URL={REL}packwiz-installer-bootstrap.jar"',
+        f'set "PACK={RAW}pack.toml"',
+        "echo.",
+        "echo  GSCraft setup for the official Minecraft launcher.",
+        "echo  This installs Java 17 (private copy), Forge 47.4.10 and the GSCraft pack into %MC%.",
+        "echo  Re-run this file whenever the pack is updated (the official launcher cannot update it by itself).",
+        "echo.",
+        'if not exist "%MC%\\launcher_profiles.json" (',
+        "  echo  Run the official Minecraft launcher once first, with plain 1.20.1 selected, then close it and run this again.",
+        "  pause", "  exit /b 1", ")",
+        'set "JAVA="',
+        'for /f "delims=" %%J in (\'dir /b /s "%JDIR%\\java.exe" 2^>nul\') do set "JAVA=%%J"',
+        'if "%JAVA%"=="" (',
+        "  echo  Downloading Java 17 (Eclipse Temurin JRE) ...",
+        '  mkdir "%JDIR%" 2>nul',
+        f"  {ps}\"{tls}Invoke-WebRequest -Uri '%JAVA_URL%' -OutFile '%TEMP%\\gscraft-java.zip'; Expand-Archive -Path '%TEMP%\\gscraft-java.zip' -DestinationPath '%JDIR%' -Force\" || goto :fail",
+        '  for /f "delims=" %%J in (\'dir /b /s "%JDIR%\\java.exe" 2^>nul\') do set "JAVA=%%J"',
+        ")",
+        'if "%JAVA%"=="" goto :fail',
+        'if not exist "%MC%\\versions\\1.20.1-forge-47.4.10" (',
+        "  echo  Installing Forge 47.4.10 ...",
+        f"  {ps}\"{tls}Invoke-WebRequest -Uri '%FORGE_URL%' -OutFile '%TEMP%\\forge-installer.jar'\" || goto :fail",
+        '  "%JAVA%" -jar "%TEMP%\\forge-installer.jar" --installClient "%MC%" || goto :fail',
+        ")",
+        "echo  Downloading the pack (about 450 MB the first time; only changes afterwards) ...",
+        f"{ps}\"{tls}Invoke-WebRequest -Uri '%BOOT_URL%' -OutFile '%MC%\\packwiz-installer-bootstrap.jar'\" || goto :fail",
+        'pushd "%MC%"',
+        '"%JAVA%" -jar packwiz-installer-bootstrap.jar -g "%PACK%" || (popd & goto :fail)',
+        "popd",
+        "echo  Setting the Forge profile to 6 GB ...",
+        f"{ps}\"$f='%MC%\\launcher_profiles.json'; $p=Get-Content $f -Raw | ConvertFrom-Json; "
+        "if ($p.profiles.forge) { $p.profiles.forge.javaArgs='-Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M'; "
+        "$p.profiles.forge.name='GSCraft'; $p | ConvertTo-Json -Depth 10 | Set-Content $f -Encoding UTF8 }\"",
+        "echo.",
+        "echo  Done. Open the Minecraft launcher, pick the GSCraft (forge) profile, Play, then Multiplayer - GSCraft.",
+        "pause",
+        "exit /b 0",
+        ":fail",
+        "echo.",
+        "echo  Something failed. Check your connection and run this file again.",
+        "pause",
+        "exit /b 1", ""])
+    (ASSETS / "GSCraft-VanillaLauncher.cmd").write_bytes(vcmd.encode("ascii"))
+    shutil.copy2(BOOTSTRAP, ASSETS / "packwiz-installer-bootstrap.jar")
     total = sum(p.stat().st_size for p in ASSETS.iterdir())
     print(f"packwiz pack: {hosted} Modrinth-hosted jars, {missing} release-hosted jars, {len(plain)} plain files -> {OUT}")
     print(f"assets: {len(list(ASSETS.iterdir()))} files, {total/1e6:.1f} MB -> {ASSETS}")

@@ -976,6 +976,7 @@ metafile = true
 [[files]]
 file = "servers.dat"
 hash = "162b5089dce6416e36448c5ed6e5f70d8076cddafc48a8a80e2ee0792a5a74f7"
+preserve = true
 
 [[files]]
 file = "tacz/cyber-armorer-1-1-4-3-1-for114.pw.toml"
