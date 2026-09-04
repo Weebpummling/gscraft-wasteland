@@ -490,7 +490,7 @@ hash = "9453804b20918bba96cc44330af292831997fa6d1573428ce2dbe564e27ad116"
 
 [[files]]
 file = "kubejs/server_scripts/gscraft_recipes.js"
-hash = "468d9261501b9d0d2333571737e2b3e566136721d2479439e796d02ff07f9862"
+hash = "7924b8d8ca1f430d15c60fd8ff9a420ae226f3274a6ae4f0585db3461dadae1c"
 
 [[files]]
 file = "kubejs/server_scripts/gscraft_tower_lock.js"

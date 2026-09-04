@@ -14,8 +14,8 @@ so every variant is its own file; the loop script (KubeJS) calls them with `serv
 |---|---|---|
 | `camp_<npc>_<tier>` (npc ∈ walker, tony, michael, tune, james, marshall; tier 0–3) | 24 | inside the NPC's lock rectangle: `fill … air` above the pad from y+1 to y+48, `place template gscraft:camp/<npc>_<tier>` at the rectangle's origin, then `camp_npc_<npc>`, the Magnum Torch at its fixed spot, the building's sign, and from tier 2 the guards (§4). Tier 0 is run when `camp.py` lands (Phase C, after the visual pass). |
 | `camp_npc_<npc>` | 6 | `kill @e[type=villager,tag=gscraft_npc_<npc>]`, then `summon minecraft:villager <x> <y> <z> {NoAI:1b,Invulnerable:1b,PersistenceRequired:1b,Silent:1b,CustomName:'…',CustomNameVisible:1b,Tags:["gscraft_npc","gscraft_npc_<npc>"],VillagerData:{profession:"…",type:"plains",level:2},Offers:{Recipes:[]}}` at the tier's spot (a per-tier coordinate table in `camp.py`) |
-| `camp_npcs` | 1 | the six `camp_npc_*` in one call, plus `npc_teddy` when `woods_outpost_cleared` is set (respawn everything) |
-| `npc_teddy` | 1 | Teddy the Hermit at the Woods outpost (720, −3440), in the outpost's tower, same NBT shape as the camp NPCs, tag `gscraft_npc_teddy`; run by the loop script on `woods_outpost_cleared` and by `camp_npcs` (quests §7A) |
+| `camp_npcs` | 1 | the six `camp_npc_*` in one call, plus `npc_teddy` when `teddy_present` is set (respawn everything) |
+| `npc_teddy` | 1 | Teddy the Hermit at the Woods outpost (720, −3440), in the outpost's tower, same NBT shape as the camp NPCs, tag `gscraft_npc_teddy`; run by the loop script when R-W1 sets `teddy_present` and by `camp_npcs` (quests §7A); it also places his counter prop beside him |
 | `board_<site>_<state>` (site ∈ novo, residential, plant, fr06, financial, woods_outpost; state ∈ unknown, scouted, looted, held, defended, lost; the Woods column only unknown and defended) | 32 | `fill` that site's 2×3 column on the gatehouse board wall with the state's block (§2); `held` also summons the site's banner on the watchtower (gatehouse tier 2+); `defended` swaps it for lime, `lost` for red (the site stays held). The Woods' outpost column uses two states only: unknown and, on `woods_outpost_cleared`, defended (lime) |
 | `rack_<n>` (n = 1–5) | 5 | summons the fixed item frame on the parts rack holding the complete part of stage n (`summon item_frame … {Facing:…,Fixed:1b,Invulnerable:1b,Item:{id:"gscraft:<part>",Count:1b}}`); `rack_clear` removes all five |
 | `camp_signs` | 1 | the six building signs and the three junction road signs (§3); re-run after any tier change |
@@ -116,7 +116,7 @@ Each NPC's specifics (the yard's benches, the clinic's beds and med station, the
 generator, pump, tanks and charging station, the shack's mast and dish, the lookout's ladder and
 spotlight, the gatehouse's doors and board) follow design §3.6 row by row; the Refurbished Furniture
 Workbench is never placed (station-only rule). Each tier-1 template carries a **counter** beside the NPC's spot
-(Doomsday Decoration vending-machine or shop-counter prop†) — the vendors' visible desk (`gscraft-vendors.md` §7).
+(Doomsday Decoration vending-machine or shop-counter prop†) — the vendors' visible desk (`gscraft-vendors.md` §7). Teddy's is placed by `npc_teddy` in the outpost's tower.
 
 ## 7. What this asks of the build
 

@@ -118,7 +118,7 @@ Every other row: **the default, applied** in the same commit as this note.
 | C8 | `gscraft-loot-tables.md` §2 |
 | C9 | camp spec §5 (runway lights, the Night-Vision flashlight, the notebook) |
 | C10 | quests W14, J3, J9, J10, J11, D3; loot sheet §7 |
-| C11 | the nine Woods quests, folded into the NPC chapters (quests §2–§7; no sixth strongpoint; the Woods In Control rule in design §6.3) |
+| C11 | the sixteen Woods quests (nine plus Teddy's seven), folded into the NPC chapters (quests §2–§7A; no sixth strongpoint; the Woods In Control rule in design §6.3) |
 | C12 | Tune's chapter (U-D1…U-D3) |
 | C13 | quests §9.1 |
 | C14 | design §6.3 (elites by `spawn_boss`) |

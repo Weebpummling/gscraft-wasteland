@@ -308,7 +308,7 @@ need nothing from Act II; the fuel tank's sealed tubing is covered by W7's new g
 |---|---|---|
 | **Walls 1** | `superbwarfare:sandbag` ×4: 2 cloth + 4 sand; `superbwarfare:barbed_wire` ×2: 3 metal scrap; `superbwarfare:claymore_mine`: 2 metal scrap + 1 gunpowder + 1 wire spool | Marshall, D1 |
 | **Walls 2** | the mortar (`mortar_barrel` 2 steel frame; `mortar_base_plate` 1 steel frame + 4 metal scrap; `mortar_bipod` 4 metal scrap; the `mortar_deployer` from the three) and `mortar_shell` ×2: 2 metal scrap + 2 powder (Quick; ×4 with 1 high-energy explosive after H7); `superbwarfare:drone`: 1 circuit assembly + 1 motor assembly + 1 small battery pack; `swarm_drone` ×2: 1 circuit assembly + 4 metal scrap | Marshall, D2 |
-| **Walls 3** | the laser tower (`superbwarfare:laser_unit` + 4 plate + 2 circuit assembly + 1 transformer core); `superbwarfare:fumo_25` (radar): 4 steel frame + 2 antenna element + 1 military circuit board; `superbwarfare:c4_bomb`: 4 powder (or 1 high-energy explosive after H7) + 1 circuit assembly + 1 duct tape; `superbwarfare:jump_pad`: 2 steel frame + 1 medium battery pack | Marshall, D4 |
+| **Walls 3** | the laser tower (4 plate + 2 circuit assembly + 1 transformer core + 1 military circuit board; the mod's laser unit is stripped); `superbwarfare:fumo_25` (radar): 4 steel frame + 2 antenna element + 1 military circuit board; `superbwarfare:c4_bomb`: 4 powder (or 1 high-energy explosive after H7) + 1 circuit assembly + 1 duct tape; `superbwarfare:jump_pad`: 2 steel frame + 1 medium battery pack | Marshall, D4 |
 | **Storage 1** | `sophisticatedbackpacks:backpack` (basic: 6 cloth + 2 duct tape) | Walker, W2 |
 | **Storage 2** | iron backpack (basic + 4 plate); `stack_upgrade_tier_1` ×2: 2 steel frame + 1 fastener kit; `magnet_upgrade`: 1 circuit assembly + 2 metal scrap | Walker, W6 |
 | **Storage 3** | gold backpack (+ 1 steel frame + 1 heavy anchor cable); `everlasting_upgrade`: 1 circuit assembly + 1 transformer core; `feeding_upgrade`: 1 circuit assembly + 4 canned goods; `pickup_upgrade`: 2 metal scrap + 1 wire spool | Walker, W10 |
@@ -337,8 +337,9 @@ but Teddy's counter.
 
 The javelin, the TOW, the mines, the aerial bombs, the rockets and shells of the vehicles' own weapons, the bow, the taser
 and the Glocks are stripped for good in `gscraft_recipes.js` (section 2b): nothing on the map is a target for them, or the
-pack's TaCZ guns cover them. Section 2b also removes the jar's own recipes for every item above, so Teddy's blueprints are
-the only route.
+pack's TaCZ guns cover them. Section 2b also removes the jar's own recipes for every item above and the Cataclysm and Igla
+launchers, and every TaCZ gun-smith recipe (the default pack's RPG-7, M320 and their rounds included), so Teddy's blueprints
+are the only route.
 The Immersive Vehicles override file is still Phase C's in-game find (mod-capabilities §5b); if none
 materialises, the fallback is that the station order for an IV vehicle yields the vehicle item itself
 (KubeJS gives it on completion) and the IV bench is removed from the yard.

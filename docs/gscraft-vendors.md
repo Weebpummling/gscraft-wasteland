@@ -51,7 +51,7 @@ what Tarkov shows: a trader whose stock grows as the relationship does, and a fe
 | **Tune** — the shack | electronics, attachments, optics | electrical items, valuables | iron sights, extended magazines, wire spools | optics, suppressor (after W-A4), **night-vision goggles** (§6), flashlight batteries | thermal? **no** — thermal stays vehicle-only (§6); laser sights, the encrypted-radio *decrypt* barter |
 | **James** — the lookout | maps, expedition kit | folders, hard drives | compass, map, torches, zipline rope (after J-B2) | site dossier *copies* (a bought dossier does **not** count for J-S quests — the original must be found) | the Cartographer's odd lots: 1 random Valuables item a day |
 | **Teddy** — the Woods outpost (after R-W1) | explosives | gunpowder, powder | hand grenades, smoke grenades (after H1/H2) | RGO grenades, 40 mm grenades (after H4) | rockets, standard and TBG (after H5/H6) — loyalty = his quests, he has no building tiers |
-| **Marshall** — the gatehouse | defences, recruits | gunpowder, plates | sandbags, barbed wire (after D1); recruits (after D2, the mod's own hire) | claymores, mortar shells (after D2) | drones, C4 (after D4); rifle and MG ammunition at double the daily cap from X6 onward (the finale's stockpile) |
+| **Marshall** — the gatehouse | defences, recruits | gunpowder, powder, plates | sandbags, barbed wire (after D1); recruits (after D2, the mod's own hire) | claymores, mortar shells (after D2) | drones, C4 (after D4); rifle and MG ammunition at double the daily cap from X6 onward (the finale's stockpile) |
 
 ## 4. Prices (first cut; Phase C tunes against the loot value table)
 
@@ -79,7 +79,8 @@ vendor pays for the items. Buy prices are per stack of the item's normal stack s
 | Explosives (Teddy) | — | hand grenade 3, smoke 2, RGO 5, 40 mm (2) 4, standard rocket 12, TBG rocket 20 |
 
 Daily caps (Tarkov's limited stock) keep the vendor a floor and not a faucet: ammunition 4 stacks a
-day per class, med kits 4, fuel cans 6, one gun of each unlocked class, one armour piece each.
+day per class, med kits 4, fuel cans 6, one gun of each unlocked class, one armour piece each; at Teddy's, grenades
+2 a day (4 after H3), 40 mm rounds 4 stacks, rockets 4.
 
 ## 5. Barters (the Tarkov trade that is not money)
 
@@ -138,4 +139,4 @@ weapon light, no thermal scope.
 - Quests: three "Counter" checkmark quests per camp NPC chapter (one per LL) — 18 quests; Teddy's counter levels are his own quests, listed in the
   quests doc when Phase C writes the book; not counted in the 136 until then.
 - Crafting §5: unchanged — the station stays the cheap route; the vendor price rule (§4) is the check.
-- Camp spec §6: a counter prop per tier-1 template (written).
+- Camp spec §6: a counter prop per tier-1 template (written); Teddy's counter prop is placed by `npc_teddy` beside him in the outpost's tower.
