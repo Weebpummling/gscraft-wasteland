@@ -188,16 +188,16 @@ therefore grows visibly with the players' progress, and each NPC's site is a rea
 chain has come. Tiers are separate from the hideout function levels of §5 — the functions are the
 players' claim, the tiers are the NPCs' own places — but their gates line up so neither runs ahead of
 the other: tier 1 after the introduction, tier 2 after that NPC's strongpoint is defended, tier 3 with a
-hub component.
+hub component (the gatehouse: FR-06's reactor control module).
 
 | NPC | Tier 0 (as placed) | Tier 1 — Repair | Tier 2 — Expand | Tier 3 — Complete | What the tier adds |
 |---|---|---|---|---|---|
-| **Walker** — the yard (**the workshop**) | scrap piles, a lean-to over the workbench | roofed workshop, one garage bay, a fenced lot, the IV vehicle bench | second bay, gantry crane over the lot, fuel-drum rack, lights, the SW assembling table | steel shed with a vehicle lift, floodlit painted lot, truck bay | crafting speed ×0.85 / ×0.7 / ×0.5 and 1 / 2 / 3 shared benches by tier (crafting §4); T2: vehicle repair at the bay; T3: aircraft parking |
+| **Walker** — the yard (**the workshop**) | scrap piles, a lean-to (personal stations only) | roofed workshop, one garage bay, a fenced lot, the IV vehicle bench | second bay, gantry crane over the lot, fuel-drum rack, lights, the SW assembling table, the Apotheosis Salvaging Table | steel shed with a vehicle lift, floodlit painted lot, truck bay | crafting speed ×0.85 / ×0.7 / ×0.5 and 1 / 2 / 3 shared benches by tier (crafting §4); T2: vehicle repair at the bay; T3: aircraft parking |
 | **Tony** — the clinic | a tarp over a wreck, one bed | walls, four beds, the med station | surgery room, its own generator, the lit red cross | two storeys, a ward, a quarantine tent, a marked helipad | T2: faster PlayerRevive at the clinic; T3: full revive without a surgical kit |
 | **Michael** — the plant | one generator on a pallet | generator shed, water collector | tank farm, pump house, pipe run down to the lake, the fuel pump | wind mast, transformer yard, biodiesel column, lit pipes | T2: fuel cans refill at the pump; T3: the camp outline is lit and powered |
 | **Tune** — the radio shack | shack and a 12-block mast stub | mast to 24 with a dish, the map wall | antenna field beside the shack, intel desk | mast to 40 with an aviation light, second dish, receiver on the roof | T2: the board shows the contested site's whole countdown (Radio 2's readout); T3: the coming attack's composition |
 | **James** — the lookout | 8×8 tower, 20 tall | platform, ladder, a flag | 30 tall, a spotlight that sweeps at night | 40 tall, glass cabin, telescope, waypoint beacon | T2: the night spotlight (waypoint sharing is Radio 1's); T3: every named site marked |
-| **Marshall** — the gatehouse | a gap in the wall, a table, the parts rack | the gate, wall stubs | walled gate, two watchtowers, barricades | blast doors, floodlights, the strongpoint board as a lit wall map | T2: guard villagers at the gate; T3: the finale's first wave breaks on the gate, not the crater |
+| **Marshall** — the gatehouse | a gap in the wall, a table, the parts rack, the strongpoint board | the gate, wall stubs | walled gate, two watchtowers, barricades | blast doors, floodlights, the strongpoint board as a lit wall map | T2: guard villagers at the gate; T3: the finale's first wave breaks on the gate, not the crater |
 
 Two mods carry the tiers' promises: **Guard Villagers** supply the armed guard each building gets at
 tier 2 (Marshall's tier-2 gate gets two), and **Recruits** supplies the hireable soldiers behind
@@ -209,9 +209,9 @@ function's reason to exist.
 
 Hand-ins scale with the acts and reuse what the loop already produces: tier 1 is camp junk and the
 first intermediates; tier 2 needs bulk building material (concrete, steel frames) plus **one more**
-of the strongpoint's loot-only component — the same item the tower chain wanted, respawning while
-the site is held, so each upgrade is another trip to a site the players already own; tier 3 needs
-one hub item. `camp.py` generates the 24 templates (six buildings × four tiers) and their placement
+of the strongpoint's loot-only components — a second item of the same site (the engine, the membrane, the encrypted radio,
+the analyzer), respawning while the site is held, so each upgrade is another trip to a site the players already own; tier 3 needs
+one hub item (the gatehouse's R-B3 takes FR-06's reactor control module instead). `camp.py` generates the 24 templates (six buildings × four tiers) and their placement
 functions `gscraft:camp_<npc>_<tier>`; tier 0 is placed at world build.
 
 **Every building is locked the way the tower is.** The tower lock (`gscraft_tower_lock.js` and its
@@ -406,7 +406,7 @@ the contested site: Radio 1 shows the warning, Radio 2 the whole countdown from 
 attack's composition (wave count and mob types) as soon as the marker is placed.
 
 The tower's components come from four held sites and the hub, so the loop is the tower's supply
-line; a component container arms on `held` and refills on its timer once the site is defended.
+line; a component container arms on `held` and refills on its timer while the site is held.
 
 ### 6.3 Garrisons — the mob tables Phase D builds from
 

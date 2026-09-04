@@ -83,6 +83,9 @@ Positions are `gscraft-map-layout-v6.md` §3.1. Rolls 2–4 unless noted.
 | **Library** (2.5 km) | the reading room | **valuables**: J3's folders, U3's hard drive | library table as is |
 | **Stone complex** (2.9 km) | the spawner dungeon | **the ammunition dump**: gunpowder and salvage; U6-style dark work without the sewers | military + gunpowder 15, rifle ammo 12, salvage rifle 4, salvage shotgun 3, welding torch 1; rolls 3–5 |
 | **Mud village** (2.8 km) | farm hamlet | **food and the farm**: D3's seeds and bowls, D5's crops; emeralds | canned goods 20, Farmer's Delight seeds (rice, tomato, onion, cabbage) 10 each, bowl 10, bandage 8, emerald 5 |
+| **Bio Gen offices** (3.9 km SE, two groups) | the laboratory | T7's surgical kit; medical analyzers (design §4.4) | hospital + office; component container `components/biogen`: surgical kit 1, medical analyzer 1 per refresh |
+| **The settlement** (3.7 km E) | lakeside town | W12's pressure gauge, J5's valuables, J-B2's valuables | apartment + store + garage, pressure gauge 12, valuables (broken radio, computer parts, folder) 6 each, emerald 6 |
+| **The sewers** (under the plaza) | dungeon | U6's encrypted radio, dark work | military + cave-spider drops; component container `components/sewers`: encrypted radio 1 per refresh; rolls 2–3 |
 | **The Woods** (2.9 km NNE, `gscraft-woods-plan.md`) | wilderness | its own chain (quests §7.5) | sawmill: planks 20, **saw blade** 1 (only here), motor oil 6; ranger cabin: **portable generator** 1 (only here), canned goods 12, map 4; hunters' hide: rabbit hide 10, sweet berries 15, arrows→ 6 pistol ammo, salvage shotgun 2; downed aircraft: **flight recorder** 1 (only here), avionics module 1 (its medkit: surgical kit 1); the outpost's cache (R-W1 reward, not a chest): 2 salvage rifles, 90 rounds, 4 emeralds |
 | **Kept bunkers** (14, structure plan) | dungeons | Tune's side chain (quests §7.6) | military + hard drive 8; below y 40: encrypted radio 1 per bunker per refresh |
 | **Lukis capitals, outposts** | bandit settlements | J9's expeditions | military + office; emerald 8 |
@@ -99,7 +102,7 @@ The hub is never held, so its components are on Lootr's refresh, not the loop's 
 | `hub/rare` (ordinary chests) | many | office + military, computer parts 12, hard drive 8, emerald 8 | J9's four capitals share it |
 
 Five components a visit, thirteen needed: **three hub runs** across Act IV's three sessions, one a
-session, each a 40-minute round trip by air with looting. U-D3's satellite receiver (the bunker
+session, each about a 20-minute round trip by air with looting (crafting §3). U-D3's satellite receiver (the bunker
 chain) saves one of the six. Nothing else in the game asks for a hub item.
 
 ## 7. Reward containers (C10)

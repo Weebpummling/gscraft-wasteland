@@ -45,7 +45,7 @@ around the plinth and one sculk shrieker (inert — `can_summon` false) at the g
 game read it at once; players who do not get Tune's line: *"Whatever's under us heard that."* Radio 3
 shows wave 5 as "unknown, one, large" for the whole countdown.
 
-**The fight, wave by wave** (the 60-minute countdown ends → waves 12 s apart per design §6.3's cadence):
+**The fight, wave by wave** (the 60-minute countdown ends → waves 45 s apart, design §6.2's cadence):
 
 | Wave | Content | Where | Notes |
 |---|---|---|---|

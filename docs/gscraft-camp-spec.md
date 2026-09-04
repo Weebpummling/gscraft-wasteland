@@ -28,7 +28,7 @@ text changes every minute.
 
 ## 2. The strongpoint board (Marshall's gatehouse)
 
-A wall map 13 wide × 4 high on the gatehouse's inside wall (tier 1; tier 3 lights it), facing the
+A wall map 13 wide × 4 high on the gatehouse's inside wall (from tier 0 — R1 reads it before any gatehouse tier; tier 3 lights it), facing the
 door. Six columns, one per site in loop order (Novo, block, plant, FR-06, plaza, the Woods' outpost),
 each a 2×3 patch of concrete under a hanging sign with the site's name:
 
@@ -71,7 +71,7 @@ of `rack_<n>`. Empty hooks show the sign only.
 |---|---|---|
 | gatehouse 1 (R-B1) | — | three unhired at the gate: `recruits:recruit`, `recruits:bowman`, `recruits:shieldman`; the mod's currency set to `minecraft:emerald` in `serverconfig/recruits-server.toml` (emeralds are valuables in the loot tables) |
 | every building at tier 2 | 1 per building; 2 at the gate (design §3.6) | D2's Walls 2 lets the team hire; hired recruits follow or hold the gate (the mod's own orders) |
-| every building at tier 3 | 2 per building; 4 at the gate — 16 in all | — |
+| every building at tier 3 | 2 per building, 4 at the gate — 14 in all | — |
 
 Guards are summoned by the tier function with `Tags:["gscraft_guard_<npc>"]` and killed by the
 next tier's function before re-summoning, so counts never drift. Their inventories are not lootable

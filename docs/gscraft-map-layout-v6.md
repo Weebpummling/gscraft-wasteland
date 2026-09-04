@@ -22,7 +22,7 @@ final pad level (and a dry/wet check) from its render.
 | Financial Plaza + sewers | old hospital pad 2.5 km SE | **2.1 km WEST of the camp, on dry land** | the review found the lake site an island with 440 m of water on its road; the owner ruled dry land. The west window (x −1984…−1777, z 832…1023) is the flattest, driest, unbuilt ground at road range, and it puts a strongpoint on the far side of the camp from the district, so attacks come from more than one direction. The old hospital pad is restored to lake. |
 | The settlement (east compound) | water pad re-cut, 3.6 km E | **same place, on merit** | the wet seed is a feature here: a lakeside town reachable by boat as well as by road (trip 8). Re-cut 288×304, raised to y 80. |
 | Bio Gen offices | beside the runway | **same**, pad's west end, two groups | a loot site the runway trip passes; the runway keeps 420 m. |
-| The hub (Novo Expograd city) | air ring ≈ (6000, 1500) | **same direction, 6.0 km E** | the accepted decision: the air ring is expedition-only and the hub is its prize. East keeps it on the axis camp → district → runway, a 2.4 km flight from the runway. |
+| The hub (Novo Expograd city) | air ring ≈ (6000, 1500) | **same direction, 6.2 km E** | the accepted decision: the air ring is expedition-only and the hub is its prize. East keeps it on the axis camp → district → runway, a 2.4 km flight from the runway. |
 | Old substation pad | Novo | **restored to terrain** | freed; a bare levelled square in the ring would read as a site. One pass from the pristine set. |
 | District → tower road | needed | **dropped** | the tower is home. Replaced by district → Financial Plaza. |
 
@@ -81,15 +81,15 @@ road 1.5–4 km, air 4.5–6.5 km.
 |---|---|---|---|---|---|---|---|---|
 | **Novo Expograd Industrial Zone** | strongpoint 1 (industry, Walker) | 992 96 1135 255 (chunks 62..70 × 6..15) | 144×160 | 1.06 km ENE | `novo_industrial` −432→… source x 624..767, z 144..303 | −160 (superflat ground 230 → 70) | new pad, y 70; pregen terrain median 71, 10% water in the margin | generated |
 | **Residential block** | strongpoint 2 (medical, Tony) | district, from 1328, 1376 | — | 1.9 km | in place | — | — | built |
-| **Industrial plant** | strongpoint 3 (fuel/water, Michael) | 1904 864 2367 1135 | 464×272 | 2.3 km | in place | — | — | built |
+| **Industrial plant** | strongpoint 3 (fuel/water, Michael) | 1904 864 2367 1135 | 464×272 | 2.4 km | in place | — | — | built |
 | **FR-06 complex** | strongpoint 4 (power/hangar, Michael) | 2192 400 2575 927 | 384×528 | 2.45 km E | in place | — | — | built |
 | **Financial Plaza** | strongpoint 5 (electronics, Tune) | −1952 848 −1793 991 (chunks −122..−113 × 53..61) | 160×144 | 2.1 km W | `financial_plaza` | +16 (superflat ground 54 → 70) | new pad 176×160 at y 70 on dry, flat, unbuilt ground west of the camp (owner: dry land; the lake site is restored) | generated |
 | **The sewers** | dungeon, under the plaza | −1920 880 −1825 975 (chunks −120..−115 × 55..60) | 96×96 | under Financial Plaza | `sewers` | −16 (y −16…50, below the pad) | none; section-stacked into the plaza's chunks below y 48 | v5 pad |
 | **The settlement** | loot site, road + boat | 3520 640 3791 927 (chunks 220..236 × 40..57) | 272×288 | 3.7 km E | `world_east_site` | +16 (ground 62–70 → 78–86) | water pad re-cut 288×304 at y 80 (from 72) | v5 pad, water around |
-| **Runway** | air (Michael's airfield tier) | 3040 2519 3470 2710 | 430×192 | 3.9 km SE | strongpoint pad, east 430 m | — | airfield pad re-cut to y 67 (from 64) | v5 pad |
+| **Runway** | air (Walker's Garage 3 aircraft, W13; Michael's M11 hangar) | 3040 2519 3470 2710 | 430×192 | 3.9 km SE | strongpoint pad, east 430 m | — | airfield pad re-cut to y 67 (from 64) | v5 pad |
 | **Bio Gen offices, south group** | loot site | 2976 2528 3039 2591 (chunks 186..189 × 158..161) | 64×64 | 3.9 km SE | `biogen_strip` chunks 29..32 × −63..−60 | +64 (ground 3 → 67) | airfield pad west end, y 67 | v5 pad |
 | **Bio Gen offices, north group** | loot site | 2976 2608 2991 2639 (chunk 186 × 163..164) | 16×32 | 3.9 km SE | `biogen_strip` chunk 30 × −75..−74 | +64 | same | v5 pad |
-| **The hub — Novo Expograd** | air-ring prize, never attacked | 5600 1184 6431 1823 (chunks 350..401 × 74..113) | 832×640 | 6.0 km E | `world_hub` (y ≤ 103, ships cut) | +16 (edge ground ≈66 → 82) | new pad, y 82; pregen terrain median 71, p90 89, 12% water | generated |
+| **The hub — Novo Expograd** | air-ring prize, never attacked | 5600 1184 6431 1823 (chunks 350..401 × 74..113) | 832×640 | 6.2 km E | `world_hub` (y ≤ 103, ships cut) | +16 (edge ground ≈66 → 82) | new pad, y 82; pregen terrain median 71, p90 89, 12% water | generated |
 | Radio tower | endgame | camp, §2 | 128×128 | 0.1 km | `tools/tower.py` | — | y 99 | v5 |
 | **The Woods** (planned) | wilderness zone, quest focus | 400 −3500 2400 −1500 | 2000×2000 | 2.9 km NNE | regenerated under the `woods` LC profile (no city); 5 sparse structures; `docs/gscraft-woods-plan.md` | — | none | generated |
 | Old substation pad | — | 215 1415 374 1574 | 160×160 | 1.5 km S | pristine chunks copied back | — | restored | v5 |

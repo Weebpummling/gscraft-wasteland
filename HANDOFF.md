@@ -54,9 +54,9 @@ every generated structure start in the 10 km box (Lukis capitals, outposts, bunk
 **MOB SPAWNING IS OFF on the hosted server (owner, 2026-09-03) until the designs are done:** `gamerule doMobSpawning
 false` + `doPatrolSpawning false` (persisted in the world), a deny-all-hostile rule at the top of `config/incontrol/spawn.json`
 (loads at the next restart, or when an op runs `/incontrol reload` in-game — the console cannot: it needs a player),
-and `enableHordeEvent = false` in `hordes-common.toml` (next restart). Until that restart the gamerule alone is what stops
-spawns. To turn it back on for Phase D: run `function gscraft:spawns_on`, delete the first rule of `spawn.json`, run
-`/incontrol reload` as an op (or restart), flip the Hordes key and restart. `function gscraft:spawns_off` re-applies the off state and kills the loose hostiles.
+and `enableHordeEvent = false` in `hordes-common.toml` (the horde event stays off for good — design decision B6; only
+infection runs). Until that restart the gamerule alone is what stops spawns. To turn spawns back on for Phase D: run
+`function gscraft:spawns_on`, delete the first rule of `spawn.json`, run `/incontrol reload` as an op (or restart). `function gscraft:spawns_off` re-applies the off state and kills the loose hostiles.
 
 **World build v7 is on the Phase B list (owner, 2026-09-03):** the generated structures are too dense (964 sites);
 `docs/gscraft-structure-plan.md` and `buildmap/structure_plan_v7.json` keep 67 and prune 897. Route: datapack override
@@ -162,7 +162,7 @@ do not, but they are fully generated so it no longer matters there).
 
 In the design's order (design section 9): Phase A visual pass -> `camp.py` (NPC buildings + the summon
 function `gscraft:camp_npcs`) -> Phase C systems v1 (KubeJS items with stack sizes and the bulky rule,
-IE blueprint recipes, datapack loot tables by building type, NPC right-click -> quest book, the five
+the station recipes and `bp_*` stages, datapack loot tables by building type, NPC right-click -> quest book, the five
 introduction chapters, Walker's storage levels) -> Phase D (held flags, fortify clock, warnings, attacks,
 garrison and component respawn, garage tier) -> Phase E (tower stages 1-5 wired to Marshall's chapter,
 the hub's rare loot, aircraft, the beacon countdown and base waves). The KubeJS scripts that exist:

@@ -44,7 +44,7 @@ Rules that hold across every chapter:
 - **Every NPC's building climbs three tiers** (design §3.6): three `*-B` quests per chapter, each
   hand-in rebuilds their site on the same footprint and re-summons them in it. Tier 1 after the
   introduction, tier 2 after their strongpoint has survived its first attack (one more of its
-  component), tier 3 with a hub item.
+  component), tier 3 with a hub item (the gatehouse: FR-06's reactor control module).
 - **Attacks only where the players are fighting.** A site is contested from its marker to the end
   of its defence, and that is the only site anything attacks; there is no random cycle, defended
   sites are safe for good, and only one site can be contested at a time. Holding all five is
@@ -72,7 +72,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | W4 | The toolbox | I | camp | show a toolbox (crafted) | W3 | Workshop 1 effects; 16 iron ingots |
 | W5 | East, a mile | I | **Novo**, 1.06 km E on the spine | hand in 6 spark plugs, 12 metal scrap, 4 motor oil — Novo's drops | W4, J-S1 | stage `novo_looted`; Marshall R2 opens |
 | W6 | Hold the yard | I→II | Novo | stage `novo_held`; stage `novo_defended` (Novo's own first attack, at the end of its fortify clock) | W5, Marshall R2 | **Workshop 2**; **Storage 2**: iron backpack, stack upgrade ×2 |
-| W7 | Wheels | II | camp, Novo | hand in 1 motor assembly, 4 steel frames, 1 car battery | W6, M3 | **Garage 1**: quad and runabout recipes, wheel and fuel-tank blueprints, cargo crate; a full tank and 2 fuel cans; stage `car_built` when one is crafted |
+| W7 | Wheels | II | camp, Novo | hand in 1 motor assembly, 4 steel frames, 1 car battery | W6, M3 | **Garage 1**: quad and runabout recipes, wheel, fuel-tank, empty-fuel-can and cargo-crate blueprints; a full tank and 2 fuel cans; stage `car_built` when one is crafted |
 | W8 | Fuel run | II | camp | hand in 2 fuel cans | W7, M7 | fuel-can refill recipe (at Michael's plant pump, M-B2; Walker's drum rack stores them) |
 | W9 | Heavy metal | III | Novo | hand in 1 heavy diesel engine, 2 motor assemblies | W8, `novo_held` | **Garage 2**: truck recipe |
 | W10 | The big pack | III | Novo | hand in a second heavy anchor cable (Novo respawns them while held), 2 fastener kits | W9 | **Storage 3**: gold backpack, **everlasting upgrade** (the secure pack), truck cargo |
@@ -176,7 +176,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | J10 | Cartographer | IV | everywhere | reach every named site on the map (location, 20) | J9 | **the Cartographer's Pack**: a diamond backpack fitted with magnet, everlasting and stack ×4, named |
 | J11 | Every ruin | IV | everywhere | hand in one of each of the forty-two small items | J10 | the Collector analogue: an **inception upgrade** and a second everlasting upgrade — a nested pack that also survives death |
 | J-B1 | A flag on it | I | camp | hand in 16 planks, 4 fastener kits, 1 folder of documents | J1 | **lookout tier 1**: platform, ladder, a flag |
-| J-B2 | The spotlight | III | camp, the far ring | hand in 4 steel frames, 2 light bulbs, 1 car battery, 3 valuables from the settlement | J-B1, J4 | **lookout tier 2**: 30 tall, a night spotlight (waypoint sharing is Radio 1's) |
+| J-B2 | The spotlight | III | camp, the far ring | hand in 4 steel frames, 2 light bulbs, 1 car battery, 3 valuables from the settlement | J-B1, J4 | **lookout tier 2**: 30 tall, a night spotlight (waypoint sharing is Radio 1's); zipline rope and hook orders (crafting §5.7) |
 | J-B3 | The cabin | IV | camp, the hub | hand in 8 steel frames, 16 glass, 1 satellite receiver | J-B2, J7 | **lookout tier 3**: 40 tall, glass cabin, telescope, waypoint beacon; every named site marked |
 
 ---
@@ -276,7 +276,7 @@ rest are expedition finds with the `gscraft:building/military` table.
 
 ## 8. How the acts feel in play
 
-**Act I (sessions 1–2).** Five introductions in the camp's own ruins; the workbench, the first
+**Act I (sessions 1–2).** Five introductions in the camp's own ruins; the personal station, the first
 backpack, lights. James sends them to the glass tower and the acacia hall to learn the ground. Walker
 sends them east along the spine to Novo, the one strongpoint in walking range: first to find its dossier, then two
 or three loot runs for Walker, then Marshall's marker and the assault. Novo is held, its fortify
@@ -284,7 +284,7 @@ clock runs, and its first attack comes on schedule. Storage 2 and Workshop 2 arr
 needs a vehicle.
 
 **Act II (sessions 3–5).** The residential block and the plant are taken and held; the first car is
-built from Novo's parts and the plant's fuel. Marshall opens the tower chapter (the ruin has stood in the camp since the first minute);
+built from Novo's parts and the plant's fuel. the tower chapter, open since the introductions, gets its first parts (the ruin has stood in the camp since the first minute);
 stages 1 and 2 go up. The district's west edge is looted for electrical items. The players are now
 2.5 km out on foot or wheels, and the loop is running with three sites in the pool.
 

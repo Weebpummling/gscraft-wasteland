@@ -21,7 +21,7 @@ them the way to make it. Four holes and one loop, all fixed in quests draft 2.
 
 | Capability | First quest that needs it | Taught by | Finding |
 |---|---|---|---|
-| Workbench and blueprint crafting | W2 (craft fastener kits) | W1 hands over the workbench; now also assigns the personal station (§4) | fine |
+| Workbench and blueprint crafting | W2 (craft fastener kits) | W1 binds the personal station (§4) and hands out the first blueprints | fine |
 | Backpack | W2 onward | W2, Storage 1 | fine |
 | Hand tools (wrench, welding torch, hand drill) | W1 (a wrench), W3 (torch), steel frame (torch held) | **were loot only** | **fixed:** W1 now also gives the hand-tool blueprints; tools remain a rare loot find but are never required from loot |
 | Med kits, harnesses, filters, circuit assemblies | T2, M2, M3, U2 | T1, M1, U1 | fine |
@@ -119,7 +119,7 @@ bench can do and the quest book says when. Reaching a yard tier never unlocks a 
 | Black Hawk | 12 steel frame, 2 **avionics module**, 1 **transformer core**, 4 motor assembly, 1 large battery pack, 2 circuit assembly, 1 **satellite receiver** |
 | M3A3 Bradley | 16 steel frame, 8 plate, 1 heavy diesel engine, 1 large battery pack, 1 **reactor control module**, 1 **military circuit board**, 1 gun frame + barrel (the 25 mm), 2 wiring harness |
 
-Both are electric under Superb Warfare and draw from the battery packs of §5.4 - so their recipes carry battery packs, not fuel tanks (owner default, 2026-09-04); the exact registry ids are
+All three are electric under Superb Warfare and draw from the battery packs of §5.4 - so their recipes carry battery packs, not fuel tanks (owner default, 2026-09-04); the exact registry ids are
 read off the jars at Phase D (`vvp:` and `mcsp:` namespaces, 81 entities between them).
 
 ---
@@ -171,8 +171,8 @@ stage the team holds. The book shows the recipe on the quest that grants it.
 A personal station takes one order at a time. A workshop bench takes one order at tier 1, a
 queue of two at tier 2 and three at tier 3. Five players and a tier-3 yard is therefore eight
 orders in flight plus the vehicle benches, which is the ceiling the timers were tuned against: a
-full tower stage (six steel frames, two fastener kits, the kit itself) is three intermediate orders
-and one trip-length order, and a team that plans it starts the intermediates before leaving and
+full tower stage (six steel frames, eight fastener kits counting the frames' own, the kit itself) is fourteen
+intermediate orders across the team's stations and one trip-length order, and a team that plans it starts the intermediates before leaving and
 the kit when they return.
 
 **The workshop is Walker's yard, tiers 0–3 as already designed (design §3.6).** Its tiers now
@@ -251,7 +251,7 @@ pack's and are pinned in the recipe file at Phase C.
 
 ### 5.4 Power for the electric vehicles
 
-Superb Warfare's truck and speedboat carry no fuel: they run on **battery packs** charged at the
+Superb Warfare's truck, speedboat and LAV-150 carry no fuel: they run on **battery packs** charged at the
 **Charging Station**, which is Michael's — it appears in his plant at tier 2 (M-B2) and draws from
 the IE power the Generator function provides. Packs are crafted at the station like anything else:
 
@@ -262,8 +262,8 @@ the IE power the Generator function provides. Packs are crafted at the station l
 | Medium battery pack | 2 small packs + 1 steel frame + 1 circuit assembly | Equipment | Michael, Generator 2 |
 | Large battery pack | 2 medium packs + 1 **transformer core** | Trip-length | Michael, Generator 3 |
 
-A charged small pack drives the truck one round trip to the district; the speedboat runs a full
-session on a medium one. SW's own pack-assembly recipes are replaced by these; the Charging Station
+A charged medium pack drives the truck one round trip to the district; the speedboat runs a full
+session on a small one. SW's own pack-assembly recipes are replaced by these; the Charging Station
 itself is placed by the M-B2 template, never crafted.
 
 ### 5.5 What changes in the loot tables
@@ -322,7 +322,7 @@ materialises, the fallback is that the station order for an IV vehicle yields th
 
 ## 6. What this adds to the quest book
 
-Six quests and six reward/gate edits, all in quests draft 2: W-A1…W-A4, W-V1, W-M1; W13's gate, W7's
+Six quests and seven reward/gate edits, all in quests draft 2: W-A1…W-A4, W-V1, W-M1; W13's gate, W7's
 reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and twenty-one quests (the Woods chain, the bunker side quests, Farm 2/3 and X6b added 2026-09-04).
 
 Related: `gscraft-map-design.md` §3.6 (Walker's yard tiers), §4 (the item ladder),
