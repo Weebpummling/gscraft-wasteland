@@ -84,7 +84,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | W-A2 | Plates | I–II | camp | hand in 8 metal scrap, 2 duct tape | W3 | plate blueprint; scrap vest and helmet blueprints; rifle ammunition |
 | W-A3 | Long guns | II | camp | hand in 2 gun frames, 1 steel frame | W-A1, `novo_defended` | assault-rifle and SMG blueprints; iron sights, extended magazine |
 | W-A4 | Precision | III | camp, Financial Plaza | hand in 1 circuit assembly, 1 military circuit board | W-A3, W9 | sniper, machine-gun and launcher blueprints; optics, suppressor |
-| W-M1 | Motor pool | III→IV | camp, FR-06, Financial Plaza | hand in 1 military circuit board, 4 plates, 1 heavy diesel engine; stages `fr06_defended` and `financial_defended` | W-A2, W-A4, D4, R5 | **Humvee RWS blueprint** (crafting §2.1; the SW assembling table at yard tier 2 builds it from the kit) |
+| W-M1 | Motor pool | III | camp, FR-06, Financial Plaza | hand in 1 military circuit board, 4 plates, 1 heavy diesel engine; stages `fr06_defended` and `financial_defended` | W-A2, W-A4, D4, R5 | **Humvee RWS blueprint** (crafting §2.1; the SW assembling table at yard tier 2 builds it from the kit) |
 | W-V1 | Something that floats | II | camp, the lake | hand in 12 planks, 1 fastener kit | W7 | boat blueprint; boat cargo opens with W12 |
 | W-B1 | The yard, roofed | I | camp | hand in 8 metal scrap, 4 fastener kits, 16 planks | W2 | **yard tier 1**: roofed workshop, one bay, the lot fenced |
 | W-B2 | Second bay | II–III | camp, Novo | hand in 4 steel frames, 32 concrete, 1 heavy diesel engine (Novo respawns them while held) | W-B1, `novo_defended` | **yard tier 2**: two bays, gantry crane, fuel rack, lights; vehicle repair at the bay |
