@@ -62,5 +62,20 @@
    ]
   ],
   "width": 7
+ },
+ {
+  "name": "novo_woods_spur",
+  "points": [
+   [
+    1064,
+    88
+   ],
+   [
+    1400,
+    -1500
+   ]
+  ],
+  "width": 7,
+  "note": "Woods spur: Novo's north gate to the sawmill site on the Woods' south edge; route after the Woods regeneration"
  }
 ]
