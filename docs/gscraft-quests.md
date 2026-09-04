@@ -82,10 +82,11 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | W-A2 | Plates | I–II | camp | hand in 8 metal scrap, 2 duct tape | W3 | plate blueprint; scrap vest and helmet blueprints; rifle ammunition |
 | W-A3 | Long guns | II | camp | hand in 2 gun frames, 1 steel frame | W-A1, `novo_defended` | assault-rifle and SMG blueprints; iron sights, extended magazine |
 | W-A4 | Precision | III | camp, Financial Plaza | hand in 1 circuit assembly, 1 military circuit board | W-A3, W9 | sniper, machine-gun and launcher blueprints; optics, suppressor |
+| W-M1 | Motor pool | III→IV | camp, FR-06, Financial Plaza | hand in 1 military circuit board, 4 plates, 1 heavy diesel engine; stages `fr06_defended` and `financial_defended` | W-A4, D4, R5 | **Humvee RWS blueprint** (crafting §2.1; the SW assembling table at yard tier 2 builds it from the kit) |
 | W-V1 | Something that floats | II | camp, the lake | hand in 12 planks, 1 fastener kit | W7 | boat blueprint; boat cargo opens with W12 |
 | W-B1 | The yard, roofed | I | camp | hand in 8 metal scrap, 4 fastener kits, 16 planks | W2 | **yard tier 1**: roofed workshop, one bay, the lot fenced |
 | W-B2 | Second bay | II–III | camp, Novo | hand in 4 steel frames, 32 concrete, 1 heavy diesel engine (Novo respawns them while held) | W-B1, `novo_defended` | **yard tier 2**: two bays, gantry crane, fuel rack, lights; vehicle repair at the bay |
-| W-B3 | The shed | IV | camp, the hub | hand in 8 steel frames, 64 concrete, 1 satellite receiver | W-B2, J7 | **yard tier 3**: steel shed, vehicle lift, floodlit lot, truck and aircraft bays; light-helicopter recipe |
+| W-B3 | The shed | IV | camp, the hub | hand in 8 steel frames, 64 concrete, 1 satellite receiver | W-B2, J7 | **yard tier 3**: steel shed, vehicle lift, floodlit lot, truck and aircraft bays; light-helicopter blueprint; **UH-60 Black Hawk blueprint** (crafting §2.1) |
 
 ---
 
@@ -219,7 +220,7 @@ is still contested — one fight at a time, in this order.
 | X3 | Cooling loop | II | camp, the plant | hand in 1 cooling loop | X2, M6 | **stage 2** placed |
 | X4 | Generator kit | III | camp, FR-06 | hand in 1 generator kit | X3, M10 | **stage 3** placed; the lights come on |
 | X5 | Transmitter | III | camp, Financial Plaza | hand in 1 transmitter | X4, U7 | **stage 4** placed; the dish |
-| X6 | Antenna array | IV | camp, the hub | hand in 1 antenna array | X5, U9, T10 | **stage 5** placed; the beacon lights; the countdown starts |
+| X6 | Antenna array | IV | camp, the hub | hand in 1 antenna array | X5, U9, T10 | **stage 5** placed; the beacon lights; the countdown starts; **M3A3 Bradley blueprint** - the finale's armoured vehicle is built during the countdown, not handed over (crafting §2.1) |
 | X7 | Hold the line | IV | the base | survive waves 1–4 (stages `wave_1`…`wave_4`) | X6 | between waves: 8 med kits, ammunition |
 | X8 | The boss | IV | the base | kill the Ender Dragon (kill task; design §7.1) | X7 | the game's ending; the season flag for the future |
 | X9 | Afterwards | IV | camp | checkmark | X8 | free play; the board stays live |

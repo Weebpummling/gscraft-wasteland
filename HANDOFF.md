@@ -84,6 +84,9 @@ camp, 65 % forest, no snow), built AFTER the v7 pre-generation: carve the rectan
 Cities profile (no cities/highways/railways/scattered buildings; identical terrain), five sparse structures, a road spur
 from Novo. Plan and quest hooks: `docs/gscraft-woods-plan.md`. Not built yet.
 
+**Design addendum (owner, 2026-09-04):** military vehicle blueprints (Humvee RWS, Black Hawk, Bradley) are mid/late quest
+rewards (W-M1, W-B3, X6), never tier unlocks - crafting §2.1, quests draft 2.
+
 **Not started:** Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
 `camp.py` (the six NPC buildings as templates onto their pads); the systems (KubeJS items, blueprints,
 stages, the strongpoint loop and timers; FTB Quests chapters from `docs/gscraft-quests.md`; loot tables

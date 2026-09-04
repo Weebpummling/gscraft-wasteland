@@ -20,6 +20,10 @@ good, there is no random cycle, and the loop quests run R2 → R6 in order up to
 site is lost when its marker falls or nobody is there at the end of its defence, never on one
 death.
 
+**Draft 6 addendum (owner, 2026-09-04):** the complicated military vehicles (Humvee RWS, UH-60 Black Hawk, M3A3
+Bradley) are **blueprint-gated quest rewards, mid and late game** - W-M1 in Act III, W-B3 and X6 in Act IV - never
+unlocked by a yard tier alone (`gscraft-crafting.md` §2.1, `gscraft-quests.md`).
+
 ---
 
 ## 1. The game in one paragraph

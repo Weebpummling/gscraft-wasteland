@@ -102,16 +102,22 @@ to a held site — the same rule as the tower parts.
 Three vehicles from the two Superb Warfare add-on packs sit above the civilian garage; everything
 else in those packs is a static wreck at a strongpoint (design §2.3), placed dead and never craftable.
 
-| Tier | Vehicle | Id | Role | Recipe from |
+| Blueprint from (owner, 2026-09-04: quest rewards, mid/late game) | Vehicle | Id | Role | Bench |
 |---|---|---|---|---|
-| Walls 3 (D4) | **Humvee RWS** | MCSP `humvee_rws` (green) | the gate's armed car, turret on the roof; beside the LAV-150 | D4 |
-| Garage 3 (W-B3) | **UH-60 Black Hawk** | vvp `uh60` | the heavy helicopter: six seats and cargo, the whole team to the hub | W-B3, replaces the Bell 47 as the tier-3 aircraft; the Bell stays as the two-seat scout |
-| Beacon (X6) | **M3A3 Bradley** | MCSP `m3a3` | one armoured vehicle for the base defence, given when the beacon lights | X6 reward, no recipe |
+| **W-M1 Motor pool** (Act III, after FR-06 and the plaza are both defended) | **Humvee RWS** | MCSP `humvee_rws` (green) | the gate's armed car, turret on the roof; beside the LAV-150 | SW assembling table, yard tier 2 |
+| **W-B3 The shed** (Act IV) | **UH-60 Black Hawk** | vvp `uh60` | the heavy helicopter: six seats and cargo, the whole team to the hub | SW assembling table, yard tier 3; the Bell 47 stays as the two-seat scout |
+| **X6 Antenna array** (Act IV, the beacon) | **M3A3 Bradley** | MCSP `m3a3` | the armoured vehicle for the finale's base defence - built, not given | SW assembling table, yard tier 3 |
+
+The military tier is **blueprint-gated, never tier-unlocked**: the three vehicles have recipes (below), but each
+recipe is locked behind a blueprint item that only a quest hands out, in the same way the IE workbench
+blueprints work for the intermediates. No blueprint, no recipe in the bench - so the yard's tier says what the
+bench can do and the quest book says when. Reaching a yard tier never unlocks a military vehicle by itself.
 
 | Vehicle | Recipe |
 |---|---|
 | Humvee RWS | 10 steel frame, 6 plate, 1 heavy diesel engine, 4 wheel, 2 fuel tank, 1 **military circuit board**, 1 gun frame + barrel (the turret) |
 | Black Hawk | 12 steel frame, 2 **avionics module**, 1 **transformer core**, 4 motor assembly, 3 fuel tank, 2 circuit assembly, 1 **satellite receiver** |
+| M3A3 Bradley | 16 steel frame, 8 plate, 1 heavy diesel engine, 2 fuel tank, 1 **reactor control module**, 1 **military circuit board**, 1 gun frame + barrel (the 25 mm), 2 wiring harness |
 
 Both are electric under Superb Warfare and draw from the battery packs of §5.5; the exact registry ids are
 read off the jars at Phase D (`vvp:` and `mcsp:` namespaces, 81 entities between them).
@@ -274,8 +280,8 @@ itself is placed by the M-B2 template, never crafted.
 
 ## 6. What this adds to the quest book
 
-Five quests and four gate edits, all in quests draft 2: W-A1…W-A4, W-V1; W13's gate, W7's
-reward, R1's reward, J5's reward, W1's reward. One hundred and five quests.
+Six quests and six reward/gate edits, all in quests draft 2: W-A1…W-A4, W-V1, W-M1; W13's gate, W7's
+reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and six quests.
 
 Related: `gscraft-map-design.md` §3.6 (Walker's yard tiers), §4 (the item ladder),
 `gscraft-quests.md` §2 (Walker), `build/kubejs/` (the station script, Phase C).
