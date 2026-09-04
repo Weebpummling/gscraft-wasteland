@@ -51,7 +51,7 @@ Rules that hold across every chapter:
   sites are safe for good, and only one site can be contested at a time. Holding all five is
   therefore the natural end of Marshall's loop (R6), not a standing burden.
 - **Every kind of placed structure has a quest, and every quest lives in its NPC's chapter.** The Woods (a loot-and-quest
-  region, not a sixth strongpoint: its bandit outpost is the marker and the assault only, R-W1) and the kept generated
+  region, not a sixth strongpoint: its bandit outpost is a one-off clear, R-W1) and the kept generated
   structures — the bunkers, the road-range capital, the pillager outpost, a boss tower, the nearest ancient city, a fog
   house — are quests inside the six chapters, gated like everything else; the Woods opens with James's J-W1. The kept structures of a
   kind beyond the quested ones (nine more bunkers, five capitals, five outposts, ten boss towers, three ancient cities, the
@@ -65,7 +65,7 @@ Rules that hold across every chapter:
   is the proof of the trip.
 
 Quest counts: Walker 26 (6 armoury, 1 boat, 1 military blueprint, 1 Woods), Tony 14 (1 Woods), Michael 18 (1 Woods, 1 district site), Tune 19 (1 Woods, 3 bunkers, 2 sites), James 24 (5 scout, 3 Woods, 2 expedition finds),
-Marshall 28 (loop 6, walls 3, farm 3, tower 10, gatehouse 3, Woods 2, the road outpost 1). One hundred and twenty-nine quests, eighteen
+Marshall 28 (loop 6, walls 3, farm 3, tower 10, gatehouse 3, Woods 2, the road outpost 1), Teddy 7 (explosives, §7A). One hundred and thirty-six quests, eighteen
 of them the `*-B` building tiers. Which of them one outing clears is the trip table in
 `gscraft-map-design.md` §3.5; how many outings it takes is up to the players.
 
@@ -92,7 +92,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | W-A1 | Sidearm | I | camp | hand in 6 metal scrap, 4 screws, 1 fastener kit, 4 planks | W1 | gun-frame, barrel and trigger-group blueprints; pistol, pump-shotgun and their ammunition blueprints; the salvage rule (crafting §5.2) |
 | W-A2 | Plates | I–II | camp | hand in 8 metal scrap, 2 duct tape | W3 | plate blueprint; scrap vest and helmet blueprints; rifle ammunition |
 | W-A3 | Long guns | II | camp | hand in 2 gun frames, 1 steel frame | W-A1, `novo_defended` | assault-rifle and SMG blueprints; iron sights, extended magazine |
-| W-A4 | Precision | III | camp, Financial Plaza | hand in 1 circuit assembly, 1 military circuit board | W-A3, W9 | sniper, machine-gun and launcher blueprints; optics, suppressor |
+| W-A4 | Precision | III | camp, Financial Plaza | hand in 1 circuit assembly, 1 military circuit board | W-A3, W9 | sniper and machine-gun blueprints; optics, suppressor (explosives are Teddy's, §7A) |
 | W-M1 | Motor pool | III | camp, FR-06, Financial Plaza | hand in 1 military circuit board, 4 plates, 1 heavy diesel engine; stages `fr06_defended` and `financial_defended` | W-A2, W-A4, D4, R5 | **Humvee RWS blueprint** (crafting §2.1; the SW assembling table at yard tier 2 builds it from the kit) |
 | W-V1 | Something that floats | II | camp, the lake | hand in 12 planks, 1 fastener kit | W7 | boat blueprint; boat cargo opens with W12 |
 | W-B1 | The yard, roofed | I | camp | hand in 8 metal scrap, 4 fastener kits, 16 planks | W2 | **yard tier 1**: roofed workshop, one bay, the lot fenced |
@@ -159,13 +159,13 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | U3 | Listening post | II | the tower compound (in the camp), the library | reach both (location); hand in 1 hard drive | U2, J2 | the strongpoint board shows garrison strength |
 | U4 | The plaza | III | **Financial Plaza**, 2.1 km W | hand in 2 circuit boards, 2 computer parts, 1 hard drive — the plaza's drops | U3, W7, J-S5 | stage `financial_looted`; Marshall R5 opens |
 | U5 | Hold the plaza | III | the camp gate | stage `financial_held`; stage `financial_defended` (the plaza's counterattack, at the base) | U4, Marshall R5 | **Radio 2**: the contested site's whole countdown on the board; antenna-element blueprint |
-| U6 | Under the plaza | III | the sewers | reach the sewers (location); kill 20 there; hand in 1 encrypted radio | U5 | the defence warning doubled |
+| U6 | Under the plaza | III | the sewers | reach the sewers (location); kill 20 there; hand in 1 encrypted radio | U5 | the board shows which entry point the next counterattack uses (east road or north rim) |
 | U7 | Military board | III | Financial Plaza | hand in 1 military circuit board | U5 | transmitter blueprint |
 | U8 | Antennas | III | camp | craft and show 4 antenna elements | U5 | 4 antenna elements back |
 | U9 | Array | IV | the hub | hand in 1 phased array element | U8, J8 | antenna-array blueprint; **Radio 3** |
 | U10 | Technician's ear | IV | everywhere | hand in one of every electrical item (8) | U9 | Radio 3 effects: the coming attack's composition on the board from the moment the marker is placed |
 | U-B1 | Mast up | I | camp | hand in 6 metal scrap, 2 wire spools, 1 circuit assembly | U2 | **shack tier 1**: mast to 24 with a dish, the map wall extended |
-| U-B2 | Antenna field | III | camp, Financial Plaza | hand in 4 steel frames, 4 antenna elements, 1 encrypted radio (the plaza respawns them while held) | U-B1, `financial_defended` | **shack tier 2**: antenna field, intel desk; the contested site's countdown on the board |
+| U-B2 | Antenna field | III | camp, Financial Plaza | hand in 4 steel frames, 4 antenna elements, 1 encrypted radio (the plaza respawns them while held) | U-B1, `financial_defended` | **shack tier 2**: antenna field, intel desk (the board's countdown readout is Radio 2's, U5) |
 | U-B3 | Uplink | IV | camp, the hub | hand in 8 antenna elements, 2 circuit assemblies, 1 satellite receiver | U-B2, U9 | **shack tier 3**: mast to 40 with an aviation light, second dish, roof receiver (the board's readouts come from Radio 2 and 3) |
 | U-C1 | Copper | II | the copper tower (2.2 km) | reach it (location); hand in 4 relays, 4 wire spools — the tower's drops | U2, J2 | 2 circuit assemblies; the notebook marks the tower as the electrical run |
 | U-A1 | Dead quiet | III | the nearest ancient city (−1488, −272), 1.5 km NW | reach it (location); hand in 1 echo shard from its chests | U5, W-A3 | 1 encrypted radio; stage `ancient_city_1`; Tune: "Whatever is down there is listening." |
@@ -238,7 +238,7 @@ is still contested — one fight at a time, in this order.
 | D5 | Greenhouse | III | the claim, the plant | hand in 16 cabbages, 16 onions, 8 cooked meals (Farmer's Delight), 1 industrial pump (irrigation; the plant respawns them while held) | D3, `plant_defended` | **Farm 2**: greenhouse and irrigation; crops inside the claim grow at double rate (KubeJS random-tick boost) |
 | D6 | Rations | III–IV | the claim, the plant | hand in 32 cooked meals, 1 purification membrane (the plant respawns them while held) | D5, `plant_defended` | **Farm 3**: hydroponics; the **ration pack** recipe (4 meals → 1 pack, Saturation, stacks 16) — the hub run's food |
 | D-O1 | The outpost by the road | II | the pillager outpost (−1392, 1632), 2.1 km SW, 700 m south of the west road's end | kill 10 pillagers there (kill task, stage `road_outpost_cleared`) | D1, W-A1 | 90 rifle rounds; the outpost stays quiet (the script stops its pillagers respawning) |
-| R-W1 | The outpost | III | the bandit outpost | clear it: kill 15 there (kill task, stage `woods_outpost_cleared`); no marker, no contested slot, no site guard, no counterattack — it is not a strongpoint | R4, J-W1 | the outpost's cache (2 salvage rifles, 90 rounds, 4 emeralds); bandits stop spawning in the Woods |
+| R-W1 | The outpost | III | the bandit outpost | clear it: kill 15 there (kill task, stage `woods_outpost_cleared`); no marker, no contested slot, no site guard, no counterattack — it is not a strongpoint | R4, J-W1 | the outpost's cache (2 salvage rifles, 90 rounds, 4 emeralds); bandits stop spawning in the Woods; **Teddy the Hermit** appears in the outpost's tower (§7A) |
 | R-W2 | What the trees heard | IV | the Woods bunkers' lower levels | kill 30 below y 40 in the two bunkers; hand in 1 encrypted radio found there | J-W2, U6 | 1 military circuit board; the Woods page of the notebook completes |
 
 ### 7.3 The tower
@@ -266,6 +266,29 @@ is still contested — one fight at a time, in this order.
 | R-B2 | Watchtowers | II–III | camp, Novo | hand in 64 concrete, 8 steel frames, 1 heavy anchor cable | R-B1, R3, R4 | **gatehouse tier 2**: walled gate, two watchtowers, barricades; guard villagers at the gate |
 | R-B3 | Blast doors | IV | camp, FR-06 | hand in 128 concrete, 8 steel frames, 1 reactor control module | R-B2, X4 | **gatehouse tier 3**: blast doors, floodlights, the board as a lit wall map; the finale's first wave breaks on the gate |
 
+## 7A. Teddy the Hermit — explosives (the Woods outpost)
+
+Teddy is the seventh survivor and the only one outside the camp (owner, 2026-09-04). He appears at the
+Woods' bandit outpost (720, −3440) the moment R-W1 clears it — `gscraft:npc_teddy` summons him in the
+outpost's tower — and his chapter is the game's only source of **explosive weapons and their ammunition**:
+grenades, the M79 and its 40 mm rounds, the RPG-7 and its rockets, all Superb Warfare items, all crafted at
+the stations from his blueprints and sold at his counter (vendors doc §3). Nothing explosive is craftable
+or sold anywhere else; Marshall's Walls orders (claymores, mortar shells, C4) stay Marshall's but get
+cheaper once Teddy's last blueprint is in.
+
+| # | Quest | Act | Area | Tasks | Gate | Reward |
+|---|---|---|---|---|---|---|
+| H1 | The hermit | III | the Woods outpost | hand in 8 gunpowder, 4 canned goods | R-W1 | **hand grenade** blueprint (crafting §5.8); Teddy's counter opens at LL1 |
+| H2 | Smoke | III | the outpost | hand in 4 antifreeze, 8 cloth | H1 | **smoke grenade** blueprint |
+| H3 | Old ordnance | III | the outpost, the stone complex | hand in 12 powder, 4 steel frames, 1 salvage rifle | H1, W-A5 | **RGO grenade** blueprint; the counter sells grenades |
+| H4 | The tube | III–IV | the outpost | hand in 4 plates, 1 circuit assembly, 20 powder | H3, W-A2 | **M79 grenade launcher** and **40 mm grenade** blueprints; counter LL2 (40 mm rounds) |
+| H5 | Backblast | IV | the outpost, Financial Plaza | hand in 1 military circuit board, 2 steel frames, 30 powder | H4, W-A4 | **RPG-7** and **standard rocket** blueprints; counter LL3 (rockets) |
+| H6 | Thermobaric | IV | the outpost, FR-06 | hand in 1 transformer core, 40 powder | H5 | **TBG rocket** blueprint |
+| H7 | The cache | IV | the outpost, the hub | hand in 1 hard drive, 50 powder | H6, J7 | **high-energy explosives** blueprint — Marshall's claymore, mortar-shell and C4 orders take it instead of loose powder at half the cost |
+
+Teddy's counter has no building tiers: its loyalty levels are H1, H4 and H5. He buys gunpowder and
+powder at Walker's rates.
+
 ---
 
 ## 8. How the acts feel in play
@@ -273,7 +296,7 @@ is still contested — one fight at a time, in this order.
 **Act I (sessions 1–2).** Five introductions in the camp's own ruins; the personal station, the first
 backpack, lights. James sends them to the glass tower and the acacia hall to learn the ground. Walker
 sends them east along the spine to Novo, the one strongpoint in walking range: first to find its dossier, then two
-or three loot runs for Walker, then Marshall's marker and the assault. Novo is held by its new garrison, its fortify
+or three loot runs for Walker, then Marshall's marker and the assault. Novo is held by its new site guard, its fortify
 clock runs, and its counterattack arrives at the camp gate on schedule. Storage 2 and Workshop 2 arrive. Nothing here
 needs a vehicle.
 
@@ -306,7 +329,7 @@ reward and read by stage tasks (C3, 2026-09-04):
 | Function levels | `workshop_1…3`, `garage_1…3`, `storage_1…4`, `medical_1…3`, `generator_1…3`, `water_1…3`, `radio_1…3`, `walls_1…3`, `farm_1…3` |
 | Building tiers | `camp_<npc>_<tier>` for the six NPCs, tiers 1–3 |
 | The tower and the finale | `marshall_speaks` (the five introductions), `tower_1…5`, `beacon_lit`, `finale_ready` (T10), `wave_1…5`, `finale_won`, `finale_failed`, `season_1_done` |
-| Gates and switches | `hangar_unlocked` (M11), `aircraft_prep` (J6), `hub_loot_on` (J7), `revives_3` (*player*) |
+| Gates and switches | `hangar_unlocked` (M11), `aircraft_prep` (J6), `hub_loot_on` (J7), `teddy_present` (R-W1), `revives_3` (*player*) |
 | Blueprints | `bp_<recipe>`, one per recipe in the crafting sheet (the recipe file is the list) |
 | First-time lines (*player*, onboarding §8) | `seen_station`, `seen_bulky`, `seen_infection`, `seen_warning`, `seen_board`, `seen_down` |
 

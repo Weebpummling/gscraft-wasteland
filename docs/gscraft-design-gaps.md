@@ -17,7 +17,7 @@ now has one.
 | A2 | Financial Plaza stale at "2.5 km SE / hospital pad"; "sewers later under the hospital pad"; review Phase A item about the plaza's causeway; boat "the plaza before its road" | 2.1 km W, dry, one road; the stale lines corrected or struck |
 | A3 | Radio tower stale at "2.1 km E", origin (2066, 64, −141), a district → tower road, "the radio mast not visible from home" | the camp NE corner, origin (107, 100, −101); tower road dropped; the mast is the first thing seen |
 | A4 | Distances disagree by document: hub 6.0/6.2/6.18, settlement 3.6/3.7, plant 2.3/2.4, Bio Gen 3.9/4.0 | one set from the layout sheet (measured from the camp centre): Novo 1.06, residential 2.0, plant 2.3, FR-06 2.45, plaza 2.1, settlement 3.7, runway 3.9, Bio Gen 4.0, hub 6.2 *(2026-09-04: the layout sheet §3.1 now reads hempcrete 2.0, plant 2.4, residential 1.9, Bio Gen 3.9)* |
-| A5 | Quest total 77 (design, HANDOFF) vs 105 (quests) vs 106 (crafting); Walker 22 vs 23 rows | 106 quests, Walker 23, everywhere *(129 after the C items and the placed-structure quests, Walker 26 — 2026-09-04)* |
+| A5 | Quest total 77 (design, HANDOFF) vs 105 (quests) vs 106 (crafting); Walker 22 vs 23 rows | 106 quests, Walker 23, everywhere *(136 after the C items, the placed-structure quests and Teddy's chapter — 2026-09-04)* |
 | A6 | Small items "~30" and J11 "the thirty small items" vs 40 in the catalogue | 40 *(42 after the C items: gunpowder, emerald)* |
 | A7 | Bio Gen footprint 64×256 vs two groups | two groups, 64×64 and 16×32 |
 | A8 | Tune's shack x 60…75 vs moved to x 40…55 | 40…55 (design table) |
@@ -28,7 +28,7 @@ now has one.
 | A13 | Onboard "four colours (dark / scouted / looted / held / defended)" lists five | five states, five colours *(six after C5: `lost` = red)* |
 | A14 | "No mod is added" vs EMI added | "no gameplay mod is added; EMI is a client recipe viewer" |
 | A15 | Two Novo Expograds: the industrial zone and the hub; Marshall calls Novo "the refinery" (M4's word for the plant) | names fixed: **Novo** = the industrial zone (Act I strongpoint), **the hub** = the Novo Expograd city in the air ring; Marshall: "the industrial yard east along the road" |
-| A16 | HANDOFF says "draft 5" and "77 quests" in its design list | draft 6, 106 *(129 after the C items and the placed-structure quests)* |
+| A16 | HANDOFF says "draft 5" and "77 quests" in its design list | draft 6, 106 *(136 after the C items, the placed-structure quests and Teddy's chapter)* |
 | A17 | Woods "1.3 km north of Novo", "due north" | 1.6 km north-north-east of Novo's pad |
 | A18 | Structure plan foot-range keeps "two bunkers, one fog house" vs table (houses foot = 0) | "two bunkers" |
 

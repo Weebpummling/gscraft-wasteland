@@ -14,7 +14,7 @@ size, from one player to a full server; nothing below depends on how many people
 result, and only then read a short line that names it. Nothing is explained before it is needed,
 nothing is explained twice, and nothing takes more than two sentences. The quest book is a journal:
 what was done and the one thing to do next. It is never a rulebook. The six survivors in the camp do
-the teaching, the camp is where it happens, and the first strongpoint is where it is tested.
+the teaching (a seventh, Teddy, waits in the Woods for a later act), the camp is where it happens, and the first strongpoint is where it is tested.
 
 Three consequences for everything below:
 

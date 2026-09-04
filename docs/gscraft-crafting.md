@@ -35,7 +35,7 @@ them the way to make it. Five holes and one loop, all fixed in quests draft 2; t
 | Aircraft | J7 (reach the hub **by air**), W13 (aircraft recipe) | **W13 was gated on J7 and J7 on W13 — a loop nobody could enter** | **fixed:** W13 gates on W9, M11, **J6** (the runway); J7 stays gated on J6 and W13 |
 | Firearms, ammunition, attachments | from the first night; the assaults and defences | **nothing taught them; the pack's own gun-smith and reforge tables were the implied route** | **fixed:** Walker's armoury line W-A1…W-A4 (§5), plus a starting sidearm and 30 rounds from Custom Starting Gear |
 | Body armour | the assaults | nothing | **fixed:** W-A2 |
-| The claim marker | R2 and every re-take after a failed assault or a broken marker | R1 handed out one item | **fixed:** R1 gives the marker *blueprint*; a lost site's marker is re-crafted, not begged from Marshall |
+| The claim marker | R2 and every re-take after a failed assault or a broken marker | R1 handed out one item | **fixed:** R1 gives the marker *blueprint*; a marker lost in a failed assault is re-crafted, not begged from Marshall |
 | Guard villagers, PlayerRevive, waypoints | D2, T8, U2 | rewards flip stages | fine |
 
 Rule going forward: **a quest may ask for an item only if an earlier quest in some chapter has
@@ -238,7 +238,7 @@ pack's and are pinned in the recipe file at Phase C.
 | 1 | **W-A1 Sidearm** (Act I, after W1) | pistol, pump shotgun; pistol and shotgun ammunition; the salvage rule | gun frame + barrel + trigger group + 4 planks (stock); ammo: 8 casings + 1 powder + 2 metal scrap → 30 rounds (Quick; casings and powder §5.6) |
 | 2 | **W-A2 Plates** (Act I–II, after W3) | scrap vest and helmet (§5.3); rifle ammunition | plate ×4 + duct tape → vest |
 | 2 | **W-A3 Long guns** (Act II, after `novo_defended`) | assault rifle, SMG; iron sights, extended magazine | 2 gun frame + barrel + trigger group + 1 steel frame; attachments: circuit-free, metal scrap and tape |
-| 3 | **W-A4 Precision** (Act III, after W9) | sniper rifle, machine gun, the launcher; optics, suppressor | + 1 circuit assembly (optics), + 1 **military circuit board** (the launcher, from Financial Plaza) |
+| 3 | **W-A4 Precision** (Act III, after W9) | sniper rifle, machine gun; optics, suppressor | + 1 circuit assembly (optics), + 1 **military circuit board** (the machine gun's feed, from Financial Plaza) |
 
 ### 5.3 Armour, tools, packs
 
@@ -316,6 +316,26 @@ need nothing from Act II; the fuel tank's sealed tubing is covered by W7's new g
 | **Ziplines** | `parcool:zipline_rope`: 4 string + 2 metal scrap (Quick); `parcool:iron_zipline_hook` ×2: 2 metal scrap + 1 fastener kit — the lookout tier 3 and the tower's 64-metre platform get hooks placed by their functions; the rope is the players' | James, J-B2 |
 
 Every other Sophisticated Backpacks, ParCool and Superb Warfare recipe stays stripped (`gscraft_recipes.js`).
+
+### 5.8 Explosives — Teddy's line (owner, 2026-09-04)
+
+The only explosive weapons in the game, all Superb Warfare items (ids verified in the jar), all blueprint stages from
+Teddy the Hermit's chapter (quests §7A), all ordered at the stations. Nothing here drops in loot or is sold anywhere
+but Teddy's counter.
+
+| Item | Recipe | Class | Blueprint |
+|---|---|---|---|
+| Hand grenade (`superbwarfare:hand_grenade`) ×2 | 3 metal scrap + 2 powder + 1 fastener kit | Intermediate | H1 |
+| Smoke grenade (`superbwarfare:m18_smoke_grenade`) ×2 | 2 metal scrap + 1 antifreeze + 2 cloth | Quick | H2 |
+| RGO grenade (`superbwarfare:rgo_grenade`) ×2 | 4 metal scrap + 3 powder + 1 fastener kit | Intermediate | H3 |
+| M79 (`superbwarfare:m_79`) | gun frame + barrel + trigger group + 2 plate | Equipment | H4 |
+| 40 mm grenade (`superbwarfare:grenade_40mm`) ×2 | 2 casings + 2 powder + 1 metal scrap | Quick | H4 |
+| RPG-7 (`superbwarfare:rpg`) | 2 gun frame + 2 barrel + 1 steel frame + 1 military circuit board | Equipment | H5 |
+| Standard rocket (`superbwarfare:rpg_rocket_standard`) | 4 metal scrap + 6 powder + 1 fastener kit | Intermediate | H5 |
+| TBG rocket (`superbwarfare:rpg_rocket_tbg`) | 1 standard rocket + 1 solvent + 2 antifreeze | Intermediate | H6 |
+| High-energy explosives (`superbwarfare:high_energy_explosives`) ×2 | 4 powder + 1 solvent + 1 bleach | Intermediate | H7 — Marshall's claymore, mortar-shell and C4 orders then take 1 of these instead of their powder |
+
+The javelin, the TOW, the mines and the aerial bombs stay stripped: nothing on the map is a target for them.
 The Immersive Vehicles override file is still Phase C's in-game find (mod-capabilities §5b); if none
 materialises, the fallback is that the station order for an IV vehicle yields the vehicle item itself
 (KubeJS gives it on completion) and the IV bench is removed from the yard.
@@ -324,8 +344,8 @@ materialises, the fallback is that the station order for an IV vehicle yields th
 
 ## 6. What this adds to the quest book
 
-Six quests and seven reward/gate edits, all in quests draft 2: W-A1…W-A4, W-V1, W-M1; W13's gate, W7's
-reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and twenty-nine quests (the Woods chain, the bunker side quests, Farm 2/3, X6b and the placed-structure quests added 2026-09-04).
+Six quests and seven reward/gate edits, all in quests draft 2 (Teddy's seven explosives quests followed in draft 3, §5.8): W-A1…W-A4, W-V1, W-M1; W13's gate, W7's
+reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and thirty-six quests (the Woods chain, the bunker side quests, Farm 2/3, X6b, the placed-structure quests and Teddy's chapter added 2026-09-04).
 
 Related: `gscraft-map-design.md` §3.6 (Walker's yard tiers), §4 (the item ladder),
 `gscraft-quests.md` §2 (Walker), `build/kubejs/` (the station script, Phase C).

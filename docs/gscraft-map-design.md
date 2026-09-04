@@ -26,6 +26,8 @@ unlocked by a yard tier alone (`gscraft-crafting.md` §2.1, `gscraft-quests.md`)
 
 **Onboarding (2026-09-04):** how all of this is taught in play rather than read - `gscraft-onboarding.md`.
 
+**Teddy the Hermit (owner, 2026-09-04):** a seventh survivor at the Woods outpost, unlocked by clearing it (R-W1); his chapter is the only source of explosive weapons and ammunition (quests §7A, crafting §5.8, vendors §3).
+
 **Defence moved to the base (owner, 2026-09-04):** a strongpoint is still scouted, looted and taken by the players, but once
 taken it is held by a **site guard** (Recruits soldiers and Guard Villagers the take unlocks, §6.1), not by the players
 standing there; the counterattack that follows each take comes to the **main base**, where the walls, the gate and the
@@ -171,7 +173,7 @@ toolsmith, Michael an armorer, Tune a librarian, James a fletcher, Marshall a ni
 the joke, or a cartographer if not). The Recruits mod supplies the hireable guards of D2 (Walls 2, at the gatehouse);
 it is not used for these six. No gameplay mod is added (EMI, a client-side recipe viewer, was added on 2026-09-03).
 
-**Who unlocks what.** The full chains, 129 quests across the six chapters, scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
+**Who unlocks what.** The full chains, 136 quests across the seven chapters, scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
 
 | NPC | Owns | Starting tasks (the introduction) | Unlocks when done | Their chain |
 |---|---|---|---|---|
@@ -180,6 +182,7 @@ it is not used for these six. No gameplay mod is added (EMI, a client-side recip
 | Michael the Engineer | Generator, Water | bring 3 wire spools, a power cord, a water filter | wiring-harness and filter blueprints | hold the plant; coolant; hold FR-06; the cooling loop, then the generator kit |
 | Tune the Technician | Radio / intel | bring a circuit board, 2 capacitors, a broken radio | circuit-assembly blueprint | hold Financial Plaza; antenna elements; the transmitter, then the antenna array |
 | James the Scout | expeditions | visit the glass tower and the acacia hall | waypoints; the expedition board | the settlement by car; the hub by air; the phased array element |
+| Teddy the Hermit (the Woods outpost, not the camp) | explosives | **none: he appears when R-W1 clears the outpost** (owner, 2026-09-04) | hand-grenade blueprint; his counter | grenades, the M79, the RPG-7 and their ammunition; high-energy explosives for Marshall's orders (quests §7A) |
 | Marshall | the strongpoint loop and the tower | **none: he talks once all five introductions are done, and the tower chapter opens with him (owner, 2026-09-04)** | the tower chapter and the strongpoint board | take → hold → defend; five parts in order; the beacon; the finale |
 
 
@@ -200,7 +203,7 @@ hub component (the gatehouse: FR-06's reactor control module).
 | **Walker** — the yard (**the workshop**) | scrap piles, a lean-to (personal stations only) | roofed workshop, one garage bay, a fenced lot, the IV vehicle bench | second bay, gantry crane over the lot, fuel-drum rack, lights, the SW assembling table, the Apotheosis Salvaging Table | steel shed with a vehicle lift, floodlit painted lot, truck bay | crafting speed ×0.85 / ×0.7 / ×0.5 and 1 / 2 / 3 shared benches by tier (crafting §4); T2: vehicle repair at the bay; T3: aircraft parking |
 | **Tony** — the clinic | a tarp over a wreck, one bed | walls, four beds, the med station | surgery room, its own generator, the lit red cross | two storeys, a ward, a quarantine tent, a marked helipad | T2: faster PlayerRevive at the clinic; T3: full revive without a surgical kit |
 | **Michael** — the plant | one generator on a pallet | generator shed, water collector | tank farm, pump house, pipe run down to the lake, the fuel pump, the charging station | wind mast, transformer yard, biodiesel column, lit pipes | T2: fuel cans refill at the pump; T3: the camp outline is lit and powered |
-| **Tune** — the radio shack | shack and a 12-block mast stub | mast to 24 with a dish, the map wall | antenna field beside the shack, intel desk | mast to 40 with an aviation light, second dish, receiver on the roof | T2: the board shows the contested site's whole countdown (Radio 2's readout); T3: the coming attack's composition |
+| **Tune** — the radio shack | shack and a 12-block mast stub | mast to 24 with a dish, the map wall | antenna field beside the shack, intel desk | mast to 40 with an aviation light, second dish, receiver on the roof | T2: the intel desk (the board's countdown readout is Radio 2's, U5); T3: the attack's composition gets its lit wall map (Radio 3's readout) |
 | **James** — the lookout | 8×8 tower, 20 tall | platform, ladder, a flag | 30 tall, a spotlight that sweeps at night | 40 tall, glass cabin, telescope, waypoint beacon | T2: the night spotlight (waypoint sharing is Radio 1's); T3: every named site marked |
 | **Marshall** — the gatehouse | a gap in the wall, a table, the parts rack, the strongpoint board | the gate, wall stubs | walled gate, two watchtowers, barricades | blast doors, floodlights, the strongpoint board as a lit wall map | T2: guard villagers at the gate; T3: the finale's first wave breaks on the gate, not the crater |
 
@@ -364,7 +367,7 @@ Generator, Water (Michael); Medical (Tony); Radio / intel (Tune); Walls and defe
 kitchen (Marshall's chapter). Three levels each: level 1 from small items and intermediates, level 2
 needs the role's strongpoint held and one of its components, level 3 needs one component from the
 hub (Radio, Medical, Generator, Storage 4) or a second held-site component (Water 3: the plant's membrane; Storage 3 and Walls 3: Novo's anchor cable; Garage 3: FR-06's avionics module — B3). Each level is a quest in the owning NPC's chapter; the reward flips a KubeJS stage that gates
-recipes, hands out the next blueprint, and applies the effect (guard villagers, warning length,
+recipes, hands out the next blueprint, and applies the effect (guard villagers, board readouts,
 vehicle recipes). Between them the level 3s need held ground and a plane: the
 whole map, used once.
 
@@ -414,7 +417,7 @@ again. There is no random cycle: the only fights are the ones the players start 
 |---|---|---|
 | Assault (the take) | 5 min from marker placement | waves every 45 s from the site edges; garrison scaled to players present |
 | Fortify clock | 2 in-game days (40 min) after `held` | build up, run the loot; nothing attacks during it |
-| **The counterattack (at the base)** | the waves arrive at the camp's entry points when the fortify clock ends; the warning is the clock's **last 10 minutes** | warning = a flat 10 minutes (owner, 2026-09-04: it covers the drive home from any built site — all are under 4 km, under 4 minutes by road — and a team on foot at the far ring arrives during wave 1); the board shows the warning from Radio 1 and the whole countdown (fortify + warning) from the moment the site is held once Radio 2 is in (U5) |
+| **The counterattack (at the base)** | the waves arrive at the camp's entry points when the fortify clock ends; the warning is the clock's **last 10 minutes** | warning = a flat 10 minutes (owner, 2026-09-04: it covers the drive home from any built site — all are under 4 km, under 4 minutes by road — and a team on foot at the far ring arrives during wave 1); the board shows the warning from Radio 1 and the whole fortify clock (its last 10 minutes being the warning) from the moment the site is held once Radio 2 is in (U5) |
 | Component respawn | every 2 in-game days while the site is **held** (the held-site rule; the never-held sites' shared containers refill every 5 in-game days — §4.4, loot sheet §1; Lootr's 5-day refresh is for ordinary loot only - owner, 2026-09-04) | doubled once every site is held (R6) |
 | Finale countdown after the beacon lights | 3 in-game days (60 min) | waves at the base, the last one carries the boss (`gscraft-finale.md`) |
 

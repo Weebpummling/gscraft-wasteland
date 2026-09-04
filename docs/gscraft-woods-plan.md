@@ -58,6 +58,7 @@ The Woods is the focus of a chain, not a stop on the way. Candidates by NPC:
 | Walker the Foreman | the sawmill: timber for the Walls and defences function; the mill's own drop is the **saw blade** (W-W1); Novo keeps the heavy diesel engine (B22) | lumber is the Woods' resource; the base's walls come from here |
 | Tony the Medic | herbs and the hunters' hide: foraging tasks, the surgical kit in the crashed aircraft's medkit | medical from the wild, not the ruin |
 | Michael the Engineer | the hunters' water and a generator in the ranger cabin | fuel and water sources outside the plant |
+| Teddy the Hermit (2026-09-04) | the seventh survivor, in the outpost's tower once it is cleared: the explosives chapter H1–H7 (quests §7A) | the Woods is where the loud things live |
 | Marshall | the bandit outpost as a one-off clear (R-W1: kill 15 there; no marker, no site guard, no counterattack — it is not a strongpoint); the Woods bunkers as the horror chapter's dungeons | contrast: an attack that comes through trees, not streets |
 
 Decided (owner default, 2026-09-04): **no sixth strongpoint** — the Woods is a loot-and-quest region; its nine quests are
