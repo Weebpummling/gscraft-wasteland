@@ -276,5 +276,16 @@
     "url": "https://cdn.modrinth.com/data/fRiHVvU7/versions/Axuu9I9R/emi-1.1.24%2B1.20.1%2Bforge.jar",
     "sha512": "02743be3476b7dc5668cedbcc5a6d384e9806981833926a83fed76a2800c44da33576e86308c058250718c128d58076f1b62bc53d200464326ace70a43229c8b",
     "note": "recipe viewer; side=CLIENT in mods.toml so the dedicated server skips it; in /mods so the client pack built from the server carries it (owner decision 2026-09-03)"
+  },
+  "Dynamic Flashlight": {
+    "slug": "dynamic-flashlight",
+    "version": "2.1.0-forge",
+    "filename": "flashlight-2.1.0-forge-1.20.1.jar",
+    "url": "https://cdn.modrinth.com/data/SemszBhn/versions/dkQtiEhc/flashlight-2.1.0-forge-1.20.1.jar",
+    "sha512": "45e97d9f5263331a3cd3787b64bbfbf5e75fd591d30847e73b4816a921d66bb2acb03f9b1a4ccadd64289574fac0a434515c9fb36d701ea32ea191d828611530",
+    "sha1": "bcb2b2085c55015279ac96113ee8b12e65ebffaf",
+    "date": "2026-08-02",
+    "requires": [],
+    "note": "design requirement (starting-kit flashlight); docs/gscraft-modpack-review.md section 4; jar not yet downloaded - owner approval pending"
   }
 }

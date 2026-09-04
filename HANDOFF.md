@@ -140,6 +140,7 @@ do not, but they are fully generated so it no longer matters there).
   the camp and its six NPCs, strongpoints, the item ladder, storage, hideout functions, the loop and
   timers, the tower, tech stack, build order with test gates.
 - `docs/gscraft-quests.md` - all 121 quests, six NPC chapters, what FTB Quests needs from KubeJS.
+- `docs/gscraft-modpack-review.md` - the mod set against the design (2026-09-04): everything the design names is installed; two updates required (Dynamic Flashlight 2.1.0 to add, EMI to sync locally); twelve manifest conditional-libraries are reference only; nothing removed.
 - `docs/gscraft-vendors.md` - the vendor system (2026-09-04): six counters, loyalty = building tier, prices, barters, night vision, the merchant-offers mechanism.
 - `docs/notes/gscraft-flashlight-and-nvg.md` - flashlight / night vision / thermal research; recommends adding Dynamic Flashlight 2.1.0 (owner's call).
 - `docs/gscraft-loot-tables.md` - every loot table by building type and site, the hub economy, the reward containers (2026-09-04).

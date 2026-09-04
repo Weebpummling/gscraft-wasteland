@@ -96,6 +96,7 @@ each is now written (§5c).
 
 ## 5c. Done on 2026-09-04 (the gap audit's phase items, design side)
 
+- **Mod set reviewed against the design** (`gscraft-modpack-review.md`): two updates required, nothing removed.
 - **Vendors** on vanilla merchant offers (no trade mod, KubeJS has no villager-trade events): `gscraft-vendors.md`.
 - **Flashlight / NVG / thermal** audit: nothing for players in the pack; vvp has vehicle NVG/thermal keybinds; a mod is
   recommended for the flashlight (`notes/gscraft-flashlight-and-nvg.md`).
