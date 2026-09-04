@@ -71,14 +71,14 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | W3 | Frame of mind | I | camp, glass tower | hand in 12 metal scrap; show a welding torch | W2 | steel-frame blueprint, **Workshop 1** (IE machine recipes) |
 | W4 | The toolbox | I | camp | show a toolbox (crafted) | W3 | Workshop 1 effects; 16 iron ingots |
 | W5 | East, a mile | I | **Novo**, 1.06 km E on the spine | hand in 6 spark plugs, 12 metal scrap, 4 motor oil — Novo's drops | W4, J-S1 | stage `novo_looted`; Marshall R2 opens |
-| W6 | Hold the yard | I→II | Novo | stage `novo_held`; stage `novo_defended` (Novo's own first attack, at the end of its fortify clock) | W5, Marshall R2 | **Workshop 2**; **Storage 2**: iron backpack, stack upgrade ×2 |
+| W6 | Hold the yard | I→II | Novo | stage `novo_held`; stage `novo_defended` (Novo's own first attack, at the end of its fortify clock) | W5, Marshall R2 | **Workshop 2** (motor-assembly blueprint); **Storage 2**: iron backpack, stack upgrade ×2, magnet upgrade |
 | W7 | Wheels | II | camp, Novo | hand in 1 motor assembly, 4 steel frames, 1 car battery | W6, M3 | **Garage 1**: quad and runabout recipes, wheel, fuel-tank, empty-fuel-can and cargo-crate blueprints; a full tank and 2 fuel cans; stage `car_built` when one is crafted |
 | W8 | Fuel run | II | camp | hand in 2 fuel cans | W7, M7 | fuel-can refill recipe (at Michael's plant pump, M-B2; Walker's drum rack stores them) |
-| W9 | Heavy metal | III | Novo | hand in 1 heavy diesel engine, 2 motor assemblies | W8, `novo_held` | **Garage 2**: truck recipe |
-| W10 | The big pack | III | Novo | hand in a second heavy anchor cable (Novo respawns them while held), 2 fastener kits | W9 | **Storage 3**: gold backpack, **everlasting upgrade** (the secure pack), truck cargo |
+| W9 | Heavy metal | III | Novo | hand in 1 heavy diesel engine, 2 motor assemblies | W8, M-B2, `novo_held` | **Garage 2**: truck recipe |
+| W10 | The big pack | III | Novo | hand in a second heavy anchor cable (Novo respawns them while held), 2 fastener kits | W9 | **Storage 3**: gold backpack, **everlasting upgrade** (the secure pack), feeding and pickup upgrades, truck cargo |
 | W11 | Mast section kit | II–III | camp | show 1 mast section kit (6 steel frames + 2 fastener kits + heavy anchor cable) | W6, `novo_held` | the kit is Marshall's X2 hand-in |
 | W12 | Boats | III | the settlement | reach the settlement by water (location); hand in 1 pressure gauge | W8, J4 | boat cargo recipe |
-| W13 | Hangar rights | III→IV | FR-06, the runway | hand in 1 avionics module, 2 circuit assemblies | W9, M11, J6 | **Garage 3**: light-aircraft recipe; **Storage 4** opens on J8 (diamond backpack needs the satellite receiver), aircraft cargo |
+| W13 | Hangar rights | III→IV | FR-06, the runway | hand in 1 avionics module, 2 circuit assemblies | W9, M11, J6 | **Garage 3**: light-aircraft recipe; **Storage 4** opens on J8 (diamond backpack needs the satellite receiver), tank and void upgrades, aircraft cargo |
 | W14 | Foreman's pride | IV | everywhere | hand in one of every hardware and tool item (12 items) | W13 | Workshop 3; **the Foreman's Wrench** (an unbreakable, named wrench that fills a station's tool slot without wear) |
 | W-A1 | Sidearm | I | camp | hand in 6 metal scrap, 4 screws, 1 fastener kit, 4 planks | W1 | gun-frame, barrel and trigger-group blueprints; pistol, pump-shotgun and their ammunition blueprints; the salvage rule (crafting §5.2) |
 | W-A2 | Plates | I–II | camp | hand in 8 metal scrap, 2 duct tape | W3 | plate blueprint; scrap vest and helmet blueprints; rifle ammunition |
@@ -88,7 +88,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | W-V1 | Something that floats | II | camp, the lake | hand in 12 planks, 1 fastener kit | W7 | boat blueprint; boat cargo opens with W12 |
 | W-B1 | The yard, roofed | I | camp | hand in 8 metal scrap, 4 fastener kits, 16 planks | W2 | **yard tier 1**: roofed workshop, one bay, the lot fenced |
 | W-B2 | Second bay | II–III | camp, Novo | hand in 4 steel frames, 32 concrete, 1 heavy diesel engine (Novo respawns them while held) | W-B1, `novo_defended` | **yard tier 2**: two bays, gantry crane, fuel rack, lights; vehicle repair at the bay |
-| W-B3 | The shed | IV | camp, the hub | hand in 8 steel frames, 64 concrete, 1 satellite receiver | W-B2, J7 | **yard tier 3**: steel shed, vehicle lift, floodlit lot, truck and aircraft bays; light-helicopter blueprint; **UH-60 Black Hawk blueprint** (crafting §2.1) |
+| W-B3 | The shed | IV | camp, the hub | hand in 8 steel frames, 64 concrete, 1 satellite receiver | W-B2, J7, M13 | **yard tier 3**: steel shed, vehicle lift, floodlit lot, truck and aircraft bays; light-helicopter blueprint; **UH-60 Black Hawk blueprint** (crafting §2.1) |
 
 ---
 
@@ -101,7 +101,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | T3 | Neighbours | II | **residential block**, 1.9 km | hand in 3 blood bags, 4 syringes, 2 antiseptic — the block's drops | T2, J-S2 | stage `residential_looted`; Marshall R3 opens |
 | T4 | Take the block | II | residential block | stage `residential_held` (Marshall's assault won) | T3, Marshall R3 | 8 bandages, 4 antiseptic |
 | T5 | Hold the block | II | residential block | stage `residential_defended` (the block's first attack) | T4 | **Medical 2**: reduced death penalty; the med kit cures infection in the field |
-| T6 | Analyzer | II–III | residential block | hand in 1 medical analyzer | T5 | Medical 2 effects; blood-bag recipe |
+| T6 | Analyzer | II–III | residential block | hand in 1 medical analyzer | T5 | Medical 2 effects; 4 blood bags |
 | T7 | Bio Gen | III | **Bio Gen**, 3.9 km | reach Bio Gen (location); hand in 1 surgical kit | T6, J4 | surgical-kit use: full revive |
 | T8 | Triage | III | anywhere | stage `revives_3` (three teammate revives, counted by KubeJS) | T5 | 8 med kits |
 | T9 | Full power | IV | the hub | hand in 1 military power filter | T7, J7 | **Medical 3** |
@@ -149,7 +149,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | U8 | Antennas | III | camp | craft and show 4 antenna elements | U5 | 4 antenna elements back |
 | U9 | Array | IV | the hub | hand in 1 phased array element | U8, J8 | antenna-array blueprint; **Radio 3** |
 | U10 | Technician's ear | IV | everywhere | hand in one of every electrical item (8) | U9 | Radio 3 effects: the coming attack's composition on the board from the moment the marker is placed |
-| U-B1 | Mast up | I | camp | hand in 6 metal scrap, 2 wire spools, 1 circuit assembly | U2 | **shack tier 1**: mast to 24 with a dish, the map wall |
+| U-B1 | Mast up | I | camp | hand in 6 metal scrap, 2 wire spools, 1 circuit assembly | U2 | **shack tier 1**: mast to 24 with a dish, the map wall extended |
 | U-B2 | Antenna field | III | camp, Financial Plaza | hand in 4 steel frames, 4 antenna elements, 1 encrypted radio (the plaza respawns them while held) | U-B1, `financial_defended` | **shack tier 2**: antenna field, intel desk; the contested site's countdown on the board |
 | U-B3 | Uplink | IV | camp, the hub | hand in 8 antenna elements, 2 circuit assemblies, 1 satellite receiver | U-B2, U9 | **shack tier 3**: mast to 40 with an aviation light, second dish, roof receiver (the board's readouts come from Radio 2 and 3) |
 
@@ -168,7 +168,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | J-S5 | Scout: the plaza | III | Financial Plaza | reach the plaza (location); hand in the **plaza dossier** (the vault anteroom, chest at -1841 100 971) | J-S3, W7 | stage `financial_scouted`; Tune U4 opens |
 | J3 | Paper trail | II | offices, the library | hand in 2 folders of documents | J2 | a **valuables bag** (opens to 8 random valuables — loot sheet §7) |
 | J4 | The far ring | III | stone complex, mud village, the settlement, Bio Gen | reach all four (location); the settlement and Bio Gen by car | J3, W7 | waypoints; Tony T7 and Walker W12 open |
-| J5 | Settle in | III | the settlement | hand in 3 valuables found there | J4, W-V1 | speedboat blueprint |
+| J5 | Settle in | III | the settlement | hand in 3 valuables found there | J4, W-V1, M-B2 | speedboat blueprint |
 | J6 | Runway | III | the runway | stand on the runway (location); hand in 1 hard drive | J4 | aircraft prep flag |
 | J7 | The hub | IV | **the hub**, 6.2 km | reach the hub by air (location) | J6, W13 | the hub's loot tables switch on |
 | J8 | Bring it back | IV | the hub | hand in 1 phased array element, 1 satellite receiver | J7 | Tune U9 opens; Storage 4 (W13's diamond pack) unlocks |
@@ -194,7 +194,7 @@ is still contested — one fight at a time, in this order.
 
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
-| R1 | Muster | I | camp | checkmark; read the strongpoint board | the five introductions | the board; the claim-marker blueprint (trip-length order; re-crafted after a loss) |
+| R1 | Muster | I | camp | checkmark; read the strongpoint board | the five introductions | the board and the map wall revealed, the camp's outline lit (B9); the claim-marker blueprint (trip-length order; re-crafted after a loss) |
 | R2 | Novo | I | Novo | place the marker; win the assault (stage `novo_held`) | R1, `novo_looted` | fortify clock starts; Walker W6 opens |
 | R3 | The block | II | residential block | place the marker; win the assault (stage `residential_held`) | R2, `novo_defended`, `residential_looted` | Tony T4 opens |
 | R4 | The plant | II | industrial plant | place the marker; win the assault (stage `plant_held`) | R2, `novo_defended`, `plant_looted` | Michael M5 opens |
@@ -206,9 +206,9 @@ is still contested — one fight at a time, in this order.
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
 | D1 | Walls | I | the claim | hand in 32 concrete, 2 fastener kits | R1 | **Walls 1**: sandbag, barbed-wire and claymore orders (crafting §5.7); the timber barricade after W-W1 |
-| D2 | Guards | II | the claim | stage `novo_defended` and `residential_defended` | D1 | **Walls 2**: the Recruit's Table at the gatehouse — hire recruits, shieldmen and bowmen with emeralds and food; guard villagers at every NPC building tier 2; mortar and drone orders (crafting §5.7) |
+| D2 | Guards | II | the claim | stage `novo_defended` and `residential_defended` | D1, M-B2 | **Walls 2**: the Recruit's Table at the gatehouse — hire recruits, shieldmen and bowmen with emeralds and food; guard villagers at every NPC building tier 2; mortar and drone orders (crafting §5.7) |
 | D3 | Farm and kitchen | II | the claim, the mud village | hand in 16 seeds, 8 bowls, 1 med kit | D1 | **Farmer's Delight kit** (stove, cooking pot, skillet, cutting board, knife; 8 each of rice, tomato seeds, onions, cabbage seeds); **Farm 1**: the kitchen's meals feed the team |
-| D4 | Bunker | III | the claim | hand in 64 concrete, 4 steel frames, 1 heavy anchor cable | D2, W9 | **Walls 3**: blast doors, the laser tower and radar orders (crafting §5.7); armoured-car recipe |
+| D4 | Bunker | III | the claim | hand in 64 concrete, 4 steel frames, 1 heavy anchor cable | D2, W9, M9 | **Walls 3**: blast doors, the laser tower and radar orders (crafting §5.7); armoured-car recipe |
 | D5 | Greenhouse | III | the claim, the plant | hand in 16 cabbages, 16 onions, 8 cooked meals (Farmer's Delight), 1 industrial pump (irrigation; the plant respawns them while held) | D3, `plant_defended` | **Farm 2**: greenhouse and irrigation; crops inside the claim grow at double rate (KubeJS random-tick boost) |
 | D6 | Rations | III–IV | the claim, the plant | hand in 32 cooked meals, 1 purification membrane (the plant respawns them while held) | D5, `plant_defended` | **Farm 3**: hydroponics; the **ration pack** recipe (4 meals → 1 pack, Saturation, stacks 16) — the hub run's food |
 
@@ -223,7 +223,7 @@ is still contested — one fight at a time, in this order.
 | X3 | Cooling loop | II | camp, the plant | hand in 1 cooling loop | X2, M6 | **stage 2** placed |
 | X4 | Generator kit | III | camp, FR-06 | hand in 1 generator kit | X3, M10 | **stage 3** placed; the lights come on |
 | X5 | Transmitter | III | camp, Financial Plaza | hand in 1 transmitter | X4, U7 | **stage 4** placed; the dish |
-| X6 | Antenna array | IV | camp, the hub | hand in 1 antenna array | X5, U9, T10 | **stage 5** placed; the beacon lights; the countdown starts; **M3A3 Bradley blueprint** - the finale's armoured vehicle is built during the countdown, not handed over (crafting §2.1) |
+| X6 | Antenna array | IV | camp, the hub | hand in 1 antenna array | X5, U9, T10, M13 | **stage 5** placed; the beacon lights; the countdown starts; **M3A3 Bradley blueprint** - the finale's armoured vehicle is built during the countdown, not handed over (crafting §2.1) |
 | X7 | Hold the line | IV | the base | survive waves 1–4 (stages `wave_1`…`wave_4`) | X6 | between waves: 8 med kits, ammunition |
 | X8 | The Sleeper | IV | the base | kill the Sleeper (a named Warden, tag `gscraft_boss`; `gscraft-finale.md`) | X7 | the game's ending; the season flag; the finale chest at the plinth |
 | X6b | Relight | IV | camp | repeatable, no hand-in; visible after `finale_failed`, one in-game day later | X6 | restarts the 60-minute countdown; Radio 3 shows the same composition |
@@ -290,7 +290,7 @@ stages 1 and 2 go up. The district's west edge is looted for electrical items. T
 
 **Act III (sessions 6–9).** FR-06 and Financial Plaza need the car to reach and hold; the truck
 appears; the secure pack arrives. Stages 3 and 4 go up: the tower has power and a dish. The far
-ring (settlement, Bio Gen, the sewers) supplies the third-level components. Five sites in the pool
+ring (settlement, Bio Gen, the sewers) supplies T7's surgical kit, W12's gauge and U6's encrypted radio. Five sites in the pool
 means five defences fought and won, one at a time, and the map is theirs.
 
 **Act IV (sessions 10–12).** The hangar, the runway, the plane. The hub is reached, the phased array
@@ -323,7 +323,7 @@ component-container state and the single `contested` slot; all clocks count onli
 building tiers, which also re-summon the NPC), a team stage `bp_<recipe>` for blueprints (the book says "blueprint", the mechanism is the stage - crafting §4; the old text: an IE blueprint item
 with the `gscraft` category NBT). Location tasks use the site rectangles from the district map;
 the six NPC building rectangles are locked by the tower-lock script (a list of rectangles, quest
-functions exempt), so a `*-B` reward is the only thing that ever changes them; dossier chests are placed and filled by `gscraft:dossiers` at the coordinates in `tools/dossiers.json`; the only kill task left is the sewers (U6); every other clearing is the assault event, whose
+functions exempt), so a `*-B` reward is the only thing that ever changes them; dossier chests are placed and filled by `gscraft:dossiers` at the coordinates in `tools/dossiers.json`; the kill tasks are the sewers (U6), the Woods bunkers (R-W2) and the Sleeper (X8); every other clearing is the assault event, whose
 waves use the garrison mob types In Control! spawns at each site.
 
 ### 9.1 Vehicle-qualified location tasks (C13)

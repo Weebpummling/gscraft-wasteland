@@ -48,7 +48,7 @@ Doomsday Decoration wrecks, sandbags, drums, wire and cones (`camp_ruins.py` v2;
 the v1 blocks out first, 1,222 setblocks); ten diamond Magnum Torches (`gscraft:camp_torches`, `tools/camp_torches.json`)
 make the camp's spawn suppression physical; `hordes-common.toml` now has `infectPlayers = true` and `bandits.json`
 `enableMod = false` — both uploaded to `/config`, **both take effect only at the next server restart**. Design §2.2
-and §6.3, quests D2/T2/T5 and `gscraft-mod-capabilities.md` §5 record it. `tools/structures_v6.json` is the census of
+and §6.3, quests D2/T1/T5 and `gscraft-mod-capabilities.md` §5 record it. `tools/structures_v6.json` is the census of
 every generated structure start in the 10 km box (Lukis capitals, outposts, bunkers) for the loot-site list.
 
 **MOB SPAWNING IS OFF on the hosted server (owner, 2026-09-03) until the designs are done:** `gamerule doMobSpawning
@@ -87,7 +87,7 @@ from Novo. Plan and quest hooks: `docs/gscraft-woods-plan.md`. Not built yet.
 **Design addendum (owner, 2026-09-04):** military vehicle blueprints (Humvee RWS, Black Hawk, Bradley) are mid/late quest
 rewards (W-M1, W-B3, X6), never tier unlocks - crafting §2.1, quests draft 2.
 
-**Not started:** Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
+**Not started:** the two mod-set updates of `docs/gscraft-modpack-review.md` §4 (Dynamic Flashlight 2.1.0 — owner's approval, then server + client + manifest; EMI 1.1.24 into the local server and client sets); Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
 `camp.py` (the six NPC buildings as templates onto their pads); the systems (KubeJS items, blueprints,
 stages, the strongpoint loop and timers; FTB Quests chapters from `docs/gscraft-quests.md`; loot tables
 by building type); the Superb Warfare small-arms toggle; old-world housekeeping on the hosted server
@@ -165,7 +165,7 @@ function `gscraft:camp_npcs`) -> Phase C systems v1 (KubeJS items with stack siz
 the station recipes and `bp_*` stages, datapack loot tables by building type, NPC right-click -> quest book, the five
 introduction chapters, Walker's storage levels) -> Phase D (held flags, fortify clock, warnings, attacks,
 garrison and component respawn, garage tier) -> Phase E (tower stages 1-5 wired to Marshall's chapter,
-the hub's rare loot, aircraft, the beacon countdown and base waves). The KubeJS scripts that exist:
+the hub's rare loot, aircraft, the beacon countdown and base waves). The KubeJS scripts that exist: `gscraft_recipes.js` (the bench-recipe strip),
 `build/kubejs/server_scripts/gscraft_fixes.js` (recipe fix), `gscraft_tower_lock.js` + `startup_scripts/
 gscraft_tower_lock_native.js` (the lock), `gscraft_projectiles.js` (projectile sweep).
 

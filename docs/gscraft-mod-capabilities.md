@@ -15,7 +15,7 @@ ordered by how much it would add for how little it costs, with a recommendation 
 | **Guard Villagers** | armed villager guards that patrol and fight | D2 reward, unimplemented | the NPCs' own protection at tiers 2–3 (a guard at each building) so the six survivors read as a community, not six statues |
 | **Zombie Awareness** | mobs hear gunfire and smell blood; noise draws hordes | config carried, not designed with | make it a stated rule: every shot at a site pulls its ambient garrison in. That is why the loot trips are quiet work and the take is loud, and why a suppressor (W-A4) is worth crafting |
 | **Mob Factions** | any mobs can be set as factions that fight each other | config carried (mech references stripped) | bandits vs zombies at every site: the ambient garrison fights itself, so a patient team can watch a site thin out before going in. One config file |
-| **The Hordes — infection** | zombie hits infect; infection kills unless cured | not designed with | the medical function's reason to exist: Tony's tier 1 cures infection at the clinic, the med kit blueprint at Medical 2 cures in the field. Ties the residential block (blood bags) to the mechanic |
+| **The Hordes — infection** | zombie hits infect; infection kills unless cured | not designed with | the medical function's reason to exist: Tony cures infection at the clinic from T1, the med kit cures in the field from Medical 2. Ties the residential block (blood bags) to the mechanic |
 | **Lukis Grand Capitals** (269 structure files) + **Hostile Villages** | replaces vanilla villages, outposts, mansions with large versions; villages spawn hostile | generated in the 10 km box already; never used | the generated capitals are ready-made bandit settlements. James's J9 "every city" should point at them; the loot-site list gains them for free |
 | **Underground Bunkers** (50 templates, SCP-themed) | randomly generated bunkers under the world | generated already; never used | dungeons that are not the sewers: mark the ones inside the box on the map page and give U-chapter side quests a reason to go down (a hard drive in a bunker) |
 
@@ -103,7 +103,7 @@ each is now written (§5c).
 
 - **Superb Warfare defences** as Walls 1–3 station orders with verified ids (`gscraft-crafting.md` §5.7).
 - **Sophisticated Backpacks upgrades** gated per Storage level, ids listed (crafting §5.7); the inception upgrade is J11's reward only.
-- **ParCool ziplines**: rope and iron hooks as J-B2 orders; hooks placed by the lookout tier 3 and tower functions (crafting §5.7, camp spec §1).
+- **ParCool ziplines**: rope and iron hooks as J-B2 orders; hooks placed by `camp_james_3` and `tower_stage_1` (crafting §5.7, camp spec §1).
 - **Guard Villagers per tier and Recruits hiring**: counts, tags, the emerald currency (`gscraft-camp-spec.md` §4).
 - **Apotheosis elites**: `gscraft:elite_<site>` boss definitions, summoned by command (design §6.3); the finale's Captains the same way (`gscraft-finale.md`).
 - **Farmer's Delight**: Farm 1–3 quests (D3, D5, D6), the ration pack (quests §7.2).

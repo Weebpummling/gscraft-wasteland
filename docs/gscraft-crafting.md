@@ -17,10 +17,12 @@ item ladder, so loot supplies parts and not products.
 ## 1. Capability audit of the quest book
 
 Every quest that needs the players to *have* something was traced back to the quest that gives
-them the way to make it. Four holes and one loop, all fixed in quests draft 2.
+them the way to make it. Five holes and one loop, all fixed in quests draft 2; two more (the motor-assembly blueprint, the battery-pack gates) on 2026-09-04.
 
 | Capability | First quest that needs it | Taught by | Finding |
 |---|---|---|---|
+| Motor assembly | W7 (hand in 1) | **was Garage 1 = W7's own reward, a loop**; the blueprint is now W6's (Workshop 2) — fixed 2026-09-04 | fixed |
+| Battery packs (truck, speedboat, drones, LAV-150, Humvee, Black Hawk, Bradley) | W9, J5, D2, D4, W-M1, W-B3, X6 | M-B2 (small), M9 (medium), M13 (large) — **the consuming quests now gate on them** (2026-09-04); the truck takes a small pack | fixed |
 | Workbench and blueprint crafting | W2 (craft fastener kits) | W1 binds the personal station (§4) and hands out the first blueprints | fine |
 | Backpack | W2 onward | W2, Storage 1 | fine |
 | Hand tools (wrench, welding torch, hand drill) | W1 (a wrench), W3 (torch), steel frame (torch held) | **were loot only** | **fixed:** W1 now also gives the hand-tool blueprints; tools remain a rare loot find but are never required from loot |
@@ -34,7 +36,7 @@ them the way to make it. Four holes and one loop, all fixed in quests draft 2.
 | Firearms, ammunition, attachments | from the first night; the assaults and defences | **nothing taught them; the pack's own gun-smith and reforge tables were the implied route** | **fixed:** Walker's armoury line W-A1…W-A4 (§5), plus a starting sidearm and 30 rounds from Custom Starting Gear |
 | Body armour | the assaults | nothing | **fixed:** W-A2 |
 | The claim marker | R2 and every re-take after a loss | R1 handed out one item | **fixed:** R1 gives the marker *blueprint*; a lost site's marker is re-crafted, not begged from Marshall |
-| Guard villagers, PlayerRevive, waypoints | D2, T8, J-B2 | rewards flip stages | fine |
+| Guard villagers, PlayerRevive, waypoints | D2, T8, U2 | rewards flip stages | fine |
 
 Rule going forward: **a quest may ask for an item only if an earlier quest in some chapter has
 handed out its blueprint, or it is a loot-only component.** The trip table in the design (§3.5)
@@ -89,7 +91,7 @@ vehicle in a second.
 | Runabout | 4 steel frame, 1 motor assembly, 4 wheel, 1 fuel tank, 1 wiring harness, 2 glass |
 | Boat | 12 planks, 1 fastener kit (speedboat: + 1 motor assembly, 1 small battery pack, 2 steel frame) |
 | Van | 6 steel frame, 1 motor assembly, 4 wheel, 1 fuel tank, 1 wiring harness, 1 cargo crate |
-| Truck | 8 steel frame, 1 **heavy diesel engine** (Novo), 6 wheel, 1 medium battery pack, 1 cargo crate |
+| Truck | 8 steel frame, 1 **heavy diesel engine** (Novo), 6 wheel, 1 small battery pack, 1 cargo crate |
 | Light aircraft | 8 steel frame, 1 **avionics module** (FR-06), 2 motor assembly, 2 wheel, 2 fuel tank, 2 circuit assembly, 4 glass |
 | Light helicopter | 6 steel frame, 1 **avionics module**, 1 **transformer core**, 2 motor assembly, 2 fuel tank, 1 circuit assembly |
 | Armoured car | 12 steel frame, 4 plate (§5.1), 1 heavy diesel engine, 6 wheel, 1 medium battery pack, 1 **reactor control module** |
@@ -106,7 +108,7 @@ else in those packs is a static wreck at a strongpoint (design §2.3), placed de
 |---|---|---|---|---|
 | **W-M1 Motor pool** (Act III, after FR-06 and the plaza are both defended) | **Humvee RWS** | MCSP `humvee_rws` (green) | the gate's armed car, turret on the roof; beside the LAV-150 | SW assembling table, yard tier 2 |
 | **W-B3 The shed** (Act IV) | **UH-60 Black Hawk** | vvp `uh60` | the heavy helicopter: six seats and cargo, the whole team to the hub | SW assembling table, yard tier 3; the Bell 47 stays as the two-seat scout |
-| **X6 Antenna array** (Act IV, the beacon) | **M3A3 Bradley** | MCSP `m3a3` | the armoured vehicle for the finale's base defence - built, not given | SW assembling table, yard tier 3 |
+| **X6 Antenna array** (Act IV, the beacon) | **M3A3 Bradley** | MCSP `m3a3` | the armoured vehicle for the finale's base defence - built, not given | SW assembling table, yard tier 2 (the table exists from tier 2; the blueprint is the gate) |
 
 The military tier is **blueprint-gated, never tier-unlocked**: the three vehicles have recipes (below), but each
 recipe is locked behind a blueprint item that only a quest hands out, in the same way the IE workbench
@@ -144,7 +146,7 @@ and the results are waiting when the team comes home.
 | Tower parts | the five hand-ins for stages 1–5 | 20 min (a trip-length order) | a long trip, or two |
 
 Workshop tiers (§4) cut these: ×0.85 at tier 1, ×0.7 at tier 2, ×0.5 at tier 3 — so a tower part
-is 15 minutes at the finished workshop, still a trip. Nothing ever crafts instantly except the
+is 10 minutes at the finished workshop, still a trip. Nothing ever crafts instantly except the
 Quick class; there is no way to buy time back with more ingredients.
 
 ---
@@ -158,7 +160,7 @@ station exist:
 
 | Station | How many | Where | Who |
 |---|---|---|---|
-| **Personal work station** | one per player, bound to that player when placed | anywhere inside the camp outline or the team's claim | given on first join by Custom Starting Gear (already in the pack), re-issued by Walker if lost; a second one cannot be placed while the first exists |
+| **Personal work station** | one per player, bound to that player by W1's reward | anywhere inside the camp outline or the team's claim | given on first join by Custom Starting Gear (already in the pack), re-issued by Walker if lost; a second one cannot be placed while the first exists |
 | **Workshop benches** | tier 1: 1, tier 2: 2, tier 3: 3 | Walker's yard | shared; anyone on the team may place or collect an order |
 | **Vehicle benches** | the IV bench (tier 1) and the SW assembling table (tier 2) | Walker's yard | shared; vehicle orders only |
 
@@ -182,7 +184,7 @@ carry the crafting bonuses, so the building the players see grow is the one that
 |---|---|---|---|---|
 | 0 — scrap piles | none; personal stations only | 1 | ×1.0 | — |
 | 1 — roofed workshop, one bay | 1, plus the IV vehicle bench | 1 | ×0.85 | — |
-| 2 — two bays, gantry, lights | 2, plus the SW assembling table | 2 | ×0.7 | 25 % chance an order refunds one small item |
+| 2 — two bays, gantry, lights | 2, plus the SW assembling table and the Salvaging Table | 2 | ×0.7 | 25 % chance an order refunds one small item |
 | 3 — steel shed, vehicle lift | 3 | 3 | ×0.5 | 50 % refund chance; Quick orders yield double |
 
 The efficiency roll is the balancing lever: it is applied per order, on the output side, and never
@@ -227,8 +229,8 @@ in loot in small amounts as before; casings and powder are craftable so it never
 
 ### 5.2 Weapons — Walker's armoury line
 
-TaCZ's default pack is the source of guns (54 in the jar: 14 pistols, 12 rifles, 6 shotguns, 5
-SMGs, 6 snipers, 3 MGs, 2 launchers). One gun per class per tier is craftable; ids are the default
+TaCZ's default pack is the source of guns (54 in the jar across pistols, rifles, shotguns,
+SMGs, snipers, MGs and launchers). One gun per class per tier is craftable; ids are the default
 pack's and are pinned in the recipe file at Phase C.
 
 | Tier | Quest | Unlocks | Recipe shape |
@@ -262,8 +264,8 @@ the IE power the Generator function provides. Packs are crafted at the station l
 | Medium battery pack | 2 small packs + 1 steel frame + 1 circuit assembly | Equipment | Michael, Generator 2 |
 | Large battery pack | 2 medium packs + 1 **transformer core** | Trip-length | Michael, Generator 3 |
 
-A charged medium pack drives the truck one round trip to the district; the speedboat runs a full
-session on a small one. SW's own pack-assembly recipes are replaced by these; the Charging Station
+A charged small pack drives the truck one round trip to the district, or the speedboat for a session;
+the LAV-150 and the Humvee take a medium pack, the Black Hawk and the Bradley a large one. SW's own pack-assembly recipes are replaced by these; the Charging Station
 itself is placed by the M-B2 template, never crafted.
 
 ### 5.5 What changes in the loot tables

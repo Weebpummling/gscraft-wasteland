@@ -22,6 +22,9 @@ so every variant is its own file; the loop script (KubeJS) calls them with `serv
 | `runway_lights` | 1 | the runway's edge lights (§5) |
 | `tower_stage_0…5`, `tower_beacon_dark` | exist / 1 | the tower; the fail-state beacon swap (finale §4) |
 
+`camp_james_3` and `tower_stage_1` also place `parcool:iron_zipline_hook`s (crafting §5.7): the lookout's to the gate,
+the tower's 64-metre platform to the crater rim.
+
 The board's clock and the attack composition are **text on signs**, written by the loop script
 directly (`data merge block <x> <y> <z> {front_text:{messages:['…']}}`) — no function, since the
 text changes every minute.
@@ -112,7 +115,8 @@ Ids marked † are to be pinned from the jar when the template is written; the r
 Each NPC's specifics (the yard's benches, the clinic's beds and med station, the plant's IE
 generator, pump, tanks and charging station, the shack's mast and dish, the lookout's ladder and
 spotlight, the gatehouse's doors and board) follow design §3.6 row by row; the Refurbished Furniture
-Workbench is never placed (station-only rule).
+Workbench is never placed (station-only rule). Each tier-1 template carries a **counter** beside the NPC's spot
+(Doomsday Decoration vending-machine or shop-counter prop†) — the vendors' visible desk (`gscraft-vendors.md` §7).
 
 ## 7. What this asks of the build
 
@@ -120,5 +124,5 @@ Workbench is never placed (station-only rule).
   per-tier NPC spots; the functions of §1 written out (the 36 board functions are a loop in the
   generator).
 - `tools/runway_lights.py` → `runway_lights.mcfunction`.
-- Custom Starting Gear kit: station, pistol + one magazine, flashlight, bandage, notebook (onboarding §8).
+- Custom Starting Gear kit: station, pistol + one magazine, flashlight + one battery, bandage, notebook (onboarding §8).
 - `serverconfig/recruits-server.toml` currency; Guard Villagers left at defaults.

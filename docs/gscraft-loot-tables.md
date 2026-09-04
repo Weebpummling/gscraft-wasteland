@@ -53,7 +53,7 @@ from the jars at Phase C; the `_vics` override already exists in the datapack).
 | `building/military` (outposts, checkpoints, bunkers) | 2–4 | rifle ammo 12, shotgun ammo 8, gunpowder 8, salvage rifle 4, salvage shotgun 3, plate-worthy metal scrap 10, gas-mask filter 6, emerald 4, hard drive 3 |
 | `building/library` | 2–3 | folder of documents 15, hard drive 4, broken radio 6, capacitor 8, computer parts 4 |
 
-## 4. Site tables — the five strongpoints, `gscraft:site/<site>`
+## 4. Site tables — the five strongpoints, `gscraft:sites/<site>`
 
 Each is the matching building table **plus** the site's signature items (the owning NPC's loot quest
 asks for exactly these, design §6.1). Rolls 3–5.

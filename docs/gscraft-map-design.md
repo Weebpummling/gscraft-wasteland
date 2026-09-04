@@ -73,7 +73,7 @@ repair the tower → defend the base**. A strongpoint is four trips at least bef
 The 384×384 cleared area around the crater, x/z −176…207, with the Warium structure on its lake
 island in the pit (plaza y 93, world spawn 19 94 26) and the rebuilt surface on the rim. The camp is
 **neutral ground**: the NPC buildings are protected, spawns are suppressed inside the outline by **ten
-diamond Magnum Torches** (64-block ellipsoid each; one at every NPC pad, one at the gate, four on a
+diamond Magnum Torches** (64-block ellipsoid each; one at each of the five NPC pads away from the gate, one at Marshall's gate, four on a
 ring — `tools/camp_torches.py`, placed by `gscraft:camp_torches`), and the players' own hideout is
 wherever they claim. The torches are the visible reason the camp is safe; each NPC's tier-1 rebuild
 keeps its torch inside the building. The recommended claim is the crater floor: a pit
@@ -90,7 +90,7 @@ pieces are built from **Doomsday Decoration**'s props — jeep, van, sedan and s
 segments, sandbags, oil drums, wire mesh, traffic cones, a forklift and a motorcycle — and that set is
 the vocabulary for every camp building and checkpoint from here on (`gscraft-mod-capabilities.md` §1).
 
-Six NPC buildings sit on the rim in a ring, 60–150 blocks from the crater centre, each with a yard.
+Six NPC buildings sit on the rim in a ring, 60–230 blocks from the crater centre, each with a yard.
 Positions are first cut, to be adjusted on the visual pass against the rebuilt surface:
 
 | NPC | Building | Footprint (blocks) | Where on the rim | What is in it |
@@ -116,7 +116,7 @@ the same footprint, placed by the NPC's upgrade quests (§3.6).
 | 3 | **Industrial plant** (district 464×272) | 1904…2367 × 864…1135 | 2.4 km | Fuel and water | Michael |
 | 4 | **FR-06 complex** (district 384×528) | 2192…2575 × 400…927 | 2.5 km E | Power and hangar | Michael |
 | 5 | **Financial Plaza Quarantine** (transplant 160×144) | dry land west, x −1952…−1793 × z 848…991 | 2.1 km W | Electronics | Tune |
-| — | **Radio tower** (custom) | in the camp, x 64…191 × z −144…−17 (pad y 99) | 0.15 km | Endgame | Marshall |
+| — | **Radio tower** (custom) | in the camp, x 64…191 × z −144…−17 (pad y 99) | 0.1 km | Endgame | Marshall |
 
 **Generated sites, counted** (`tools/structures_v6.json`, every structure start in the 10 km box): 45 villages — Lukis Grand Capitals' versions, hostile under Hostile Villages — and 21 pillager outposts, the bandit settlements of the map; 284 Underground Bunkers; 439 Apotheosis boss towers (the elites of §6.3 can simply be the towers nearest each site); 23 ancient cities; 35 Man-From-The-Fog houses; 2 mansions; 8 strongholds. Nearest to the camp: villages (800, -2352), (2416, -672), (3216, 912); outposts (-1392, 1632), (-1952, 1232), (-512, 2368); bunkers (16, -368), (448, -384), (-784, -384); boss towers (32, -368), (832, -816), (1312, 64). James's J9 sends the players to four of the capitals, and the bunkers are the U-chapter's side dungeons. **Owner's verdict on the census: far too dense.** `gscraft-structure-plan.md` keeps **67** of the 964 sites
 (11 towers, 14 bunkers, 10 capitals, 6 outposts, 4 ancient cities, the rest expedition finds), none within 350 m of
@@ -194,7 +194,7 @@ hub component (the gatehouse: FR-06's reactor control module).
 |---|---|---|---|---|---|
 | **Walker** — the yard (**the workshop**) | scrap piles, a lean-to (personal stations only) | roofed workshop, one garage bay, a fenced lot, the IV vehicle bench | second bay, gantry crane over the lot, fuel-drum rack, lights, the SW assembling table, the Apotheosis Salvaging Table | steel shed with a vehicle lift, floodlit painted lot, truck bay | crafting speed ×0.85 / ×0.7 / ×0.5 and 1 / 2 / 3 shared benches by tier (crafting §4); T2: vehicle repair at the bay; T3: aircraft parking |
 | **Tony** — the clinic | a tarp over a wreck, one bed | walls, four beds, the med station | surgery room, its own generator, the lit red cross | two storeys, a ward, a quarantine tent, a marked helipad | T2: faster PlayerRevive at the clinic; T3: full revive without a surgical kit |
-| **Michael** — the plant | one generator on a pallet | generator shed, water collector | tank farm, pump house, pipe run down to the lake, the fuel pump | wind mast, transformer yard, biodiesel column, lit pipes | T2: fuel cans refill at the pump; T3: the camp outline is lit and powered |
+| **Michael** — the plant | one generator on a pallet | generator shed, water collector | tank farm, pump house, pipe run down to the lake, the fuel pump, the charging station | wind mast, transformer yard, biodiesel column, lit pipes | T2: fuel cans refill at the pump; T3: the camp outline is lit and powered |
 | **Tune** — the radio shack | shack and a 12-block mast stub | mast to 24 with a dish, the map wall | antenna field beside the shack, intel desk | mast to 40 with an aviation light, second dish, receiver on the roof | T2: the board shows the contested site's whole countdown (Radio 2's readout); T3: the coming attack's composition |
 | **James** — the lookout | 8×8 tower, 20 tall | platform, ladder, a flag | 30 tall, a spotlight that sweeps at night | 40 tall, glass cabin, telescope, waypoint beacon | T2: the night spotlight (waypoint sharing is Radio 1's); T3: every named site marked |
 | **Marshall** — the gatehouse | a gap in the wall, a table, the parts rack, the strongpoint board | the gate, wall stubs | walled gate, two watchtowers, barricades | blast doors, floodlights, the strongpoint board as a lit wall map | T2: guard villagers at the gate; T3: the finale's first wave breaks on the gate, not the crater |
@@ -292,17 +292,17 @@ beside the small items (`gscraft-loot-tables.md`) and feed hunger; they count fo
 
 | Intermediate | Recipe | Blueprint from |
 |---|---|---|
-| Fastener kit | 4 bolts + 4 nuts + 4 screws + 4 nails | Walker, Workshop 1 |
-| Steel frame | 6 metal scrap + 1 fastener kit, welding torch held | Walker, Workshop 1 |
-| Toolbox | wrench + pliers + screwdriver set + hand drill | Walker, Workshop 1 |
-| Motor assembly | 1 electric motor + 1 spark plug + 1 wiring harness | Walker, Garage 1 |
-| Wiring harness | 3 wire spool + 1 power cord + 1 duct tape | Michael, Generator 1 |
-| Filter cartridge | 1 water filter + 1 corrugated hose + 1 bleach | Michael, Water 1 |
+| Fastener kit | 4 bolts + 4 nuts + 4 screws + 4 nails | Walker, W1 |
+| Steel frame | 6 metal scrap + 1 fastener kit, welding torch held | Walker, W3 (Workshop 1) |
+| Toolbox | wrench + pliers + screwdriver set + hand drill | Walker, W3 (Workshop 1) |
+| Motor assembly | 1 electric motor + 1 spark plug + 1 wiring harness | Walker, W6 (Workshop 2) |
+| Wiring harness | 3 wire spool + 1 power cord + 1 duct tape | Michael, M1 |
+| Filter cartridge | 1 water filter + 1 corrugated hose + 1 bleach | Michael, M1 |
 | Coolant | 2 antifreeze + 1 water bucket | Michael, Water 1 |
 | Sealed tubing | 1 silicone tube + 2 insulating tape | Michael, Water 1 |
-| Circuit assembly | 1 circuit board + 2 capacitor + 1 relay + 1 wire spool | Tune, Radio 1 |
+| Circuit assembly | 1 circuit board + 2 capacitor + 1 relay + 1 wire spool | Tune, U1 |
 | Antenna element | 2 metal scrap + 1 wire spool + 1 insulating tape | Tune, Radio 2 |
-| Med kit | 2 bandage + 1 painkillers + 1 antiseptic + 1 syringe | Tony, Medical 1 |
+| Med kit | 2 bandage + 1 painkillers + 1 antiseptic + 1 syringe | Tony, T1 |
 
 ### 4.4 Complete parts and loot-only components
 
@@ -319,7 +319,7 @@ plant); reactor control module, avionics module (FR-06); encrypted radio (Financ
 analyzer, surgical kit (residential block, Bio Gen); satellite receiver, military power filter (the
 hub). They spawn in specific containers at their site, one or two per visit, and respawn on the
 respawn timer, so a held strongpoint keeps producing. Base upgrade kits have the same shape: a kit of
-intermediates, from level 2 one component from the role's strongpoint, at level 3 one from the hub or the far ring (B3: the blanket hub rule is dropped).
+intermediates, from level 2 one component from the role's strongpoint, at level 3 one from the hub or a second held-site component (B3: the blanket hub rule is dropped).
 
 **The hub's economy (C17, 2026-09-04).** The game needs 3 phased array elements (X6, U9, J8), 6 satellite receivers
 (J8, W-B3, U-B3, J-B3, Storage 4, the Black Hawk) and 4 military power filters (T9, M13, T-B3, M-B3): thirteen hub
@@ -342,7 +342,7 @@ part's shopping list is 6–10 different items, so the budget is spent on **vari
 | Storage | Unlocks | Carried |
 |---|---|---|
 | 1 | basic backpack; the stash crates at the claim | +27 |
-| 2 | iron backpack; stack upgrade ×2 (the cargo crate is W7's, Garage 1) | +54, +27–54 in the car |
+| 2 | iron backpack; stack upgrade ×2, magnet upgrade (the cargo crate is W7's, Garage 1) | +54, +27–54 in the car |
 | 3 | gold backpack; **everlasting upgrade** (survives death: the secure container); truck cargo | +81, +108 in the truck |
 | 4 | diamond backpack; aircraft cargo | +108 |
 
@@ -356,9 +356,9 @@ The players' claim (FTB Chunks, one team). Functions: Workshop, Garage, Storage 
 Generator, Water (Michael); Medical (Tony); Radio / intel (Tune); Walls and defences, Farm and
 kitchen (Marshall's chapter). Three levels each: level 1 from small items and intermediates, level 2
 needs the role's strongpoint held and one of its components, level 3 needs one component from the
-hub (Radio, Medical, Generator, Storage 4) or from the far ring (Water 3, Storage 3, Walls 3, Garage 3 — B3). Each level is a quest in the owning NPC's chapter; the reward flips a KubeJS stage that gates
+hub (Radio, Medical, Generator, Storage 4) or a second held-site component (Water 3: the plant's membrane; Storage 3 and Walls 3: Novo's anchor cable; Garage 3: FR-06's avionics module — B3). Each level is a quest in the owning NPC's chapter; the reward flips a KubeJS stage that gates
 recipes, hands out the next blueprint, and applies the effect (guard villagers, warning length,
-vehicle recipes). Between them the level 3s need held ground, the far ring and a plane: the
+vehicle recipes). Between them the level 3s need held ground and a plane: the
 whole map, used once.
 
 ---
@@ -374,7 +374,7 @@ skips a rung: the marker cannot be placed on a site that has not been scouted an
 
 | State | Stage | What the players do | Trips | Quest |
 |---|---|---|---|---|
-| **Scouted** | `<site>_scouted` | reach the site; find its **dossier** (a valuables item that only spawns in one container there) and hand it to James; the strongpoint board then shows the site's garrison type and strength, its component container, and — once held — its timer | 1 | James, `J-S*` |
+| **Scouted** | `<site>_scouted` | reach the site; find its **dossier** (a valuables item that only spawns in one container there) and hand it to James; the strongpoint board then shows the site's garrison type (its strength from U3), its component container, and — once held — its timer | 1 | James, `J-S*` |
 | **Looted** | `<site>_looted` | the owning NPC's hand-ins of items that drop **only at that site's building types** (Novo: hardware, spark plugs; the plant: hoses, fins, fuel cans; the block: blood bags; FR-06: electrical; the plaza: valuables and circuit boards). Two or three trips with the loot budget of §4.5; Lootr refreshes the containers between visits | 2–3 | owning NPC |
 | **Cleared → Held** | `<site>_held` | Marshall's take. The team places the **claim marker** at the site's anchor point. That starts the **assault**: the garrison spawns in waves from the site's edges for 5 minutes; the marker must survive and at least one player must be inside the site rectangle when the 5 minutes end. Win → held, the fortify clock starts, the component container arms. Fail → the marker breaks, the garrison respawns, try again | 1, repeatable | Marshall, `R*` |
 | **Defended** | `<site>_defended` | the site's defence (§6.2), which always comes and is the only attack the site will ever see. Win → the site is safe for good and its components respawn on their timer | 1+ | owning NPC |
@@ -393,14 +393,14 @@ and no site is ever drawn while the players are elsewhere — the only fights ar
 |---|---|---|
 | Assault (the take) | 5 min from marker placement | waves every 45 s from the site edges; garrison scaled to players present |
 | Fortify clock | 2 in-game days (40 min) after `held` | build up, run the loot; nothing attacks during it |
-| **The defence** | the warning starts when the fortify clock ends, **on this site only** | warning = a flat 10 minutes (owner, 2026-09-04; every built site is under 10 min on foot); the board shows the whole countdown (fortify + warning) from the moment the site is held |
+| **The defence** | the warning starts when the fortify clock ends, **on this site only** | warning = a flat 10 minutes (owner, 2026-09-04; every built site is under 10 min on foot); the board shows the warning from Radio 1 and the whole countdown (fortify + warning) from the moment the site is held once Radio 2 is in (U5) |
 | Component respawn | every 2 in-game days while the site is **held** (the one rule; Lootr's 5-day refresh is for ordinary loot only - owner, 2026-09-04) | doubled once every site is held (R6) |
 | Finale countdown after the beacon lights | 3 in-game days (60 min) | waves at the base, the last one carries the boss (`gscraft-finale.md`) |
 
 **One contested site at a time.** The marker is refused while another site is still contested, so
 the players finish one fight before starting the next and the map is taken in order — the pasted
-progression of R2 → R6. Clocks run on **online time** only (they advance while at least one player
-is on), so a defence never fires into an empty world. Hordes' horde event is off (the pack ships it disabled, B6); only its
+progression of R2 → R6. Clocks run on **online time** only (they advance while two or more team members
+are on — the rules of play, §4.5), so a defence never fires into an empty world. Hordes' horde event is off (the pack ships it disabled, B6); only its
 infection runs, wherever the players are, and nothing random ever targets a site. Tune's Radio levels read
 the contested site: Radio 1 shows the warning, Radio 2 the whole countdown from `held`, Radio 3 the
 attack's composition (wave count and mob types) as soon as the marker is placed.
@@ -470,7 +470,7 @@ each hand-in to Marshall runs the next stage's function.
 ### 7.1 The finale and the boss
 
 The countdown ends in five waves at the players' claim: waves 1–4 are the defence tables of §6.3
-stacked (Novo's, then the plant's, then FR-06's, then the plaza's, each ×1.5), each with a named
+stacked (Novo's, then the plant's, then FR-06's, then the plaza's, each ×1.5), waves 2–4 each bringing a named
 Apotheosis-boss **Captain**, and **wave 5 is the boss: the Sleeper, a named Warden** that rises at the
 gate — the thing under the crater that the beacon's pulse woke. It was chosen over the Ender Dragon
 after research (`gscraft-finale.md` §2): outside the End the dragon never lands and cuts gun damage to a
