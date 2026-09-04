@@ -118,7 +118,7 @@ the same footprint, placed by the NPC's upgrade quests (§3.6).
 | 5 | **Financial Plaza Quarantine** (transplant 160×144) | dry land west, x −1952…−1793 × z 848…991 | 2.1 km W | Electronics | Tune |
 | — | **Radio tower** (custom) | in the camp, x 64…191 × z −144…−17 (pad y 99) | 0.1 km | Endgame | Marshall |
 
-**Generated sites, counted** (`tools/structures_v6.json`, every structure start in the 10 km box): 45 villages — Lukis Grand Capitals' versions, hostile under Hostile Villages — and 21 pillager outposts, the bandit settlements of the map; 284 Underground Bunkers; 439 Apotheosis boss towers (the elites of §6.3 can simply be the towers nearest each site); 23 ancient cities; 35 Man-From-The-Fog houses; 2 mansions; 8 strongholds. Nearest to the camp: villages (800, -2352), (2416, -672), (3216, 912); outposts (-1392, 1632), (-1952, 1232), (-512, 2368); bunkers (16, -368), (448, -384), (-784, -384); boss towers (32, -368), (832, -816), (1312, 64). James's J9 sends the players to four of the capitals, and the bunkers are the U-chapter's side dungeons. **Owner's verdict on the census: far too dense.** `gscraft-structure-plan.md` keeps **67** of the 964 sites
+**Generated sites, counted** (`tools/structures_v6.json`, every structure start in the 10 km box): 45 villages — Lukis Grand Capitals' versions, hostile under Hostile Villages — and 21 pillager outposts, the bandit settlements of the map; 284 Underground Bunkers; 439 Apotheosis boss towers (the elites of §6.3 can simply be the towers nearest each site); 23 ancient cities; 35 Man-From-The-Fog houses; 2 mansions; 8 strongholds; 107 smaller starts (trail ruins, igloos, pyramids, monuments) — 964 in all. Nearest to the camp: villages (800, -2352), (2416, -672), (3216, 912); outposts (-1392, 1632), (-1952, 1232), (-512, 2368); bunkers (16, -368), (448, -384), (-784, -384); boss towers (32, -368), (832, -816), (1312, 64). James's J9 sends the players to four of the capitals, and the bunkers are the U-chapter's side dungeons. **Owner's verdict on the census: far too dense.** `gscraft-structure-plan.md` keeps **67** of the 964 sites
 (11 towers, 14 bunkers, 10 capitals, 6 outposts, 4 ancient cities, the rest expedition finds), none within 350 m of
 a designed site, spaced by type, capped per range ring, nearest the roads first; the world is regenerated as **v7**
 with the pruned structure sets disabled and the kept ones placed back (`buildmap/structure_plan_v7.json`).
@@ -470,8 +470,8 @@ each hand-in to Marshall runs the next stage's function.
 ### 7.1 The finale and the boss
 
 The countdown ends in five waves at the players' claim: waves 1–4 are the defence tables of §6.3
-stacked (Novo's, then the plant's, then FR-06's, then the plaza's, each ×1.5), waves 2–4 each bringing a named
-Apotheosis-boss **Captain**, and **wave 5 is the boss: the Sleeper, a named Warden** that rises at the
+stacked (Novo's, then the plant's, then FR-06's, then the plaza's, each ×1.5), waves 2–5 each bringing a named
+Apotheosis-boss **Captain** (the fourth beside the Sleeper), and **wave 5 is the boss: the Sleeper, a named Warden** that rises at the
 gate — the thing under the crater that the beacon's pulse woke. It was chosen over the Ender Dragon
 after research (`gscraft-finale.md` §2): outside the End the dragon never lands and cuts gun damage to a
 quarter, and the Wither becomes immune to projectiles at half health, which in this pack means immune to
@@ -503,15 +503,12 @@ crater; walk the spine line and note every water crossing; check each landing pa
 generated cities between the camp and the district. *Pass:* a marked-up list of terrain fixes and
 final building positions.
 
-**Phase B — World build v6 (offline, on the pristine set + v5 edits, then uploaded).**
-1. Border set; water pad re-cut to 288×304; transplant pads laid without outlines (foundations, not marked lots).
-2. Roads and causeways from the Phase A list (`terrain.py`, `runpass.py`).
-3. Camp buildings (`camp.py`, to write) and tower stage 0 placed; the NPC summon function.
-4. Transplants as the remap allows, in this order: the settlement, Novo, Financial Plaza, Bio Gen,
-   the sewers, the hub (`anvil112.py` writer, `remap112.json`, `transplant.py`).
-5. Chunky the full box; pull the region set as the new pristine; regenerate the district map page.
-*Pass:* boot with the benign-12 error set; every site reachable on foot or by road in a second
-visual pass.
+**Phase B — World build (v6 built and deployed 2026-09-03; v7 = the structure prune and the Woods, in progress).**
+Done in v6: border set; pads laid as foundations without outlines; the transplants (the settlement, Novo, Financial
+Plaza, Bio Gen, the sewers, the hub) through the 1.12 → 1.20 pipeline (`anvil112.py`, `remap112.json`, `transplant.py`);
+the four roads routed by `roads.py`; tower stage 0, the camp ruins and the torches placed by function. Coming with v7
+(`gscraft-structure-plan.md`, `gscraft-woods-plan.md`): the kept structures placed back, the Woods regenerated, the
+Novo → sawmill spur, `camp.py`'s tier-0 buildings. *Pass:* a clean boot; every site reachable on foot or by road.
 
 **Phase C — Systems v1.** KubeJS items (small, intermediate, complete, components, the five
 dossiers, the claim marker; stack sizes; bulky rule), the station recipes and their `bp_*` stages, datapack loot tables by

@@ -10,8 +10,7 @@ offsets are whole sections (16 blocks), and each pad is cut to *source ground + 
 source ground from the terrain, never from the spawn point: two of the saves are superflats with the
 ground at y 54 and y 230) so the build
 lands on its pad without a block-level re-slice. "Terrain: pending" means the ring there is not
-generated yet; the 10 km pre-generation is running on the local server and those sites get their
-final pad level (and a dry/wet check) from its render.
+generated yet when this sheet was first written; the pre-generation has since run and the pad levels in §3 are the ones built.
 
 ## 1. What changed and why
 
@@ -24,7 +23,7 @@ final pad level (and a dry/wet check) from its render.
 | Bio Gen offices | beside the runway | **same**, pad's west end, two groups | a loot site the runway trip passes; the runway keeps 430 m. |
 | The hub (Novo Expograd city) | air ring ≈ (6000, 1500) | **same direction, 6.2 km E** | the accepted decision: the air ring is expedition-only and the hub is its prize. East keeps it on the axis camp → district → runway, a 2.4 km flight from the runway. |
 | Old substation pad | Novo | **restored to terrain** | freed; a bare levelled square in the ring would read as a site. One pass from the pristine set. |
-| District → tower road | needed | **dropped** | the tower is home. Replaced by district → Financial Plaza. |
+| District → tower road | needed | **dropped** | the tower is home. Replaced by the west road, camp → Financial Plaza. |
 
 ## 2. The camp (0 – 0.2 km), x/z −176…207
 
@@ -160,7 +159,7 @@ visual pass.
   restore the substation pad, pads from `tools/pads_v6.json`, transplants from the plan, ramps, gaps
   report); `tools/localconsole.py` boots the local server for the in-game part (tower stage 0,
   world spawn, boot check); `tools/localpregen.py` drove the 10 km Chunky run with the border set.
-  Roads wait for the Phase A list; the camp buildings for `camp.py`.
+  Roads were built by `roads.py` (§4); the camp buildings wait for `camp.py`.
 
 ## 6. Offsets, for the plan file
 

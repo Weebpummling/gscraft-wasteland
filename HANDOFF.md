@@ -36,7 +36,7 @@ roster, equipment crafting, garrison tables, the finale (now the Sleeper, `docs/
 New tools: `dossiers.py` (dossier chests, `tools/dossiers.json`, `gscraft:dossiers`), `camp_ruins.py` (24
 ruin pieces in the camp, `gscraft:camp_ruins`, loot tables under `ruins/`). **EMI 1.1.24 added** to the
 server's `/mods` (client-side mod; the dedicated server skips it) and to `additions.json` / `manifest.json`;
-the client pack was rebuilt with it on 2026-09-04 (`G:/GSCraft/release-v7/GSCraft-Client.zip`, 453 MB, EMI 1.1.24
+the client pack was rebuilt with it on 2026-09-03 (`G:/GSCraft/release-v7/GSCraft-Client.zip`, 453 MB, EMI 1.1.24
 sha512-verified; goes up with the v7 release and replaces the Drive copy). `camp_ruins` has been run on the hosted world (24 pieces, read back from the region files). `tools/furnish.py`
 places loot chests in sites that came across without any (Novo has none above ground: its 1.12 source had
 34 k blocks and no containers; the plaza has one) — `gscraft:furnish_novo` and `gscraft:furnish_financial`, 12
@@ -87,7 +87,7 @@ from Novo. Plan and quest hooks: `docs/gscraft-woods-plan.md`. Not built yet.
 **Design addendum (owner, 2026-09-04):** military vehicle blueprints (Humvee RWS, Black Hawk, Bradley) are mid/late quest
 rewards (W-M1, W-B3, X6), never tier unlocks - crafting §2.1, quests draft 2.
 
-**Not started:** the two mod-set updates of `docs/gscraft-modpack-review.md` §4 (Dynamic Flashlight 2.1.0 — owner's approval, then server + client + manifest; EMI 1.1.24 into the local Prism instance — done 2026-09-04 from the release-v7 copy); Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
+**Not started:** the flashlight update of `docs/gscraft-modpack-review.md` §4 (Dynamic Flashlight 2.1.0 — owner's approval, then server + client + manifest; EMI was synced into the local sets on 2026-09-04); Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
 `camp.py` (the six NPC buildings as templates onto their pads); the systems (KubeJS items, blueprints,
 stages, the strongpoint loop and timers; FTB Quests chapters from `docs/gscraft-quests.md`; loot tables
 by building type); the Superb Warfare small-arms toggle; old-world housekeeping on the hosted server
@@ -142,6 +142,7 @@ do not, but they are fully generated so it no longer matters there).
 - `docs/gscraft-map-design.md` - THE design (draft 6): the game in one paragraph, the map's three ranges,
   the camp and its six NPCs, strongpoints, the item ladder, storage, hideout functions, the loop and
   timers, the tower, tech stack, build order with test gates.
+- `docs/gscraft-crafting.md` - stations and timed orders, the vehicle roster and recipes, equipment crafting, the capability audit (draft 1 + the 2026-09-04 sheet §5.6–§5.7).
 - `docs/gscraft-quests.md` - all 121 quests, six NPC chapters, what FTB Quests needs from KubeJS.
 - `docs/gscraft-modpack-review.md` - the mod set against the design (2026-09-04): everything the design names is installed; two updates required (Dynamic Flashlight 2.1.0 to add, EMI to sync locally); twelve manifest conditional-libraries are reference only; nothing removed.
 - `docs/gscraft-vendors.md` - the vendor system (2026-09-04): six counters, loyalty = building tier, prices, barters, night vision, the merchant-offers mechanism.
