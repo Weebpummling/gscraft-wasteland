@@ -39,7 +39,7 @@ ordered by how much it would add for how little it costs, with a recommendation 
 |---|---|
 | **Custom Starting Gear** | hands the personal station and the starting sidearm to every new player — the first-join moment |
 | **PlayerRevive** | revives are Tony's whole chapter (T8 counts three) |
-| **Lootr** | per-player loot in every container; its refresh interval is the reason a site can be looted on three trips |
+| **Lootr** | per-player loot in every ordinary chest (component and dossier containers are shared, B29); its refresh interval is the reason a site can be looted on three trips |
 | **In Control!** | the ambient garrison rules of §6.3 |
 | **Improved Mobs** | garrisons harden with distance from spawn — the difficulty curve across the three ranges comes for free |
 | **Let Me Despawn, Get It Together Drops, chunksending, ModernFix, Canary, FerriteCore** | keep five players and 100 mods playable on 8 GB |

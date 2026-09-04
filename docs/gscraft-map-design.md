@@ -323,7 +323,7 @@ intermediates, from level 2 one component from the role's strongpoint, at level 
 
 **The hub's economy (C17, 2026-09-04).** The game needs 3 phased array elements (X6, U9, J8), 6 satellite receivers
 (J8, W-B3, U-B3, J-B3, Storage 4, the Black Hawk) and 4 military power filters (T9, M13, T-B3, M-B3): thirteen hub
-items. The hub is never held, so they sit in shared `gscraft:hub/*` component containers that the loop script refills every 5 in-game days (B29; not Lootr-instanced, so five players still get five items), not
+items. The hub is never held, so they sit in shared `gscraft:hub/*` component containers that the loop script refills every 5 in-game days (B29; not Lootr-instanced: five containers, one item each, whoever opens them), not
 the held-site timer — one array container, two receiver containers, two filter containers, one item each per refresh:
 five a visit, so the list is **three hub runs** across Act IV's three sessions, one a session (`gscraft-loot-tables.md` §6).
 U-D3's satellite receiver saves one of the six.
@@ -394,7 +394,7 @@ and no site is ever drawn while the players are elsewhere — the only fights ar
 | Assault (the take) | 5 min from marker placement | waves every 45 s from the site edges; garrison scaled to players present |
 | Fortify clock | 2 in-game days (40 min) after `held` | build up, run the loot; nothing attacks during it |
 | **The defence** | the warning starts when the fortify clock ends, **on this site only** | warning = a flat 10 minutes (owner, 2026-09-04; every built site is under 10 min on foot); the board shows the warning from Radio 1 and the whole countdown (fortify + warning) from the moment the site is held once Radio 2 is in (U5) |
-| Component respawn | every 2 in-game days while the site is **held** (the one rule; Lootr's 5-day refresh is for ordinary loot only - owner, 2026-09-04) | doubled once every site is held (R6) |
+| Component respawn | every 2 in-game days while the site is **held** (the held-site rule; the never-held sites' shared containers refill every 5 in-game days — §4.4, loot sheet §1; Lootr's 5-day refresh is for ordinary loot only - owner, 2026-09-04) | doubled once every site is held (R6) |
 | Finale countdown after the beacon lights | 3 in-game days (60 min) | waves at the base, the last one carries the boss (`gscraft-finale.md`) |
 
 **One contested site at a time.** The marker is refused while another site is still contested, so
