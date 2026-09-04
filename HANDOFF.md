@@ -87,7 +87,7 @@ from Novo. Plan and quest hooks: `docs/gscraft-woods-plan.md`. **Built in v7** (
 **Design addendum (owner, 2026-09-04):** military vehicle blueprints (Humvee RWS, Black Hawk, Bradley) are mid/late quest
 rewards (W-M1, W-B3, X6), never tier unlocks - crafting §2.1, quests draft 2.
 
-**Client crash fixed 2026-09-04:** Parties 2.0-beta-p.7.1 + Xaero's Minimap 26.4.2 crash every client at mod setup (`xaero/common/gui/IScreenBase`). `parties_xaerominimap_fix-1.0.0.jar` (CurseForge 1589418, client-side only, owner-approved) is in the Prism instance, `release-v7/GSCraft-Client.zip`, the packwiz pack (`mods/parties-xaerominimap-fix-1-0-0.pw.toml`, side client, asset on `pack-files-2026-09-04`) and the manifests. Never put it in the server's `/mods`.
+**Client crash fixed 2026-09-04:** Parties 2.0-beta-p.7.1 + Xaero's Minimap 26.4.2 crash every client at mod setup (`xaero/common/gui/IScreenBase`). `parties_xaerominimap_fix-1.0.0.jar` (CurseForge 1589418, client-side only, owner-approved) is in the Prism instance, `release-v7/GSCraft-Client.zip`, the packwiz pack (`mods/parties-xaerominimap-fix-1-0-0.pw.toml`, side client, asset on `pack-files-2026-09-04`) and the manifests; `tools/packwiz_build.py` carries it in `CLIENT_EXTRA_JARS` (client-only jars that live in the Prism instance, not in `server/mods`), so a pack rebuild keeps it. The installer bundle, mrpack and instance zip on `client-installer-2026-09-04` were refreshed with it. Never put it in the server's `/mods`.
 
 **Not started:** `tools/runway_lights.py` → `gscraft:runway_lights` (camp spec §5, Phase B); Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
 `camp.py` (the six NPC buildings as templates onto their pads); the systems (KubeJS items, blueprints,
