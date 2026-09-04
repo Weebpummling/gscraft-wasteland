@@ -61,6 +61,7 @@ def step_pads(dst: Path, pads, dry):
         x1, z1, x2, z2 = p["blocks"]
         args = [HERE / "terrain.py", "pad", dst, x1, z1, x2, z2, "--y", p["y"], "--label", p["name"]]
         for pr in p.get("protect", []): args += ["--protect", *pr]
+        if not p.get("outline", True): args.append("--no-outline")     # a transplant's foundation is not a marked lot
         if dry: args.append("--dry-run")
         run(*args)
 

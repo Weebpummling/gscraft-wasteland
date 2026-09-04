@@ -2,7 +2,7 @@
 
   terrain.py gaps    <world> <plan.json>                 report height gaps along every transplanted rectangle edge
   terrain.py smooth  <world> <plan.json> [--dry-run]     ramp generated terrain to the transplanted edges
-  terrain.py pad     <world> x1 z1 x2 z2 [--y Y] [--protect X1 Z1 X2 Z2 ...] [--label NAME] [--clear-only] [--dry-run]
+  terrain.py pad     <world> x1 z1 x2 z2 [--y Y] [--protect X1 Z1 X2 Z2 ...] [--label NAME] [--clear-only] [--no-outline] [--dry-run]
                         level a rectangle to one height (above any water it touches) with a marked border;
                         --clear-only removes everything built above the ground and levels nothing
   terrain.py ramp    <world> x1 z1 x2 z2 --y Y [--label NAME]   ramp the terrain outside a levelled pad
@@ -285,7 +285,7 @@ def draw_outline(world, x1, z1, x2, z2, protected, y=None):
             for yy in range(s + 1, s + 4): world.set(x, yy, z, POST)
 
 
-def cmd_pad(world, x1, z1, x2, z2, y, protect, label, clear_only, dry):
+def cmd_pad(world, x1, z1, x2, z2, y, protect, label, clear_only, dry, outline=True):
     x1, x2 = sorted((x1, x2)); z1, z2 = sorted((z1, z2))
 
     def protected(x, z):
@@ -362,7 +362,7 @@ def cmd_pad(world, x1, z1, x2, z2, y, protect, label, clear_only, dry):
                 world.set(x, y, z, TOP)
             cols += 1
     dropped = world.drop_block_entities(x1, z1, x2, z2, y, protected)
-    draw_outline(world, x1, z1, x2, z2, protected, y)
+    if outline: draw_outline(world, x1, z1, x2, z2, protected, y)
     files, chunks = world.save(dry)
     print(f"pad {label} x {x1}..{x2} z {z1}..{z2} at y={y}: {cols} columns levelled, {dropped} block entities dropped, {chunks} chunks, files {files}")
     print("DRY RUN - nothing written" if dry else "written")
@@ -396,7 +396,7 @@ def main(argv):
             if a[0] == "--y": y = int(a[1]); a = a[2:]
             elif a[0] == "--protect": protect.append(list(map(int, a[1:5]))); a = a[5:]
             else: a = a[1:]
-        cmd_pad(world, x1, z1, x2, z2, y, protect, label, "--clear-only" in argv, dry)
+        cmd_pad(world, x1, z1, x2, z2, y, protect, label, "--clear-only" in argv, dry, outline="--no-outline" not in argv)
     else:
         print(__doc__)
 

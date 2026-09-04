@@ -69,6 +69,11 @@ Immersive Vehicles crash into the fence breaks nothing.
 
 ## 3. Strongpoints and sites — the placement table
 
+*Pads, since 2026-09-04:* under a transplanted site the "pad" is only a **foundation** - the ground cut and filled to the
+build's floor level, four blocks wider than the build, ramped, with **no outline** - because the superflat sources and the
+wasteland terrain disagree by tens of blocks. The marked pads with the yellow outline remain only where nothing stands yet:
+the tower compound, the six NPC building sites and the runway.
+
 Distances are from the camp centre (16, 16), straight line. Ranges are draft 5's: foot ≤ 1.5 km,
 road 1.5–4 km, air 4.5–6.5 km.
 
