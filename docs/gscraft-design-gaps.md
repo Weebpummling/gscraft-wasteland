@@ -104,5 +104,28 @@ Every other row: **the default, applied** in the same commit as this note.
 | C17 | Hub component economy (phased array ×3, satellite receiver ×6, power filter ×4 at one or two per visit, 6 km by air) | D (respawn tuning) |
 | C18 | Infection-to-death timer; revive numbers | D |
 
+### C status (2026-09-04)
+
+| # | Done where |
+|---|---|
+| C1 | crafting §5.6 (fuel can, cargo crate and the three cargo variants, claim marker, casings, powder, ammunition) with their blueprint quests |
+| C2 | crafting §5.3/§5.6: torch and hand drill from camp junk; W7 gated on M3 |
+| C3 | quests §9 stage table |
+| C4 | quests D5 Greenhouse, D6 Rations |
+| C5 | `gscraft-camp-spec.md` §1–§3, §6 |
+| C6 | layout sheet §3.1 (library identification to confirm on the visual pass) |
+| C7 | `gscraft-loot-tables.md` §5 |
+| C8 | `gscraft-loot-tables.md` §2 |
+| C9 | camp spec §5 (runway lights, the Night-Vision flashlight, the notebook) |
+| C10 | quests W14, J3, J9, J10, J11, D3; loot sheet §7 |
+| C11 | quests §7.5 (nine quests; no sixth strongpoint; the Woods In Control rule) |
+| C12 | quests §7.6 (U-D1…U-D3) |
+| C13 | quests §9.1 |
+| C14 | design §6.3 (elites by `spawn_boss`) |
+| C15 | crafting §5.7, camp spec §4, mod capabilities §5c |
+| C16 | **open** — needs the v7 world (Phase A visual pass, `gscraft-map-review-v6.md`) |
+| C17 | design §4.4, loot sheet §6 |
+| C18 | design §4.5; `build/phase05/config/playerrevive.json` (bleedTime 6000, maxDistance 6) |
+
 Related: every design document above. The A fixes are applied in the same commit as this file; B is the
 owner's list; C rows are copied into the phase they name in `HANDOFF.md`.

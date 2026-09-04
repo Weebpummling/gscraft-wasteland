@@ -97,6 +97,26 @@ road 1.5–4 km, air 4.5–6.5 km.
 The library, hempcrete compound, stone complex, mud village, acacia hall, glass tower and the small
 district builds stay where they are (draft 5 §2.3). The generated Lost Cities towns stay as found.
 
+### 3.1 The small sites (C6, 2026-09-04)
+
+Located from `buildmap/site_inventory.json` by their signature materials; distances are from the camp
+centre to the nearest edge. Roles are `gscraft-loot-tables.md` §5. The library's identification (the
+chiseled-bookshelf building at 2.5 km, not the bookshelf ruin at 1.5 km) is the one to confirm on the
+visual pass.
+
+| Site | Blocks (x0 z0 x1 z1) | Size | From camp | Signature | Role |
+|---|---|---|---|---|---|
+| Glass tower | 1184 464 1263 607 | 80×144 | 1.3 km | white stained glass, quartz pillars | Act I electrical (J1) |
+| Acacia hall | 1488 432 1599 511 | 112×80 | 1.55 km | acacia wood, IE wiring | Act I hardware (J1) |
+| Residential block | 1328 1376 1551 1775 | 224×400 | 1.9 km | stone brick, white concrete, oak | strongpoint 2 (Tony) |
+| Hempcrete compound | 1568 1152 1887 1471 | 320×320 | 2.0 km | IE hempcrete, razor wire | medical and hardware; fallback transplant site |
+| Copper tower | 1920 1024 1999 1135 | 80×112 | 2.2 km | waxed copper | electrical |
+| Prismarine hall | 2016 768 2143 815 | 128×48 | 2.2 km | prismarine; sculk sensors, catalyst and shrieker inside | filters and chemicals; the Sleeper's first sign (finale §3) |
+| Library | 2032 1392 2127 1487 | 96×96 | 2.5 km | chiseled bookshelves, signs, beehives | valuables (J3, U3) |
+| Mud village | 2368 1552 2479 1711 | 112×160 | 2.8 km | packed mud, campfires, beds | food and the farm (D3, D5) |
+| Stone complex | 2528 1344 2751 1631 | 224×288 | 2.9 km | smooth stone, spawners, barrels | the spawner dungeon: ammunition and salvage |
+
+
 ## 4. Roads and water
 
 1. **Spine:** gate (173, 8) → Novo's west gate (≈ 992, 176) → the district's north-west corner

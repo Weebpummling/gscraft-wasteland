@@ -129,7 +129,8 @@ Loot sites, never attacked: **Bio Gen Offices** (two groups, 64×64 and 16×32) 
 **the settlement** (272×288) on the water-treatment pad re-cut to 288×304; **the sewers** (96×96)
 under Financial Plaza; **the hub** (832×640, the Novo Expograd city) in the air
 ring at x 5600…6431 × z 1184…1823, 6.2 km E, James's territory; the library, hempcrete compound, stone complex (a
-spawner dungeon) and the small district builds. If a transplant fails its remap, the hempcrete
+spawner dungeon) and the small district builds — all located in `gscraft-map-layout-v6.md` §3.1 and given loot roles in
+`gscraft-loot-tables.md` §5 (2026-09-04). If a transplant fails its remap, the hempcrete
 compound takes its role.
 
 ### 2.4 Roads and water
@@ -162,7 +163,7 @@ toolsmith, Michael an armorer, Tune a librarian, James a fletcher, Marshall a ni
 the joke, or a cartographer if not). The Recruits mod in the pack stays for hireable guards later;
 it is not used for these six. No gameplay mod is added (EMI, a client-side recipe viewer, was added on 2026-09-03).
 
-**Who unlocks what.** The full chains, 106 quests across the six chapters, scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
+**Who unlocks what.** The full chains, 121 quests across the six chapters, scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
 
 | NPC | Owns | Starting tasks (the introduction) | Unlocks when done | Their chain |
 |---|---|---|---|---|
@@ -261,7 +262,7 @@ visits, because scouting, looting and the take are separate quests in three diff
 
 | Tier | How you get it | Stack |
 |---|---|---|
-| **Small items** (40, §4.2) | loot only, everywhere, by building type | 4–8, tools and valuables 1 |
+| **Small items** (42, §4.2) | loot only, everywhere, by building type | 4–8, tools and valuables 1 |
 | **Intermediates** | ordered at the stations (crafting §4) from blueprints the NPCs hand out per base-function level | 4 |
 | **Complete parts** | intermediates **plus one loot-only component** | 1, bulky |
 | **Loot-only components** | at the strongpoint that owns the role, or the hub; no recipe exists | 1, bulky |
@@ -276,10 +277,10 @@ crafting chain and a trip.
 | Hardware | bolts, nuts, screws, nails, metal scrap, duct tape, insulating tape | garages, workshops, factories, Novo, the plant | 8 |
 | Electrical | wire spool, power cord, light bulb, capacitor, relay, circuit board, electric motor, car battery | offices, Financial Plaza, FR-06 decks, the library | 4 (motor, battery 1) |
 | Mechanical | corrugated hose, silicone tube, radiator fin, pressure gauge, spark plug | the plant, garages, Novo, the sewers | 4 |
-| Filters and chemicals | water filter, gas-mask filter, bleach, antifreeze, motor oil, solvent | stores, the plant, apartments, Bio Gen | 4 |
+| Filters and chemicals | water filter, gas-mask filter, bleach, antifreeze, motor oil, solvent, gunpowder (vanilla) | stores, the plant, apartments, Bio Gen; gunpowder at the stone complex and military chests | 4 |
 | Medical | bandage, painkillers, syringe, antiseptic, blood bag | apartments, the residential block, Bio Gen | 4 |
 | Tools | wrench, pliers, screwdriver set, hand drill, welding torch | garages, Novo, FR-06 hangar | 1 |
-| Valuables | broken radio, computer parts, hard drive, folder of documents | offices, Financial Plaza, the hub | 1 |
+| Valuables | broken radio, computer parts, hard drive, folder of documents, emerald (vanilla; the Recruits' hire currency) | offices, Financial Plaza, the hub | 1 |
 
 ### 4.3 Intermediates (blueprints = team stages `bp_<recipe>`, ordered at the stations; the "blueprint from" column follows the quest tables)
 
@@ -314,6 +315,13 @@ hub). They spawn in specific containers at their site, one or two per visit, and
 respawn timer, so a held strongpoint keeps producing. Base upgrade kits have the same shape: a kit of
 intermediates, from level 2 one component from the role's strongpoint, at level 3 one from the hub.
 
+**The hub's economy (C17, 2026-09-04).** The game needs 3 phased array elements (X6, U9, J8), 6 satellite receivers
+(J8, W-B3, U-B3, J-B3, Storage 4, the Black Hawk) and 4 military power filters (T9, M13, T-B3, M-B3): thirteen hub
+items. The hub is never held, so they sit in `gscraft:hub/*` component containers on Lootr's 5-in-game-day refresh, not
+the held-site timer — one array container, two receiver containers, two filter containers, one item each per refresh:
+five a visit, so the list is **three hub runs** across Act IV's three sessions, one a session (`gscraft-loot-tables.md` §6).
+U-D3's satellite receiver saves one of the six.
+
 ### 4.5 Space
 
 36 slots and an offhand; a fighting kit takes 10–12; the rest is the loot budget, and a complete
@@ -322,7 +330,7 @@ part's shopping list is 6–10 different items, so the budget is spent on **vari
 - Small items stack 4–8; intermediates 4; complete parts and components **stack 1 and are bulky**:
   no backpack, Slowness and no sprint while carried (KubeJS item + player tick; backpack exclusion
   through the backpack mod's config if it has one, else a KubeJS insert check).
-- Death drops everything except the secure pack (keepInventory off; PlayerRevive makes it rare). **Rules of play (owner defaults, 2026-09-04):** respawn is the camp (world spawn 19 94 26; a bed at the clinic from T-B1 moves it); a downed player bleeds out in 5 minutes unless revived (range 4 m, 6 m from Medical 1, 8 m from T-B2); a late joiner or sixth player receives the team's stages (all progress stages are **team** stages via FTB Teams; only the first-time onboarding lines and `revives_3` are per player), the starting kit and the introductions as a tour; the fortify clock, warning and defence tick only while **two or more** team members are online - a defence that would start with fewer waits for the next login; a restart mid-assault keeps the contested slot, the clocks and the marker, and the interrupted wave restarts from its beginning; pvp and friendly fire are off; the sleep percentage is 100 so nights are never skipped; hunger stays on and is fed from Marshall's kitchen (D3) and canned goods in the loot tables; the world border warns at 200 blocks and does no damage.
+- Death drops everything except the secure pack (keepInventory off; PlayerRevive makes it rare). **Rules of play (owner defaults, 2026-09-04):** respawn is the camp (world spawn 19 94 26; a bed at the clinic from T-B1 moves it); a downed player bleeds out in 5 minutes unless revived (PlayerRevive `bleedTime` 6000 and `maxDistance` 6 — one global value each, the mod has no runtime config command, so Medical 1 and the clinic tiers act through the script instead: the camp revive point at Medical 1, a 3-second clinic revive at T-B2, full health at T-B3 — C18, 2026-09-04); infection kills 20 minutes after the bite (Hordes: four 5-minute phases, `ticksForEffectStage` 6000) unless cured at the clinic (T1) or by a med kit (Medical 2), and that death is a real death, not a bleed-out (`hordes:infection` bypasses PlayerRevive); a late joiner or sixth player receives the team's stages (all progress stages are **team** stages via FTB Teams; only the first-time onboarding lines and `revives_3` are per player), the starting kit and the introductions as a tour; the fortify clock, warning and defence tick only while **two or more** team members are online - a defence that would start with fewer waits for the next login; a restart mid-assault keeps the contested slot, the clocks and the marker, and the interrupted wave restarts from its beginning; pvp and friendly fire are off; the sleep percentage is 100 so nights are never skipped; hunger stays on and is fed from Marshall's kitchen (D3) and canned goods in the loot tables; the world border warns at 200 blocks and does no damage.
 - **Storage is Walker's function**, on Sophisticated Backpacks in the Curios slot:
 
 | Storage | Unlocks | Carried |
@@ -427,6 +435,14 @@ Ambient rules are In Control! `spawn.json` entries keyed to the site rectangle (
 with a `maxcount` cap; assault and defence waves are the loop script summoning at edge points, with
 the Hordes wave types for the zombie mixes. The camp's own suppression rule (no hostile spawns inside
 the outline) stays; the finale's waves at the base are §7.1.
+
+**Elites (C14, 2026-09-04).** Each site's elite is an Apotheosis boss definition `gscraft:elite_<site>` in the datapack
+(the site's mob type, a TaCZ gear set, rarity rare–epic, +40…+80 HP, knockback resistance 0.5), summoned by the loop
+script with `/apoth spawn_boss gscraft:elite_<site> <rarity>` at the wave the table names — the same call the Boss
+Spawner block makes, with no block to place. Natural bosses stay off (`Boss Spawn Cooldown` at its maximum), so an
+affixed mob is always a designed moment. **The Woods** (x 400…2400, z −3500…−1500) has its own In Control! rule:
+zombies capped at 4, no husks, drowned 2 at water, bandits only inside the outpost's rectangle until R-W1, spiders
+below y 40 (the bunkers), the fog man and the eyes at night as their mods spawn them (quests §7.5).
 
 ---
 

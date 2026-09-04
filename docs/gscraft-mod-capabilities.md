@@ -24,7 +24,7 @@ ordered by how much it would add for how little it costs, with a recommendation 
 | Mod | Capability | Proposal |
 |---|---|---|
 | **Superb Warfare — defences** | Laser Defense Tower, Waveforce tower, H/PJ-11 CIWS, Claymore, C4, Mortar, Drone, Sandbag, Barbed Wire, Jump Pad, FuMO25 Fire Control Radar, Aircraft Catapult, Vehicle Deployer | Marshall's Walls 1–3 are these, not "turret-style defences" in the abstract: Walls 1 sandbags + barbed wire + claymores; Walls 2 the mortar and drones; Walls 3 the laser tower and the radar. Each is a station recipe with a strongpoint component |
-| **Apotheosis** | boss affixes, the **Boss Spawner** block, Salvaging Table, Reforging / Augmenting tables, gems | the elite in each garrison table and the finale's four Captains (`gscraft-finale.md`) get their affixes here — boss definitions are JSON under `data/<ns>/bosses/`, summoned with `/apoth spawn_boss <id> <rarity>`; the **Boss Spawner** is the assault's wave source (place it at the site edge for 5 minutes, remove it); Salvaging is what "salvage" in the crafting doc should literally be — the Salvaging Table in Walker's yard turns loot gear into parts |
+| **Apotheosis** | boss affixes, the **Boss Spawner** block, Salvaging Table, Reforging / Augmenting tables, gems | the elite in each garrison table and the finale's four Captains (`gscraft-finale.md`) get their affixes here — boss definitions are JSON under `data/<ns>/bosses/`, summoned with `/apoth spawn_boss <id> <rarity>`; the elites are `gscraft:elite_<site>` boss definitions summoned by the loop with `/apoth spawn_boss` (B20: the script spawns the waves, Apotheosis the elite — the command is what the Boss Spawner block calls, so no block is placed); Salvaging is what "salvage" in the crafting doc should literally be — the Salvaging Table in Walker's yard turns loot gear into parts |
 | **Immersive Engineering — machines** | crusher, arc furnace, excavator, diesel generator, fluid pipes, wiring, the workbench | Michael's Generator and Water functions are IE's diesel generator and pump; the biodiesel chain (Water 2) is IE's fermenter + refinery; the plant's tier-2 tank farm is real IE tanks. The design says "IE power" — this says which machines |
 | **Sophisticated Backpacks — upgrades** | magnet, feeding, everlasting, stack, void, tank upgrades, backpack-in-backpack | Storage 1–4 list the packs but not the upgrades; magnet at Storage 2, feeding at Storage 3 alongside everlasting. Each is a station recipe |
 | **ParCool** | zipline hooks and rope, vaulting, wall-runs | ziplines from James's lookout tier 3 and the radio tower platforms; the camp's lookout becomes a fast exit over the rim |
@@ -83,7 +83,7 @@ ordered by how much it would add for how little it costs, with a recommendation 
 - **Lootr:** `refresh_modids = ["gscraft"]`, `refresh_value = 120000` (5 in-game days = the attack cycle): the site and
   component chests that carry `gscraft:` tables refresh on the loop's rhythm; Lost Cities chests stay one-shot per player.
 - **Apotheosis:** `Boss Spawn Cooldown` set to its maximum, which stops the mod's random surface bosses; elites come only
-  from the garrison tables and the Boss Spawner (§2).
+  from the loop's `spawn_boss` calls (§2, design §6.3).
 - **Install guide:** EMI and Ping Wheel keys added for the players.
 - **Military vehicles:** blueprint-gated quest rewards (crafting §2.1) - the strip above removes their default recipes.
 
@@ -91,8 +91,20 @@ Still words, not files: the IV crafting overrides for the civilian roster (the j
 `overrides -> packID -> itemName -> {commonMaterialLists, extraMaterialLists, repairMaterialLists, returnedMaterialLists}` and
 a `dumpCraftingConfig` flag, but the dedicated server has never written the file in our runs and `mtsconfig.json` carries no
 such key - the file name and trigger are to be found with the game in Phase C), Recruits at the gatehouse, Guard
-Villagers per tier, the Boss Spawner as the assault source, the Salvaging Table in the yard, Sophisticated Backpacks
-upgrade gating, ParCool ziplines, Farmer's Delight hunger - all Phase C/D script and template work.
+Villagers per tier, the elite boss definitions, the Salvaging Table in the yard, Sophisticated Backpacks
+upgrade gating, ParCool ziplines, Farmer's Delight hunger - all Phase C/D script and template work; the design half of
+each is now written (§5c).
+
+## 5c. Done on 2026-09-04 (the gap audit's phase items, design side)
+
+- **Superb Warfare defences** as Walls 1–3 station orders with verified ids (`gscraft-crafting.md` §5.7).
+- **Sophisticated Backpacks upgrades** gated per Storage level, ids listed (crafting §5.7); the inception upgrade is J11's reward only.
+- **ParCool ziplines**: rope and iron hooks as J-B2 orders; hooks placed by the lookout tier 3 and tower functions (crafting §5.7, camp spec §1).
+- **Guard Villagers per tier and Recruits hiring**: counts, tags, the emerald currency (`gscraft-camp-spec.md` §4).
+- **Apotheosis elites**: `gscraft:elite_<site>` boss definitions, summoned by command (design §6.3); the finale's Captains the same way (`gscraft-finale.md`).
+- **Farmer's Delight**: Farm 1–3 quests (D3, D5, D6), the ration pack (quests §7.2).
+- **Hordes infection and PlayerRevive numbers** (design §4.5; `build/phase05/config/playerrevive.json`).
+- **Immersive Vehicles override**: still the Phase C in-game find; the fallback is written (crafting §5.7).
 
 ## 6. What this changes in the documents
 

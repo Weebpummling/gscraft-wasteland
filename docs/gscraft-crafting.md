@@ -234,7 +234,7 @@ pack's and are pinned in the recipe file at Phase C.
 
 | Tier | Quest | Unlocks | Recipe shape |
 |---|---|---|---|
-| 1 | **W-A1 Sidearm** (Act I, after W1) | pistol, pump shotgun; pistol and shotgun ammunition; the salvage rule | gun frame + barrel + trigger group + 4 planks (stock); ammo: 4 metal scrap + 1 gunpowder → 30 rounds (Quick) |
+| 1 | **W-A1 Sidearm** (Act I, after W1) | pistol, pump shotgun; pistol and shotgun ammunition; the salvage rule | gun frame + barrel + trigger group + 4 planks (stock); ammo: 8 casings + 1 powder + 2 metal scrap → 30 rounds (Quick; casings and powder §5.6) |
 | 2 | **W-A2 Plates** (Act I–II, after W3) | scrap vest and helmet (§5.3); rifle ammunition | plate ×4 + duct tape → vest |
 | 2 | **W-A3 Long guns** (Act II, after `novo_defended`) | assault rifle, SMG; iron sights, extended magazine | 2 gun frame + barrel + trigger group + 1 steel frame; attachments: circuit-free, metal scrap and tape |
 | 3 | **W-A4 Precision** (Act III, after W9) | sniper rifle, machine gun, the launcher; optics, suppressor | + 1 circuit assembly (optics), + 1 **military circuit board** (the launcher, from Financial Plaza) |
@@ -246,7 +246,7 @@ pack's and are pinned in the recipe file at Phase C.
 | Scrap vest / scrap helmet | 1 (W-A2) | 4 plate + 1 duct tape / 2 plate + 1 cloth | KubeJS armour items, leather-to-chain protection |
 | Plated vest / plated helmet | 2 (after `plant_defended`) | 6 plate + 1 steel frame / 3 plate + 1 steel frame | iron-class |
 | Composite vest / composite helmet | 3 (after `fr06_defended`) | 8 plate + 2 steel frame + 1 **transformer core** / 4 plate + 1 circuit assembly | diamond-class; the core is the FR-06 trip |
-| Hand tools | 0 (W1) | wrench 3 metal scrap; pliers 2; screwdriver set 2 + 1 planks; hand drill 4 + 1 electric motor; welding torch 4 + 1 fuel can | tools stay in loot as rare finds |
+| Hand tools | 0 (W1) | wrench 3 metal scrap; pliers 2; screwdriver set 2 + 1 planks; hand drill 4 metal scrap + 1 wire spool + 1 duct tape (hand-cranked); welding torch 4 metal scrap + 2 silicone tube (gas torch) — all from the camp's ruins (C2 fix, 2026-09-04) | tools stay in loot as rare finds |
 | Backpacks | Storage 1–4 (W2, W6, W10, W13) | basic: 6 cloth + 2 duct tape; iron: + 4 plate; gold: + 1 steel frame + 1 **heavy anchor cable**; diamond: + 1 **satellite receiver** | Sophisticated Backpacks' own recipes are replaced |
 | Cloth | Quick | 2 wool or 4 string → 1 cloth | the one new Quick item |
 
@@ -276,12 +276,55 @@ itself is placed by the M-B2 template, never crafted.
   removed from every table.
 - Tools keep a rare slot. Components keep their site containers. Nothing else changes.
 
+### 5.6 The rest of the sheet (C1, C2 — 2026-09-04)
+
+Recipes the quests assumed and no sheet carried, plus the three sequencing fixes of gap audit C2.
+
+| Item | Recipe | Class | Blueprint from |
+|---|---|---|---|
+| Empty fuel can | 2 metal scrap + 1 sealed tubing | Intermediate | Walker, W7 (W7 is now gated on **M3**, Water 1, so sealed tubing exists — C2) |
+| Fuel can (full) | empty can at the plant's pump (M-B2), or the ranger's still: 1 motor oil + 1 empty can (M-W1) | — | Michael, M-B2 / M-W1 |
+| Cargo crate | 4 planks + 2 metal scrap + 1 fastener kit | Intermediate | Walker, W7 |
+| Boat cargo | 1 cargo crate + 2 planks + 1 fastener kit | Intermediate | Walker, W12 |
+| Truck cargo | 2 cargo crate + 2 steel frame | Intermediate | Walker, W10 |
+| Aircraft cargo | 1 cargo crate + 1 steel frame + 1 cloth | Intermediate | Walker, W13 |
+| Claim marker | 4 steel frame + 1 circuit assembly + 1 wiring harness + 1 white banner | Trip-length | Marshall, R1 (re-crafted after a loss) |
+| Casings (×16) | 2 metal scrap | Quick | Walker, W-A1 |
+| Powder (×4) | 1 gunpowder + 1 solvent | Quick | Walker, W-A1 (gunpowder is a small item: the stone complex, military chests) |
+| Ammunition (×30) | 8 casings + 1 powder + 2 metal scrap | Quick | per class with the gun's blueprint |
+| Timber barricade | 6 planks + 1 fastener kit | Quick | Walker, W-W1 (the Woods) |
+| Poultice | 2 sweet berries + 1 bandage | Quick | Tony, T-W1 |
+| Ration pack | 4 Farmer's Delight meals | Quick | Marshall, D6 (Farm 3) |
+| Flashlight battery | 1 car battery → recharge | Quick | any station; or the charging station (M-B2) |
+
+**Sequencing fixes (C2):** the welding torch is now 4 metal scrap + 2 silicone tube and the hand
+drill 4 metal scrap + 1 wire spool + 1 duct tape (§5.3), both from the camp's ruins, so W3 and W-A1
+need nothing from Act II; the fuel tank's sealed tubing is covered by W7's new gate.
+
+### 5.7 Station orders for the mods' items (C15)
+
+| Group | Orders (Superb Warfare / Sophisticated Backpacks / ParCool ids verified in the jars) | Blueprint from |
+|---|---|---|
+| **Walls 1** | `superbwarfare:sandbag` ×4: 2 cloth + 4 sand; `superbwarfare:barbed_wire` ×2: 3 metal scrap; `superbwarfare:claymore_mine`: 2 metal scrap + 1 gunpowder + 1 wire spool | Marshall, D1 |
+| **Walls 2** | the mortar (`mortar_barrel` 2 steel frame; `mortar_base_plate` 1 steel frame + 4 metal scrap; `mortar_bipod` 4 metal scrap; the `mortar_deployer` from the three) and `mortar_shell` ×2: 2 metal scrap + 2 powder (Quick); `superbwarfare:drone`: 1 circuit assembly + 1 motor assembly + 1 small battery pack; `swarm_drone` ×2: 1 circuit assembly + 4 metal scrap | Marshall, D2 |
+| **Walls 3** | the laser tower (`superbwarfare:laser_unit` + 4 plate + 2 circuit assembly + 1 transformer core); `superbwarfare:fumo_25` (radar): 4 steel frame + 2 antenna element + 1 military circuit board; `superbwarfare:c4_bomb`: 4 powder + 1 circuit assembly + 1 duct tape; `superbwarfare:jump_pad`: 2 steel frame + 1 medium battery pack | Marshall, D4 |
+| **Storage 1** | `sophisticatedbackpacks:backpack` (basic: 6 cloth + 2 duct tape) | Walker, W2 |
+| **Storage 2** | iron backpack (basic + 4 plate); `stack_upgrade_tier_1` ×2: 2 steel frame + 1 fastener kit; `magnet_upgrade`: 1 circuit assembly + 2 metal scrap | Walker, W6 |
+| **Storage 3** | gold backpack (+ 1 steel frame + 1 heavy anchor cable); `everlasting_upgrade`: 1 circuit assembly + 1 transformer core; `feeding_upgrade`: 1 circuit assembly + 4 canned goods; `pickup_upgrade`: 2 metal scrap + 1 wire spool | Walker, W10 |
+| **Storage 4** | diamond backpack (+ 1 satellite receiver); `tank_upgrade`: 2 steel frame + 1 sealed tubing; `void_upgrade`: 1 circuit assembly + 1 solvent; `inception_upgrade` is J11's reward only | Walker, W13 / J8 |
+| **Ziplines** | `parcool:zipline_rope`: 4 string + 2 metal scrap (Quick); `parcool:iron_zipline_hook` ×2: 2 metal scrap + 1 fastener kit — the lookout tier 3 and the tower's 64-metre platform get hooks placed by their functions; the rope is the players' | James, J-B2 |
+
+Every other Sophisticated Backpacks, ParCool and Superb Warfare recipe stays stripped (`gscraft_recipes.js`).
+The Immersive Vehicles override file is still Phase C's in-game find (mod-capabilities §5b); if none
+materialises, the fallback is that the station order for an IV vehicle yields the vehicle item itself
+(KubeJS gives it on completion) and the IV bench is removed from the yard.
+
 ---
 
 ## 6. What this adds to the quest book
 
 Six quests and six reward/gate edits, all in quests draft 2: W-A1…W-A4, W-V1, W-M1; W13's gate, W7's
-reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and six quests.
+reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and twenty-one quests (the Woods chain, the bunker side quests, Farm 2/3 and X6b added 2026-09-04).
 
 Related: `gscraft-map-design.md` §3.6 (Walker's yard tiers), §4 (the item ladder),
 `gscraft-quests.md` §2 (Walker), `build/kubejs/` (the station script, Phase C).

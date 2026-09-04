@@ -140,6 +140,8 @@ do not, but they are fully generated so it no longer matters there).
   the camp and its six NPCs, strongpoints, the item ladder, storage, hideout functions, the loop and
   timers, the tower, tech stack, build order with test gates.
 - `docs/gscraft-quests.md` - all 106 quests, six NPC chapters, what FTB Quests needs from KubeJS.
+- `docs/gscraft-loot-tables.md` - every loot table by building type and site, the hub economy, the reward containers (2026-09-04).
+- `docs/gscraft-camp-spec.md` - camp.py's spec: function names, the board's blocks and colours, the rack, signs, guards, runway lights, flashlight, notebook (2026-09-04).
 - `docs/gscraft-finale.md` - the finale (2026-09-04): candidates checked against the jars, the Sleeper (named Warden) + Captains design, fail/retry, the Phase E build and test list.
 - `docs/gscraft-design-gaps.md` - the cross-document audit (2026-09-04): 18 stale facts fixed, 40 owner decisions with defaults, 18 items assigned to phases.
 - `docs/gscraft-onboarding.md` - how the game teaches itself: the first session minute by minute, each system's

@@ -14,7 +14,7 @@ further; they run out of things to find where they are.
 | Act | Area | From the camp | What is there | How you get there | Sessions (est.) |
 |---|---|---|---|---|---|
 | **I — The Camp** | foot range | 0 – 1.5 km | camp ruins, glass tower (1.3 km), acacia hall (1.55 km), the generated ruins around the camp, **Novo** (1.06 km E on the spine) | on foot | 1–2 |
-| **II — The West Edge** | near district | 1.5 – 2.5 km | residential block (1.9), copper tower, prismarine hall, hempcrete compound (2.2), the radio tower compound (in the camp), **industrial plant** (2.4), library (2.5), **FR-06** (2.5) | on foot, then the first car | 3–5 |
+| **II — The West Edge** | near district | 1.5 – 2.5 km | residential block (1.9), copper tower, prismarine hall, hempcrete compound (2.2), the radio tower compound (in the camp), **industrial plant** (2.4), library (2.5), **FR-06** (2.5); **the Woods** (2.9 km NNE, its own chain, §7.5) | on foot, then the first car | 3–5 |
 | **III — The Far Ring** | far road range | 2.5 – 4 km | **Financial Plaza** (2.1 km W, dry land) and the sewers under it, stone complex (2.9), mud village (2.8), the settlement (3.7 E), Bio Gen and the runway (3.9 SE) | car, truck, boat | 6–9 |
 | **IV — The Sky** | air ring | 4.5 – 6.5 km | the hub (6.2 km E), the generated cities kept as found | aircraft | 10–12 |
 
@@ -56,8 +56,8 @@ Rules that hold across every chapter:
 - **Hand-ins of loot-only components need no "found in raid" tag**: they have no recipe, so the item
   is the proof of the trip.
 
-Quest counts: Walker 23 (4 armoury, 1 boat, 1 military blueprint), Tony 13, Michael 16, Tune 13, James 19 (5 scout),
-Marshall 22 (loop 6, defences 4, tower 9, gatehouse 3). One hundred and six quests, eighteen
+Quest counts: Walker 24 (4 armoury, 1 boat, 1 military blueprint, 1 Woods), Tony 14 (1 Woods), Michael 17 (1 Woods), Tune 17 (1 Woods, 3 bunkers), James 22 (5 scout, 3 Woods),
+Marshall 27 (loop 6, defences 4, farm 2, tower 10, gatehouse 3, Woods 2). One hundred and twenty-one quests, eighteen
 of them the `*-B` building tiers. Which of them one outing clears is the trip table in
 `gscraft-map-design.md` §3.5; how many outings it takes is up to the players.
 
@@ -73,14 +73,14 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | W4 | The toolbox | I | camp | show a toolbox (crafted) | W3 | Workshop 1 effects; 16 iron ingots |
 | W5 | East, a mile | I | **Novo**, 1.06 km E on the spine | hand in 6 spark plugs, 12 metal scrap, 4 motor oil — Novo's drops | W4, J-S1 | stage `novo_looted`; Marshall R2 opens |
 | W6 | Hold the yard | I→II | Novo | stage `novo_held`; stage `novo_defended` (Novo's own first attack, at the end of its fortify clock) | W5, Marshall R2 | **Workshop 2**; **Storage 2**: iron backpack, stack upgrade ×2 |
-| W7 | Wheels | II | camp, Novo | hand in 1 motor assembly, 4 steel frames, 1 car battery | W6, M2 | **Garage 1**: quad and runabout recipes, wheel and fuel-tank blueprints, cargo crate; a full tank and 2 fuel cans; stage `car_built` when one is crafted |
+| W7 | Wheels | II | camp, Novo | hand in 1 motor assembly, 4 steel frames, 1 car battery | W6, M3 | **Garage 1**: quad and runabout recipes, wheel and fuel-tank blueprints, cargo crate; a full tank and 2 fuel cans; stage `car_built` when one is crafted |
 | W8 | Fuel run | II | camp | hand in 2 fuel cans | W7, M7 | fuel-can refill recipe (at Michael's plant pump, M-B2; Walker's drum rack stores them) |
 | W9 | Heavy metal | III | Novo | hand in 1 heavy diesel engine, 2 motor assemblies | W8, `novo_held` | **Garage 2**: truck recipe |
 | W10 | The big pack | III | Novo | hand in a second heavy anchor cable (Novo respawns them while held), 2 fastener kits | W9 | **Storage 3**: gold backpack, **everlasting upgrade** (the secure pack), truck cargo |
 | W11 | Mast section kit | II–III | camp | show 1 mast section kit (6 steel frames + 2 fastener kits + heavy anchor cable) | W6, `novo_held` | the kit is Marshall's X2 hand-in |
 | W12 | Boats | III | the settlement | reach the settlement by water (location); hand in 1 pressure gauge | W8, J4 | boat cargo recipe |
 | W13 | Hangar rights | III→IV | FR-06, the runway | hand in 1 avionics module, 2 circuit assemblies | W9, M11, J6 | **Garage 3**: light-aircraft recipe; **Storage 4** opens on J8 (diamond backpack needs the satellite receiver), aircraft cargo |
-| W14 | Foreman's pride | IV | everywhere | hand in one of every hardware and tool item (12 items) | W13 | Workshop 3; a named tool |
+| W14 | Foreman's pride | IV | everywhere | hand in one of every hardware and tool item (12 items) | W13 | Workshop 3; **the Foreman's Wrench** (an unbreakable, named wrench that fills a station's tool slot without wear) |
 | W-A1 | Sidearm | I | camp | hand in 6 metal scrap, 4 screws, 1 fastener kit, 4 planks | W1 | gun-frame, barrel and trigger-group blueprints; pistol, pump-shotgun and their ammunition blueprints; the salvage rule (crafting §5.2) |
 | W-A2 | Plates | I–II | camp | hand in 8 metal scrap, 2 duct tape | W3 | plate blueprint; scrap vest and helmet blueprints; rifle ammunition |
 | W-A3 | Long guns | II | camp | hand in 2 gun frames, 1 steel frame | W-A1, `novo_defended` | assault-rifle and SMG blueprints; iron sights, extended magazine |
@@ -98,7 +98,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
 | T1 | Field dressing | I | camp ruins | hand in 4 bandages, 2 painkillers | — | med-kit blueprint; the clinic cures infection from now on |
-| T2 | Stock the clinic | I | camp | craft and hand in 2 med kits | T1 | **Medical 1**: revive range up (4 m → 6 m); 4 med kits back |
+| T2 | Stock the clinic | I | camp | craft and hand in 2 med kits | T1 | **Medical 1**: the clinic revive point — a downed player inside the camp outline is revived by the script after 10 s (PlayerRevive's range is one global value, 6 m; design §4.5); 4 med kits back |
 | T3 | Neighbours | II | **residential block**, 1.9 km | hand in 3 blood bags, 4 syringes, 2 antiseptic — the block's drops | T2, J-S2 | stage `residential_looted`; Marshall R3 opens |
 | T4 | Take the block | II | residential block | stage `residential_held` (Marshall's assault won) | T3, Marshall R3 | 8 bandages, 4 antiseptic |
 | T5 | Hold the block | II | residential block | stage `residential_defended` (the block's first attack) | T4 | **Medical 2**: reduced death penalty; the med kit cures infection in the field |
@@ -167,15 +167,15 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | J-S3 | Scout: the plant | II | industrial plant | reach the plant (location); hand in the **plant dossier** (the control room, chest at 2126 105 963) | J2 | stage `plant_scouted`; Michael M4 opens |
 | J-S4 | Scout: FR-06 | III | FR-06 | reach the reactor plaza (location); hand in the **FR-06 dossier** (the hangar office, chest at 2425 126 838) | J-S3, W7 | stage `fr06_scouted`; Michael M8 opens |
 | J-S5 | Scout: the plaza | III | Financial Plaza | reach the plaza (location); hand in the **plaza dossier** (the vault anteroom, chest at -1841 100 971) | J-S3, W7 | stage `financial_scouted`; Tune U4 opens |
-| J3 | Paper trail | II | offices, the library | hand in 2 folders of documents | J2 | 8 valuables' worth of loot |
+| J3 | Paper trail | II | offices, the library | hand in 2 folders of documents | J2 | a **valuables bag** (opens to 8 random valuables — loot sheet §7) |
 | J4 | The far ring | III | stone complex, mud village, the settlement, Bio Gen | reach all four (location); the settlement and Bio Gen by car | J3, W7 | waypoints; Tony T7 and Walker W12 open |
 | J5 | Settle in | III | the settlement | hand in 3 valuables found there | J4, W-V1 | speedboat blueprint |
 | J6 | Runway | III | the runway | stand on the runway (location); hand in 1 hard drive | J4 | aircraft prep flag |
 | J7 | The hub | IV | **the hub**, 6.2 km | reach the hub by air (location) | J6, W13 | the hub's loot tables switch on |
 | J8 | Bring it back | IV | the hub | hand in 1 phased array element, 1 satellite receiver | J7 | Tune U9 opens; Storage 4 (W13's diamond pack) unlocks |
-| J9 | Every capital | IV | the whole box | reach four of the Lukis capitals (location; the nearest four to the hub, from `tools/structures_v6.json`) | J7 | 4 rare components' worth of loot |
-| J10 | Cartographer | IV | everywhere | reach every named site on the map (location, 20) | J9 | a named backpack |
-| J11 | Every ruin | IV | everywhere | hand in one of each of the forty small items | J10 | the Collector analogue: an extra everlasting slot |
+| J9 | Every capital | IV | the whole box | reach four of the Lukis capitals (location; the nearest four to the hub, from `tools/structures_v6.json`) | J7 | a **components crate**: choose any 4 of heavy diesel engine, purification membrane, encrypted radio, medical analyzer (held-site components, never a hub item; loot sheet §7) |
+| J10 | Cartographer | IV | everywhere | reach every named site on the map (location, 20) | J9 | **the Cartographer's Pack**: a diamond backpack fitted with magnet, everlasting and stack ×4, named |
+| J11 | Every ruin | IV | everywhere | hand in one of each of the forty-two small items | J10 | the Collector analogue: an **inception upgrade** and a second everlasting upgrade — a nested pack that also survives death |
 | J-B1 | A flag on it | I | camp | hand in 16 planks, 4 fastener kits, 1 folder of documents | J1 | **lookout tier 1**: platform, ladder, a flag |
 | J-B2 | The spotlight | III | camp, the far ring | hand in 4 steel frames, 2 light bulbs, 1 car battery, 3 valuables from the settlement | J-B1, J4 | **lookout tier 2**: 30 tall, a night spotlight (waypoint sharing is Radio 1's) |
 | J-B3 | The cabin | IV | camp, the hub | hand in 8 steel frames, 16 glass, 1 satellite receiver | J-B2, J7 | **lookout tier 3**: 40 tall, glass cabin, telescope, waypoint beacon; every named site marked |
@@ -206,10 +206,12 @@ is still contested — one fight at a time, in this order.
 
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
-| D1 | Walls | I | the claim | hand in 32 concrete, 2 fastener kits | R1 | **Walls 1**: barricade and razor-wire recipes |
-| D2 | Guards | II | the claim | stage `novo_defended` and `residential_defended` | D1 | **Walls 2**: the Recruit's Table at the gatehouse — hire recruits, shieldmen and bowmen with emeralds and food; guard villagers at every NPC building tier 2 |
-| D3 | Farm and kitchen | II | the claim | hand in 16 seeds, 8 bowls, 1 med kit | D1 | Farmer's Delight kit; **Farm 1** |
-| D4 | Bunker | III | the claim | hand in 64 concrete, 4 steel frames, 1 heavy anchor cable | D2, W9 | **Walls 3**: blast doors, turret-style defences; armoured-car recipe |
+| D1 | Walls | I | the claim | hand in 32 concrete, 2 fastener kits | R1 | **Walls 1**: sandbag, barbed-wire and claymore orders (crafting §5.7); the timber barricade after W-W1 |
+| D2 | Guards | II | the claim | stage `novo_defended` and `residential_defended` | D1 | **Walls 2**: the Recruit's Table at the gatehouse — hire recruits, shieldmen and bowmen with emeralds and food; guard villagers at every NPC building tier 2; mortar and drone orders (crafting §5.7) |
+| D3 | Farm and kitchen | II | the claim, the mud village | hand in 16 seeds, 8 bowls, 1 med kit | D1 | **Farmer's Delight kit** (stove, cooking pot, skillet, cutting board, knife; 8 each of rice, tomato seeds, onions, cabbage seeds); **Farm 1**: the kitchen's meals feed the team |
+| D4 | Bunker | III | the claim | hand in 64 concrete, 4 steel frames, 1 heavy anchor cable | D2, W9 | **Walls 3**: blast doors, the laser tower and radar orders (crafting §5.7); armoured-car recipe |
+| D5 | Greenhouse | III | the claim, the plant | hand in 16 cabbages, 16 onions, 8 cooked meals (Farmer's Delight), 1 industrial pump (irrigation; the plant respawns them while held) | D3, `plant_defended` | **Farm 2**: greenhouse and irrigation; crops inside the claim grow at double rate (KubeJS random-tick boost) |
+| D6 | Rations | IV | the claim, the hub | hand in 32 cooked meals, 1 military power filter | D5, J7 | **Farm 3**: hydroponics; the **ration pack** recipe (4 meals → 1 pack, Saturation, stacks 16) — the hub run's food |
 
 ### 7.3 The tower
 
@@ -236,6 +238,41 @@ is still contested — one fight at a time, in this order.
 | R-B1 | A gate | I–II | camp | hand in 32 concrete, 4 steel frames, 2 fastener kits | R2 | **gatehouse tier 1**: the gate, wall stubs (the parts rack stands from tier 0) |
 | R-B2 | Watchtowers | II–III | camp, Novo | hand in 64 concrete, 8 steel frames, 1 heavy anchor cable | R-B1, R3, R4 | **gatehouse tier 2**: walled gate, two watchtowers, barricades; guard villagers at the gate |
 | R-B3 | Blast doors | IV | camp, FR-06 | hand in 128 concrete, 8 steel frames, 1 reactor control module | R-B2, X4 | **gatehouse tier 3**: blast doors, floodlights, the board as a lit wall map; the finale's first wave breaks on the gate |
+
+### 7.5 The Woods chain (all NPCs; `gscraft-woods-plan.md`, C11)
+
+The Woods (x 400…2400, z −3500…−1500, 2.9 km NNE, road spur from Novo's north gate) is a
+loot-and-quest region, **not a sixth strongpoint** (owner default, 2026-09-04): the bandit outpost is
+a strongpoint-lite — the marker and the 5-minute assault, no fortify clock and no defence. Nine quests,
+one to three per NPC, all gated on James's first Woods trip so the region opens as one piece.
+
+| # | Quest | Act | Area | Tasks | Gate | Reward |
+|---|---|---|---|---|---|---|
+| J-W1 | Into the trees | II–III | the sawmill (south edge), the ranger cabin (high ground) | reach both (location) | J2, W7 | waypoints; the notebook's Woods line; stage `woods_scouted` |
+| J-W2 | Two doors down | III | the two Woods bunkers | reach both (location); hand in 1 hard drive from them | J-W1 | stage `woods_bunkers`; 2 circuit assemblies |
+| J-W3 | The wreck | III | the downed aircraft | reach it (location); hand in the **flight recorder** (a valuables item found only there) | J-W1 | 1 avionics module (the second source; W13 and the Black Hawk want them) |
+| W-W1 | Timber | II–III | the sawmill | hand in 64 planks, 1 **saw blade** (drops only at the sawmill) | W7, J-W1 | lumber orders (1 log → 8 planks, Quick) and the **timber barricade** for Walls 1 (6 planks + 1 fastener kit) |
+| T-W1 | Foraging | II–III | the hunters' hide, the forest | hand in 8 sweet berries, 4 brown mushrooms, 2 rabbit hide | T2, J-W1 | **poultice** recipe (2 sweet berries + 1 bandage → heals 2 hearts, clears poison; Quick); T7's surgical kit may also come from the wreck's medkit |
+| M-W1 | The cabin's generator | III | the ranger cabin | hand in 1 **portable generator** (found only in the cabin) | M5, J-W1 | the ranger's still: 1 motor oil + 1 empty fuel can → 1 fuel can at the plant's pump (M-B2) |
+| U-W1 | Quiet ground | III | the ranger cabin's high ground | hand in 1 antenna element at the cabin's relay mast (location + hand-in) | U5, J-W1 | the relay: the board shows the Woods sites and the outpost's garrison (`woods_relay`); 2 antenna elements back |
+| R-W1 | The outpost | III | the bandit outpost | place the marker; win the 5-minute assault (stage `woods_outpost_cleared`); no fortify clock, no defence | R4, J-W1 | the outpost's cache (2 salvage rifles, 90 rounds, 4 emeralds); bandits stop spawning in the Woods |
+| R-W2 | What the trees heard | IV | the Woods bunkers' lower levels | kill 30 below y 40 in the two bunkers; hand in 1 encrypted radio found there | J-W2, U6 | 1 military circuit board; the Woods page of the notebook completes |
+
+In Control! rules for the rectangle (design §6.3): zombies capped at 4, no husks, drowned 2 at water,
+bandits only inside the outpost's rectangle until R-W1, spiders below y 40, the fog man and the eyes
+at night as their mods spawn them, animals as the biome gives them. The Woods is the only place the
+map is not a grid; nothing here is required for the tower.
+
+### 7.6 Bunker side quests (Tune; C12)
+
+Fourteen Underground Bunkers are kept (structure plan). Tune's side chain uses four of them; the
+rest are expedition finds with the `gscraft:building/military` table.
+
+| # | Quest | Act | Area | Tasks | Gate | Reward |
+|---|---|---|---|---|---|---|
+| U-D1 | Go down | I–II | the bunker at (−784, −384), 0.9 km NW | reach it (location); hand in 1 hard drive from it | U2 | stage `bunker_1`; 2 circuit assemblies; the notebook's "Getting hurt" page notes the dark |
+| U-D2 | Deeper | III | the road-range bunkers at (1648, 32), (−1536, 1600), (−2384, 32) | reach all three (location); hand in 1 encrypted radio | U-D1, W7 | 1 military circuit board |
+| U-D3 | The archive | IV | the air-ring bunker at (4864, −336), 4.9 km E | reach it by air (`bunker_east_by_air`); hand in 2 hard drives | U-D2, J7 | 1 satellite receiver (a second source; shortens the hub economy by one visit, design §4.4) |
 
 ---
 
@@ -266,10 +303,22 @@ room and Marshall's walls decide the finale; the waves come to the base; the Sle
 
 ## 9. What FTB Quests needs from KubeJS
 
-Stages set by the loop script and read by stage tasks, five per site for `novo`, `residential`,
-`plant`, `fr06`, `financial`: `<site>_scouted`, `<site>_looted`, `<site>_held`, `<site>_defended`,
-`<site>_lost`; plus `all_held`, `car_built`, `revives_3`, `wave_1`…`wave_4`, and the
-function levels (`workshop_1`…`radio_3`). Items the script owns: the five dossiers and the claim
+Stages, all **team** stages (FTB Teams) unless marked *player*, set by the loop script or a quest
+reward and read by stage tasks (C3, 2026-09-04):
+
+| Group | Stages |
+|---|---|
+| Site ladder | `<site>_scouted`, `<site>_looted`, `<site>_held`, `<site>_defended`, `<site>_lost` for `novo`, `residential`, `plant`, `fr06`, `financial`; `all_held` |
+| The Woods and the bunkers | `woods_scouted`, `woods_bunkers`, `woods_outpost_cleared`, `woods_relay`, `bunker_1` |
+| Vehicles | `car_built`, `boat_built`, `truck_built`, `aircraft_built`; the vehicle-qualified location flags `settlement_by_car`, `biogen_by_car`, `settlement_by_boat`, `hub_by_air`, `bunker_east_by_air` (§9.1) |
+| Function levels | `workshop_1…3`, `garage_1…3`, `storage_1…4`, `medical_1…3`, `generator_1…3`, `water_1…3`, `radio_1…3`, `walls_1…3`, `farm_1…3` |
+| Building tiers | `camp_<npc>_<tier>` for the six NPCs, tiers 1–3 |
+| The tower and the finale | `marshall_speaks` (the five introductions), `tower_1…5`, `beacon_lit`, `finale_ready` (T10), `wave_1…5`, `finale_won`, `finale_failed`, `season_1_done` |
+| Gates and switches | `hangar_unlocked` (M11), `aircraft_prep` (J6), `hub_loot_on` (J7), `revives_3` (*player*) |
+| Blueprints | `bp_<recipe>`, one per recipe in the crafting sheet (the recipe file is the list) |
+| First-time lines (*player*, onboarding §8) | `seen_station`, `seen_bulky`, `seen_infection`, `seen_warning`, `seen_board`, `seen_down` |
+
+Items the script owns: the five dossiers and the claim
 marker. The loop script keeps, per site, the fortify deadline, the first-attack flag and the
 component-container state and the single `contested` slot; all clocks count online ticks only. Rewards run commands:
 `kubejs stage add`, `function gscraft:tower_stage_N`, `function gscraft:camp_<npc>_<tier>` (the
@@ -278,3 +327,12 @@ with the `gscraft` category NBT). Location tasks use the site rectangles from th
 the six NPC building rectangles are locked by the tower-lock script (a list of rectangles, quest
 functions exempt), so a `*-B` reward is the only thing that ever changes them; dossier chests are placed and filled by `gscraft:dossiers` at the coordinates in `tools/dossiers.json`; the only kill task left is the sewers (U6); every other clearing is the assault event, whose
 waves use the garrison mob types In Control! spawns at each site.
+
+### 9.1 Vehicle-qualified location tasks (C13)
+
+"By car", "by boat" and "by air" are not FTB Quests task types. The loop script checks, once a second for every online
+player, `player.vehicle`: an Immersive Vehicles entity (`mts:*`) or a Superb Warfare vehicle counts as *car* (boat and
+aircraft ids are two short lists from crafting §2), and when a player in a qualifying vehicle is inside the target
+rectangle the script sets the flag stage (`settlement_by_car`, `biogen_by_car`, `settlement_by_boat`, `hub_by_air`,
+`bunker_east_by_air`). The quest's task is then a stage task, and the book's text says "by car". A player who walks
+there has the location for free but not the flag.
