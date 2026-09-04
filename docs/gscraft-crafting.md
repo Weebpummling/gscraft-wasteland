@@ -325,7 +325,7 @@ materialises, the fallback is that the station order for an IV vehicle yields th
 ## 6. What this adds to the quest book
 
 Six quests and seven reward/gate edits, all in quests draft 2: W-A1…W-A4, W-V1, W-M1; W13's gate, W7's
-reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and twenty-one quests (the Woods chain, the bunker side quests, Farm 2/3 and X6b added 2026-09-04).
+reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and twenty-nine quests (the Woods chain, the bunker side quests, Farm 2/3, X6b and the placed-structure quests added 2026-09-04).
 
 Related: `gscraft-map-design.md` §3.6 (Walker's yard tiers), §4 (the item ladder),
 `gscraft-quests.md` §2 (Walker), `build/kubejs/` (the station script, Phase C).

@@ -17,7 +17,7 @@ now has one.
 | A2 | Financial Plaza stale at "2.5 km SE / hospital pad"; "sewers later under the hospital pad"; review Phase A item about the plaza's causeway; boat "the plaza before its road" | 2.1 km W, dry, one road; the stale lines corrected or struck |
 | A3 | Radio tower stale at "2.1 km E", origin (2066, 64, −141), a district → tower road, "the radio mast not visible from home" | the camp NE corner, origin (107, 100, −101); tower road dropped; the mast is the first thing seen |
 | A4 | Distances disagree by document: hub 6.0/6.2/6.18, settlement 3.6/3.7, plant 2.3/2.4, Bio Gen 3.9/4.0 | one set from the layout sheet (measured from the camp centre): Novo 1.06, residential 2.0, plant 2.3, FR-06 2.45, plaza 2.1, settlement 3.7, runway 3.9, Bio Gen 4.0, hub 6.2 *(2026-09-04: the layout sheet §3.1 now reads hempcrete 2.0, plant 2.4, residential 1.9, Bio Gen 3.9)* |
-| A5 | Quest total 77 (design, HANDOFF) vs 105 (quests) vs 106 (crafting); Walker 22 vs 23 rows | 106 quests, Walker 23, everywhere *(121 after the C items, Walker 24 — 2026-09-04)* |
+| A5 | Quest total 77 (design, HANDOFF) vs 105 (quests) vs 106 (crafting); Walker 22 vs 23 rows | 106 quests, Walker 23, everywhere *(129 after the C items and the placed-structure quests, Walker 26 — 2026-09-04)* |
 | A6 | Small items "~30" and J11 "the thirty small items" vs 40 in the catalogue | 40 *(42 after the C items: gunpowder, emerald)* |
 | A7 | Bio Gen footprint 64×256 vs two groups | two groups, 64×64 and 16×32 |
 | A8 | Tune's shack x 60…75 vs moved to x 40…55 | 40…55 (design table) |
@@ -118,8 +118,8 @@ Every other row: **the default, applied** in the same commit as this note.
 | C8 | `gscraft-loot-tables.md` §2 |
 | C9 | camp spec §5 (runway lights, the Night-Vision flashlight, the notebook) |
 | C10 | quests W14, J3, J9, J10, J11, D3; loot sheet §7 |
-| C11 | quests §7.5 (nine quests; no sixth strongpoint; the Woods In Control rule) |
-| C12 | quests §7.6 (U-D1…U-D3) |
+| C11 | the nine Woods quests, folded into the NPC chapters (quests §2–§7; no sixth strongpoint; the Woods In Control rule in design §6.3) |
+| C12 | Tune's chapter (U-D1…U-D3) |
 | C13 | quests §9.1 |
 | C14 | design §6.3 (elites by `spawn_boss`) |
 | C15 | crafting §5.7, camp spec §4, mod capabilities §5c |

@@ -166,7 +166,7 @@ toolsmith, Michael an armorer, Tune a librarian, James a fletcher, Marshall a ni
 the joke, or a cartographer if not). The Recruits mod supplies the hireable guards of D2 (Walls 2, at the gatehouse);
 it is not used for these six. No gameplay mod is added (EMI, a client-side recipe viewer, was added on 2026-09-03).
 
-**Who unlocks what.** The full chains, 121 quests across the six chapters, scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
+**Who unlocks what.** The full chains, 129 quests across the six chapters, scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
 
 | NPC | Owns | Starting tasks (the introduction) | Unlocks when done | Their chain |
 |---|---|---|---|---|

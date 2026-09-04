@@ -133,6 +133,6 @@ weapon light, no thermal scope.
 
 - Design §3 gains the pointer to this doc; emeralds are already a small item (loot sheet).
 - Quests: three "Counter" checkmark quests per NPC chapter (one per LL) — 18 quests, listed in the
-  quests doc when Phase C writes the book; not counted in the 121 until then.
+  quests doc when Phase C writes the book; not counted in the 129 until then.
 - Crafting §5: unchanged — the station stays the cheap route; the vendor price rule (§4) is the check.
 - Camp spec §6: a counter prop per tier-1 template (written).

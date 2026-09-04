@@ -143,7 +143,7 @@ do not, but they are fully generated so it no longer matters there).
   the camp and its six NPCs, strongpoints, the item ladder, storage, hideout functions, the loop and
   timers, the tower, tech stack, build order with test gates.
 - `docs/gscraft-crafting.md` - stations and timed orders, the vehicle roster and recipes, equipment crafting, the capability audit (draft 1 + the 2026-09-04 sheet §5.6–§5.7).
-- `docs/gscraft-quests.md` - all 121 quests, six NPC chapters, what FTB Quests needs from KubeJS.
+- `docs/gscraft-quests.md` - all 129 quests, six NPC chapters, what FTB Quests needs from KubeJS.
 - `docs/gscraft-modpack-review.md` - the mod set against the design (2026-09-04): everything the design names is installed; two updates required (Dynamic Flashlight 2.1.0 to add, EMI to sync locally); twelve manifest conditional-libraries are reference only; nothing removed.
 - `docs/gscraft-vendors.md` - the vendor system (2026-09-04): six counters, loyalty = building tier, prices, barters, night vision, the merchant-offers mechanism.
 - `docs/notes/gscraft-one-click-install.md` - the one-click client install (research + **built 2026-09-04**): `tools/packwiz_build.py` writes `build/packwiz/` (the pack manifest, served raw from main — the pack self-updates on every launch) and the release assets; GitHub release `client-installer-2026-09-04` (marked Latest) carries ONE asset, `GSCraft-Installer-<date>.zip` (the two setup cmds, `GSCraft-Instance.zip`, `GSCraft.mrpack`, README); the prerelease `pack-files-2026-09-04` hosts what the pack downloads by itself (the 28 non-Modrinth jars, the TaCZ packs, the bootstrap, the import files) — players never open it. **Acceptance test passed by the owner on 2026-09-04** (fresh machine, `GSCraft-Setup.cmd`, sign-in, first Play). **Official-launcher route** added the same day: `GSCraft-VanillaLauncher.cmd` (private Temurin 17 JRE into `%LOCALAPPDATA%\GSCraft\java`, Forge 47.4.10 `--installClient`, packwiz into `.minecraft`, forge profile renamed GSCraft with 6 GB) — tested against a scratch `.minecraft` (97 mods, 115 configs, profile set); its players re-run the file for updates. The bundle `GSCraft-Installer-2026-09-04.zip` holds the two cmds, the instance zip, the mrpack and a README. **Any pack change now = edit the sources, run the tool, commit `build/packwiz`, re-upload changed assets to `pack-files-*`** (a changed jar → that release; a changed cmd/instance → rebuild the bundle on the installer release).
@@ -209,6 +209,7 @@ Rollback is the reverse: `scratch/rollback/rollback.py` on the working machine h
 
 ## 7. Release assets
 
-`handoff-2026-09-02` was deleted on 2026-09-04 (owner: not needed); every one of its 15 assets is kept on this machine in `G:\GSCraftelease\` (sizes verified before deletion). `build-v6-2026-09-03` (4 assets): the finished v6 world. Player identity files
+`handoff-2026-09-02` was deleted on 2026-09-04 (owner: not needed); every one of its 15 assets is kept on this machine in `G:\GSCraft
+elease\` (sizes verified before deletion). `build-v6-2026-09-03` (4 assets): the finished v6 world. Player identity files
 (ops, whitelist, user caches) are deliberately not published. `tools/release_upload.py` re-uploads a folder
 of zips to a tag, skipping what is already there.
