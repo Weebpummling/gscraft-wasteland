@@ -12,22 +12,37 @@ const Result = Java.loadClass('net.minecraftforge.eventbus.api.Event$Result');
 function inRect(x, z) {
   return x >= TOWER.x0 && x <= TOWER.x1 && z >= TOWER.z0 && z <= TOWER.z1;
 }
+// Rhino exposes Java no-arg accessors as PROPERTIES (entity.level, level.dimension); calling them as
+// functions throws a TypeError that crashes the server tick (a dolphin did, 2026-09-04). Read both ways.
+function prop(o, name) {
+  try { const v = o[name]; return (typeof v === 'function') ? v.call(o) : v; } catch (x) { return null; }
+}
 function isOverworld(level) {
-  try { return level && String(level.dimension().location()) === DIM; } catch (e) { return true; }
+  try {
+    if (!level) return true;
+    const d = prop(level, 'dimension');
+    if (!d) return true;
+    const loc = prop(d, 'location');
+    return String(loc || d) === DIM;
+  } catch (e) { return true; }
 }
 function bypassEntity(e) {
   try { return e && e.isPlayer && e.isPlayer() && e.hasPermissions(2) && e.isCreative(); } catch (x) { return false; }
 }
 
 ForgeEvents.onEvent('net.minecraftforge.event.level.ExplosionEvent$Detonate', event => {
-  if (!isOverworld(event.getLevel())) return;
-  event.getAffectedBlocks().removeIf(p => inRect(p.getX(), p.getZ()));
+  try {
+    if (!isOverworld(prop(event, 'level'))) return;
+    event.getAffectedBlocks().removeIf(p => inRect(p.getX(), p.getZ()));
+  } catch (x) { console.warn('[gscraft] tower lock explosion handler: ' + x); }
 });
 
 ForgeEvents.onEvent('net.minecraftforge.event.entity.EntityMobGriefingEvent', event => {
-  const e = event.getEntity();
-  if (!e || !isOverworld(e.level())) return;
-  if (inRect(Math.floor(e.getX()), Math.floor(e.getZ()))) event.setResult(Result.DENY);
+  try {
+    const e = event.getEntity();
+    if (!e || !isOverworld(prop(e, 'level'))) return;
+    if (inRect(Math.floor(e.getX()), Math.floor(e.getZ()))) event.setResult(Result.DENY);
+  } catch (x) { console.warn('[gscraft] tower lock griefing handler: ' + x); }
 });
 
 ForgeEvents.onEvent('net.minecraftforge.event.level.BlockEvent$FluidPlaceBlockEvent', event => {
