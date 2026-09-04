@@ -150,6 +150,25 @@ spawner dungeon) and the small district builds — all located in `gscraft-map-l
 compound takes its role.
 
 
+### 2.4 Roads and water
+
+The roads as built (v6/v7) are the four of `gscraft-map-layout-v6.md` §4: the spine camp → Novo → the district's
+north-west corner; the west road camp → Financial Plaza; district → runway; district → settlement, plus the Woods
+spur (woods plan). All routed around water by `tools/roads.py`; none has water on its line. The district → tower
+road of draft 5 is gone: the tower is in the camp. The crater ramp still has to be driven (Phase A).
+
+### 2.5 Travel (vehicles at their shipped speeds)
+
+| Distance | Walk | Sprint | Boat | Car street | Car rubble | Aircraft |
+|---|---|---|---|---|---|---|
+| 1 km | 3.9 | 3.0 | 2.1 | 0.8 | 2.1 | 0.3 |
+| 2 km | 7.7 | 5.9 | 4.2 | 1.7 | 4.2 | 0.6 |
+| 4 km | 15.4 | 11.9 | 8.3 | 3.3 | 8.3 | 1.2 |
+| 6 km | 23.1 | 17.9 | 12.5 | 5.0 | 12.5 | 1.8 |
+
+Minutes one way; a Minecraft day is 20 real minutes.
+
+
 ### 2.6 The Line — the rural approach to the residential block
 
 A sparsely populated corridor, the one part of the map that was countryside before the end: an old
@@ -172,25 +191,6 @@ refused), placed by `gscraft:theline`; placements in `buildmap/theline_v7.json`.
 The corridor is deliberately empty between the stops — no generated structures within 350 m of it
 (the structure plan's buffer applies to the whole line), no Lost Cities chunk on it — so the pylons
 are the only landmarks and the block's skyline is what the players walk toward.
-
-
-### 2.4 Roads and water
-
-The roads as built (v6/v7) are the four of `gscraft-map-layout-v6.md` §4: the spine camp → Novo → the district's
-north-west corner; the west road camp → Financial Plaza; district → runway; district → settlement, plus the Woods
-spur (woods plan). All routed around water by `tools/roads.py`; none has water on its line. The district → tower
-road of draft 5 is gone: the tower is in the camp. The crater ramp still has to be driven (Phase A).
-
-### 2.5 Travel (vehicles at their shipped speeds)
-
-| Distance | Walk | Sprint | Boat | Car street | Car rubble | Aircraft |
-|---|---|---|---|---|---|---|
-| 1 km | 3.9 | 3.0 | 2.1 | 0.8 | 2.1 | 0.3 |
-| 2 km | 7.7 | 5.9 | 4.2 | 1.7 | 4.2 | 0.6 |
-| 4 km | 15.4 | 11.9 | 8.3 | 3.3 | 8.3 | 1.2 |
-| 6 km | 23.1 | 17.9 | 12.5 | 5.0 | 12.5 | 1.8 |
-
-Minutes one way; a Minecraft day is 20 real minutes.
 
 ---
 
