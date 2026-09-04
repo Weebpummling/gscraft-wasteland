@@ -28,7 +28,7 @@ now has one.
 | A13 | Onboard "four colours (dark / scouted / looted / held / defended)" lists five | five states, five colours *(six after C5: `lost` = red)* |
 | A14 | "No mod is added" vs EMI added | "no gameplay mod is added; EMI is a client recipe viewer" |
 | A15 | Two Novo Expograds: the industrial zone and the hub; Marshall calls Novo "the refinery" (M4's word for the plant) | names fixed: **Novo** = the industrial zone (Act I strongpoint), **the hub** = the Novo Expograd city in the air ring; Marshall: "the industrial yard east along the road" |
-| A16 | HANDOFF says "draft 5" and "77 quests" in its design list | draft 6, 106 *(121 after the C items)* |
+| A16 | HANDOFF says "draft 5" and "77 quests" in its design list | draft 6, 106 *(129 after the C items and the placed-structure quests)* |
 | A17 | Woods "1.3 km north of Novo", "due north" | 1.6 km north-north-east of Novo's pad |
 | A18 | Structure plan foot-range keeps "two bunkers, one fog house" vs table (houses foot = 0) | "two bunkers" |
 

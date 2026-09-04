@@ -1,7 +1,7 @@
 # GSCraft Wasteland — Teaching the game (onboarding without a manual)
 
 Draft 2, 2026-09-04 (draft 1 the same day; rewritten for plain wording and for any number of players).
-The design (draft 6), the quests (draft 2) and the crafting sheet describe a game nobody has played
+The design (draft 6), the quests (draft 3) and the crafting sheet describe a game nobody has played
 yet: a hundred mods, a custom loop, work stations instead of crafting tables, sites that are scouted,
 looted, taken and held, a tower repaired in stages. New players meet all of it within a few evenings.
 This document describes how they learn it **by playing** rather than by reading: where each system is
@@ -41,7 +41,7 @@ quests bring things up. Times are approximate and assume a player who wanders a 
 | 0:05 | Right-click any survivor: the quest book opens on that survivor's first quest. It asks for things (8 bolts, 8 nuts). | hand-ins; that the survivors want junk; where the book is | The NPC's one line, in their own voice, then the task in one line. |
 | 0:06–0:25 | The camp's own ruins. **Lootr** chests glow for a player who has not opened them yet; the wrecks hold hardware, the tents bandages, the shed wire. | looting; instanced loot (each player has their own chest contents); the item names | Item tooltips carry one line each ("Bolt — Walker wants these"). No quest text. |
 | 0:10 | Dusk. Nothing spawns inside the torches; the Man From The Fog is heard once, far off. | the camp is safe **because of the torches**; the horror is outside | — |
-| 0:25 | First hand-in to Walker. Reward: two blueprints and the personal station. | the reward loop; **stations** exist | Walker: "Good. Set your station down somewhere inside the wire. It'll only ever answer to you." |
+| 0:25 | First hand-in to Walker. Reward: a wrench and two blueprints; the station from the kit binds itself to its owner. | the reward loop; **stations** exist | Walker: "Good. Set your station down somewhere inside the wire. It'll only ever answer to you." |
 | 0:27 | Placing the personal station. The fastener-kit recipe is in it; an order takes two minutes (the Intermediate class). The player waits, or walks off and comes back. | **timed orders** (the tool slot comes up at W3, when the steel frame needs the torch) | Station UI header: "Order — 1:58". Nothing else. |
 | 0:30 | W2 asks for two fastener kits; the second order runs while the player loots for Tony. | orders run while you do other things | — |
 | 0:35–1:00 | Three more introductions from the same ruins (Tony's bandages, Michael's wire and filter, Tune's circuit board and broken radio). James's two locations (J1) wait for the first walk out. | each survivor owns one thing; rewards are visible in the world | Each NPC: one line. Michael: "There. Now we can see what's coming." |
@@ -72,7 +72,7 @@ lines and the introductions are per player.
 | Vehicles | W7 (Garage 1) | a dead quad on Walker's lot from minute 2 (tier 0 dressing); the first bay arrives with W-B1 | Walker: "The bench builds it from a kit. The kit takes a trip." | the first drive out of the crater ramp |
 | The tower | minute 2 (the ruin), X1 (the briefing), X2 (stage 1) | the ruin on the rim; each stage visibly grows; the parts rack fills hook by hook | Marshall, per stage: one line naming the part | none needed |
 | Flying | W13, the runway | the runway lights at night, visible from the settlement road | Walker: "Take off into the wind. Land the same way." | a crash: PlayerRevive and a second airframe |
-| Revive | first time someone goes down | PlayerRevive's downed state; a teammate holds right-click | Tony's T1 line covers it | nobody nearby: the five-minute bleed-out. Inside the camp outline the camp revives a downed player after ten seconds (Medical 1); a player alone elsewhere respawns at the camp. |
+| Revive | first time someone goes down | PlayerRevive's downed state; a teammate holds right-click | a Field note the first time anyone goes down: "Hold right-click on a downed friend." | nobody nearby: the five-minute bleed-out. Inside the camp outline the camp revives a downed player after ten seconds (Medical 1); a player alone elsewhere respawns at the camp. |
 
 ## 4. What the book is, and is not
 

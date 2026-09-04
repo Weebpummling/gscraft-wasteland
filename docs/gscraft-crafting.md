@@ -1,7 +1,7 @@
 # GSCraft Wasteland — Crafting, Stations and Vehicles
 
 Draft 1, 2026-09-03. Companion to `gscraft-map-design.md` (draft 6) and `gscraft-quests.md`
-(draft 2). Five things are settled here: the capability audit of the quest book, the vehicle roster
+(draft 3). Five things are settled here: the capability audit of the quest book, the vehicle roster
 and how each is built, the crafting timer, server-placed crafting with an upgradable workshop, and
 the equipment crafting system that replaces looting as the source of gear.
 

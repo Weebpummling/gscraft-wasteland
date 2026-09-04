@@ -1,6 +1,6 @@
 # GSCraft Wasteland — Quests and Tasks
 
-Draft 2, 2026-09-03. Companion to `gscraft-map-design.md` (draft 6). Every quest here is buildable
+Draft 3, 2026-09-04 (draft 2 on 2026-09-03). Companion to `gscraft-map-design.md` (draft 6). Every quest here is buildable
 in FTB Quests with the pack as it is; task types used are item hand-in, location, kill, stage flag
 (set by KubeJS), advancement and checkmark; rewards are blueprints, KubeJS stages, items and
 commands.
@@ -49,10 +49,12 @@ Rules that hold across every chapter:
   of its defence, and that is the only site anything attacks; there is no random cycle, defended
   sites are safe for good, and only one site can be contested at a time. Holding all five is
   therefore the natural end of Marshall's loop (R6), not a standing burden.
-- **Every placed structure has a quest, and every quest lives in its NPC's chapter.** The Woods (a loot-and-quest
+- **Every kind of placed structure has a quest, and every quest lives in its NPC's chapter.** The Woods (a loot-and-quest
   region, not a sixth strongpoint: its bandit outpost is the marker and the assault only, R-W1) and the kept generated
   structures — the bunkers, the road-range capital, the pillager outpost, a boss tower, the nearest ancient city, a fog
-  house — are quests inside the six chapters, gated like everything else; the Woods opens with James's J-W1. The
+  house — are quests inside the six chapters, gated like everything else; the Woods opens with James's J-W1. The kept structures of a
+  kind beyond the quested ones (nine more bunkers, five capitals, five outposts, ten boss towers, three ancient cities, the
+  monuments, pyramids, igloos, trail ruins, strongholds and the mansion) are expedition finds with their loot tables and no quest. The
   district's small sites (copper tower, prismarine hall, stone complex) have theirs in Tune's, Michael's and Walker's
   chapters. The Woods' In Control rule is design §6.3.
 - **A quest may ask for an item only if an earlier quest has handed out its blueprint, or it is a
@@ -165,7 +167,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | U-B2 | Antenna field | III | camp, Financial Plaza | hand in 4 steel frames, 4 antenna elements, 1 encrypted radio (the plaza respawns them while held) | U-B1, `financial_defended` | **shack tier 2**: antenna field, intel desk; the contested site's countdown on the board |
 | U-B3 | Uplink | IV | camp, the hub | hand in 8 antenna elements, 2 circuit assemblies, 1 satellite receiver | U-B2, U9 | **shack tier 3**: mast to 40 with an aviation light, second dish, roof receiver (the board's readouts come from Radio 2 and 3) |
 | U-C1 | Copper | II | the copper tower (2.2 km) | reach it (location); hand in 4 relays, 4 wire spools — the tower's drops | U2, J2 | 2 circuit assemblies; the notebook marks the tower as the electrical run |
-| U-A1 | Dead quiet | III | the nearest ancient city (−1488, −272), 1.5 km NW | reach it (location); hand in 1 sculk catalyst mined there | U5, W-A3 | 1 encrypted radio; stage `ancient_city_1`; Tune: "Whatever is down there is listening." |
+| U-A1 | Dead quiet | III | the nearest ancient city (−1488, −272), 1.5 km NW | reach it (location); hand in 1 echo shard from its chests | U5, W-A3 | 1 encrypted radio; stage `ancient_city_1`; Tune: "Whatever is down there is listening." |
 | U-W1 | Quiet ground | III | the ranger cabin's high ground | hand in 1 antenna element at the cabin's relay mast (location + hand-in) | U5, J-W1 | the relay: the board shows the Woods sites and the outpost's garrison (`woods_relay`); 2 antenna elements back |
 | U-D1 | Go down | I–II | the bunker at (−784, −384), 0.9 km NW | reach it (location); hand in 1 hard drive from it | U2 | stage `bunker_1`; 2 circuit assemblies; the notebook's "Getting hurt" page notes the dark |
 | U-D2 | Deeper | III | the road-range bunkers at (1648, 32), (−1536, 1600), (−2384, 32) | reach all three (location); hand in 1 encrypted radio | U-D1, W7 | 1 military circuit board |
@@ -190,14 +192,14 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | J6 | Runway | III | the runway | stand on the runway (location); hand in 1 hard drive | J4 | aircraft prep flag |
 | J7 | The hub | IV | **the hub**, 6.2 km | reach the hub by air (location) | J6, W13 | the hub's loot tables switch on |
 | J8 | Bring it back | IV | the hub | hand in 1 phased array element, 1 satellite receiver | J7 | Tune U9 opens; Storage 4 (W13's diamond pack) unlocks |
-| J9 | Every capital | IV | the whole box | reach four of the Lukis capitals (location; the nearest four to the hub, from `tools/structures_v6.json`) | J7 | a **components crate**: choose any 4 of heavy diesel engine, purification membrane, encrypted radio, medical analyzer (held-site components, never a hub item; loot sheet §7) |
+| J9 | Every capital | IV | the whole box | reach four of the Lukis capitals (location; the four kept air-ring capitals nearest the hub: (5680, 2608), (4960, 4128), (5008, −1440), (4224, −2368) — structure plan) | J7 | a **components crate**: choose any 4 of heavy diesel engine, purification membrane, encrypted radio, medical analyzer (held-site components, never a hub item; loot sheet §7) |
 | J10 | Cartographer | IV | everywhere | reach every named site on the map (location, 20) | J9 | **the Cartographer's Pack**: a diamond backpack fitted with magnet, everlasting and stack ×4, named |
 | J11 | Every ruin | IV | everywhere | hand in one of each of the forty-two small items | J10 | the Collector analogue: an **inception upgrade** and a second everlasting upgrade — a nested pack that also survives death |
 | J-B1 | A flag on it | I | camp | hand in 16 planks, 4 fastener kits, 1 folder of documents | J1, W1 | **lookout tier 1**: platform, ladder, a flag |
 | J-B2 | The spotlight | III | camp, the far ring | hand in 4 steel frames, 2 light bulbs, 1 car battery, 3 valuables from the settlement | J-B1, J4 | **lookout tier 2**: 30 tall, a night spotlight (waypoint sharing is Radio 1's); zipline rope and hook orders (crafting §5.7) |
 | J-B3 | The cabin | IV | camp, the hub | hand in 8 steel frames, 16 glass, 1 satellite receiver | J-B2, J7 | **lookout tier 3**: 40 tall, glass cabin, telescope, waypoint beacon; every named site marked |
 | J-C1 | The capital | III | the nearest kept capital (−1584, 16), 1.6 km W | reach it by car (`capital_1`, §9.1); hand in 2 folders of documents found there | J4 | 6 emeralds; the capital marked on the board; J9's four air-ring capitals come later |
-| J-C2 | The house in the fog | II–III | the nearest fog house (2288, −400), 2.3 km | reach it after dusk (location) and come back | J2 | a Field note; 4 emeralds |
+| J-C2 | The house in the fog | II–III | the nearest fog house (2288, −400), 2.3 km — or either of the Woods' two | reach one (location); the book only says "go at night" | J2 | a Field note; 4 emeralds |
 | J-W1 | Into the trees | II–III | the sawmill (south edge), the ranger cabin (high ground) | reach both (location) | J2, W7 | waypoints; the notebook's Woods line; stage `woods_scouted` |
 | J-W2 | Two doors down | III | the two Woods bunkers | reach both (location); hand in 1 hard drive from them | J-W1 | stage `woods_bunkers`; 2 circuit assemblies |
 | J-W3 | The wreck | III | the downed aircraft | reach it (location); hand in the **flight recorder** (a valuables item found only there) | J-W1 | 1 avionics module (the second source; W13 and the Black Hawk want them) |
@@ -234,7 +236,7 @@ is still contested — one fight at a time, in this order.
 | D4 | Bunker | III | the claim | hand in 64 concrete, 4 steel frames, 1 heavy anchor cable | D2, W9, M9 | **Walls 3**: blast doors, the laser tower and radar orders (crafting §5.7); armoured-car recipe |
 | D5 | Greenhouse | III | the claim, the plant | hand in 16 cabbages, 16 onions, 8 cooked meals (Farmer's Delight), 1 industrial pump (irrigation; the plant respawns them while held) | D3, `plant_defended` | **Farm 2**: greenhouse and irrigation; crops inside the claim grow at double rate (KubeJS random-tick boost) |
 | D6 | Rations | III–IV | the claim, the plant | hand in 32 cooked meals, 1 purification membrane (the plant respawns them while held) | D5, `plant_defended` | **Farm 3**: hydroponics; the **ration pack** recipe (4 meals → 1 pack, Saturation, stacks 16) — the hub run's food |
-| D-O1 | The outpost on the road | II | the pillager outpost (−1392, 1632), 2.2 km SW on the west road | kill 10 pillagers there (kill task, stage `road_outpost_cleared`) | D1, W-A1 | 90 rifle rounds; the west road's bandits thin out (that rectangle's In Control rule switches off) |
+| D-O1 | The outpost by the road | II | the pillager outpost (−1392, 1632), 2.1 km SW, 700 m south of the west road's end | kill 10 pillagers there (kill task, stage `road_outpost_cleared`) | D1, W-A1 | 90 rifle rounds; the outpost stays quiet (the script stops its pillagers respawning) |
 | R-W1 | The outpost | III | the bandit outpost | place the marker; win the 5-minute assault (stage `woods_outpost_cleared`); no fortify clock, no defence | R4, J-W1 | the outpost's cache (2 salvage rifles, 90 rounds, 4 emeralds); bandits stop spawning in the Woods |
 | R-W2 | What the trees heard | IV | the Woods bunkers' lower levels | kill 30 below y 40 in the two bunkers; hand in 1 encrypted radio found there | J-W2, U6 | 1 military circuit board; the Woods page of the notebook completes |
 

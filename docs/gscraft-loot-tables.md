@@ -2,7 +2,7 @@
 
 *Sheet 1, 2026-09-04. Closes gap audit C7 (sites that dropped nothing anyone needs), C8 (the camp
 ruins lacked the introductions' items), the loot half of C10 (the valuables bag, the components
-crate) and C17 (the hub's economy). Companion to design §4 (the item ladder), quests draft 2 and
+crate) and C17 (the hub's economy). Companion to design §4 (the item ladder), quests draft 3 and
 crafting draft 1. Every table here is a datapack file under `build/datapacks/gscraft/data/gscraft/loot_tables/`;
 the ids below are the file paths. Item ids are the KubeJS items of Phase C (`gscraft:<name>`) unless
 they are vanilla.*
@@ -87,7 +87,7 @@ Positions are `gscraft-map-layout-v6.md` §3.1. Rolls 2–4 unless noted.
 | **The settlement** (3.7 km E) | lakeside town | W12's pressure gauge, J5's valuables, J-B2's valuables | apartment + store + garage, pressure gauge 12, valuables (broken radio, computer parts, folder) 6 each, emerald 6 |
 | **The sewers** (under the plaza) | dungeon | U6's encrypted radio, dark work | military + cave-spider drops; component container `components/sewers`: encrypted radio 1 per refresh; rolls 2–3 |
 | **The Woods** (2.9 km NNE, `gscraft-woods-plan.md`) | wilderness | nine quests across the chapters (J-W1 opens it) | sawmill: planks 20, **saw blade** 1 (only here), motor oil 6; ranger cabin: **portable generator** 1 (only here), canned goods 12, map 4; hunters' hide: rabbit hide 10, sweet berries 15, arrows→ 6 pistol ammo, salvage shotgun 2; downed aircraft: **flight recorder** 1 (only here); component container `components/wreck`: avionics module 1, surgical kit 1 (its medkit); the outpost's cache (R-W1 reward, not a chest): 2 salvage rifles, 90 rounds, 4 emeralds |
-| **Kept bunkers** (14, structure plan) | dungeons | Tune's side chain (U-D1…U-D3) | military + hard drive 8; below y 40 a component container `components/bunker` per bunker: encrypted radio 1 per refresh |
+| **Kept bunkers** (14, structure plan) | dungeons | five in Tune's side chain (U-D1…U-D3), the rest expedition finds | military + hard drive 8; below y 40 a component container `components/bunker` per bunker: encrypted radio 1 per refresh |
 | **Lukis capitals, outposts, boss towers, ancient cities, fog houses** | the kept generated structures | J-C1, J9, D-O1, W-A6, U-A1, J-C2 | military + office; emerald 8 |
 
 ## 6. The hub — `gscraft:hub/*` (C17)

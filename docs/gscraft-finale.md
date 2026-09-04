@@ -11,7 +11,7 @@ The beacon lights at stage 5 (X6) and a 60-minute countdown starts. Then five wa
 claim: waves 1–4 are the four defence tables of design §6.3 stacked, and wave 5 carries the boss. The boss fight
 has to work with what the players actually have by then: guns (TaCZ), the gatehouse at tier 3 (blast doors,
 floodlights), the M3A3 Bradley built during the countdown (crafting §2.1), Tony's med kits, and a team of
-two to six. So the boss must
+any size. So the boss must
 
 1. be **hittable by guns** and take that damage honestly,
 2. **come to the gate** — the walls, the doors and the vehicle have to matter,
@@ -43,7 +43,8 @@ guns are what it hears, it does not stop for walls, and its boom goes through ar
 **Telegraph.** When stage 5 is placed, the tower function also lays a ring of sculk around the tower's plinth (the
 compound, x 64…191 × z −144…−17 — one place, one function) and one sculk shrieker (inert — `can_summon` false) at the gate. Players who know the
 game read it at once; players who do not get Tune's line: *"Whatever's under us heard that."* Radio 3
-shows wave 5 as "unknown, one, large" for the whole countdown.
+shows wave 5 as "unknown, one, large" for the whole countdown. The very first sign comes much earlier: the prismarine
+hall's sculk floor (Michael's M-P1, Act II), where Tune says once, *"That stuff wasn't there last year."*
 
 **The fight, wave by wave** (the 60-minute countdown ends → waves 45 s apart, design §6.2's cadence):
 

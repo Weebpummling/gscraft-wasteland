@@ -30,7 +30,7 @@ sites re-evaluated on merit, not bound to the old pads; plaza on dry land; keep 
 make the roads connect; plant/FR-06 spacing (418 m) accepted; camp rim sites get pads; the players'
 frozen-projectile complaint fixed (KubeJS sweep + simulation distance 10).
 
-**Design revised 2026-09-03 (draft 6, quests draft 2, crafting draft 1):** the site ladder and contested-site
+**Design revised 2026-09-03 (draft 6, quests draft 3 on 2026-09-04, crafting draft 1):** the site ladder and contested-site
 attacks, NPC building tiers with the grief lock, timed crafting at server-placed stations, the vehicle
 roster, equipment crafting, garrison tables, the finale (now the Sleeper, `docs/gscraft-finale.md`), batteries for the electric vehicles.
 New tools: `dossiers.py` (dossier chests, `tools/dossiers.json`, `gscraft:dossiers`), `camp_ruins.py` (24

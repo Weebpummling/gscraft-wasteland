@@ -2,7 +2,7 @@
 
 Draft 1, 2026-09-03. Every gameplay mod in the pinned set (95 jars, 78 with gameplay content) was
 opened and read for blocks, items, entities, structures and recipe types. The design (draft 6),
-quests (draft 2) and crafting (draft 1) use about a third of what is there. This is the rest,
+quests (draft 3) and crafting (draft 1) use about a third of what is there. This is the rest,
 ordered by how much it would add for how little it costs, with a recommendation on each.
 
 ## 1. Use now — cheap, and they close design holes
