@@ -47,10 +47,10 @@ quests bring things up. Times are approximate and assume a player who wanders a 
 | 0:35–1:00 | Three more introductions from the same ruins (Tony's bandages, Michael's wire and filter, Tune's circuit board and broken radio). James's two locations (J1) wait for the first walk out. | each survivor owns one thing; rewards are visible in the world | Each NPC: one line. Michael: "There. Now we can see what's coming." |
 | 1:05 | James's J1: the glass tower (1.3 km) and the acacia hall (1.55 km). The first walk out along the spine. **Xaero** shows the road; **Ping Wheel** is explained by Tune's line. | the map, waypoints, pings; roads lead somewhere; distance costs time | Tune: "Press M for the map. Middle-mouse pings a spot for everyone." (the only control ever explained in chat) |
 | 1:30 | Back at camp with a backpack from W2 (Storage 1). The fifth introduction is done, so Marshall **speaks** for the first time: the camp outline lights up and the map wall is revealed (R1, a datapack function); the strongpoint board lights one column — Novo, the industrial yard 1.06 km east along the spine, state *unknown*; the tower chapter appears in the book, and X1's briefing names its five hooks. | the loop exists; there is one target; the tower is the long game | Marshall: "A whole town's worth of ruins out there. Start with the industrial yard east along the road. Ask James what's in it first." |
-| Session 2 | James J-S1: reach Novo, find the dossier (the board turns *scouted* and shows the garrison). Walker W5: two or three loot runs (*looted*). Marshall R2: the marker, the five-minute assault, the fortify clock, the first attack when it ends (*held*, then *defended*). | the whole **site ladder**, one state per trip, each state a colour on the board (the watchtower banners come later, with gatehouse tier 2) | Each state change is one radio line from Tune and a board column changing colour. |
+| Session 2 | James J-S1: reach Novo, find the dossier (the board turns *scouted* and shows the garrison). Walker W5: two or three loot runs (*looted*). Marshall R2: the marker, the five-minute assault, the friendly garrison that appears when it is won, the fortify clock, and the counterattack that arrives at the camp gate when it ends (*held*, then *defended*). | the whole **site ladder**, one state per trip, each state a colour on the board (the watchtower banners come later, with gatehouse tier 2) | Each state change is one radio line from Tune and a board column changing colour. |
 
 By the end of session two the team has looted, ordered, carried, walked, scouted, taken, held and
-defended — every action the game has — without one paragraph of instructions. A player who joins
+defended (at their own gate) — every action the game has — without one paragraph of instructions. A player who joins
 later gets the same introductions as a tour: the team's progress stages are shared, but the first-time
 lines and the introductions are per player.
 
@@ -66,7 +66,7 @@ lines and the introductions are per player.
 | Roads and distance | J1, W5 | the spine to Novo; the walk takes four minutes | nothing; the clock does it | the walk back at dusk |
 | Safety, torches, the horror | first dusk | ten torches; the fog man's sound | nothing | a player who sleeps outside the wire meets the fog man |
 | The site ladder | J-S1 → R2 | the strongpoint board (six columns, six colours); later the watchtower banners | one radio line per state change | the marker refused before scouting: Marshall says "James hasn't been. Neither have you." |
-| The assault and the fortify clock | R2 at Novo | a boss bar for the five minutes; the board shows the ten-minute warning (the whole clock once Radio 2 is in); the first attack arrives exactly when it ends | Marshall: "Hold it five minutes and it's ours. Then dig in — they come back when the clock runs out." | losing the first attack: the column turns red, the garrison respawns, retake it |
+| The assault and the fortify clock | R2 at Novo | a boss bar for the five minutes; the board shows the ten-minute warning (the whole clock once Radio 2 is in); the counterattack arrives at the camp gate exactly when it ends | Marshall: "Hold it five minutes and it's ours. My people will keep it. Then dig in here — they'll come for the camp when the clock runs out." | losing the counterattack: the column turns red and the wave comes again after the next clock; the site stays ours |
 | Infection | first zombie hit | the Hordes infection icon; Tony's clinic cures it | Tony's T1 line: "If one bites you, come to me before it spreads." | dying of it once, near the clinic |
 | Noise (Zombie Awareness) | first shot fired at a site | the site's garrison converges | Walker W-A4: "A suppressor is the difference between a quiet run and a fight." | one loud run |
 | Vehicles | W7 (Garage 1) | a dead quad on Walker's lot from minute 2 (tier 0 dressing); the first bay arrives with W-B1 | Walker: "The bench builds it from a kit. The kit takes a trip." | the first drive out of the crater ramp |
@@ -126,7 +126,7 @@ Early failures are cheap and close to the clinic. The design keeps them that way
 | Infection | a walk to Tony | the medical function's purpose | Act I |
 | Carrying a bulky item on foot | a slow walk | why the garage exists | W11, the first kit |
 | A loud run at Novo | a fight | noise, suppressors | W5 |
-| Losing Novo's first attack | retake it (the garrison respawns) | the ladder can go down; defended sites are safe for good | R2 |
+| Losing Novo's counterattack at the gate | the wave comes again after the next clock; nothing is lost | the walls matter; defended sites are safe for good | R2 |
 | A crash | the airframe | flying is late-game for a reason | Act IV |
 
 ## 8. What this asks of the build (Phase C)

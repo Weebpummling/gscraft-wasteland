@@ -42,7 +42,7 @@ each a 2×3 patch of concrete under a hanging sign with the site's name:
 | looted | `minecraft:orange_concrete` | "the marker can go down" |
 | held | `minecraft:light_blue_concrete` | "ours — the clock is running" |
 | defended | `minecraft:lime_concrete` | "ours for good" |
-| lost | `minecraft:red_concrete` | "take it back from the marker" |
+| lost | `minecraft:red_concrete` | "they beat us at the gate — they'll be back" |
 
 Above the columns: the **clock sign** (the contested site's countdown, Radio 2), the **composition
 sign** (Radio 3), the **contested** lamp (`minecraft:redstone_lamp`, lit while a site is contested —

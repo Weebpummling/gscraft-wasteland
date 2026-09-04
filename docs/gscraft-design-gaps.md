@@ -77,7 +77,7 @@ Every other row: **the default, applied** in the same commit as this note.
 | B35 | **Lost vehicle** | crafting §2 | re-kit; the bay repairs a damaged vehicle for one steel frame (W-B2's "repair at the bay") |
 | B36 | **Ammunition** | crafting §5.2 | ammo crafted at stations from casings + powder; powder = 1 gunpowder + 1 solvent (crafting §5.6), gunpowder from the stone complex and military chests; loot ammo scarce |
 | B37 | **Stage sharing** (team vs player) | quests §9 | team for sites, functions, blueprints, car_built; player for first-time onboarding lines and revives_3 |
-| B38 | **Held sites and claims; how a marker falls** | design §6 | the marker is a block; it falls when broken by the attack's last wave reaching it or by a player; no player claims at strongpoints |
+| B38 | **Held sites and claims; how a marker falls** | design §6 | the marker is a block; only a player can break it (owner 2026-09-04: sites are held by a friendly garrison and every counterattack comes to the base); no player claims at strongpoints |
 | B39 | **World border warning** | nowhere | vanilla border damage off, warning distance 200 blocks |
 | B40 | **2-of-5 players difficulty** | design L405 | wave size scales with players in the rectangle (×0.4 solo … ×1.2 for six+); clocks run for any team size (B27) |
 

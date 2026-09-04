@@ -28,7 +28,7 @@ Rules that hold across every chapter:
   scout quest (reach it, bring back its dossier), the owning NPC's loot quest (hand-ins that drop
   only there, two or three trips), then Marshall's take (place the marker, win the 5-minute
   assault). The marker is refused until the first two are done. The owning NPC's hold quest
-  completes on the site's own first attack, which always comes at the end of the fortify clock.
+  completes when the site's counterattack is beaten at the base, which always comes at the end of the fortify clock.
 - **The tower chapter opens with Marshall** (owner, 2026-09-04). When the five introductions are done Marshall speaks,
   the strongpoint board lights and the tower chapter appears in the book at the same moment; X1 is the briefing.
   The stages themselves stay gated by their parts, so the chapter is visible early and completed late. (Superseded
@@ -38,15 +38,16 @@ Rules that hold across every chapter:
   reward for holding FR-06 in Act III and would have kept the chapter shut a whole act longer than
   the stage labels claim.) Stages 1–2 are Act II parts, 3–4 are Act III, 5 is Act IV, so the tower
   is repaired across the second half of the game, not at its end.
-- **Every attack is a quest.** Holding a site through its first attack is a task in the owning NPC's
-  chapter, so the loop and the book agree. The first attack is deterministic — it targets the newly
-  held site when its fortify clock runs out — and it is the only attack that site will ever see.
+- **Every attack is a quest, and every attack comes to the base** (owner, 2026-09-04). A taken site is held by a
+  friendly garrison the take unlocks; when its fortify clock runs out the site's counterattack marches on the camp
+  gate, and beating it there is the owning NPC's hold quest. It is deterministic, it is fought at home, and it is the
+  only attack that site will ever bring.
 - **Every NPC's building climbs three tiers** (design §3.6): three `*-B` quests per chapter, each
   hand-in rebuilds their site on the same footprint and re-summons them in it. Tier 1 after the
-  introduction, tier 2 after their strongpoint has survived its first attack (one more of its
+  introduction, tier 2 after their strongpoint's counterattack has been beaten at the base (one more of its
   component), tier 3 with a hub item (the gatehouse: FR-06's reactor control module).
 - **Attacks only where the players are fighting.** A site is contested from its marker to the end
-  of its defence, and that is the only site anything attacks; there is no random cycle, defended
+  of its counterattack at the base, and that is the only attack running; there is no random cycle, defended
   sites are safe for good, and only one site can be contested at a time. Holding all five is
   therefore the natural end of Marshall's loop (R6), not a standing burden.
 - **Every kind of placed structure has a quest, and every quest lives in its NPC's chapter.** The Woods (a loot-and-quest
@@ -79,7 +80,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | W3 | Frame of mind | I | camp, glass tower | hand in 12 metal scrap; show a welding torch | W2 | steel-frame blueprint, **Workshop 1** (IE machine recipes) |
 | W4 | The toolbox | I | camp | show a toolbox (crafted) | W3 | Workshop 1 effects; 16 iron ingots |
 | W5 | East, a mile | I | **Novo**, 1.06 km E on the spine | hand in 6 spark plugs, 12 metal scrap, 4 motor oil — Novo's drops | W4, J-S1 | stage `novo_looted`; Marshall R2 opens |
-| W6 | Hold the yard | I→II | Novo | stage `novo_held`; stage `novo_defended` (Novo's own first attack, at the end of its fortify clock) | W5, Marshall R2 | **Workshop 2** (motor-assembly and mast-section-kit blueprints); **Storage 2**: iron backpack, stack upgrade ×2, magnet upgrade |
+| W6 | Hold the yard | I→II | Novo | stage `novo_held`; stage `novo_defended` (Novo's counterattack beaten at the camp gate, at the end of its fortify clock) | W5, Marshall R2 | **Workshop 2** (motor-assembly and mast-section-kit blueprints); **Storage 2**: iron backpack, stack upgrade ×2, magnet upgrade |
 | W7 | Wheels | II | camp, Novo | hand in 1 motor assembly, 4 steel frames, 1 car battery | W6, M3 | **Garage 1**: quad and runabout recipes, wheel, fuel-tank, empty-fuel-can and cargo-crate blueprints; a full tank and 2 fuel cans; stage `car_built` when one is crafted |
 | W8 | Fuel run | II | camp | hand in 2 fuel cans | W7, M7 | fuel-can refill recipe (at Michael's plant pump, M-B2; Walker's drum rack stores them) |
 | W9 | Heavy metal | III | Novo | hand in 1 heavy diesel engine, 2 motor assemblies | W8, M-B2, `novo_held` | **Garage 2**: van and truck recipes |
@@ -111,7 +112,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | T2 | Stock the clinic | I | camp | craft and hand in 2 med kits | T1 | **Medical 1**: the clinic revive point — a downed player inside the camp outline is revived by the script after 10 s (PlayerRevive's range is one global value, 6 m; design §4.5); 4 med kits back |
 | T3 | Neighbours | II | **residential block**, 1.9 km | hand in 3 blood bags, 4 syringes, 2 antiseptic — the block's drops | T2, J-S2 | stage `residential_looted`; Marshall R3 opens |
 | T4 | Take the block | II | residential block | stage `residential_held` (Marshall's assault won) | T3, Marshall R3 | 8 bandages, 4 antiseptic |
-| T5 | Hold the block | II | residential block | stage `residential_defended` (the block's first attack) | T4 | **Medical 2**: reduced death penalty; the med kit cures infection in the field |
+| T5 | Hold the block | II | residential block | stage `residential_defended` (the block's counterattack, at the base) | T4 | **Medical 2**: reduced death penalty; the med kit cures infection in the field |
 | T6 | Analyzer | II–III | residential block | hand in 1 medical analyzer | T5 | Medical 2 effects; 4 blood bags |
 | T7 | Bio Gen | III | **Bio Gen**, 3.9 km | reach Bio Gen (location); hand in 1 surgical kit | T6, J4 | surgical-kit use: full revive |
 | T8 | Triage | III | anywhere | stage `revives_3` (three teammate revives, counted by KubeJS) | T5 | 8 med kits |
@@ -132,11 +133,11 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | M2 | Lights on | I | camp | hand in 2 wiring harnesses, 1 light bulb | M1 | **Generator 1**: lighting recipes, IE power |
 | M3 | Clean water | I | camp, the lake | hand in 2 filter cartridges | M2 | **Water 1**: coolant and sealed-tubing blueprints |
 | M4 | The refinery | II | **industrial plant**, 2.4 km | hand in 4 corrugated hoses, 4 radiator fins, 2 fuel cans — the plant's drops | M3, J-S3 | stage `plant_looted`; Marshall R4 opens |
-| M5 | Hold the plant | II | industrial plant | stage `plant_held`; stage `plant_defended` (the plant's first attack) | M4, Marshall R4 | **Water 2**: biodiesel chain, fuel cans |
+| M5 | Hold the plant | II | industrial plant | stage `plant_held`; stage `plant_defended` (the plant's counterattack, at the base) | M4, Marshall R4 | **Water 2**: biodiesel chain, fuel cans |
 | M6 | Pump it | II | industrial plant | hand in 1 industrial pump | M5 | cooling-loop blueprint |
 | M7 | Fuel for the road | II | camp | hand in 4 fuel cans | M5 | Walker W8 opens; 2 fuel cans back |
 | M8 | The reactor plaza | III | **FR-06**, 2.5 km E | hand in 2 relays, 2 electric motors, 1 car battery — FR-06's drops | M6, W7, J-S4 | stage `fr06_looted`; Marshall R5 opens |
-| M9 | Hold FR-06 | III | FR-06 | stage `fr06_held`; stage `fr06_defended` (FR-06's defence) | M8, Marshall R5 | **Generator 2**; transformer cores start spawning |
+| M9 | Hold FR-06 | III | FR-06 | stage `fr06_held`; stage `fr06_defended` (FR-06's counterattack, at the base) | M8, Marshall R5 | **Generator 2**; transformer cores start spawning |
 | M10 | Core | III | FR-06 | hand in 1 transformer core | M9 | generator-kit blueprint |
 | M11 | The hangar | III→IV | FR-06 hangar | hand in 1 avionics module; hand in 1 reactor control module | M10 | hangar unlocked; Walker W13 opens |
 | M12 | Purification | III | industrial plant | hand in 1 purification membrane | M6 | **Water 3** |
@@ -157,7 +158,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | U2 | The map | I | camp | hand in 2 circuit assemblies | U1 | **Radio 1**: shared waypoints, the warning system |
 | U3 | Listening post | II | the tower compound (in the camp), the library | reach both (location); hand in 1 hard drive | U2, J2 | the strongpoint board shows garrison strength |
 | U4 | The plaza | III | **Financial Plaza**, 2.1 km W | hand in 2 circuit boards, 2 computer parts, 1 hard drive — the plaza's drops | U3, W7, J-S5 | stage `financial_looted`; Marshall R5 opens |
-| U5 | Hold the plaza | III | Financial Plaza | stage `financial_held`; stage `financial_defended` (the plaza's defence) | U4, Marshall R5 | **Radio 2**: the contested site's whole countdown on the board; antenna-element blueprint |
+| U5 | Hold the plaza | III | Financial Plaza | stage `financial_held`; stage `financial_defended` (the plaza's counterattack, at the base) | U4, Marshall R5 | **Radio 2**: the contested site's whole countdown on the board; antenna-element blueprint |
 | U6 | Under the plaza | III | the sewers | reach the sewers (location); kill 20 there; hand in 1 encrypted radio | U5 | the defence warning doubled |
 | U7 | Military board | III | Financial Plaza | hand in 1 military circuit board | U5 | transmitter blueprint |
 | U8 | Antennas | III | camp | craft and show 4 antenna elements | U5 | 4 antenna elements back |
@@ -220,7 +221,7 @@ is still contested — one fight at a time, in this order.
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
 | R1 | Muster | I | camp | checkmark; read the strongpoint board | the five introductions | the board and the map wall revealed, the camp's outline lit (B9); the claim-marker blueprint (trip-length order; re-crafted after a loss) |
-| R2 | Novo | I | Novo | place the marker; win the assault (stage `novo_held`) | R1, `novo_looted` | fortify clock starts; Walker W6 opens |
+| R2 | Novo | I | Novo | place the marker; win the assault (stage `novo_held`) | R1, `novo_looted` | Novo's garrison appears; the fortify clock starts; Walker W6 opens |
 | R3 | The block | II | residential block | place the marker; win the assault (stage `residential_held`) | R2, `novo_defended`, `residential_looted` | Tony T4 opens |
 | R4 | The plant | II | industrial plant | place the marker; win the assault (stage `plant_held`) | R2, `novo_defended`, `plant_looted` | Michael M5 opens |
 | R5 | The plaza and the reactor | III | FR-06, Financial Plaza | place the marker and win the assault at each (stages `fr06_held` and `financial_held`), one after the other | R3, R4, `car_built`, `fr06_looted`, `financial_looted` | Michael M9, Tune U5 open |
@@ -272,8 +273,8 @@ is still contested — one fight at a time, in this order.
 **Act I (sessions 1–2).** Five introductions in the camp's own ruins; the personal station, the first
 backpack, lights. James sends them to the glass tower and the acacia hall to learn the ground. Walker
 sends them east along the spine to Novo, the one strongpoint in walking range: first to find its dossier, then two
-or three loot runs for Walker, then Marshall's marker and the assault. Novo is held, its fortify
-clock runs, and its first attack comes on schedule. Storage 2 and Workshop 2 arrive. Nothing here
+or three loot runs for Walker, then Marshall's marker and the assault. Novo is held by its new garrison, its fortify
+clock runs, and its counterattack arrives at the camp gate on schedule. Storage 2 and Workshop 2 arrive. Nothing here
 needs a vehicle.
 
 **Act II (sessions 3–5).** The residential block and the plant are taken and held; the first car is
@@ -284,7 +285,7 @@ stages 1 and 2 go up. The district's west edge is looted for electrical items. T
 **Act III (sessions 6–9).** FR-06 and Financial Plaza need the car to reach and hold; the truck
 appears; the secure pack arrives. Stages 3 and 4 go up: the tower has power and a dish. The far
 ring (settlement, Bio Gen, the sewers) supplies T7's surgical kit, W12's gauge and U6's encrypted radio. Five sites in the pool
-means five defences fought and won, one at a time, and the map is theirs.
+means five counterattacks fought and won at the gate, one at a time, and the map is theirs.
 
 **Act IV (sessions 10–12).** The hangar, the runway, the plane. The hub is reached, the phased array
 element comes home in the plane's cargo, the antenna array goes up, the beacon lights. Tony's ready
@@ -299,7 +300,7 @@ reward and read by stage tasks (C3, 2026-09-04):
 
 | Group | Stages |
 |---|---|
-| Site ladder | `<site>_scouted`, `<site>_looted`, `<site>_held`, `<site>_defended`, `<site>_lost` for `novo`, `residential`, `plant`, `fr06`, `financial`; `all_held` |
+| Site ladder | `<site>_scouted`, `<site>_looted`, `<site>_held`, `<site>_defended`, `<site>_lost` (the counterattack at the base was lost; the site stays held and the wave returns after the next clock) for `novo`, `residential`, `plant`, `fr06`, `financial`; `all_held` |
 | The Woods and the kept structures | `woods_scouted`, `woods_bunkers`, `woods_outpost_cleared`, `woods_relay`, `bunker_1`, `road_outpost_cleared`, `boss_tower_1`, `ancient_city_1`, `capital_1` |
 | Vehicles | `car_built`, `boat_built`, `truck_built`, `aircraft_built`; the vehicle-qualified location flags `settlement_by_car`, `biogen_by_car`, `settlement_by_boat`, `hub_by_air`, `bunker_east_by_air`, `capital_1` (§9.1) |
 | Function levels | `workshop_1…3`, `garage_1…3`, `storage_1…4`, `medical_1…3`, `generator_1…3`, `water_1…3`, `radio_1…3`, `walls_1…3`, `farm_1…3` |
