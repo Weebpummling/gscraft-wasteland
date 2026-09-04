@@ -65,6 +65,15 @@ furnishing). Spawns stay off until the owner's Phase A pass on v7 is done — th
 Immersive Weathering, the server tools and the TaCZ fire-control extension all STAY (uses in `gscraft-mod-capabilities.md`
 §4 and `gscraft-crafting.md` §2.1: the military vehicle tier and the dead-vehicle site dressing).
 
+**The Line (this workstation, 2026-09-04):** a rural power-line corridor from the camp's south edge to the residential
+block's west gate — farmstead, pump house, substation A on the freed pad, depot, substation B, switching station, 56
+pylons — `tools/theline.py` → `gscraft:theline`, `buildmap/theline_v7.json`, loot `gscraft:sites/line`; design §2.6,
+quests §7.5 (L1–L6, L6 gates R3; 144 quests). Placed on the hosted v6 world with force-loading. **For v7 add
+`gscraft:theline` to the camp-functions step** (after roads: it reads ground from the built world, so re-run
+`theline.py` against the v7 region set first and re-upload `line_*.nbt` + the function). `tools/landuse.py` measures
+city/wilderness per chunk (§5 of the structure plan); the `gscraft_wasteland` LC profile (cityChance 0.004) is staged
+for a possible v8, not in v7.
+
 **Handoff state:** the hosted server runs v6 with EMI in `/mods` (client pack rebuilt with EMI on 2026-09-03: `G:/GSCraft/release-v7/GSCraft-Client.zip`), ruins v2, torches, dossier
 and site chests in place; the datapack on the server matches `build/datapacks/gscraft` except `dossiers_fill`, parked
 in `build/phase_c/`. Loot tables carry vanilla stand-ins until Phase C. Pending on the working machine: the owner's Phase A flight on v7 (local server up in the visual profile), then the hosted deploy of v7 (section 6).
