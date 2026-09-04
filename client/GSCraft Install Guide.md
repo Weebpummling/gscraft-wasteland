@@ -31,19 +31,15 @@ Flashlight (Dynamic Flashlight): right-click to switch it on; sneak + right-clic
 
 ---
 
-## Way 2 — official Minecraft launcher (manual)
+## Way 2 — official Minecraft launcher (Windows, one file, but updates are manual)
 
-1. Install **Java 17**: https://adoptium.net/temurin/releases/?version=17 (Windows x64 `.msi`, tick “Set JAVA_HOME” during install).
-2. Run the official launcher once with plain **1.20.1** selected so the game files exist, then close it.
-3. Download the Forge installer: https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.10/forge-1.20.1-47.4.10-installer.jar — run it, keep **Install client**, click **OK**.
-4. Download `GSCraft-Client.zip` from the Drive link and unzip it. Inside is a folder `GSCraft\.minecraft\` containing `mods`, `config`, `tacz`, `kubejs`, `defaultconfigs` and `servers.dat`.
-5. Copy those five folders **and** `servers.dat` into your game folder:
-   - Windows: `%APPDATA%\.minecraft\` (paste that into the Explorer address bar)
-   - macOS: `~/Library/Application Support/minecraft/`
-   - Linux: `~/.minecraft/`
-   If a `mods` folder already exists there with other mods in it, empty it first — foreign mods will get you rejected by the server.
-6. In the launcher pick the **forge** profile (1.20.1-47.4.10) → **Edit → More options → JVM arguments**: change `-Xmx2G` to **`-Xmx6G`** (or `-Xmx4G` on an 8 GB machine). Save.
-7. **Play**, wait for the mods to load, **Multiplayer → GSCraft → Join Server**.
+1. Run the official Minecraft launcher once with plain **1.20.1** selected, so the game files exist, then close it.
+2. From the release zip, double-click **`GSCraft-VanillaLauncher.cmd`**. It installs a private Java 17, Forge 47.4.10,
+   and the GSCraft pack into `%APPDATA%\.minecraft`, and sets the Forge profile to 6 GB. If a `mods` folder with other
+   mods is already there, empty it first — foreign mods will get you rejected by the server.
+3. **Play** with the **GSCraft (forge)** profile, then **Multiplayer → GSCraft → Join Server**.
+4. **Updates:** the official launcher cannot update the pack by itself. When the pack changes (we will say so),
+   double-click the same file again; it only downloads what changed.
 
 ---
 
