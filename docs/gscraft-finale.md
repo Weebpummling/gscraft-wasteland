@@ -40,8 +40,8 @@ under the crater feels it first. Wave 5 is that thing walking up out of the grou
 who came for the same signal. The Warden's whole kit reads as this story: it hunts by vibration, the
 guns are what it hears, it does not stop for walls, and its boom goes through armour.
 
-**Telegraph.** When stage 5 is placed, the tower function also lays a ring of sculk on the crater floor
-around the plinth and one sculk shrieker (inert — `can_summon` false) at the gate. Players who know the
+**Telegraph.** When stage 5 is placed, the tower function also lays a ring of sculk around the tower's plinth (the
+compound, x 64…191 × z −144…−17) and across the crater floor, and one sculk shrieker (inert — `can_summon` false) at the gate. Players who know the
 game read it at once; players who do not get Tune's line: *"Whatever's under us heard that."* Radio 3
 shows wave 5 as "unknown, one, large" for the whole countdown.
 
