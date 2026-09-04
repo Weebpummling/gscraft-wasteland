@@ -85,12 +85,13 @@ next tier's function before re-summoning, so counts never drift. Their inventori
   unpowered light blocks, so they are lit from the first night and visible from the settlement road
   (onboarding "Flying"). IE's powered `immersiveengineering:floodlight` is the gatehouse tier 3's
   and Walker's yard tier 3's light, wired to Michael's power.
-- **Flashlight** (`gscraft:flashlight`, KubeJS item, Custom Starting Gear kit): the pack has no
-  dynamic-light mod and no flashlight item (checked: the jars offer only lanterns and IE's flare
-  cartridge), so the flashlight is a held item that gives **Night Vision** while in either hand
-  (player tick, re-applied every 15 s) and drains a battery bar over 20 minutes of use; recharged
-  at Michael's charging station (M-B2) or with 1 car battery at any station. Honest version; it
-  can be swapped for a real dynamic light later without touching the design.
+- **Flashlight**: the pack has no dynamic-light mod and no flashlight item (checked: the jars offer only
+  lanterns and IE's flare cartridge). Recommended: add **Dynamic Flashlight 2.1.0** (Forge 1.20.1, no
+  dependencies; beam visible to other players, optional server-side light blocks) — research and the
+  owner's call in `notes/gscraft-flashlight-and-nvg.md`. Until it is added, the fallback is a KubeJS item
+  (`gscraft:flashlight`) that gives **Night Vision** while held and drains a battery bar over 20 minutes;
+  either way the battery is the flashlight battery of crafting §5.6, recharged at Michael's charging
+  station (M-B2) or with 1 car battery at any station. Night-vision goggles and thermal: `gscraft-vendors.md` §6.
 - **Notebook** (`gscraft:survivors_notebook`, Patchouli): `build/patchouli_books/survivors_notebook/`,
   the six pages of onboarding §6; the "Where things are" page's entries are advancement-gated, and
   the loop script grants the advancement when the matching stage is set, so the page grows as sites

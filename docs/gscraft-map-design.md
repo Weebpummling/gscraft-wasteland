@@ -26,6 +26,9 @@ unlocked by a yard tier alone (`gscraft-crafting.md` §2.1, `gscraft-quests.md`)
 
 **Onboarding (2026-09-04):** how all of this is taught in play rather than read - `gscraft-onboarding.md`.
 
+**Vendors (owner, 2026-09-04):** the six NPCs are also traders — consumables as a floor, guns and gear as a priced
+shortcut, loot buy-back as a sink, access by building tier and quest stage, on vanilla merchant offers - `gscraft-vendors.md`.
+
 ---
 
 ## 1. The game in one paragraph

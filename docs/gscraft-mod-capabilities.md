@@ -97,6 +97,10 @@ each is now written (§5c).
 
 ## 5c. Done on 2026-09-04 (the gap audit's phase items, design side)
 
+- **Vendors** on vanilla merchant offers (no trade mod, KubeJS has no villager-trade events): `gscraft-vendors.md`.
+- **Flashlight / NVG / thermal** audit: nothing for players in the pack; vvp has vehicle NVG/thermal keybinds; a mod is
+  recommended for the flashlight (`notes/gscraft-flashlight-and-nvg.md`).
+
 - **Superb Warfare defences** as Walls 1–3 station orders with verified ids (`gscraft-crafting.md` §5.7).
 - **Sophisticated Backpacks upgrades** gated per Storage level, ids listed (crafting §5.7); the inception upgrade is J11's reward only.
 - **ParCool ziplines**: rope and iron hooks as J-B2 orders; hooks placed by the lookout tier 3 and tower functions (crafting §5.7, camp spec §1).
