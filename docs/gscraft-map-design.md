@@ -244,9 +244,9 @@ site's component containers respawn every two in-game days, so nothing is lost b
 | 7 | III | Financial Plaza and the sewers under it (2.1 km W) | J-S5 dossier; U4 loot (circuit boards, computer parts, a hard drive); R5 marker and assault; U6 sewers and encrypted radio; electrical and valuables; after the hold: U7 military circuit board; D4 concrete | 12 | 1 | car |
 | 8 | III | the far ring by road: stone complex, mud village, the settlement, Bio Gen, the runway (2.8–3.9 km) | J4 locations, J5 valuables, W12 pressure gauge, T7 surgical kit, J6 hard drive; W10 second anchor cable on the way back past Novo; M12 membrane at the plant | 9 | 3 | truck, or boat to the settlement |
 | 9 | IV | the hub (6.2 km E) and the four generated cities | J7, J9 locations; J8 phased array element and satellite receiver; T9 and M13 military power filters | 6 | 4 | aircraft |
+| 10 | II–IV | home: the gatehouse and the claim | X2–X6 hand-ins, T10 ready room, D1–D6, R6; the eighteen `*-B` building upgrades as their hand-ins come together | — | the five complete parts, one at a time | — |
 | 11 | II–III | the kept structures and the district's small sites (1.5–2.9 km): the copper tower, prismarine hall, stone complex, the nearest boss tower, ancient city, capital, fog house and outpost, the two near bunkers | U-C1, M-P1, W-A5, W-A6, U-A1, J-C1, J-C2, D-O1, U-D1, U-D2 — one or two per outing, folded into trips 4–8 | 6 | — | foot, then car |
 | 12 | II–IV | the Woods (2.9 km NNE, the spur from Novo) | J-W1 first, then W-W1, T-W1, M-W1, U-W1, J-W2, J-W3, R-W1, R-W2 over three or four visits | 8 | 1 | car |
-| 10 | II–IV | home: the gatehouse and the claim | X2–X6 hand-ins, T10 ready room, D1–D6, R6; the eighteen `*-B` building upgrades as their hand-ins come together | — | the five complete parts, one at a time | — |
 
 What the table fixes is the pairing: which NPCs' quests point at the same place in the same act, so
 the group decides together where to go next and everyone has a reason to be there. How many trips
