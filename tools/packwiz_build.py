@@ -204,15 +204,14 @@ def main():
         'if not exist "%MC%\\launcher_profiles.json" (',
         "  echo  Run the official Minecraft launcher once first, with plain 1.20.1 selected, then close it and run this again.",
         "  pause", "  exit /b 1", ")",
-        'set "JAVA="',
-        'for /f "delims=" %%J in (\'dir /b /s "%JDIR%\\java.exe" 2^>nul\') do set "JAVA=%%J"',
-        'if "%JAVA%"=="" (',
-        "  echo  Downloading Java 17 (Eclipse Temurin JRE) ...",
-        '  mkdir "%JDIR%" 2>nul',
-        f"  {ps}\"{tls}Invoke-WebRequest -Uri '%JAVA_URL%' -OutFile '%TEMP%\\gscraft-java.zip'; Expand-Archive -Path '%TEMP%\\gscraft-java.zip' -DestinationPath '%JDIR%' -Force\" || goto :fail",
-        '  for /f "delims=" %%J in (\'dir /b /s "%JDIR%\\java.exe" 2^>nul\') do set "JAVA=%%J"',
-        ")",
+        "call :findjava",
+        'if not "%JAVA%"=="" goto :havejava',
+        "echo  Downloading Java 17 (Eclipse Temurin JRE) ...",
+        'mkdir "%JDIR%" 2>nul',
+        f"{ps}\"{tls}Invoke-WebRequest -Uri '%JAVA_URL%' -OutFile '%TEMP%\\gscraft-java.zip'; Expand-Archive -Path '%TEMP%\\gscraft-java.zip' -DestinationPath '%JDIR%' -Force\" || goto :fail",
+        "call :findjava",
         'if "%JAVA%"=="" goto :fail',
+        ":havejava",
         'if not exist "%MC%\\versions\\1.20.1-forge-47.4.10" (',
         "  echo  Installing Forge 47.4.10 ...",
         f"  {ps}\"{tls}Invoke-WebRequest -Uri '%FORGE_URL%' -OutFile '%TEMP%\\forge-installer.jar'\" || goto :fail",
@@ -221,12 +220,20 @@ def main():
         "echo  Downloading the pack (about 450 MB the first time; only changes afterwards) ...",
         f"{ps}\"{tls}Invoke-WebRequest -Uri '%BOOT_URL%' -OutFile '%MC%\\packwiz-installer-bootstrap.jar'\" || goto :fail",
         'pushd "%MC%"',
-        '"%JAVA%" -jar packwiz-installer-bootstrap.jar -g "%PACK%" || (popd & goto :fail)',
+        'set "TRY=0"',
+        ":packtry",
+        'set /a TRY+=1',
+        '"%JAVA%" -jar packwiz-installer-bootstrap.jar -g "%PACK%" && goto :packok',
+        'if %TRY% LSS 4 (echo  A download timed out - retrying (%TRY% of 3) ... & goto :packtry)',
+        "popd",
+        "goto :fail",
+        ":packok",
         "popd",
         "echo  Setting the Forge profile to 6 GB ...",
         f"{ps}\"$f='%MC%\\launcher_profiles.json'; $p=Get-Content $f -Raw | ConvertFrom-Json; "
-        "if ($p.profiles.forge) { $p.profiles.forge.javaArgs='-Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M'; "
-        "$p.profiles.forge.name='GSCraft'; $p | ConvertTo-Json -Depth 10 | Set-Content $f -Encoding UTF8 }\"",
+        "if ($p.profiles.forge) { $p.profiles.forge | Add-Member -NotePropertyName javaArgs -NotePropertyValue '-Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:G1NewSizePercent=20 -XX:G1ReservePercent=20 -XX:MaxGCPauseMillis=50 -XX:G1HeapRegionSize=32M' -Force; "
+        "$p.profiles.forge | Add-Member -NotePropertyName name -NotePropertyValue 'GSCraft' -Force; "
+        "[IO.File]::WriteAllText($f, ($p | ConvertTo-Json -Depth 10), (New-Object Text.UTF8Encoding $false)) }\"",
         "echo.",
         "echo  Done. Open the Minecraft launcher, pick the GSCraft (forge) profile, Play, then Multiplayer - GSCraft.",
         "pause",
@@ -235,7 +242,11 @@ def main():
         "echo.",
         "echo  Something failed. Check your connection and run this file again.",
         "pause",
-        "exit /b 1", ""])
+        "exit /b 1",
+        ":findjava",
+        'set "JAVA="',
+        'for /f "delims=" %%J in (\'dir /b /s "%JDIR%\\java.exe" 2^>nul\') do set "JAVA=%%J"',
+        "goto :eof", ""])
     (ASSETS / "GSCraft-VanillaLauncher.cmd").write_bytes(vcmd.encode("ascii"))
     shutil.copy2(BOOTSTRAP, ASSETS / "packwiz-installer-bootstrap.jar")
     total = sum(p.stat().st_size for p in ASSETS.iterdir())
