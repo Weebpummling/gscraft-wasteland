@@ -1,0 +1,62 @@
+{
+ "walker": {
+  "x": 80,
+  "y": 96,
+  "z": 95,
+  "ground": "minecraft:terracotta"
+ },
+ "michael": {
+  "x": -24,
+  "y": 110,
+  "z": 111,
+  "ground": "minecraft:terracotta"
+ },
+ "marshall": {
+  "x": 162,
+  "y": 112,
+  "z": 8,
+  "ground": "minecraft:brown_terracotta"
+ },
+ "tony": {
+  "x": -90,
+  "y": 86,
+  "z": -92,
+  "ground": "minecraft:terracotta"
+ },
+ "tune": {
+  "x": 48,
+  "y": 87,
+  "z": -112,
+  "ground": "minecraft:terracotta"
+ },
+ "james": {
+  "x": -146,
+  "y": 90,
+  "z": -146,
+  "ground": "minecraft:terracotta"
+ },
+ "ring_west": {
+  "x": -120,
+  "y": 98,
+  "z": 20,
+  "ground": "minecraft:grass_block"
+ },
+ "ring_south": {
+  "x": 20,
+  "y": 90,
+  "z": 150,
+  "ground": "minecraft:terracotta"
+ },
+ "ring_north": {
+  "x": -40,
+  "y": 103,
+  "z": -40,
+  "ground": "minecraft:terracotta"
+ },
+ "ring_east": {
+  "x": 110,
+  "y": 101,
+  "z": -70,
+  "ground": "minecraft:terracotta"
+ }
+}

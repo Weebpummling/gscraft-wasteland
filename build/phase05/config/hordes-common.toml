@@ -48,7 +48,7 @@
 	#Set to false to completely disable mob infection and anything related to it.
 	enableMobInfection = true
 	#Can players be infected.
-	infectPlayers = false
+	infectPlayers = true
 	#Whether later levels of infected should slightly slow movement speed? 
 	infectSlowness = true
 	#Whether later levels of infected should deplete hunger quicker? 

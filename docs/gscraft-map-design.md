@@ -63,8 +63,11 @@ repair the tower → defend the base**. A strongpoint is four trips at least bef
 
 The 384×384 cleared area around the crater, x/z −176…207, with the Warium structure on its lake
 island in the pit (plaza y 93, world spawn 19 94 26) and the rebuilt surface on the rim. The camp is
-**neutral ground**: the NPC buildings are protected, spawns are suppressed inside the outline, and
-the players' own hideout is wherever they claim. The recommended claim is the crater floor: a pit
+**neutral ground**: the NPC buildings are protected, spawns are suppressed inside the outline by **ten
+diamond Magnum Torches** (64-block ellipsoid each; one at every NPC pad, one at the gate, four on a
+ring — `tools/camp_torches.py`, placed by `gscraft:camp_torches`), and the players' own hideout is
+wherever they claim. The torches are the visible reason the camp is safe; each NPC's tier-1 rebuild
+keeps its torch inside the building. The recommended claim is the crater floor: a pit
 with one ramp is the best wave-defence ground on the map, and it is where they woke up.
 
 **The camp has its own ruins.** The v6 build cleared the starting area to natural ground, so Act I
@@ -73,7 +76,10 @@ cars, two buses on their sides, collapsed sheds, container stacks, fuel-drum pil
 and two checkpoints — as eight sparse templates placed by `gscraft:camp_ruins` at ground level (heights
 read from the built world), clear of every NPC pad, the tower compound, the crater and the gate approach.
 Each piece carries one or two chests bound to `gscraft:ruins/{hardware,electrical,medical,mixed}`, the
-loot tables that go live with the items in Phase C; positions are in `tools/camp_ruins.json`.
+loot tables that go live with the items in Phase C; positions are in `tools/camp_ruins.json`. The
+pieces are built from **Doomsday Decoration**'s props — jeep, van, sedan and station-wagon wreck
+segments, sandbags, oil drums, wire mesh, traffic cones, a forklift and a motorcycle — and that set is
+the vocabulary for every camp building and checkpoint from here on (`gscraft-mod-capabilities.md` §1).
 
 Six NPC buildings sit on the rim in a ring, 60–150 blocks from the crater centre, each with a yard.
 Positions are first cut, to be adjusted on the visual pass against the rebuilt surface:
@@ -174,6 +180,14 @@ hub component.
 | **Tune** — the radio shack | shack and a 12-block mast stub | mast to 24 with a dish, the map wall | antenna field beside the shack, intel desk | mast to 40 with an aviation light, second dish, receiver on the roof | T2: the board shows the contested site's whole countdown (Radio 2's readout); T3: the coming attack's composition |
 | **James** — the lookout | 8×8 tower, 20 tall | platform, ladder, a flag | 30 tall, a spotlight that sweeps at night | 40 tall, glass cabin, telescope, waypoint beacon | T2: waypoints shared to the whole team; T3: every named site marked |
 | **Marshall** — the gatehouse | a gap in the wall and a table | the gate, wall stubs, the parts rack | walled gate, two watchtowers, barricades | blast doors, floodlights, the strongpoint board as a lit wall map | T2: guard villagers at the gate; T3: the finale's first wave breaks on the gate, not the crater |
+
+Two mods carry the tiers' promises: **Guard Villagers** supply the armed guard each building gets at
+tier 2 (Marshall's tier-2 gate gets two), and **Recruits** supplies the hireable soldiers behind
+Marshall's D2 — recruited at the gatehouse tier 1 table, ranks from recruit to captain, and the mod's
+own claim-and-siege logic is kept switched off so the loop stays the only attack calendar. Hordes'
+**player infection is on** (`hordes-common.toml`, `infectPlayers = true`, 75 % per zombie hit): the
+clinic cures it at tier 1 and the med kit cures it in the field from Medical 2, which is the medical
+function's reason to exist.
 
 Hand-ins scale with the acts and reuse what the loop already produces: tier 1 is camp junk and the
 first intermediates; tier 2 needs bulk building material (concrete, steel frames) plus **one more**
@@ -373,10 +387,18 @@ inside the site rectangle before the take (thin enough to loot through with care
 **assault** is the six 45-second waves after the marker goes down; **defence** is the attack at the
 end of the fortify clock. Counts are for five players present and scale by the number inside the
 rectangle (×0.6 for one or two, ×0.8 for three or four); every wave enters from the site's edges,
-never inside its buildings. Mob ids: Hordes' zombie variants (`hordes:*`), the bandits mod
-(`chaoszprojectbandits:*`), gun pillagers (`pillagers_gun:*`), IE's Fusilier / Commando / Bulwark
-(`immersiveengineering:*`), The Knocker, The Man From The Fog, Eyes in the Darkness, vanilla drowned,
-husks, spiders and cave spiders. Improved Mobs' scaling stays on so garrisons harden with distance.
+never inside its buildings. Mob ids, checked against the jars: neither the Bandits mod nor Pillagers Gun registers an entity —
+"bandits" and "gun pillagers" are vanilla **pillagers and vindicators**, which Pillagers Gun arms;
+Hordes adds only the zombie-player variants, so zombies, husks and drowned are vanilla; IE's Fusilier /
+Commando / Bulwark (`immersiveengineering:*`), The Knocker (`the_knocker:knocker`), The Man From The
+Fog, Eyes in the Darkness, spiders and cave spiders. Improved Mobs' scaling stays on so garrisons harden
+with distance. **Mob Factions** makes the illager faction and the zombie faction enemies of each other
+(the carried `MobFactions.toml` already does; the Knocker rides with the zombies), so a site's ambient
+garrison fights itself and a patient team can watch it thin. **The Bandits mod's own random raids are
+switched off** (`bandits.json`, `enableMod: false`): they attack players anywhere on a 5–15 day roll,
+which is exactly what §6.2 forbids. **Zombie Awareness** stays on at sound strength 10: gunfire and
+block-breaking draw the ambient garrison, which is why loot trips are quiet work, the take is loud,
+and the suppressor of W-A4 is worth its price.
 
 | Site | Theme | Ambient (In Control! rule inside the rect) | Assault, six waves | Defence, three waves | Elite |
 |---|---|---|---|---|---|

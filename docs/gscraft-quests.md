@@ -94,10 +94,10 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
 | T1 | Field dressing | I | camp ruins | hand in 4 bandages, 2 painkillers | — | med-kit blueprint |
-| T2 | Stock the clinic | I | camp | craft and hand in 2 med kits | T1 | **Medical 1**: revive range up; 4 med kits back |
+| T2 | Stock the clinic | I | camp | craft and hand in 2 med kits | T1 | **Medical 1**: revive range up; the clinic cures infection; 4 med kits back |
 | T3 | Neighbours | II | **residential block**, 1.9 km | hand in 3 blood bags, 4 syringes, 2 antiseptic — the block's drops | T2, J-S2 | stage `residential_looted`; Marshall R3 opens |
 | T4 | Take the block | II | residential block | stage `residential_held` (Marshall's assault won) | T3, Marshall R3 | 8 bandages, 4 antiseptic |
-| T5 | Hold the block | II | residential block | stage `residential_defended` (the block's first attack) | T4 | **Medical 2**: reduced death penalty |
+| T5 | Hold the block | II | residential block | stage `residential_defended` (the block's first attack) | T4 | **Medical 2**: reduced death penalty; the med kit cures infection in the field |
 | T6 | Analyzer | II–III | residential block | hand in 1 medical analyzer | T5 | Medical 2 effects; blood-bag recipe |
 | T7 | Bio Gen | III | **Bio Gen**, 3.9 km | reach Bio Gen (location); hand in 1 surgical kit | T6, J4 | surgical-kit use: full revive |
 | T8 | Triage | III | anywhere | stage `revives_3` (three teammate revives, counted by KubeJS) | T5 | 8 med kits |
@@ -203,7 +203,7 @@ is still contested — one fight at a time, in this order.
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
 | D1 | Walls | I | the claim | hand in 32 concrete, 2 fastener kits | R1 | **Walls 1**: barricade and razor-wire recipes |
-| D2 | Guards | II | the claim | stage `novo_defended` and `residential_defended` | D1 | **Walls 2**: guard villagers (Recruits later) |
+| D2 | Guards | II | the claim | stage `novo_defended` and `residential_defended` | D1 | **Walls 2**: the Recruit's Table at the gatehouse — hire recruits, shieldmen and bowmen with emeralds and food; guard villagers at every NPC building tier 2 |
 | D3 | Farm and kitchen | II | the claim | hand in 16 seeds, 8 bowls, 1 med kit | D1 | Farmer's Delight kit; **Farm 1** |
 | D4 | Bunker | III | the claim | hand in 64 concrete, 4 steel frames, 1 heavy anchor cable | D2, W9 | **Walls 3**: blast doors, turret-style defences; armoured-car recipe |
 

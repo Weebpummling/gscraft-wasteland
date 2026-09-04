@@ -55,7 +55,20 @@ ordered by how much it would add for how little it costs, with a recommendation 
 | **AI Improvements, spark, BHStats, WorldEdit** | server tooling |
 | **TaCZ fire control extension** | aim assist; a client feel setting, no design hook |
 
-## 5. What this changes in the documents
+## 5. Done on 2026-09-03 (the cheap rows)
+
+- Doomsday Decoration: the eight ruin pieces rebuilt from its wrecks, sandbags, drums, wire and cones
+  (`camp_ruins.py` v2; `camp_ruins_clear` removes the v1 blocks first).
+- Magnum Torch: ten diamond torches placed by `gscraft:camp_torches`; the camp's suppression is physical.
+- Recruits and Guard Villagers: written into D2 and the NPC tiers.
+- Zombie Awareness and Mob Factions: stated as rules in design §6.3; the carried configs already do it.
+- Hordes: `infectPlayers = true`; Tony's tiers cure it.
+- Bandits mod: `enableMod = false` — its random raids contradict the contested-site rule; the jar stays
+  for its loot and gear. Neither it nor Pillagers Gun adds an entity: bandits are armed pillagers.
+- Lukis Grand Capitals, Hostile Villages, Underground Bunkers: every generated structure in the 10 km
+  box counted and positioned in `tools/structures_v6.json` (see the design's loot-site list).
+
+## 6. What this changes in the documents
 
 Nothing in draft 6 is contradicted. The six rows of §1 are additions to Phase C and D that use
 what is already installed, and the four Superb Warfare / Apotheosis / IE / Backpacks rows of §2 give

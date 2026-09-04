@@ -10,7 +10,7 @@
     // Controls whether the Bandits mod is active or completely disabled.
   // When set to false, no bandit attacks will occur in the game.
   // Default value: true
-  "enableMod": true,
+  "enableMod": false,
     // Sets the minimum number of in-game days between bandit attacks.
   // Lower values will make attacks more frequent.
   // Must be less than or equal to maxDays.

@@ -43,6 +43,18 @@ places loot chests in sites that came across without any (Novo has none above gr
 chests each, tables `gscraft:sites/*`. All loot tables carry vanilla stand-in items with the intended
 `gscraft_item` beside each entry until Phase C. `docs/gscraft-mod-capabilities.md` is the pack review.
 
+**Cheap work done 2026-09-03 evening, all on the hosted world and read back:** the 24 camp ruins rebuilt from
+Doomsday Decoration wrecks, sandbags, drums, wire and cones (`camp_ruins.py` v2; `gscraft:camp_ruins_clear` took
+the v1 blocks out first, 1,222 setblocks); ten diamond Magnum Torches (`gscraft:camp_torches`, `tools/camp_torches.json`)
+make the camp's spawn suppression physical; `hordes-common.toml` now has `infectPlayers = true` and `bandits.json`
+`enableMod = false` — both uploaded to `/config`, **both take effect only at the next server restart**. Design §2.2
+and §6.3, quests D2/T2/T5 and `gscraft-mod-capabilities.md` §5 record it. `tools/structures_v6.json` is the census of
+every generated structure start in the 10 km box (Lukis capitals, outposts, bunkers) for the loot-site list.
+
+**Handoff state:** the hosted server runs v6 with EMI in `/mods` (client pack not rebuilt), ruins v2, torches, dossier
+and site chests in place; the datapack on the server matches `build/datapacks/gscraft` except `dossiers_fill`, parked
+in `build/phase_c/`. Loot tables carry vanilla stand-ins until Phase C. Nothing is pending on the working machine.
+
 **Not started:** Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
 `camp.py` (the six NPC buildings as templates onto their pads); the systems (KubeJS items, blueprints,
 stages, the strongpoint loop and timers; FTB Quests chapters from `docs/gscraft-quests.md`; loot tables
