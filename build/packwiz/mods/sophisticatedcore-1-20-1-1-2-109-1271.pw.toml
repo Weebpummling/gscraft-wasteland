@@ -3,6 +3,6 @@ filename = "sophisticatedcore-1.20.1-1.2.109.1271.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/sophisticatedcore-1.20.1-1.2.109.1271.jar"
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files-2026-09-04/sophisticatedcore-1.20.1-1.2.109.1271.jar"
 hash-format = "sha512"
 hash = "44e2e3f0f23dc7fa1593e57dcbc3be92d5f068d2aa879ee6da371400d06486fd58b6f58d560ef6150a180f525db677c7f76e856a1ef4f9003d41e4295ec7b9fa"

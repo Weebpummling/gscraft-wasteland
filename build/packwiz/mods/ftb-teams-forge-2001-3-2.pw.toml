@@ -3,6 +3,6 @@ filename = "ftb-teams-forge-2001.3.2.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/ftb-teams-forge-2001.3.2.jar"
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files-2026-09-04/ftb-teams-forge-2001.3.2.jar"
 hash-format = "sha512"
 hash = "45f8980fa1cfcb7cd772f6a03abb0ac680f7c502dc569839e325553dcaa9105148a2c27a214cd1f1131f6b06bca957f8dd01dfb4a1ccb8e13d49502513480cae"

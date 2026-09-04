@@ -3,6 +3,6 @@ filename = "EyesInTheDarkness-1.20.1-1.3.10.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/EyesInTheDarkness-1.20.1-1.3.10.jar"
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files-2026-09-04/EyesInTheDarkness-1.20.1-1.3.10.jar"
 hash-format = "sha512"
 hash = "70df095ecf3d90dc388e77b41205a1ac3c3e5fa81e4a349d2b7fd64783928ed1b2590d16c1b1a24e031d5ac1832f1adfd68e4d2d9f7567e818fda36c1404d9f3"

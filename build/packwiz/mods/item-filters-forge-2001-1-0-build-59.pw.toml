@@ -3,6 +3,6 @@ filename = "item-filters-forge-2001.1.0-build.59.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/item-filters-forge-2001.1.0-build.59.jar"
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files-2026-09-04/item-filters-forge-2001.1.0-build.59.jar"
 hash-format = "sha512"
 hash = "b11730067f1ed58347966cbaf1373bb3b0f762754517192e5f57577cf3d0c5ddc8107d20b69020c5e0fddeab0bc21138935181b102686675672302c6529ba61c"

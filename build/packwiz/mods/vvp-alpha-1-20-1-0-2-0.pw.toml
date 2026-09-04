@@ -3,6 +3,6 @@ filename = "vvp-alpha-1.20.1-0.2.0.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/vvp-alpha-1.20.1-0.2.0.jar"
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files-2026-09-04/vvp-alpha-1.20.1-0.2.0.jar"
 hash-format = "sha512"
 hash = "54ca3b6c55bd238dd8c5219aff4d330dc368b5bd2233f107b849cf0eeac14e55557d9ca77cace072adab682ba3f0705cecdea626e1346ff8df6d53cfc6fdd9e4"

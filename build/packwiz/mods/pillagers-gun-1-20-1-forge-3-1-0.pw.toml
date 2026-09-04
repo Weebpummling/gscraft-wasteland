@@ -3,6 +3,6 @@ filename = "Pillagers Gun-1.20.1-forge-3.1.0.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/Pillagers_Gun-1.20.1-forge-3.1.0.jar"
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files-2026-09-04/Pillagers_Gun-1.20.1-forge-3.1.0.jar"
 hash-format = "sha512"
 hash = "1455a1f4249abee3e605128f70a1404bdb6459289876e23bf07516d733c6aa3ccdadbfd2f50d99507201bff8cccdf727ae3ac7e25d59c492fc7b2cc910a125d3"

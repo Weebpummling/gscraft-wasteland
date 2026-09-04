@@ -3,6 +3,6 @@ filename = "hostilevillages-1.20.1-5.7.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/hostilevillages-1.20.1-5.7.jar"
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files-2026-09-04/hostilevillages-1.20.1-5.7.jar"
 hash-format = "sha512"
 hash = "6558871efb231045e31993776b141e205e2f21ea6218d1a1e8b4fbd9b91032fccf51e5a5a398e86de96f074b3e7201a179878e78ad95335393f45a130d5adeb2"

@@ -3,6 +3,6 @@ filename = "ftb-chunks-forge-2001.3.8.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/ftb-chunks-forge-2001.3.8.jar"
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files-2026-09-04/ftb-chunks-forge-2001.3.8.jar"
 hash-format = "sha512"
 hash = "a00ca6b6053a0e3b0d29fc787656d5ac35a7b6bc1818eb75082af427c42ef8a31b5f2c7e0833e6e79763b0080e44662e7bac977269894898812ff74ebc63bd3c"

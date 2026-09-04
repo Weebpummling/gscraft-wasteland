@@ -3,6 +3,6 @@ filename = "refurbished_furniture-forge-1.20.1-1.0.20.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/refurbished_furniture-forge-1.20.1-1.0.20.jar"
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files-2026-09-04/refurbished_furniture-forge-1.20.1-1.0.20.jar"
 hash-format = "sha512"
 hash = "40fd537c4d6a85140d1132af6f36bb3b857ee34e41d6688a6ba3809ab3a63a7e4aece9e59d7fc3603b0a3130deb9af0593bca3683f888dd64eb4fa3ba492c8ad"

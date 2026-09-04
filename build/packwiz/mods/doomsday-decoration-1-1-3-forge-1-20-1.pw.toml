@@ -3,6 +3,6 @@ filename = "doomsday_decoration-1.1.3-forge-1.20.1.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/doomsday_decoration-1.1.3-forge-1.20.1.jar"
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files-2026-09-04/doomsday_decoration-1.1.3-forge-1.20.1.jar"
 hash-format = "sha512"
 hash = "d33fcd384102e47dbf6209d2876b8bee99677ac2ceec61f31133ab335fed3e69c97e0e7ab202ce346532892d4c2f9b5876cdd66a92de57ed54aa47ffb24470e0"

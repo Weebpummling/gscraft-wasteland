@@ -3,6 +3,6 @@ filename = "framework-forge-1.20.1-0.7.15.jar"
 side = "both"
 
 [download]
-url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/framework-forge-1.20.1-0.7.15.jar"
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files-2026-09-04/framework-forge-1.20.1-0.7.15.jar"
 hash-format = "sha512"
 hash = "0e1210609917c6dc161df2bc42df85ee5004f4b7722f121db75f0ea20f768dceef67a9591e488b5f01a87c51a3b4c4674cee3ccc2bf94502267356f797a4e074"
