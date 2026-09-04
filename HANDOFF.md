@@ -51,6 +51,13 @@ make the camp's spawn suppression physical; `hordes-common.toml` now has `infect
 and §6.3, quests D2/T2/T5 and `gscraft-mod-capabilities.md` §5 record it. `tools/structures_v6.json` is the census of
 every generated structure start in the 10 km box (Lukis capitals, outposts, bunkers) for the loot-site list.
 
+**MOB SPAWNING IS OFF on the hosted server (owner, 2026-09-03) until the designs are done:** `gamerule doMobSpawning
+false` + `doPatrolSpawning false` (persisted in the world), a deny-all-hostile rule at the top of `config/incontrol/spawn.json`
+(loads at the next restart, or when an op runs `/incontrol reload` in-game — the console cannot: it needs a player),
+and `enableHordeEvent = false` in `hordes-common.toml` (next restart). Until that restart the gamerule alone is what stops
+spawns. To turn it back on for Phase D: run `function gscraft:spawns_on`, delete the first rule of `spawn.json`, run
+`/incontrol reload` as an op (or restart), flip the Hordes key and restart. `function gscraft:spawns_off` re-applies the off state and kills the loose hostiles.
+
 **Handoff state:** the hosted server runs v6 with EMI in `/mods` (client pack not rebuilt), ruins v2, torches, dossier
 and site chests in place; the datapack on the server matches `build/datapacks/gscraft` except `dossiers_fill`, parked
 in `build/phase_c/`. Loot tables carry vanilla stand-ins until Phase C. Nothing is pending on the working machine.

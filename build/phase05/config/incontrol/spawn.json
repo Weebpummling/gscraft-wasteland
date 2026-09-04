@@ -2,6 +2,12 @@
   {
     "dimension": "minecraft:overworld",
     "when": "onjoin",
+    "hostile": true,
+    "result": "deny"
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "when": "onjoin",
     "mob": [
       "minecraft:zombie",
       "minecraft:zombie_villager",

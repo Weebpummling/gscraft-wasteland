@@ -1,0 +1,27 @@
+gamerule doMobSpawning false
+gamerule doPatrolSpawning false
+gamerule doTraderSpawning false
+kill @e[type=minecraft:zombie]
+kill @e[type=minecraft:zombie_villager]
+kill @e[type=minecraft:husk]
+kill @e[type=minecraft:drowned]
+kill @e[type=minecraft:skeleton]
+kill @e[type=minecraft:stray]
+kill @e[type=minecraft:creeper]
+kill @e[type=minecraft:spider]
+kill @e[type=minecraft:cave_spider]
+kill @e[type=minecraft:enderman]
+kill @e[type=minecraft:witch]
+kill @e[type=minecraft:pillager]
+kill @e[type=minecraft:vindicator]
+kill @e[type=minecraft:evoker]
+kill @e[type=minecraft:vex]
+kill @e[type=minecraft:ravager]
+kill @e[type=minecraft:phantom]
+kill @e[type=minecraft:slime]
+kill @e[type=minecraft:zombified_piglin]
+kill @e[type=the_knocker:knocker]
+kill @e[type=immersiveengineering:fusilier]
+kill @e[type=immersiveengineering:commando]
+kill @e[type=immersiveengineering:bulwark]
+say [gscraft] mob spawning OFF (design phase); In Control! deny rule loads at restart or /incontrol reload by an op
