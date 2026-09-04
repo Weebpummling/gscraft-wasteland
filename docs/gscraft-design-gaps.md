@@ -89,7 +89,7 @@ Every other row: **the default, applied** in the same commit as this note.
 | C2 | Sequencing holes: welding torch needs a fuel can before the plant; hand drill needs an electric motor in Act I; fuel tank needs sealed tubing before M3 | C (crafting sheet v2 reorders or substitutes) |
 | C3 | Stages missing from quests §9: aircraft prep, finale readiness, season, hangar unlocked, hub loot switch, first-time lines, `bp_*` | C (the stage list) |
 | C4 | Farm 2 / Farm 3 quests | C |
-| C5 | Camp functions `gscraft:camp_<npc>_<tier>`, `camp_npcs`, `board_<site>_<state>`, signs, banners, the rack; what blocks they are | B (camp.py) |
+| C5 | Camp functions `gscraft:camp_<npc>_<tier>`, `camp_npcs`, `board_<site>_<state>`, signs, banners, the rack; what blocks they are | C (camp.py, after the visual pass) |
 | C6 | Coordinates for glass tower, acacia hall, library, hempcrete compound, stone complex, residential block rectangle; copper tower / prismarine hall roles | B (layout sheet, from site_inventory) |
 | C7 | Sites that drop nothing anyone needs (copper tower, prismarine hall, hempcrete compound, stone complex, mud village, the Woods) | C (loot tables by site) |
 | C8 | Camp-ruins tables lack the introductions' wrench, water filter, broken radio, folder | C (loot tables) |

@@ -152,7 +152,7 @@ visual pass.
 - **Sources** are the merged 1.20.1 worlds in `scratch/upgrade/<build>/world/region` (verified
   clean); `runplan.py` takes them as extra source worlds, one rectangle each, offsets from this
   sheet.
-- **Order** (draft 5 §9 Phase B): border; pads; roads; camp buildings + tower stage 0; transplants
+- **Order** (draft 5 §9 Phase B): border; pads; roads; tower stage 0 (the camp buildings moved to Phase C); transplants
   in the order settlement, Novo, Financial Plaza, Bio Gen, sewers, hub; Chunky; pull the new
   pristine; regenerate the district map page.
 - **Runners:** `tools/buildv6.py` does the offline part on a copy of the pre-generated world (copy,

@@ -1,6 +1,6 @@
 # GSCraft wasteland — the camp's functions, blocks and readouts
 
-*Spec 1, 2026-09-04, for `tools/camp.py` (Phase B/C). Closes gap audit C5 (function names and what
+*Spec 1, 2026-09-04, for `tools/camp.py` (Phase C, after the visual pass; the runway lights are Phase B). Closes gap audit C5 (function names and what
 blocks they are), C9 (flashlight, notebook, runway lights) and the guard/recruit rows of C15.
 Rectangles are `tools/pads_camp.json`; the NPC table is design §2.2 and the tiers design §3.6; what
 the players are told is `gscraft-onboarding.md`.*

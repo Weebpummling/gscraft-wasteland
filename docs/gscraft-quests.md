@@ -323,7 +323,7 @@ component-container state and the single `contested` slot; all clocks count onli
 building tiers, which also re-summon the NPC), a team stage `bp_<recipe>` for blueprints (the book says "blueprint", the mechanism is the stage - crafting §4; the old text: an IE blueprint item
 with the `gscraft` category NBT). Location tasks use the site rectangles from the district map;
 the six NPC building rectangles are locked by the tower-lock script (a list of rectangles, quest
-functions exempt), so a `*-B` reward is the only thing that ever changes them; dossier chests are placed and filled by `gscraft:dossiers` at the coordinates in `tools/dossiers.json`; the kill tasks are the sewers (U6), the Woods bunkers (R-W2) and the Sleeper (X8); every other clearing is the assault event, whose
+functions exempt), so a `*-B` reward is the only thing that ever changes them; dossier chests are placed by `gscraft:dossiers` and filled by `dossiers_fill` (parked in `build/phase_c/` until the dossier items exist) at the coordinates in `tools/dossiers.json`; the kill tasks are the sewers (U6), the Woods bunkers (R-W2) and the Sleeper (X8); every other clearing is the assault event, whose
 waves use the garrison mob types In Control! spawns at each site.
 
 ### 9.1 Vehicle-qualified location tasks (C13)

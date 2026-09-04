@@ -125,7 +125,7 @@ with the pruned structure sets disabled and the kept ones placed back (`buildmap
 
 **Dead military vehicles dress the strongpoints** (vvp and MCSP, kept): a BMPT and two Strykers on FR-06's reactor
 plaza, a Typhoon-K convoy at the plant, an Mi-24 on the runway apron, a Pantsir at the hub — placed by the site
-dressing pass, battery-less so they never move, their inventories the component containers. Immersive Weathering
+dressing pass (Phase C, alongside `camp.py`), battery-less so they never move, their inventories the component containers. Immersive Weathering
 ages them and every tier-0 building on placement; a rebuilt tier is placed clean.
 
 Loot sites, never attacked: **Bio Gen Offices** (two groups, 64×64 and 16×32) at the runway pad's west end;
