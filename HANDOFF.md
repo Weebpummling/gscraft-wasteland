@@ -72,7 +72,10 @@ in `build/phase_c/`. Loot tables carry vanilla stand-ins until Phase C. Nothing 
 
 **World build v7 - ready to run on the working machine:** `tools/carve_regen.py <pregen> <carved>` (keeps the v5 rects +
 camp, drops 405,699 chunks), copy `build/datapacks/gscraft_worldgen` into `<carved>/datapacks`, `tools/localpregen.py`
-on it (2 h 15 min, cycling), `tools/place_kept.py <server>` (batches of six: force-load, wait, place, release; never as one function), then `buildv6.py`, `roads.py
+on it (2 h 15 min, cycling), `carve_regen.py --drop-rect -1024 -1536 4607 4095` (the inner rings Chunky generated before the palette fix landed in
+life 5; the v5 rectangles and the camp are spared) + one more `localpregen.py` pass over the box to regenerate them - the
+error chunks are HOLES with no city at all, about a third of the city chunks generated before the fix,
+then `tools/place_kept.py <server>` (batches of six: force-load, wait, place, release; never as one function), then `buildv6.py`, `roads.py
 build`, the camp functions (`gscraft:camp_ruins`, `camp_torches`, `dossiers`, `furnish_novo`, `furnish_financial`),
 `reviewv6.py`, release, deploy (section 6). Details: `docs/gscraft-structure-plan.md` section 3, route A'.
 
