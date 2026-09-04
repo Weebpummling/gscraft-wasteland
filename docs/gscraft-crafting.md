@@ -1,0 +1,262 @@
+# GSCraft Wasteland — Crafting, Stations and Vehicles
+
+Draft 1, 2026-09-03. Companion to `gscraft-map-design.md` (draft 6) and `gscraft-quests.md`
+(draft 2). Five things are settled here: the capability audit of the quest book, the vehicle roster
+and how each is built, the crafting timer, server-placed crafting with an upgradable workshop, and
+the equipment crafting system that replaces looting as the source of gear.
+
+**Decisions (owner, 2026-09-03):** every capability a quest needs is taught by an earlier quest;
+every vehicle the game uses has a recipe; small items craft in seconds, mission-critical items take
+about one trip so the results are waiting when the players get back; crafting happens only at
+server-placed stations, one per player, plus the workshop in the camp, which upgrades; and every
+piece of equipment — weapons, ammunition, armour, tools, packs, vehicles — is crafted from the
+item ladder, so loot supplies parts and not products.
+
+---
+
+## 1. Capability audit of the quest book
+
+Every quest that needs the players to *have* something was traced back to the quest that gives
+them the way to make it. Four holes and one loop, all fixed in quests draft 2.
+
+| Capability | First quest that needs it | Taught by | Finding |
+|---|---|---|---|
+| Workbench and blueprint crafting | W2 (craft fastener kits) | W1 hands over the workbench; now also assigns the personal station (§4) | fine |
+| Backpack | W2 onward | W2, Storage 1 | fine |
+| Hand tools (wrench, welding torch, hand drill) | W1 (a wrench), W3 (torch), steel frame (torch held) | **were loot only** | **fixed:** W1 now also gives the hand-tool blueprints; tools remain a rare loot find but are never required from loot |
+| Med kits, harnesses, filters, circuit assemblies | T2, M2, M3, U2 | T1, M1, U1 | fine |
+| Concrete (D1, D4, every `*-B` tier) | D1 | vanilla recipe, runs at any station | fine |
+| A car | J4 (by car), M8 and U4 (gate W7), R5 (`car_built`) | W7, Garage 1 | fine; W7's reward now includes a full tank and 2 fuel cans so the first car moves before the fuel chain (W8/M5) exists |
+| Fuel | every vehicle | M5 → W8 (biodiesel chain, fuel cans) | fine; fuel cans also drop at the plant as before |
+| A truck | J-B2, W10 (truck cargo), the bulky hauls | W9, Garage 2 | fine |
+| A boat | W12 ("reach the settlement by water"), J5 | **J5 handed out a boat as a gift; no recipe anywhere** | **fixed:** new W-V1 "Something that floats" (boat blueprint, Garage 1); J5's reward is now the speedboat blueprint |
+| Aircraft | J7 (reach the hub **by air**), W13 (aircraft recipe) | **W13 was gated on J7 and J7 on W13 — a loop nobody could enter** | **fixed:** W13 gates on W9, M11, **J6** (the runway); J7 stays gated on J6 and W13 |
+| Firearms, ammunition, attachments | from the first night; the assaults and defences | **nothing taught them; the pack's own gun-smith and reforge tables were the implied route** | **fixed:** Walker's armoury line W-A1…W-A4 (§5), plus a starting sidearm and 30 rounds from Custom Starting Gear |
+| Body armour | the assaults | nothing | **fixed:** W-A2 |
+| The claim marker | R2 and every re-take after a loss | R1 handed out one item | **fixed:** R1 gives the marker *blueprint*; a lost site's marker is re-crafted, not begged from Marshall |
+| Guard villagers, PlayerRevive, waypoints | D2, T8, J-B2 | rewards flip stages | fine |
+
+Rule going forward: **a quest may ask for an item only if an earlier quest in some chapter has
+handed out its blueprint, or it is a loot-only component.** The trip table in the design (§3.5)
+and the gates in the quest book are the check.
+
+---
+
+## 2. Vehicles
+
+Every vehicle in the two Immersive Vehicles packs and in Superb Warfare was enumerated from the
+jars. The game uses eight; the rest are removed from crafting and never appear in loot.
+
+| Tier | Vehicle | Id (verified in the jar) | Seats / cargo | Role | Recipe from |
+|---|---|---|---|---|---|
+| Garage 1 (W7) | **Quad** | `mts:mtsofficialpack.quad` | 1 / small | the first wheels: fast over rubble, no cargo | W7 |
+| Garage 1 (W7) | **Runabout** (2CV-class) | `mts:oamp.cagouille` | 2 / a crate | the first car: the spine, the west edge | W7 |
+| Garage 1 (W-V1) | **Boat** | `minecraft:oak_boat` → `superbwarfare:speedboat` (J5) | 2 / — | the settlement by water; the plaza before its road | W-V1, J5 |
+| Garage 2 (W9) | **Van** | `mts:oamp.ecoline` | 3 / 27 slots | the loot hauler | W9 |
+| Garage 2 (W9) | **Truck** | `superbwarfare:truck` | 2 / bulky bay | complete parts and components home | W9 |
+| Garage 3 (W13) | **Light aircraft** (Cessna-class) | `mts:mtsofficialpack.mc172` | 4 / 27 slots | the runway to the hub | W13 |
+| Garage 3 (W-B3) | **Light helicopter** | `mts:mtsofficialpack.bell47g` | 2 / small | the hub and the cities without a runway | W-B3 (the shed) |
+| Walls 3 (D4) | **Armoured car** | `superbwarfare:lav_150` | 4 / — | the finale's gate defence; optional | D4 |
+
+Two further Superb Warfare add-on packs are in the jar set — **vvp** (56 entities: Mi-24, Black Hawk,
+Strykers, Bradleys, Pantsir) and **MCSP** (25: Humvees, BMD-4, Bradleys) — 44 more
+`vehicle_assembling` recipes between them. All of it is military hardware with no role in this
+design; every one of those recipes is stripped too.
+
+Removed from the game's recipes (KubeJS strips their recipes; their containers are not in any loot
+table): the fighting vehicles and artillery (`bmp_2`, `yx_100`, `type_63`, `plz_05`, `tom_6`,
+`ah_6`, `mi_28`, `a_10a`, `prism_tank`, `annihilator`, `bl_132`, `mle_1934`, `hpj_11`, the two
+towers, `mk_42`) and the IV vehicles with no role (`ft17`, `firetruck`, `gmcbrig`, `merc230`,
+`fordmustang69`, `scout`, `bell206`, `comanche`, `e500`, `pzlp11`, `pzl37los`, `skyhawk`,
+`trimotor`, `vulcanair`, `camaro`, `escargot`, `highwayman`, `luxorama`, `stationmerc`, `vwbus`,
+`wheel_chair`).
+
+**How the recipes exist.** Immersive Vehicles crafts at its own benches from `materialLists` in
+each pack, and the mod ships a **`config/mts/craftingoverrides.json`** (the class is in the jar)
+that replaces those lists per vehicle — so the four IV vehicles get our intermediates without
+touching the packs. Superb Warfare's vehicles are plain datapack recipes
+(`superbwarfare:vehicle_assembling`, 24 of them in the jar), so KubeJS rewrites the three we keep
+and removes the rest. Both benches — the IV vehicle bench and the SW assembling table — live
+**only in Walker's yard**, appearing at tier 1 and tier 2 respectively (§4). Both benches craft
+on click, so the timer lives one step earlier: the station's trip-length order produces a
+**vehicle kit** (one KubeJS item per vehicle, from the recipe below), and the kit is the only
+ingredient the bench recipe asks for. The trip is spent on the kit; the bench turns it into the
+vehicle in a second.
+
+| Vehicle | Recipe (intermediates from the design §4.3, plus the new ones in §5.1) |
+|---|---|
+| Quad | 2 steel frame, 1 motor assembly, 4 wheel, 1 fuel tank |
+| Runabout | 4 steel frame, 1 motor assembly, 4 wheel, 1 fuel tank, 1 wiring harness, 2 glass |
+| Boat | 12 planks, 1 fastener kit (speedboat: + 1 motor assembly, 1 fuel tank, 2 steel frame) |
+| Van | 6 steel frame, 1 motor assembly, 4 wheel, 1 fuel tank, 1 wiring harness, 1 cargo crate |
+| Truck | 8 steel frame, 1 **heavy diesel engine** (Novo), 6 wheel, 2 fuel tank, 1 cargo crate |
+| Light aircraft | 8 steel frame, 1 **avionics module** (FR-06), 2 motor assembly, 2 wheel, 2 fuel tank, 2 circuit assembly, 4 glass |
+| Light helicopter | 6 steel frame, 1 **avionics module**, 1 **transformer core**, 2 motor assembly, 2 fuel tank, 1 circuit assembly |
+| Armoured car | 12 steel frame, 4 plate (§5.1), 1 heavy diesel engine, 6 wheel, 2 fuel tank, 1 **reactor control module** |
+
+Every vehicle above the quad needs a loot-only component, so every tier of the garage is a trip
+to a held site — the same rule as the tower parts.
+
+---
+
+## 3. The crafting timer
+
+There was no timer: the Engineer's Workbench crafts on click. This replaces it. Every recipe is a
+**work order** at a station (§4): ingredients in, order placed, a countdown runs on the server,
+the result appears in the output slots. The player leaves; the station works.
+
+The lengths are set from the trip table (design §2.5 and §3.5). A round trip with looting is
+about 20 minutes in every act — 1.5 km on foot in Act I, 2.5 km by car in Act II, the far ring by
+truck in Act III, the hub by air in Act IV all land there — so a "trip-length" order is 20 min,
+and the results are waiting when the team comes home.
+
+| Class | What | Time at a personal station | Feel |
+|---|---|---|---|
+| Quick | ammunition, bandages, concrete, planks, wheels, cloth, casings, powder | 10–30 s | done while you stand there |
+| Intermediate | fastener kit, steel frame, harness, filter cartridge, circuit assembly, med kit, gun frame, barrel | 2 min | start it, sort the loot, collect |
+| Equipment | firearms, armour, tools, attachments, packs | 5 min (tier 1 gear) to 10 min (tier 3) | start it before a short errand |
+| Trip-length | complete parts, vehicles, base upgrade kits, the claim marker | **20 min** | one trip out and back |
+| Tower parts | the five hand-ins for stages 1–5 | 30 min | a long trip, or two |
+
+Workshop tiers (§4) cut these: ×0.85 at tier 1, ×0.7 at tier 2, ×0.5 at tier 3 — so a tower part
+is 15 minutes at the finished workshop, still a trip. Nothing ever crafts instantly except the
+Quick class; there is no way to buy time back with more ingredients.
+
+---
+
+## 4. Stations, and the workshop
+
+**Crafting happens only at server-placed stations.** The vanilla crafting table is inert (its
+recipe is removed and right-clicking one does nothing — Lost Cities is full of them), the
+Engineer's Workbench recipe is removed, and no other mod's bench is craftable. Three kinds of
+station exist:
+
+| Station | How many | Where | Who |
+|---|---|---|---|
+| **Personal work station** | one per player, bound to that player when placed | anywhere inside the camp outline or the team's claim | given on first join by Custom Starting Gear (already in the pack), re-issued by Walker if lost; a second one cannot be placed while the first exists |
+| **Workshop benches** | tier 1: 1, tier 2: 2, tier 3: 3 | Walker's yard | shared; anyone on the team may place or collect an order |
+| **Vehicle benches** | the IV bench (tier 1) and the SW assembling table (tier 2) | Walker's yard | shared; vehicle orders only |
+
+Every station has a **tool slot**: recipes the design wrote as "torch held" or "wrench held" read
+the tool from that slot and take one point of its durability per order, since nobody is standing
+there when the order finishes. A **blueprint** is not an item any more: it is a team stage
+(`bp_<recipe>`) that the quest reward sets, and a station only accepts orders for recipes whose
+stage the team holds. The book shows the recipe on the quest that grants it.
+
+A personal station takes one order at a time. A workshop bench takes one order at tier 1, a
+queue of two at tier 2 and three at tier 3. Five players and a tier-3 yard is therefore eight
+orders in flight plus the vehicle benches, which is the ceiling the timers were tuned against: a
+full tower stage (six steel frames, two fastener kits, the kit itself) is three intermediate orders
+and one trip-length order, and a team that plans it starts the intermediates before leaving and
+the kit when they return.
+
+**The workshop is Walker's yard, tiers 0–3 as already designed (design §3.6).** Its tiers now
+carry the crafting bonuses, so the building the players see grow is the one that works faster:
+
+| Yard tier | Benches | Queue per bench | Speed | Efficiency |
+|---|---|---|---|---|
+| 0 — scrap piles | none; personal stations only | 1 | ×1.0 | — |
+| 1 — roofed workshop, one bay | 1, plus the IV vehicle bench | 1 | ×0.85 | — |
+| 2 — two bays, gantry, lights | 2, plus the SW assembling table | 2 | ×0.7 | 25 % chance an order refunds one small item |
+| 3 — steel shed, vehicle lift | 3 | 3 | ×0.5 | 50 % refund chance; Quick orders yield double |
+
+The efficiency roll is the balancing lever: it is applied per order, on the output side, and never
+reduces a recipe's stated cost, so the recipe sheet stays true and the yard's value is felt in
+volume over a session rather than in cheaper single crafts. The bonuses apply to every station
+the team owns, personal ones included, because the tier is a property of the team's workshop
+stage, not of the block.
+
+**Implementation, no custom mod.** The station is a KubeJS custom block with a block entity
+(KubeJS 2001.6.5 ships `BlockEntityBuilder`, an inventory and a server ticker — verified in the
+jar): nine input slots, one output row, an order in NBT (recipe id, ticks remaining, owner). A
+server script matches the inputs against the `gscraft` recipe list, sets the countdown from the
+class and the workshop stage, ticks it, and moves the result out. Personal binding and the
+one-per-player rule are the same script; the workshop stage is a team stage set by the `W-B`
+quests. IV and SW vehicles keep their own benches because their items are placed as entities by
+their mods; the yard template places those benches and the lock keeps them there.
+
+---
+
+## 5. Equipment crafting
+
+**Loot supplies parts; the station supplies products.** Working guns, attachments, armour, packs
+and vehicles come out of loot tables; small items, the four new intermediates below, and *salvage*
+go in. The pack's own routes — the TaCZ gun-smith table, Superb Warfare's reforge table and
+blueprints, the IV benches outside the yard — are closed: their recipes are removed and their
+blocks are not craftable.
+
+### 5.1 Four new intermediates
+
+| Intermediate | Recipe | Blueprint from |
+|---|---|---|
+| Gun frame | 3 metal scrap + 1 fastener kit; wrench in the tool slot | Walker, W-A1 |
+| Barrel | 2 metal scrap; hand drill in the tool slot | Walker, W-A1 |
+| Trigger group | 4 screws + 2 nails + 1 metal scrap; screwdriver set in the tool slot | Walker, W-A1 |
+| Plate | 4 metal scrap + 1 duct tape; welding torch in the tool slot | Walker, W-A2 |
+| Concrete (×8) | 4 gravel + 4 sand + 1 water bucket | any station, no blueprint; Quick |
+| Wheel | 2 metal scrap + 1 silicone tube | Walker, W7 |
+| Fuel tank | 4 metal scrap + 1 sealed tubing | Walker, W7 |
+
+**Salvage** is what loot gives instead of a gun: a *damaged* weapon (one item per class, e.g.
+"damaged rifle") that counts as a gun frame + barrel in any recipe of its class. Ammunition drops
+in loot in small amounts as before; casings and powder are craftable so it never runs dry.
+
+### 5.2 Weapons — Walker's armoury line
+
+TaCZ's default pack is the source of guns (54 in the jar: 14 pistols, 12 rifles, 6 shotguns, 5
+SMGs, 6 snipers, 3 MGs, 2 launchers). One gun per class per tier is craftable; ids are the default
+pack's and are pinned in the recipe file at Phase C.
+
+| Tier | Quest | Unlocks | Recipe shape |
+|---|---|---|---|
+| 1 | **W-A1 Sidearm** (Act I, after W1) | pistol, pump shotgun; pistol and shotgun ammunition; the salvage rule | gun frame + barrel + trigger group + 4 planks (stock); ammo: 4 metal scrap + 1 gunpowder → 30 rounds (Quick) |
+| 2 | **W-A2 Plates** (Act I–II, after W3) | scrap vest and helmet (§5.3); rifle ammunition | plate ×4 + duct tape → vest |
+| 2 | **W-A3 Long guns** (Act II, after `novo_defended`) | assault rifle, SMG; iron sights, extended magazine | 2 gun frame + barrel + trigger group + 1 steel frame; attachments: circuit-free, metal scrap and tape |
+| 3 | **W-A4 Precision** (Act III, after W9) | sniper rifle, machine gun, the launcher; optics, suppressor | + 1 circuit assembly (optics), + 1 **military circuit board** (the launcher, from Financial Plaza) |
+
+### 5.3 Armour, tools, packs
+
+| Item | Tier | Recipe | Notes |
+|---|---|---|---|
+| Scrap vest / scrap helmet | 1 (W-A2) | 4 plate + 1 duct tape / 2 plate + 1 cloth | KubeJS armour items, leather-to-chain protection |
+| Plated vest / plated helmet | 2 (after `plant_defended`) | 6 plate + 1 steel frame / 3 plate + 1 steel frame | iron-class |
+| Composite vest / composite helmet | 3 (after `fr06_defended`) | 8 plate + 2 steel frame + 1 **transformer core** / 4 plate + 1 circuit assembly | diamond-class; the core is the FR-06 trip |
+| Hand tools | 0 (W1) | wrench 3 metal scrap; pliers 2; screwdriver set 2 + 1 planks; hand drill 4 + 1 electric motor; welding torch 4 + 1 fuel can | tools stay in loot as rare finds |
+| Backpacks | Storage 1–4 (W2, W6, W10, W13) | basic: 6 cloth + 2 duct tape; iron: + 4 plate; gold: + 1 steel frame + 1 **heavy anchor cable**; diamond: + 1 **satellite receiver** | Sophisticated Backpacks' own recipes are replaced |
+| Cloth | Quick | 2 wool or 4 string → 1 cloth | the one new Quick item |
+
+### 5.5 Power for the electric vehicles
+
+Superb Warfare's truck and speedboat carry no fuel: they run on **battery packs** charged at the
+**Charging Station**, which is Michael's — it appears in his plant at tier 2 (M-B2) and draws from
+the IE power the Generator function provides. Packs are crafted at the station like anything else:
+
+| Item | Recipe | Class | Blueprint |
+|---|---|---|---|
+| Battery (SW `superbwarfare:battery`) | 2 metal scrap + 1 car battery + 1 wire spool | Intermediate | Michael, M-B2 |
+| Small battery pack | 4 battery + 1 steel frame + 1 wiring harness | Equipment | Michael, M-B2 |
+| Medium battery pack | 2 small packs + 1 steel frame + 1 circuit assembly | Equipment | Michael, Generator 2 |
+| Large battery pack | 2 medium packs + 1 **transformer core** | Trip-length | Michael, Generator 3 |
+
+A charged small pack drives the truck one round trip to the district; the speedboat runs a full
+session on a medium one. SW's own pack-assembly recipes are replaced by these; the Charging Station
+itself is placed by the M-B2 template, never crafted.
+
+### 5.4 What changes in the loot tables
+
+- The `keerdm_zombie_essentials` `_tacz` chest tables — the ones that put working guns in Lost
+  Cities chests — are overridden by the datapack (as the `_vics` tables already are) to drop
+  salvage, ammunition and small items.
+- Attachment and armour loot is removed; SW's containers, blueprints and material packs are
+  removed from every table.
+- Tools keep a rare slot. Components keep their site containers. Nothing else changes.
+
+---
+
+## 6. What this adds to the quest book
+
+Five quests and four gate edits, all in quests draft 2: W-A1…W-A4, W-V1; W13's gate, W7's
+reward, R1's reward, J5's reward, W1's reward. One hundred and five quests.
+
+Related: `gscraft-map-design.md` §3.6 (Walker's yard tiers), §4 (the item ladder),
+`gscraft-quests.md` §2 (Walker), `build/kubejs/` (the station script, Phase C).

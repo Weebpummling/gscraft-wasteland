@@ -1,1063 +1,1072 @@
 {
- "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar": {
-  "role": "keep",
-  "sha256": "dd5d66221097de2da5be685f3b6200b5203cc2845fbde26cb815fc0fe4a13a81",
-  "modids": [
-   "superbwarfare"
-  ],
-  "nested": [],
-  "requires": [
-   "curios",
-   "geckolib"
-  ]
- },
- "MCSP-1.20.1-V1.0.8.jar": {
-  "role": "keep",
-  "sha256": "96435115455608895956682daee15d766d0258f264d482df45ebc8df6beabcc4",
-  "modids": [
-   "mcsp"
-  ],
-  "nested": [],
-  "requires": [
-   "superbwarfare"
-  ]
- },
- "chaoszproject-bandits-1.0.0-1.20.1.jar": {
-  "role": "keep",
-  "sha256": "97c9f0d4ee3f5114353af3b23ffa08550682e684f11e853c93930c03881824e8",
-  "modids": [
-   "chaoszprojectbandits"
-  ],
-  "nested": [],
-  "requires": []
- },
- "incontrol-1.20-9.3.3.jar": {
-  "role": "keep",
-  "sha256": "171425e8d3cd82144cead0bf60efa576ddaacfcab8991fae1258978885e87385",
-  "modids": [
-   "incontrol"
-  ],
-  "nested": [],
-  "requires": []
- },
- "mob_factions-1.0.0-forge-1.20.1.jar": {
-  "role": "keep",
-  "sha256": "3ad92784d9cdb07dac2f95a9a9132466f6249927b9b1ecc13f6f65af0fc02701",
-  "modids": [
-   "mob_factions"
-  ],
-  "nested": [],
-  "requires": []
- },
- "zombieawareness-1.20.1-1.13.1.jar": {
-  "role": "keep",
-  "sha256": "4f5104f7d29e1d065364d2483885f3751da2bef09a734cead2fce81c82c46586",
-  "modids": [
-   "zombieawareness"
-  ],
-  "nested": [],
-  "requires": [
-   "coroutil"
-  ]
- },
- "guardvillagers-1.20.1-1.6.15.jar": {
-  "role": "keep",
-  "sha256": "672de6862fc7fca8091d7e8b1084ab73d5ac66576d742cc113fe2a5c9b0efa35",
-  "modids": [
-   "guardvillagers"
-  ],
-  "nested": [],
-  "requires": []
- },
- "hostilevillages-1.20.1-5.7.jar": {
-  "role": "keep",
-  "sha256": "73bc0f33dc20838be1090c5ddd2983110b0d55b968234b79f14e1021c64291e8",
-  "modids": [
-   "hostilevillages"
-  ],
-  "nested": [],
-  "requires": [
-   "cupboard"
-  ]
- },
- "recruits-1.20.1-1.14.0.jar": {
-  "role": "keep",
-  "sha256": "be84de2367c8294e14d3f6948527ed2b4e316554f0222e667ee954883eb3a6ee",
-  "modids": [
-   "recruits"
-  ],
-  "nested": [],
-  "requires": []
- },
- "PlayerRevive_FORGE_v2.0.31_mc1.20.1.jar": {
-  "role": "keep",
-  "sha256": "beeb560232c8ee691ea446d53194358902eed8ed38d198515906ac724bdde1fb",
-  "modids": [
-   "playerrevive"
-  ],
-  "nested": [],
-  "requires": [
-   "creativecore"
-  ]
- },
- "sophisticatedbackpacks-1.20.1-3.24.13.1433.jar": {
-  "role": "keep",
-  "sha256": "3d99cf6fc2d7e8af91c597c55ebb3d38258f0fa5061e953138c6bfac7660e01a",
-  "modids": [
-   "sophisticatedbackpacks"
-  ],
-  "nested": [],
-  "requires": [
-   "sophisticatedcore"
-  ]
- },
- "sophisticatedcore-1.20.1-1.2.109.1271.jar": {
-  "role": "keep",
-  "sha256": "439edf3560603404bb929c753fddd5921f61b001bd96fc3a1aa4c2a1a706eb0f",
-  "modids": [
-   "sophisticatedcore"
-  ],
-  "nested": [],
-  "requires": []
- },
- "CustomStartingGear-1.20-2.0.3.jar": {
-  "role": "keep",
-  "sha256": "7c50129c62cd5f6298a5ba4e5ff15cc147f809bde961c7ef646fc5efd6588ec7",
-  "modids": [
-   "customstartinggear"
-  ],
-  "nested": [],
-  "requires": []
- },
- "UndergroundBunkers-1.0.5-1.20.x-forge.jar": {
-  "role": "keep",
-  "sha256": "b9f9a25648f6abf3747c4f1e9c0a0438baac474c71ad5b0981a8613481982d58",
-  "modids": [
-   "underground_bunkers"
-  ],
-  "nested": [],
-  "requires": []
- },
- "doomsday_decoration-1.1.3-forge-1.20.1.jar": {
-  "role": "keep",
-  "sha256": "2572f9e0ce97cce8ff6f3f207ad164e3da8cb8b45f6658705943af176f39cc63",
-  "modids": [
-   "doomsday_decoration"
-  ],
-  "nested": [],
-  "requires": []
- },
- "immersive_weathering-1.20.1-2.0.5-forge.jar": {
-  "role": "keep",
-  "sha256": "b88353d6efe18635bac2d4169e704320987e9678fd683217195dcdcf2c1ca1ba",
-  "modids": [
-   "immersive_weathering"
-  ],
-  "nested": [],
-  "requires": [
-   "moonlight"
-  ]
- },
- "refurbished_furniture-forge-1.20.1-1.0.20.jar": {
-  "role": "keep",
-  "sha256": "480546202aa21fa07e6b1571f3e3263e5690e9804afb7c35984642bcf473bc6e",
-  "modids": [
-   "refurbished_furniture"
-  ],
-  "nested": [],
-  "requires": [
-   "framework"
-  ]
- },
- "ImmersiveEngineering-1.20.1-10.2.0-183.jar": {
-  "role": "keep",
-  "sha256": "061dd0e8e066dc39277736d5607a47a18fee4aff428de3363882f96e5c405aaa",
-  "modids": [
-   "immersiveengineering"
-  ],
-  "nested": [],
-  "requires": []
- },
- "FarmersDelight-1.20.1-1.2.9.jar": {
-  "role": "keep",
-  "sha256": "45e8e4daf04283fc5a7fec955e6a1e622ee0e9d4e1b5e79dbcf5b095bb510082",
-  "modids": [
-   "farmersdelight"
-  ],
-  "nested": [],
-  "requires": []
- },
- "modernfix-forge-5.25.2+mc1.20.1.jar": {
-  "role": "keep",
-  "sha256": "6da98d88031f2f5377c0e66fb7ebfd8da8be64c6e46a2d1b1fcf8c717b040653",
-  "modids": [
-   "modernfix"
-  ],
-  "nested": [],
-  "requires": []
- },
- "ferritecore-6.0.1-forge.jar": {
-  "role": "keep",
-  "sha256": "9c2c9396a49e796d88497758caa4637d2bcbb433c318e2dd9cebcffbaf0f6c54",
-  "modids": [
-   "ferritecore"
-  ],
-  "nested": [],
-  "requires": []
- },
- "spark-1.10.53-forge.jar": {
-  "role": "keep",
-  "sha256": "eba275ba9bb0cb5b542913c3138c6eeff6a752898266d63d125d185f26ac99ed",
-  "modids": [
-   "spark"
-  ],
-  "nested": [],
-  "requires": []
- },
- "Chunky-1.3.146.jar": {
-  "role": "keep",
-  "sha256": "996a3c9b53e6c0e0850fb9e78d3546d2c37a1b789ddaf529b17e4fe62ab23141",
-  "modids": [
-   "chunky"
-  ],
-  "nested": [],
-  "requires": []
- },
- "AI-Improvements-1.20-0.5.2.jar": {
-  "role": "keep",
-  "sha256": "575a4a8e00f982c064d54bb3e73e5cda2d14414de054a471a3daf3f58bdf560a",
-  "modids": [
-   "aiimprovements"
-  ],
-  "nested": [],
-  "requires": []
- },
- "letmedespawn-1.20.x-forge-1.5.0.jar": {
-  "role": "keep",
-  "sha256": "c6be3d9a62234d96d302369ac0a0ee238bdc0cf1b7f7280532d4365e9fabc09e",
-  "modids": [
-   "letmedespawn"
-  ],
-  "nested": [],
-  "requires": [
-   "almanac"
-  ]
- },
- "LongNbtKiller-Forge-1.20.1-1.0.0.jar": {
-  "role": "keep",
-  "sha256": "8ca29e5b9707fcad074c8419070ec78873f31460b7e5467062f881a8279aa535",
-  "modids": [
-   "longnbtkiller"
-  ],
-  "nested": [],
-  "requires": []
- },
- "chunksending-1.20.1-2.8.jar": {
-  "role": "keep",
-  "sha256": "54207d488545db565838bad97db7978800f5171e02c4ab7741b9ee5cd8ab5001",
-  "modids": [
-   "chunksending"
-  ],
-  "nested": [],
-  "requires": [
-   "cupboard"
-  ]
- },
- "dynview-1.20.1-4.0.jar": {
-  "role": "keep",
-  "sha256": "a8cfb3bbafc282b6649fcb0ff582f881577c0584dff6abb0569914488fc5ee7c",
-  "modids": [
-   "dynview"
-  ],
-  "nested": [],
-  "requires": []
- },
- "FastFurnace-1.20.1-8.0.2.jar": {
-  "role": "keep",
-  "sha256": "970c11c090e7a364e2e006aabb5e573f79901e710e97195334ee5802317776e8",
-  "modids": [
-   "fastfurnace"
-  ],
-  "nested": [],
-  "requires": [
-   "placebo"
-  ]
- },
- "FastSuite-1.20.1-5.1.0.jar": {
-  "role": "keep",
-  "sha256": "326932853763885ed703d8969a62c459235d6b4a2b6a194535feb3daca484f84",
-  "modids": [
-   "fastsuite"
-  ],
-  "nested": [],
-  "requires": [
-   "placebo"
-  ]
- },
- "FastWorkbench-1.20.1-8.0.4.jar": {
-  "role": "keep",
-  "sha256": "86d20c6879bf86ef76b3fd94998d3e5c3327acb5d5324b6eb0b5348354766620",
-  "modids": [
-   "fastbench"
-  ],
-  "nested": [],
-  "requires": [
-   "placebo"
-  ]
- },
- "recipeessentials-1.20.1-4.0.jar": {
-  "role": "keep",
-  "sha256": "eb0ff236212f83cfb04b39c72678282a1b964a5cfcb0cecb314e953f03347f14",
-  "modids": [
-   "recipeessentials"
-  ],
-  "nested": [],
-  "requires": [
-   "cupboard"
-  ]
- },
- "LeavesBeGone-v8.0.0-1.20.1-Forge.jar": {
-  "role": "keep",
-  "sha256": "e621c22e7107dada09298dffc04dc56144ac08e6e41e8b41c200dc939c662ac5",
-  "modids": [
-   "leavesbegone"
-  ],
-  "nested": [],
-  "requires": [
-   "puzzleslib"
-  ]
- },
- "getittogetherdrops-forge-1.20-1.3.jar": {
-  "role": "keep",
-  "sha256": "01e07848b9f741c713bc5b96469a4fbacf950c1285a65de2b153c32474dbdd1f",
-  "modids": [
-   "getittogetherdrops"
-  ],
-  "nested": [],
-  "requires": []
- },
- "Ping-Wheel-1.12.0-forge-1.20.1.jar": {
-  "role": "keep",
-  "sha256": "4745558853426ce9e118b584d59812c8e407819bedf17cce3467fcf061156973",
-  "modids": [
-   "pingwheel"
-  ],
-  "nested": [],
-  "requires": []
- },
- "appleskin-forge-mc1.20.1-2.5.1.jar": {
-  "role": "keep",
-  "sha256": "e12419e43e3babc810af289403c5cd96bd7f09809b389acc6bb2f122b4b2a426",
-  "modids": [
-   "appleskin"
-  ],
-  "nested": [],
-  "requires": []
- },
- "worldedit-mod-7.2.15.jar": {
-  "role": "keep",
-  "sha256": "17db6b3e94f52d25426684663e1e1846823cbb7907f1c365ac329e5bc7bfaf2c",
-  "modids": [
-   "worldedit"
-  ],
-  "nested": [],
-  "requires": []
- },
- "BHStats_Forge_1.20+.jar": {
-  "role": "keep",
-  "sha256": "a46d9959916fbed647c3f946c77272c4666a39d5d13ca64396d570105ecade01",
-  "modids": [
-   "bisecthosting"
-  ],
-  "nested": [],
-  "requires": []
- },
- "ParCool-1.20.1-3.4.2.0.jar": {
-  "role": "keep",
-  "sha256": "19cdd9bbe345b47c79b3df1317521f2f2479a2d3a5264df10973a6d745b39f21",
-  "modids": [
-   "parcool"
-  ],
-  "nested": [],
-  "requires": []
- },
- "bettercombat-forge-1.9.0+1.20.1.jar": {
-  "role": "keep",
-  "sha256": "49c69dccf2c641246b4e3deca81ebac21f0ee119e81fc713b838b8e33569eea1",
-  "modids": [
-   "bettercombat"
-  ],
-  "nested": [],
-  "requires": [
-   "cloth_config",
-   "playeranimator"
-  ]
- },
- "sedparties-1.20.1-2.0-beta-p.7.1.jar": {
-  "role": "keep",
-  "sha256": "360fc03f424b3d6c3b98c825a4c8c6905355b3344e06ed5f65ec592467ed6b45",
-  "modids": [
-   "sedparties"
-  ],
-  "nested": [],
-  "requires": []
- },
- "MagnumTorch-v8.0.2-1.20.1-Forge.jar": {
-  "role": "keep",
-  "sha256": "fa9df7fad29f50da46d5852d0ad06a0215d910ad2050da64b0996342a4489c63",
-  "modids": [
-   "magnumtorch"
-  ],
-  "nested": [],
-  "requires": [
-   "puzzleslib"
-  ]
- },
- "Pillagers Gun-1.20.1-forge-3.1.0.jar": {
-  "role": "keep",
-  "sha256": "1f3e290fe5c1f13a9b6d917a6ba790ac8a611ce040d9dca53adf1161ab4286de",
-  "modids": [
-   "pillagers_gun"
-  ],
-  "nested": [],
-  "requires": []
- },
- "factory_blocks-forge-1.4.0+mc1.20.1.jar": {
-  "role": "keep",
-  "sha256": "a21e9ff2f8add29e7368e933015406f8a3c91dc103bbf16783ea3a3850f23a75",
-  "modids": [
-   "factory_blocks"
-  ],
-  "nested": [],
-  "requires": [
-   "architectury"
-  ]
- },
- "chisel-forge-2.0.0+mc1.20.1.jar": {
-  "role": "keep",
-  "sha256": "f6ebb48de0a954349a5f0d607f7955e898a87dae45fb7cf71878f4bac56653c1",
-  "modids": [
-   "chisel"
-  ],
-  "nested": [],
-  "requires": [
-   "architectury",
-   "cryonicconfig"
-  ]
- },
- "antiblocksrechiseled-0.4.8.jar": {
-  "role": "keep",
-  "sha256": "b0fdc2d238b27675bb897e94e48e23b96a06be5356618ee0ef290a034981b31e",
-  "modids": [
-   "antiblocksrechiseled"
-  ],
-  "nested": [],
-  "requires": []
- },
- "Keerdm Zombie Apocalypse Essentials (TACZ) 1.41.jar": {
-  "role": "keep-with-action",
-  "sha256": "d25c441abb8a58e2ed5f6a2686a558776aa3e1862e22020456d9f49d60ced153",
-  "modids": [
-   "keerdm_zombie_essentials"
-  ],
-  "nested": [],
-  "requires": [
-   "immersive_weathering",
-   "lostcities"
-  ]
- },
- "The-Hordes-1.20.1-1.5.4c.jar": {
-  "role": "keep-with-action",
-  "sha256": "dd7d08839746aea2ded9974b2e506bb65e1e8c3423a481e0ab8bccffa1aa7a35",
-  "modids": [
-   "hordes"
-  ],
-  "nested": [
-   "mixinextras"
-  ],
-  "requires": [
-   "atlaslib"
-  ]
- },
- "vvp-alpha-1.20.1-0.2.0.jar": {
-  "role": "keep-with-action",
-  "sha256": "3346f0899e814c61fe192162f55430a6f98b03e649e5c5c0ca4491dc0e619c04",
-  "modids": [
-   "vvp"
-  ],
-  "nested": [],
-  "requires": [
-   "superbwarfare"
-  ]
- },
- "EyesInTheDarkness-1.20.1-1.3.10.jar": {
-  "role": "keep-with-action",
-  "sha256": "1ed5d3fc36b792b955a83afc6a1334e71a4bf9450f78898e6936c916dc7c3916",
-  "modids": [
-   "eyesinthedarkness"
-  ],
-  "nested": [],
-  "requires": []
- },
- "the_knocker-1.5.0-forge-1.20.1.jar": {
-  "role": "keep-with-action",
-  "sha256": "6f34e4ba1f83e0a35c50dafac247c3cdee56052a552140c0f6e4a022060f2050",
-  "modids": [
-   "the_knocker"
-  ],
-  "nested": [],
-  "requires": []
- },
- "tacz_fire_control_extension-1.1.3+mc1.20.1+tacz1.1.4.jar": {
-  "role": "keep-with-action",
-  "sha256": "6197abf0fa66fbaf4a9dcc3000da86abb68eba1b060ce8ff814d07f6ce136c2e",
-  "modids": [
-   "tacz_fire_control_extension"
-  ],
-  "nested": [
-   "gunsmithlib"
-  ],
-  "requires": [
-   "tacz"
-  ]
- },
- "lukis-grand-capitals-1.1.2.jar": {
-  "role": "keep-with-action",
-  "sha256": "9afed9ff822839f3a897fc1047b0568748b8a0f5ae78113b7d091831c2e328f0",
-  "modids": [
-   "mr_lukis_grandcapitals"
-  ],
-  "nested": [],
-  "requires": []
- },
- "geckolib-forge-1.20.1-4.8.2.jar": {
-  "role": "library",
-  "sha256": "a2e4bcc986ce360f4e85d545a86b04c8c9350543ebd17069b6a44c0a8939ffdc",
-  "modids": [
-   "geckolib"
-  ],
-  "nested": [
-   "?no-mods.toml"
-  ],
-  "requires": []
- },
- "azurelib-neo-1.20.1-3.1.2.jar": {
-  "role": "library",
-  "sha256": "be1f62ad75384f4cb4b41f0acf95edd80e750267754c8de9a04fedc88e83f277",
-  "modids": [
-   "azurelib"
-  ],
-  "nested": [
-   "mixinextras"
-  ],
-  "requires": []
- },
- "player-animation-lib-forge-1.0.2-rc1+1.20.jar": {
-  "role": "library",
-  "sha256": "90d9965cb9efdbda29fdc5610be3914cf7008bf5c392ff34f7ab25f96a852691",
-  "modids": [
-   "playeranimator"
-  ],
-  "nested": [],
-  "requires": []
- },
- "curios-forge-5.14.1+1.20.1.jar": {
-  "role": "library",
-  "sha256": "1e817919a35b37cf30524aaec73f0ca5130452f23f168f844854df282eb8e51f",
-  "modids": [
-   "curios"
-  ],
-  "nested": [],
-  "requires": []
- },
- "coroutil-forge-1.20.1-1.3.7.jar": {
-  "role": "library",
-  "sha256": "11448808a42c17425cf2ea39701841008683d6ad6e2838a34eef0253251a870f",
-  "modids": [
-   "coroutil"
-  ],
-  "nested": [],
-  "requires": []
- },
- "cupboard-1.20.1-2.7.jar": {
-  "role": "library",
-  "sha256": "63a1b6e8e9cffd53f283fae04f64b8d63dcaaa99fe0e383bb664f23ec87d395f",
-  "modids": [
-   "cupboard"
-  ],
-  "nested": [],
-  "requires": []
- },
- "PuzzlesLib-v8.1.33-1.20.1-Forge.jar": {
-  "role": "library",
-  "sha256": "f3077a9f817629b8e8929c1951042d1a1adc62d30b72adebd54d2b074a4faf4f",
-  "modids": [
-   "puzzleslib"
-  ],
-  "nested": [
-   "mixinextras",
-   "puzzlesaccessapi"
-  ],
-  "requires": [
-   "puzzlesaccessapi"
-  ]
- },
- "CreativeCore_FORGE_v2.12.32_mc1.20.1.jar": {
-  "role": "library",
-  "sha256": "3d2271f7d9d2e32fca46d19f3b6ab4372d30e0ea3eb26c809c23366e8d503e16",
-  "modids": [
-   "creativecore"
-  ],
-  "nested": [],
-  "requires": []
- },
- "framework-forge-1.20.1-0.7.15.jar": {
-  "role": "library",
-  "sha256": "0c29b9bab2ca7209a6cc8d80b2cd06daa4be2da81b636f7292cebebfaaea6c08",
-  "modids": [
-   "framework"
-  ],
-  "nested": [],
-  "requires": []
- },
- "moonlight-1.20-2.16.15-forge.jar": {
-  "role": "library",
-  "sha256": "97fbf25762183b969198f288957f74cb10f59d546ad81631626bdba1c08f88c0",
-  "modids": [
-   "moonlight"
-  ],
-  "nested": [],
-  "requires": []
- },
- "Patchouli-1.20.1-84.1-FORGE.jar": {
-  "role": "library",
-  "sha256": "9cc38ebb5e29b350222e337b7a5a2ba238c802230a89434ce00e90ee3026d056",
-  "modids": [
-   "patchouli"
-  ],
-  "nested": [],
-  "requires": []
- },
- "athena-forge-1.20.1-3.1.2.jar": {
-  "role": "library",
-  "sha256": "64eec9cffb8847a459536096ac396b135ffb07c7d9d13c6a47d9cd7b251276ab",
-  "modids": [
-   "athena"
-  ],
-  "nested": [],
-  "requires": []
- },
- "cryonicconfig-forge-1.0.0+mc1.20.1.jar": {
-  "role": "library",
-  "sha256": "51ffc8832eec0fce716ecab9cd148ca7408b63963a1728b06df45d8cfb2eb04a",
-  "modids": [
-   "cryonicconfig"
-  ],
-  "nested": [],
-  "requires": []
- },
- "cloth-config-11.1.136-forge.jar": {
-  "role": "library",
-  "sha256": "1e895e85cf5b1e1905ef3178ec155c8badfe22a1577b92c09143a5aa1f4ce0f2",
-  "modids": [
-   "cloth_config"
-  ],
-  "nested": [],
-  "requires": []
- },
- "architectury-9.2.14-forge.jar": {
-  "role": "library",
-  "sha256": "218b471d0b8a1f6cda14cfc1beb9eeb0df54304500acc6c5613d9b88ec65d9af",
-  "modids": [
-   "architectury"
-  ],
-  "nested": [],
-  "requires": []
- },
- "kotlinforforge-4.12.0-all.jar": {
-  "role": "conditional-library",
-  "sha256": "6a66c6a68ec09f8717cdbf06883394f0ee24d7cd826b7134a0f81839e8e720ae",
-  "modids": [
-   "?no-mods.toml"
-  ],
-  "nested": [
-   "?no-mods.toml",
-   "?no-mods.toml",
-   "kotlinforforge"
-  ],
-  "requires": []
- },
- "fzzy_config-0.7.3+1.20.1+forge.jar": {
-  "role": "conditional-library",
-  "sha256": "cc0db1514435953677dea20c246b2f86a61b5ff4348143aa8e1154a2808c6191",
-  "modids": [
-   "fzzy_config"
-  ],
-  "nested": [],
-  "requires": [
-   "kotlinforforge"
-  ]
- },
- "uilib-0.3.6-forge.jar": {
-  "role": "conditional-library",
-  "sha256": "30c909bee218458756ec8fe54d66eae2862d2735900b9d10c3c443f973f098ce",
-  "modids": [
-   "uilib"
-  ],
-  "nested": [],
-  "requires": [
-   "architectury"
-  ]
- },
- "Atlas Lib-1.20.1-1.1.12.jar": {
-  "role": "library",
-  "sha256": "8cc9b5b46e65affed0c38aa54da6870ec4e820364c654c4dd2bb70a94ba39c50",
-  "modids": [
-   "atlaslib"
-  ],
-  "nested": [],
-  "requires": []
- },
- "almanac-1.20.x-forge-1.0.2.jar": {
-  "role": "library",
-  "sha256": "b8e0b42329c11739201d132bc99720e8205badc4ce862b30e4eec04b833e3419",
-  "modids": [
-   "almanac"
-  ],
-  "nested": [],
-  "requires": []
- },
- "collective-1.20.1-8.3.jar": {
-  "role": "conditional-library",
-  "sha256": "6719ac5ebb35227b0b28e097c7850ec639410eef97333e2988c2c0d561b23301",
-  "modids": [
-   "collective"
-  ],
-  "nested": [],
-  "requires": []
- },
- "Placebo-1.20.1-8.6.3.jar": {
-  "role": "addition",
-  "modids": [
-   "placebo"
-  ],
-  "nested": [],
-  "requires": []
- },
- "supermartijn642corelib-1.1.18-forge-mc1.20.1.jar": {
-  "role": "conditional-library",
-  "sha256": "b89c7703f909c75bff8981be7a3c7219138e01549666bd5cd5c47a1d6330489e",
-  "modids": [
-   "supermartijn642corelib"
-  ],
-  "nested": [],
-  "requires": []
- },
- "supermartijn642configlib-1.1.8-forge-mc1.20.jar": {
-  "role": "conditional-library",
-  "sha256": "bea425ef7e9cd27a7fc0f4b89e00cbd0a1ee050f071ecaa9f28f7238f400f0a3",
-  "modids": [
-   "supermartijn642configlib"
-  ],
-  "nested": [],
-  "requires": []
- },
- "balm-forge-1.20.1-7.3.37-all.jar": {
-  "role": "conditional-library",
-  "sha256": "7f10f01866c8316edfc1ffbc49baf1154923beac637e2d7b5399d26508fdd914",
-  "modids": [
-   "balm"
-  ],
-  "nested": [
-   "kuma_api"
-  ],
-  "requires": []
- },
- "citadel-2.6.2-1.20.1.jar": {
-  "role": "conditional-library",
-  "sha256": "bba058ed903670e81cb98996725dbe328ba147fb72cc10cfc9e39aee59cf0824",
-  "modids": [
-   "citadel"
-  ],
-  "nested": [],
-  "requires": []
- },
- "TerraBlender-forge-1.20.1-3.0.1.10.jar": {
-  "role": "conditional-library",
-  "sha256": "c109016f46ca9bdae69976bf080bbf2e8e5968cb66c0a78845f8ca6af5dbbeb1",
-  "modids": [
-   "terrablender"
-  ],
-  "nested": [],
-  "requires": []
- },
- "caelus-forge-3.2.0+1.20.1.jar": {
-  "role": "conditional-library",
-  "sha256": "37495445e79df8b30a3a038a0051f3c8aa8447f91a9d0aa0d20baef69dda9368",
-  "modids": [
-   "caelus"
-  ],
-  "nested": [],
-  "requires": []
- },
- "txnilib-forge-1.0.24-1.20.1.jar": {
-  "role": "conditional-library",
-  "sha256": "71ca69345ef763903213e0b0db3c9c07d2a090ad311d1de66c31798a813a9d0e",
-  "modids": [
-   "txnilib"
-  ],
-  "nested": [],
-  "requires": []
- },
- "ritchiesprojectilelib-2.1.1-mc.1.20.1-forge.jar": {
-  "role": "conditional-library",
-  "sha256": "5531ec454792f98993fa29d55f8810444ba3e9ef8f04331c5811b84ec8d0c3dc",
-  "modids": [
-   "ritchiesprojectilelib"
-  ],
-  "nested": [],
-  "requires": []
- },
- "lootr-forge-1.20-0.7.35.94.jar": {
-  "role": "addition",
-  "modids": [
-   "lootr"
-  ],
-  "nested": [],
-  "requires": []
- },
- "improvedmobs-1.20.1-1.13.7-forge.jar": {
-  "role": "addition",
-  "modids": [
-   "improvedmobs"
-  ],
-  "nested": [],
-  "requires": [
-   "tenshilib"
-  ]
- },
- "canary-mc1.20.1-0.3.3.jar": {
-  "role": "addition",
-  "modids": [
-   "canary"
-  ],
-  "nested": [],
-  "requires": []
- },
- "xaerominimap-forge-1.20.1-26.4.2.jar": {
-  "role": "addition",
-  "modids": [
-   "xaerominimap"
-  ],
-  "nested": [
-   "xaerolib"
-  ],
-  "requires": [
-   "xaerolib"
-  ]
- },
- "xaeroworldmap-forge-1.20.1-1.45.0.jar": {
-  "role": "addition",
-  "modids": [
-   "xaeroworldmap"
-  ],
-  "nested": [
-   "xaerolib"
-  ],
-  "requires": [
-   "xaerolib"
-  ]
- },
- "The-Man-From-The-Fog-1.4-1.20.1.jar": {
-  "role": "addition",
-  "modids": [
-   "man"
-  ],
-  "nested": [],
-  "requires": []
- },
- "kubejs-forge-2001.6.5-build.26.jar": {
-  "role": "addition",
-  "modids": [
-   "kubejs"
-  ],
-  "nested": [],
-  "requires": [
-   "architectury",
-   "rhino"
-  ]
- },
- "rhino-forge-2001.2.3-build.10.jar": {
-  "role": "addition",
-  "modids": [
-   "rhino"
-  ],
-  "nested": [],
-  "requires": []
- },
- "voicechat-forge-1.20.1-2.6.22.jar": {
-  "role": "addition",
-  "modids": [
-   "voicechat",
-   "voicechat_api"
-  ],
-  "nested": [],
-  "requires": []
- },
- "Apotheosis-1.20.1-7.4.8.jar": {
-  "role": "addition",
-  "modids": [
-   "apotheosis"
-  ],
-  "nested": [],
-  "requires": [
-   "attributeslib",
-   "placebo"
-  ]
- },
- "chipped-forge-1.20.1-3.0.7.jar": {
-  "role": "addition",
-  "modids": [
-   "chipped"
-  ],
-  "nested": [],
-  "requires": [
-   "athena",
-   "resourcefullib"
-  ]
- },
- "resourcefullib-forge-1.20.1-2.1.29.jar": {
-  "role": "addition",
-  "modids": [
-   "resourcefullib"
-  ],
-  "nested": [],
-  "requires": []
- },
- "Immersive Vehicles-1.20.1-24.0.0.jar": {
-  "role": "addition",
-  "modids": [
-   "mts"
-  ],
-  "nested": [],
-  "requires": []
- },
- "tacz-1.20.1-1.1.8-hotfix.jar": {
-  "role": "addition",
-  "modids": [
-   "tacz"
-  ],
-  "nested": [
-   "simplebedrockmodel",
-   "?commons-math3-3.6.1.jar",
-   "mixinextras",
-   "?luaj-core-3.0.8-figura.jar",
-   "?luaj-jse-3.0.8-figura.jar",
-   "?bcel-6.6.1.jar"
-  ],
-  "requires": []
- },
- "tenshilib-1.20.1-1.7.6-forge.jar": {
-  "role": "addition",
-  "modids": [
-   "tenshilib"
-  ],
-  "nested": [],
-  "requires": []
- },
- "ApothicAttributes-1.20.1-1.3.7.jar": {
-  "role": "addition",
-  "modids": [
-   "attributeslib"
-  ],
-  "nested": [],
-  "requires": [
-   "placebo"
-  ]
- },
- "ftb-chunks-forge-2001.3.8.jar": {
-  "role": "addition",
-  "modids": [
-   "ftbchunks"
-  ],
-  "nested": [],
-  "requires": [
-   "architectury",
-   "ftblibrary",
-   "ftbteams"
-  ]
- },
- "ftb-quests-forge-2001.4.22.jar": {
-  "role": "addition",
-  "modids": [
-   "ftbquests"
-  ],
-  "nested": [],
-  "requires": [
-   "architectury",
-   "ftblibrary",
-   "ftbteams"
-  ]
- },
- "MTS Official Pack-1.20.1-V29.jar": {
-  "role": "addition",
-  "modids": [
-   "mtsofficialpack"
-  ],
-  "nested": [],
-  "requires": [
-   "mts"
-  ]
- },
- "OAmP-1.20.1-V3.jar": {
-  "role": "addition",
-  "modids": [
-   "oamp"
-  ],
-  "nested": [],
-  "requires": [
-   "mts",
-   "mtsofficialpack"
-  ]
- },
- "ftb-library-forge-2001.2.13.jar": {
-  "role": "addition",
-  "modids": [
-   "ftblibrary"
-  ],
-  "nested": [],
-  "requires": [
-   "architectury"
-  ]
- },
- "ftb-teams-forge-2001.3.2.jar": {
-  "role": "addition",
-  "modids": [
-   "ftbteams"
-  ],
-  "nested": [],
-  "requires": [
-   "architectury",
-   "ftblibrary"
-  ]
- },
- "item-filters-forge-2001.1.0-build.59.jar": {
-  "role": "addition",
-  "modids": [
-   "itemfilters"
-  ],
-  "nested": [],
-  "requires": [
-   "architectury"
-  ]
- },
- "lostcities-1.20-7.5.3.jar": {
-  "role": "addition",
-  "sha256": "40361ee34a70559e40266e43850aa20a85bf4e0ce3ec91a0e6893ac097214d86",
-  "modids": [
-   "lostcities"
-  ],
-  "nested": [],
-  "requires": []
- }
+  "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar": {
+    "role": "keep",
+    "sha256": "dd5d66221097de2da5be685f3b6200b5203cc2845fbde26cb815fc0fe4a13a81",
+    "modids": [
+      "superbwarfare"
+    ],
+    "nested": [],
+    "requires": [
+      "curios",
+      "geckolib"
+    ]
+  },
+  "MCSP-1.20.1-V1.0.8.jar": {
+    "role": "keep",
+    "sha256": "96435115455608895956682daee15d766d0258f264d482df45ebc8df6beabcc4",
+    "modids": [
+      "mcsp"
+    ],
+    "nested": [],
+    "requires": [
+      "superbwarfare"
+    ]
+  },
+  "chaoszproject-bandits-1.0.0-1.20.1.jar": {
+    "role": "keep",
+    "sha256": "97c9f0d4ee3f5114353af3b23ffa08550682e684f11e853c93930c03881824e8",
+    "modids": [
+      "chaoszprojectbandits"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "incontrol-1.20-9.3.3.jar": {
+    "role": "keep",
+    "sha256": "171425e8d3cd82144cead0bf60efa576ddaacfcab8991fae1258978885e87385",
+    "modids": [
+      "incontrol"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "mob_factions-1.0.0-forge-1.20.1.jar": {
+    "role": "keep",
+    "sha256": "3ad92784d9cdb07dac2f95a9a9132466f6249927b9b1ecc13f6f65af0fc02701",
+    "modids": [
+      "mob_factions"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "zombieawareness-1.20.1-1.13.1.jar": {
+    "role": "keep",
+    "sha256": "4f5104f7d29e1d065364d2483885f3751da2bef09a734cead2fce81c82c46586",
+    "modids": [
+      "zombieawareness"
+    ],
+    "nested": [],
+    "requires": [
+      "coroutil"
+    ]
+  },
+  "guardvillagers-1.20.1-1.6.15.jar": {
+    "role": "keep",
+    "sha256": "672de6862fc7fca8091d7e8b1084ab73d5ac66576d742cc113fe2a5c9b0efa35",
+    "modids": [
+      "guardvillagers"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "hostilevillages-1.20.1-5.7.jar": {
+    "role": "keep",
+    "sha256": "73bc0f33dc20838be1090c5ddd2983110b0d55b968234b79f14e1021c64291e8",
+    "modids": [
+      "hostilevillages"
+    ],
+    "nested": [],
+    "requires": [
+      "cupboard"
+    ]
+  },
+  "recruits-1.20.1-1.14.0.jar": {
+    "role": "keep",
+    "sha256": "be84de2367c8294e14d3f6948527ed2b4e316554f0222e667ee954883eb3a6ee",
+    "modids": [
+      "recruits"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "PlayerRevive_FORGE_v2.0.31_mc1.20.1.jar": {
+    "role": "keep",
+    "sha256": "beeb560232c8ee691ea446d53194358902eed8ed38d198515906ac724bdde1fb",
+    "modids": [
+      "playerrevive"
+    ],
+    "nested": [],
+    "requires": [
+      "creativecore"
+    ]
+  },
+  "sophisticatedbackpacks-1.20.1-3.24.13.1433.jar": {
+    "role": "keep",
+    "sha256": "3d99cf6fc2d7e8af91c597c55ebb3d38258f0fa5061e953138c6bfac7660e01a",
+    "modids": [
+      "sophisticatedbackpacks"
+    ],
+    "nested": [],
+    "requires": [
+      "sophisticatedcore"
+    ]
+  },
+  "sophisticatedcore-1.20.1-1.2.109.1271.jar": {
+    "role": "keep",
+    "sha256": "439edf3560603404bb929c753fddd5921f61b001bd96fc3a1aa4c2a1a706eb0f",
+    "modids": [
+      "sophisticatedcore"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "CustomStartingGear-1.20-2.0.3.jar": {
+    "role": "keep",
+    "sha256": "7c50129c62cd5f6298a5ba4e5ff15cc147f809bde961c7ef646fc5efd6588ec7",
+    "modids": [
+      "customstartinggear"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "UndergroundBunkers-1.0.5-1.20.x-forge.jar": {
+    "role": "keep",
+    "sha256": "b9f9a25648f6abf3747c4f1e9c0a0438baac474c71ad5b0981a8613481982d58",
+    "modids": [
+      "underground_bunkers"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "doomsday_decoration-1.1.3-forge-1.20.1.jar": {
+    "role": "keep",
+    "sha256": "2572f9e0ce97cce8ff6f3f207ad164e3da8cb8b45f6658705943af176f39cc63",
+    "modids": [
+      "doomsday_decoration"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "immersive_weathering-1.20.1-2.0.5-forge.jar": {
+    "role": "keep",
+    "sha256": "b88353d6efe18635bac2d4169e704320987e9678fd683217195dcdcf2c1ca1ba",
+    "modids": [
+      "immersive_weathering"
+    ],
+    "nested": [],
+    "requires": [
+      "moonlight"
+    ]
+  },
+  "refurbished_furniture-forge-1.20.1-1.0.20.jar": {
+    "role": "keep",
+    "sha256": "480546202aa21fa07e6b1571f3e3263e5690e9804afb7c35984642bcf473bc6e",
+    "modids": [
+      "refurbished_furniture"
+    ],
+    "nested": [],
+    "requires": [
+      "framework"
+    ]
+  },
+  "ImmersiveEngineering-1.20.1-10.2.0-183.jar": {
+    "role": "keep",
+    "sha256": "061dd0e8e066dc39277736d5607a47a18fee4aff428de3363882f96e5c405aaa",
+    "modids": [
+      "immersiveengineering"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "FarmersDelight-1.20.1-1.2.9.jar": {
+    "role": "keep",
+    "sha256": "45e8e4daf04283fc5a7fec955e6a1e622ee0e9d4e1b5e79dbcf5b095bb510082",
+    "modids": [
+      "farmersdelight"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "modernfix-forge-5.25.2+mc1.20.1.jar": {
+    "role": "keep",
+    "sha256": "6da98d88031f2f5377c0e66fb7ebfd8da8be64c6e46a2d1b1fcf8c717b040653",
+    "modids": [
+      "modernfix"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "ferritecore-6.0.1-forge.jar": {
+    "role": "keep",
+    "sha256": "9c2c9396a49e796d88497758caa4637d2bcbb433c318e2dd9cebcffbaf0f6c54",
+    "modids": [
+      "ferritecore"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "spark-1.10.53-forge.jar": {
+    "role": "keep",
+    "sha256": "eba275ba9bb0cb5b542913c3138c6eeff6a752898266d63d125d185f26ac99ed",
+    "modids": [
+      "spark"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "Chunky-1.3.146.jar": {
+    "role": "keep",
+    "sha256": "996a3c9b53e6c0e0850fb9e78d3546d2c37a1b789ddaf529b17e4fe62ab23141",
+    "modids": [
+      "chunky"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "AI-Improvements-1.20-0.5.2.jar": {
+    "role": "keep",
+    "sha256": "575a4a8e00f982c064d54bb3e73e5cda2d14414de054a471a3daf3f58bdf560a",
+    "modids": [
+      "aiimprovements"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "letmedespawn-1.20.x-forge-1.5.0.jar": {
+    "role": "keep",
+    "sha256": "c6be3d9a62234d96d302369ac0a0ee238bdc0cf1b7f7280532d4365e9fabc09e",
+    "modids": [
+      "letmedespawn"
+    ],
+    "nested": [],
+    "requires": [
+      "almanac"
+    ]
+  },
+  "LongNbtKiller-Forge-1.20.1-1.0.0.jar": {
+    "role": "keep",
+    "sha256": "8ca29e5b9707fcad074c8419070ec78873f31460b7e5467062f881a8279aa535",
+    "modids": [
+      "longnbtkiller"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "chunksending-1.20.1-2.8.jar": {
+    "role": "keep",
+    "sha256": "54207d488545db565838bad97db7978800f5171e02c4ab7741b9ee5cd8ab5001",
+    "modids": [
+      "chunksending"
+    ],
+    "nested": [],
+    "requires": [
+      "cupboard"
+    ]
+  },
+  "dynview-1.20.1-4.0.jar": {
+    "role": "keep",
+    "sha256": "a8cfb3bbafc282b6649fcb0ff582f881577c0584dff6abb0569914488fc5ee7c",
+    "modids": [
+      "dynview"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "FastFurnace-1.20.1-8.0.2.jar": {
+    "role": "keep",
+    "sha256": "970c11c090e7a364e2e006aabb5e573f79901e710e97195334ee5802317776e8",
+    "modids": [
+      "fastfurnace"
+    ],
+    "nested": [],
+    "requires": [
+      "placebo"
+    ]
+  },
+  "FastSuite-1.20.1-5.1.0.jar": {
+    "role": "keep",
+    "sha256": "326932853763885ed703d8969a62c459235d6b4a2b6a194535feb3daca484f84",
+    "modids": [
+      "fastsuite"
+    ],
+    "nested": [],
+    "requires": [
+      "placebo"
+    ]
+  },
+  "FastWorkbench-1.20.1-8.0.4.jar": {
+    "role": "keep",
+    "sha256": "86d20c6879bf86ef76b3fd94998d3e5c3327acb5d5324b6eb0b5348354766620",
+    "modids": [
+      "fastbench"
+    ],
+    "nested": [],
+    "requires": [
+      "placebo"
+    ]
+  },
+  "recipeessentials-1.20.1-4.0.jar": {
+    "role": "keep",
+    "sha256": "eb0ff236212f83cfb04b39c72678282a1b964a5cfcb0cecb314e953f03347f14",
+    "modids": [
+      "recipeessentials"
+    ],
+    "nested": [],
+    "requires": [
+      "cupboard"
+    ]
+  },
+  "LeavesBeGone-v8.0.0-1.20.1-Forge.jar": {
+    "role": "keep",
+    "sha256": "e621c22e7107dada09298dffc04dc56144ac08e6e41e8b41c200dc939c662ac5",
+    "modids": [
+      "leavesbegone"
+    ],
+    "nested": [],
+    "requires": [
+      "puzzleslib"
+    ]
+  },
+  "getittogetherdrops-forge-1.20-1.3.jar": {
+    "role": "keep",
+    "sha256": "01e07848b9f741c713bc5b96469a4fbacf950c1285a65de2b153c32474dbdd1f",
+    "modids": [
+      "getittogetherdrops"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "Ping-Wheel-1.12.0-forge-1.20.1.jar": {
+    "role": "keep",
+    "sha256": "4745558853426ce9e118b584d59812c8e407819bedf17cce3467fcf061156973",
+    "modids": [
+      "pingwheel"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "appleskin-forge-mc1.20.1-2.5.1.jar": {
+    "role": "keep",
+    "sha256": "e12419e43e3babc810af289403c5cd96bd7f09809b389acc6bb2f122b4b2a426",
+    "modids": [
+      "appleskin"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "worldedit-mod-7.2.15.jar": {
+    "role": "keep",
+    "sha256": "17db6b3e94f52d25426684663e1e1846823cbb7907f1c365ac329e5bc7bfaf2c",
+    "modids": [
+      "worldedit"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "BHStats_Forge_1.20+.jar": {
+    "role": "keep",
+    "sha256": "a46d9959916fbed647c3f946c77272c4666a39d5d13ca64396d570105ecade01",
+    "modids": [
+      "bisecthosting"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "ParCool-1.20.1-3.4.2.0.jar": {
+    "role": "keep",
+    "sha256": "19cdd9bbe345b47c79b3df1317521f2f2479a2d3a5264df10973a6d745b39f21",
+    "modids": [
+      "parcool"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "bettercombat-forge-1.9.0+1.20.1.jar": {
+    "role": "keep",
+    "sha256": "49c69dccf2c641246b4e3deca81ebac21f0ee119e81fc713b838b8e33569eea1",
+    "modids": [
+      "bettercombat"
+    ],
+    "nested": [],
+    "requires": [
+      "cloth_config",
+      "playeranimator"
+    ]
+  },
+  "sedparties-1.20.1-2.0-beta-p.7.1.jar": {
+    "role": "keep",
+    "sha256": "360fc03f424b3d6c3b98c825a4c8c6905355b3344e06ed5f65ec592467ed6b45",
+    "modids": [
+      "sedparties"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "MagnumTorch-v8.0.2-1.20.1-Forge.jar": {
+    "role": "keep",
+    "sha256": "fa9df7fad29f50da46d5852d0ad06a0215d910ad2050da64b0996342a4489c63",
+    "modids": [
+      "magnumtorch"
+    ],
+    "nested": [],
+    "requires": [
+      "puzzleslib"
+    ]
+  },
+  "Pillagers Gun-1.20.1-forge-3.1.0.jar": {
+    "role": "keep",
+    "sha256": "1f3e290fe5c1f13a9b6d917a6ba790ac8a611ce040d9dca53adf1161ab4286de",
+    "modids": [
+      "pillagers_gun"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "factory_blocks-forge-1.4.0+mc1.20.1.jar": {
+    "role": "keep",
+    "sha256": "a21e9ff2f8add29e7368e933015406f8a3c91dc103bbf16783ea3a3850f23a75",
+    "modids": [
+      "factory_blocks"
+    ],
+    "nested": [],
+    "requires": [
+      "architectury"
+    ]
+  },
+  "chisel-forge-2.0.0+mc1.20.1.jar": {
+    "role": "keep",
+    "sha256": "f6ebb48de0a954349a5f0d607f7955e898a87dae45fb7cf71878f4bac56653c1",
+    "modids": [
+      "chisel"
+    ],
+    "nested": [],
+    "requires": [
+      "architectury",
+      "cryonicconfig"
+    ]
+  },
+  "antiblocksrechiseled-0.4.8.jar": {
+    "role": "keep",
+    "sha256": "b0fdc2d238b27675bb897e94e48e23b96a06be5356618ee0ef290a034981b31e",
+    "modids": [
+      "antiblocksrechiseled"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "Keerdm Zombie Apocalypse Essentials (TACZ) 1.41.jar": {
+    "role": "keep-with-action",
+    "sha256": "d25c441abb8a58e2ed5f6a2686a558776aa3e1862e22020456d9f49d60ced153",
+    "modids": [
+      "keerdm_zombie_essentials"
+    ],
+    "nested": [],
+    "requires": [
+      "immersive_weathering",
+      "lostcities"
+    ]
+  },
+  "The-Hordes-1.20.1-1.5.4c.jar": {
+    "role": "keep-with-action",
+    "sha256": "dd7d08839746aea2ded9974b2e506bb65e1e8c3423a481e0ab8bccffa1aa7a35",
+    "modids": [
+      "hordes"
+    ],
+    "nested": [
+      "mixinextras"
+    ],
+    "requires": [
+      "atlaslib"
+    ]
+  },
+  "vvp-alpha-1.20.1-0.2.0.jar": {
+    "role": "keep-with-action",
+    "sha256": "3346f0899e814c61fe192162f55430a6f98b03e649e5c5c0ca4491dc0e619c04",
+    "modids": [
+      "vvp"
+    ],
+    "nested": [],
+    "requires": [
+      "superbwarfare"
+    ]
+  },
+  "EyesInTheDarkness-1.20.1-1.3.10.jar": {
+    "role": "keep-with-action",
+    "sha256": "1ed5d3fc36b792b955a83afc6a1334e71a4bf9450f78898e6936c916dc7c3916",
+    "modids": [
+      "eyesinthedarkness"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "the_knocker-1.5.0-forge-1.20.1.jar": {
+    "role": "keep-with-action",
+    "sha256": "6f34e4ba1f83e0a35c50dafac247c3cdee56052a552140c0f6e4a022060f2050",
+    "modids": [
+      "the_knocker"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "tacz_fire_control_extension-1.1.3+mc1.20.1+tacz1.1.4.jar": {
+    "role": "keep-with-action",
+    "sha256": "6197abf0fa66fbaf4a9dcc3000da86abb68eba1b060ce8ff814d07f6ce136c2e",
+    "modids": [
+      "tacz_fire_control_extension"
+    ],
+    "nested": [
+      "gunsmithlib"
+    ],
+    "requires": [
+      "tacz"
+    ]
+  },
+  "lukis-grand-capitals-1.1.2.jar": {
+    "role": "keep-with-action",
+    "sha256": "9afed9ff822839f3a897fc1047b0568748b8a0f5ae78113b7d091831c2e328f0",
+    "modids": [
+      "mr_lukis_grandcapitals"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "geckolib-forge-1.20.1-4.8.2.jar": {
+    "role": "library",
+    "sha256": "a2e4bcc986ce360f4e85d545a86b04c8c9350543ebd17069b6a44c0a8939ffdc",
+    "modids": [
+      "geckolib"
+    ],
+    "nested": [
+      "?no-mods.toml"
+    ],
+    "requires": []
+  },
+  "azurelib-neo-1.20.1-3.1.2.jar": {
+    "role": "library",
+    "sha256": "be1f62ad75384f4cb4b41f0acf95edd80e750267754c8de9a04fedc88e83f277",
+    "modids": [
+      "azurelib"
+    ],
+    "nested": [
+      "mixinextras"
+    ],
+    "requires": []
+  },
+  "player-animation-lib-forge-1.0.2-rc1+1.20.jar": {
+    "role": "library",
+    "sha256": "90d9965cb9efdbda29fdc5610be3914cf7008bf5c392ff34f7ab25f96a852691",
+    "modids": [
+      "playeranimator"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "curios-forge-5.14.1+1.20.1.jar": {
+    "role": "library",
+    "sha256": "1e817919a35b37cf30524aaec73f0ca5130452f23f168f844854df282eb8e51f",
+    "modids": [
+      "curios"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "coroutil-forge-1.20.1-1.3.7.jar": {
+    "role": "library",
+    "sha256": "11448808a42c17425cf2ea39701841008683d6ad6e2838a34eef0253251a870f",
+    "modids": [
+      "coroutil"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "cupboard-1.20.1-2.7.jar": {
+    "role": "library",
+    "sha256": "63a1b6e8e9cffd53f283fae04f64b8d63dcaaa99fe0e383bb664f23ec87d395f",
+    "modids": [
+      "cupboard"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "PuzzlesLib-v8.1.33-1.20.1-Forge.jar": {
+    "role": "library",
+    "sha256": "f3077a9f817629b8e8929c1951042d1a1adc62d30b72adebd54d2b074a4faf4f",
+    "modids": [
+      "puzzleslib"
+    ],
+    "nested": [
+      "mixinextras",
+      "puzzlesaccessapi"
+    ],
+    "requires": [
+      "puzzlesaccessapi"
+    ]
+  },
+  "CreativeCore_FORGE_v2.12.32_mc1.20.1.jar": {
+    "role": "library",
+    "sha256": "3d2271f7d9d2e32fca46d19f3b6ab4372d30e0ea3eb26c809c23366e8d503e16",
+    "modids": [
+      "creativecore"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "framework-forge-1.20.1-0.7.15.jar": {
+    "role": "library",
+    "sha256": "0c29b9bab2ca7209a6cc8d80b2cd06daa4be2da81b636f7292cebebfaaea6c08",
+    "modids": [
+      "framework"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "moonlight-1.20-2.16.15-forge.jar": {
+    "role": "library",
+    "sha256": "97fbf25762183b969198f288957f74cb10f59d546ad81631626bdba1c08f88c0",
+    "modids": [
+      "moonlight"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "Patchouli-1.20.1-84.1-FORGE.jar": {
+    "role": "library",
+    "sha256": "9cc38ebb5e29b350222e337b7a5a2ba238c802230a89434ce00e90ee3026d056",
+    "modids": [
+      "patchouli"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "athena-forge-1.20.1-3.1.2.jar": {
+    "role": "library",
+    "sha256": "64eec9cffb8847a459536096ac396b135ffb07c7d9d13c6a47d9cd7b251276ab",
+    "modids": [
+      "athena"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "cryonicconfig-forge-1.0.0+mc1.20.1.jar": {
+    "role": "library",
+    "sha256": "51ffc8832eec0fce716ecab9cd148ca7408b63963a1728b06df45d8cfb2eb04a",
+    "modids": [
+      "cryonicconfig"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "cloth-config-11.1.136-forge.jar": {
+    "role": "library",
+    "sha256": "1e895e85cf5b1e1905ef3178ec155c8badfe22a1577b92c09143a5aa1f4ce0f2",
+    "modids": [
+      "cloth_config"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "architectury-9.2.14-forge.jar": {
+    "role": "library",
+    "sha256": "218b471d0b8a1f6cda14cfc1beb9eeb0df54304500acc6c5613d9b88ec65d9af",
+    "modids": [
+      "architectury"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "kotlinforforge-4.12.0-all.jar": {
+    "role": "conditional-library",
+    "sha256": "6a66c6a68ec09f8717cdbf06883394f0ee24d7cd826b7134a0f81839e8e720ae",
+    "modids": [
+      "?no-mods.toml"
+    ],
+    "nested": [
+      "?no-mods.toml",
+      "?no-mods.toml",
+      "kotlinforforge"
+    ],
+    "requires": []
+  },
+  "fzzy_config-0.7.3+1.20.1+forge.jar": {
+    "role": "conditional-library",
+    "sha256": "cc0db1514435953677dea20c246b2f86a61b5ff4348143aa8e1154a2808c6191",
+    "modids": [
+      "fzzy_config"
+    ],
+    "nested": [],
+    "requires": [
+      "kotlinforforge"
+    ]
+  },
+  "uilib-0.3.6-forge.jar": {
+    "role": "conditional-library",
+    "sha256": "30c909bee218458756ec8fe54d66eae2862d2735900b9d10c3c443f973f098ce",
+    "modids": [
+      "uilib"
+    ],
+    "nested": [],
+    "requires": [
+      "architectury"
+    ]
+  },
+  "Atlas Lib-1.20.1-1.1.12.jar": {
+    "role": "library",
+    "sha256": "8cc9b5b46e65affed0c38aa54da6870ec4e820364c654c4dd2bb70a94ba39c50",
+    "modids": [
+      "atlaslib"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "almanac-1.20.x-forge-1.0.2.jar": {
+    "role": "library",
+    "sha256": "b8e0b42329c11739201d132bc99720e8205badc4ce862b30e4eec04b833e3419",
+    "modids": [
+      "almanac"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "collective-1.20.1-8.3.jar": {
+    "role": "conditional-library",
+    "sha256": "6719ac5ebb35227b0b28e097c7850ec639410eef97333e2988c2c0d561b23301",
+    "modids": [
+      "collective"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "Placebo-1.20.1-8.6.3.jar": {
+    "role": "addition",
+    "modids": [
+      "placebo"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "supermartijn642corelib-1.1.18-forge-mc1.20.1.jar": {
+    "role": "conditional-library",
+    "sha256": "b89c7703f909c75bff8981be7a3c7219138e01549666bd5cd5c47a1d6330489e",
+    "modids": [
+      "supermartijn642corelib"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "supermartijn642configlib-1.1.8-forge-mc1.20.jar": {
+    "role": "conditional-library",
+    "sha256": "bea425ef7e9cd27a7fc0f4b89e00cbd0a1ee050f071ecaa9f28f7238f400f0a3",
+    "modids": [
+      "supermartijn642configlib"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "balm-forge-1.20.1-7.3.37-all.jar": {
+    "role": "conditional-library",
+    "sha256": "7f10f01866c8316edfc1ffbc49baf1154923beac637e2d7b5399d26508fdd914",
+    "modids": [
+      "balm"
+    ],
+    "nested": [
+      "kuma_api"
+    ],
+    "requires": []
+  },
+  "citadel-2.6.2-1.20.1.jar": {
+    "role": "conditional-library",
+    "sha256": "bba058ed903670e81cb98996725dbe328ba147fb72cc10cfc9e39aee59cf0824",
+    "modids": [
+      "citadel"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "TerraBlender-forge-1.20.1-3.0.1.10.jar": {
+    "role": "conditional-library",
+    "sha256": "c109016f46ca9bdae69976bf080bbf2e8e5968cb66c0a78845f8ca6af5dbbeb1",
+    "modids": [
+      "terrablender"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "caelus-forge-3.2.0+1.20.1.jar": {
+    "role": "conditional-library",
+    "sha256": "37495445e79df8b30a3a038a0051f3c8aa8447f91a9d0aa0d20baef69dda9368",
+    "modids": [
+      "caelus"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "txnilib-forge-1.0.24-1.20.1.jar": {
+    "role": "conditional-library",
+    "sha256": "71ca69345ef763903213e0b0db3c9c07d2a090ad311d1de66c31798a813a9d0e",
+    "modids": [
+      "txnilib"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "ritchiesprojectilelib-2.1.1-mc.1.20.1-forge.jar": {
+    "role": "conditional-library",
+    "sha256": "5531ec454792f98993fa29d55f8810444ba3e9ef8f04331c5811b84ec8d0c3dc",
+    "modids": [
+      "ritchiesprojectilelib"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "lootr-forge-1.20-0.7.35.94.jar": {
+    "role": "addition",
+    "modids": [
+      "lootr"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "improvedmobs-1.20.1-1.13.7-forge.jar": {
+    "role": "addition",
+    "modids": [
+      "improvedmobs"
+    ],
+    "nested": [],
+    "requires": [
+      "tenshilib"
+    ]
+  },
+  "canary-mc1.20.1-0.3.3.jar": {
+    "role": "addition",
+    "modids": [
+      "canary"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "xaerominimap-forge-1.20.1-26.4.2.jar": {
+    "role": "addition",
+    "modids": [
+      "xaerominimap"
+    ],
+    "nested": [
+      "xaerolib"
+    ],
+    "requires": [
+      "xaerolib"
+    ]
+  },
+  "xaeroworldmap-forge-1.20.1-1.45.0.jar": {
+    "role": "addition",
+    "modids": [
+      "xaeroworldmap"
+    ],
+    "nested": [
+      "xaerolib"
+    ],
+    "requires": [
+      "xaerolib"
+    ]
+  },
+  "The-Man-From-The-Fog-1.4-1.20.1.jar": {
+    "role": "addition",
+    "modids": [
+      "man"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "kubejs-forge-2001.6.5-build.26.jar": {
+    "role": "addition",
+    "modids": [
+      "kubejs"
+    ],
+    "nested": [],
+    "requires": [
+      "architectury",
+      "rhino"
+    ]
+  },
+  "rhino-forge-2001.2.3-build.10.jar": {
+    "role": "addition",
+    "modids": [
+      "rhino"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "voicechat-forge-1.20.1-2.6.22.jar": {
+    "role": "addition",
+    "modids": [
+      "voicechat",
+      "voicechat_api"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "Apotheosis-1.20.1-7.4.8.jar": {
+    "role": "addition",
+    "modids": [
+      "apotheosis"
+    ],
+    "nested": [],
+    "requires": [
+      "attributeslib",
+      "placebo"
+    ]
+  },
+  "chipped-forge-1.20.1-3.0.7.jar": {
+    "role": "addition",
+    "modids": [
+      "chipped"
+    ],
+    "nested": [],
+    "requires": [
+      "athena",
+      "resourcefullib"
+    ]
+  },
+  "resourcefullib-forge-1.20.1-2.1.29.jar": {
+    "role": "addition",
+    "modids": [
+      "resourcefullib"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "Immersive Vehicles-1.20.1-24.0.0.jar": {
+    "role": "addition",
+    "modids": [
+      "mts"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "tacz-1.20.1-1.1.8-hotfix.jar": {
+    "role": "addition",
+    "modids": [
+      "tacz"
+    ],
+    "nested": [
+      "simplebedrockmodel",
+      "?commons-math3-3.6.1.jar",
+      "mixinextras",
+      "?luaj-core-3.0.8-figura.jar",
+      "?luaj-jse-3.0.8-figura.jar",
+      "?bcel-6.6.1.jar"
+    ],
+    "requires": []
+  },
+  "tenshilib-1.20.1-1.7.6-forge.jar": {
+    "role": "addition",
+    "modids": [
+      "tenshilib"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "ApothicAttributes-1.20.1-1.3.7.jar": {
+    "role": "addition",
+    "modids": [
+      "attributeslib"
+    ],
+    "nested": [],
+    "requires": [
+      "placebo"
+    ]
+  },
+  "ftb-chunks-forge-2001.3.8.jar": {
+    "role": "addition",
+    "modids": [
+      "ftbchunks"
+    ],
+    "nested": [],
+    "requires": [
+      "architectury",
+      "ftblibrary",
+      "ftbteams"
+    ]
+  },
+  "ftb-quests-forge-2001.4.22.jar": {
+    "role": "addition",
+    "modids": [
+      "ftbquests"
+    ],
+    "nested": [],
+    "requires": [
+      "architectury",
+      "ftblibrary",
+      "ftbteams"
+    ]
+  },
+  "MTS Official Pack-1.20.1-V29.jar": {
+    "role": "addition",
+    "modids": [
+      "mtsofficialpack"
+    ],
+    "nested": [],
+    "requires": [
+      "mts"
+    ]
+  },
+  "OAmP-1.20.1-V3.jar": {
+    "role": "addition",
+    "modids": [
+      "oamp"
+    ],
+    "nested": [],
+    "requires": [
+      "mts",
+      "mtsofficialpack"
+    ]
+  },
+  "ftb-library-forge-2001.2.13.jar": {
+    "role": "addition",
+    "modids": [
+      "ftblibrary"
+    ],
+    "nested": [],
+    "requires": [
+      "architectury"
+    ]
+  },
+  "ftb-teams-forge-2001.3.2.jar": {
+    "role": "addition",
+    "modids": [
+      "ftbteams"
+    ],
+    "nested": [],
+    "requires": [
+      "architectury",
+      "ftblibrary"
+    ]
+  },
+  "item-filters-forge-2001.1.0-build.59.jar": {
+    "role": "addition",
+    "modids": [
+      "itemfilters"
+    ],
+    "nested": [],
+    "requires": [
+      "architectury"
+    ]
+  },
+  "lostcities-1.20-7.5.3.jar": {
+    "role": "addition",
+    "sha256": "40361ee34a70559e40266e43850aa20a85bf4e0ce3ec91a0e6893ac097214d86",
+    "modids": [
+      "lostcities"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "emi-1.1.24+1.20.1+forge.jar": {
+    "role": "addition",
+    "sha256": "92784dcf5222d72983a420c90f2e9240468ee0fece96f757c82d7884b6cbdb72",
+    "modids": [
+      "emi"
+    ],
+    "nested": [],
+    "requires": []
+  }
 }

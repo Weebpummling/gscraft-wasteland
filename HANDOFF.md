@@ -30,6 +30,15 @@ sites re-evaluated on merit, not bound to the old pads; plaza on dry land; keep 
 make the roads connect; plant/FR-06 spacing (418 m) accepted; camp rim sites get pads; the players'
 frozen-projectile complaint fixed (KubeJS sweep + simulation distance 10).
 
+**Design revised 2026-09-03 (draft 6, quests draft 2, crafting draft 1):** the site ladder and contested-site
+attacks, NPC building tiers with the grief lock, timed crafting at server-placed stations, the vehicle
+roster, equipment crafting, garrison tables, the Ender Dragon finale, batteries for the electric vehicles.
+New tools: `dossiers.py` (dossier chests, `tools/dossiers.json`, `gscraft:dossiers`), `camp_ruins.py` (24
+ruin pieces in the camp, `gscraft:camp_ruins`, loot tables under `ruins/`). **EMI 1.1.24 added** to the
+server's `/mods` (client-side mod; the dedicated server skips it) and to `additions.json` / `manifest.json`;
+the client pack in the release does NOT yet carry it — rebuild the pack or drop the jar into each
+player's `mods` folder. The v6 world on the hosted server has not had `camp_ruins` or `dossiers` run yet.
+
 **Not started:** Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
 `camp.py` (the six NPC buildings as templates onto their pads); the systems (KubeJS items, blueprints,
 stages, the strongpoint loop and timers; FTB Quests chapters from `docs/gscraft-quests.md`; loot tables

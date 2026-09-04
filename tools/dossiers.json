@@ -1,0 +1,43 @@
+{
+ "novo": {
+  "x": 1028,
+  "y": 78,
+  "z": 158,
+  "place": true,
+  "room": "the gatehouse office"
+ },
+ "residential": {
+  "x": 1330,
+  "y": 84,
+  "z": 1386,
+  "place": false,
+  "room": "the caretaker's flat"
+ },
+ "plant": {
+  "x": 2126,
+  "y": 105,
+  "z": 963,
+  "place": true,
+  "room": "the control room",
+  "floor": "hempcrete",
+  "roof": 3
+ },
+ "fr06": {
+  "x": 2425,
+  "y": 126,
+  "z": 838,
+  "place": true,
+  "room": "the hangar office",
+  "floor": "deepslate_tile_slab",
+  "roof": 3
+ },
+ "financial": {
+  "x": -1841,
+  "y": 100,
+  "z": 971,
+  "place": true,
+  "room": "the vault anteroom",
+  "floor": "white_concrete",
+  "roof": 4
+ }
+}
