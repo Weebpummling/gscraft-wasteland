@@ -1090,5 +1090,30 @@
       "xaerominimap"
     ],
     "side": "client"
+  },
+  "pomkotsmechs-forge-0.0.1-alpha.8.jar": {
+    "role": "addition",
+    "sha256": "31886fd82c8a9c711e00c966022b21aab3d53c4a25b49a74326d7e30c49288fb",
+    "modids": [
+      "pomkotsmechs"
+    ],
+    "nested": [],
+    "requires": [
+      "geckolib",
+      "architectury",
+      "cloth_config",
+      "leawind_third_person"
+    ]
+  },
+  "leawind_third_person-v2.1.0-mc1.20.1-forge.jar": {
+    "role": "addition",
+    "sha256": "903affa06379658766eb5469d16bf62a6e5f5355de5cd269b44d53e6c8d746df",
+    "modids": [
+      "leawind_third_person"
+    ],
+    "nested": [],
+    "requires": [
+      "architectury"
+    ]
   }
 }

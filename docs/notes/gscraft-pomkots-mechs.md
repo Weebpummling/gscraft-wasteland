@@ -33,7 +33,7 @@ and nowhere else.
 | **FR-06 — the reactor plaza** | one **dormant PMS04** beside the BMPT and the Strykers | the site dressing pass, NoAI | the visual link: the reactor's technology is the city's; nothing there ever activates |
 | Everywhere else | nothing | — | Novo, the plant, the block, the plaza, the Woods, the counterattacks and the finale stay as designed (the Sleeper is the boss) |
 
-Two proposed quests (not counted in the 136 until the owner says yes): **J-H1 The custodian** (James, Act IV:
+Two quests, added on 2026-09-04 (the owner's yes; 138 quests): **J-H1 The custodian** (James, Act IV:
 kill the Custodian; gate J7; reward the hub's core opened, `custodian_dead`) and **W-M2 The pilot** (Walker,
 Act IV; gate J-H1, W-B3; reward the PMV01B Core Stone). Quest counts would become James 25, Walker 27, 138.
 
@@ -51,7 +51,17 @@ Act IV; gate J-H1, W-B3; reward the PMV01B Core Stone). Quest counts would becom
 6. Server side: the audit noted the mod's client camera mixin logs a missing target on the dedicated
    server, harmless.
 
-## 4. Recommendation
+## 4. Test result and decision (2026-09-04)
+
+The isolated server test (`scratch/mechtest_run.py`: a copy of the pack's server with the two jars, a flat world, PMB01 +
+five PMS units + one PMV01B summoned, tick time sampled) got as far as **two clean boots with both mods loaded** — no
+mod errors, GeckoLib 4.8.2 accepted, the expected client-camera mixin warning on the dedicated server — but the run was
+cut before the summons could be measured: Simple Voice Chat could not bind its UDP port beside the owner's live test
+server and shut the test server down, and the owner then stopped the retry because it was interfering with the real
+test. **The owner chose to proceed without the tick-time and frame-rate numbers** ("assume it will be fine"); they are
+measured on the owner's next play session in the hub instead. The integration went in as written in §2.
+
+## 5. The recommendation as it stood before the test
 
 Yes, at the scale above: the hub gets its guardian, its street furniture and two mechanical enemy
 types; FR-06 gets one dormant machine; the team gets one mech, late. Nothing elsewhere changes, so the

@@ -1,0 +1,13 @@
+name = "pomkotsmechs-forge-0.0.1-alpha.8"
+filename = "pomkotsmechs-forge-0.0.1-alpha.8.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/2rcrhKI8/versions/fkzlsPX7/pomkotsmechs-forge-0.0.1-alpha.8.jar"
+hash-format = "sha512"
+hash = "d1b5725a05045bf211b3a82fb0e7ec551024ac95ffb0293424eaa41c5044dee8dd22c65f235af6fceaeacde0157f7e28450f1fbc42032569c4f90fbd267bf86a"
+
+[update]
+[update.modrinth]
+mod-id = "2rcrhKI8"
+version = "fkzlsPX7"

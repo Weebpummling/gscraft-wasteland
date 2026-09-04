@@ -126,5 +126,38 @@
         "structuretags": "minecraft:village"
       }
     }
+  },
+  {
+    "mob": [
+      "pomkotsmechs:pms01",
+      "pomkotsmechs:pms03"
+    ],
+    "weights": [
+      1,
+      1
+    ],
+    "persecond": 0.02,
+    "attempts": 10,
+    "amount": {
+      "minimum": 1,
+      "maximum": 1,
+      "groupdistance": 4
+    },
+    "addscoreboardtags": [
+      "ic_hub_mechs"
+    ],
+    "conditions": {
+      "dimension": "minecraft:overworld",
+      "minx": 5600,
+      "maxx": 6431,
+      "minz": 1184,
+      "maxz": 1823,
+      "mindist": 40,
+      "maxdist": 110,
+      "minheight": 60,
+      "maxheight": 140,
+      "validspawn": true,
+      "sturdy": true
+    }
   }
 ]

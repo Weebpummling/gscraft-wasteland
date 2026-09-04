@@ -64,8 +64,8 @@ Rules that hold across every chapter:
 - **Hand-ins of loot-only components need no "found in raid" tag**: they have no recipe, so the item
   is the proof of the trip.
 
-Quest counts: Walker 26 (6 armoury, 1 boat, 1 military blueprint, 1 Woods), Tony 14 (1 Woods), Michael 18 (1 Woods, 1 district site), Tune 19 (1 Woods, 3 bunkers, 2 sites), James 24 (5 scout, 3 Woods, 2 expedition finds),
-Marshall 28 (loop 6, walls 3, farm 3, tower 10, gatehouse 3, Woods 2, the road outpost 1), Teddy 7 (explosives, §7A). One hundred and thirty-six quests, eighteen
+Quest counts: Walker 27 (6 armoury, 1 boat, 2 military blueprints incl. the mech, 1 Woods), Tony 14 (1 Woods), Michael 18 (1 Woods, 1 district site), Tune 19 (1 Woods, 3 bunkers, 2 sites), James 25 (5 scout, 3 Woods, 2 expedition finds, the Custodian),
+Marshall 28 (loop 6, walls 3, farm 3, tower 10, gatehouse 3, Woods 2, the road outpost 1), Teddy 7 (explosives, §7A). One hundred and thirty-eight quests, eighteen
 of them the `*-B` building tiers. Which of them one outing clears is the trip table in
 `gscraft-map-design.md` §3.5; how many outings it takes is up to the players.
 
@@ -97,6 +97,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | W-V1 | Something that floats | II | camp, the lake | hand in 12 planks, 1 fastener kit | W7 | boat blueprint; boat cargo opens with W12 |
 | W-B1 | The yard, roofed | I | camp | hand in 8 metal scrap, 4 fastener kits, 16 planks | W2 | **yard tier 1**: roofed workshop, one bay, the lot fenced |
 | W-B2 | Second bay | II–III | camp, Novo | hand in 4 steel frames, 32 concrete, 1 heavy diesel engine (Novo respawns them while held) | W-B1, `novo_defended` | **yard tier 2**: two bays, gantry crane, fuel rack, lights; vehicle repair at the bay |
+| W-M2 | The pilot | IV | camp, the hub | hand in 8 steel frames, 1 large battery pack, 1 reactor control module (the Custodian's wreck is the story) | J-H1, W-B3 | the **PMV01B Core Stone**: the team's one mech (right-click summons it, left-click with the Stone heals it — the mod's rules); no second one exists |
 | W-B3 | The shed | IV | camp, the hub | hand in 8 steel frames, 64 concrete, 1 satellite receiver | W-B2, J7, M13 | **yard tier 3**: steel shed, vehicle lift, floodlit lot, truck and aircraft bays; light-helicopter blueprint; **UH-60 Black Hawk blueprint** (crafting §2.1) |
 | W-A5 | The dump | III | the stone complex (2.9 km, the spawner dungeon) | reach it (location); kill 15 there; hand in 16 gunpowder | W-A3, J4 | 2 salvage rifles; the powder order yields ×8 instead of ×4 |
 | W-A6 | The tower on the hill | III | the nearest kept boss tower (1808, −272), 1.8 km | kill its boss (an Apotheosis boss; kill task, stage `boss_tower_1`) | W-A3, J2 | 1 Apotheosis gem, 2 salvage weapons — the Salvaging Table's first customer |
@@ -192,9 +193,10 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | J5 | Settle in | III | the settlement | hand in 3 valuables found there | J4, W-V1, M-B2 | speedboat blueprint |
 | J6 | Runway | III | the runway | stand on the runway (location); hand in 1 hard drive | J4 | aircraft prep flag |
 | J7 | The hub | IV | **the hub**, 6.2 km | reach the hub by air (location) | J6, W13 | the hub's loot tables switch on |
-| J8 | Bring it back | IV | the hub | hand in 1 phased array element, 1 satellite receiver | J7 | Tune U9 opens; Storage 4 (W13's diamond pack) unlocks |
+| J8 | Bring it back | IV | the hub | hand in 1 phased array element, 1 satellite receiver | J7, J-H1 | Tune U9 opens; Storage 4 (W13's diamond pack) unlocks |
 | J9 | Every capital | IV | the whole box | reach four of the Lukis capitals (location; the four kept air-ring capitals nearest the hub: (5680, 2608), (4960, 4128), (5008, −1440), (4224, −2368) — structure plan) | J7 | a **components crate**: choose any 4 of heavy diesel engine, purification membrane, encrypted radio, medical analyzer (held-site components, never a hub item; loot sheet §7) |
 | J10 | Cartographer | IV | everywhere | reach every named site on the map (location, 20) | J9 | **the Cartographer's Pack**: a diamond backpack fitted with magnet, everlasting and stack ×4, named |
+| J-H1 | The custodian | IV | the hub's core (the Pantsir plaza) | kill **the Custodian** (a Pomkot's Mechs PMB01 the loop script spawns when a player first enters the core; kill task, stage `custodian_dead`; its terrain destruction is denied by `gscraft_mech_griefing.js`) | J7 | the hub's core opens: the phased-array container arms (J8 can be done); 8 emeralds |
 | J11 | Every ruin | IV | everywhere | hand in one of each of the forty-two small items | J10 | the Collector analogue: an **inception upgrade** and a second everlasting upgrade — a nested pack that also survives death |
 | J-B1 | A flag on it | I | camp | hand in 16 planks, 4 fastener kits, 1 folder of documents | J1, W1 | **lookout tier 1**: platform, ladder, a flag |
 | J-B2 | The spotlight | III | camp, the far ring | hand in 4 steel frames, 2 light bulbs, 1 car battery, 3 valuables from the settlement | J-B1, J4 | **lookout tier 2**: 30 tall, a night spotlight (waypoint sharing is Radio 1's); zipline rope and hook orders (crafting §5.7) |
@@ -329,7 +331,7 @@ reward and read by stage tasks (C3, 2026-09-04):
 | Function levels | `workshop_1…3`, `garage_1…3`, `storage_1…4`, `medical_1…3`, `generator_1…3`, `water_1…3`, `radio_1…3`, `walls_1…3`, `farm_1…3` |
 | Building tiers | `camp_<npc>_<tier>` for the six NPCs, tiers 1–3 |
 | The tower and the finale | `marshall_speaks` (the five introductions), `tower_1…5`, `beacon_lit`, `finale_ready` (T10), `wave_1…5`, `finale_won`, `finale_failed`, `season_1_done` |
-| Gates and switches | `hangar_unlocked` (M11), `aircraft_prep` (J6), `hub_loot_on` (J7), `teddy_present` (R-W1), `revives_3` (*player*) |
+| Gates and switches | `hangar_unlocked` (M11), `aircraft_prep` (J6), `hub_loot_on` (J7), `custodian_dead` (J-H1), `teddy_present` (R-W1), `revives_3` (*player*) |
 | Blueprints | `bp_<recipe>`, one per recipe in the crafting sheet (the recipe file is the list) |
 | First-time lines (*player*, onboarding §8) | `seen_station`, `seen_bulky`, `seen_infection`, `seen_warning`, `seen_board`, `seen_down` |
 
@@ -340,7 +342,7 @@ component-container state and the single `contested` slot; all clocks count onli
 building tiers, which also re-summon the NPC), a team stage `bp_<recipe>` for blueprints (the book says "blueprint", the mechanism is the stage - crafting §4; the old text: an IE blueprint item
 with the `gscraft` category NBT). Location tasks use the site rectangles from the district map;
 the six NPC building rectangles are locked by the tower-lock script (a list of rectangles, quest
-functions exempt), so a `*-B` reward is the only thing that ever changes them; dossier chests are placed by `gscraft:dossiers` and filled by `dossiers_fill` (parked in `build/phase_c/` until the dossier items exist) at the coordinates in `tools/dossiers.json`; the kill tasks are the sewers (U6), the stone complex (W-A5), the boss tower (W-A6), the road outpost (D-O1), the Woods outpost (R-W1), the Woods bunkers (R-W2) and the Sleeper (X8); every other clearing is the assault event, whose
+functions exempt), so a `*-B` reward is the only thing that ever changes them; dossier chests are placed by `gscraft:dossiers` and filled by `dossiers_fill` (parked in `build/phase_c/` until the dossier items exist) at the coordinates in `tools/dossiers.json`; the kill tasks are the sewers (U6), the stone complex (W-A5), the boss tower (W-A6), the road outpost (D-O1), the Woods outpost (R-W1), the Woods bunkers (R-W2), the Custodian (J-H1) and the Sleeper (X8); every other clearing is the assault event, whose
 waves use the garrison mob types In Control! spawns at each site.
 
 ### 9.1 Vehicle-qualified location tasks (C13)

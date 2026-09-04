@@ -2,6 +2,48 @@
   {
     "dimension": "minecraft:overworld",
     "when": "onjoin",
+    "mob": [
+      "pomkotsmechs:pms01",
+      "pomkotsmechs:pms03"
+    ],
+    "minx": 5600,
+    "maxx": 6431,
+    "minz": 1184,
+    "maxz": 1823,
+    "result": "default",
+    "maxcount": {
+      "amount": 4,
+      "mob": [
+        "pomkotsmechs:pms01",
+        "pomkotsmechs:pms03"
+      ],
+      "perplayer": false
+    }
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "when": "onjoin",
+    "mob": [
+      "pomkotsmechs:pms01",
+      "pomkotsmechs:pms03"
+    ],
+    "minx": 5600,
+    "maxx": 6431,
+    "minz": 1184,
+    "maxz": 1823,
+    "result": "deny",
+    "mincount": {
+      "amount": 4,
+      "mob": [
+        "pomkotsmechs:pms01",
+        "pomkotsmechs:pms03"
+      ],
+      "perplayer": false
+    }
+  },
+  {
+    "dimension": "minecraft:overworld",
+    "when": "onjoin",
     "hostile": true,
     "result": "deny"
   },

@@ -296,5 +296,34 @@
     "url": "https://www.curseforge.com/api/v1/mods/1589418/files/8327208/download",
     "sha512": "8bcb822847ac0597ce7251e9b6114097373fdb1da6cb4038e9a8941f90ecaef2303692c53196df7181f736ff008f1b54289111c247be4555c3505a3ba2645846",
     "note": "CLIENT ONLY - not in /mods on the server. Parties 2.0-beta-p.7.1 crashes at client setup with Xaero's Minimap >= 25.3.2 (xaero.common.gui.IScreenBase moved); this one-mixin fix (CurseForge 1589418, unusualgravy) replaces Parties' XMCompatManager init. Ships in the client zip's .minecraft/mods (owner decision 2026-09-04)."
+  },
+  "Pomkots Mechs": {
+    "slug": "pomkots-mechs",
+    "version": "0.0.1-alpha.8",
+    "filename": "pomkotsmechs-forge-0.0.1-alpha.8.jar",
+    "url": "https://cdn.modrinth.com/data/2rcrhKI8/versions/fkzlsPX7/pomkotsmechs-forge-0.0.1-alpha.8.jar",
+    "sha512": "d1b5725a05045bf211b3a82fb0e7ec551024ac95ffb0293424eaa41c5044dee8dd22c65f235af6fceaeacde0157f7e28450f1fbc42032569c4f90fbd267bf86a",
+    "sha1": "bbf3a241091a07b4b1fd6f56c09bbf1b999235ce",
+    "date": "2026-07-19",
+    "requires": [
+      "geckolib",
+      "architectury",
+      "cloth_config",
+      "leawind_third_person"
+    ],
+    "note": "owner-approved 2026-09-04 after the isolated server test; hub + FR-06 only (docs/notes/gscraft-pomkots-mechs.md)"
+  },
+  "Leawind's Third Person": {
+    "slug": "leawind-third-person",
+    "version": "2.1.0",
+    "filename": "leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+    "url": "https://cdn.modrinth.com/data/S3D3QF0M/versions/oYVH29Z4/leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+    "sha512": "04eec7792bbeb7ba1d7b131ed49eabc243f9969cfc59225d0129e2953ff1e70ab21c86358d1f43c52be3dd2b0d36535d514beea26cff07a647d2a06c953a4d5d",
+    "sha1": "da3cc6448b0f63f347583ed7dfaca677b351fd47",
+    "date": "2024-08-31",
+    "requires": [
+      "architectury"
+    ],
+    "note": "owner-approved 2026-09-04 after the isolated server test; hub + FR-06 only (docs/notes/gscraft-pomkots-mechs.md)"
   }
 }

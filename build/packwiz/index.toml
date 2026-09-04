@@ -254,11 +254,11 @@ hash = "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
 
 [[files]]
 file = "config/incontrol/spawn.json"
-hash = "860b1d6bf3218aed2fb48b46acb9d0f5596f13db7bed9c6445f05fd1b2ec874e"
+hash = "30707129d5874b5b370dd0dced2bfdea8c6c12e220ad956669ac3a34e06bd22f"
 
 [[files]]
 file = "config/incontrol/spawner.json"
-hash = "cccdb064d6ebac94c8fa1dc3476b6de987f637166d5f1415a93b90d7bb3b67f4"
+hash = "4e870a0f9bf5e82baf689a32bd55e0012d37305975d00fb8b047394f4eb33b8d"
 
 [[files]]
 file = "config/incontrol/summonaid.json"
@@ -497,8 +497,12 @@ file = "kubejs/server_scripts/gscraft_tower_lock.js"
 hash = "78ac321cab689f7d32db598a1df4590a0b4ee79c3d56d3ed4da64ce2f5009f1f"
 
 [[files]]
+file = "kubejs/startup_scripts/gscraft_mech_griefing.js"
+hash = "1ba4e976b799be07b1d28c18330a4110a6ee4a87bca3cba5c82e4d1523436130"
+
+[[files]]
 file = "kubejs/startup_scripts/gscraft_tower_lock_native.js"
-hash = "0c532db9e322792288d08bc0161e3184fe56e0f263da39068c2fe2b2ca70cddd"
+hash = "5f261f006df44d4dd70047d0d23899e7688a879e8f199584c2a999ffb3da398f"
 
 [[files]]
 file = "mods/ai-improvements-1-20-0-5-2.pw.toml"
@@ -771,6 +775,11 @@ hash = "9265d22fad2685673db17c780552f42547c09f058479fdd7837b793ee67e0892"
 metafile = true
 
 [[files]]
+file = "mods/leawind-third-person-v2-1-0-mc1-20-1-forge.pw.toml"
+hash = "fc76e77d05a780bac6d50edb379db8a8c480ebf783e15165986a131faa7f6da6"
+metafile = true
+
+[[files]]
 file = "mods/letmedespawn-1-20-x-forge-1-5-0.pw.toml"
 hash = "487a796294966f484736249ba0644d2b8d12ec08acee19de78e24e39ab5ae519"
 metafile = true
@@ -868,6 +877,11 @@ metafile = true
 [[files]]
 file = "mods/playerrevive-forge-v2-0-31-mc1-20-1.pw.toml"
 hash = "8f6778e1c475d737bb56bd1294a4db3ccdae28e42acfd9dad20d4aeb08777f34"
+metafile = true
+
+[[files]]
+file = "mods/pomkotsmechs-forge-0-0-1-alpha-8.pw.toml"
+hash = "6464acee6404af43dd5a1bd18fa7a6f2b58d625f014d729d2ac6133e2399b86d"
 metafile = true
 
 [[files]]

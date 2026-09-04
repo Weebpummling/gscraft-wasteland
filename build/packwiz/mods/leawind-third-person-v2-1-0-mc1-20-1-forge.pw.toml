@@ -1,0 +1,13 @@
+name = "leawind_third_person-v2.1.0-mc1.20.1-forge"
+filename = "leawind_third_person-v2.1.0-mc1.20.1-forge.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/S3D3QF0M/versions/oYVH29Z4/leawind_third_person-v2.1.0-mc1.20.1-forge.jar"
+hash-format = "sha512"
+hash = "04eec7792bbeb7ba1d7b131ed49eabc243f9969cfc59225d0129e2953ff1e70ab21c86358d1f43c52be3dd2b0d36535d514beea26cff07a647d2a06c953a4d5d"
+
+[update]
+[update.modrinth]
+mod-id = "S3D3QF0M"
+version = "oYVH29Z4"

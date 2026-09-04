@@ -110,6 +110,15 @@ each is now written (§5c).
 - **Hordes infection and PlayerRevive numbers** (design §4.5; `build/phase05/config/playerrevive.json`).
 - **Immersive Vehicles override**: still the Phase C in-game find; the fallback is written (crafting §5.7).
 
+## 5d. Added on 2026-09-04: Pomkot's Mechs
+
+- **Pomkot's Mechs 0.0.1-alpha.8** (+ Leawind's Third Person 2.1.0, its client camera dependency), after an isolated
+  server test: the hub's ambient gets PMS01 chargers and PMS03 shooters capped at four (`config/incontrol/spawn.json`
+  first two rules, `spawner.json` last rule, hub rectangle only); the PMB01 Custodian is the hub's set piece (J-H1); one
+  PMV01B for the team (W-M2); dormant units at FR-06 and the hub (`furnish_fr06`, `furnish_hub`);
+  `startup_scripts/gscraft_mech_griefing.js` denies its terrain destruction. The mod ships no recipes, loot or natural
+  spawns, so nothing else changes. Research: `notes/gscraft-pomkots-mechs.md`.
+
 ## 6. What this changes in the documents
 
 Nothing in draft 6 is contradicted. The six rows of §1 are additions to Phase C and D that use

@@ -26,6 +26,11 @@ unlocked by a yard tier alone (`gscraft-crafting.md` §2.1, `gscraft-quests.md`)
 
 **Onboarding (2026-09-04):** how all of this is taught in play rather than read - `gscraft-onboarding.md`.
 
+**Pomkot's Mechs (owner, 2026-09-04, after the isolated server test):** in the hub and at FR-06 only — two dormant
+units and a dormant missile platform as dressing, two enemy mech types capped at four inside the hub, the PMB01
+"Custodian" guarding the phased array (J-H1), and one PMV01B for the team (W-M2). Terrain destruction denied by a
+startup script. `docs/notes/gscraft-pomkots-mechs.md`.
+
 **Teddy the Hermit (owner, 2026-09-04):** a seventh survivor at the Woods outpost, unlocked by clearing it (R-W1); his chapter is the only source of explosive weapons and ammunition (quests §7A, crafting §5.8, vendors §3).
 
 **Defence moved to the base (owner, 2026-09-04):** a strongpoint is still scouted, looted and taken by the players, but once
@@ -131,7 +136,8 @@ a designed site, spaced by type, capped per range ring, nearest the roads first;
 with the pruned structure sets disabled and the kept ones placed back (`buildmap/structure_plan_v7.json`).
 
 **Dead military vehicles dress the strongpoints** (vvp and MCSP, kept): a BMPT and two Strykers on FR-06's reactor
-plaza, a Typhoon-K convoy at the plant, an Mi-24 on the runway apron, a Pantsir at the hub — placed by the site
+plaza, a Typhoon-K convoy at the plant, an Mi-24 on the runway apron, a Pantsir at the hub, and Pomkot's Mechs' dormant units (a PMS04 beside FR-06's
+BMPT, a PMS02 and a PMS05 on the hub's rail spine: `gscraft:furnish_fr06`, `gscraft:furnish_hub`) — placed by the site
 dressing pass (Phase C, alongside `camp.py`), battery-less so they never move, their inventories the component containers where the site has one (FR-06, the plant, the hub). Immersive Weathering
 ages them and every tier-0 building on placement; a rebuilt tier is placed clean.
 
@@ -173,7 +179,7 @@ toolsmith, Michael an armorer, Tune a librarian, James a fletcher, Marshall a ni
 the joke, or a cartographer if not). The Recruits mod supplies the hireable guards of D2 (Walls 2, at the gatehouse);
 it is not used for these six. No gameplay mod is added (EMI, a client-side recipe viewer, was added on 2026-09-03).
 
-**Who unlocks what.** The full chains, 136 quests across the seven chapters, scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
+**Who unlocks what.** The full chains, 138 quests across the seven chapters, scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
 
 | NPC | Owns | Starting tasks (the introduction) | Unlocks when done | Their chain |
 |---|---|---|---|---|

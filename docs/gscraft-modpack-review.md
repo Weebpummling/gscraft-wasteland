@@ -16,6 +16,7 @@ for the worlds and the builds that use their blocks. So this review adds and ali
 | Every other capability the design names is already installed (§2) | nothing to add |
 | Lost Cities **7.5.4** was published on 2026-09-03 (railway level offset; no fix for the palette null) | **do not update** during the v7 build; the world is generated with 7.5.3 and the `gscraft_lcfix` datapack carries the fix — revisit for a v8 world |
 | No mod in the set contradicts the design | nothing to remove |
+| **Pomkot's Mechs 0.0.1-alpha.8 + Leawind's Third Person 2.1.0** added 2026-09-04 (owner) after the isolated server test — hub and FR-06 only (`notes/gscraft-pomkots-mechs.md`) | in `server/mods`, the Prism instance, the manifest and the packwiz pack; the hosted `/mods` by hand |
 
 ## 2. What the design asks for, and what supplies it
 

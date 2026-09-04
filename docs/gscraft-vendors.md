@@ -137,6 +137,6 @@ weapon light, no thermal scope.
 
 - Design §3 gains the pointer to this doc; emeralds are already a small item (loot sheet).
 - Quests: three "Counter" checkmark quests per camp NPC chapter (one per LL) — 18 quests; Teddy's counter levels are his own quests, listed in the
-  quests doc when Phase C writes the book; not counted in the 136 until then.
+  quests doc when Phase C writes the book; not counted in the 138 until then.
 - Crafting §5: unchanged — the station stays the cheap route; the vendor price rule (§4) is the check.
 - Camp spec §6: a counter prop per tier-1 template (written); Teddy's counter prop is placed by `npc_teddy` beside him in the outpost's tower.

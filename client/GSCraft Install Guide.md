@@ -29,6 +29,8 @@ Voice chat (Simple Voice Chat, push-to-talk **V**) works out of the box on the s
 
 Flashlight (Dynamic Flashlight): right-click to switch it on; sneak + right-click while holding a battery to reload it.
 
+Third person (Leawind's Third Person, needed by the mechs in the city): F5 now gives an over-the-shoulder camera; first person is unchanged.
+
 ---
 
 ## Way 2 — official Minecraft launcher (Windows, one file, but updates are manual)
