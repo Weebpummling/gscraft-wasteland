@@ -123,7 +123,10 @@ after the flight.
 Traps, all documented in `docs/notes/`: Git Bash path conversion (`MSYS_NO_PATHCONV=1`); backslashes and
 apostrophes inside Bash heredocs get mangled - put scripts in files; the two superflat saves have ground at y 230
 (Novo) and y 54 (plaza), never trust the spawn point; the pre-gen OOM; KubeJS 2001 exposes `ForgeEvents` to
-startup scripts only; Chunky's saved task must be deleted before a fresh box (`config/chunky/tasks`).
+startup scripts only; Chunky's saved task must be deleted before a fresh box (`config/chunky/tasks`); the Lost Cities
+`state is null` chunk errors come from the Keerdm palette override missing the `{`/`\` characters the stuff generators use -
+the world datapack `build/datapacks/gscraft_lcfix` fixes it and belongs in every world's `datapacks/` (v7 has it; v6 worlds
+do not, but they are fully generated so it no longer matters there).
 
 ## 4. The design documents
 

@@ -23,5 +23,9 @@
  "immersive_weathering:rusted_iron_bars": "minecraft:iron_bars",
  "immersive_weathering:cracked_stone_brick_wall": "minecraft:stone_brick_wall",
  "immersive_weathering:stone_wall": "minecraft:cobblestone_wall",
- "immersive_weathering:mossy_stone_wall": "minecraft:mossy_cobblestone_wall"
+ "immersive_weathering:mossy_stone_wall": "minecraft:mossy_cobblestone_wall",
+ "_palette_chars_added": {
+  "{": "minecraft:chain",
+  "\\": "minecraft:cobweb"
+ }
 }
