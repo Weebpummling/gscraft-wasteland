@@ -1,0 +1,34 @@
+[
+ {
+  "id": "underground_bunkers:underground_bunker",
+  "x": 1264,
+  "z": -2400,
+  "spacing_ok": true
+ },
+ {
+  "id": "underground_bunkers:underground_bunker",
+  "x": 1632,
+  "z": -2752,
+  "spacing_ok": true
+ },
+ {
+  "id": "minecraft:pillager_outpost",
+  "x": 720,
+  "z": -3440,
+  "spacing_ok": true
+ },
+ {
+  "id": "man:house",
+  "x": 2048,
+  "z": -2672,
+  "note": "census position",
+  "spacing_ok": true
+ },
+ {
+  "id": "man:house",
+  "x": 1900,
+  "z": -2000,
+  "note": "chosen: forest ground in the south-east of the Woods, 500+ m from the others",
+  "spacing_ok": true
+ }
+]
