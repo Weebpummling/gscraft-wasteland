@@ -76,7 +76,11 @@ cities gives identical terrain with the city gone.
    2400 -1500` (drops the chunks inside the rectangle only).
 3. **Switch** the world's `serverconfig/lostcities-server.toml` `selectedProfile` to `woods`, delete
    Chunky's saved task, run `localpregen.py --center 1400 -2500 --radius 1000` (15,625 chunks, about
-   6 minutes), **switch back** to `wasteland`.
+   6 minutes), **switch back** to `wasteland`. Done 2026-09-04: 15,876 chunks in 6 minutes; the
+   rectangle scans at 0.5 % city-fingerprint chunks (mineshaft cobwebs, vanilla structures) against 48 % for the
+   same latitude to the east. Note: Lost Cities keeps its street/highway modes and highway hubs in the world's
+   `data/LostCity*.dat`, so only the profile's city, scatter and railway settings take effect on an existing world;
+   with no cities inside the rectangle no highway route runs through it.
 4. **Structures**: `place_kept.py --test` with the five chosen positions (from
    `tools/structures_v6.json` positions inside the rectangle, spaced ≥ 500 m).
 5. **Road spur** Novo → sawmill in `buildmap/roads_v6.json`, `roads.py route` then `build`.

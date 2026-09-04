@@ -25,7 +25,7 @@ now has one.
 | A10 | scale §6/§8 still route to the substation and tower pads and keep a random attack cycle | marked superseded in scale (design §6 has no cycle; roads per layout §4) |
 | A11 | Trip 7 "R6 marker and assault" — the plaza's marker is R5 | R5 |
 | A12 | Cross-references: W8 gate lists M5 while M7 says it opens W8; W11 says "Marshall's X1 hand-in" (it is X2); J8 says "Walker W13 open" while W13 gates on W9/M11/J6 | W8 gate → W7, M7; W11 → X2; J8 → "Walker W13 already open; feeds Storage 4" |
-| A13 | Onboard "four colours (dark / scouted / looted / held / defended)" lists five | five states, five colours |
+| A13 | Onboard "four colours (dark / scouted / looted / held / defended)" lists five | five states, five colours *(six after C5: `lost` = red)* |
 | A14 | "No mod is added" vs EMI added | "no gameplay mod is added; EMI is a client recipe viewer" |
 | A15 | Two Novo Expograds: the industrial zone and the hub; Marshall calls Novo "the refinery" (M4's word for the plant) | names fixed: **Novo** = the industrial zone (Act I strongpoint), **the hub** = the Novo Expograd city in the air ring; Marshall: "the industrial yard east along the road" |
 | A16 | HANDOFF says "draft 5" and "77 quests" in its design list | draft 6, 106 *(121 after the C items)* |

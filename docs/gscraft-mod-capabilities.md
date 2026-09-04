@@ -57,7 +57,7 @@ ordered by how much it would add for how little it costs, with a recommendation 
 
 ## 5. Done on 2026-09-03 (the cheap rows)
 
-- Doomsday Decoration: the eight ruin pieces rebuilt from its wrecks, sandbags, drums, wire and cones
+- Doomsday Decoration: the 24 ruin pieces (eight templates) rebuilt from its wrecks, sandbags, drums, wire and cones
   (`camp_ruins.py` v2; `camp_ruins_clear` removes the v1 blocks first).
 - Magnum Torch: ten diamond torches placed by `gscraft:camp_torches`; the camp's suppression is physical.
 - Recruits and Guard Villagers: written into D2 and the NPC tiers.
@@ -80,7 +80,7 @@ ordered by how much it would add for how little it costs, with a recommendation 
   6 from 2.5 km, 10 from 4 km, 15 in the air ring - the three ranges of the design, measured from the world spawn. It was
   GLOBAL (time-based) before, so the "hardens with distance" line in §3 was not true until now.
 - **sedparties:** `useFTBTeams = true` - the party is the FTB team; xp share was already on.
-- **Lootr:** `refresh_modids = ["gscraft"]`, `refresh_value = 120000` (5 in-game days): the site chests and the hub's component containers that carry `gscraft:` tables refresh on that rhythm — a held site's component containers use the loop's 2-day timer instead (design §6.2); Lost Cities chests stay one-shot per player.
+- **Lootr:** `refresh_modids = ["gscraft"]`, `refresh_value = 120000` (5 in-game days): the site chests that carry `gscraft:` tables refresh per player on that rhythm; component containers are shared and script-timed (2 days while held, 5 days at the never-held sites — design §6.2, loot sheet §1); Lost Cities chests stay one-shot per player.
 - **Apotheosis:** `Boss Spawn Cooldown` set to its maximum, which stops the mod's random surface bosses; elites come only
   from the loop's `spawn_boss` calls (§2, design §6.3).
 - **Install guide:** EMI and Ping Wheel keys added for the players.

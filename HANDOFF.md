@@ -76,7 +76,7 @@ on it (2 h 15 min, cycling), `carve_regen.py --drop-rect -1024 -1536 4607 4095` 
 life 5; the v5 rectangles and the camp are spared) + one more `localpregen.py` pass over the box to regenerate them - the
 error chunks are HOLES with no city at all, about a third of the city chunks generated before the fix,
 then `tools/place_kept.py <server>` (batches of six: force-load, wait, place, release; never as one function), then `buildv6.py`, `roads.py
-build`, the camp functions (`gscraft:camp_ruins`, `camp_torches`, `dossiers`, `furnish_novo`, `furnish_financial`),
+build`, the camp functions (`gscraft:camp_ruins`, `camp_torches`, `dossiers`, `furnish_novo`, `furnish_financial`, `runway_lights`),
 `reviewv6.py`, release, deploy (section 6). Details: `docs/gscraft-structure-plan.md` section 3, route A'.
 
 **The Woods (owner, 2026-09-04):** a Tarkov-style wilderness zone, x 400..2400 z -3500..-1500 (2 x 2 km, 2.9 km NNE of the
@@ -87,7 +87,7 @@ from Novo. Plan and quest hooks: `docs/gscraft-woods-plan.md`. Not built yet.
 **Design addendum (owner, 2026-09-04):** military vehicle blueprints (Humvee RWS, Black Hawk, Bradley) are mid/late quest
 rewards (W-M1, W-B3, X6), never tier unlocks - crafting §2.1, quests draft 2.
 
-**Not started:** the flashlight update of `docs/gscraft-modpack-review.md` §4 (Dynamic Flashlight 2.1.0 — owner's approval, then server + client + manifest; EMI was synced into the local sets on 2026-09-04); Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
+**Not started:** `tools/runway_lights.py` → `gscraft:runway_lights` (camp spec §5, Phase B); the flashlight update of `docs/gscraft-modpack-review.md` §4 (Dynamic Flashlight 2.1.0 — owner's approval, then server + client + manifest; EMI was synced into the local sets on 2026-09-04); Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
 `camp.py` (the six NPC buildings as templates onto their pads); the systems (KubeJS items, blueprints,
 stages, the strongpoint loop and timers; FTB Quests chapters from `docs/gscraft-quests.md`; loot tables
 by building type); the Superb Warfare small-arms toggle; old-world housekeeping on the hosted server

@@ -238,13 +238,13 @@ site's component containers respawn every two in-game days, so nothing is lost b
 | 1 | I | the camp's own ruins (0–300 m) | W1, T1, M1, U1 hand-ins; X1's briefing once the five are done; D1 concrete later | 11 | — | foot |
 | 2 | I | glass tower + acacia hall (1.3–1.55 km) | J1 locations; W3 metal scrap; M2 light bulb; T2 med items | 6 | — | foot |
 | 3 | I | Novo (1.06 km E on the spine) | J-S1 dossier; W5 loot (spark plugs, scrap, oil) over two or three runs; R2 marker and assault; hardware and spark plugs for W7; after the hold: W11 heavy anchor cable, W9 heavy diesel engine | 8 | 2 (after the hold) | foot; the bulky parts one per carrier, or the first car |
-| 4 | II | the west edge: residential block, hempcrete compound, library (1.9–2.5 km) | J2 locations, J-S2 dossier; T3 loot (blood bags, syringes, antiseptic); R3 marker and assault; U3 hard drive, J3 folders; electrical items for U2 and U8 | 14 | — | foot, then the first car |
+| 4 | II | the west edge: residential block, hempcrete compound, library (1.9–2.5 km) | J2 locations, J-S2 dossier; T3 loot (blood bags, syringes, antiseptic); R3 marker and assault; U3 hard drive, J3 folders; electrical items for U2 and U8; D3's seeds and bowls at the hempcrete compound | 14 | — | foot, then the first car |
 | 5 | II | the industrial plant (2.4 km) | J-S3 dossier; M4 loot (hoses, fins, fuel cans); R4 marker and assault; hoses, tubes and fins for M3 and M6; fuel cans for M7 and W8; after the hold: M6 industrial pump | 9 | 1 | car |
 | 6 | III | FR-06 (2.5 km E), with the factory annex and hopper array on the way | J-S4 dossier; M8 loot (relays, motors, a battery); R5 marker and assault; electrical items; after the hold: M10 transformer core, M11 avionics module and reactor control module | 10 | 3 | car |
 | 7 | III | Financial Plaza and the sewers under it (2.1 km W) | J-S5 dossier; U4 loot (circuit boards, computer parts, a hard drive); R5 marker and assault; U6 sewers and encrypted radio; electrical and valuables; after the hold: U7 military circuit board; D4 concrete | 12 | 1 | car |
 | 8 | III | the far ring by road: stone complex, mud village, the settlement, Bio Gen, the runway (2.8–3.9 km) | J4 locations, J5 valuables, W12 pressure gauge, T7 surgical kit, J6 hard drive; W10 second anchor cable on the way back past Novo; M12 membrane at the plant | 9 | 3 | truck, or boat to the settlement |
 | 9 | IV | the hub (6.2 km E) and the four generated cities | J7, J9 locations; J8 phased array element and satellite receiver; T9 and M13 military power filters | 6 | 4 | aircraft |
-| 10 | II–IV | home: the gatehouse and the claim | X2–X6 hand-ins, T10 ready room, D1–D4, R6; the eighteen `*-B` building upgrades as their hand-ins come together | — | the five complete parts, one at a time | — |
+| 10 | II–IV | home: the gatehouse and the claim | X2–X6 hand-ins, T10 ready room, D1–D6, R6; the eighteen `*-B` building upgrades as their hand-ins come together | — | the five complete parts, one at a time | — |
 
 What the table fixes is the pairing: which NPCs' quests point at the same place in the same act, so
 the group decides together where to go next and everyone has a reason to be there. How many trips
@@ -323,7 +323,7 @@ intermediates, from level 2 one component from the role's strongpoint, at level 
 
 **The hub's economy (C17, 2026-09-04).** The game needs 3 phased array elements (X6, U9, J8), 6 satellite receivers
 (J8, W-B3, U-B3, J-B3, Storage 4, the Black Hawk) and 4 military power filters (T9, M13, T-B3, M-B3): thirteen hub
-items. The hub is never held, so they sit in `gscraft:hub/*` component containers on Lootr's 5-in-game-day refresh, not
+items. The hub is never held, so they sit in shared `gscraft:hub/*` component containers that the loop script refills every 5 in-game days (B29; not Lootr-instanced, so five players still get five items), not
 the held-site timer — one array container, two receiver containers, two filter containers, one item each per refresh:
 five a visit, so the list is **three hub runs** across Act IV's three sessions, one a session (`gscraft-loot-tables.md` §6).
 U-D3's satellite receiver saves one of the six.
@@ -508,7 +508,7 @@ Done in v6: border set; pads laid as foundations without outlines; the transplan
 Plaza, Bio Gen, the sewers, the hub) through the 1.12 → 1.20 pipeline (`anvil112.py`, `remap112.json`, `transplant.py`);
 the four roads routed by `roads.py`; tower stage 0, the camp ruins and the torches placed by function. Coming with v7
 (`gscraft-structure-plan.md`, `gscraft-woods-plan.md`): the kept structures placed back, the Woods regenerated, the
-Novo → sawmill spur. `camp.py`'s tier-0 buildings follow Phase A's positions (Phase C, as HANDOFF §5 orders it). *Pass:* a clean boot; every site reachable on foot or by road.
+Novo → sawmill spur, the runway lights (`runway_lights`). `camp.py`'s tier-0 buildings follow Phase A's positions (Phase C, as HANDOFF §5 orders it). *Pass:* a clean boot; every site reachable on foot or by road.
 
 **Phase C — Systems v1.** KubeJS items (small, intermediate, complete, components, the five
 dossiers, the claim marker; stack sizes; bulky rule), the station recipes and their `bp_*` stages, datapack loot tables by
