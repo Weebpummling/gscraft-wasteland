@@ -127,5 +127,19 @@ Every other row: **the default, applied** in the same commit as this note.
 | C17 | design §4.4, loot sheet §6 |
 | C18 | design §4.5; `build/phase05/config/playerrevive.json` (bleedTime 6000, maxDistance 6) |
 
+## D. Enemy design (2026-09-04, `gscraft-enemies.md`)
+
+The gap the owner named: the garrison tables gave counts, not identities. Draft 1 of the enemies sheet
+closes D1–D6 and opens E1–E5 (its §9) as owner questions.
+
+| # | Gap | Closed by |
+|---|---|---|
+| D1 | Who the enemies are: no factions, no identity, no reason they fight | enemies §1 (five factions), §2 (the faction war) |
+| D2 | No equipment design — mob gear was Improved Mobs' random roll | enemies §0.1, §3 (ranks and per-act equipment through In Control!'s rule fields) |
+| D3 | No wave composition: "zombies 12" said nothing about what the wave *does* | enemies §4 (four roles, share per wave, what answers each) |
+| D4 | Elites named in C14 but never defined | enemies §5 (six definitions with base, rarity, gear and affix flavour) |
+| D5 | Mobs dropped nothing designed; the ammunition floor depended on containers | enemies §6 (mob drop tables; sheet 2 of the loot doc) |
+| D6 | **Four wrong config defaults**, found reading the jars: mobs steal from containers (`StealGoal` verified), mobs can pick up and use dropped mod weapons, Pillagers Gun's bazooka can blow up the camp gate, and the ten `recruits:` ids are in no Mob Factions faction (hired soldiers are invisible to hostiles) | enemies §8 rows 1, 2, 4, 5 — **apply before the next player test** |
+
 Related: every design document above. The A fixes are applied in the same commit as this file; B is the
 owner's list; C rows are copied into the phase they name in `HANDOFF.md`.

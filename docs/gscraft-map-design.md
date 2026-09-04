@@ -465,6 +465,11 @@ line; a component container arms on `held` and refills on its timer while the si
 
 ### 6.3 Garrisons — the mob tables Phase D builds from
 
+> **Who they are, what they carry: `gscraft-enemies.md` (draft 1, 2026-09-04).** The counts below are the
+> shape of each fight; the five factions, their ranks and equipment, the four roles a wave is built from,
+> the elites' definitions, the mob drop tables and the config changes are in that document. Where the two
+> differ on a mob's identity or gear, the enemies sheet wins.
+
 Three layers per site, all from mobs the pack already has. **Ambient** is what In Control! spawns
 inside the site rectangle before the take (thin enough to loot through with care, per §6.1);
 **assault** is the six 45-second waves after the marker goes down; **defence** is that site's counterattack
@@ -600,6 +605,6 @@ the finale runs to the boss (`gscraft-finale.md` §5 is the build and test list)
 - The 24 camp templates: tier 0 and 1 for Phase C, tiers 2 and 3 can follow in Phase D and E as
   long as the footprints are fixed now, since every tier is placed over the same rectangle.
 
-Related: `gscraft-quests.md` (every quest and task), `gscraft-crafting.md` (stations, timers, vehicles, equipment), `wasteland-server-blueprint.html` (the original design record),
+Related: `gscraft-quests.md` (every quest and task), `gscraft-enemies.md` (factions, ranks, equipment, drops), `gscraft-crafting.md` (stations, timers, vehicles, equipment), `wasteland-server-blueprint.html` (the original design record),
 `notes/gscraft-scale-and-travel.md`, `notes/gscraft-foreign-worlds.md`, `wasteland-district-map.html`,
 `build/tower_parts.json`.

@@ -74,6 +74,14 @@ quests §7.5 (L1–L6, L6 gates R3; 144 quests). Placed on the hosted v6 world w
 city/wilderness per chunk (§5 of the structure plan): 6 % of the land is city by the building fingerprint, so the
 balance stands and the lower-density LC profile that was staged is withdrawn.
 
+**Enemy design (this workstation, 2026-09-04): `docs/gscraft-enemies.md` draft 1.** Five factions (the Dead,
+Scavengers, the Militia, the Horrors, the Camp), ranks with per-act equipment set through In Control!'s rule
+fields, four wave roles, six elite definitions, mob drop tables, difficulty by ring. **Four config defaults are
+wrong and want fixing before the next player test** (enemies §8): Improved Mobs' `Stealer Chance` (mobs open
+containers — `StealGoal` verified in the jar), its empty `Item Blacklist` (a mob can pick up a dropped rocket
+launcher), Pillagers Gun's bazooka at the camp gate, and the ten `recruits:` ids missing from Mob Factions'
+civilian faction. The config edits are not applied yet — they are one file each in `build/phase05/config`.
+
 **Handoff state:** the hosted server runs v6 with EMI in `/mods` (client pack rebuilt with EMI on 2026-09-03: `G:/GSCraft/release-v7/GSCraft-Client.zip`), ruins v2, torches, dossier
 and site chests in place; the datapack on the server matches `build/datapacks/gscraft` except `dossiers_fill`, parked
 in `build/phase_c/`. Loot tables carry vanilla stand-ins until Phase C. Pending on the working machine: the owner's Phase A flight on v7 (local server up in the visual profile), then the hosted deploy of v7 (section 6).
