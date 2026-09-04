@@ -36,8 +36,8 @@ roster, equipment crafting, garrison tables, the finale (now the Sleeper, `docs/
 New tools: `dossiers.py` (dossier chests, `tools/dossiers.json`, `gscraft:dossiers`), `camp_ruins.py` (24
 ruin pieces in the camp, `gscraft:camp_ruins`, loot tables under `ruins/`). **EMI 1.1.24 added** to the
 server's `/mods` (client-side mod; the dedicated server skips it) and to `additions.json` / `manifest.json`;
-the client pack in the release does NOT yet carry it — rebuild the pack or drop the jar into each
-player's `mods` folder. `camp_ruins` has been run on the hosted world (24 pieces, read back from the region files). `tools/furnish.py`
+the client pack was rebuilt with it on 2026-09-04 (`G:/GSCraft/release-v7/GSCraft-Client.zip`, 453 MB, EMI 1.1.24
+sha512-verified; goes up with the v7 release and replaces the Drive copy). `camp_ruins` has been run on the hosted world (24 pieces, read back from the region files). `tools/furnish.py`
 places loot chests in sites that came across without any (Novo has none above ground: its 1.12 source had
 34 k blocks and no containers; the plaza has one) — `gscraft:furnish_novo` and `gscraft:furnish_financial`, 12
 chests each, tables `gscraft:sites/*`. All loot tables carry vanilla stand-in items with the intended
