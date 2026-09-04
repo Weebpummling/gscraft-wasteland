@@ -1,9 +1,9 @@
 <title>Wasteland Road Plan</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-:root{--ground:#ECEDE8;--panel:#F7F7F3;--panel2:#E3E5DE;--ink:#1B1F1D;--ink-soft:#5A6360;--ink-faint:#8A928E;--rule:#C9CCC4;--accent:#B98A0E;--accent-ink:#1B1F1D;--danger:#A63A2B;--ok:#3E7D4B;--sel:#2B6EA8}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ground:#14171B;--panel:#1D2126;--panel2:#262B31;--ink:#E4E6DE;--ink-soft:#9AA39C;--ink-faint:#6E7772;--rule:#333A40;--accent:#E8B63A;--accent-ink:#14171B;--danger:#E07A66;--ok:#7CC48A;--sel:#6FB1F0}}
-:root[data-theme="dark"]{--ground:#14171B;--panel:#1D2126;--panel2:#262B31;--ink:#E4E6DE;--ink-soft:#9AA39C;--ink-faint:#6E7772;--rule:#333A40;--accent:#E8B63A;--accent-ink:#14171B;--danger:#E07A66;--ok:#7CC48A;--sel:#6FB1F0}
+:root{--ground:#ECEDE8;--panel:#F7F7F3;--panel2:#E3E5DE;--ink:#1B1F1D;--ink-soft:#5A6360;--ink-faint:#8A928E;--rule:#C9CCC4;--accent:#B98A0E;--accent-ink:#1B1F1D;--danger:#A63A2B;--ok:#3E7D4B;--sel:#2B6EA8;--map:#D9D3C2;--mapgrid:#C5BFAD;--mapout:#BFB9A8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ground:#14171B;--panel:#1D2126;--panel2:#262B31;--ink:#E4E6DE;--ink-soft:#9AA39C;--ink-faint:#6E7772;--rule:#333A40;--accent:#E8B63A;--accent-ink:#14171B;--danger:#E07A66;--ok:#7CC48A;--sel:#6FB1F0;--map:#2A2C27;--mapgrid:#353832;--mapout:#1C1E1B}}
+:root[data-theme="dark"]{--ground:#14171B;--panel:#1D2126;--panel2:#262B31;--ink:#E4E6DE;--ink-soft:#9AA39C;--ink-faint:#6E7772;--rule:#333A40;--accent:#E8B63A;--accent-ink:#14171B;--danger:#E07A66;--ok:#7CC48A;--sel:#6FB1F0;--map:#2A2C27;--mapgrid:#353832;--mapout:#1C1E1B}
 *{box-sizing:border-box}
 body{margin:0;background:var(--ground);color:var(--ink);font-family:"Barlow","Segoe UI",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.4;height:100vh;display:flex;flex-direction:column;overflow:hidden}
 header{display:flex;align-items:baseline;gap:18px;padding:10px 16px;border-bottom:1px solid var(--rule);background:var(--panel)}
@@ -12,10 +12,10 @@ header .sub{color:var(--ink-soft);font-size:13px}
 header .spacer{flex:1}
 .readout{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;color:var(--ink-soft);font-variant-numeric:tabular-nums}
 main{flex:1;display:flex;min-height:0}
-#stage{flex:1;position:relative;background:#0b0d10;min-width:0}
+#stage{flex:1;position:relative;background:var(--mapout);min-width:0}
 canvas{display:block;width:100%;height:100%;cursor:crosshair}
-canvas.pan{cursor:grab}canvas.move{cursor:move}
-aside{width:340px;flex:none;border-left:1px solid var(--rule);background:var(--panel);display:flex;flex-direction:column;min-height:0}
+canvas.pan{cursor:grab}
+aside{width:350px;flex:none;border-left:1px solid var(--rule);background:var(--panel);display:flex;flex-direction:column;min-height:0}
 .tools{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:10px 12px;border-bottom:1px solid var(--rule)}
 button{font:inherit;color:var(--ink);background:var(--panel2);border:1px solid var(--rule);border-radius:4px;padding:6px 8px;cursor:pointer}
 button:hover{border-color:var(--ink-faint)}button:focus-visible{outline:2px solid var(--sel);outline-offset:1px}
@@ -33,19 +33,20 @@ button.danger{color:var(--danger)}
 .grp{padding:8px 12px 2px;font-family:"Barlow Condensed",sans-serif;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint)}
 .fields{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:6px 8px;align-items:center}
 .fields label{font-size:12px;color:var(--ink-soft)}
-.fields input,.section input[type=text],textarea{font:inherit;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink);background:var(--ground);border:1px solid var(--rule);border-radius:3px;padding:4px 6px;width:100%}
-.fields input:focus,textarea:focus{outline:2px solid var(--sel);outline-offset:-1px}
+.fields input,.section input[type=text],.section input[type=number],select,textarea{font:inherit;font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--ink);background:var(--ground);border:1px solid var(--rule);border-radius:3px;padding:4px 6px;width:100%}
+.fields input:focus,textarea:focus,select:focus{outline:2px solid var(--sel);outline-offset:-1px}
 .actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.note{font-size:12px;color:var(--ink-soft)}
-textarea{height:90px;resize:vertical}
-.status{font-size:12px;color:var(--ink-soft);min-height:16px}
+.note{font-size:12px;color:var(--ink-soft);margin:6px 0 0}
+textarea{height:70px;resize:vertical;margin-top:6px}
+.status{font-size:12px;color:var(--ink-soft);min-height:16px;margin-top:6px}
 kbd{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid var(--rule);border-radius:3px;padding:0 4px;background:var(--panel2)}
-.legend{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;font-size:12px;color:var(--ink-soft)}
+.gen{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:6px 8px;align-items:center;font-size:12px;color:var(--ink-soft)}
+.legend{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;font-size:12px;color:var(--ink-soft);margin-top:6px}
 .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:var(--c)}
 </style>
 <header>
   <h1>Wasteland Road Plan</h1>
-  <span class="sub">Draw the roads first, hang the sites off them, then size the border. Save writes the plan the build tools read.</span>
+  <span class="sub">Blank ground. Place every element, generate or draw the roads, size the border; the world is generated to fit the saved plan.</span>
   <span class="spacer"></span>
   <span class="readout" id="coords">x — z —</span>
 </header>
@@ -55,184 +56,228 @@ kbd{font-family:"JetBrains Mono",monospace;font-size:11px;border:1px solid var(-
     <div class="tools">
       <button id="t-select" class="on" title="Select and move (V)">Select</button>
       <button id="t-road" title="Draw a road: click points, Enter or double-click to finish (R)">Road</button>
-      <button id="t-zone" title="Drag a city zone rectangle (Z)">Zone</button>
-      <button id="t-wild" title="Drag a wilderness rectangle (W)">Wild</button>
+      <button id="t-zone" title="Drag a city zone (Z)">City</button>
+      <button id="t-wild" title="Drag a wilderness zone (W)">Wild</button>
       <button id="t-pan" title="Pan (space or middle mouse)">Pan</button>
     </div>
     <div class="section">
+      <h2>Road network</h2>
+      <div class="gen">
+        <label for="g-seed">Seed</label><input id="g-seed" type="number" value="7">
+        <label for="g-loop">Loops</label><select id="g-loop"><option value="0">none (tree)</option><option value="1" selected>one ring</option><option value="2">two rings</option></select>
+        <label for="g-bend">Bends</label><select id="g-bend"><option value="0">straight</option><option value="1" selected>gentle</option><option value="2">winding</option></select>
+        <label for="g-keep">Keep drawn</label><select id="g-keep"><option value="1" selected>yes</option><option value="0">replace all</option></select>
+      </div>
+      <div class="actions"><button id="gen" class="primary">Generate roads</button><button id="reroute">Re-route selected</button></div>
+      <p class="note">Every road starts and ends at an element's gate (the edge facing the camp), so moving an element carries its roads along. Re-route redraws one road's bends after you move things.</p>
+    </div>
+    <div class="section">
       <h2>Selected</h2>
-      <div id="editor" class="note">Nothing selected. Click a box or a road on the map.</div>
+      <div id="editor" class="note">Nothing selected. Click a box or a road.</div>
     </div>
     <div class="list" id="list"></div>
     <div class="section">
       <h2>Plan</h2>
       <div class="legend">
-        <span style="--c:#E8B63A">Border</span><span style="--c:#4FC3F7">Site (moveable)</span>
-        <span style="--c:#8EA3AD">Fixed (camp, district)</span><span style="--c:#FF8A3D">Skadowsky sector</span>
-        <span style="--c:#111">Road (yellow centre line)</span><span style="--c:#C084FC">City zone</span>
-        <span style="--c:#7CD67C">Wilderness</span><span style="--c:#F06292">Old 48×48 sites</span>
+        <span style="--c:#E8B63A">Border</span><span style="--c:#8EA3AD">Camp</span>
+        <span style="--c:#4FC3F7">Player build (transplant)</span><span style="--c:#FF8A3D">Skadowsky sector</span>
+        <span style="--c:#B0BEC5">Pad to build on</span><span style="--c:#C084FC">City zone (Lost Cities)</span>
+        <span style="--c:#7CD67C">Wilderness</span><span style="--c:#111">Road</span>
       </div>
       <div class="actions">
         <button id="save" class="primary">Save plan</button>
         <button id="copy">Copy JSON</button>
-        <button id="reset" class="danger">Reset to defaults</button>
+        <button id="reset" class="danger">Reset layout</button>
       </div>
       <div class="status" id="status"></div>
       <textarea id="json" spellcheck="false" aria-label="Plan JSON"></textarea>
-      <p class="note">Wheel zooms, drag empty map or hold <kbd>space</kbd> to pan, <kbd>Del</kbd> removes the selection, <kbd>Esc</kbd> cancels a road. Coordinates are Minecraft blocks; 1 image pixel = 8 blocks.</p>
+      <p class="note">Wheel zooms, drag empty ground or hold <kbd>space</kbd> to pan, <kbd>Del</kbd> removes the selection, <kbd>Esc</kbd> cancels a road, <kbd>alt</kbd>+click a road adds a point. Sizes are the real footprints of the builds; the border is the world border.</p>
     </div>
   </aside>
 </main>
 <script>
-const BG = "__BG__";
 const DEFAULTS = __DATA__;
-const BX0 = -3104, BZ0 = -3760, PPB = 1 / 8;          // render origin and pixels per block
-const COL = {border:'#E8B63A', site:'#4FC3F7', fixed:'#8EA3AD', skad:'#FF8A3D', road:'#111111', roadline:'#F2D24B', city:'#C084FC', wild:'#7CD67C', old:'#F06292', woods:'#7CD67C'};
+const COL = {border:'#E8B63A', camp:'#8EA3AD', build:'#4FC3F7', skad:'#FF8A3D', pad:'#B0BEC5', city:'#C084FC', wild:'#7CD67C', road:'#141414', roadline:'#F2D24B'};
 let plan = JSON.parse(JSON.stringify(DEFAULTS));
-let view = {zoom: 0.55, x: 0, y: 0};
-let tool = 'select', sel = null, drag = null, hover = null, drawing = null, spaceDown = false;
+let view = {zoom: 0.16, x: 0, y: 0};
+let tool = 'select', sel = null, drag = null, drawing = null, spaceDown = false, last = null;
 const cv = document.getElementById('c'), ctx = cv.getContext('2d');
-const img = new Image(); img.src = BG;
-img.onload = () => { fit(); draw(); };
-function fit(){ const r = cv.getBoundingClientRect(); view.zoom = Math.min(r.width / img.width, r.height / img.height) * 0.98; view.x = (r.width - img.width * view.zoom) / 2; view.y = (r.height - img.height * view.zoom) / 2; }
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function fit(){ const r = cv.getBoundingClientRect(); const b = plan.border; view.zoom = Math.min(r.width / (b.x1 - b.x0), r.height / (b.z1 - b.z0)) * 0.9; view.x = r.width / 2 - ((b.x0 + b.x1) / 2) * view.zoom; view.y = r.height / 2 - ((b.z0 + b.z1) / 2) * view.zoom; }
 function resize(){ const r = cv.getBoundingClientRect(); cv.width = r.width * devicePixelRatio; cv.height = r.height * devicePixelRatio; draw(); }
 window.addEventListener('resize', resize);
-const W2S = (x, z) => [((x - BX0) * PPB) * view.zoom + view.x, ((z - BZ0) * PPB) * view.zoom + view.y];
-const S2W = (sx, sy) => [Math.round((sx - view.x) / view.zoom / PPB + BX0), Math.round((sy - view.y) / view.zoom / PPB + BZ0)];
-function rects(){ const out = [{kind:'border', o: plan.border}]; plan.zones.forEach(z => out.push({kind: z.type, o: z})); plan.sites.forEach(s => out.push({kind: s.fixed ? 'fixed' : (s.kind || 'site'), o: s})); return out; }
+const W2S = (x, z) => [x * view.zoom + view.x, z * view.zoom + view.y];
+const S2W = (sx, sy) => [Math.round((sx - view.x) / view.zoom), Math.round((sy - view.y) / view.zoom)];
+const byId = id => plan.elements.find(e => e.id === id);
+const camp = () => plan.elements.find(e => e.kind === 'camp') || plan.elements[0];
+const cx = e => (e.x0 + e.x1) / 2, cz = e => (e.z0 + e.z1) / 2;
+function gate(e){
+  const c = camp(); if (!c || e === c) return [Math.round(cx(e)), Math.round(cz(e))];
+  const dx = cx(c) - cx(e), dz = cz(c) - cz(e);
+  if (Math.abs(dx) * (e.z1 - e.z0) > Math.abs(dz) * (e.x1 - e.x0)) return [dx > 0 ? e.x1 : e.x0, Math.round(cz(e))];
+  return [Math.round(cx(e)), dz > 0 ? e.z1 : e.z0];
+}
+function endpoint(p){ const e = p.el ? byId(p.el) : null; return e ? gate(e) : [p.x || 0, p.z || 0]; }
+function pts(rd){ return [endpoint(rd.from), ...rd.via, endpoint(rd.to)]; }
+function len(rd){ const p = pts(rd); let t = 0; for (let i = 1; i < p.length; i++) t += Math.hypot(p[i][0] - p[i - 1][0], p[i][1] - p[i - 1][1]); return t; }
+const km = rd => (len(rd) / 1000).toFixed(2) + ' km';
+// ---------- road generator
+function rng(seed){ let s = (seed >>> 0) || 1; return () => { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; }; }
+function segHitsBox(a, b, e, pad){ const x0 = e.x0 - pad, z0 = e.z0 - pad, x1 = e.x1 + pad, z1 = e.z1 + pad; let t0 = 0, t1 = 1; const dx = b[0] - a[0], dz = b[1] - a[1];
+  for (const [p, q] of [[-dx, a[0] - x0], [dx, x1 - a[0]], [-dz, a[1] - z0], [dz, z1 - a[1]]]){ if (p === 0){ if (q < 0) return false; } else { const t = q / p; if (p < 0) t0 = Math.max(t0, t); else t1 = Math.min(t1, t); } } return t0 <= t1; }
+function bends(a, b, r, amount, avoid){
+  const out = []; const L = Math.hypot(b[0] - a[0], b[1] - a[1]); if (L < 200) return out;
+  const n = amount === 0 ? 0 : Math.max(1, Math.round(L / (amount === 2 ? 350 : 600)));
+  const nx = -(b[1] - a[1]) / L, nz = (b[0] - a[0]) / L;
+  for (let i = 1; i <= n; i++){ const t = i / (n + 1); const off = (r() - 0.5) * (amount === 2 ? 0.22 : 0.10) * L; out.push([Math.round(a[0] + (b[0] - a[0]) * t + nx * off), Math.round(a[1] + (b[1] - a[1]) * t + nz * off)]); }
+  const path = [a, ...out, b];
+  for (let pass = 0; pass < 3; pass++){
+    for (let i = 1; i < path.length; i++){
+      for (const e of avoid){ if (!segHitsBox(path[i - 1], path[i], e, 24)) continue;
+        const corners = [[e.x0 - 40, e.z0 - 40], [e.x1 + 40, e.z0 - 40], [e.x0 - 40, e.z1 + 40], [e.x1 + 40, e.z1 + 40]];
+        const cost = p => Math.hypot(p[0] - path[i - 1][0], p[1] - path[i - 1][1]) + Math.hypot(p[0] - path[i][0], p[1] - path[i][1]);
+        corners.sort((p, q) => cost(p) - cost(q)); path.splice(i, 0, corners[0]); break; }
+    }
+  }
+  return path.slice(1, -1);
+}
+function generate(){
+  const seed = +document.getElementById('g-seed').value, loops = +document.getElementById('g-loop').value, amount = +document.getElementById('g-bend').value, keep = document.getElementById('g-keep').value === '1';
+  const r = rng(seed); const nodes = plan.elements.filter(e => e.roads !== false);
+  if (nodes.length < 2){ status('Nothing to connect.'); return; }
+  const c0 = Math.max(0, nodes.indexOf(camp())); const g = nodes.map(gate); const inTree = new Set([c0]); const edges = [];
+  while (inTree.size < nodes.length){ let best = null;
+    for (const i of inTree) for (let j = 0; j < nodes.length; j++){ if (inTree.has(j)) continue; const d = Math.hypot(g[i][0] - g[j][0], g[i][1] - g[j][1]); if (!best || d < best.d) best = {i, j, d}; }
+    inTree.add(best.j); edges.push([best.i, best.j]); }
+  const deg = nodes.map(() => 0); edges.forEach(([i, j]) => { deg[i]++; deg[j]++; });
+  const has = (i, j) => edges.some(([a, b]) => (a === i && b === j) || (a === j && b === i));
+  let added = 0; const leaves = nodes.map((_, i) => i).filter(i => deg[i] === 1).sort((a, b) => Math.hypot(g[b][0] - g[c0][0], g[b][1] - g[c0][1]) - Math.hypot(g[a][0] - g[c0][0], g[a][1] - g[c0][1]));
+  for (const i of leaves){ if (added >= loops * 2) break; let best = null; for (let j = 0; j < nodes.length; j++){ if (j === i || has(i, j)) continue; const d = Math.hypot(g[i][0] - g[j][0], g[i][1] - g[j][1]); if (!best || d < best.d) best = {j, d}; } if (best && !has(i, best.j)){ edges.push([i, best.j]); added++; } }
+  const gen = edges.map(([i, j], k) => { const a = nodes[i], b = nodes[j]; const avoid = plan.elements.filter(e => e !== a && e !== b);
+    return {id: 'r' + (k + 1), name: `${short(a)} – ${short(b)}`, width: a.kind === 'camp' || b.kind === 'camp' ? 7 : 5, from: {el: a.id}, to: {el: b.id}, via: bends(gate(a), gate(b), r, amount, avoid), generated: true}; });
+  plan.roads = keep ? [...plan.roads.filter(x => !x.generated), ...gen] : gen; sel = null; refresh(); status(`${gen.length} roads generated from seed ${seed}.`);
+}
+function short(e){ return e.name.split(' (')[0].slice(0, 18); }
+function reroute(rd){ if (!rd) return; const a = rd.from.el ? byId(rd.from.el) : null, b = rd.to.el ? byId(rd.to.el) : null; const amount = +document.getElementById('g-bend').value; const avoid = plan.elements.filter(e => e !== a && e !== b); rd.via = bends(endpoint(rd.from), endpoint(rd.to), rng(+document.getElementById('g-seed').value + rd.id.length), amount, avoid); refresh(); }
+// ---------- drawing
 function draw(){
   const dpr = devicePixelRatio; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); const r = cv.getBoundingClientRect();
-  ctx.fillStyle = '#0b0d10'; ctx.fillRect(0, 0, r.width, r.height);
-  if (img.complete && img.width) ctx.drawImage(img, view.x, view.y, img.width * view.zoom, img.height * view.zoom);
-  // dim outside the border
+  ctx.fillStyle = css('--mapout'); ctx.fillRect(0, 0, r.width, r.height);
   const b = plan.border; const [bx, by] = W2S(b.x0, b.z0), [bx1, by1] = W2S(b.x1, b.z1);
-  ctx.fillStyle = 'rgba(5,6,8,0.55)'; ctx.beginPath(); ctx.rect(0, 0, r.width, r.height); ctx.rect(bx, by, bx1 - bx, by1 - by); ctx.fill('evenodd');
-  // grid every 1000 blocks
-  ctx.strokeStyle = 'rgba(255,255,255,0.10)'; ctx.lineWidth = 1; ctx.font = '11px "JetBrains Mono", monospace'; ctx.fillStyle = 'rgba(255,255,255,0.45)';
-  for (let x = -3000; x <= 7000; x += 1000){ const [sx] = W2S(x, 0); ctx.beginPath(); ctx.moveTo(sx, 0); ctx.lineTo(sx, r.height); ctx.stroke(); ctx.fillText(x, sx + 3, 12); }
-  for (let z = -3000; z <= 6000; z += 1000){ const [, sy] = W2S(0, z); ctx.beginPath(); ctx.moveTo(0, sy); ctx.lineTo(r.width, sy); ctx.stroke(); ctx.fillText(z, 3, sy - 3); }
-  // zones
+  ctx.fillStyle = css('--map'); ctx.fillRect(bx, by, bx1 - bx, by1 - by);
+  ctx.strokeStyle = css('--mapgrid'); ctx.lineWidth = 1; ctx.font = '11px "JetBrains Mono", monospace'; ctx.fillStyle = css('--ink-faint');
+  const step = view.zoom > 0.3 ? 250 : 500;
+  for (let x = Math.ceil(b.x0 / step) * step; x <= b.x1; x += step){ const [sx] = W2S(x, 0); ctx.beginPath(); ctx.moveTo(sx, by); ctx.lineTo(sx, by1); ctx.stroke(); if (x % 1000 === 0) ctx.fillText(x, sx + 3, by + 12); }
+  for (let z = Math.ceil(b.z0 / step) * step; z <= b.z1; z += step){ const [, sy] = W2S(0, z); ctx.beginPath(); ctx.moveTo(bx, sy); ctx.lineTo(bx1, sy); ctx.stroke(); if (z % 1000 === 0) ctx.fillText(z, bx + 3, sy - 3); }
   plan.zones.forEach(z => box(z, COL[z.type], sel === z, 0.18, z.name));
-  // old sites
-  ctx.fillStyle = COL.old; plan.old.forEach(([x, z]) => { const [sx, sy] = W2S(x, z); ctx.fillRect(sx - 2, sy - 2, 4, 4); });
-  // sites
-  plan.sites.forEach(s => box(s, s.fixed ? COL.fixed : COL[s.kind || 'site'], sel === s, s.fixed ? 0.10 : 0.22, s.name));
-  // roads
+  plan.elements.forEach(e => box(e, COL[e.kind] || COL.build, sel === e, e.kind === 'camp' ? 0.25 : 0.3, `${e.name} · ${e.x1 - e.x0 + 1}×${e.z1 - e.z0 + 1}`));
+  plan.elements.forEach(e => { if (e.roads === false) return; const [gx, gy] = W2S(...gate(e)); ctx.fillStyle = COL.roadline; ctx.beginPath(); ctx.arc(gx, gy, 3, 0, 7); ctx.fill(); });
   plan.roads.forEach(rd => road(rd, sel === rd));
   if (drawing) road(drawing, true, true);
-  // border
   ctx.setLineDash([8, 5]); ctx.strokeStyle = COL.border; ctx.lineWidth = sel === b ? 3 : 2; ctx.strokeRect(bx, by, bx1 - bx, by1 - by); ctx.setLineDash([]);
   label(bx + 6, by + 16, `BORDER ${b.x1 - b.x0 + 1} × ${b.z1 - b.z0 + 1}`, COL.border);
   if (sel === b) handles(b);
-  scalebar(r);
+  const px = 1000 * view.zoom; ctx.fillStyle = css('--ink'); ctx.fillRect(16, r.height - 24, px, 3); ctx.font = '11px "JetBrains Mono", monospace'; ctx.fillText('1 000 blocks', 16, r.height - 30);
 }
 function box(o, col, isSel, alpha, name){
   const [x, y] = W2S(o.x0, o.z0), [x1, y1] = W2S(o.x1 + 1, o.z1 + 1);
   ctx.fillStyle = col; ctx.globalAlpha = alpha; ctx.fillRect(x, y, x1 - x, y1 - y); ctx.globalAlpha = 1;
   ctx.strokeStyle = col; ctx.lineWidth = isSel ? 3 : 1.5; ctx.strokeRect(x, y, x1 - x, y1 - y);
-  if (view.zoom > 0.35 || isSel) label(x + 4, y + 13, name, col);
-  if (isSel) handles(o);
+  label(x + 4, y + 13, name, col); if (isSel) handles(o);
 }
-function handles(o){ const [x, y] = W2S(o.x0, o.z0), [x1, y1] = W2S(o.x1 + 1, o.z1 + 1); ctx.fillStyle = '#fff'; [[x, y], [x1, y], [x, y1], [x1, y1]].forEach(([hx, hy]) => ctx.fillRect(hx - 4, hy - 4, 8, 8)); }
+function handles(o){ const [x, y] = W2S(o.x0, o.z0), [x1, y1] = W2S(o.x1 + 1, o.z1 + 1); ctx.fillStyle = '#fff'; ctx.strokeStyle = '#000'; ctx.lineWidth = 1; [[x, y], [x1, y], [x, y1], [x1, y1]].forEach(([hx, hy]) => { ctx.fillRect(hx - 4, hy - 4, 8, 8); ctx.strokeRect(hx - 4, hy - 4, 8, 8); }); }
 function road(rd, isSel, temp){
-  const pts = rd.points.map(p => W2S(p[0], p[1])); if (!pts.length) return;
+  const p = (temp ? rd.points : pts(rd)).map(q => W2S(q[0], q[1])); if (p.length < 1) return;
   ctx.lineJoin = 'round'; ctx.lineCap = 'round';
-  ctx.strokeStyle = temp ? 'rgba(242,210,75,0.7)' : COL.road; ctx.lineWidth = isSel ? 7 : 5; path(pts); ctx.stroke();
-  ctx.strokeStyle = COL.roadline; ctx.lineWidth = 1.2; ctx.setLineDash([6, 4]); path(pts); ctx.stroke(); ctx.setLineDash([]);
-  pts.forEach(([x, y], i) => { ctx.fillStyle = isSel ? '#fff' : COL.roadline; ctx.beginPath(); ctx.arc(x, y, isSel ? 4 : 2.5, 0, 7); ctx.fill(); });
-  const mid = pts[Math.floor(pts.length / 2)]; label(mid[0] + 6, mid[1] - 6, `${rd.name} · ${km(rd)}`, COL.roadline);
+  ctx.strokeStyle = temp ? 'rgba(242,210,75,0.7)' : COL.road; ctx.lineWidth = isSel ? 7 : (rd.width >= 7 ? 5 : 3.5); path(p); ctx.stroke();
+  ctx.strokeStyle = COL.roadline; ctx.lineWidth = 1.2; ctx.setLineDash([6, 4]); path(p); ctx.stroke(); ctx.setLineDash([]);
+  if (isSel) p.forEach(([x, y]) => { ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(x, y, 4, 0, 7); ctx.fill(); });
+  if (!temp && (isSel || view.zoom > 0.2)){ const m = p[Math.floor(p.length / 2)]; label(m[0] + 6, m[1] - 6, `${rd.name} · ${km(rd)}`, COL.roadline); }
 }
-function path(pts){ ctx.beginPath(); pts.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); }
-function label(x, y, text, col){ ctx.font = '600 12px "Barlow Condensed", "Arial Narrow", sans-serif'; const w = ctx.measureText(text).width; ctx.fillStyle = 'rgba(0,0,0,0.65)'; ctx.fillRect(x - 3, y - 11, w + 6, 15); ctx.fillStyle = col; ctx.fillText(text, x, y); }
-function scalebar(r){ const px = 1000 * PPB * view.zoom; ctx.fillStyle = '#fff'; ctx.fillRect(16, r.height - 24, px, 3); ctx.font = '11px "JetBrains Mono", monospace'; ctx.fillText('1 000 blocks', 16, r.height - 30); }
-function len(rd){ let t = 0; for (let i = 1; i < rd.points.length; i++){ const [a, b] = [rd.points[i - 1], rd.points[i]]; t += Math.hypot(a[0] - b[0], a[1] - b[1]); } return t; }
-function km(rd){ return (len(rd) / 1000).toFixed(2) + ' km'; }
-// hit testing
-function hitRect(o, wx, wz){ return wx >= o.x0 && wx <= o.x1 && wz >= o.z0 && wz <= o.z1; }
-function hitHandle(o, sx, sy){ const [x, y] = W2S(o.x0, o.z0), [x1, y1] = W2S(o.x1 + 1, o.z1 + 1); const hs = [['nw', x, y], ['ne', x1, y], ['sw', x, y1], ['se', x1, y1]]; for (const [n, hx, hy] of hs) if (Math.abs(sx - hx) < 7 && Math.abs(sy - hy) < 7) return n; return null; }
-function hitRoad(rd, sx, sy){ const pts = rd.points.map(p => W2S(p[0], p[1])); for (let i = 0; i < pts.length; i++) if (Math.hypot(pts[i][0] - sx, pts[i][1] - sy) < 7) return {pt: i}; for (let i = 1; i < pts.length; i++){ if (dist(pts[i - 1], pts[i], [sx, sy]) < 5) return {seg: i}; } return null; }
+function path(p){ ctx.beginPath(); p.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); }
+function label(x, y, text, col){ ctx.font = '600 12px "Barlow Condensed", "Arial Narrow", sans-serif'; const w = ctx.measureText(text).width; ctx.fillStyle = 'rgba(0,0,0,0.62)'; ctx.fillRect(x - 3, y - 11, w + 6, 15); ctx.fillStyle = col; ctx.fillText(text, x, y); }
+// ---------- hit testing
+const hitRect = (o, wx, wz) => wx >= o.x0 && wx <= o.x1 && wz >= o.z0 && wz <= o.z1;
+function hitHandle(o, sx, sy){ const [x, y] = W2S(o.x0, o.z0), [x1, y1] = W2S(o.x1 + 1, o.z1 + 1); for (const [n, hx, hy] of [['nw', x, y], ['ne', x1, y], ['sw', x, y1], ['se', x1, y1]]) if (Math.abs(sx - hx) < 7 && Math.abs(sy - hy) < 7) return n; return null; }
 function dist(a, b, p){ const dx = b[0] - a[0], dy = b[1] - a[1]; const t = Math.max(0, Math.min(1, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / (dx * dx + dy * dy || 1))); return Math.hypot(p[0] - (a[0] + t * dx), p[1] - (a[1] + t * dy)); }
-function pick(sx, sy){
-  const [wx, wz] = S2W(sx, sy);
-  if (sel && sel.points){ const h = hitRoad(sel, sx, sy); if (h) return {o: sel, ...h}; }
-  if (sel && sel.x0 !== undefined){ const h = hitHandle(sel, sx, sy); if (h) return {o: sel, handle: h}; }
+function hitRoad(rd, sx, sy){ const p = pts(rd).map(q => W2S(q[0], q[1])); for (let i = 1; i < p.length - 1; i++) if (Math.hypot(p[i][0] - sx, p[i][1] - sy) < 7) return {via: i - 1}; for (let i = 1; i < p.length; i++) if (dist(p[i - 1], p[i], [sx, sy]) < 5) return {seg: i}; return null; }
+function pick(sx, sy){ const [wx, wz] = S2W(sx, sy);
+  if (sel && sel.via){ const h = hitRoad(sel, sx, sy); if (h) return {o: sel, ...h}; }
+  if (sel && sel.x0 !== undefined && !sel.fixed){ const h = hitHandle(sel, sx, sy); if (h) return {o: sel, handle: h}; }
   for (const rd of plan.roads){ const h = hitRoad(rd, sx, sy); if (h) return {o: rd, ...h}; }
-  const cands = [...plan.sites.filter(s => hitRect(s, wx, wz)), ...plan.zones.filter(z => hitRect(z, wx, wz))];
-  if (cands.length){ cands.sort((a, b) => (a.x1 - a.x0) * (a.z1 - a.z0) - (b.x1 - b.x0) * (b.z1 - b.z0)); return {o: cands[0]}; }
+  const c = [...plan.elements.filter(e => hitRect(e, wx, wz)), ...plan.zones.filter(z => hitRect(z, wx, wz))];
+  if (c.length){ c.sort((a, b) => (a.x1 - a.x0) * (a.z1 - a.z0) - (b.x1 - b.x0) * (b.z1 - b.z0)); return {o: c[0]}; }
   const b = plan.border; const [bx, by] = W2S(b.x0, b.z0), [bx1, by1] = W2S(b.x1, b.z1); const near = Math.min(Math.abs(sx - bx), Math.abs(sx - bx1), Math.abs(sy - by), Math.abs(sy - by1));
   if (near < 6 && sx > bx - 6 && sx < bx1 + 6 && sy > by - 6 && sy < by1 + 6) return {o: b};
-  return null;
-}
-// mouse
-let last = null;
+  return null; }
+// ---------- mouse
 cv.addEventListener('mousedown', e => {
   const sx = e.offsetX, sy = e.offsetY; const [wx, wz] = S2W(sx, sy); last = [sx, sy];
   if (tool === 'pan' || spaceDown || e.button === 1){ drag = {pan: true}; cv.classList.add('pan'); return; }
-  if (tool === 'road'){ if (!drawing){ drawing = {name: 'road_' + (plan.roads.length + 1), width: 7, points: [[wx, wz]]}; } else drawing.points.push([wx, wz]); draw(); return; }
-  if (tool === 'zone' || tool === 'wild'){ const z = {name: (tool === 'zone' ? 'city_' : 'wild_') + (plan.zones.length + 1), type: tool === 'zone' ? 'city' : 'wild', x0: wx, z0: wz, x1: wx, z1: wz}; plan.zones.push(z); sel = z; drag = {o: z, handle: 'se', creating: true}; refresh(); return; }
-  const h = pick(sx, sy);
-  if (!h){ sel = null; drag = {pan: true}; refresh(); return; }
-  sel = h.o; drag = {o: h.o, handle: h.handle, pt: h.pt, seg: h.seg, wx, wz, orig: JSON.parse(JSON.stringify(h.o))};
-  if (h.seg !== undefined && e.altKey){ h.o.points.splice(h.seg, 0, [wx, wz]); drag.pt = h.seg; }
+  if (tool === 'road'){ if (!drawing) drawing = {points: [[wx, wz]]}; else drawing.points.push([wx, wz]); draw(); return; }
+  if (tool === 'zone' || tool === 'wild'){ const z = {id: 'z' + Date.now(), name: (tool === 'zone' ? 'city ' : 'wild ') + (plan.zones.length + 1), type: tool === 'zone' ? 'city' : 'wild', x0: wx, z0: wz, x1: wx + 16, z1: wz + 16}; plan.zones.push(z); sel = z; drag = {o: z, handle: 'se', orig: JSON.parse(JSON.stringify(z)), creating: true}; refresh(); return; }
+  const h = pick(sx, sy); if (!h){ sel = null; drag = {pan: true}; refresh(); return; }
+  sel = h.o; drag = {o: h.o, handle: h.handle, via: h.via, seg: h.seg, wx, wz, orig: JSON.parse(JSON.stringify(h.o))};
+  if (h.seg !== undefined && e.altKey){ h.o.via.splice(h.seg - 1, 0, [wx, wz]); drag.via = h.seg - 1; drag.seg = undefined; drag.orig = JSON.parse(JSON.stringify(h.o)); }
   refresh();
 });
 cv.addEventListener('mousemove', e => {
   const sx = e.offsetX, sy = e.offsetY; const [wx, wz] = S2W(sx, sy);
-  document.getElementById('coords').textContent = `x ${wx}  z ${wz}` + (drawing ? `   road ${km(drawing)}` : '');
+  document.getElementById('coords').textContent = `x ${wx}  z ${wz}` + (drawing ? `   road ${(polylen(drawing.points.concat([[wx, wz]])) / 1000).toFixed(2)} km` : '');
   if (!drag){ if (drawing) draw(); return; }
   if (drag.pan){ view.x += sx - last[0]; view.y += sy - last[1]; last = [sx, sy]; draw(); return; }
-  const o = drag.o; const dx = wx - drag.wx, dz = wz - drag.wz;
-  if (o.points){ if (drag.pt !== undefined){ o.points[drag.pt] = [wx, wz]; } else { o.points = drag.orig.points.map(p => [p[0] + dx, p[1] + dz]); } }
-  else if (drag.handle){ const g = drag.orig; if (drag.creating){ o.x1 = Math.max(g.x0, wx); o.z1 = Math.max(g.z0, wz); } else { if (drag.handle.includes('w')) o.x0 = Math.min(g.x0 + dx, o.x1 - 16); if (drag.handle.includes('e')) o.x1 = Math.max(g.x1 + dx, o.x0 + 16); if (drag.handle.includes('n')) o.z0 = Math.min(g.z0 + dz, o.z1 - 16); if (drag.handle.includes('s')) o.z1 = Math.max(g.z1 + dz, o.z0 + 16); } }
-  else if (!o.fixed && o !== plan.border){ const g = drag.orig; o.x0 = g.x0 + dx; o.x1 = g.x1 + dx; o.z0 = g.z0 + dz; o.z1 = g.z1 + dz; }
-  else if (o === plan.border){ const g = drag.orig; o.x0 = g.x0 + dx; o.x1 = g.x1 + dx; o.z0 = g.z0 + dz; o.z1 = g.z1 + dz; }
+  const o = drag.o, g = drag.orig; const dx = wx - drag.wx, dz = wz - drag.wz;
+  if (o.via){ if (drag.via !== undefined) o.via[drag.via] = [wx, wz]; else if (drag.seg !== undefined) o.via = g.via.map(p => [p[0] + dx, p[1] + dz]); }
+  else if (drag.handle){ if (drag.creating){ o.x1 = Math.max(g.x0 + 16, wx); o.z1 = Math.max(g.z0 + 16, wz); } else { if (drag.handle.includes('w')) o.x0 = Math.min(g.x0 + dx, o.x1 - 16); if (drag.handle.includes('e')) o.x1 = Math.max(g.x1 + dx, o.x0 + 16); if (drag.handle.includes('n')) o.z0 = Math.min(g.z0 + dz, o.z1 - 16); if (drag.handle.includes('s')) o.z1 = Math.max(g.z1 + dz, o.z0 + 16); } }
+  else { o.x0 = g.x0 + dx; o.x1 = g.x1 + dx; o.z0 = g.z0 + dz; o.z1 = g.z1 + dz; }
   editor(); draw();
 });
+function polylen(p){ let t = 0; for (let i = 1; i < p.length; i++) t += Math.hypot(p[i][0] - p[i - 1][0], p[i][1] - p[i - 1][1]); return t; }
 window.addEventListener('mouseup', () => { if (drag && !drag.pan) list(); drag = null; cv.classList.remove('pan'); draw(); });
-cv.addEventListener('dblclick', e => { if (drawing) finishRoad(); });
+cv.addEventListener('dblclick', () => { if (drawing) finishRoad(); });
 cv.addEventListener('wheel', e => { e.preventDefault(); const f = e.deltaY < 0 ? 1.15 : 1 / 1.15; const sx = e.offsetX, sy = e.offsetY; view.x = sx - (sx - view.x) * f; view.y = sy - (sy - view.y) * f; view.zoom *= f; draw(); }, {passive: false});
 window.addEventListener('keydown', e => {
-  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+  if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.tagName === 'SELECT') return;
   if (e.code === 'Space'){ spaceDown = true; cv.classList.add('pan'); e.preventDefault(); }
   if (e.key === 'Escape'){ if (drawing){ drawing = null; draw(); } else { sel = null; refresh(); } }
   if (e.key === 'Enter' && drawing) finishRoad();
-  if ((e.key === 'Delete' || e.key === 'Backspace') && sel){ if (sel.points){ plan.roads = plan.roads.filter(r => r !== sel); } else if (plan.zones.includes(sel)){ plan.zones = plan.zones.filter(z => z !== sel); } else if (plan.sites.includes(sel) && !sel.fixed){ plan.sites = plan.sites.filter(s => s !== sel); } sel = null; refresh(); }
+  if ((e.key === 'Delete' || e.key === 'Backspace') && sel){ if (sel.via) plan.roads = plan.roads.filter(r => r !== sel); else if (plan.zones.includes(sel)) plan.zones = plan.zones.filter(z => z !== sel); else if (plan.elements.includes(sel) && sel.kind !== 'camp'){ plan.elements = plan.elements.filter(x => x !== sel); plan.roads = plan.roads.filter(r => r.from.el !== sel.id && r.to.el !== sel.id); } sel = null; refresh(); }
   if (e.key === 'v') setTool('select'); if (e.key === 'r') setTool('road'); if (e.key === 'z') setTool('zone'); if (e.key === 'w') setTool('wild');
 });
 window.addEventListener('keyup', e => { if (e.code === 'Space'){ spaceDown = false; cv.classList.remove('pan'); } });
-function finishRoad(){ if (drawing && drawing.points.length > 1){ plan.roads.push(drawing); sel = drawing; } drawing = null; setTool('select'); refresh(); }
+function snapEnd(p){ for (const e of plan.elements){ if (e.roads === false) continue; const g = gate(e); if (Math.hypot(g[0] - p[0], g[1] - p[1]) < 80) return {el: e.id}; if (hitRect(e, p[0], p[1])) return {el: e.id}; } return {x: p[0], z: p[1]}; }
+function finishRoad(){ if (drawing && drawing.points.length > 1){ const p = drawing.points; const rd = {id: 'd' + Date.now(), name: 'drawn road ' + (plan.roads.length + 1), width: 5, from: snapEnd(p[0]), to: snapEnd(p[p.length - 1]), via: p.slice(1, -1)}; plan.roads.push(rd); sel = rd; } drawing = null; setTool('select'); refresh(); }
 function setTool(t){ tool = t; document.querySelectorAll('.tools button').forEach(b => b.classList.toggle('on', b.id === 't-' + t)); cv.className = t === 'pan' ? 'pan' : ''; }
 document.querySelectorAll('.tools button').forEach(b => b.addEventListener('click', () => setTool(b.id.slice(2))));
-// sidebar
+document.getElementById('gen').addEventListener('click', generate);
+document.getElementById('reroute').addEventListener('click', () => reroute(sel && sel.via ? sel : null));
+// ---------- sidebar
 function refresh(){ editor(); list(); draw(); }
 function editor(){
   const el = document.getElementById('editor');
-  if (!sel){ el.className = 'note'; el.textContent = 'Nothing selected. Click a box or a road on the map.'; return; }
+  if (!sel){ el.className = 'note'; el.textContent = 'Nothing selected. Click a box or a road.'; return; }
   el.className = '';
-  if (sel.points){ el.innerHTML = `<div class="fields"><label>Name</label><input id="f-name" value="${esc(sel.name)}" style="grid-column:span 3"><label>Width</label><input id="f-w" type="number" value="${sel.width}"><label>Length</label><input value="${km(sel)}" readonly></div><p class="note">Drag a point to move it, drag the line to move the road, <kbd>alt</kbd>+click the line to add a point. ${sel.points.length} points.</p>`; }
-  else { const fixed = sel.fixed ? ' (fixed: moves with the world, not the plan)' : ''; el.innerHTML = `<div class="fields"><label>Name</label><input id="f-name" value="${esc(sel.name || 'border')}" style="grid-column:span 3" ${sel === plan.border ? 'readonly' : ''}><label>x0</label><input id="f-x0" type="number" value="${sel.x0}"><label>z0</label><input id="f-z0" type="number" value="${sel.z0}"><label>x1</label><input id="f-x1" type="number" value="${sel.x1}"><label>z1</label><input id="f-z1" type="number" value="${sel.z1}"></div><p class="note">${sel.x1 - sel.x0 + 1} × ${sel.z1 - sel.z0 + 1} blocks${fixed}${sel.note ? ' · ' + esc(sel.note) : ''}</p>`; }
-  el.querySelectorAll('input').forEach(i => i.addEventListener('change', () => { if (i.id === 'f-name') sel.name = i.value; else if (i.id === 'f-w') sel.width = +i.value; else if (i.id) sel[i.id.slice(2)] = +i.value; list(); draw(); }));
+  if (sel.via){ const nm = p => p.el && byId(p.el) ? byId(p.el).name : 'free point'; el.innerHTML = `<div class="fields"><label>Name</label><input id="f-name" value="${esc(sel.name)}" style="grid-column:span 3"><label>Width</label><input id="f-width" type="number" value="${sel.width}"><label>Length</label><input value="${km(sel)}" readonly></div><p class="note">${esc(nm(sel.from))} → ${esc(nm(sel.to))}. ${sel.via.length} bend points; drag one to reshape, drag the line to shift all, <kbd>alt</kbd>+click to add.</p>`; }
+  else { const isB = sel === plan.border; const src = sel.source ? `Source: ${esc(sel.source)}.` : ''; el.innerHTML = `<div class="fields"><label>Name</label><input id="f-name" value="${esc(isB ? 'world border' : sel.name)}" style="grid-column:span 3" ${isB ? 'readonly' : ''}><label>x0</label><input id="f-x0" type="number" value="${sel.x0}"><label>z0</label><input id="f-z0" type="number" value="${sel.z0}"><label>x1</label><input id="f-x1" type="number" value="${sel.x1}"><label>z1</label><input id="f-z1" type="number" value="${sel.z1}"></div><p class="note">${sel.x1 - sel.x0 + 1} × ${sel.z1 - sel.z0 + 1} blocks. ${src} ${sel.note ? esc(sel.note) : ''}</p>`; }
+  el.querySelectorAll('input').forEach(i => i.addEventListener('change', () => { if (i.id === 'f-name') sel.name = i.value; else if (i.id === 'f-width') sel.width = +i.value; else if (i.id){ const k = i.id.slice(2); if (sel.fixed && sel !== plan.border){ const w = sel.x1 - sel.x0, h = sel.z1 - sel.z0; if (k === 'x0'){ sel.x0 = +i.value; sel.x1 = sel.x0 + w; } if (k === 'z0'){ sel.z0 = +i.value; sel.z1 = sel.z0 + h; } if (k === 'x1'){ sel.x1 = +i.value; sel.x0 = sel.x1 - w; } if (k === 'z1'){ sel.z1 = +i.value; sel.z0 = sel.z1 - h; } } else sel[k] = +i.value; } list(); draw(); }));
 }
 function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 function list(){
-  const el = document.getElementById('list'); let h = '';
-  const row = (o, col, meta) => `<div class="row ${sel === o ? 'sel' : ''}" data-k="${o._k}"><span class="sw" style="background:${col}"></span><span class="nm">${esc(o.name)}</span><span class="m">${meta}</span></div>`;
-  let k = 0; const all = [];
-  const add = (o, col, meta) => { o._k = k++; all.push(o); h += row(o, col, meta); };
-  h += '<div class="grp">Roads</div>'; plan.roads.forEach(r => add(r, COL.roadline, km(r)));
-  h += '<div class="grp">Sites</div>'; plan.sites.forEach(s => add(s, s.fixed ? COL.fixed : COL[s.kind || 'site'], `${s.x1 - s.x0 + 1}×${s.z1 - s.z0 + 1}`));
+  const el = document.getElementById('list'); let h = ''; let k = 0; const all = [];
+  const add = (o, col, meta) => { all.push(o); h += `<div class="row ${sel === o ? 'sel' : ''}" data-k="${k++}"><span class="sw" style="background:${col}"></span><span class="nm">${esc(o.name)}</span><span class="m">${meta}</span></div>`; };
+  h += '<div class="grp">Elements</div>'; plan.elements.forEach(e => add(e, COL[e.kind] || COL.build, `${e.x1 - e.x0 + 1}×${e.z1 - e.z0 + 1}`));
+  h += `<div class="grp">Roads · ${(plan.roads.reduce((t, r) => t + len(r), 0) / 1000).toFixed(1)} km</div>`; plan.roads.forEach(r => add(r, COL.roadline, km(r)));
   h += '<div class="grp">Zones</div>'; plan.zones.forEach(z => add(z, COL[z.type], `${z.x1 - z.x0 + 1}×${z.z1 - z.z0 + 1}`));
-  el.innerHTML = h;
-  el.querySelectorAll('.row').forEach(r => r.addEventListener('click', () => { sel = all[+r.dataset.k]; refresh(); }));
+  el.innerHTML = h; el.querySelectorAll('.row').forEach(r => r.addEventListener('click', () => { sel = all[+r.dataset.k]; refresh(); }));
   document.getElementById('json').value = JSON.stringify(exportPlan());
 }
-function exportPlan(){ const p = JSON.parse(JSON.stringify(plan)); [...p.roads, ...p.sites, ...p.zones].forEach(o => delete o._k); p.saved = new Date().toISOString(); return p; }
-// persistence
+function exportPlan(){ const p = JSON.parse(JSON.stringify(plan)); p.roads.forEach(r => { r.points = pts(r); }); p.saved = new Date().toISOString(); return p; }
+// ---------- persistence
 let dbp = null;
-async function initDb(){ try { const db = await claude.use('db'); if (!db) return; dbp = db; const snap = await db.doc('plans/current').get(); if (snap.exists){ const d = snap.data(); if (d && d.roads){ plan = d; status(`Loaded the saved plan from ${new Date(d.saved).toLocaleString()}.`); refresh(); } } } catch (e){ status('Shared save unavailable in this view; use Copy JSON.'); } }
+async function initDb(){ try { const db = await claude.use('db'); if (!db) return; dbp = db; const snap = await db.doc('plans/current').get(); if (snap.exists){ const d = snap.data(); if (d && d.elements && d.roads){ plan = d; fit(); status(`Loaded the saved plan from ${new Date(d.saved).toLocaleString()}.`); refresh(); } } } catch (e){ status('Shared save unavailable here; use Copy JSON.'); } }
 document.getElementById('save').addEventListener('click', async () => { if (!dbp){ status('No shared store in this view: copy the JSON instead.'); return; } try { await dbp.doc('plans/current').set(exportPlan()); status('Saved ' + new Date().toLocaleTimeString() + '. Claude reads plans/current.'); } catch (e){ status('Save failed: ' + (e.message || e.code || e)); } });
 document.getElementById('copy').addEventListener('click', async () => { const t = document.getElementById('json'); t.value = JSON.stringify(exportPlan()); try { await navigator.clipboard.writeText(t.value); status('JSON copied.'); } catch (e){ t.select(); status('Select-all in the box and copy.'); } });
-document.getElementById('reset').addEventListener('click', () => { plan = JSON.parse(JSON.stringify(DEFAULTS)); sel = null; status('Defaults restored (not saved).'); refresh(); });
+document.getElementById('reset').addEventListener('click', () => { plan = JSON.parse(JSON.stringify(DEFAULTS)); sel = null; fit(); status('Default layout restored (not saved).'); refresh(); });
 function status(s){ document.getElementById('status').textContent = s; }
-resize(); refresh(); initDb();
+resize(); fit(); generate(); initDb();
 </script>

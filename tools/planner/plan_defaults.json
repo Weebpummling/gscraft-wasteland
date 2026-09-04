@@ -1,309 +1,201 @@
 {
  "border": {
-  "x0": -3100,
-  "z0": -3750,
-  "x1": 6900,
-  "z1": 6250
+  "x0": -2000,
+  "z0": -2000,
+  "x1": 1999,
+  "z1": 1999
  },
- "sites": [
+ "elements": [
   {
-   "name": "Camp (crater, tower, six NPC pads)",
-   "x0": -176,
-   "z0": -176,
-   "x1": 207,
-   "z1": 207,
-   "kind": "site",
-   "fixed": true,
-   "note": "spawn 19 94 26; the 384x384 cleared area of the design"
+   "id": "camp",
+   "name": "Camp",
+   "kind": "camp",
+   "x0": -192,
+   "z0": -192,
+   "x1": 191,
+   "z1": 191,
+   "source": "design: 384x384 cleared area, crater lake + Warium island at its centre, radio tower NE, six NPC pads",
+   "note": "the crater sits at the box centre; spawn there",
+   "roads": true,
+   "fixed": false
   },
   {
-   "name": "Player district (mega-base, industrial, hempcrete, library)",
-   "x0": 896,
-   "z0": 384,
-   "x1": 3103,
-   "z1": 2079,
-   "kind": "site",
-   "fixed": true,
-   "note": "the live world builds, kept at their coordinates"
-  },
-  {
-   "name": "Novo Expograd Industrial Zone",
-   "x0": 988,
-   "z0": 92,
-   "x1": 1139,
-   "z1": 259,
-   "kind": "site",
-   "fixed": false,
-   "note": "pad y 70"
-  },
-  {
-   "name": "Financial Plaza + sewers",
-   "x0": -1956,
-   "z0": 844,
-   "x1": -1789,
-   "z1": 995,
-   "kind": "site",
-   "fixed": false,
-   "note": "pad y 70"
-  },
-  {
-   "name": "Settlement (1.12 east compound)",
-   "x0": 3516,
-   "z0": 636,
-   "x1": 3795,
-   "z1": 931,
-   "kind": "site",
-   "fixed": false,
-   "note": "pad y 80"
-  },
-  {
-   "name": "Runway",
-   "x0": 2959,
-   "z0": 2519,
-   "x1": 3470,
-   "z1": 2710,
-   "kind": "site",
-   "fixed": false,
-   "note": "pad y 67"
-  },
-  {
-   "name": "Novo Expograd hub (desert city)",
-   "x0": 5596,
-   "z0": 1180,
-   "x1": 6435,
-   "z1": 1827,
-   "kind": "site",
-   "fixed": false,
-   "note": "pad y 82"
-  },
-  {
-   "name": "Bio Gen offices",
-   "x0": 2976,
-   "z0": 2528,
-   "x1": 3039,
-   "z1": 2639,
-   "kind": "site",
-   "fixed": false,
-   "note": "two small strips"
-  },
-  {
-   "name": "Region Skadowsky sector (new, place me)",
-   "x0": 250,
-   "z0": 300,
-   "x1": 749,
-   "z1": 1099,
+   "id": "skad",
+   "name": "Skadowsky sector",
    "kind": "skad",
-   "fixed": false,
-   "note": "500x800 hand-built sector by _Tu4ka_: factory, housing, lab strip, river + bridge, highway, rail"
+   "x0": 520,
+   "z0": -360,
+   "x1": 983,
+   "z1": 391,
+   "source": "incoming/skadowsky 1.2: x -480..-17 z -1232..-481",
+   "note": "hand-built Tarkov sector: factory, housing, lab strip, river + bridge, highway, rail",
+   "roads": true,
+   "fixed": false
+  },
+  {
+   "id": "novo",
+   "name": "Novo Expograd Industrial Zone",
+   "kind": "build",
+   "x0": 720,
+   "z0": -760,
+   "x1": 863,
+   "z1": -601,
+   "source": "scratch/upgrade/novo_industrial (1.12)",
+   "note": "refinery yard, HBM towers",
+   "roads": true,
+   "fixed": false
+  },
+  {
+   "id": "mega",
+   "name": "Mega-base",
+   "kind": "build",
+   "x0": -1200,
+   "z0": 300,
+   "x1": -817,
+   "z1": 827,
+   "source": "live world x 2192..2575 z 400..927",
+   "note": "factory platform, bookshelves, sculk",
+   "roads": true,
+   "fixed": false
+  },
+  {
+   "id": "indu",
+   "name": "Industrial district",
+   "kind": "build",
+   "x0": -760,
+   "z0": 640,
+   "x1": -297,
+   "z1": 911,
+   "source": "live world x 1904..2367 z 864..1135",
+   "note": "",
+   "roads": true,
+   "fixed": false
+  },
+  {
+   "id": "hemp",
+   "name": "Hempcrete compound",
+   "kind": "build",
+   "x0": -1400,
+   "z0": -260,
+   "x1": -1081,
+   "z1": 59,
+   "source": "live world x 1568..1887 z 1152..1471",
+   "note": "",
+   "roads": true,
+   "fixed": false
+  },
+  {
+   "id": "lib",
+   "name": "Library",
+   "kind": "build",
+   "x0": -640,
+   "z0": 260,
+   "x1": -545,
+   "z1": 355,
+   "source": "live world x 2032..2127 z 1392..1487",
+   "note": "",
+   "roads": true,
+   "fixed": false
+  },
+  {
+   "id": "plaza",
+   "name": "Financial Plaza + sewers",
+   "kind": "build",
+   "x0": -900,
+   "z0": -900,
+   "x1": -741,
+   "z1": -757,
+   "source": "scratch/upgrade/financial_plaza + sewers (1.12)",
+   "note": "sewers stack under the plaza",
+   "roads": true,
+   "fixed": false
+  },
+  {
+   "id": "settle",
+   "name": "Settlement",
+   "kind": "build",
+   "x0": 900,
+   "z0": 900,
+   "x1": 1171,
+   "z1": 1187,
+   "source": "scratch/upgrade/world east site (1.12)",
+   "note": "red-sandstone compound with roads",
+   "roads": true,
+   "fixed": false
+  },
+  {
+   "id": "biogen",
+   "name": "Bio Gen offices",
+   "kind": "build",
+   "x0": 1300,
+   "z0": -400,
+   "x1": 1363,
+   "z1": -145,
+   "source": "scratch/upgrade/biogen_strip (1.12)",
+   "note": "three small offices",
+   "roads": true,
+   "fixed": false
+  },
+  {
+   "id": "hub",
+   "name": "Novo Expograd hub",
+   "kind": "build",
+   "x0": -1950,
+   "z0": -1900,
+   "x1": -1119,
+   "z1": -1261,
+   "source": "scratch/upgrade/world hub (1.12, ships cut)",
+   "note": "the desert city: platform, rail spine, hangar",
+   "roads": true,
+   "fixed": false
+  },
+  {
+   "id": "runway",
+   "name": "Runway",
+   "kind": "pad",
+   "x0": 1100,
+   "z0": 1400,
+   "x1": 1611,
+   "z1": 1591,
+   "source": "built pad (no transplant)",
+   "note": "airfield pad with outline",
+   "roads": true,
+   "fixed": false
+  },
+  {
+   "id": "old",
+   "name": "29 old sites (48x48 each)",
+   "kind": "build",
+   "x0": 300,
+   "z0": 1100,
+   "x1": 635,
+   "z1": 1483,
+   "source": "live world, 29 rects at +140,+89 chunks",
+   "note": "placed as one cluster here; scattered along roads at build time",
+   "roads": true,
+   "fixed": false
   }
  ],
  "zones": [
   {
+   "id": "woods",
    "name": "The Woods",
    "type": "wild",
-   "x0": 400,
-   "z0": -3500,
-   "x1": 2400,
-   "z1": -1500
+   "x0": 600,
+   "z0": -1900,
+   "x1": 1599,
+   "z1": -901
+  },
+  {
+   "id": "city1",
+   "name": "City zone (Lost Cities)",
+   "type": "city",
+   "x0": 300,
+   "z0": -1000,
+   "x1": 1000,
+   "z1": -500
   }
  ],
- "roads": [
-  {
-   "name": "spine_camp_novo_district",
-   "width": 7,
-   "points": [
-    [
-     173,
-     8
-    ],
-    [
-     984,
-     176
-    ],
-    [
-     1064,
-     264
-    ],
-    [
-     900,
-     384
-    ]
-   ]
-  },
-  {
-   "name": "west_road_camp_plaza",
-   "width": 7,
-   "points": [
-    [
-     -176,
-     40
-    ],
-    [
-     -1780,
-     924
-    ]
-   ]
-  },
-  {
-   "name": "district_runway",
-   "width": 7,
-   "points": [
-    [
-     2368,
-     1552
-    ],
-    [
-     2959,
-     2615
-    ]
-   ]
-  },
-  {
-   "name": "district_settlement",
-   "width": 7,
-   "points": [
-    [
-     3103,
-     783
-    ],
-    [
-     3512,
-     783
-    ]
-   ]
-  },
-  {
-   "name": "novo_woods_spur",
-   "width": 7,
-   "points": [
-    [
-     1064,
-     88
-    ],
-    [
-     1400,
-     -1500
-    ]
-   ]
-  }
- ],
- "old": [
-  [
-   2584,
-   376
-  ],
-  [
-   2536,
-   376
-  ],
-  [
-   1096,
-   3096
-  ],
-  [
-   3448,
-   1048
-  ],
-  [
-   3112,
-   776
-  ],
-  [
-   1144,
-   2296
-  ],
-  [
-   3128,
-   1384
-  ],
-  [
-   1160,
-   3080
-  ],
-  [
-   4728,
-   3064
-  ],
-  [
-   4008,
-   3096
-  ],
-  [
-   1384,
-   2280
-  ],
-  [
-   1000,
-   2424
-  ],
-  [
-   2056,
-   2136
-  ],
-  [
-   3272,
-   1048
-  ],
-  [
-   3976,
-   3096
-  ],
-  [
-   3992,
-   3064
-  ],
-  [
-   1000,
-   2376
-  ],
-  [
-   1032,
-   2792
-  ],
-  [
-   4184,
-   3064
-  ],
-  [
-   3112,
-   840
-  ],
-  [
-   1112,
-   3208
-  ],
-  [
-   1320,
-   2872
-  ],
-  [
-   1048,
-   2872
-  ],
-  [
-   3240,
-   792
-  ],
-  [
-   4376,
-   2936
-  ],
-  [
-   3144,
-   1240
-  ],
-  [
-   1336,
-   2696
-  ],
-  [
-   968,
-   2936
-  ],
-  [
-   1160,
-   2968
-  ]
- ],
+ "roads": [],
  "notes": ""
 }
