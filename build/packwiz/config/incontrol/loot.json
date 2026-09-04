@@ -1,0 +1,432 @@
+[
+  {
+    "mob": "minecraft:zombie",
+    "player": true,
+    "item": "minecraft:string",
+    "random": 0.5
+  },
+  {
+    "mob": "minecraft:zombie",
+    "player": true,
+    "item": "minecraft:spider_eye",
+    "random": 0.5
+  },
+  {
+    "mob": "minecraft:zombie",
+    "player": true,
+    "item": "minecraft:ender_pearl",
+    "random": 0.04
+  },
+  {
+    "mob": "minecraft:zombie",
+    "player": true,
+    "item": "minecraft:gunpowder",
+    "random": 0.4
+  },
+  {
+    "mob": "minecraft:zombie",
+    "player": true,
+    "item": "minecraft:bone",
+    "random": 0.5
+  },
+  {
+    "mob": "minecraft:zombie",
+    "player": true,
+    "item": "superbwarfare:handgun_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie",
+    "player": true,
+    "item": "superbwarfare:rifle_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie",
+    "player": true,
+    "item": "superbwarfare:sniper_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie",
+    "player": true,
+    "item": "superbwarfare:shotgun_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie",
+    "player": true,
+    "item": "minecraft:bread",
+    "random": 0.07,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie",
+    "player": true,
+    "item": "minecraft:baked_potato",
+    "random": 0.05,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie",
+    "player": true,
+    "item": "minecraft:dried_kelp",
+    "random": 0.05,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie",
+    "player": true,
+    "item": "minecraft:apple",
+    "random": 0.05,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie_villager",
+    "player": true,
+    "item": "minecraft:string",
+    "random": 0.5
+  },
+  {
+    "mob": "minecraft:zombie_villager",
+    "player": true,
+    "item": "minecraft:spider_eye",
+    "random": 0.5
+  },
+  {
+    "mob": "minecraft:zombie_villager",
+    "player": true,
+    "item": "minecraft:ender_pearl",
+    "random": 0.04
+  },
+  {
+    "mob": "minecraft:zombie_villager",
+    "player": true,
+    "item": "minecraft:gunpowder",
+    "random": 0.6
+  },
+  {
+    "mob": "minecraft:zombie_villager",
+    "player": true,
+    "item": "minecraft:bone",
+    "random": 0.3
+  },
+  {
+    "mob": "minecraft:zombie_villager",
+    "player": true,
+    "item": "superbwarfare:handgun_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie_villager",
+    "player": true,
+    "item": "superbwarfare:rifle_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie_villager",
+    "player": true,
+    "item": "superbwarfare:sniper_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie_villager",
+    "player": true,
+    "item": "superbwarfare:shotgun_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie_villager",
+    "player": true,
+    "item": "minecraft:bread",
+    "random": 0.07,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie_villager",
+    "player": true,
+    "item": "minecraft:baked_potato",
+    "random": 0.08,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie_villager",
+    "player": true,
+    "item": "minecraft:dried_kelp",
+    "random": 0.05,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombie_villager",
+    "player": true,
+    "item": "minecraft:apple",
+    "random": 0.08,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombified_piglin",
+    "player": true,
+    "item": "minecraft:string",
+    "random": 0.5
+  },
+  {
+    "mob": "minecraft:zombified_piglin",
+    "player": true,
+    "item": "minecraft:spider_eye",
+    "random": 0.5
+  },
+  {
+    "mob": "minecraft:zombified_piglin",
+    "player": true,
+    "item": "minecraft:ender_pearl",
+    "random": 0.04
+  },
+  {
+    "mob": "minecraft:zombified_piglin",
+    "player": true,
+    "item": "minecraft:gunpowder",
+    "random": 0.4
+  },
+  {
+    "mob": "minecraft:zombified_piglin",
+    "player": true,
+    "item": "minecraft:bone",
+    "random": 0.5
+  },
+  {
+    "mob": "minecraft:zombified_piglin",
+    "player": true,
+    "item": "superbwarfare:handgun_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombified_piglin",
+    "player": true,
+    "item": "superbwarfare:rifle_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombified_piglin",
+    "player": true,
+    "item": "superbwarfare:sniper_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombified_piglin",
+    "player": true,
+    "item": "superbwarfare:shotgun_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombified_piglin",
+    "player": true,
+    "item": "minecraft:bread",
+    "random": 0.12,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombified_piglin",
+    "player": true,
+    "item": "minecraft:baked_potato",
+    "random": 0.05,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombified_piglin",
+    "player": true,
+    "item": "minecraft:dried_kelp",
+    "random": 0.05,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:zombified_piglin",
+    "player": true,
+    "item": "minecraft:apple",
+    "random": 0.05,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:husk",
+    "player": true,
+    "item": "minecraft:string",
+    "random": 0.5
+  },
+  {
+    "mob": "minecraft:husk",
+    "player": true,
+    "item": "minecraft:spider_eye",
+    "random": 0.25
+  },
+  {
+    "mob": "minecraft:husk",
+    "player": true,
+    "item": "minecraft:ender_pearl",
+    "random": 0.04
+  },
+  {
+    "mob": "minecraft:husk",
+    "player": true,
+    "item": "minecraft:gunpowder",
+    "random": 0.3
+  },
+  {
+    "mob": "minecraft:husk",
+    "player": true,
+    "item": "minecraft:bone",
+    "random": 0.3
+  },
+  {
+    "mob": "minecraft:husk",
+    "player": true,
+    "item": "superbwarfare:handgun_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:husk",
+    "player": true,
+    "item": "superbwarfare:rifle_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:husk",
+    "player": true,
+    "item": "superbwarfare:sniper_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:husk",
+    "player": true,
+    "item": "superbwarfare:shotgun_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:husk",
+    "player": true,
+    "item": "minecraft:bread",
+    "random": 0.05,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:husk",
+    "player": true,
+    "item": "minecraft:baked_potato",
+    "random": 0.05,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:husk",
+    "player": true,
+    "item": "minecraft:dried_kelp",
+    "random": 0.08,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:husk",
+    "player": true,
+    "item": "minecraft:apple",
+    "random": 0.07,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:drowned",
+    "player": true,
+    "item": "minecraft:string",
+    "random": 0.5
+  },
+  {
+    "mob": "minecraft:drowned",
+    "player": true,
+    "item": "minecraft:spider_eye",
+    "random": 0.5
+  },
+  {
+    "mob": "minecraft:drowned",
+    "player": true,
+    "item": "minecraft:ender_pearl",
+    "random": 0.04
+  },
+  {
+    "mob": "minecraft:drowned",
+    "player": true,
+    "item": "minecraft:gunpowder",
+    "random": 0.25
+  },
+  {
+    "mob": "minecraft:drowned",
+    "player": true,
+    "item": "minecraft:bone",
+    "random": 0.1
+  },
+  {
+    "mob": "minecraft:drowned",
+    "player": true,
+    "item": "superbwarfare:handgun_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:drowned",
+    "player": true,
+    "item": "superbwarfare:rifle_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:drowned",
+    "player": true,
+    "item": "superbwarfare:sniper_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:drowned",
+    "player": true,
+    "item": "superbwarfare:shotgun_ammo_box",
+    "random": 0.02,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:drowned",
+    "player": true,
+    "item": "minecraft:bread",
+    "random": 0.05,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:drowned",
+    "player": true,
+    "item": "minecraft:baked_potato",
+    "random": 0.05,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:drowned",
+    "player": true,
+    "item": "minecraft:dried_kelp",
+    "random": 0.08,
+    "itemcount": "1"
+  },
+  {
+    "mob": "minecraft:drowned",
+    "player": true,
+    "item": "minecraft:apple",
+    "random": 0.05,
+    "itemcount": "1"
+  }
+]

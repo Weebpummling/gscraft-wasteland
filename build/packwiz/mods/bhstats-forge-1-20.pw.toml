@@ -1,0 +1,8 @@
+name = "BHStats_Forge_1.20+"
+filename = "BHStats_Forge_1.20+.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/BHStats_Forge_1.20_.jar"
+hash-format = "sha512"
+hash = "5bcc0587b5c8ba0bf0e6a7ba724d8eebe8e3e4da08b9c02af6986ab7a9eaf7f62642dd752286dad229e3944e67e0572a6abf9bbb28505436befa3eba3ce4c1f1"

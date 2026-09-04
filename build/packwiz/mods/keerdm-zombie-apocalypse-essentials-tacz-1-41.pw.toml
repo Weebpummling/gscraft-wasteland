@@ -1,0 +1,8 @@
+name = "Keerdm Zombie Apocalypse Essentials (TACZ) 1.41"
+filename = "Keerdm Zombie Apocalypse Essentials (TACZ) 1.41.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/Keerdm_Zombie_Apocalypse_Essentials_TACZ_1.41.jar"
+hash-format = "sha512"
+hash = "4e3c4ce47c29d5dd0dc33de394602943b7889c90910a01fc6fa1ec14a696f95fbe07fd3abca32869419394ac203a8b771bd86ddef5025fcd58544572d0a05481"

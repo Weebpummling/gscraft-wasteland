@@ -1,0 +1,13 @@
+name = "MCSP-1.20.1-V1.0.8"
+filename = "MCSP-1.20.1-V1.0.8.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/QxMzmFVS/versions/uD8T5gV0/MCSP-1.20.1-V1.0.8.jar"
+hash-format = "sha512"
+hash = "19ff054b0bdd5d570691dc2a82c7c9e2b57cc5ed18bca462758fd9981f2171cbc934f4bb5eccde1fa67275ff793dca4278cc4daee4b19444f0ff0fffacb648fc"
+
+[update]
+[update.modrinth]
+mod-id = "QxMzmFVS"
+version = "uD8T5gV0"

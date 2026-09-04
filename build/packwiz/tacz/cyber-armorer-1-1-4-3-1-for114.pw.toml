@@ -1,0 +1,8 @@
+name = "Cyber Armorer-1.1.4.3.1_for114"
+filename = "Cyber Armorer-1.1.4.3.1_for114.zip"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/Cyber_Armorer-1.1.4.3.1_for114.zip"
+hash-format = "sha512"
+hash = "8113cf5ed93a1c6b70a381359eda4ef8e8da65979805bf22c678152f9ae10ecd344ba3f74ecb91a23dfd92ade89009a9a0d32fe41d6491f5daebf1488a28a388"

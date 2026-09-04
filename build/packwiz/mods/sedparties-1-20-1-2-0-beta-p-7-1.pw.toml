@@ -1,0 +1,8 @@
+name = "sedparties-1.20.1-2.0-beta-p.7.1"
+filename = "sedparties-1.20.1-2.0-beta-p.7.1.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/sedparties-1.20.1-2.0-beta-p.7.1.jar"
+hash-format = "sha512"
+hash = "cb6d36e0ec399f2ecd3d243694ccc57beb3caefd46d212c1a26c92d9ccf4f31d8ac72dbebf9f6439ef535b63222ca17b62b892bba1745070c5c88608deeb43fa"

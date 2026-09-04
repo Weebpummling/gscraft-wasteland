@@ -1,0 +1,8 @@
+name = "recipeessentials-1.20.1-4.0"
+filename = "recipeessentials-1.20.1-4.0.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/recipeessentials-1.20.1-4.0.jar"
+hash-format = "sha512"
+hash = "0d9aad68520082d0ace8c7e4222a7ba97a2c2c957a83c1e5be672f28da996a69a958358f2a086ec23a09e3da9d4f2492686afa9a9db87a9c2088d86e10f0900b"

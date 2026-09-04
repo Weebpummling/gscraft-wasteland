@@ -1,0 +1,8 @@
+name = "dynview-1.20.1-4.0"
+filename = "dynview-1.20.1-4.0.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/dynview-1.20.1-4.0.jar"
+hash-format = "sha512"
+hash = "24e52be686bcbc4e5d43035ff58cfe6a9c758989270ab9020620697c00394f0a82379100498f3d1e45a57002fc6853741124d19ead1fd1120826c7d0ac880c61"

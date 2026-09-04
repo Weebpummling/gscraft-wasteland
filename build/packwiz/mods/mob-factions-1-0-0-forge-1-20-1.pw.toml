@@ -1,0 +1,13 @@
+name = "mob_factions-1.0.0-forge-1.20.1"
+filename = "mob_factions-1.0.0-forge-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/plbFcob5/versions/j2Tr8sZj/mob_factions-1.0.0-forge-1.20.1.jar"
+hash-format = "sha512"
+hash = "2fd54fa3acb58eb8bbe8237e086cefd4455244e775cdae6cf1463573b86a7d7dcac2b45b59f97c0b4ef73f21e735f798292c3efa41e693565466c2a67f5e755c"
+
+[update]
+[update.modrinth]
+mod-id = "plbFcob5"
+version = "j2Tr8sZj"

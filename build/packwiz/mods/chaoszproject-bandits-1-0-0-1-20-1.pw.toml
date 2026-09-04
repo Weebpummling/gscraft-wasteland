@@ -1,0 +1,8 @@
+name = "chaoszproject-bandits-1.0.0-1.20.1"
+filename = "chaoszproject-bandits-1.0.0-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/chaoszproject-bandits-1.0.0-1.20.1.jar"
+hash-format = "sha512"
+hash = "34cd174f8207823ef3905d24a7db65a433395da73c8e3863c097ec6815c497d4a0fd1542ce148949efdf8b69ee3ddf958f62e91c4529bde06c9e6b0936c12b49"

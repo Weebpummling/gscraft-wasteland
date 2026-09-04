@@ -1,0 +1,13 @@
+#Just debug mode
+DebugMode = false
+#Dev mode adds some commands, must be turned off for release versions of modpacks.
+DevMode = false
+#Default value of doExtraChecks (if value isnt provided)
+DefaultDoExtraChecksValue = true
+#Creates berezka_plugins folder and loads data from it.
+UseFolderPluginSystem = false
+#Defines loot tables to replace: modid:path:target.json (path from loot_tables folder to target, target - name of loot table, required file must be in berezka_plugins/modid/target.json, example: berezka_api:chests/:berezkahousesmall_0.json)
+FolderPluginSystemList = []
+#Spawns less loot.
+SpawnLessLoot = false
+

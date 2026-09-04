@@ -1,0 +1,8 @@
+name = "[Tacz1.1.5+]CIBR_GunsPack_v0.2"
+filename = "[Tacz1.1.5+]CIBR_GunsPack_v0.2.zip"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/Tacz1.1.5_CIBR_GunsPack_v0.2.zip"
+hash-format = "sha512"
+hash = "8fd56e39001726e4dbe1c6f4638bc3993d77a99242f66a02bb74373779d2c1492b351b396bed741009dd3b203297d172079df1b62b2a69a892bf2ee88835905e"

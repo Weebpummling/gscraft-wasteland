@@ -1,0 +1,8 @@
+name = "ftb-library-forge-2001.2.13"
+filename = "ftb-library-forge-2001.2.13.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/ftb-library-forge-2001.2.13.jar"
+hash-format = "sha512"
+hash = "433c890fc64b31f140cdb92c6f03f78400bcc105229d1026dbbecb027ff75a8e2f94af5b1eef083d7cf3d37a9afa176731bc59cfeb771d01738353f9f1c113bf"

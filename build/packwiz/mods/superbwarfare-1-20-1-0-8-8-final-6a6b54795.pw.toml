@@ -1,0 +1,13 @@
+name = "superbwarfare-1.20.1-0.8.8-final-6a6b54795"
+filename = "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/Cd3DYqzn/versions/DdiwkiSV/superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar"
+hash-format = "sha512"
+hash = "67697dc65377c1dd4c04a1f3f51873d6ace5ed2d98ad45cfd6dcc2fbfd8c60c98810ccc16e9bd857291c990d8359d9799de63fb499a050daa8904f481f07bcac"
+
+[update]
+[update.modrinth]
+mod-id = "Cd3DYqzn"
+version = "DdiwkiSV"

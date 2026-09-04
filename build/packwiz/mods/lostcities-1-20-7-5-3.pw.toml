@@ -1,0 +1,13 @@
+name = "lostcities-1.20-7.5.3"
+filename = "lostcities-1.20-7.5.3.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/8VDCUS3b/versions/lOvBYez2/lostcities-1.20-7.5.3.jar"
+hash-format = "sha512"
+hash = "9d6c3c67063f4480dcd40a612854a7d63f049c9a63d18eb95a2276f427faae575ca4f24aa9bdb6daac2f9df9721c94fca9fd0b5af865932f29bbe4b6c3194d84"
+
+[update]
+[update.modrinth]
+mod-id = "8VDCUS3b"
+version = "lOvBYez2"

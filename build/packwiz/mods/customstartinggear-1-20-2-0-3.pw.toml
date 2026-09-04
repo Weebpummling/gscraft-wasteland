@@ -1,0 +1,8 @@
+name = "CustomStartingGear-1.20-2.0.3"
+filename = "CustomStartingGear-1.20-2.0.3.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/CustomStartingGear-1.20-2.0.3.jar"
+hash-format = "sha512"
+hash = "783d6efba1eaadbbe494242a369cef2027ac8ee4d2a2ed74b5079513b5a0c264f68cc0789e8bff61dae073d7f3b1155c59b7838f70f09da955e50635f21f216d"

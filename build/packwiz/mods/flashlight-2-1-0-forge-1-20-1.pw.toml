@@ -1,0 +1,13 @@
+name = "flashlight-2.1.0-forge-1.20.1"
+filename = "flashlight-2.1.0-forge-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/SemszBhn/versions/dkQtiEhc/flashlight-2.1.0-forge-1.20.1.jar"
+hash-format = "sha512"
+hash = "45e97d9f5263331a3cd3787b64bbfbf5e75fd591d30847e73b4816a921d66bb2acb03f9b1a4ccadd64289574fac0a434515c9fb36d701ea32ea191d828611530"
+
+[update]
+[update.modrinth]
+mod-id = "SemszBhn"
+version = "dkQtiEhc"

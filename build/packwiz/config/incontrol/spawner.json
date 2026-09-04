@@ -1,0 +1,130 @@
+[
+  {
+    "mob": [
+      "minecraft:zombie",
+      "minecraft:husk",
+      "minecraft:drowned",
+      "minecraft:zombie_villager"
+    ],
+    "weights": [
+      10,
+      3,
+      2,
+      1
+    ],
+    "persecond": 0.55,
+    "attempts": 28,
+    "amount": {
+      "minimum": 1,
+      "maximum": 4,
+      "groupdistance": 4
+    },
+    "addscoreboardtags": [
+      "ic_apoc_zeds"
+    ],
+    "conditions": {
+      "dimension": "minecraft:overworld",
+      "norestrictions": true,
+      "mindist": 24,
+      "maxdist": 110,
+      "minheight": -64,
+      "maxheight": 256,
+      "validspawn": true,
+      "sturdy": true,
+      "and": {
+        "maxlight": 7
+      }
+    }
+  },
+  {
+    "mob": [
+      "minecraft:skeleton",
+      "minecraft:stray"
+    ],
+    "weights": [
+      4,
+      1
+    ],
+    "persecond": 0.14,
+    "attempts": 22,
+    "amount": {
+      "minimum": 1,
+      "maximum": 2,
+      "groupdistance": 3
+    },
+    "addscoreboardtags": [
+      "ic_apoc_ranged"
+    ],
+    "conditions": {
+      "dimension": "minecraft:overworld",
+      "norestrictions": true,
+      "mindist": 26,
+      "maxdist": 110,
+      "minheight": -64,
+      "maxheight": 256,
+      "validspawn": true,
+      "sturdy": true,
+      "and": {
+        "maxlight": 7
+      }
+    }
+  },
+  {
+    "mob": [
+      "minecraft:spider"
+    ],
+    "persecond": 0.1,
+    "attempts": 18,
+    "amount": {
+      "minimum": 1,
+      "maximum": 2,
+      "groupdistance": 3
+    },
+    "addscoreboardtags": [
+      "ic_apoc_spiders"
+    ],
+    "conditions": {
+      "dimension": "minecraft:overworld",
+      "norestrictions": true,
+      "mindist": 26,
+      "maxdist": 110,
+      "minheight": -64,
+      "maxheight": 256,
+      "validspawn": true,
+      "sturdy": true,
+      "and": {
+        "maxlight": 7
+      }
+    }
+  },
+  {
+    "mob": "minecraft:pillager",
+    "persecond": 0.025,
+    "attempts": 20,
+    "amount": {
+      "minimum": 1,
+      "maximum": 2,
+      "groupdistance": 6
+    },
+    "addscoreboardtags": [
+      "ic_patrol"
+    ],
+    "conditions": {
+      "dimension": "minecraft:overworld",
+      "mindist": 40,
+      "maxdist": 140,
+      "minheight": 50,
+      "maxheight": 200,
+      "validspawn": true,
+      "sturdy": true,
+      "and": {
+        "seesky": true,
+        "mintime": 0,
+        "maxtime": 12000
+      },
+      "not": {
+        "structuretags": "minecraft:village"
+      }
+    }
+  }
+]
