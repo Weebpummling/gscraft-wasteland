@@ -209,7 +209,6 @@ Rollback is the reverse: `scratch/rollback/rollback.py` on the working machine h
 
 ## 7. Release assets
 
-`handoff-2026-09-02` (15 assets): client pack, server mod set, pristine v2 and edited v5 region sets, the
-non-world server backups. `build-v6-2026-09-03` (4 assets): the finished v6 world. Player identity files
+`handoff-2026-09-02` was deleted on 2026-09-04 (owner: not needed); every one of its 15 assets is kept on this machine in `G:\GSCraftelease\` (sizes verified before deletion). `build-v6-2026-09-03` (4 assets): the finished v6 world. Player identity files
 (ops, whitelist, user caches) are deliberately not published. `tools/release_upload.py` re-uploads a folder
 of zips to a tag, skipping what is already there.
