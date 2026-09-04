@@ -73,7 +73,7 @@ ordered by how much it would add for how little it costs, with a recommendation 
 - **Station-only rule, the recipe half:** `build/kubejs/server_scripts/gscraft_recipes.js` removes every bench recipe (the
   vanilla crafting table, IE's crafting table and Engineer's Workbench, the Refurbished Furniture workbench, Superb
   Warfare's assembling and reforging tables, all eleven Immersive Vehicles benches and the fuel pump), the Superb Warfare
-  defence items (Walls 1-3 station orders later), every vvp / MCSP vehicle assembling recipe and the twenty-one Superb Warfare
+  defence items (Walls 1-3 station orders later), the Superb Warfare explosives and side-arms (Teddy's station orders or gone for good, section 2b, 2026-09-04), every vvp / MCSP vehicle assembling recipe and the twenty-one Superb Warfare
   vehicles outside the roster, plus TaCZ's gun smith table, Apotheosis' five tables and every Sophisticated Backpacks
   recipe (packs and upgrades are Storage 1-4 orders). The inert crafting table (block interaction) and the station block are Phase C.
 - **Improved Mobs by distance:** `Difficulty type = DISTANCESPAWN`, difficulty 0 inside 1.5 km of the camp, 3 from 1.5 km,

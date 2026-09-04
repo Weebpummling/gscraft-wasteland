@@ -47,7 +47,7 @@ thoroughfare. No kept generated site falls inside it (structure plan check).
 - **Spawning**: In Control! rules for the rectangle - fewer zombies, more animals, the fog man and the
   eyes at night; bandits only at the outpost. The rectangle is the rule's `dimension`/`minx…maxz`.
 
-## 4. Quest hooks (adopted 2026-09-04: nine quests inside the NPC chapters of `gscraft-quests.md`, season 1)
+## 4. Quest hooks (adopted 2026-09-04: sixteen quests inside the NPC chapters of `gscraft-quests.md`, season 1)
 
 The Woods is the focus of a chain, not a stop on the way. Candidates by NPC:
 
@@ -61,8 +61,8 @@ The Woods is the focus of a chain, not a stop on the way. Candidates by NPC:
 | Teddy the Hermit (2026-09-04) | the seventh survivor, in the outpost's tower once it is cleared: the explosives chapter H1–H7 (quests §7A) | the Woods is where the loud things live |
 | Marshall | the bandit outpost as a one-off clear (R-W1: kill 15 there; no marker, no site guard, no counterattack — it is not a strongpoint); the Woods bunkers as the horror chapter's dungeons | contrast: an attack that comes through trees, not streets |
 
-Decided (owner default, 2026-09-04): **no sixth strongpoint** — the Woods is a loot-and-quest region; its nine quests are
-J-W1–3, W-W1, T-W1, M-W1, U-W1, R-W1 and R-W2 in their NPCs' chapters of `gscraft-quests.md`.
+Decided (owner default, 2026-09-04): **no sixth strongpoint** — the Woods is a loot-and-quest region; its sixteen quests are
+J-W1–3, W-W1, T-W1, M-W1, U-W1, R-W1 and R-W2 in their NPCs' chapters of `gscraft-quests.md`, plus Teddy's H1–H7 (§7A).
 
 ## 5. How it is built (after the v7 pre-generation)
 

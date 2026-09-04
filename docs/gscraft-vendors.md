@@ -30,7 +30,7 @@ barters of §5 are the one exception, and each returns a component the team has 
 in the loot tables (loot sheet §1); no villager in this world trades (Hostile Villages), so emeralds
 have no other exit. Sources: the Valuables rows (offices, Financial Plaza, the hub, the mud village,
 military chests), the valuables bag (J3), the outpost's cache (R-W1), and selling to vendors.
-Sinks: buying (Teddy's explosives are the dearest), hiring recruits. A loot trip's sellable surplus is worth about 10–20 emeralds; a
+Sinks: buying (Teddy's rockets are the dearest ammunition), hiring recruits. A loot trip's sellable surplus is worth about 10–20 emeralds; a
 rifle costs 40 (§4), so the shortcut is two or three trips of junk — a real choice, not a freebie.
 
 ## 3. Seven counters, four loyalty levels
@@ -45,12 +45,12 @@ what Tarkov shows: a trader whose stock grows as the relationship does, and a fe
 
 | Vendor | Category | Buys (sink) | LL1 sells | LL2 adds | LL3 adds |
 |---|---|---|---|---|---|
-| **Walker** — the yard | guns, ammunition, tools, armour | hardware, mechanical items, salvage weapons | pistol & shotgun ammunition (daily cap), casings, powder, basic tools, scrap vest/helmet; **pistol, pump shotgun** (after W-A1) | rifle ammunition; **assault rifle, SMG** (after W-A3); plated vest/helmet (after `plant_defended`); basic backpack (after Storage 1) | **sniper, MG** (after W-A4; never the launcher); composite armour (after `fr06_defended`); the Foreman's odd lots: 1 random tool a day |
+| **Walker** — the yard | guns, ammunition, tools, armour | hardware, mechanical items, salvage weapons | pistol & shotgun ammunition (daily cap), casings, powder, basic tools, scrap vest/helmet; **pistol, pump shotgun** (after W-A1) | rifle ammunition; **assault rifle, SMG** (after W-A3); plated vest/helmet (after `plant_defended`); basic backpack (after Storage 1) | **sniper, MG** (after W-A4); composite armour (after `fr06_defended`); the Foreman's odd lots: 1 random tool a day |
 | **Tony** — the clinic | medical | medical items, blood bags | bandages, painkillers, poultice (after T-W1) | med kits (daily cap 4), antiseptic, syringes (the infection cure is free from T1 and never a trade) | blood bags, ration packs, the surgical-kit barter (§5) |
 | **Michael** — the plant | fuel, power, water | filters and chemicals, car batteries | empty fuel cans, coolant | fuel cans (full, daily cap 6), small battery packs, flashlight batteries | medium battery packs, the transformer-core barter (§5) |
 | **Tune** — the shack | electronics, attachments, optics | electrical items, valuables | iron sights, extended magazines, wire spools | optics, suppressor (after W-A4), **night-vision goggles** (§6), flashlight batteries | thermal? **no** — thermal stays vehicle-only (§6); laser sights, the encrypted-radio *decrypt* barter |
 | **James** — the lookout | maps, expedition kit | folders, hard drives | compass, map, torches, zipline rope (after J-B2) | site dossier *copies* (a bought dossier does **not** count for J-S quests — the original must be found) | the Cartographer's odd lots: 1 random Valuables item a day |
-| **Teddy** — the Woods outpost (after R-W1) | explosives | gunpowder, powder | hand grenades, smoke grenades (after H1/H2) | RGO grenades, 40 mm grenades (after H3/H4) | rockets, standard and TBG (after H5/H6) — loyalty = his quests, he has no building tiers |
+| **Teddy** — the Woods outpost (after R-W1) | explosives | gunpowder, powder | hand grenades, smoke grenades (after H1/H2) | RGO grenades, 40 mm grenades (after H4) | rockets, standard and TBG (after H5/H6) — loyalty = his quests, he has no building tiers |
 | **Marshall** — the gatehouse | defences, recruits | gunpowder, plates | sandbags, barbed wire (after D1); recruits (after D2, the mod's own hire) | claymores, mortar shells (after D2) | drones, C4 (after D4); rifle and MG ammunition at double the daily cap from X6 onward (the finale's stockpile) |
 
 ## 4. Prices (first cut; Phase C tunes against the loot value table)
@@ -64,6 +64,7 @@ vendor pays for the items. Buy prices are per stack of the item's normal stack s
 | Electrical (4) | 2 | 3 (wire spool, capacitor only) |
 | Mechanical (4) | 2 | — |
 | Filters and chemicals (4) | 2 | 3 (bleach, antifreeze) |
+| Powder (4), gunpowder (4) | 2 (Teddy, Marshall) | — |
 | Medical (4) | 2 | bandage 1, painkillers 2, med kit 4 |
 | Valuables (1) | 4 (hard drive 8) | — |
 | Salvage weapon | 6 | — |
@@ -135,6 +136,6 @@ weapon light, no thermal scope.
 
 - Design §3 gains the pointer to this doc; emeralds are already a small item (loot sheet).
 - Quests: three "Counter" checkmark quests per camp NPC chapter (one per LL) — 18 quests; Teddy's counter levels are his own quests, listed in the
-  quests doc when Phase C writes the book; not counted in the 129 until then.
+  quests doc when Phase C writes the book; not counted in the 136 until then.
 - Crafting §5: unchanged — the station stays the cheap route; the vendor price rule (§4) is the check.
 - Camp spec §6: a counter prop per tier-1 template (written).

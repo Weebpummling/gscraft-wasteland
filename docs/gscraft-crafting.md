@@ -230,7 +230,7 @@ in loot in small amounts as before; casings and powder are craftable so it never
 ### 5.2 Weapons — Walker's armoury line
 
 TaCZ's default pack is the source of guns (54 in the jar across pistols, rifles, shotguns,
-SMGs, snipers, MGs and launchers). One gun per class per tier is craftable; ids are the default
+SMGs, snipers, MGs and launchers). One gun per class per tier is craftable, launchers excepted (explosives are Teddy's, §5.8); ids are the default
 pack's and are pinned in the recipe file at Phase C.
 
 | Tier | Quest | Unlocks | Recipe shape |
@@ -307,15 +307,15 @@ need nothing from Act II; the fuel tank's sealed tubing is covered by W7's new g
 | Group | Orders (Superb Warfare / Sophisticated Backpacks / ParCool ids verified in the jars) | Blueprint from |
 |---|---|---|
 | **Walls 1** | `superbwarfare:sandbag` ×4: 2 cloth + 4 sand; `superbwarfare:barbed_wire` ×2: 3 metal scrap; `superbwarfare:claymore_mine`: 2 metal scrap + 1 gunpowder + 1 wire spool | Marshall, D1 |
-| **Walls 2** | the mortar (`mortar_barrel` 2 steel frame; `mortar_base_plate` 1 steel frame + 4 metal scrap; `mortar_bipod` 4 metal scrap; the `mortar_deployer` from the three) and `mortar_shell` ×2: 2 metal scrap + 2 powder (Quick); `superbwarfare:drone`: 1 circuit assembly + 1 motor assembly + 1 small battery pack; `swarm_drone` ×2: 1 circuit assembly + 4 metal scrap | Marshall, D2 |
-| **Walls 3** | the laser tower (`superbwarfare:laser_unit` + 4 plate + 2 circuit assembly + 1 transformer core); `superbwarfare:fumo_25` (radar): 4 steel frame + 2 antenna element + 1 military circuit board; `superbwarfare:c4_bomb`: 4 powder + 1 circuit assembly + 1 duct tape; `superbwarfare:jump_pad`: 2 steel frame + 1 medium battery pack | Marshall, D4 |
+| **Walls 2** | the mortar (`mortar_barrel` 2 steel frame; `mortar_base_plate` 1 steel frame + 4 metal scrap; `mortar_bipod` 4 metal scrap; the `mortar_deployer` from the three) and `mortar_shell` ×2: 2 metal scrap + 2 powder (Quick; ×4 with 1 high-energy explosive after H7); `superbwarfare:drone`: 1 circuit assembly + 1 motor assembly + 1 small battery pack; `swarm_drone` ×2: 1 circuit assembly + 4 metal scrap | Marshall, D2 |
+| **Walls 3** | the laser tower (`superbwarfare:laser_unit` + 4 plate + 2 circuit assembly + 1 transformer core); `superbwarfare:fumo_25` (radar): 4 steel frame + 2 antenna element + 1 military circuit board; `superbwarfare:c4_bomb`: 4 powder (or 1 high-energy explosive after H7) + 1 circuit assembly + 1 duct tape; `superbwarfare:jump_pad`: 2 steel frame + 1 medium battery pack | Marshall, D4 |
 | **Storage 1** | `sophisticatedbackpacks:backpack` (basic: 6 cloth + 2 duct tape) | Walker, W2 |
 | **Storage 2** | iron backpack (basic + 4 plate); `stack_upgrade_tier_1` ×2: 2 steel frame + 1 fastener kit; `magnet_upgrade`: 1 circuit assembly + 2 metal scrap | Walker, W6 |
 | **Storage 3** | gold backpack (+ 1 steel frame + 1 heavy anchor cable); `everlasting_upgrade`: 1 circuit assembly + 1 transformer core; `feeding_upgrade`: 1 circuit assembly + 4 canned goods; `pickup_upgrade`: 2 metal scrap + 1 wire spool | Walker, W10 |
 | **Storage 4** | diamond backpack (+ 1 satellite receiver); `tank_upgrade`: 2 steel frame + 1 sealed tubing; `void_upgrade`: 1 circuit assembly + 1 solvent; `inception_upgrade` is J11's reward only | Walker, W13 / J8 |
 | **Ziplines** | `parcool:zipline_rope`: 4 string + 2 metal scrap (Quick); `parcool:iron_zipline_hook` ×2: 2 metal scrap + 1 fastener kit — the lookout tier 3 and the tower's 64-metre platform get hooks placed by their functions; the rope is the players' | James, J-B2 |
 
-Every other Sophisticated Backpacks, ParCool and Superb Warfare recipe stays stripped (`gscraft_recipes.js`).
+Every other Sophisticated Backpacks, ParCool and Superb Warfare recipe stays stripped (`gscraft_recipes.js`, sections 1b, 2, 2b, 3).
 
 ### 5.8 Explosives — Teddy's line (owner, 2026-09-04)
 
@@ -333,9 +333,12 @@ but Teddy's counter.
 | RPG-7 (`superbwarfare:rpg`) | 2 gun frame + 2 barrel + 1 steel frame + 1 military circuit board | Equipment | H5 |
 | Standard rocket (`superbwarfare:rpg_rocket_standard`) | 4 metal scrap + 6 powder + 1 fastener kit | Intermediate | H5 |
 | TBG rocket (`superbwarfare:rpg_rocket_tbg`) | 1 standard rocket + 1 solvent + 2 antifreeze | Intermediate | H6 |
-| High-energy explosives (`superbwarfare:high_energy_explosives`) ×2 | 4 powder + 1 solvent + 1 bleach | Intermediate | H7 — Marshall's claymore, mortar-shell and C4 orders then take 1 of these instead of their powder |
+| High-energy explosives (`superbwarfare:high_energy_explosives`) ×2 | 4 powder + 1 solvent + 1 bleach | Intermediate | H7 — Marshall's C4 order then takes 1 of these instead of its 4 powder, and the mortar-shell order 1 instead of 2 powder for ×4 shells (the claymore uses gunpowder and is unchanged) |
 
-The javelin, the TOW, the mines and the aerial bombs stay stripped: nothing on the map is a target for them.
+The javelin, the TOW, the mines, the aerial bombs, the rockets and shells of the vehicles' own weapons, the bow, the taser
+and the Glocks are stripped for good in `gscraft_recipes.js` (section 2b): nothing on the map is a target for them, or the
+pack's TaCZ guns cover them. Section 2b also removes the jar's own recipes for every item above, so Teddy's blueprints are
+the only route.
 The Immersive Vehicles override file is still Phase C's in-game find (mod-capabilities §5b); if none
 materialises, the fallback is that the station order for an IV vehicle yields the vehicle item itself
 (KubeJS gives it on completion) and the IV bench is removed from the yard.

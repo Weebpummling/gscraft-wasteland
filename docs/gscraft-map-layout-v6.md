@@ -1,5 +1,8 @@
 # GSCraft Wasteland — Map Layout v6 (placement sheet)
 
+> **Built as v7 on 2026-09-04** on this layout (unchanged) plus the Woods rectangle and the Novo→Woods spur; review in `gscraft-map-review-v7.md`.
+
+
 2026-09-03. The coordinates behind `gscraft-map-design.md` §2, revised against everything now
 decided: the design (draft 5), the quests, the scale note, the tower generator, and the six
 foreign builds as converted. Two owner rulings drive this revision: **the radio tower stands in the

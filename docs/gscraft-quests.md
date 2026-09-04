@@ -14,7 +14,7 @@ further; they run out of things to find where they are.
 | Act | Area | From the camp | What is there | How you get there | Sessions (est.) |
 |---|---|---|---|---|---|
 | **I — The Camp** | foot range | 0 – 1.5 km | camp ruins, glass tower (1.3 km), acacia hall (1.55 km), the generated ruins around the camp, **Novo** (1.06 km E on the spine) | on foot | 1–2 |
-| **II — The West Edge** | near district | 1.5 – 2.5 km | residential block (1.9), copper tower, prismarine hall, hempcrete compound (2.0), the radio tower compound (in the camp), **industrial plant** (2.4), library (2.5); **the Woods** (2.9 km NNE, nine quests across the chapters from J-W1) | on foot, then the first car | 3–5 |
+| **II — The West Edge** | near district | 1.5 – 2.5 km | residential block (1.9), copper tower, prismarine hall, hempcrete compound (2.0), the radio tower compound (in the camp), **industrial plant** (2.4), library (2.5); **the Woods** (2.9 km NNE, sixteen quests across the chapters from J-W1, seven of them Teddy's) | on foot, then the first car | 3–5 |
 | **III — The Far Ring** | far road range | 2.5 – 4 km | **FR-06** (2.5 km E), **Financial Plaza** (2.1 km W, dry land) and the sewers under it, stone complex (2.9), mud village (2.8), the settlement (3.7 E), Bio Gen and the runway (3.9 SE) | car, truck, boat | 6–9 |
 | **IV — The Sky** | air ring | 4.5 – 6.5 km | the hub (6.2 km E), the generated cities kept as found | aircraft | 10–12 |
 
@@ -273,21 +273,21 @@ Woods' bandit outpost (720, −3440) the moment R-W1 clears it — `gscraft:npc_
 outpost's tower — and his chapter is the game's only source of **explosive weapons and their ammunition**:
 grenades, the M79 and its 40 mm rounds, the RPG-7 and its rockets, all Superb Warfare items, all crafted at
 the stations from his blueprints and sold at his counter (vendors doc §3). Nothing explosive is craftable
-or sold anywhere else; Marshall's Walls orders (claymores, mortar shells, C4) stay Marshall's but get
+or sold anywhere else; Marshall's Walls orders stay Marshall's; C4 and mortar shells get
 cheaper once Teddy's last blueprint is in.
 
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
 | H1 | The hermit | III | the Woods outpost | hand in 8 gunpowder, 4 canned goods | R-W1 | **hand grenade** blueprint (crafting §5.8); Teddy's counter opens at LL1 |
 | H2 | Smoke | III | the outpost | hand in 4 antifreeze, 8 cloth | H1 | **smoke grenade** blueprint |
-| H3 | Old ordnance | III | the outpost, the stone complex | hand in 12 powder, 4 steel frames, 1 salvage rifle | H1, W-A5 | **RGO grenade** blueprint; the counter sells grenades |
+| H3 | Old ordnance | III | the outpost, the stone complex | hand in 12 powder, 4 steel frames, 1 salvage rifle | H1, W-A5 | **RGO grenade** blueprint; the counter's hand-grenade cap doubles |
 | H4 | The tube | III–IV | the outpost | hand in 4 plates, 1 circuit assembly, 20 powder | H3, W-A2 | **M79 grenade launcher** and **40 mm grenade** blueprints; counter LL2 (40 mm rounds) |
 | H5 | Backblast | IV | the outpost, Financial Plaza | hand in 1 military circuit board, 2 steel frames, 30 powder | H4, W-A4 | **RPG-7** and **standard rocket** blueprints; counter LL3 (rockets) |
 | H6 | Thermobaric | IV | the outpost, FR-06 | hand in 1 transformer core, 40 powder | H5 | **TBG rocket** blueprint |
-| H7 | The cache | IV | the outpost, the hub | hand in 1 hard drive, 50 powder | H6, J7 | **high-energy explosives** blueprint — Marshall's claymore, mortar-shell and C4 orders take it instead of loose powder at half the cost |
+| H7 | The cache | IV | the outpost, the hub | hand in 1 hard drive, 50 powder | H6, J7 | **high-energy explosives** blueprint — Marshall's C4 order takes 1 of them instead of 4 powder, and the mortar-shell order 1 instead of 2 powder for a double yield (crafting §5.8) |
 
 Teddy's counter has no building tiers: its loyalty levels are H1, H4 and H5. He buys gunpowder and
-powder at Walker's rates.
+powder (vendors doc §4).
 
 ---
 
@@ -340,7 +340,7 @@ component-container state and the single `contested` slot; all clocks count onli
 building tiers, which also re-summon the NPC), a team stage `bp_<recipe>` for blueprints (the book says "blueprint", the mechanism is the stage - crafting §4; the old text: an IE blueprint item
 with the `gscraft` category NBT). Location tasks use the site rectangles from the district map;
 the six NPC building rectangles are locked by the tower-lock script (a list of rectangles, quest
-functions exempt), so a `*-B` reward is the only thing that ever changes them; dossier chests are placed by `gscraft:dossiers` and filled by `dossiers_fill` (parked in `build/phase_c/` until the dossier items exist) at the coordinates in `tools/dossiers.json`; the kill tasks are the sewers (U6), the stone complex (W-A5), the boss tower (W-A6), the road outpost (D-O1), the Woods bunkers (R-W2) and the Sleeper (X8); every other clearing is the assault event, whose
+functions exempt), so a `*-B` reward is the only thing that ever changes them; dossier chests are placed by `gscraft:dossiers` and filled by `dossiers_fill` (parked in `build/phase_c/` until the dossier items exist) at the coordinates in `tools/dossiers.json`; the kill tasks are the sewers (U6), the stone complex (W-A5), the boss tower (W-A6), the road outpost (D-O1), the Woods outpost (R-W1), the Woods bunkers (R-W2) and the Sleeper (X8); every other clearing is the assault event, whose
 waves use the garrison mob types In Control! spawns at each site.
 
 ### 9.1 Vehicle-qualified location tasks (C13)

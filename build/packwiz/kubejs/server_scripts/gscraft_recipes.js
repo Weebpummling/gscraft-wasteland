@@ -39,6 +39,15 @@ ServerEvents.recipes(event => {
    'sandbag', 'barbed_wire', 'jump_pad', 'fumo_25', 'aircraft_catapult', 'dps_generator_deployer', 'target_deployer',
    'tow_deployer'].forEach(d => rm({ output: 'superbwarfare:' + d }, 'SW ' + d));
 
+  // --- 2b. Superb Warfare explosives: Teddy the Hermit's station orders only (quests §7A, crafting §5.8); the rest gone for good
+  ['hand_grenade', 'm18_smoke_grenade', 'rgo_grenade', 'grenade_40mm', 'm_79', 'm_79_blueprint', 'rpg', 'rpg_blueprint',
+   'rpg_rocket_standard', 'rpg_rocket_tbg', 'high_energy_explosives',
+   'javelin', 'javelin_blueprint', 'javelin_missile', 'blu_43_mine', 'lunge_mine', 'tm_62', 'ptkm_1r', 'medium_aerial_bomb',
+   'medium_rocket_ap', 'medium_rocket_cm', 'medium_rocket_he', 'small_rocket', 'small_shell', 'missile_engine', 'micro_missile',
+   'medium_anti_air_missile', 'medium_anti_ground_missile', 'large_anti_ground_missile', 'tow_missile', 'he_bullet',
+   'bocek', 'bocek_blueprint', 'taser', 'taser_blueprint', 'taser_electrode', 'glock_17', 'glock_17_blueprint', 'glock_18',
+   'glock_18_blueprint'].forEach(x => rm({ output: 'superbwarfare:' + x }, 'SW explosive/weapon ' + x));
+
   // --- 3. vehicles outside the roster
   rm({ type: 'superbwarfare:vehicle_assembling', mod: 'vvp' }, 'all vvp vehicles');
   rm({ type: 'superbwarfare:vehicle_assembling', mod: 'mcsp' }, 'all MCSP vehicles');

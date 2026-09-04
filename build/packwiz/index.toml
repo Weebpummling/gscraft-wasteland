@@ -461,8 +461,20 @@ file = "config/zombieawareness/PlayerRulesAndLists.toml"
 hash = "0c9cb7ce493414f2a4b846417db297b8c24ec9950e5e2630d1cfff387568f5ae"
 
 [[files]]
+file = "defaultconfigs/ftbchunks/client-config.snbt"
+hash = "b170593af4096fcf59a09cfc547045351d3aa65d307983eae0a593a57987c277"
+
+[[files]]
 file = "defaultconfigs/ftbchunks/ftbchunks-world.snbt"
 hash = "f9b2b97da2e357c73acd23af18078b80aa7c98c59553a2aa0b09b6b0306e68dc"
+
+[[files]]
+file = "defaultconfigs/ftblibrary/ftblibrary-client.snbt"
+hash = "d9370c264daed232a167d23424db1d1ae8c01ac00377700fdd345a8a1b7afd75"
+
+[[files]]
+file = "defaultconfigs/ftbquests/client-config.snbt"
+hash = "b882485f06e840273d3d289b6040442b9a93f0c3a7ea01d730e0fea76d246c22"
 
 [[files]]
 file = "defaultconfigs/lostcities-server.toml"
@@ -478,7 +490,7 @@ hash = "9453804b20918bba96cc44330af292831997fa6d1573428ce2dbe564e27ad116"
 
 [[files]]
 file = "kubejs/server_scripts/gscraft_recipes.js"
-hash = "781aea37c7922ea51afcb677b24f1171caee41e119796da13c034175b955093d"
+hash = "468d9261501b9d0d2333571737e2b3e566136721d2479439e796d02ff07f9862"
 
 [[files]]
 file = "kubejs/server_scripts/gscraft_tower_lock.js"
