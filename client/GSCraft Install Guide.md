@@ -9,8 +9,8 @@ Server address: **199.115.76.82:9150** (also `gamesla308.bisecthosting.com:9150`
 
 ## Way 1 — one file (Windows, ~2 minutes of clicking)
 
-1. Download **`GSCraft-Setup.cmd`** from the release page
-   https://github.com/Weebpummling/gscraft-wasteland/releases/tag/client-installer-2026-09-04 and double-click it.
+1. Download the zip from the release page
+   https://github.com/Weebpummling/gscraft-wasteland/releases/tag/client-installer-2026-09-04, unzip it, and double-click **`GSCraft-Setup.cmd`**.
    Windows may show "unknown publisher" — choose *Run anyway*. It installs Prism Launcher (portable, into
    `%LOCALAPPDATA%\GSCraft`) and imports the GSCraft instance.
 2. Prism opens and asks you to **sign in** with your Microsoft account (your normal Minecraft account). Java 17 is
@@ -18,9 +18,9 @@ Server address: **199.115.76.82:9150** (also `gamesla308.bisecthosting.com:9150`
 3. Press **Play** on the GSCraft tile. The first launch downloads the pack (about 450 MB) and then starts the game;
    every later launch checks for pack updates in a few seconds and starts. **Multiplayer → GSCraft → Join Server.**
 
-Already have Prism, or on macOS / Linux: install Prism, sign in, **Add Instance → Import**, and paste
-`https://github.com/Weebpummling/gscraft-wasteland/releases/download/client-installer-2026-09-04/GSCraft-Instance.zip`
-(self-updating) — or `GSCraft.mrpack` from the same page for a one-shot import (also works in Modrinth App / ATLauncher).
+Already have Prism, or on macOS / Linux: install Prism, sign in, **Add Instance → Import → Browse**, and pick
+`GSCraft-Instance.zip` from the unzipped download (self-updating) — or `GSCraft.mrpack` for a one-shot import (also
+works in Modrinth App / ATLauncher).
 
 **Memory:** the instance is preset to 6 GB. On an 8 GB PC: right-click the tile → **Edit → Settings → Java → Maximum
 memory allocation** and set **4096 MB**.
