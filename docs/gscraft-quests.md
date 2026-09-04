@@ -14,7 +14,7 @@ further; they run out of things to find where they are.
 | Act | Area | From the camp | What is there | How you get there | Sessions (est.) |
 |---|---|---|---|---|---|
 | **I — The Camp** | foot range | 0 – 1.5 km | camp ruins, glass tower (1.3 km), acacia hall (1.55 km), the generated ruins around the camp, **Novo** (1.06 km E on the spine) | on foot | 1–2 |
-| **II — The West Edge** | near district | 1.5 – 2.5 km | residential block (1.9), copper tower, prismarine hall, hempcrete compound (2.0), the radio tower compound (in the camp), **industrial plant** (2.4), library (2.5); **the Woods** (2.9 km NNE, its own chain, §7.5) | on foot, then the first car | 3–5 |
+| **II — The West Edge** | near district | 1.5 – 2.5 km | residential block (1.9), copper tower, prismarine hall, hempcrete compound (2.0), the radio tower compound (in the camp), **industrial plant** (2.4), library (2.5); **the Woods** (2.9 km NNE, nine quests across the chapters from J-W1) | on foot, then the first car | 3–5 |
 | **III — The Far Ring** | far road range | 2.5 – 4 km | **FR-06** (2.5 km E), **Financial Plaza** (2.1 km W, dry land) and the sewers under it, stone complex (2.9), mud village (2.8), the settlement (3.7 E), Bio Gen and the runway (3.9 SE) | car, truck, boat | 6–9 |
 | **IV — The Sky** | air ring | 4.5 – 6.5 km | the hub (6.2 km E), the generated cities kept as found | aircraft | 10–12 |
 

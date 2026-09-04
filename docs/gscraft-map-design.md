@@ -448,7 +448,7 @@ script with `/apoth spawn_boss gscraft:elite_<site> <rarity>` at the wave the ta
 Spawner block makes, with no block to place. Natural bosses stay off (`Boss Spawn Cooldown` at its maximum), so an
 affixed mob is always a designed moment. **The Woods** (x 400…2400, z −3500…−1500) has its own In Control! rule:
 zombies capped at 4, no husks, drowned 2 at water, bandits only inside the outpost's rectangle until R-W1, spiders
-below y 40 (the bunkers), the fog man and the eyes at night as their mods spawn them (quests §7.5).
+below y 40 (the bunkers), the fog man and the eyes at night as their mods spawn them (the Woods quests sit in the NPC chapters of `gscraft-quests.md`).
 
 ---
 
