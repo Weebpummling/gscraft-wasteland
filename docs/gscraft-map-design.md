@@ -109,7 +109,15 @@ the same footprint, placed by the NPC's upgrade quests (§3.6).
 | 5 | **Financial Plaza Quarantine** (transplant 160×144) | old hospital pad 675…866 × 2367…2558 | 2.5 km SE | Electronics | Tune |
 | — | **Radio tower** (custom) | 2023…2150 × −184…−57 | 2.1 km E | Endgame | Marshall |
 
-**Generated sites, counted** (`tools/structures_v6.json`, every structure start in the 10 km box): 45 villages — Lukis Grand Capitals' versions, hostile under Hostile Villages — and 21 pillager outposts, the bandit settlements of the map; 284 Underground Bunkers; 439 Apotheosis boss towers (the elites of §6.3 can simply be the towers nearest each site); 23 ancient cities; 35 Man-From-The-Fog houses; 2 mansions; 8 strongholds. Nearest to the camp: villages (800, -2352), (2416, -672), (3216, 912); outposts (-1392, 1632), (-1952, 1232), (-512, 2368); bunkers (16, -368), (448, -384), (-784, -384); boss towers (32, -368), (832, -816), (1312, 64). James's J9 sends the players to four of the capitals, and the bunkers are the U-chapter's side dungeons.
+**Generated sites, counted** (`tools/structures_v6.json`, every structure start in the 10 km box): 45 villages — Lukis Grand Capitals' versions, hostile under Hostile Villages — and 21 pillager outposts, the bandit settlements of the map; 284 Underground Bunkers; 439 Apotheosis boss towers (the elites of §6.3 can simply be the towers nearest each site); 23 ancient cities; 35 Man-From-The-Fog houses; 2 mansions; 8 strongholds. Nearest to the camp: villages (800, -2352), (2416, -672), (3216, 912); outposts (-1392, 1632), (-1952, 1232), (-512, 2368); bunkers (16, -368), (448, -384), (-784, -384); boss towers (32, -368), (832, -816), (1312, 64). James's J9 sends the players to four of the capitals, and the bunkers are the U-chapter's side dungeons. **Owner's verdict on the census: far too dense.** `gscraft-structure-plan.md` keeps **67** of the 964 sites
+(11 towers, 14 bunkers, 10 capitals, 6 outposts, 4 ancient cities, the rest expedition finds), none within 350 m of
+a designed site, spaced by type, capped per range ring, nearest the roads first; the world is regenerated as **v7**
+with the pruned structure sets disabled and the kept ones placed back (`buildmap/structure_plan_v7.json`).
+
+**Dead military vehicles dress the strongpoints** (vvp and MCSP, kept): a BMPT and two Strykers on FR-06's reactor
+plaza, a Typhoon-K convoy at the plant, an Mi-24 on the runway apron, a Pantsir at the hub — placed by the site
+dressing pass, battery-less so they never move, their inventories the component containers. Immersive Weathering
+ages them and every tier-0 building on placement; a rebuilt tier is placed clean.
 
 Loot sites, never attacked: **Bio Gen Offices** (64×256) beside the runway on the old airfield pad;
 **the settlement** (272×288) on the water-treatment pad re-cut to 288×304; **the sewers** (96×96)

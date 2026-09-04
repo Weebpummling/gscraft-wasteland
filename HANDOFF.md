@@ -58,6 +58,14 @@ and `enableHordeEvent = false` in `hordes-common.toml` (next restart). Until tha
 spawns. To turn it back on for Phase D: run `function gscraft:spawns_on`, delete the first rule of `spawn.json`, run
 `/incontrol reload` as an op (or restart), flip the Hordes key and restart. `function gscraft:spawns_off` re-applies the off state and kills the loose hostiles.
 
+**World build v7 is on the Phase B list (owner, 2026-09-03):** the generated structures are too dense (964 sites);
+`docs/gscraft-structure-plan.md` and `buildmap/structure_plan_v7.json` keep 67 and prune 897. Route: datapack override
+disabling the pruned structure sets, re-run the 10 km pre-generation on the build machine (20 GB heap), place the 67 back
+at their census coordinates, then the v6 pipeline unchanged (pads, transplants, roads, camp ruins, torches, dossiers,
+furnishing). Until v7 lands, spawns stay off — that also keeps the 439 boss spawners quiet. Owner also ruled: vvp, MCSP,
+Immersive Weathering, the server tools and the TaCZ fire-control extension all STAY (uses in `gscraft-mod-capabilities.md`
+§4 and `gscraft-crafting.md` §2.1: the military vehicle tier and the dead-vehicle site dressing).
+
 **Handoff state:** the hosted server runs v6 with EMI in `/mods` (client pack not rebuilt), ruins v2, torches, dossier
 and site chests in place; the datapack on the server matches `build/datapacks/gscraft` except `dossiers_fill`, parked
 in `build/phase_c/`. Loot tables carry vanilla stand-ins until Phase C. Nothing is pending on the working machine.

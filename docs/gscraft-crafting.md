@@ -97,6 +97,25 @@ vehicle in a second.
 Every vehicle above the quad needs a loot-only component, so every tier of the garage is a trip
 to a held site — the same rule as the tower parts.
 
+### 2.1 The military tier (vvp, MCSP — kept, owner 2026-09-03)
+
+Three vehicles from the two Superb Warfare add-on packs sit above the civilian garage; everything
+else in those packs is a static wreck at a strongpoint (design §2.3), placed dead and never craftable.
+
+| Tier | Vehicle | Id | Role | Recipe from |
+|---|---|---|---|---|
+| Walls 3 (D4) | **Humvee RWS** | MCSP `humvee_rws` (green) | the gate's armed car, turret on the roof; beside the LAV-150 | D4 |
+| Garage 3 (W-B3) | **UH-60 Black Hawk** | vvp `uh60` | the heavy helicopter: six seats and cargo, the whole team to the hub | W-B3, replaces the Bell 47 as the tier-3 aircraft; the Bell stays as the two-seat scout |
+| Beacon (X6) | **M3A3 Bradley** | MCSP `m3a3` | one armoured vehicle for the base defence, given when the beacon lights | X6 reward, no recipe |
+
+| Vehicle | Recipe |
+|---|---|
+| Humvee RWS | 10 steel frame, 6 plate, 1 heavy diesel engine, 4 wheel, 2 fuel tank, 1 **military circuit board**, 1 gun frame + barrel (the turret) |
+| Black Hawk | 12 steel frame, 2 **avionics module**, 1 **transformer core**, 4 motor assembly, 3 fuel tank, 2 circuit assembly, 1 **satellite receiver** |
+
+Both are electric under Superb Warfare and draw from the battery packs of §5.5; the exact registry ids are
+read off the jars at Phase D (`vvp:` and `mcsp:` namespaces, 81 entities between them).
+
 ---
 
 ## 3. The crafting timer

@@ -46,14 +46,14 @@ ordered by how much it would add for how little it costs, with a recommendation 
 | **FTB Chunks + Teams** | the claim, the team, the shared stage state |
 | **Xaero** | the only map; every "reach the site" task assumes waypoints |
 
-## 4. Cut or leave alone
+## 4. Kept, with a job (owner, 2026-09-03: nothing is cut)
 
-| Mod | Reason |
+| Mod | Use |
 |---|---|
-| **vvp, MCSP** | 81 military vehicles that need Superb Warfare and have no role; their recipes are stripped. They cost memory on every client; consider dropping the jars in the next pack rebuild |
-| **Immersive Weathering** | decay, icicles, moss — atmosphere only, nothing to design against |
-| **AI Improvements, spark, BHStats, WorldEdit** | server tooling |
-| **TaCZ fire control extension** | aim assist; a client feel setting, no design hook |
+| **vvp, MCSP** (81 military vehicles) | a **military tier** above the civilian garage, crafting §2.1: the MCSP Humvee RWS as Marshall's Walls-3 vehicle beside the LAV-150, the vvp UH-60 Black Hawk as the Act IV heavy helicopter (six seats, cargo — the hub run for the whole team), and one armoured vehicle (M3A3 Bradley) as the beacon's reward for the base defence. The rest become **static wrecks at the strongpoints**: dead vehicles (no battery, no fuel) parked as scenery that hold the component containers — FR-06's plaza gets a BMPT and two Strykers, the plant a Typhoon-K convoy, the runway an abandoned Mi-24 — placed at world build by the site dressing pass, immobile until the players learn to build their own |
+| **Immersive Weathering** | its **aging** is the camp's tier readout: tier-0 buildings are placed pre-aged (mossy, cracked, rusted), each rebuild is placed clean and left to weather again; its **tallow** (rendered from animal fat) is the camp's candle and torch recipe before Michael's power arrives; frost and icicles are the winter dressing of the north ring; leaf decay keeps the roads clear |
+| **AI Improvements, spark, BHStats, WorldEdit** | server tooling, stays; WorldEdit is how an op fixes the visual-pass findings in place (and the reason Phase A needs an op online) |
+| **TaCZ fire control extension** | the aim assist is the difference between five players who hit and five who miss at range; kept on, tuned in Phase C with the guns |
 
 ## 5. Done on 2026-09-03 (the cheap rows)
 

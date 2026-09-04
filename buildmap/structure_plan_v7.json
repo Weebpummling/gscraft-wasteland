@@ -1,0 +1,8911 @@
+{
+ "rules": {
+  "buffer_m": 350,
+  "policy": {
+   "underground_bunkers:underground_bunker": {
+    "min_gap": 600,
+    "caps_foot_road_air": [
+     2,
+     6,
+     6
+    ]
+   },
+   "apotheosis:tower": {
+    "min_gap": 900,
+    "caps_foot_road_air": [
+     0,
+     5,
+     6
+    ]
+   },
+   "minecraft:village": {
+    "min_gap": 1200,
+    "caps_foot_road_air": [
+     0,
+     4,
+     6
+    ]
+   },
+   "minecraft:pillager_outpost": {
+    "min_gap": 1000,
+    "caps_foot_road_air": [
+     1,
+     3,
+     3
+    ]
+   },
+   "minecraft:ancient_city": {
+    "min_gap": 1500,
+    "caps_foot_road_air": [
+     0,
+     1,
+     3
+    ]
+   },
+   "minecraft:mansion": {
+    "min_gap": 1,
+    "caps_foot_road_air": [
+     0,
+     1,
+     1
+    ]
+   },
+   "minecraft:stronghold": {
+    "min_gap": 1,
+    "caps_foot_road_air": [
+     0,
+     0,
+     2
+    ]
+   },
+   "minecraft:monument": {
+    "min_gap": 1500,
+    "caps_foot_road_air": [
+     0,
+     1,
+     2
+    ]
+   },
+   "man:house": {
+    "min_gap": 800,
+    "caps_foot_road_air": [
+     1,
+     3,
+     3
+    ]
+   },
+   "minecraft:trail_ruins": {
+    "min_gap": 1000,
+    "caps_foot_road_air": [
+     1,
+     2,
+     2
+    ]
+   },
+   "minecraft:igloo": {
+    "min_gap": 1500,
+    "caps_foot_road_air": [
+     0,
+     1,
+     1
+    ]
+   },
+   "minecraft:desert_pyramid": {
+    "min_gap": 1500,
+    "caps_foot_road_air": [
+     0,
+     1,
+     1
+    ]
+   },
+   "minecraft:jungle_pyramid": {
+    "min_gap": 1500,
+    "caps_foot_road_air": [
+     0,
+     1,
+     1
+    ]
+   }
+  }
+ },
+ "keep": {
+  "apotheosis:tower": [
+   {
+    "x": -1600,
+    "z": 1312,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 372,
+    "road_m": 372
+   },
+   {
+    "x": 2528,
+    "z": 2528,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 448,
+    "road_m": 410
+   },
+   {
+    "x": -2064,
+    "z": 448,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 402,
+    "road_m": 554
+   },
+   {
+    "x": 3072,
+    "z": 3328,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 618,
+    "road_m": 722
+   },
+   {
+    "x": 3904,
+    "z": 144,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 509,
+    "road_m": 750
+   },
+   {
+    "x": 1808,
+    "z": -272,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 656,
+    "road_m": 917
+   },
+   {
+    "x": 4656,
+    "z": 832,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 865,
+    "road_m": 1141
+   },
+   {
+    "x": 4224,
+    "z": 1696,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 883,
+    "road_m": 1151
+   },
+   {
+    "x": 4176,
+    "z": 2928,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 739,
+    "road_m": 1222
+   },
+   {
+    "x": 2656,
+    "z": 4256,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1593,
+    "road_m": 1669
+   },
+   {
+    "x": 4592,
+    "z": -768,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1620,
+    "road_m": 1890
+   }
+  ],
+  "minecraft:monument": [
+   {
+    "x": 2864,
+    "z": -256,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 640,
+    "road_m": 1047
+   },
+   {
+    "x": 1184,
+    "z": 4912,
+    "id": "minecraft:monument",
+    "ring": 2,
+    "site_m": 2833,
+    "road_m": 2903
+   },
+   {
+    "x": 4192,
+    "z": -3808,
+    "id": "minecraft:monument",
+    "ring": 2,
+    "site_m": 4331,
+    "road_m": 4640
+   }
+  ],
+  "minecraft:pillager_outpost": [
+   {
+    "x": -1392,
+    "z": 1632,
+    "id": "minecraft:pillager_outpost",
+    "ring": 1,
+    "site_m": 754,
+    "road_m": 725
+   },
+   {
+    "x": -512,
+    "z": 2368,
+    "id": "minecraft:pillager_outpost",
+    "ring": 1,
+    "site_m": 1437,
+    "road_m": 1613
+   },
+   {
+    "x": 2160,
+    "z": 4304,
+    "id": "minecraft:pillager_outpost",
+    "ring": 2,
+    "site_m": 1821,
+    "road_m": 1868
+   },
+   {
+    "x": 320,
+    "z": -2560,
+    "id": "minecraft:pillager_outpost",
+    "ring": 1,
+    "site_m": 2387,
+    "road_m": 2572
+   },
+   {
+    "x": 5488,
+    "z": -1376,
+    "id": "minecraft:pillager_outpost",
+    "ring": 2,
+    "site_m": 2562,
+    "road_m": 2927
+   },
+   {
+    "x": 4416,
+    "z": -2496,
+    "id": "minecraft:pillager_outpost",
+    "ring": 2,
+    "site_m": 3165,
+    "road_m": 3401
+   }
+  ],
+  "minecraft:igloo": [
+   {
+    "x": 2784,
+    "z": 4800,
+    "id": "minecraft:igloo",
+    "ring": 2,
+    "site_m": 2106,
+    "road_m": 2192
+   },
+   {
+    "x": -1888,
+    "z": -1968,
+    "id": "minecraft:igloo",
+    "ring": 1,
+    "site_m": 2478,
+    "road_m": 2639
+   }
+  ],
+  "underground_bunkers:underground_bunker": [
+   {
+    "x": 1648,
+    "z": 32,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 352,
+    "road_m": 628
+   },
+   {
+    "x": -2336,
+    "z": 1232,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 429,
+    "road_m": 636
+   },
+   {
+    "x": -1536,
+    "z": 1600,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 657,
+    "road_m": 667
+   },
+   {
+    "x": 3216,
+    "z": 3248,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 538,
+    "road_m": 683
+   },
+   {
+    "x": 3616,
+    "z": 64,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 576,
+    "road_m": 725
+   },
+   {
+    "x": -784,
+    "z": -384,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 0,
+    "site_m": 643,
+    "road_m": 741
+   },
+   {
+    "x": 2048,
+    "z": 2800,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 721,
+    "road_m": 930
+   },
+   {
+    "x": 1216,
+    "z": -752,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 0,
+    "site_m": 843,
+    "road_m": 955
+   },
+   {
+    "x": 4064,
+    "z": 2448,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 598,
+    "road_m": 1054
+   },
+   {
+    "x": -2384,
+    "z": 32,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 905,
+    "road_m": 1077
+   },
+   {
+    "x": 4048,
+    "z": 3232,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 779,
+    "road_m": 1237
+   },
+   {
+    "x": 4816,
+    "z": 464,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1040,
+    "road_m": 1340
+   },
+   {
+    "x": 2816,
+    "z": 4016,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1325,
+    "road_m": 1408
+   },
+   {
+    "x": 4864,
+    "z": -336,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1450,
+    "road_m": 1755
+   }
+  ],
+  "minecraft:trail_ruins": [
+   {
+    "x": 4064,
+    "z": 2912,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 627,
+    "road_m": 1111
+   },
+   {
+    "x": -1824,
+    "z": -864,
+    "id": "minecraft:trail_ruins",
+    "ring": 1,
+    "site_m": 1704,
+    "road_m": 1723
+   },
+   {
+    "x": 1952,
+    "z": -1392,
+    "id": "minecraft:trail_ruins",
+    "ring": 1,
+    "site_m": 1687,
+    "road_m": 1843
+   },
+   {
+    "x": 2224,
+    "z": 4384,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 1862,
+    "road_m": 1916
+   }
+  ],
+  "man:house": [
+   {
+    "x": 3856,
+    "z": 16,
+    "id": "man:house",
+    "ring": 1,
+    "site_m": 627,
+    "road_m": 841
+   },
+   {
+    "x": 3104,
+    "z": 3840,
+    "id": "man:house",
+    "ring": 2,
+    "site_m": 1130,
+    "road_m": 1234
+   },
+   {
+    "x": 2288,
+    "z": -400,
+    "id": "man:house",
+    "ring": 1,
+    "site_m": 784,
+    "road_m": 1393
+   },
+   {
+    "x": 3360,
+    "z": -736,
+    "id": "man:house",
+    "ring": 1,
+    "site_m": 1149,
+    "road_m": 1520
+   },
+   {
+    "x": 4544,
+    "z": 3968,
+    "id": "man:house",
+    "ring": 2,
+    "site_m": 1654,
+    "road_m": 2083
+   },
+   {
+    "x": 5472,
+    "z": -608,
+    "id": "man:house",
+    "ring": 2,
+    "site_m": 1797,
+    "road_m": 2403
+   }
+  ],
+  "minecraft:desert_pyramid": [
+   {
+    "x": -2464,
+    "z": 768,
+    "id": "minecraft:desert_pyramid",
+    "ring": 1,
+    "site_m": 493,
+    "road_m": 702
+   },
+   {
+    "x": 4192,
+    "z": 1696,
+    "id": "minecraft:desert_pyramid",
+    "ring": 2,
+    "site_m": 867,
+    "road_m": 1132
+   }
+  ],
+  "minecraft:jungle_pyramid": [
+   {
+    "x": 1584,
+    "z": -384,
+    "id": "minecraft:jungle_pyramid",
+    "ring": 1,
+    "site_m": 646,
+    "road_m": 821
+   },
+   {
+    "x": 3920,
+    "z": 2672,
+    "id": "minecraft:jungle_pyramid",
+    "ring": 2,
+    "site_m": 450,
+    "road_m": 915
+   }
+  ],
+  "minecraft:village": [
+   {
+    "x": 2576,
+    "z": 2464,
+    "id": "minecraft:village_savanna",
+    "ring": 1,
+    "site_m": 385,
+    "road_m": 351
+   },
+   {
+    "x": -1600,
+    "z": 1744,
+    "id": "minecraft:village_desert",
+    "ring": 1,
+    "site_m": 772,
+    "road_m": 795
+   },
+   {
+    "x": -1584,
+    "z": 16,
+    "id": "minecraft:village_savanna",
+    "ring": 1,
+    "site_m": 852,
+    "road_m": 871
+   },
+   {
+    "x": -3008,
+    "z": 48,
+    "id": "minecraft:village_savanna",
+    "ring": 1,
+    "site_m": 1301,
+    "road_m": 1508
+   },
+   {
+    "x": 1808,
+    "z": 4160,
+    "id": "minecraft:village_taiga",
+    "ring": 2,
+    "site_m": 1903,
+    "road_m": 1927
+   },
+   {
+    "x": 3312,
+    "z": 4880,
+    "id": "minecraft:village_plains",
+    "ring": 2,
+    "site_m": 2170,
+    "road_m": 2292
+   },
+   {
+    "x": 4960,
+    "z": 4128,
+    "id": "minecraft:village_plains",
+    "ring": 2,
+    "site_m": 2057,
+    "road_m": 2503
+   },
+   {
+    "x": 5680,
+    "z": 2608,
+    "id": "minecraft:village_desert",
+    "ring": 2,
+    "site_m": 785,
+    "road_m": 2669
+   },
+   {
+    "x": 5008,
+    "z": -1440,
+    "id": "minecraft:village_plains",
+    "ring": 2,
+    "site_m": 2410,
+    "road_m": 2680
+   },
+   {
+    "x": 4224,
+    "z": -2368,
+    "id": "minecraft:village_plains",
+    "ring": 2,
+    "site_m": 2972,
+    "road_m": 3230
+   }
+  ],
+  "minecraft:stronghold": [
+   {
+    "x": 1152,
+    "z": 5216,
+    "id": "minecraft:stronghold",
+    "ring": 2,
+    "site_m": 3137,
+    "road_m": 3167
+   },
+   {
+    "x": 3600,
+    "z": -3440,
+    "id": "minecraft:stronghold",
+    "ring": 2,
+    "site_m": 3856,
+    "road_m": 4221
+   }
+  ],
+  "minecraft:ancient_city": [
+   {
+    "x": -1488,
+    "z": -272,
+    "id": "minecraft:ancient_city",
+    "ring": 1,
+    "site_m": 1155,
+    "road_m": 1053
+   },
+   {
+    "x": 4688,
+    "z": 624,
+    "id": "minecraft:ancient_city",
+    "ring": 2,
+    "site_m": 897,
+    "road_m": 1183
+   },
+   {
+    "x": 4816,
+    "z": 3584,
+    "id": "minecraft:ancient_city",
+    "ring": 2,
+    "site_m": 1605,
+    "road_m": 2076
+   },
+   {
+    "x": -704,
+    "z": 4464,
+    "id": "minecraft:ancient_city",
+    "ring": 2,
+    "site_m": 2872,
+    "road_m": 3631
+   }
+  ],
+  "minecraft:mansion": [
+   {
+    "x": 4288,
+    "z": -1744,
+    "id": "minecraft:mansion",
+    "ring": 2,
+    "site_m": 2435,
+    "road_m": 2643
+   }
+  ]
+ },
+ "prune": {
+  "apotheosis:tower": [
+   {
+    "x": -1232,
+    "z": 848,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 569,
+    "road_m": 6,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -352,
+    "z": 448,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 298,
+    "road_m": 28,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 2944,
+    "z": 2576,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 32,
+    "road_m": 34,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -800,
+    "z": 464,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 675,
+    "road_m": 46,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2928,
+    "z": 2080,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1,
+    "road_m": 74,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -1664,
+    "z": 864,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 137,
+    "road_m": 76,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 896,
+    "z": 64,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 91,
+    "road_m": 79,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 496,
+    "z": 16,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 289,
+    "road_m": 102,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 832,
+    "z": 480,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 64,
+    "road_m": 117,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -800,
+    "z": 848,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 895,
+    "road_m": 136,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2560,
+    "z": 2080,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1,
+    "road_m": 166,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -368,
+    "z": 32,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 192,
+    "road_m": 192,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3392,
+    "z": 576,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 143,
+    "road_m": 223,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 48,
+    "z": 496,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 289,
+    "road_m": 261,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3040,
+    "z": 464,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 0,
+    "road_m": 306,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -2080,
+    "z": 848,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 104,
+    "road_m": 309,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 432,
+    "z": 464,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 342,
+    "road_m": 312,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 1312,
+    "z": 64,
+    "id": "apotheosis:tower_main",
+    "ring": 0,
+    "site_m": 171,
+    "road_m": 319,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3344,
+    "z": 2512,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 7,
+    "road_m": 332,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1168,
+    "z": 416,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 762,
+    "road_m": 366,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 32,
+    "z": -352,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 176,
+    "road_m": 387,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 32,
+    "z": -368,
+    "id": "apotheosis:tower_main",
+    "ring": 0,
+    "site_m": 192,
+    "road_m": 402,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -1168,
+    "z": 1264,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 686,
+    "road_m": 407,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1584,
+    "z": 480,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 420,
+    "road_m": 411,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3328,
+    "z": 1312,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 225,
+    "road_m": 428,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 0,
+    "z": -400,
+    "id": "apotheosis:tower_leaf",
+    "ring": 0,
+    "site_m": 224,
+    "road_m": 443,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -784,
+    "z": 1248,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 1047,
+    "road_m": 464,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -368,
+    "z": -384,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 283,
+    "road_m": 465,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -2080,
+    "z": 1296,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 315,
+    "road_m": 478,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -368,
+    "z": 912,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 731,
+    "road_m": 478,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 832,
+    "z": -368,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 481,
+    "road_m": 482,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 832,
+    "z": 864,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 64,
+    "road_m": 485,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3360,
+    "z": 2912,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 202,
+    "road_m": 498,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2640,
+    "z": 3008,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 499,
+    "road_m": 506,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2560,
+    "z": 2928,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 507,
+    "road_m": 507,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 32,
+    "z": 848,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 641,
+    "road_m": 528,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2112,
+    "z": 2160,
+    "id": "apotheosis:tower_leaf",
+    "ring": 1,
+    "site_m": 81,
+    "road_m": 532,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3824,
+    "z": 1296,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 370,
+    "road_m": 594,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3360,
+    "z": 1744,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 257,
+    "road_m": 619,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 2224,
+    "z": 2496,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 417,
+    "road_m": 649,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1344,
+    "z": -400,
+    "id": "apotheosis:tower_main",
+    "ring": 0,
+    "site_m": 528,
+    "road_m": 679,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 432,
+    "z": 896,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 464,
+    "road_m": 691,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2480,
+    "z": 864,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 504,
+    "road_m": 703,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4176,
+    "z": 544,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 397,
+    "road_m": 704,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -800,
+    "z": -352,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 648,
+    "road_m": 737,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2448,
+    "z": 1264,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 541,
+    "road_m": 750,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3776,
+    "z": 2544,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 306,
+    "road_m": 764,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -368,
+    "z": 1312,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 1122,
+    "road_m": 765,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 32,
+    "z": -752,
+    "id": "apotheosis:tower_leaf",
+    "ring": 0,
+    "site_m": 576,
+    "road_m": 773,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1664,
+    "z": 1744,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 757,
+    "road_m": 789,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2464,
+    "z": 496,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 597,
+    "road_m": 807,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1184,
+    "z": 1696,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 931,
+    "road_m": 825,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1632,
+    "z": 48,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 810,
+    "road_m": 845,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 848,
+    "z": 1248,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 48,
+    "road_m": 866,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -800,
+    "z": 1680,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1211,
+    "road_m": 875,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2544,
+    "z": 3392,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 843,
+    "road_m": 881,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3824,
+    "z": 2144,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 516,
+    "road_m": 893,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3440,
+    "z": 3376,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 666,
+    "road_m": 900,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2048,
+    "z": 64,
+    "id": "apotheosis:tower_leaf",
+    "ring": 1,
+    "site_m": 779,
+    "road_m": 901,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3824,
+    "z": 2960,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 433,
+    "road_m": 907,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 832,
+    "z": -816,
+    "id": "apotheosis:tower_main",
+    "ring": 0,
+    "site_m": 895,
+    "road_m": 911,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 48,
+    "z": 1264,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 848,
+    "road_m": 913,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 912,
+    "z": -800,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 891,
+    "road_m": 918,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3824,
+    "z": 1680,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 721,
+    "road_m": 918,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1728,
+    "z": -384,
+    "id": "apotheosis:tower_leaf",
+    "ring": 1,
+    "site_m": 752,
+    "road_m": 928,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1248,
+    "z": -304,
+    "id": "apotheosis:tower_main",
+    "ring": 0,
+    "site_m": 1080,
+    "road_m": 934,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 448,
+    "z": 1264,
+    "id": "apotheosis:tower_sand",
+    "ring": 0,
+    "site_m": 448,
+    "road_m": 989,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4208,
+    "z": 48,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 724,
+    "road_m": 1012,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1296,
+    "z": -800,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 901,
+    "road_m": 1025,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2416,
+    "z": 64,
+    "id": "apotheosis:tower_leaf",
+    "ring": 1,
+    "site_m": 892,
+    "road_m": 1070,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2128,
+    "z": 144,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 240,
+    "road_m": 1071,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3760,
+    "z": -272,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 912,
+    "road_m": 1084,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4304,
+    "z": 0,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 820,
+    "road_m": 1114,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2896,
+    "z": 912,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 920,
+    "road_m": 1116,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2192,
+    "z": 3456,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 1129,
+    "road_m": 1138,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2896,
+    "z": 1248,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 953,
+    "road_m": 1162,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3824,
+    "z": 3408,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 783,
+    "road_m": 1173,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2848,
+    "z": 432,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 963,
+    "road_m": 1176,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3408,
+    "z": -400,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 841,
+    "road_m": 1183,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1680,
+    "z": -784,
+    "id": "apotheosis:tower_leaf",
+    "ring": 1,
+    "site_m": 1024,
+    "road_m": 1186,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1616,
+    "z": 2144,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1160,
+    "road_m": 1192,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4208,
+    "z": 2544,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 738,
+    "road_m": 1196,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1184,
+    "z": 2112,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1273,
+    "road_m": 1230,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2048,
+    "z": 2160,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1163,
+    "road_m": 1245,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4704,
+    "z": 416,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 940,
+    "road_m": 1245,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1664,
+    "z": -384,
+    "id": "apotheosis:tower_leaf",
+    "ring": 1,
+    "site_m": 1232,
+    "road_m": 1256,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3424,
+    "z": 3808,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1098,
+    "road_m": 1280,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4224,
+    "z": 2096,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 865,
+    "road_m": 1283,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4640,
+    "z": 160,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 975,
+    "road_m": 1288,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 880,
+    "z": -1200,
+    "id": "apotheosis:tower_leaf",
+    "ring": 0,
+    "site_m": 1225,
+    "road_m": 1296,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2624,
+    "z": 3872,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1234,
+    "road_m": 1301,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1200,
+    "z": -768,
+    "id": "apotheosis:tower_leaf",
+    "ring": 0,
+    "site_m": 1183,
+    "road_m": 1304,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2832,
+    "z": 1712,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1114,
+    "road_m": 1314,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2416,
+    "z": 2096,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1182,
+    "road_m": 1329,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 16,
+    "z": 1728,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 880,
+    "road_m": 1330,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -832,
+    "z": 2160,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1512,
+    "road_m": 1346,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2032,
+    "z": -400,
+    "id": "apotheosis:tower_leaf",
+    "ring": 1,
+    "site_m": 1241,
+    "road_m": 1348,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2832,
+    "z": 64,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1155,
+    "road_m": 1359,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1264,
+    "z": -1168,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1262,
+    "road_m": 1364,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -736,
+    "z": 2192,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1599,
+    "road_m": 1391,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2080,
+    "z": -688,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1072,
+    "road_m": 1392,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4224,
+    "z": 3328,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 975,
+    "road_m": 1437,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2144,
+    "z": 3808,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 1417,
+    "road_m": 1445,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1552,
+    "z": -768,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1498,
+    "road_m": 1489,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5008,
+    "z": 848,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 681,
+    "road_m": 1493,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3280,
+    "z": 832,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1304,
+    "road_m": 1503,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3264,
+    "z": 1296,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1322,
+    "road_m": 1530,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4576,
+    "z": -320,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1240,
+    "road_m": 1533,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5024,
+    "z": 464,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 922,
+    "road_m": 1542,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1728,
+    "z": -1200,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1415,
+    "road_m": 1564,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4576,
+    "z": 2512,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 1106,
+    "road_m": 1564,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4992,
+    "z": 1312,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 608,
+    "road_m": 1566,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1248,
+    "z": -1104,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1418,
+    "road_m": 1568,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2864,
+    "z": 2080,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1399,
+    "road_m": 1585,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1600,
+    "z": 2544,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1558,
+    "road_m": 1592,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 480,
+    "z": -1584,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1434,
+    "road_m": 1621,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4160,
+    "z": 3744,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1243,
+    "road_m": 1648,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4624,
+    "z": 2160,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 1033,
+    "road_m": 1651,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3856,
+    "z": -832,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1430,
+    "road_m": 1651,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3264,
+    "z": 1664,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1450,
+    "road_m": 1658,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4608,
+    "z": 3024,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1181,
+    "road_m": 1663,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4208,
+    "z": 3744,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 1270,
+    "road_m": 1684,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2016,
+    "z": -752,
+    "id": "apotheosis:tower_leaf",
+    "ring": 1,
+    "site_m": 1593,
+    "road_m": 1693,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 880,
+    "z": -1648,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1619,
+    "road_m": 1737,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1680,
+    "z": 3792,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 1713,
+    "road_m": 1738,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2016,
+    "z": -816,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1656,
+    "road_m": 1756,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2144,
+    "z": 4176,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 1718,
+    "road_m": 1761,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1104,
+    "z": 2640,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1783,
+    "road_m": 1764,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5040,
+    "z": 1744,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 560,
+    "road_m": 1799,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1280,
+    "z": -1616,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1709,
+    "road_m": 1802,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -416,
+    "z": 2544,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1392,
+    "road_m": 1809,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -832,
+    "z": 2640,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1817,
+    "road_m": 1823,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3392,
+    "z": -1088,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1500,
+    "road_m": 1871,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3168,
+    "z": -336,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1674,
+    "road_m": 1875,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5456,
+    "z": 864,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 351,
+    "road_m": 1941,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5056,
+    "z": -400,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1638,
+    "road_m": 1945,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4720,
+    "z": 3488,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1472,
+    "road_m": 1946,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1664,
+    "z": -1232,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1825,
+    "road_m": 1948,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1712,
+    "z": -1632,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1812,
+    "road_m": 1949,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1648,
+    "z": 2912,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1919,
+    "road_m": 1957,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3904,
+    "z": -1152,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 1732,
+    "road_m": 1974,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 0,
+    "z": 2544,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1009,
+    "road_m": 1975,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3264,
+    "z": -384,
+    "id": "apotheosis:tower_leaf",
+    "ring": 1,
+    "site_m": 1777,
+    "road_m": 1978,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5472,
+    "z": 1296,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 128,
+    "road_m": 2021,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 480,
+    "z": -2000,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1844,
+    "road_m": 2031,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4624,
+    "z": 3792,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 1582,
+    "road_m": 2031,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1184,
+    "z": 2928,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 2025,
+    "road_m": 2036,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5056,
+    "z": 2512,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 878,
+    "road_m": 2044,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3488,
+    "z": 4592,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1882,
+    "road_m": 2047,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5440,
+    "z": 64,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 1131,
+    "road_m": 2056,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 832,
+    "z": -1984,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1913,
+    "road_m": 2064,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1664,
+    "z": 4224,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2046,
+    "road_m": 2065,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4288,
+    "z": -1136,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 1844,
+    "road_m": 2070,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2560,
+    "z": 4656,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2004,
+    "road_m": 2080,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5456,
+    "z": 1728,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 144,
+    "road_m": 2156,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -800,
+    "z": 2976,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 1919,
+    "road_m": 2157,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5008,
+    "z": -800,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 1885,
+    "road_m": 2178,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2144,
+    "z": 4640,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2128,
+    "road_m": 2183,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2176,
+    "z": 4688,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2158,
+    "road_m": 2216,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3296,
+    "z": -704,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2031,
+    "road_m": 2225,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -256,
+    "z": 2944,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1441,
+    "road_m": 2239,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3248,
+    "z": -800,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 2075,
+    "road_m": 2264,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4672,
+    "z": -1200,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2040,
+    "road_m": 2297,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3776,
+    "z": -1504,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 2004,
+    "road_m": 2301,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5440,
+    "z": 2080,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 303,
+    "road_m": 2318,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 1728,
+    "z": -2032,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2199,
+    "road_m": 2330,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3008,
+    "z": -1568,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1952,
+    "road_m": 2334,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 480,
+    "z": 3024,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1033,
+    "road_m": 2342,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3392,
+    "z": -1600,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2005,
+    "road_m": 2380,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 48,
+    "z": 2976,
+    "id": "apotheosis:tower_leaf",
+    "ring": 1,
+    "site_m": 1234,
+    "road_m": 2382,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4224,
+    "z": 4640,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2072,
+    "road_m": 2388,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1664,
+    "z": 4624,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2357,
+    "road_m": 2390,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5888,
+    "z": 448,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 736,
+    "road_m": 2396,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1584,
+    "z": 3360,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 2371,
+    "road_m": 2407,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2976,
+    "z": 5024,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2315,
+    "road_m": 2409,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5072,
+    "z": 3808,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 1942,
+    "road_m": 2411,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5008,
+    "z": -1120,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2140,
+    "road_m": 2421,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 80,
+    "z": -2432,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2256,
+    "road_m": 2442,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5456,
+    "z": 2512,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 704,
+    "road_m": 2444,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5424,
+    "z": 2976,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 1166,
+    "road_m": 2448,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4736,
+    "z": 4320,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2048,
+    "road_m": 2463,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5456,
+    "z": -752,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1941,
+    "road_m": 2477,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2528,
+    "z": 5056,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2401,
+    "road_m": 2479,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 832,
+    "z": 3888,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1810,
+    "road_m": 2479,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -384,
+    "z": -2432,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2266,
+    "road_m": 2481,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2496,
+    "z": 3328,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 2386,
+    "road_m": 2492,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -400,
+    "z": -2448,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 2283,
+    "road_m": 2498,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2128,
+    "z": -2048,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2352,
+    "road_m": 2501,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1216,
+    "z": 3408,
+    "id": "apotheosis:tower_leaf",
+    "ring": 1,
+    "site_m": 2479,
+    "road_m": 2501,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1584,
+    "z": -2032,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2330,
+    "road_m": 2505,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5488,
+    "z": 2944,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 1127,
+    "road_m": 2506,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -768,
+    "z": 3328,
+    "id": "apotheosis:tower_sand",
+    "ring": 1,
+    "site_m": 2081,
+    "road_m": 2507,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3392,
+    "z": 5088,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2378,
+    "road_m": 2511,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1152,
+    "z": 3424,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2450,
+    "road_m": 2530,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1600,
+    "z": -2080,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 2378,
+    "road_m": 2554,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3808,
+    "z": 5024,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2339,
+    "road_m": 2554,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 992,
+    "z": -2464,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2419,
+    "road_m": 2560,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3808,
+    "z": 5040,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2354,
+    "road_m": 2569,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5056,
+    "z": 4160,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 2149,
+    "road_m": 2598,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 464,
+    "z": 3440,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1428,
+    "road_m": 2611,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5488,
+    "z": 3392,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 1573,
+    "road_m": 2613,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -752,
+    "z": 3440,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2137,
+    "road_m": 2620,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1712,
+    "z": -2352,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2505,
+    "road_m": 2628,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4576,
+    "z": -1632,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2404,
+    "road_m": 2639,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5824,
+    "z": 2096,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 273,
+    "road_m": 2653,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 5408,
+    "z": 3760,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 1946,
+    "road_m": 2681,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2896,
+    "z": 3376,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 2549,
+    "road_m": 2685,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1744,
+    "z": 5024,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2652,
+    "road_m": 2698,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1200,
+    "z": -2464,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 2507,
+    "road_m": 2705,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5968,
+    "z": -416,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1600,
+    "road_m": 2732,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 48,
+    "z": 3360,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1536,
+    "road_m": 2734,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3808,
+    "z": -1968,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 2455,
+    "road_m": 2765,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 448,
+    "z": 3776,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1755,
+    "road_m": 2766,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5520,
+    "z": -1120,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2305,
+    "road_m": 2766,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4240,
+    "z": 5072,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 2484,
+    "road_m": 2771,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2880,
+    "z": -1632,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 2632,
+    "road_m": 2783,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2064,
+    "z": -2016,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 2636,
+    "road_m": 2791,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2032,
+    "z": -2048,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2636,
+    "road_m": 2794,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2912,
+    "z": 5424,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2717,
+    "road_m": 2809,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2144,
+    "z": -2384,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2667,
+    "road_m": 2811,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3376,
+    "z": -2048,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2447,
+    "road_m": 2824,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5840,
+    "z": 2544,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 721,
+    "road_m": 2828,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3056,
+    "z": -2064,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2448,
+    "road_m": 2828,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1232,
+    "z": 3744,
+    "id": "apotheosis:tower_leaf",
+    "ring": 1,
+    "site_m": 2702,
+    "road_m": 2828,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 96,
+    "z": -2832,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2656,
+    "road_m": 2841,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3408,
+    "z": 5424,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2714,
+    "road_m": 2845,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2000,
+    "z": 3792,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 2793,
+    "road_m": 2849,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5840,
+    "z": 2928,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 1105,
+    "road_m": 2852,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1584,
+    "z": -2448,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 2673,
+    "road_m": 2859,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 848,
+    "z": 4576,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2497,
+    "road_m": 2881,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2480,
+    "z": 3744,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 2791,
+    "road_m": 2887,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5408,
+    "z": 4176,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 2361,
+    "road_m": 2892,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -736,
+    "z": -2800,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2683,
+    "road_m": 2895,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 448,
+    "z": -2880,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 2715,
+    "road_m": 2901,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4576,
+    "z": 5024,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 2565,
+    "road_m": 2901,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5984,
+    "z": -752,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1936,
+    "road_m": 2909,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4224,
+    "z": -2048,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2678,
+    "road_m": 2919,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5072,
+    "z": 4640,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 2508,
+    "road_m": 2927,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -752,
+    "z": -2832,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 2718,
+    "road_m": 2929,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -416,
+    "z": -2880,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2715,
+    "road_m": 2930,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3408,
+    "z": 5520,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2810,
+    "road_m": 2939,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5840,
+    "z": 3360,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 1537,
+    "road_m": 2940,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1328,
+    "z": -2784,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2839,
+    "road_m": 2941,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 832,
+    "z": -2880,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2775,
+    "road_m": 2956,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -416,
+    "z": -2912,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 2747,
+    "road_m": 2962,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3776,
+    "z": 5472,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 2779,
+    "road_m": 2972,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6240,
+    "z": 2080,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 257,
+    "road_m": 3015,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4656,
+    "z": -2032,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2809,
+    "road_m": 3039,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6320,
+    "z": -384,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1568,
+    "road_m": 3039,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2416,
+    "z": -2080,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 2940,
+    "road_m": 3059,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1200,
+    "z": -2848,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 2861,
+    "road_m": 3064,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -400,
+    "z": 3840,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 2186,
+    "road_m": 3072,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1744,
+    "z": 5440,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3022,
+    "road_m": 3075,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5440,
+    "z": -1616,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2794,
+    "road_m": 3078,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2912,
+    "z": 3824,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 2976,
+    "road_m": 3101,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4240,
+    "z": 5440,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 2837,
+    "road_m": 3102,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 64,
+    "z": 3856,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 1962,
+    "road_m": 3150,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5936,
+    "z": -1232,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2416,
+    "road_m": 3152,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1824,
+    "z": -2880,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3045,
+    "road_m": 3165,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6320,
+    "z": -704,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 1888,
+    "road_m": 3176,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5056,
+    "z": -2000,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2927,
+    "road_m": 3183,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2848,
+    "z": -2080,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3047,
+    "road_m": 3188,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2992,
+    "z": 5824,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 3114,
+    "road_m": 3209,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2064,
+    "z": 4160,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 3162,
+    "road_m": 3221,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 432,
+    "z": 4624,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 2587,
+    "road_m": 3228,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5520,
+    "z": 4592,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 2770,
+    "road_m": 3230,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5952,
+    "z": 3904,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 2081,
+    "road_m": 3234,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2496,
+    "z": 5824,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3161,
+    "road_m": 3242,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2112,
+    "z": -2864,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3107,
+    "road_m": 3243,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5088,
+    "z": 5072,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 2863,
+    "road_m": 3251,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1584,
+    "z": -2896,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3063,
+    "road_m": 3256,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2496,
+    "z": 5840,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3177,
+    "road_m": 3258,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6256,
+    "z": 2912,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 1089,
+    "road_m": 3263,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 16,
+    "z": -3264,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3088,
+    "road_m": 3276,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2432,
+    "z": 4160,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 3194,
+    "road_m": 3280,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4256,
+    "z": -2416,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3028,
+    "road_m": 3284,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3808,
+    "z": -2496,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 2965,
+    "road_m": 3290,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5888,
+    "z": 4160,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 2337,
+    "road_m": 3293,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -416,
+    "z": -3248,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3081,
+    "road_m": 3297,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3280,
+    "z": -2032,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3154,
+    "road_m": 3315,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2928,
+    "z": 5936,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3228,
+    "road_m": 3321,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4608,
+    "z": -2352,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3102,
+    "road_m": 3321,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3808,
+    "z": 5840,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3148,
+    "road_m": 3335,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6240,
+    "z": 3408,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 1585,
+    "road_m": 3339,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4704,
+    "z": 5472,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3025,
+    "road_m": 3348,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6800,
+    "z": 128,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 1119,
+    "road_m": 3350,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1088,
+    "z": -3200,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3159,
+    "road_m": 3366,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5968,
+    "z": -1520,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2704,
+    "road_m": 3367,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2160,
+    "z": 5888,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3298,
+    "road_m": 3369,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 848,
+    "z": -3296,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3185,
+    "road_m": 3372,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6288,
+    "z": 3360,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 1537,
+    "road_m": 3373,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5424,
+    "z": -2000,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3104,
+    "road_m": 3377,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1360,
+    "z": -3232,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3266,
+    "road_m": 3384,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6272,
+    "z": -1216,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2400,
+    "road_m": 3408,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2784,
+    "z": -2336,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3277,
+    "road_m": 3411,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -768,
+    "z": -3328,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3207,
+    "road_m": 3420,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1312,
+    "z": -3280,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3295,
+    "road_m": 3420,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4656,
+    "z": -2448,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3207,
+    "road_m": 3428,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -752,
+    "z": 4272,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 2743,
+    "road_m": 3433,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2896,
+    "z": 4208,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 3338,
+    "road_m": 3454,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1808,
+    "z": -3200,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3355,
+    "road_m": 3468,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6704,
+    "z": 2160,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 434,
+    "road_m": 3471,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1232,
+    "z": -3296,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3294,
+    "road_m": 3499,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4240,
+    "z": 5872,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3254,
+    "road_m": 3500,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6288,
+    "z": 3808,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 1985,
+    "road_m": 3507,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1680,
+    "z": -3280,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3411,
+    "road_m": 3512,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5872,
+    "z": 4608,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 2785,
+    "road_m": 3520,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5056,
+    "z": 5488,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3199,
+    "road_m": 3557,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6240,
+    "z": -1520,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2704,
+    "road_m": 3570,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2864,
+    "z": -2480,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3437,
+    "road_m": 3572,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5024,
+    "z": -2480,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3355,
+    "road_m": 3596,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6784,
+    "z": -720,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 1936,
+    "road_m": 3599,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3360,
+    "z": -2848,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3242,
+    "road_m": 3620,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1584,
+    "z": -3296,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3423,
+    "road_m": 3621,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -320,
+    "z": -3584,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3411,
+    "road_m": 3626,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3232,
+    "z": -2400,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3475,
+    "road_m": 3627,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -3296,
+    "z": 4240,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 3499,
+    "road_m": 3637,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2192,
+    "z": -3264,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3512,
+    "road_m": 3646,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4608,
+    "z": 5872,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3361,
+    "road_m": 3651,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2080,
+    "z": 4592,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 3595,
+    "road_m": 3653,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2992,
+    "z": 6272,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 3562,
+    "road_m": 3657,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 32,
+    "z": -3648,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3472,
+    "road_m": 3659,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3264,
+    "z": -2432,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 3516,
+    "road_m": 3669,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6320,
+    "z": 4192,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 2369,
+    "road_m": 3690,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 544,
+    "z": -3664,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3504,
+    "road_m": 3691,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5872,
+    "z": -2080,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3264,
+    "road_m": 3710,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3376,
+    "z": 6304,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 3594,
+    "road_m": 3712,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6656,
+    "z": 3328,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 1522,
+    "road_m": 3725,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2576,
+    "z": 6320,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 3640,
+    "road_m": 3725,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4208,
+    "z": -2880,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 3446,
+    "road_m": 3728,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2496,
+    "z": 4608,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 3646,
+    "road_m": 3731,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -784,
+    "z": 4592,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3023,
+    "road_m": 3741,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 7072,
+    "z": -384,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 1694,
+    "road_m": 3744,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2128,
+    "z": 6272,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 3677,
+    "road_m": 3750,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 80,
+    "z": -3744,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3568,
+    "road_m": 3753,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -336,
+    "z": -3712,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3540,
+    "road_m": 3755,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 832,
+    "z": -3696,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3575,
+    "road_m": 3762,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2576,
+    "z": -3232,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3616,
+    "road_m": 3762,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 432,
+    "z": 5408,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3361,
+    "road_m": 3767,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 32,
+    "z": 4992,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3038,
+    "road_m": 3771,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -784,
+    "z": -3696,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3572,
+    "road_m": 3785,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2912,
+    "z": 6400,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3692,
+    "road_m": 3785,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3456,
+    "z": 6368,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3658,
+    "road_m": 3786,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -720,
+    "z": 4640,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3028,
+    "road_m": 3800,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3744,
+    "z": 6336,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3636,
+    "road_m": 3803,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2912,
+    "z": 4576,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 3697,
+    "road_m": 3807,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5872,
+    "z": 5072,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 3249,
+    "road_m": 3809,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6736,
+    "z": -1248,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 2451,
+    "road_m": 3810,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 416,
+    "z": 5472,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3427,
+    "road_m": 3825,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6816,
+    "z": 2976,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 1216,
+    "road_m": 3827,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2848,
+    "z": -2752,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3696,
+    "road_m": 3828,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -768,
+    "z": -3744,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3617,
+    "road_m": 3830,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -400,
+    "z": 4608,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 2842,
+    "road_m": 3830,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1280,
+    "z": -3712,
+    "id": "apotheosis:tower_main",
+    "ring": 1,
+    "site_m": 3695,
+    "road_m": 3839,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4576,
+    "z": -2912,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 3610,
+    "road_m": 3845,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1248,
+    "z": -3664,
+    "id": "apotheosis:tower_spruce",
+    "ring": 1,
+    "site_m": 3649,
+    "road_m": 3856,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5056,
+    "z": -2752,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3620,
+    "road_m": 3857,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6672,
+    "z": 3840,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 2031,
+    "road_m": 3879,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6816,
+    "z": 3344,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 1569,
+    "road_m": 3885,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1680,
+    "z": 6304,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 3843,
+    "road_m": 3904,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6320,
+    "z": 4640,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 2817,
+    "road_m": 3910,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2832,
+    "z": -2864,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 3779,
+    "road_m": 3931,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 7072,
+    "z": 2496,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 929,
+    "road_m": 3945,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -3264,
+    "z": 4592,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 3817,
+    "road_m": 3946,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5888,
+    "z": -2368,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3552,
+    "road_m": 3946,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4224,
+    "z": 6384,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3751,
+    "road_m": 3976,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5824,
+    "z": 5424,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 3593,
+    "road_m": 4012,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2080,
+    "z": -3696,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3898,
+    "road_m": 4021,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6752,
+    "z": -1600,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 2802,
+    "road_m": 4022,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2448,
+    "z": -3296,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 3860,
+    "road_m": 4036,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1664,
+    "z": -3712,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 3836,
+    "road_m": 4036,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4720,
+    "z": 6256,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3760,
+    "road_m": 4045,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1296,
+    "z": 6304,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3995,
+    "road_m": 4047,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 160,
+    "z": 5552,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3550,
+    "road_m": 4057,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1984,
+    "z": -3600,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3872,
+    "road_m": 4064,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 480,
+    "z": 5840,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3784,
+    "road_m": 4068,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3280,
+    "z": -2864,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 3927,
+    "road_m": 4074,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2032,
+    "z": 5024,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 4025,
+    "road_m": 4079,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4208,
+    "z": -3248,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3796,
+    "road_m": 4090,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -368,
+    "z": 5008,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3190,
+    "road_m": 4098,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6304,
+    "z": 5024,
+    "id": "apotheosis:tower_sand",
+    "ring": null,
+    "site_m": 3201,
+    "road_m": 4114,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1168,
+    "z": 5040,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 3609,
+    "road_m": 4120,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 416,
+    "z": 5904,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3855,
+    "road_m": 4157,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 880,
+    "z": 6272,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 4166,
+    "road_m": 4207,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5536,
+    "z": -2912,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3957,
+    "road_m": 4213,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6304,
+    "z": -2384,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3568,
+    "road_m": 4222,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6720,
+    "z": 4576,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 2768,
+    "road_m": 4223,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -752,
+    "z": 5136,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3473,
+    "road_m": 4283,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2896,
+    "z": -3280,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 4127,
+    "road_m": 4292,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3056,
+    "z": -3584,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3968,
+    "road_m": 4293,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5968,
+    "z": -2784,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3968,
+    "road_m": 4331,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5840,
+    "z": 5872,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 3952,
+    "road_m": 4348,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -3264,
+    "z": 5040,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 4241,
+    "road_m": 4362,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -416,
+    "z": 5408,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 3578,
+    "road_m": 4381,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5408,
+    "z": 6288,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 4069,
+    "road_m": 4415,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6656,
+    "z": 5120,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3305,
+    "road_m": 4456,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5456,
+    "z": -3264,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 4244,
+    "road_m": 4490,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1248,
+    "z": 5424,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3973,
+    "road_m": 4492,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4576,
+    "z": -3584,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 4233,
+    "road_m": 4495,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6720,
+    "z": -2368,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3564,
+    "road_m": 4497,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2048,
+    "z": 5456,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 4458,
+    "road_m": 4511,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1648,
+    "z": 5472,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 4241,
+    "road_m": 4516,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 7072,
+    "z": -2000,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3248,
+    "road_m": 4519,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5440,
+    "z": -3312,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 4282,
+    "road_m": 4526,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1168,
+    "z": 5488,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 3985,
+    "road_m": 4564,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -768,
+    "z": 5456,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 3765,
+    "road_m": 4597,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6336,
+    "z": -2864,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 4048,
+    "road_m": 4613,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6240,
+    "z": 5872,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 4049,
+    "road_m": 4623,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5056,
+    "z": -3600,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 4425,
+    "road_m": 4647,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5056,
+    "z": -3696,
+    "id": "apotheosis:tower_spruce",
+    "ring": 2,
+    "site_m": 4517,
+    "road_m": 4738,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -384,
+    "z": 5984,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 4109,
+    "road_m": 4746,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6768,
+    "z": -2768,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 3966,
+    "road_m": 4818,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5440,
+    "z": -3680,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 4624,
+    "road_m": 4862,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6336,
+    "z": -3216,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 4400,
+    "road_m": 4896,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1584,
+    "z": 5856,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 4518,
+    "road_m": 4902,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6256,
+    "z": -3296,
+    "id": "apotheosis:tower_spruce",
+    "ring": null,
+    "site_m": 4480,
+    "road_m": 4916,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1184,
+    "z": 5856,
+    "id": "apotheosis:tower_sand",
+    "ring": 2,
+    "site_m": 4312,
+    "road_m": 4928,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6288,
+    "z": 6256,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 4433,
+    "road_m": 4933,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -720,
+    "z": 5936,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 4182,
+    "road_m": 4956,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2480,
+    "z": 5856,
+    "id": "apotheosis:tower_leaf",
+    "ring": 2,
+    "site_m": 4883,
+    "road_m": 4957,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -416,
+    "z": 6352,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 4470,
+    "road_m": 5035,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -704,
+    "z": 6304,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 4518,
+    "road_m": 5199,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1520,
+    "z": 6240,
+    "id": "apotheosis:tower_main",
+    "ring": 2,
+    "site_m": 4812,
+    "road_m": 5287,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2016,
+    "z": 6240,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 5079,
+    "road_m": 5292,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2496,
+    "z": 6256,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 5283,
+    "road_m": 5355,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1584,
+    "z": 6320,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 4913,
+    "road_m": 5365,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2912,
+    "z": 6272,
+    "id": "apotheosis:tower_leaf",
+    "ring": null,
+    "site_m": 5355,
+    "road_m": 5445,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6768,
+    "z": -3600,
+    "id": "apotheosis:tower_main",
+    "ring": null,
+    "site_m": 4796,
+    "road_m": 5460,
+    "why": "outside the ranges"
+   }
+  ],
+  "minecraft:monument": [
+   {
+    "x": 1648,
+    "z": 2352,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 273,
+    "road_m": 1004,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -928,
+    "z": -784,
+    "id": "minecraft:monument",
+    "ring": 0,
+    "site_m": 967,
+    "road_m": 1116,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1312,
+    "z": 2336,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 257,
+    "road_m": 1271,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 1808,
+    "z": 3200,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 1121,
+    "road_m": 1291,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -96,
+    "z": -1360,
+    "id": "minecraft:monument",
+    "ring": 0,
+    "site_m": 1184,
+    "road_m": 1394,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -880,
+    "z": -1200,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 1243,
+    "road_m": 1426,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1104,
+    "z": 2816,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 737,
+    "road_m": 1719,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 176,
+    "z": -1776,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 1600,
+    "road_m": 1784,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1296,
+    "z": -1424,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 1677,
+    "road_m": 1843,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -416,
+    "z": -1792,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 1634,
+    "road_m": 1848,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1152,
+    "z": 3232,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 1153,
+    "road_m": 1909,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2288,
+    "z": -1264,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 1648,
+    "road_m": 1943,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -912,
+    "z": -1824,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 1805,
+    "road_m": 2004,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 640,
+    "z": 2816,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 780,
+    "road_m": 2094,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1280,
+    "z": -1888,
+    "id": "minecraft:monument",
+    "ring": 1,
+    "site_m": 2037,
+    "road_m": 2222,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1104,
+    "z": 4304,
+    "id": "minecraft:monument",
+    "ring": null,
+    "site_m": 2225,
+    "road_m": 2509,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4944,
+    "z": 6352,
+    "id": "minecraft:monument",
+    "ring": null,
+    "site_m": 3929,
+    "road_m": 4231,
+    "why": "outside the ranges"
+   }
+  ],
+  "minecraft:pillager_outpost": [
+   {
+    "x": 3312,
+    "z": 1120,
+    "id": "minecraft:pillager_outpost",
+    "ring": 1,
+    "site_m": 209,
+    "road_m": 236,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -1952,
+    "z": 1232,
+    "id": "minecraft:pillager_outpost",
+    "ring": 1,
+    "site_m": 233,
+    "road_m": 353,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 2368,
+    "z": 2416,
+    "id": "minecraft:pillager_outpost",
+    "ring": 1,
+    "site_m": 337,
+    "road_m": 487,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 4128,
+    "z": 1120,
+    "id": "minecraft:pillager_outpost",
+    "ring": null,
+    "site_m": 388,
+    "road_m": 696,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1856,
+    "z": 3808,
+    "id": "minecraft:pillager_outpost",
+    "ring": null,
+    "site_m": 1615,
+    "road_m": 1625,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1456,
+    "z": 3664,
+    "id": "minecraft:pillager_outpost",
+    "ring": 1,
+    "site_m": 2687,
+    "road_m": 2720,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -688,
+    "z": 3808,
+    "id": "minecraft:pillager_outpost",
+    "ring": 1,
+    "site_m": 2345,
+    "road_m": 2994,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -320,
+    "z": -2992,
+    "id": "minecraft:pillager_outpost",
+    "ring": 1,
+    "site_m": 2820,
+    "road_m": 3035,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2928,
+    "z": -1920,
+    "id": "minecraft:pillager_outpost",
+    "ring": 1,
+    "site_m": 2920,
+    "road_m": 3067,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6192,
+    "z": 2352,
+    "id": "minecraft:pillager_outpost",
+    "ring": null,
+    "site_m": 529,
+    "road_m": 3100,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -816,
+    "z": 4304,
+    "id": "minecraft:pillager_outpost",
+    "ring": null,
+    "site_m": 2807,
+    "road_m": 3452,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 720,
+    "z": -3440,
+    "id": "minecraft:pillager_outpost",
+    "ring": 1,
+    "site_m": 3304,
+    "road_m": 3491,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1904,
+    "z": 6432,
+    "id": "minecraft:pillager_outpost",
+    "ring": null,
+    "site_m": 3892,
+    "road_m": 3960,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4720,
+    "z": -3248,
+    "id": "minecraft:pillager_outpost",
+    "ring": 2,
+    "site_m": 3976,
+    "road_m": 4208,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5264,
+    "z": -3072,
+    "id": "minecraft:pillager_outpost",
+    "ring": 2,
+    "site_m": 3994,
+    "road_m": 4234,
+    "why": "over the cap or too close to a kept one"
+   }
+  ],
+  "minecraft:igloo": [
+   {
+    "x": 3296,
+    "z": 5216,
+    "id": "minecraft:igloo",
+    "ring": 2,
+    "site_m": 2506,
+    "road_m": 2623,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1296,
+    "z": -2480,
+    "id": "minecraft:igloo",
+    "ring": 1,
+    "site_m": 2562,
+    "road_m": 2758,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -336,
+    "z": -2768,
+    "id": "minecraft:igloo",
+    "ring": 1,
+    "site_m": 2597,
+    "road_m": 2813,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2816,
+    "z": -1760,
+    "id": "minecraft:igloo",
+    "ring": 1,
+    "site_m": 2732,
+    "road_m": 2877,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1856,
+    "z": -2432,
+    "id": "minecraft:igloo",
+    "ring": 1,
+    "site_m": 2813,
+    "road_m": 2989,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3296,
+    "z": -1840,
+    "id": "minecraft:igloo",
+    "ring": 1,
+    "site_m": 2987,
+    "road_m": 3152,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2832,
+    "z": 5792,
+    "id": "minecraft:igloo",
+    "ring": 2,
+    "site_m": 3089,
+    "road_m": 3180,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1024,
+    "z": -3040,
+    "id": "minecraft:igloo",
+    "ring": 1,
+    "site_m": 2987,
+    "road_m": 3195,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1408,
+    "z": -2944,
+    "id": "minecraft:igloo",
+    "ring": 1,
+    "site_m": 3030,
+    "road_m": 3228,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 48,
+    "z": -3408,
+    "id": "minecraft:igloo",
+    "ring": 1,
+    "site_m": 3232,
+    "road_m": 3418,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2928,
+    "z": -2352,
+    "id": "minecraft:igloo",
+    "ring": 1,
+    "site_m": 3331,
+    "road_m": 3471,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -448,
+    "z": -3440,
+    "id": "minecraft:igloo",
+    "ring": 1,
+    "site_m": 3275,
+    "road_m": 3491,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3216,
+    "z": -2304,
+    "id": "minecraft:igloo",
+    "ring": 1,
+    "site_m": 3380,
+    "road_m": 3533,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 368,
+    "z": 5392,
+    "id": "minecraft:igloo",
+    "ring": 2,
+    "site_m": 3355,
+    "road_m": 3798,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3152,
+    "z": 6432,
+    "id": "minecraft:igloo",
+    "ring": null,
+    "site_m": 3722,
+    "road_m": 3822,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 256,
+    "z": -3888,
+    "id": "minecraft:igloo",
+    "ring": 1,
+    "site_m": 3712,
+    "road_m": 3897,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1280,
+    "z": -3824,
+    "id": "minecraft:igloo",
+    "ring": null,
+    "site_m": 3811,
+    "road_m": 4019,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2800,
+    "z": -3008,
+    "id": "minecraft:igloo",
+    "ring": null,
+    "site_m": 3861,
+    "road_m": 4022,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1936,
+    "z": -3584,
+    "id": "minecraft:igloo",
+    "ring": null,
+    "site_m": 3836,
+    "road_m": 4029,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1376,
+    "z": 6320,
+    "id": "minecraft:igloo",
+    "ring": 2,
+    "site_m": 3975,
+    "road_m": 4029,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1568,
+    "z": 6416,
+    "id": "minecraft:igloo",
+    "ring": null,
+    "site_m": 3988,
+    "road_m": 4048,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 576,
+    "z": 5952,
+    "id": "minecraft:igloo",
+    "ring": 2,
+    "site_m": 3886,
+    "road_m": 4101,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 768,
+    "z": 6304,
+    "id": "minecraft:igloo",
+    "ring": 2,
+    "site_m": 4227,
+    "road_m": 4291,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2720,
+    "z": -3440,
+    "id": "minecraft:igloo",
+    "ring": null,
+    "site_m": 4138,
+    "road_m": 4311,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6288,
+    "z": -3056,
+    "id": "minecraft:igloo",
+    "ring": null,
+    "site_m": 4240,
+    "road_m": 4738,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4976,
+    "z": -3728,
+    "id": "minecraft:igloo",
+    "ring": 2,
+    "site_m": 4518,
+    "road_m": 4743,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6848,
+    "z": -2832,
+    "id": "minecraft:igloo",
+    "ring": null,
+    "site_m": 4038,
+    "road_m": 4919,
+    "why": "outside the ranges"
+   }
+  ],
+  "underground_bunkers:underground_bunker": [
+   {
+    "x": -1568,
+    "z": 816,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 234,
+    "road_m": 76,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -1936,
+    "z": 800,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 40,
+    "road_m": 199,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3232,
+    "z": 2416,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 103,
+    "road_m": 242,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1600,
+    "z": 1216,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 296,
+    "road_m": 278,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -1968,
+    "z": 1232,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 233,
+    "road_m": 361,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3232,
+    "z": 416,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 129,
+    "road_m": 367,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3632,
+    "z": 400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 240,
+    "road_m": 401,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 16,
+    "z": -368,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 0,
+    "site_m": 192,
+    "road_m": 407,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 448,
+    "z": -384,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 0,
+    "site_m": 318,
+    "road_m": 473,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3600,
+    "z": 2400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 176,
+    "road_m": 599,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2816,
+    "z": 3248,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 583,
+    "road_m": 649,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3600,
+    "z": 2064,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 473,
+    "road_m": 711,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3200,
+    "z": 0,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 396,
+    "road_m": 769,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2432,
+    "z": 3232,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 801,
+    "road_m": 811,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1616,
+    "z": -336,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 635,
+    "road_m": 813,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4016,
+    "z": 64,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 618,
+    "road_m": 878,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4400,
+    "z": 800,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 609,
+    "road_m": 884,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3616,
+    "z": 3232,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 542,
+    "road_m": 901,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2352,
+    "z": 1664,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 764,
+    "road_m": 935,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2016,
+    "z": 32,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 352,
+    "road_m": 980,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4448,
+    "z": 432,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 689,
+    "road_m": 998,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3200,
+    "z": 3648,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 938,
+    "road_m": 1061,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2000,
+    "z": 2032,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1033,
+    "road_m": 1109,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1552,
+    "z": 2064,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1094,
+    "road_m": 1119,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 48,
+    "z": -1136,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 0,
+    "site_m": 960,
+    "road_m": 1151,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1648,
+    "z": -768,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 994,
+    "road_m": 1154,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3632,
+    "z": -368,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 919,
+    "road_m": 1156,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4048,
+    "z": 2000,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 777,
+    "road_m": 1157,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2400,
+    "z": 3632,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 1122,
+    "road_m": 1161,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4400,
+    "z": 32,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 861,
+    "road_m": 1163,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2048,
+    "z": -368,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 752,
+    "road_m": 1169,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1152,
+    "z": 2048,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1234,
+    "road_m": 1175,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2336,
+    "z": 2000,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1064,
+    "road_m": 1206,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -800,
+    "z": 2048,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1450,
+    "road_m": 1239,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3648,
+    "z": 3664,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 970,
+    "road_m": 1255,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 0,
+    "z": 1664,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 896,
+    "road_m": 1274,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 800,
+    "z": -1200,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 0,
+    "site_m": 1183,
+    "road_m": 1282,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1952,
+    "z": -352,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1192,
+    "road_m": 1288,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2064,
+    "z": 3600,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 1321,
+    "road_m": 1331,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -336,
+    "z": 2016,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1232,
+    "road_m": 1351,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4432,
+    "z": 2432,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 966,
+    "road_m": 1422,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2384,
+    "z": -368,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1275,
+    "road_m": 1426,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1552,
+    "z": 2448,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1470,
+    "road_m": 1500,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4448,
+    "z": -400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 1230,
+    "road_m": 1509,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4448,
+    "z": 2032,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1093,
+    "road_m": 1515,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2816,
+    "z": -736,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1120,
+    "road_m": 1527,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2464,
+    "z": 4064,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1471,
+    "road_m": 1531,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4864,
+    "z": 32,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1233,
+    "road_m": 1546,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3216,
+    "z": -784,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1173,
+    "road_m": 1551,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3632,
+    "z": -768,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1268,
+    "road_m": 1554,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1184,
+    "z": 2448,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1575,
+    "road_m": 1560,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 448,
+    "z": -1568,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1413,
+    "road_m": 1600,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4016,
+    "z": -784,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 1442,
+    "road_m": 1646,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 832,
+    "z": -1568,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1526,
+    "road_m": 1651,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -768,
+    "z": 2464,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1708,
+    "road_m": 1656,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2416,
+    "z": -752,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1136,
+    "road_m": 1663,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1616,
+    "z": 3664,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1585,
+    "road_m": 1704,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1936,
+    "z": -800,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1640,
+    "road_m": 1731,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4432,
+    "z": 3616,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1321,
+    "road_m": 1772,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4800,
+    "z": 2016,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 823,
+    "road_m": 1777,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3200,
+    "z": 2000,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1581,
+    "road_m": 1782,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5264,
+    "z": 432,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 824,
+    "road_m": 1784,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4800,
+    "z": 2448,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1015,
+    "road_m": 1789,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4400,
+    "z": -784,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 1549,
+    "road_m": 1801,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1584,
+    "z": -1184,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1732,
+    "road_m": 1866,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2416,
+    "z": 4400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1802,
+    "road_m": 1866,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1616,
+    "z": -1600,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1753,
+    "road_m": 1885,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3136,
+    "z": -400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1698,
+    "road_m": 1895,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3664,
+    "z": -1168,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1650,
+    "road_m": 1955,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 416,
+    "z": -1936,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1772,
+    "road_m": 1959,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4864,
+    "z": 3248,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1494,
+    "road_m": 1977,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4000,
+    "z": -1184,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 1806,
+    "road_m": 2027,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 816,
+    "z": -1952,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1878,
+    "road_m": 2030,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2000,
+    "z": 4416,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1998,
+    "road_m": 2040,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3152,
+    "z": 2464,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 1879,
+    "road_m": 2063,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4448,
+    "z": 4064,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1670,
+    "road_m": 2078,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 464,
+    "z": 2448,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 568,
+    "road_m": 2081,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -336,
+    "z": 2832,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1444,
+    "road_m": 2108,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4432,
+    "z": -1136,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1888,
+    "road_m": 2128,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4016,
+    "z": 4464,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1837,
+    "road_m": 2130,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5264,
+    "z": 2016,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 387,
+    "road_m": 2136,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4848,
+    "z": 3664,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1676,
+    "road_m": 2144,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1648,
+    "z": -1936,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2086,
+    "road_m": 2214,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3264,
+    "z": 4816,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2106,
+    "road_m": 2222,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 64,
+    "z": 2816,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1111,
+    "road_m": 2245,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1600,
+    "z": 3200,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2210,
+    "road_m": 2247,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5664,
+    "z": 0,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1184,
+    "road_m": 2288,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1184,
+    "z": 3216,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2301,
+    "road_m": 2320,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3248,
+    "z": -1552,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1941,
+    "road_m": 2320,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2816,
+    "z": -1552,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1936,
+    "road_m": 2333,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3600,
+    "z": -1552,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1999,
+    "road_m": 2334,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4864,
+    "z": -1168,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2102,
+    "road_m": 2374,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 448,
+    "z": -2368,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2205,
+    "road_m": 2392,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2048,
+    "z": -1984,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2261,
+    "road_m": 2408,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 832,
+    "z": -2336,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2249,
+    "road_m": 2414,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2048,
+    "z": 4864,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2371,
+    "road_m": 2427,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4016,
+    "z": -1600,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2184,
+    "road_m": 2435,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -400,
+    "z": 3216,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1724,
+    "road_m": 2461,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5248,
+    "z": 3648,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1859,
+    "road_m": 2488,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2752,
+    "z": 3248,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2379,
+    "road_m": 2509,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4448,
+    "z": -1552,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2288,
+    "road_m": 2516,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 416,
+    "z": 3264,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1279,
+    "road_m": 2536,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6032,
+    "z": 400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 784,
+    "road_m": 2546,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1264,
+    "z": -2400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2462,
+    "road_m": 2553,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2848,
+    "z": 5200,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2497,
+    "road_m": 2587,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4848,
+    "z": 4400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2181,
+    "road_m": 2599,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5248,
+    "z": -1152,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2310,
+    "road_m": 2600,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 64,
+    "z": 3216,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1409,
+    "road_m": 2607,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5616,
+    "z": 2848,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1025,
+    "road_m": 2620,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1184,
+    "z": -2384,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2427,
+    "road_m": 2625,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5648,
+    "z": -768,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1952,
+    "road_m": 2639,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1936,
+    "z": -1936,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2489,
+    "road_m": 2646,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1664,
+    "z": -2400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2542,
+    "road_m": 2659,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1600,
+    "z": 3616,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2625,
+    "road_m": 2662,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5600,
+    "z": 3200,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1377,
+    "road_m": 2667,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3136,
+    "z": 3232,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2516,
+    "road_m": 2674,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5264,
+    "z": 4000,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2203,
+    "road_m": 2675,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 464,
+    "z": 3616,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1597,
+    "road_m": 2688,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4848,
+    "z": -1552,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2434,
+    "road_m": 2690,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3664,
+    "z": 5216,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2513,
+    "road_m": 2695,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2432,
+    "z": 5264,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2625,
+    "road_m": 2701,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1936,
+    "z": 3664,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2665,
+    "road_m": 2716,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1168,
+    "z": 3632,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2583,
+    "road_m": 2730,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1536,
+    "z": -2336,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2552,
+    "road_m": 2738,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6032,
+    "z": -336,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1520,
+    "road_m": 2756,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2864,
+    "z": -1984,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2368,
+    "road_m": 2758,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2032,
+    "z": -2384,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2627,
+    "road_m": 2766,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 16,
+    "z": -2768,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2592,
+    "road_m": 2780,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4016,
+    "z": 5200,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2549,
+    "road_m": 2793,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 864,
+    "z": 4464,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2385,
+    "road_m": 2794,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -800,
+    "z": 3632,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2300,
+    "road_m": 2797,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -336,
+    "z": -2752,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2581,
+    "road_m": 2797,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 448,
+    "z": -2784,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2619,
+    "road_m": 2806,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5616,
+    "z": 3648,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 1825,
+    "road_m": 2824,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6064,
+    "z": 2016,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 193,
+    "road_m": 2828,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -784,
+    "z": -2736,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2631,
+    "road_m": 2842,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2784,
+    "z": 3600,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2724,
+    "road_m": 2846,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -352,
+    "z": 3600,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 1967,
+    "road_m": 2847,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 816,
+    "z": -2784,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2678,
+    "road_m": 2859,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5600,
+    "z": -1200,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2384,
+    "road_m": 2880,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5216,
+    "z": 4416,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2441,
+    "road_m": 2884,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4816,
+    "z": 4848,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2526,
+    "road_m": 2904,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 432,
+    "z": 4048,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2023,
+    "road_m": 2905,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5264,
+    "z": -1568,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2654,
+    "road_m": 2932,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1264,
+    "z": -2800,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2829,
+    "road_m": 2941,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6032,
+    "z": -784,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1968,
+    "road_m": 2967,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1136,
+    "z": -2768,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2764,
+    "road_m": 2968,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1632,
+    "z": -2752,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2882,
+    "road_m": 2989,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2848,
+    "z": 5616,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2912,
+    "road_m": 3003,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4432,
+    "z": 5248,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2714,
+    "road_m": 3017,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6464,
+    "z": 48,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1136,
+    "road_m": 3039,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6048,
+    "z": 2800,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 977,
+    "road_m": 3046,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1936,
+    "z": 4000,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3001,
+    "road_m": 3051,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6032,
+    "z": 3200,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 1377,
+    "road_m": 3088,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 432,
+    "z": 4416,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2383,
+    "road_m": 3103,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3200,
+    "z": -2368,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2754,
+    "road_m": 3133,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3632,
+    "z": -2352,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2787,
+    "road_m": 3135,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2048,
+    "z": -2784,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 3011,
+    "road_m": 3145,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1584,
+    "z": -2784,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2964,
+    "road_m": 3156,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5200,
+    "z": 4848,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2750,
+    "road_m": 3164,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5600,
+    "z": -1600,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2784,
+    "road_m": 3168,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6464,
+    "z": -384,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1568,
+    "road_m": 3172,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2384,
+    "z": 4064,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3092,
+    "road_m": 3176,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3168,
+    "z": -1936,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 3021,
+    "road_m": 3179,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6000,
+    "z": -1200,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2384,
+    "road_m": 3182,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6464,
+    "z": 2000,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 180,
+    "road_m": 3187,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5616,
+    "z": 4400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2577,
+    "road_m": 3191,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4832,
+    "z": 5232,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2866,
+    "road_m": 3218,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6048,
+    "z": 3648,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 1825,
+    "road_m": 3226,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 32,
+    "z": 4000,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 2106,
+    "road_m": 3238,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5232,
+    "z": -1968,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2980,
+    "road_m": 3244,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -784,
+    "z": -3200,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 3085,
+    "road_m": 3297,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6448,
+    "z": -768,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 1952,
+    "road_m": 3319,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4416,
+    "z": 5600,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3041,
+    "road_m": 3322,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1232,
+    "z": -3200,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 3193,
+    "road_m": 3326,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6416,
+    "z": 2432,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 609,
+    "road_m": 3334,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6016,
+    "z": 4032,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2209,
+    "road_m": 3347,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3216,
+    "z": 6000,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3290,
+    "road_m": 3395,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6848,
+    "z": 64,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 1195,
+    "road_m": 3410,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2784,
+    "z": -2336,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 3277,
+    "road_m": 3411,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2864,
+    "z": 6048,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3343,
+    "road_m": 3434,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6000,
+    "z": -1584,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 2768,
+    "road_m": 3434,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5248,
+    "z": 5216,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3073,
+    "road_m": 3465,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1584,
+    "z": -3152,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 3292,
+    "road_m": 3489,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2416,
+    "z": 6064,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3412,
+    "road_m": 3491,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6432,
+    "z": -1152,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2336,
+    "road_m": 3502,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5664,
+    "z": -1984,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3168,
+    "road_m": 3505,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1952,
+    "z": 4464,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3465,
+    "road_m": 3515,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2000,
+    "z": 6000,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3450,
+    "road_m": 3518,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6848,
+    "z": -352,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 1592,
+    "road_m": 3522,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3600,
+    "z": -2768,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3191,
+    "road_m": 3549,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 448,
+    "z": -3536,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 3369,
+    "road_m": 3555,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -784,
+    "z": 4416,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2878,
+    "road_m": 3568,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -3168,
+    "z": -2368,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 3422,
+    "road_m": 3573,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6064,
+    "z": 4432,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2609,
+    "road_m": 3582,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4016,
+    "z": 6048,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3382,
+    "road_m": 3592,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 464,
+    "z": 5216,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3167,
+    "road_m": 3604,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4064,
+    "z": -2784,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3311,
+    "road_m": 3608,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 832,
+    "z": -3552,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 3433,
+    "road_m": 3620,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5264,
+    "z": -2400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3378,
+    "road_m": 3633,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6800,
+    "z": -784,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2002,
+    "road_m": 3641,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6800,
+    "z": 2400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 685,
+    "road_m": 3658,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -352,
+    "z": 4448,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2678,
+    "road_m": 3679,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1216,
+    "z": -3568,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 3539,
+    "road_m": 3686,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1136,
+    "z": -3584,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 3541,
+    "road_m": 3749,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6416,
+    "z": -1600,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2784,
+    "road_m": 3757,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6064,
+    "z": -2000,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3184,
+    "road_m": 3776,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5264,
+    "z": 5616,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3415,
+    "road_m": 3784,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1632,
+    "z": -3584,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 3694,
+    "road_m": 3792,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2768,
+    "z": -2752,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 1,
+    "site_m": 3654,
+    "road_m": 3806,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3232,
+    "z": 6416,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3706,
+    "road_m": 3811,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5664,
+    "z": -2384,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3557,
+    "road_m": 3829,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3616,
+    "z": 6432,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3725,
+    "road_m": 3873,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2016,
+    "z": -3568,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3759,
+    "road_m": 3879,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4800,
+    "z": 6032,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3578,
+    "road_m": 3881,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -3168,
+    "z": -2736,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3769,
+    "road_m": 3914,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6464,
+    "z": 4400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2577,
+    "road_m": 3914,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2400,
+    "z": -3184,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3741,
+    "road_m": 3917,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 16,
+    "z": 5248,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3289,
+    "road_m": 3949,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 416,
+    "z": 5648,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3601,
+    "road_m": 3958,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -736,
+    "z": 4816,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3187,
+    "road_m": 3970,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4064,
+    "z": 6432,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3769,
+    "road_m": 3974,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5232,
+    "z": -2800,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3730,
+    "road_m": 3974,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2416,
+    "z": -3552,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3856,
+    "road_m": 3994,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5616,
+    "z": 5600,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3600,
+    "road_m": 3996,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -352,
+    "z": 4864,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3052,
+    "road_m": 4003,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4400,
+    "z": -3136,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3751,
+    "road_m": 4018,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6416,
+    "z": -2000,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3184,
+    "road_m": 4022,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1968,
+    "z": -3600,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3865,
+    "road_m": 4057,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6864,
+    "z": -1536,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2754,
+    "road_m": 4076,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4464,
+    "z": 6416,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3837,
+    "road_m": 4088,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -3136,
+    "z": 4800,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3974,
+    "road_m": 4092,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6416,
+    "z": 4848,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3025,
+    "road_m": 4104,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5264,
+    "z": 6016,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3761,
+    "road_m": 4109,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2784,
+    "z": -3136,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3945,
+    "road_m": 4110,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5600,
+    "z": -2800,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3887,
+    "road_m": 4147,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 64,
+    "z": 5664,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3680,
+    "road_m": 4204,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -400,
+    "z": 5232,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3409,
+    "road_m": 4258,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6832,
+    "z": 4448,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 2655,
+    "road_m": 4263,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5200,
+    "z": -3136,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 4030,
+    "road_m": 4267,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5600,
+    "z": 6000,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3919,
+    "road_m": 4293,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6032,
+    "z": -2736,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3920,
+    "road_m": 4328,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6448,
+    "z": -2400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3584,
+    "road_m": 4330,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4048,
+    "z": -3536,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 4032,
+    "road_m": 4351,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 800,
+    "z": 6416,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 4330,
+    "road_m": 4371,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -800,
+    "z": 5264,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3608,
+    "road_m": 4402,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6848,
+    "z": 4816,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3022,
+    "road_m": 4452,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -3168,
+    "z": 5264,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 4428,
+    "road_m": 4541,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4816,
+    "z": -3568,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 4307,
+    "road_m": 4542,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6432,
+    "z": -2784,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3968,
+    "road_m": 4610,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5232,
+    "z": -3584,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 4463,
+    "road_m": 4694,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -752,
+    "z": 5616,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 3902,
+    "road_m": 4757,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -384,
+    "z": 6032,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 4155,
+    "road_m": 4780,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3136,
+    "z": 5600,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 4745,
+    "road_m": 4852,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6848,
+    "z": -2752,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 3958,
+    "road_m": 4861,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5664,
+    "z": -3600,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 4635,
+    "road_m": 4883,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6432,
+    "z": -3152,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 4336,
+    "road_m": 4900,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6064,
+    "z": -3568,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 4752,
+    "road_m": 5044,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1536,
+    "z": 6016,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 4628,
+    "road_m": 5063,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -768,
+    "z": 6064,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 4318,
+    "road_m": 5078,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1136,
+    "z": 6032,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 4445,
+    "road_m": 5108,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2384,
+    "z": 6032,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 5050,
+    "road_m": 5118,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6400,
+    "z": 6432,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 4609,
+    "road_m": 5139,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6416,
+    "z": -3584,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 4768,
+    "road_m": 5244,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -752,
+    "z": 6400,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": 2,
+    "site_m": 4625,
+    "road_m": 5301,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1536,
+    "z": 6416,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 4972,
+    "road_m": 5463,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2000,
+    "z": 6432,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 5228,
+    "road_m": 5483,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1184,
+    "z": 6432,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 4824,
+    "road_m": 5501,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2336,
+    "z": 6432,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 5422,
+    "road_m": 5509,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2768,
+    "z": 6416,
+    "id": "underground_bunkers:underground_bunker",
+    "ring": null,
+    "site_m": 5475,
+    "road_m": 5557,
+    "why": "outside the ranges"
+   }
+  ],
+  "minecraft:trail_ruins": [
+   {
+    "x": 2880,
+    "z": 768,
+    "id": "minecraft:trail_ruins",
+    "ring": 1,
+    "site_m": 0,
+    "road_m": 220,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 2176,
+    "z": 2176,
+    "id": "minecraft:trail_ruins",
+    "ring": 1,
+    "site_m": 97,
+    "road_m": 505,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 1632,
+    "z": 4096,
+    "id": "minecraft:trail_ruins",
+    "ring": null,
+    "site_m": 1976,
+    "road_m": 1989,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5104,
+    "z": 2848,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 1139,
+    "road_m": 2112,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2000,
+    "z": 4656,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 2206,
+    "road_m": 2255,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2960,
+    "z": 4960,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 2251,
+    "road_m": 2345,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1424,
+    "z": 4448,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 2369,
+    "road_m": 2391,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 48,
+    "z": 3072,
+    "id": "minecraft:trail_ruins",
+    "ring": 1,
+    "site_m": 1306,
+    "road_m": 2469,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5248,
+    "z": 3632,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 1843,
+    "road_m": 2481,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5744,
+    "z": 3520,
+    "id": "minecraft:trail_ruins",
+    "ring": null,
+    "site_m": 1697,
+    "road_m": 2897,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1616,
+    "z": -2560,
+    "id": "minecraft:trail_ruins",
+    "ring": 1,
+    "site_m": 2785,
+    "road_m": 2972,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 64,
+    "z": -3008,
+    "id": "minecraft:trail_ruins",
+    "ring": 1,
+    "site_m": 2832,
+    "road_m": 3018,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 608,
+    "z": -3072,
+    "id": "minecraft:trail_ruins",
+    "ring": 1,
+    "site_m": 2924,
+    "road_m": 3111,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3248,
+    "z": -1856,
+    "id": "minecraft:trail_ruins",
+    "ring": 1,
+    "site_m": 2981,
+    "road_m": 3144,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6688,
+    "z": 2320,
+    "id": "minecraft:trail_ruins",
+    "ring": null,
+    "site_m": 560,
+    "road_m": 3523,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2896,
+    "z": 6224,
+    "id": "minecraft:trail_ruins",
+    "ring": null,
+    "site_m": 3517,
+    "road_m": 3610,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1680,
+    "z": 6016,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 3575,
+    "road_m": 3634,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 224,
+    "z": 5184,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 3177,
+    "road_m": 3752,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6640,
+    "z": -1440,
+    "id": "minecraft:trail_ruins",
+    "ring": null,
+    "site_m": 2632,
+    "road_m": 3837,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6128,
+    "z": -2096,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 3280,
+    "road_m": 3890,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1456,
+    "z": 6224,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 3855,
+    "road_m": 3909,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2576,
+    "z": -3056,
+    "id": "minecraft:trail_ruins",
+    "ring": null,
+    "site_m": 3749,
+    "road_m": 3917,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 3888,
+    "z": -3120,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 3591,
+    "road_m": 3919,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -512,
+    "z": 5264,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 3482,
+    "road_m": 4366,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5664,
+    "z": 6176,
+    "id": "minecraft:trail_ruins",
+    "ring": null,
+    "site_m": 4102,
+    "road_m": 4472,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -3072,
+    "z": -3648,
+    "id": "minecraft:trail_ruins",
+    "ring": 2,
+    "site_m": 4521,
+    "road_m": 4689,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5536,
+    "z": -3728,
+    "id": "minecraft:trail_ruins",
+    "ring": null,
+    "site_m": 4704,
+    "road_m": 4944,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2096,
+    "z": 6176,
+    "id": "minecraft:trail_ruins",
+    "ring": null,
+    "site_m": 5073,
+    "road_m": 5233,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2336,
+    "z": 6336,
+    "id": "minecraft:trail_ruins",
+    "ring": null,
+    "site_m": 5345,
+    "road_m": 5414,
+    "why": "outside the ranges"
+   }
+  ],
+  "man:house": [
+   {
+    "x": 3232,
+    "z": 560,
+    "id": "man:house",
+    "ring": 1,
+    "site_m": 129,
+    "road_m": 235,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3072,
+    "z": 1936,
+    "id": "man:house",
+    "ring": 1,
+    "site_m": 0,
+    "road_m": 277,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 2608,
+    "z": 3120,
+    "id": "man:house",
+    "ring": null,
+    "site_m": 596,
+    "road_m": 615,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2640,
+    "z": 3904,
+    "id": "man:house",
+    "ring": 2,
+    "site_m": 1259,
+    "road_m": 1328,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 1728,
+    "z": -1280,
+    "id": "man:house",
+    "ring": 1,
+    "site_m": 1488,
+    "road_m": 1635,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4800,
+    "z": 3632,
+    "id": "man:house",
+    "ring": 2,
+    "site_m": 1618,
+    "road_m": 2087,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -368,
+    "z": 3152,
+    "id": "man:house",
+    "ring": 1,
+    "site_m": 1658,
+    "road_m": 2407,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 528,
+    "z": 3296,
+    "id": "man:house",
+    "ring": 1,
+    "site_m": 1271,
+    "road_m": 2469,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3344,
+    "z": -1696,
+    "id": "man:house",
+    "ring": 1,
+    "site_m": 2094,
+    "road_m": 2471,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5024,
+    "z": 4000,
+    "id": "man:house",
+    "ring": 2,
+    "site_m": 2020,
+    "road_m": 2477,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4112,
+    "z": 4848,
+    "id": "man:house",
+    "ring": 2,
+    "site_m": 2232,
+    "road_m": 2513,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5968,
+    "z": 32,
+    "id": "man:house",
+    "ring": 2,
+    "site_m": 1152,
+    "road_m": 2566,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2048,
+    "z": -2672,
+    "id": "man:house",
+    "ring": 1,
+    "site_m": 2905,
+    "road_m": 3040,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5872,
+    "z": 3952,
+    "id": "man:house",
+    "ring": null,
+    "site_m": 2129,
+    "road_m": 3183,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6544,
+    "z": -448,
+    "id": "man:house",
+    "ring": null,
+    "site_m": 1636,
+    "road_m": 3271,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -656,
+    "z": 4240,
+    "id": "man:house",
+    "ring": null,
+    "site_m": 2661,
+    "road_m": 3422,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5808,
+    "z": -1792,
+    "id": "man:house",
+    "ring": 2,
+    "site_m": 2976,
+    "road_m": 3450,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4112,
+    "z": -2624,
+    "id": "man:house",
+    "ring": 2,
+    "site_m": 3173,
+    "road_m": 3459,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5408,
+    "z": 5072,
+    "id": "man:house",
+    "ring": null,
+    "site_m": 3055,
+    "road_m": 3469,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 7024,
+    "z": -560,
+    "id": "man:house",
+    "ring": null,
+    "site_m": 1842,
+    "road_m": 3758,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 2480,
+    "z": -3280,
+    "id": "man:house",
+    "ring": null,
+    "site_m": 3624,
+    "road_m": 3766,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6992,
+    "z": 3520,
+    "id": "man:house",
+    "ring": null,
+    "site_m": 1787,
+    "road_m": 4095,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4512,
+    "z": 6432,
+    "id": "man:house",
+    "ring": null,
+    "site_m": 3865,
+    "road_m": 4121,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5328,
+    "z": -3200,
+    "id": "man:house",
+    "ring": 2,
+    "site_m": 4136,
+    "road_m": 4377,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6304,
+    "z": -2640,
+    "id": "man:house",
+    "ring": null,
+    "site_m": 3824,
+    "road_m": 4417,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6496,
+    "z": 5456,
+    "id": "man:house",
+    "ring": null,
+    "site_m": 3634,
+    "road_m": 4533,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6752,
+    "z": -2560,
+    "id": "man:house",
+    "ring": null,
+    "site_m": 3758,
+    "road_m": 4655,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -192,
+    "z": 6224,
+    "id": "man:house",
+    "ring": 2,
+    "site_m": 4285,
+    "road_m": 4791,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1328,
+    "z": 6032,
+    "id": "man:house",
+    "ring": 2,
+    "site_m": 4536,
+    "road_m": 5090,
+    "why": "over the cap or too close to a kept one"
+   }
+  ],
+  "minecraft:desert_pyramid": [
+   {
+    "x": -1280,
+    "z": 688,
+    "id": "minecraft:desert_pyramid",
+    "ring": 0,
+    "site_m": 543,
+    "road_m": 166,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -880,
+    "z": 1056,
+    "id": "minecraft:desert_pyramid",
+    "ring": 0,
+    "site_m": 923,
+    "road_m": 251,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 832,
+    "z": -160,
+    "id": "minecraft:desert_pyramid",
+    "ring": 0,
+    "site_m": 291,
+    "road_m": 279,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -416,
+    "z": 1344,
+    "id": "minecraft:desert_pyramid",
+    "ring": 0,
+    "site_m": 1162,
+    "road_m": 752,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -704,
+    "z": 1776,
+    "id": "minecraft:desert_pyramid",
+    "ring": 1,
+    "site_m": 1344,
+    "road_m": 991,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4256,
+    "z": 2576,
+    "id": "minecraft:desert_pyramid",
+    "ring": 2,
+    "site_m": 786,
+    "road_m": 1244,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5296,
+    "z": 1856,
+    "id": "minecraft:desert_pyramid",
+    "ring": 2,
+    "site_m": 306,
+    "road_m": 2076,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -3232,
+    "z": 2736,
+    "id": "minecraft:desert_pyramid",
+    "ring": null,
+    "site_m": 2144,
+    "road_m": 2322,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2320,
+    "z": 3856,
+    "id": "minecraft:desert_pyramid",
+    "ring": null,
+    "site_m": 2878,
+    "road_m": 2959,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2224,
+    "z": 4608,
+    "id": "minecraft:desert_pyramid",
+    "ring": 2,
+    "site_m": 3618,
+    "road_m": 3685,
+    "why": "over the cap or too close to a kept one"
+   }
+  ],
+  "minecraft:jungle_pyramid": [
+   {
+    "x": 2240,
+    "z": 2208,
+    "id": "minecraft:jungle_pyramid",
+    "ring": 1,
+    "site_m": 129,
+    "road_m": 497,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 80,
+    "z": -496,
+    "id": "minecraft:jungle_pyramid",
+    "ring": 0,
+    "site_m": 320,
+    "road_m": 513,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3664,
+    "z": 2288,
+    "id": "minecraft:jungle_pyramid",
+    "ring": null,
+    "site_m": 302,
+    "road_m": 691,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2352,
+    "z": 160,
+    "id": "minecraft:jungle_pyramid",
+    "ring": 1,
+    "site_m": 777,
+    "road_m": 954,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1376,
+    "z": -384,
+    "id": "minecraft:jungle_pyramid",
+    "ring": 0,
+    "site_m": 1218,
+    "road_m": 1071,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4752,
+    "z": 848,
+    "id": "minecraft:jungle_pyramid",
+    "ring": 2,
+    "site_m": 912,
+    "road_m": 1237,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2432,
+    "z": -432,
+    "id": "minecraft:jungle_pyramid",
+    "ring": 1,
+    "site_m": 1351,
+    "road_m": 1505,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -272,
+    "z": 3088,
+    "id": "minecraft:jungle_pyramid",
+    "ring": 1,
+    "site_m": 1543,
+    "road_m": 2371,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5728,
+    "z": 3424,
+    "id": "minecraft:jungle_pyramid",
+    "ring": null,
+    "site_m": 1601,
+    "road_m": 2851,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6000,
+    "z": 5792,
+    "id": "minecraft:jungle_pyramid",
+    "ring": null,
+    "site_m": 3969,
+    "road_m": 4398,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2960,
+    "z": 5968,
+    "id": "minecraft:jungle_pyramid",
+    "ring": null,
+    "site_m": 5065,
+    "road_m": 5160,
+    "why": "outside the ranges"
+   }
+  ],
+  "minecraft:village": [
+   {
+    "x": -1584,
+    "z": 848,
+    "id": "minecraft:village_desert",
+    "ring": 1,
+    "site_m": 217,
+    "road_m": 48,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3216,
+    "z": 912,
+    "id": "minecraft:village_plains",
+    "ring": 1,
+    "site_m": 113,
+    "road_m": 53,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -2304,
+    "z": 848,
+    "id": "minecraft:village_desert",
+    "ring": 1,
+    "site_m": 328,
+    "road_m": 529,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 4160,
+    "z": 912,
+    "id": "minecraft:village_plains",
+    "ring": null,
+    "site_m": 369,
+    "road_m": 656,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 32,
+    "z": 1024,
+    "id": "minecraft:village_desert",
+    "ring": 0,
+    "site_m": 817,
+    "road_m": 685,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 864,
+    "z": -608,
+    "id": "minecraft:village_savanna",
+    "ring": 0,
+    "site_m": 706,
+    "road_m": 721,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -736,
+    "z": 1792,
+    "id": "minecraft:village_desert",
+    "ring": 1,
+    "site_m": 1328,
+    "road_m": 998,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4096,
+    "z": 1760,
+    "id": "minecraft:village_desert",
+    "ring": null,
+    "site_m": 887,
+    "road_m": 1132,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1504,
+    "z": 2448,
+    "id": "minecraft:village_desert",
+    "ring": 1,
+    "site_m": 1479,
+    "road_m": 1506,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2176,
+    "z": 2480,
+    "id": "minecraft:village_desert",
+    "ring": 1,
+    "site_m": 1494,
+    "road_m": 1587,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2416,
+    "z": -672,
+    "id": "minecraft:village_plains",
+    "ring": 1,
+    "site_m": 1056,
+    "road_m": 1591,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4176,
+    "z": -752,
+    "id": "minecraft:village_plains",
+    "ring": null,
+    "site_m": 1444,
+    "road_m": 1672,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1712,
+    "z": -1440,
+    "id": "minecraft:village_savanna",
+    "ring": 1,
+    "site_m": 1631,
+    "road_m": 1772,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 800,
+    "z": -2352,
+    "id": "minecraft:village_plains",
+    "ring": 1,
+    "site_m": 2255,
+    "road_m": 2427,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2400,
+    "z": 3296,
+    "id": "minecraft:village_desert",
+    "ring": null,
+    "site_m": 2336,
+    "road_m": 2433,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -656,
+    "z": 3280,
+    "id": "minecraft:village_savanna",
+    "ring": 1,
+    "site_m": 1962,
+    "road_m": 2479,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4048,
+    "z": 4992,
+    "id": "minecraft:village_taiga",
+    "ring": 2,
+    "site_m": 2354,
+    "road_m": 2615,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6416,
+    "z": 1024,
+    "id": "minecraft:village_plains",
+    "ring": 2,
+    "site_m": 160,
+    "road_m": 2910,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 144,
+    "z": -3120,
+    "id": "minecraft:village_taiga",
+    "ring": 1,
+    "site_m": 2944,
+    "road_m": 3128,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 2528,
+    "z": 5744,
+    "id": "minecraft:village_snowy",
+    "ring": 2,
+    "site_m": 3077,
+    "road_m": 3159,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 96,
+    "z": 4000,
+    "id": "minecraft:village_plains",
+    "ring": 1,
+    "site_m": 2081,
+    "road_m": 3180,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 3248,
+    "z": 5792,
+    "id": "minecraft:village_snowy",
+    "ring": null,
+    "site_m": 3082,
+    "road_m": 3190,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -592,
+    "z": -3136,
+    "id": "minecraft:village_snowy",
+    "ring": 1,
+    "site_m": 2989,
+    "road_m": 3203,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5776,
+    "z": -1504,
+    "id": "minecraft:village_plains",
+    "ring": 2,
+    "site_m": 2688,
+    "road_m": 3218,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1504,
+    "z": -3088,
+    "id": "minecraft:village_snowy",
+    "ring": 1,
+    "site_m": 3201,
+    "road_m": 3398,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3168,
+    "z": -2288,
+    "id": "minecraft:village_snowy",
+    "ring": 1,
+    "site_m": 3347,
+    "road_m": 3499,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3120,
+    "z": 4208,
+    "id": "minecraft:village_desert",
+    "ring": 2,
+    "site_m": 3407,
+    "road_m": 3536,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5808,
+    "z": 5008,
+    "id": "minecraft:village_savanna",
+    "ring": null,
+    "site_m": 3185,
+    "road_m": 3719,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 4112,
+    "z": 6432,
+    "id": "minecraft:village_plains",
+    "ring": null,
+    "site_m": 3777,
+    "road_m": 3987,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 1744,
+    "z": -3856,
+    "id": "minecraft:village_plains",
+    "ring": null,
+    "site_m": 3988,
+    "road_m": 4084,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 128,
+    "z": 5600,
+    "id": "minecraft:village_plains",
+    "ring": 2,
+    "site_m": 3604,
+    "road_m": 4114,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3168,
+    "z": 4960,
+    "id": "minecraft:village_desert",
+    "ring": 2,
+    "site_m": 4136,
+    "road_m": 4254,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6528,
+    "z": -2368,
+    "id": "minecraft:village_plains",
+    "ring": null,
+    "site_m": 3553,
+    "road_m": 4362,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 5728,
+    "z": -3776,
+    "id": "minecraft:village_taiga",
+    "ring": null,
+    "site_m": 4822,
+    "road_m": 5069,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6496,
+    "z": -3824,
+    "id": "minecraft:village_savanna",
+    "ring": null,
+    "site_m": 5008,
+    "road_m": 5489,
+    "why": "outside the ranges"
+   }
+  ],
+  "minecraft:stronghold": [
+   {
+    "x": 1808,
+    "z": -272,
+    "id": "minecraft:stronghold",
+    "ring": 1,
+    "site_m": 656,
+    "road_m": 917,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -928,
+    "z": 2064,
+    "id": "minecraft:stronghold",
+    "ring": 1,
+    "site_m": 1377,
+    "road_m": 1243,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1200,
+    "z": -1664,
+    "id": "minecraft:stronghold",
+    "ring": 1,
+    "site_m": 1806,
+    "road_m": 1988,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5344,
+    "z": 1744,
+    "id": "minecraft:stronghold",
+    "ring": 2,
+    "site_m": 256,
+    "road_m": 2063,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": -3280,
+    "z": 3040,
+    "id": "minecraft:stronghold",
+    "ring": null,
+    "site_m": 2422,
+    "road_m": 2594,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6832,
+    "z": 4816,
+    "id": "minecraft:stronghold",
+    "ring": null,
+    "site_m": 3020,
+    "road_m": 4438,
+    "why": "outside the ranges"
+   }
+  ],
+  "minecraft:ancient_city": [
+   {
+    "x": 160,
+    "z": 400,
+    "id": "minecraft:ancient_city",
+    "ring": 0,
+    "site_m": 193,
+    "road_m": 292,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 560,
+    "z": 480,
+    "id": "minecraft:ancient_city",
+    "ring": 0,
+    "site_m": 336,
+    "road_m": 342,
+    "why": "inside a site buffer"
+   },
+   {
+    "x": 3472,
+    "z": 2096,
+    "id": "minecraft:ancient_city",
+    "ring": null,
+    "site_m": 369,
+    "road_m": 580,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -1856,
+    "z": -288,
+    "id": "minecraft:ancient_city",
+    "ring": 1,
+    "site_m": 1128,
+    "road_m": 1214,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -2944,
+    "z": 1280,
+    "id": "minecraft:ancient_city",
+    "ring": 1,
+    "site_m": 1008,
+    "road_m": 1217,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4688,
+    "z": 1280,
+    "id": "minecraft:ancient_city",
+    "ring": 2,
+    "site_m": 912,
+    "road_m": 1271,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4848,
+    "z": 896,
+    "id": "minecraft:ancient_city",
+    "ring": 2,
+    "site_m": 805,
+    "road_m": 1336,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -3040,
+    "z": 1712,
+    "id": "minecraft:ancient_city",
+    "ring": 1,
+    "site_m": 1281,
+    "road_m": 1486,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1824,
+    "z": -576,
+    "id": "minecraft:ancient_city",
+    "ring": 1,
+    "site_m": 1416,
+    "road_m": 1491,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 5088,
+    "z": 1296,
+    "id": "minecraft:ancient_city",
+    "ring": 2,
+    "site_m": 512,
+    "road_m": 1652,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4848,
+    "z": 4048,
+    "id": "minecraft:ancient_city",
+    "ring": 2,
+    "site_m": 1921,
+    "road_m": 2366,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 4416,
+    "z": 5184,
+    "id": "minecraft:ancient_city",
+    "ring": null,
+    "site_m": 2649,
+    "road_m": 2953,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 768,
+    "z": -3744,
+    "id": "minecraft:ancient_city",
+    "ring": 1,
+    "site_m": 3612,
+    "road_m": 3799,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1504,
+    "z": 5456,
+    "id": "minecraft:ancient_city",
+    "ring": 2,
+    "site_m": 4143,
+    "road_m": 4505,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": -1696,
+    "z": 5568,
+    "id": "minecraft:ancient_city",
+    "ring": 2,
+    "site_m": 4346,
+    "road_m": 4612,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6608,
+    "z": -2656,
+    "id": "minecraft:ancient_city",
+    "ring": null,
+    "site_m": 3844,
+    "road_m": 4627,
+    "why": "outside the ranges"
+   },
+   {
+    "x": -2112,
+    "z": 5792,
+    "id": "minecraft:ancient_city",
+    "ring": 2,
+    "site_m": 4779,
+    "road_m": 4851,
+    "why": "over the cap or too close to a kept one"
+   },
+   {
+    "x": 6592,
+    "z": -3056,
+    "id": "minecraft:ancient_city",
+    "ring": null,
+    "site_m": 4243,
+    "road_m": 4922,
+    "why": "outside the ranges"
+   },
+   {
+    "x": 6560,
+    "z": -3328,
+    "id": "minecraft:ancient_city",
+    "ring": null,
+    "site_m": 4514,
+    "road_m": 5118,
+    "why": "outside the ranges"
+   }
+  ],
+  "minecraft:mansion": [
+   {
+    "x": 4624,
+    "z": 5696,
+    "id": "minecraft:mansion",
+    "ring": null,
+    "site_m": 3201,
+    "road_m": 3502,
+    "why": "outside the ranges"
+   }
+  ]
+ },
+ "left_alone": {
+  "minecraft:ruined_portal_ocean": 45,
+  "minecraft:ocean_ruin_cold": 148,
+  "minecraft:swamp_hut": 3,
+  "minecraft:ruined_portal_mountain": 23,
+  "minecraft:mineshaft_mesa": 101,
+  "minecraft:mineshaft": 1473,
+  "minecraft:shipwreck": 161,
+  "minecraft:shipwreck_beached": 18,
+  "minecraft:ruined_portal_jungle": 17,
+  "minecraft:ruined_portal": 138,
+  "minecraft:ruined_portal_swamp": 4,
+  "minecraft:ruined_portal_desert": 19,
+  "minecraft:ocean_ruin_warm": 75,
+  "minecraft:buried_treasure": 103
+ },
+ "summary": {
+  "apotheosis:tower": {
+   "total": 439,
+   "keep": 11,
+   "by_ring": [
+    0,
+    5,
+    6
+   ]
+  },
+  "minecraft:monument": {
+   "total": 20,
+   "keep": 3,
+   "by_ring": [
+    0,
+    1,
+    2
+   ]
+  },
+  "minecraft:pillager_outpost": {
+   "total": 21,
+   "keep": 6,
+   "by_ring": [
+    0,
+    3,
+    3
+   ]
+  },
+  "minecraft:igloo": {
+   "total": 29,
+   "keep": 2,
+   "by_ring": [
+    0,
+    1,
+    1
+   ]
+  },
+  "underground_bunkers:underground_bunker": {
+   "total": 284,
+   "keep": 14,
+   "by_ring": [
+    2,
+    6,
+    6
+   ]
+  },
+  "minecraft:trail_ruins": {
+   "total": 33,
+   "keep": 4,
+   "by_ring": [
+    0,
+    2,
+    2
+   ]
+  },
+  "man:house": {
+   "total": 35,
+   "keep": 6,
+   "by_ring": [
+    0,
+    3,
+    3
+   ]
+  },
+  "minecraft:desert_pyramid": {
+   "total": 12,
+   "keep": 2,
+   "by_ring": [
+    0,
+    1,
+    1
+   ]
+  },
+  "minecraft:jungle_pyramid": {
+   "total": 13,
+   "keep": 2,
+   "by_ring": [
+    0,
+    1,
+    1
+   ]
+  },
+  "minecraft:village": {
+   "total": 45,
+   "keep": 10,
+   "by_ring": [
+    0,
+    4,
+    6
+   ]
+  },
+  "minecraft:stronghold": {
+   "total": 8,
+   "keep": 2,
+   "by_ring": [
+    0,
+    0,
+    2
+   ]
+  },
+  "minecraft:ancient_city": {
+   "total": 23,
+   "keep": 4,
+   "by_ring": [
+    0,
+    1,
+    3
+   ]
+  },
+  "minecraft:mansion": {
+   "total": 2,
+   "keep": 1,
+   "by_ring": [
+    0,
+    0,
+    1
+   ]
+  }
+ }
+}
