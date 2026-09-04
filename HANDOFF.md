@@ -1,16 +1,16 @@
 # Handoff: picking the work up in another session
 
-State as of 2026-09-03 09:00. Everything needed is in this repository plus the two GitHub releases;
+State as of 2026-09-04 (v6 live on the hosted server; v7 rebuild queued). Everything needed is in this repository plus the two GitHub releases;
 the working machine's paths are given so a session on it can continue directly, and section 2 says
 how to rebuild the same state elsewhere.
 
 ## 1. Where things stand
 
-**The hosted server (Bisect, 199.115.76.82:9150, panel id 493d6256)** is running the OLD pack and world
-(`Escape From Minenkrafte`, rolled back 2026-09-03 morning). The rebuild's folders sit beside it as
-`/mods_wasteland_20260902`, `/config_wasteland_20260902`, `/defaultconfigs_wasteland_20260902`; the
-rebuild's `/wasteland` world and `/kubejs` were deleted there (copies exist locally and in the releases).
-**Deploying v6 to it is the open task** - section 6.
+**The hosted server (Bisect, 199.115.76.82:9150, panel id 493d6256) RUNS v6** since 2026-09-03 evening:
+world `wasteland-v6`, MOTD "GSCraft Wasteland - test build v6", the rebuild pack with EMI added, the three KubeJS
+scripts, camp ruins v2, Magnum torches, dossier and site chests placed; **mob spawning is OFF** (owner) until the
+designs are done and v7 lands. The rolled-back folders sit beside it as `*_old_20260902`. The deploy recipe that
+was used is section 6.
 
 **The finished v6 world** is `G:/GSCraft/server/wasteland-v6` on the working machine (the local test
 server's world; tower stage 0 placed, roads laid, three KubeJS scripts armed, boot clean) and GitHub
@@ -140,7 +140,7 @@ the hub's rare loot, aircraft, the beacon countdown and base waves). The KubeJS 
 `build/kubejs/server_scripts/gscraft_fixes.js` (recipe fix), `gscraft_tower_lock.js` + `startup_scripts/
 gscraft_tower_lock_native.js` (the lock), `gscraft_projectiles.js` (projectile sweep).
 
-## 6. Deploying v6 to the hosted server (hand-run)
+## 6. Deploying a world build to the hosted server (hand-run; this is how v6 went up)
 
 The working-machine assistant is not permitted to run panel calls that change the hosted server (the
 auto-mode permission classifier blocks them, uploads included), so this is run by a person from
