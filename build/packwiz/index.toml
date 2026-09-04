@@ -836,6 +836,11 @@ hash = "e8b6438c97430591714d97ce82e287116b9b9806b5c9422c640e4888ea4fe957"
 metafile = true
 
 [[files]]
+file = "mods/parties-xaerominimap-fix-1-0-0.pw.toml"
+hash = "50a82ad79cf1ce5f024a628ca707f157da5cc779e73806565c45c1652aaa37dc"
+metafile = true
+
+[[files]]
 file = "mods/patchouli-1-20-1-84-1-forge.pw.toml"
 hash = "09e5bffb3172d81f1a7cdb3d5c397adff2e7ace3d2e5d59decc9f18c30162743"
 metafile = true

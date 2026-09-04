@@ -39,6 +39,8 @@ BOOTSTRAP = G / "incoming" / "tools" / "packwiz-installer-bootstrap.jar"
 OUT = REPO / "build" / "packwiz"
 ASSETS = G / "release-installer"
 CLIENT_ONLY = {"xaerominimap", "xaeroworldmap"}           # jar-name prefixes that never run on the server
+CLIENT_EXTRA_JARS = [G / "client" / "instances" / "GSCraft" / ".minecraft" / "mods" / "parties_xaerominimap_fix-1.0.0.jar"]
+# client-only jars that are NOT in server/mods: the Parties/Xaero crash fix (one mixin; must never load on the server)
 CONFIG_SKIP = {"QuantifiedAPI", "spark", "chunky", "worldedit", "xaero", "FML.VersionCheck.txt", "voicechat"}
 CLIENT_CONFIG_EXTRA = ["appleskin-client.toml", "lootr-client.toml", "recruits-client.toml", "pingwheel.server.json"]
 TEXT_EXT = {".toml", ".json", ".json5", ".cfg", ".properties", ".txt", ".js", ".snbt", ".md"}
@@ -87,11 +89,11 @@ def main():
     (OUT / ".gitattributes").write_bytes(b"* -text\n")
     index_files = []          # (path, hash, metafile)
     mr_files = []             # mrpack file entries
-    jars = sorted(p for p in SERVER_MODS.glob("*.jar"))
+    jars = sorted(p for p in SERVER_MODS.glob("*.jar")) + [p for p in CLIENT_EXTRA_JARS if p.exists()]
     hosted = missing = 0
     for jar in jars:
         name = jar.name
-        side = "client" if any(name.lower().startswith(c) for c in CLIENT_ONLY) else "both"
+        side = "client" if jar.parent != SERVER_MODS or any(name.lower().startswith(c) for c in CLIENT_ONLY) else "both"
         s512, s1 = sha(jar, "sha512"), sha(jar, "sha1")
         if name in MODRINTH:
             m = MODRINTH[name]; url = m["url"]; hosted += 1

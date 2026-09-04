@@ -1,0 +1,8 @@
+name = "parties_xaerominimap_fix-1.0.0"
+filename = "parties_xaerominimap_fix-1.0.0.jar"
+side = "client"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files-2026-09-04/parties_xaerominimap_fix-1.0.0.jar"
+hash-format = "sha512"
+hash = "8bcb822847ac0597ce7251e9b6114097373fdb1da6cb4038e9a8941f90ecaef2303692c53196df7181f736ff008f1b54289111c247be4555c3505a3ba2645846"
