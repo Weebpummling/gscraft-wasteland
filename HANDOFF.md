@@ -70,6 +70,12 @@ Immersive Weathering, the server tools and the TaCZ fire-control extension all S
 and site chests in place; the datapack on the server matches `build/datapacks/gscraft` except `dossiers_fill`, parked
 in `build/phase_c/`. Loot tables carry vanilla stand-ins until Phase C. Nothing is pending on the working machine.
 
+**World build v7 - ready to run on the working machine:** `tools/carve_regen.py <pregen> <carved>` (keeps the v5 rects +
+camp, drops 405,699 chunks), copy `build/datapacks/gscraft_worldgen` into `<carved>/datapacks`, `tools/localpregen.py`
+on it (2 h 15 min, cycling), `tools/place_kept.py <server>` (batches of six: force-load, wait, place, release; never as one function), then `buildv6.py`, `roads.py
+build`, the camp functions (`gscraft:camp_ruins`, `camp_torches`, `dossiers`, `furnish_novo`, `furnish_financial`),
+`reviewv6.py`, release, deploy (section 6). Details: `docs/gscraft-structure-plan.md` section 3, route A'.
+
 **Not started:** Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
 `camp.py` (the six NPC buildings as templates onto their pads); the systems (KubeJS items, blueprints,
 stages, the strongpoint loop and timers; FTB Quests chapters from `docs/gscraft-quests.md`; loot tables

@@ -17,7 +17,8 @@ def main(a):
     sdir = Path(a[1]).resolve()
     keep = int(a[a.index("--keep-running") + 1]) if "--keep-running" in a else 10
     grep = a[a.index("--log-grep") + 1] if "--log-grep" in a else None
-    cmds = [c for c in a[2:] if not c.startswith("--") and c not in (str(keep), grep)]
+    pause = int(a[a.index("--pause") + 1]) if "--pause" in a else 2      # seconds between commands
+    cmds = [c for c in a[2:] if not c.startswith("--") and c not in (str(keep), grep, str(pause))]
     stamp = time.strftime("%Y%m%d-%H%M%S")
     logf = sdir / f"console-{stamp}.log"
     con = open(logf, "w", encoding="utf-8")
@@ -32,10 +33,19 @@ def main(a):
         time.sleep(3)
     print(f"Done after {int(time.time() - t0)} s")
     for c in cmds:
-        print(">", c); p.stdin.write(c + "\n"); p.stdin.flush(); time.sleep(2)
+        print(">", c)
+        try:
+            p.stdin.write(c + "\n"); p.stdin.flush()
+        except OSError:
+            print("server pipe closed (crashed?) - see", logf); break
+        time.sleep(pause)
+        if p.poll() is not None:
+            print("server exited during commands; see", logf); break
     time.sleep(keep)
     for c in ("save-all flush", "stop"):
-        p.stdin.write(c + "\n"); p.stdin.flush(); time.sleep(2)
+        try: p.stdin.write(c + "\n"); p.stdin.flush()
+        except OSError: break
+        time.sleep(2)
     try: p.wait(timeout=600)
     except subprocess.TimeoutExpired: p.kill(); print("stop timed out; killed")
     txt = tail()

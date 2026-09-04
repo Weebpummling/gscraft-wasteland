@@ -96,6 +96,7 @@ Immersive Vehicles already chunk-loads vehicles on roads (`chunkloadVehicles: tr
 | Lootr: 1.12 chests came across as plain chests with their surviving vanilla items | expected; the design's typed loot arrives by datapack anyway |
 | Voice chat tried to bind the Bisect IP locally | server-ip is empty in the local property profiles; the hosted profile keeps the IP |
 | `superbwarfare` is the second-largest block namespace in the world (6.1 M palette entries) | the Lost Cities apocalypse pack builds with its sandbags and barricades; nothing to do |
+| Lost Cities 7.5.3 logs `Error generating chunk ...: "state" is null` (ChunkDriver.correct) for about 7 % of generated chunks, in the v6 pre-generation and again in the v7 test generation | pre-existing: a building part in the apocalypse pack resolves to a block the pack does not have, so that part of the building is skipped; the chunk still generates. Worth finding the missing block before v7 (the LC asset palettes in the profile), cosmetic otherwise |
 
 ## 4. What Phase A (the visual pass) should look at, in order
 1. The camp rim: the six NPC sites, the tower compound and its gate side, the crater ramp with a car.

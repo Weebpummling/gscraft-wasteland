@@ -1,0 +1,31 @@
+{
+ "structures": [
+  {
+   "structure": "minecraft:village_plains",
+   "weight": 1
+  },
+  {
+   "structure": "minecraft:village_desert",
+   "weight": 1
+  },
+  {
+   "structure": "minecraft:village_taiga",
+   "weight": 1
+  },
+  {
+   "structure": "minecraft:village_savanna",
+   "weight": 1
+  },
+  {
+   "structure": "minecraft:village_snowy",
+   "weight": 1
+  }
+ ],
+ "placement": {
+  "type": "minecraft:random_spread",
+  "spacing": 100,
+  "separation": 50,
+  "salt": 20260904,
+  "frequency": 0.0
+ }
+}

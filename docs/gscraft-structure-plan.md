@@ -67,6 +67,21 @@ workstation against the local region set, then uploads only the touched region f
 tool-writing (`terrain.py` has the fill and smooth primitives; the bounding boxes are in the census
 starts) and craters where 439 towers stood. Result: the same world minus the structures, with scars.
 
+**A' - Regenerate around what we built (the route the tools implement).** A fresh world from the seed would
+lose the v5 chunks - the transplanted player district, the 29 old-world sites and the camp - so the build
+machine does this instead: `tools/carve_regen.py` copies the pre-generated world and drops every chunk
+outside the v5 rectangles and the camp (15,502 chunks kept, 405,699 dropped); `tools/structure_override.py`
+writes the datapack `build/datapacks/gscraft_worldgen` (16 structure sets at placement frequency 0: the four
+Apotheosis towers, the Man house, the bunkers, and the vanilla villages, outposts, ancient cities, trail ruins,
+igloos, pyramids, jungle temples, monuments, mansions, strongholds) which goes into the carved world's
+`datapacks/` before the first boot; `tools/localpregen.py` then regenerates the dropped chunks - same seed, same
+terrain, same Lost Cities, no pruned structures - in the same 2 h 15 min; `tools/place_kept.py` puts the 67 kept sites back at their census coordinates in batches (force-load the 3x3
+chunks around each, wait, `place structure`, release - the command refuses unloaded chunks, and a single
+function that force-loads everything stalls the server; the generated functions `gscraft:forceload_kept_structures`
+/ `place_kept_structures` / `unforceload_kept_structures` remain for hand use in small groups); then `buildv6.py`, roads, the camp functions (ruins, torches, dossiers, furnishing),
+review, release, deploy. A structure whose start chunk is inside a kept rectangle survives the carve; those
+are inside the 350 m buffers and are the only in-place pruning still owed.
+
 Route A is the right one: the world is already reproducible from scripts, that is the whole point of
 the pipeline, and the scars of route B would need a smoothing pass anyway. The v7 build goes on the
 Phase B list; **until it lands, mob spawning stays off** (HANDOFF), which also keeps the 439 boss
