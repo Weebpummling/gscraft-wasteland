@@ -26,6 +26,12 @@ ServerEvents.recipes(event => {
   rm({ output: 'superbwarfare:reforging_table' }, 'SW reforging table');
   ['vehiclebench', 'gunbench', 'decorbench', 'custombench', 'itembench', 'instrumentbench', 'seatbench',
    'wheelbench', 'propellerbench', 'enginebench', 'fuelpump'].forEach(b => rm({ output: 'mts:mts.' + b }, 'IV ' + b));
+  rm({ output: 'tacz:gun_smith_table' }, 'TaCZ gun smith table');                      // Walker's armoury places it
+  ['salvaging_table', 'reforging_table', 'simple_reforging_table', 'augmenting_table', 'gem_cutting_table']
+    .forEach(t => rm({ output: 'apotheosis:' + t }, 'Apotheosis ' + t));               // the Salvaging Table sits in the yard
+
+  // --- 1b. Sophisticated Backpacks: packs and upgrades are Storage 1-4 station orders (design §4.5)
+  rm({ mod: 'sophisticatedbackpacks' }, 'all backpack and upgrade recipes');
 
   // --- 2. Superb Warfare defences (Walls 1-3 station orders)
   ['laser_tower', 'laser_unit', 'waveforce_tower', 'hpj_11', 'hpj_11_blueprint', 'claymore_mine', 'c4_bomb', 'c4_bomb_rc',

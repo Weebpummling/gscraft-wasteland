@@ -74,7 +74,8 @@ ordered by how much it would add for how little it costs, with a recommendation 
   vanilla crafting table, IE's crafting table and Engineer's Workbench, the Refurbished Furniture workbench, Superb
   Warfare's assembling and reforging tables, all eleven Immersive Vehicles benches and the fuel pump), the Superb Warfare
   defence items (Walls 1-3 station orders later), every vvp / MCSP vehicle assembling recipe and the fourteen Superb Warfare
-  vehicles outside the roster. The inert crafting table (block interaction) and the station block are Phase C.
+  vehicles outside the roster, plus TaCZ's gun smith table, Apotheosis' five tables and every Sophisticated Backpacks
+  recipe (packs and upgrades are Storage 1-4 orders). The inert crafting table (block interaction) and the station block are Phase C.
 - **Improved Mobs by distance:** `Difficulty type = DISTANCESPAWN`, difficulty 0 inside 1.5 km of the camp, 3 from 1.5 km,
   6 from 2.5 km, 10 from 4 km, 15 in the air ring - the three ranges of the design, measured from the world spawn. It was
   GLOBAL (time-based) before, so the "hardens with distance" line in §3 was not true until now.
