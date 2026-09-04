@@ -63,7 +63,7 @@ server-run `/place template`):
 
 The templates contain nothing flammable (iron, chain, glass, sea lantern, stone slabs, gravel,
 cobblestone, lightning rod, beacon), so fire is not a path in. Two things to prove on the local
-server in Phase C: that Improved Mobs' digging respects the mob-griefing event, and that an
+server on the Phase A visual pass (gaps C16): that Improved Mobs' digging respects the mob-griefing event, and that an
 Immersive Vehicles crash into the fence breaks nothing.
 
 ## 3. Strongpoints and sites — the placement table

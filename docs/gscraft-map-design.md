@@ -508,7 +508,7 @@ Done in v6: border set; pads laid as foundations without outlines; the transplan
 Plaza, Bio Gen, the sewers, the hub) through the 1.12 → 1.20 pipeline (`anvil112.py`, `remap112.json`, `transplant.py`);
 the four roads routed by `roads.py`; tower stage 0, the camp ruins and the torches placed by function. Coming with v7
 (`gscraft-structure-plan.md`, `gscraft-woods-plan.md`): the kept structures placed back, the Woods regenerated, the
-Novo → sawmill spur, `camp.py`'s tier-0 buildings. *Pass:* a clean boot; every site reachable on foot or by road.
+Novo → sawmill spur. `camp.py`'s tier-0 buildings follow Phase A's positions (Phase C, as HANDOFF §5 orders it). *Pass:* a clean boot; every site reachable on foot or by road.
 
 **Phase C — Systems v1.** KubeJS items (small, intermediate, complete, components, the five
 dossiers, the claim marker; stack sizes; bulky rule), the station recipes and their `bp_*` stages, datapack loot tables by

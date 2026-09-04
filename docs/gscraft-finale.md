@@ -80,7 +80,7 @@ seeing the Captains; Marshall's line should not promise more than that.
 - **Win:** the Sleeper dies → stage `finale_won`; X8 completes (kill task on `minecraft:warden` with tag
   `gscraft_boss`, or a stage set by the script's death hook); the finale chest appears at the plinth:
   the season flag item, a **Warium** decoration set. X9 opens (free play; the board stays live).
-- **Fail** (B30/B38): the base's claim marker is broken by the wave reaching it, or every player online is
+- **Fail** (B30): a wave **overruns the tower compound** (five or more attackers inside its rectangle for 30 s, the script's check — the base has no claim marker, its claim is FTB Chunks'), or every player online is
   dead at once → the script kills every `gscraft_boss`-tagged entity and the remaining wave, the beacon
   beam goes dark (stage 5's beacon block swapped for the unlit variant), stage `finale_failed`.
 - **Retry:** one in-game day later Marshall's **X6b Relight** (a repeatable, no hand-in) restarts the
@@ -93,7 +93,7 @@ seeing the Captains; Marshall's line should not promise more than that.
 
 1. `gscraft_finale.js` (server script): countdown from `beacon_lit`; five wave timers; `summon` calls
    for tables and Captains (`/apoth spawn_boss gscraft:captain_<n> rare`); the Sleeper's summon +
-   `/attribute` scaling; boss bar; death hook → stages, chest; fail hook (marker broken / all dead);
+   `/attribute` scaling; boss bar; death hook → stages, chest; fail hook (compound overrun / all dead);
    the relight repeat.
 2. Four boss definitions `build/datapacks/gscraft/data/gscraft/bosses/captain_1..4.json` (husk, zombie,
    drowned, zombie_villager bases; TaCZ gear sets from Keerdm's items via `valid_gear_sets`; rarity
@@ -103,7 +103,7 @@ seeing the Captains; Marshall's line should not promise more than that.
    `finale_failed`; Tune and Marshall first-time lines for the telegraph and the fail.
 5. Tests **(E)**: named warden does not dig down; `/attribute` health holds after summon; TaCZ damage
    registers on it (single hitbox — expected fine); sonic boom vs Bradley occupant; boss bar; the fail
-   hook fires when the marker breaks; the retry countdown; five-player run time (target 12–18 minutes for
+   hook fires when the compound is overrun; the retry countdown; five-player run time (target 12–18 minutes for
    the whole finale).
 
 ## 6. What changed elsewhere because of this doc
