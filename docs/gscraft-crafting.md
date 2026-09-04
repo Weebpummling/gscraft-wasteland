@@ -171,8 +171,8 @@ there when the order finishes. A **blueprint** is not an item any more: it is a 
 stage the team holds. The book shows the recipe on the quest that grants it.
 
 A personal station takes one order at a time. A workshop bench takes one order at tier 1, a
-queue of two at tier 2 and three at tier 3. Five players and a tier-3 yard is therefore eight
-orders in flight plus the vehicle benches, which is the ceiling the timers were tuned against: a
+queue of two at tier 2 and three at tier 3. For a team of five, a tier-3 yard is eight
+orders in flight plus the vehicle benches, which is the ceiling the timers were tuned against (a smaller team has fewer stations and the same timers, so it simply runs fewer orders at once): a
 full tower stage (six steel frames, eight fastener kits counting the frames' own, the kit itself) is fourteen
 intermediate orders across the team's stations and one trip-length order, and a team that plans it starts the intermediates before leaving and
 the kit when they return.

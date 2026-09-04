@@ -66,7 +66,7 @@ Every other row: **the default, applied** in the same commit as this note.
 | B24 | **W5 asks for motor oil "Novo's drops"** but oil drops elsewhere | quests W5, design §4.2 | add motor oil to Novo's site table |
 | B25 | **Death**: respawn point, what drops, bleed-out time, revive range numbers | nowhere | respawn at the camp (world spawn); everything drops except the secure pack (Storage 3); PlayerRevive bleed-out 5 min; revive range 6 m, one global value — the tiers act through the script (C18) |
 | B26 | **Late joiner / 6th player** | nowhere | stages are **team** stages (FTB Teams); a joiner gets the team's stages, the starting kit and the introductions as a tour |
-| B27 | **Team offline during a fortify clock or attack** | design §6 | clocks tick only while ≥ 2 team members are online; an attack that starts with < 2 online is postponed to the next login |
+| B27 | **Team offline during a fortify clock or attack** | design §6 | clocks tick while ≥ 1 team member is online *(owner 2026-09-04: no team-size assumption; was ≥ 2)* |
 | B28 | **Restart mid-assault** | quests §9 | the contested slot and clocks persist; a wave in progress restarts at its start; the marker stands |
 | B29 | **Lootr instancing vs hand-in counts and component containers** | design §6, HANDOFF | ordinary loot instanced; **component and dossier containers are shared** (one per site per cycle) |
 | B30 | **Finale**: dragon in the overworld, HP/affixes, fail state, retry | design §7, X7-X8 | **Decided by `gscraft-finale.md` (2026-09-04):** the Sleeper, a named Warden scaled by `/attribute`, with four Apotheosis-boss Captains; fail = the tower compound overrun or all dead, retry = X6b one in-game day later; Phase E decides numbers |
@@ -79,7 +79,7 @@ Every other row: **the default, applied** in the same commit as this note.
 | B37 | **Stage sharing** (team vs player) | quests §9 | team for sites, functions, blueprints, car_built; player for first-time onboarding lines and revives_3 |
 | B38 | **Held sites and claims; how a marker falls** | design §6 | the marker is a block; it falls when broken by the attack's last wave reaching it or by a player; no player claims at strongpoints |
 | B39 | **World border warning** | nowhere | vanilla border damage off, warning distance 200 blocks |
-| B40 | **2-of-5 players difficulty** | design L405 | wave size scales with players in the rectangle (as designed); clocks pause below 2 (B27) |
+| B40 | **2-of-5 players difficulty** | design L405 | wave size scales with players in the rectangle (×0.4 solo … ×1.2 for six+); clocks run for any team size (B27) |
 
 ## C. Assigned to a phase (was "later" with no owner)
 

@@ -33,7 +33,7 @@ shortcut, loot buy-back as a sink, access by building tier and quest stage, on v
 
 ## 1. The game in one paragraph
 
-Five players wake in a crater camp run by six survivors. Around them is a Lost Cities wasteland with a
+A team of players — any number, from one up — wakes in a crater camp run by six survivors. Around them is a Lost Cities wasteland with a
 custom-built district two kilometres east and five player-built strongpoints scattered between 1
 and 2.5 km. Every ruin is full of small useful junk; the camp's NPCs teach the players to turn it into
 parts at the stations and to grow their own hideout. Taking a strongpoint starts a clock; holding it
@@ -336,7 +336,7 @@ part's shopping list is 6–10 different items, so the budget is spent on **vari
 - Small items stack 4–8; intermediates 4; complete parts and components **stack 1 and are bulky**:
   no backpack, Slowness and no sprint while carried (KubeJS item + player tick; backpack exclusion
   through the backpack mod's config if it has one, else a KubeJS insert check).
-- Death drops everything except the secure pack (keepInventory off; PlayerRevive makes it rare). **Rules of play (owner defaults, 2026-09-04):** respawn is the camp (world spawn 19 94 26; a bed at the clinic from T-B1 moves it); a downed player bleeds out in 5 minutes unless revived (PlayerRevive `bleedTime` 6000 and `maxDistance` 6 — one global value each, the mod has no runtime config command, so Medical 1 and the clinic tiers act through the script instead: the camp revive point at Medical 1, a 3-second clinic revive at T-B2, full health at T-B3 — C18, 2026-09-04); infection kills 20 minutes after the bite (Hordes: four 5-minute phases, `ticksForEffectStage` 6000) unless cured at the clinic (T1) or by a med kit (Medical 2), and that death is a real death, not a bleed-out (`hordes:infection` bypasses PlayerRevive); a late joiner or sixth player receives the team's stages (all progress stages are **team** stages via FTB Teams; only the first-time onboarding lines and `revives_3` are per player), the starting kit and the introductions as a tour; the fortify clock, warning and defence tick only while **two or more** team members are online - a defence that would start with fewer waits for the next login; a restart mid-assault keeps the contested slot, the clocks and the marker, and the interrupted wave restarts from its beginning; pvp and friendly fire are off; the sleep percentage is 100 so nights are never skipped; hunger stays on and is fed from Marshall's kitchen (D3) and canned goods in the loot tables; the world border warns at 200 blocks and does no damage.
+- Death drops everything except the secure pack (keepInventory off; PlayerRevive makes it rare). **Rules of play (owner defaults, 2026-09-04):** respawn is the camp (world spawn 19 94 26; a bed at the clinic from T-B1 moves it); a downed player bleeds out in 5 minutes unless revived (PlayerRevive `bleedTime` 6000 and `maxDistance` 6 — one global value each, the mod has no runtime config command, so Medical 1 and the clinic tiers act through the script instead: the camp revive point at Medical 1, a 3-second clinic revive at T-B2, full health at T-B3 — C18, 2026-09-04); infection kills 20 minutes after the bite (Hordes: four 5-minute phases, `ticksForEffectStage` 6000) unless cured at the clinic (T1) or by a med kit (Medical 2), and that death is a real death, not a bleed-out (`hordes:infection` bypasses PlayerRevive); a late joiner or sixth player receives the team's stages (all progress stages are **team** stages via FTB Teams; only the first-time onboarding lines and `revives_3` are per player), the starting kit and the introductions as a tour; the fortify clock, warning and defence tick while **at least one** team member is online (owner, 2026-09-04: no assumption about team size — a solo player's clocks run too, and the waves scale to who is present); a restart mid-assault keeps the contested slot, the clocks and the marker, and the interrupted wave restarts from its beginning; pvp and friendly fire are off; the sleep percentage is 100 so nights are never skipped; hunger stays on and is fed from Marshall's kitchen (D3) and canned goods in the loot tables; the world border warns at 200 blocks and does no damage.
 - **Storage is Walker's function**, on Sophisticated Backpacks in the Curios slot:
 
 | Storage | Unlocks | Carried |
@@ -399,8 +399,8 @@ and no site is ever drawn while the players are elsewhere — the only fights ar
 
 **One contested site at a time.** The marker is refused while another site is still contested, so
 the players finish one fight before starting the next and the map is taken in order — the pasted
-progression of R2 → R6. Clocks run on **online time** only (they advance while two or more team members
-are on — the rules of play, §4.5), so a defence never fires into an empty world. Hordes' horde event is off (the pack ships it disabled, B6); only its
+progression of R2 → R6. Clocks run on **online time** only (they advance while at least one team member
+is on — the rules of play, §4.5), so a defence never fires into an empty world. Hordes' horde event is off (the pack ships it disabled, B6); only its
 infection runs, wherever the players are, and nothing random ever targets a site. Tune's Radio levels read
 the contested site: Radio 1 shows the warning, Radio 2 the whole countdown from `held`, Radio 3 the
 attack's composition (wave count and mob types) as soon as the marker is placed.
@@ -413,8 +413,8 @@ line; a component container arms on `held` and refills on its timer while the si
 Three layers per site, all from mobs the pack already has. **Ambient** is what In Control! spawns
 inside the site rectangle before the take (thin enough to loot through with care, per §6.1);
 **assault** is the six 45-second waves after the marker goes down; **defence** is the attack at the
-end of the fortify clock. Counts are for five players present and scale by the number inside the
-rectangle (×0.6 for one or two, ×0.8 for three or four); every wave enters from the site's edges,
+end of the fortify clock. Counts are the baseline for five players inside the rectangle and the script scales them to the actual
+number (×0.4 for one, ×0.6 for two, ×0.8 for three or four, ×1.2 for six or more); every wave enters from the site's edges,
 never inside its buildings. Mob ids, checked against the jars: neither the Bandits mod nor Pillagers Gun registers an entity —
 "bandits" and "gun pillagers" are vanilla **pillagers and vindicators**, which Pillagers Gun arms;
 Hordes adds only the zombie-player variants, so zombies, husks and drowned are vanilla; IE's Fusilier /
@@ -515,7 +515,7 @@ dossiers, the claim marker; stack sizes; bulky rule), the station recipes and th
 building type and site (dossier and component containers keyed to their site), Lootr refresh on,
 NPC interaction, the five introduction chapters, James's scout quests, Walker's storage levels,
 and the tier-1 building upgrades (`camp.py` tier templates 0 and 1 at least).
-*Test 2, five players, foot range only:* find items, craft at the stations, reach Storage 1 and
+*Test 2, whoever is available, foot range only:* find items, craft at the stations, reach Storage 1 and
 Workshop 1, scout Novo and hand its dossier to James, and get Marshall to talk.
 
 **Phase D — The loop and vehicles.** The site ladder as stages, the marker and the assault, the

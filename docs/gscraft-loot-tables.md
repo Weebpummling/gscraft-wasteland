@@ -27,7 +27,7 @@ they are vanilla.*
 ## 2. The camp's ruins (Act I) — `gscraft:ruins/*`
 
 The 24 ruin pieces' chests (`tools/camp_ruins.json`) carry these four tables. Every introduction's
-hand-in list is covered here on purpose, at odds that make Trip 1 about 20 minutes for five players.
+hand-in list is covered here on purpose, at odds that make Trip 1 about 20 minutes for a team of five (fewer players, fewer chests opened per minute, the same 20 minutes each).
 
 | Table | Rolls | Pool (weight) | Covers |
 |---|---|---|---|

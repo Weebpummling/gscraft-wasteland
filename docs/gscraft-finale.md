@@ -103,8 +103,8 @@ seeing the Captains; Marshall's line should not promise more than that.
    `finale_failed`; Tune and Marshall first-time lines for the telegraph and the fail.
 5. Tests **(E)**: named warden does not dig down; `/attribute` health holds after summon; TaCZ damage
    registers on it (single hitbox — expected fine); sonic boom vs Bradley occupant; boss bar; the fail
-   hook fires when the compound is overrun; the retry countdown; five-player run time (target 12–18 minutes for
-   the whole finale).
+   hook fires when the compound is overrun; the retry countdown; run time with the whole team (target 12–18 minutes for
+   the whole finale at any team size — the Sleeper's health scales per player online).
 
 ## 6. What changed elsewhere because of this doc
 
