@@ -109,6 +109,8 @@ the same footprint, placed by the NPC's upgrade quests (§3.6).
 | 5 | **Financial Plaza Quarantine** (transplant 160×144) | old hospital pad 675…866 × 2367…2558 | 2.5 km SE | Electronics | Tune |
 | — | **Radio tower** (custom) | 2023…2150 × −184…−57 | 2.1 km E | Endgame | Marshall |
 
+**Generated sites, counted** (`tools/structures_v6.json`, every structure start in the 10 km box): 45 villages — Lukis Grand Capitals' versions, hostile under Hostile Villages — and 21 pillager outposts, the bandit settlements of the map; 284 Underground Bunkers; 439 Apotheosis boss towers (the elites of §6.3 can simply be the towers nearest each site); 23 ancient cities; 35 Man-From-The-Fog houses; 2 mansions; 8 strongholds. Nearest to the camp: villages (800, -2352), (2416, -672), (3216, 912); outposts (-1392, 1632), (-1952, 1232), (-512, 2368); bunkers (16, -368), (448, -384), (-784, -384); boss towers (32, -368), (832, -816), (1312, 64). James's J9 sends the players to four of the capitals, and the bunkers are the U-chapter's side dungeons.
+
 Loot sites, never attacked: **Bio Gen Offices** (64×256) beside the runway on the old airfield pad;
 **the settlement** (272×288) on the water-treatment pad re-cut to 288×304; **the sewers** (96×96)
 under Financial Plaza, later under the hospital pad and the plant; **the hub** (832×640) in the air

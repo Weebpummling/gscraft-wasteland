@@ -169,7 +169,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | J6 | Runway | III | the runway | stand on the runway (location); hand in 1 hard drive | J4 | aircraft prep flag |
 | J7 | The hub | IV | **the hub**, 6.2 km | reach the hub by air (location) | J6, W13 | the hub's loot tables switch on |
 | J8 | Bring it back | IV | the hub | hand in 1 phased array element, 1 satellite receiver | J7 | Tune U9 and Walker W13 open |
-| J9 | Every city | IV | the air ring | reach the four generated cities (location) | J7 | 4 rare components' worth of loot |
+| J9 | Every capital | IV | the whole box | reach four of the Lukis capitals (location; the nearest four to the hub, from `tools/structures_v6.json`) | J7 | 4 rare components' worth of loot |
 | J10 | Cartographer | IV | everywhere | reach every named site on the map (location, 20) | J9 | a named backpack |
 | J11 | Every ruin | IV | everywhere | hand in one of each of the thirty small items | J10 | the Collector analogue: an extra everlasting slot |
 | J-B1 | A flag on it | I | camp | hand in 16 planks, 4 fastener kits, 1 folder of documents | J1 | **lookout tier 1**: platform, ladder, a flag |
