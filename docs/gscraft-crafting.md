@@ -67,11 +67,10 @@ every other one is stripped.
 
 Removed from the game's recipes (KubeJS strips their recipes; their containers are not in any loot
 table): the fighting vehicles and artillery (`bmp_2`, `yx_100`, `type_63`, `plz_05`, `tom_6`,
-`ah_6`, `mi_28`, `a_10a`, `prism_tank`, `annihilator`, `bl_132`, `mle_1934`, `hpj_11`, the two
-towers, `mk_42`) and the IV vehicles with no role (`ft17`, `firetruck`, `gmcbrig`, `merc230`,
+`ah_6`, `mi_28`, `a_10a`, `prism_tank`, `annihilator`, `bl_132`, `mle_1934`, `hpj_11`, the Waveforce
+tower, `mk_42`, SW's `wheel_chair`; the laser tower returns as a Walls 3 order, §5.7) and the IV vehicles with no role (`ft17`, `firetruck`, `gmcbrig`, `merc230`,
 `fordmustang69`, `scout`, `bell206`, `comanche`, `e500`, `pzlp11`, `pzl37los`, `skyhawk`,
-`trimotor`, `vulcanair`, `camaro`, `escargot`, `highwayman`, `luxorama`, `stationmerc`, `vwbus`,
-`wheel_chair`).
+`trimotor`, `vulcanair`, `camaro`, `escargot`, `highwayman`, `luxorama`, `stationmerc`, `vwbus`).
 
 **How the recipes exist.** Immersive Vehicles crafts at its own benches from `materialLists` in
 each pack, and the mod ships a **`config/mts/craftingoverrides.json`** (the class is in the jar)
@@ -315,7 +314,7 @@ need nothing from Act II; the fuel tank's sealed tubing is covered by W7's new g
 | **Storage 4** | diamond backpack (+ 1 satellite receiver); `tank_upgrade`: 2 steel frame + 1 sealed tubing; `void_upgrade`: 1 circuit assembly + 1 solvent; `inception_upgrade` is J11's reward only | Walker, W13 / J8 |
 | **Ziplines** | `parcool:zipline_rope`: 4 string + 2 metal scrap (Quick); `parcool:iron_zipline_hook` ×2: 2 metal scrap + 1 fastener kit — the lookout tier 3 and the tower's 64-metre platform get hooks placed by their functions; the rope is the players' | James, J-B2 |
 
-Every other Sophisticated Backpacks, ParCool and Superb Warfare recipe stays stripped (`gscraft_recipes.js`, sections 1b, 2, 2b, 3).
+Every other Sophisticated Backpacks, ParCool and Superb Warfare recipe is stripped (`gscraft_recipes.js`: 1b backpacks, 2 defences, 2b explosives, 2c every remaining SW crafting-table, furnace and smithing recipe — its 32 guns and blueprints, ammunition, armour, material packs, ore chain, the charging station — 2d ParCool, 3 vehicles); the SW gun line comes back only as the §5.2 station orders, which is what "the SW small-arms toggle" in HANDOFF meant.
 
 ### 5.8 Explosives — Teddy's line (owner, 2026-09-04)
 

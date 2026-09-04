@@ -34,7 +34,7 @@ ServerEvents.recipes(event => {
   rm({ mod: 'sophisticatedbackpacks' }, 'all backpack and upgrade recipes');
 
   // --- 2. Superb Warfare defences (Walls 1-3 station orders)
-  ['laser_unit', 'hpj_11_blueprint', 'claymore_mine', 'c4_bomb', 'c4_bomb_rc',
+  ['laser_unit', 'hpj_11_blueprint', 'claymore_mine', 'c4_bomb',
    'mortar_barrel', 'mortar_base_plate', 'mortar_bipod', 'mortar_deployer', 'mortar_shell', 'drone', 'swarm_drone',
    'sandbag', 'barbed_wire', 'jump_pad', 'fumo_25', 'aircraft_catapult', 'dps_generator_deployer', 'target_deployer',
    'tow_deployer'].forEach(d => rm({ output: 'superbwarfare:' + d }, 'SW ' + d));
@@ -51,11 +51,22 @@ ServerEvents.recipes(event => {
    'he_5_inches', 'ap_5_inches', 'cm_5_inches', 'gs_5_inches'].forEach(x => rm({ output: 'superbwarfare:' + x }, 'SW explosive/weapon ' + x));
   rm({ type: 'tacz:gun_smith_table_crafting' }, 'every TaCZ gun-smith recipe (guns and ammunition are station orders; explosives are Teddy the Hermit only)');
 
+  // --- 2c. everything else Superb Warfare crafts at a crafting table, furnace or smithing table: its 32 guns and their
+  //     blueprints, ammunition, armour, material packs, the ore/ingot chain, the charging station (M-B2 places it).
+  //     Only the superbwarfare:vehicle_assembling recipes of section 3's roster survive this.
+  ['minecraft:crafting_shaped', 'minecraft:crafting_shapeless', 'minecraft:smithing_transform', 'minecraft:smelting',
+   'minecraft:blasting'].forEach(t => rm({ mod: 'superbwarfare', type: t }, 'SW ' + t + ' recipes'));
+  ['annihilator_blueprint', 'bl_132_blueprint', 'mk_42_blueprint', 'mle_1934_blueprint']
+    .forEach(b => rm({ output: 'superbwarfare:' + b }, 'SW vehicle blueprint ' + b));
+
+  // --- 2d. ParCool: the rope and the iron hook are J-B2 station orders (crafting §5.7)
+  rm({ mod: 'parcool' }, 'all ParCool recipes');
+
   // --- 3. vehicles outside the roster
   rm({ type: 'superbwarfare:vehicle_assembling', mod: 'vvp' }, 'all vvp vehicles');
   rm({ type: 'superbwarfare:vehicle_assembling', mod: 'mcsp' }, 'all MCSP vehicles');
   ['a_10a', 'ah_6', 'annihilator', 'bl_132', 'bmp_2', 'mi_28', 'mk_42', 'mle_1934', 'plz_05', 'prism_tank', 'tom_6',
    'type_63', 'wheel_chair', 'yx_100'].forEach(v => rm({ id: 'superbwarfare:' + v }, 'SW vehicle ' + v));
 
-  console.info('[gscraft] recipes stripped: ' + removed.length + ' rules (benches, backpacks, SW defences, SW explosives and side-arms, TaCZ gun-smith recipes, military and off-roster vehicles)');
+  console.info('[gscraft] recipes stripped: ' + removed.length + ' rules (benches, backpacks, SW defences, SW explosives, every other SW table recipe, ParCool, TaCZ gun-smith recipes, military and off-roster vehicles)');
 });
