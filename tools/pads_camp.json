@@ -7,8 +7,8 @@
    103,
    115
   ],
-  "y": 94,
-  "note": "Walker's yard 40x32 + 4 apron; ground 87..110, median 94, cut 49% fill 45%"
+  "y": 99,
+  "note": "Walker's yard 40x32 + 4 apron; ground 87..110, median 94, cut 49% fill 45% | on the graded camp surface (y 99) since v7b"
  },
  {
   "name": "michael_plant",
@@ -18,8 +18,8 @@
    -5,
    127
   ],
-  "y": 108,
-  "note": "Michael's plant 32x24 + 4 apron at the crater edge; ground 79..114 (bimodal), pad at 108 = a terrace above the lake; crater rect protected"
+  "y": 99,
+  "note": "Michael's plant 32x24 + 4 apron at the crater edge; ground 79..114 (bimodal), pad at 108 = a terrace above the lake; crater rect protected | on the graded camp surface (y 99) since v7b"
  },
  {
   "name": "marshall_gate",
@@ -29,8 +29,8 @@
    177,
    19
   ],
-  "y": 111,
-  "note": "gatehouse 24x16 + apron; ground 109..117"
+  "y": 99,
+  "note": "gatehouse 24x16 + apron; ground 109..117 | on the graded camp surface (y 99) since v7b"
  },
  {
   "name": "tony_clinic",
@@ -40,8 +40,8 @@
    -77,
    -81
   ],
-  "y": 84,
-  "note": "clinic 20x16 + apron; ground 84..90"
+  "y": 99,
+  "note": "clinic 20x16 + apron; ground 84..90 | on the graded camp surface (y 99) since v7b"
  },
  {
   "name": "tune_shack",
@@ -51,8 +51,8 @@
    59,
    -101
   ],
-  "y": 85,
-  "note": "radio shack 16x16 + apron; ground 83..92"
+  "y": 99,
+  "note": "radio shack 16x16 + apron; ground 83..92 | on the graded camp surface (y 99) since v7b"
  },
  {
   "name": "james_lookout",
@@ -62,7 +62,7 @@
    -139,
    -139
   ],
-  "y": 88,
-  "note": "lookout 8x8 + apron; ground 87..90"
+  "y": 99,
+  "note": "lookout 8x8 + apron; ground 87..90 | on the graded camp surface (y 99) since v7b"
  }
 ]

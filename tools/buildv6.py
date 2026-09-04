@@ -6,6 +6,7 @@ usage: buildv6.py <pregenerated world dir> <build world dir> [--pads pads_v6.jso
 Steps, in order (each can be selected with --only):
   copy       copy region/, entities/, level.dat and data/ of the pregenerated world into the build dir (poi/ left out)
   restore    put the old substation and hospital pads (and their ramps) back from the pristine v2 region set
+  campgrade  grade.py: the camp as one surface at y 99 (city removed, crater wall, 64-block falloff)
   pads       terrain.py pad for every entry of pads_v6.json at its level (tower, Novo, plaza, settlement, airfield, hub)
   transplant runplan.py over transplant_plan_v6.json into the build dir (dy and section stacking included)
   smooth     terrain.py smooth: ramp the generated terrain to every transplant edge
@@ -84,11 +85,21 @@ def step_campads(dst: Path, dry):
         args = [HERE / "terrain.py", "pad", dst, x1, z1, x2, z2, "--y", p["y"], "--protect", *CRATER, *TOWER, "--label", p["name"]]
         if dry: args.append("--dry-run")
         run(*args)
-    for p in pads:
-        x1, z1, x2, z2 = p["blocks"]
-        args = [HERE / "terrain.py", "ramp", dst, x1, z1, x2, z2, "--y", p["y"], "--label", p["name"]]
-        if dry: args.append("--dry-run")
-        run(*args)
+    # no per-pad ramps: the pads sit on the graded camp surface (step_campgrade)
+
+
+CAMP_CORE = (-176, -176, 207, 207)      # design: the 384x384 cleared area around the crater
+CAMP_LEVEL = 99                          # the tower pad's level; every camp pad sits on this surface
+CRATER_BOWL = (-16, -16, 47, 47)         # the lake and the Warium island: untouched; wall blended from the lake level
+
+
+def step_campgrade(dst: Path, dry):
+    """One continuous camp surface (grade.py): the 384x384 area at y 99 with the generated city removed, a
+    crater wall from the lake (y 62) up to the rim over 32 blocks, a 64-block falloff to the land around."""
+    args = [HERE / "grade.py", dst, *CAMP_CORE, "--y", CAMP_LEVEL, "--falloff", 64, "--bowl", *CRATER_BOWL,
+            "--bowl-floor", 62, "--bowl-width", 32, "--label", "camp"]
+    if dry: args.append("--dry-run")
+    run(*args)
 
 
 def step_clearring(dst: Path, pads, dry, margin=24):
@@ -109,9 +120,13 @@ def step_smooth(dst: Path, plan: Path, dry):
 
 
 def step_ramps(dst: Path, pads, dry):
+    """Blend every site pad into the land around it with grade.py (a 64-block smoothstep falloff instead of the
+    old 1.5:1 ramp that stopped at built columns). The camp's tower pad is part of the camp grade."""
     for p in pads:
+        if p["name"] == "radio_tower": continue
         x1, z1, x2, z2 = p["blocks"]
-        args = [HERE / "terrain.py", "ramp", dst, x1, z1, x2, z2, "--y", p["y"], "--label", p["name"]]
+        args = [HERE / "grade.py", dst, x1, z1, x2, z2, "--y", p["y"], "--falloff", 64, "--keep-built-beyond", 24,
+                "--label", p["name"]]
         if dry: args.append("--dry-run")
         run(*args)
 
@@ -126,11 +141,12 @@ def main(a):
     pads = json.load(open(a[a.index("--pads") + 1] if "--pads" in a else HERE / "pads_v6.json"))
     plan = Path(a[a.index("--plan") + 1]) if "--plan" in a else HERE.parent / "buildmap" / "transplant_plan_v6.json"
     pristine = Path(a[a.index("--pristine") + 1]) if "--pristine" in a else Path(r"G:/GSCraft/scratch/worlds/wasteland/region")
-    only = set(a[a.index("--only") + 1].split(",")) if "--only" in a else {"copy", "restore", "pads", "transplant", "smooth", "clearring", "ramps", "campads", "gaps"}
+    only = set(a[a.index("--only") + 1].split(",")) if "--only" in a else {"copy", "restore", "campgrade", "pads", "transplant", "smooth", "clearring", "ramps", "campads", "gaps"}
     dry = "--dry-run" in a
     t0 = time.time()
     if "copy" in only: step_copy(src, dst)
     if "restore" in only: step_restore(dst, pristine)
+    if "campgrade" in only: step_campgrade(dst, dry)
     if "pads" in only: step_pads(dst, pads, dry)
     if "transplant" in only: step_transplant(dst, plan, dry)
     if "smooth" in only: step_smooth(dst, plan, dry)

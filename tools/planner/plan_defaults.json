@@ -1,0 +1,309 @@
+{
+ "border": {
+  "x0": -3100,
+  "z0": -3750,
+  "x1": 6900,
+  "z1": 6250
+ },
+ "sites": [
+  {
+   "name": "Camp (crater, tower, six NPC pads)",
+   "x0": -176,
+   "z0": -176,
+   "x1": 207,
+   "z1": 207,
+   "kind": "site",
+   "fixed": true,
+   "note": "spawn 19 94 26; the 384x384 cleared area of the design"
+  },
+  {
+   "name": "Player district (mega-base, industrial, hempcrete, library)",
+   "x0": 896,
+   "z0": 384,
+   "x1": 3103,
+   "z1": 2079,
+   "kind": "site",
+   "fixed": true,
+   "note": "the live world builds, kept at their coordinates"
+  },
+  {
+   "name": "Novo Expograd Industrial Zone",
+   "x0": 988,
+   "z0": 92,
+   "x1": 1139,
+   "z1": 259,
+   "kind": "site",
+   "fixed": false,
+   "note": "pad y 70"
+  },
+  {
+   "name": "Financial Plaza + sewers",
+   "x0": -1956,
+   "z0": 844,
+   "x1": -1789,
+   "z1": 995,
+   "kind": "site",
+   "fixed": false,
+   "note": "pad y 70"
+  },
+  {
+   "name": "Settlement (1.12 east compound)",
+   "x0": 3516,
+   "z0": 636,
+   "x1": 3795,
+   "z1": 931,
+   "kind": "site",
+   "fixed": false,
+   "note": "pad y 80"
+  },
+  {
+   "name": "Runway",
+   "x0": 2959,
+   "z0": 2519,
+   "x1": 3470,
+   "z1": 2710,
+   "kind": "site",
+   "fixed": false,
+   "note": "pad y 67"
+  },
+  {
+   "name": "Novo Expograd hub (desert city)",
+   "x0": 5596,
+   "z0": 1180,
+   "x1": 6435,
+   "z1": 1827,
+   "kind": "site",
+   "fixed": false,
+   "note": "pad y 82"
+  },
+  {
+   "name": "Bio Gen offices",
+   "x0": 2976,
+   "z0": 2528,
+   "x1": 3039,
+   "z1": 2639,
+   "kind": "site",
+   "fixed": false,
+   "note": "two small strips"
+  },
+  {
+   "name": "Region Skadowsky sector (new, place me)",
+   "x0": 250,
+   "z0": 300,
+   "x1": 749,
+   "z1": 1099,
+   "kind": "skad",
+   "fixed": false,
+   "note": "500x800 hand-built sector by _Tu4ka_: factory, housing, lab strip, river + bridge, highway, rail"
+  }
+ ],
+ "zones": [
+  {
+   "name": "The Woods",
+   "type": "wild",
+   "x0": 400,
+   "z0": -3500,
+   "x1": 2400,
+   "z1": -1500
+  }
+ ],
+ "roads": [
+  {
+   "name": "spine_camp_novo_district",
+   "width": 7,
+   "points": [
+    [
+     173,
+     8
+    ],
+    [
+     984,
+     176
+    ],
+    [
+     1064,
+     264
+    ],
+    [
+     900,
+     384
+    ]
+   ]
+  },
+  {
+   "name": "west_road_camp_plaza",
+   "width": 7,
+   "points": [
+    [
+     -176,
+     40
+    ],
+    [
+     -1780,
+     924
+    ]
+   ]
+  },
+  {
+   "name": "district_runway",
+   "width": 7,
+   "points": [
+    [
+     2368,
+     1552
+    ],
+    [
+     2959,
+     2615
+    ]
+   ]
+  },
+  {
+   "name": "district_settlement",
+   "width": 7,
+   "points": [
+    [
+     3103,
+     783
+    ],
+    [
+     3512,
+     783
+    ]
+   ]
+  },
+  {
+   "name": "novo_woods_spur",
+   "width": 7,
+   "points": [
+    [
+     1064,
+     88
+    ],
+    [
+     1400,
+     -1500
+    ]
+   ]
+  }
+ ],
+ "old": [
+  [
+   2584,
+   376
+  ],
+  [
+   2536,
+   376
+  ],
+  [
+   1096,
+   3096
+  ],
+  [
+   3448,
+   1048
+  ],
+  [
+   3112,
+   776
+  ],
+  [
+   1144,
+   2296
+  ],
+  [
+   3128,
+   1384
+  ],
+  [
+   1160,
+   3080
+  ],
+  [
+   4728,
+   3064
+  ],
+  [
+   4008,
+   3096
+  ],
+  [
+   1384,
+   2280
+  ],
+  [
+   1000,
+   2424
+  ],
+  [
+   2056,
+   2136
+  ],
+  [
+   3272,
+   1048
+  ],
+  [
+   3976,
+   3096
+  ],
+  [
+   3992,
+   3064
+  ],
+  [
+   1000,
+   2376
+  ],
+  [
+   1032,
+   2792
+  ],
+  [
+   4184,
+   3064
+  ],
+  [
+   3112,
+   840
+  ],
+  [
+   1112,
+   3208
+  ],
+  [
+   1320,
+   2872
+  ],
+  [
+   1048,
+   2872
+  ],
+  [
+   3240,
+   792
+  ],
+  [
+   4376,
+   2936
+  ],
+  [
+   3144,
+   1240
+  ],
+  [
+   1336,
+   2696
+  ],
+  [
+   968,
+   2936
+  ],
+  [
+   1160,
+   2968
+  ]
+ ],
+ "notes": ""
+}
