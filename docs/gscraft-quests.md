@@ -65,7 +65,7 @@ Rules that hold across every chapter:
   is the proof of the trip.
 
 Quest counts: Walker 27 (6 armoury, 1 boat, 2 military blueprints incl. the mech, 1 Woods), Tony 14 (1 Woods), Michael 18 (1 Woods, 1 district site), Tune 19 (1 Woods, 3 bunkers, 2 sites), James 25 (5 scout, 3 Woods, 2 expedition finds, the Custodian),
-Marshall 28 (loop 6, walls 3, farm 3, tower 10, gatehouse 3, Woods 2, the road outpost 1), Teddy 7 (explosives, §7A). One hundred and thirty-eight quests, eighteen
+Marshall 34 (loop 6, walls 3, farm 3, tower 10, gatehouse 3, Woods 2, the road outpost 1, The Line 6), Teddy 7 (explosives, §7A). One hundred and forty-four quests, eighteen
 of them the `*-B` building tiers. Which of them one outing clears is the trip table in
 `gscraft-map-design.md` §3.5; how many outings it takes is up to the players.
 
@@ -224,7 +224,7 @@ is still contested — one fight at a time, in this order.
 |---|---|---|---|---|---|---|
 | R1 | Muster | I | camp | checkmark; read the strongpoint board | the five introductions | the board and the map wall revealed, the camp's outline lit (B9); the claim-marker blueprint (trip-length order; re-crafted after a failed assault) |
 | R2 | Novo | I | Novo | place the marker; win the assault (stage `novo_held`) | R1, `novo_looted` | Novo's site guard appears; the fortify clock starts; Walker W6 opens |
-| R3 | The block | II | residential block | place the marker; win the assault (stage `residential_held`) | R2, `novo_defended`, `residential_looted` | Tony T4 opens |
+| R3 | The block | II | residential block | place the marker; win the assault (stage `residential_held`) | R2, `novo_defended`, `residential_looted`, L6 | Tony T4 opens |
 | R4 | The plant | II | industrial plant | place the marker; win the assault (stage `plant_held`) | R2, `novo_defended`, `plant_looted` | Michael M5 opens |
 | R5 | The plaza and the reactor | III | FR-06, Financial Plaza | place the marker and win the assault at each (stages `fr06_held` and `financial_held`), one after the other | R3, R4, `car_built`, `fr06_looted`, `financial_looted` | Michael M9, Tune U5 open |
 | R6 | Every site | III | all five | all five held and defended at once (stage `all_held`) | R5 | component respawn rate doubled |
@@ -292,6 +292,23 @@ Teddy's counter has no building tiers: its loyalty levels are H1, H4 and H5. He 
 powder (vendors doc §4).
 
 ---
+
+
+### 7.5 The Line
+
+Marshall's chapter carries the corridor's spine; each stop's own quest sits with its NPC (the L-ids
+below are the stops; the NPC's task is in the row). The stops are walked in order because each
+building's chest holds the next stop's marker. The corridor is design §2.6: the old power line from
+the camp's south edge to the residential block's west gate.
+
+| # | Quest | Act | Area | Tasks | Gate | Reward |
+|---|---|---|---|---|---|---|
+| L1 | The farmstead | I–II | The Line | reach the farmstead (location); hand in 8 wheat and 4 wild herbs to Tony | J1 | Tony: herb blueprints early; Marshall: D3 opens with the seeds |
+| L2 | The pump house | II | The Line | reach it (location); fill 2 filter cartridges at its pump, hand them to Michael | L1, M2 | Michael: **Water 1** if not already held |
+| L3 | Substation A | II | The Line | reach it (location); hand in 2 wiring harnesses and 1 relay to Michael | L2 | Michael: the harness kit; the line's power comes on to Substation A (floodlight) |
+| L4 | The depot | II | The Line | reach it (location); hand in 12 metal scrap and 2 fuel cans to Walker | L3 | Walker: truck-cab blueprint |
+| L5 | Substation B | II | The Line | reach it (location); place a relay mast on its yard | L4, U3 | Tune: the board shows the block's garrison; power reaches Substation B |
+| L6 | The switching station | II | The Line | clear the checkpoint (kill 8 armed pillagers there); hand in 1 circuit assembly to Marshall | L5, `residential_looted` | the switching hall lights; **R3 opens** — the block's take is walked in from here |
 
 ## 8. How the acts feel in play
 

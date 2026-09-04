@@ -1,0 +1,712 @@
+{
+ "waypoints": [
+  [
+   "start",
+   40,
+   210
+  ],
+  [
+   "farmstead",
+   140,
+   430
+  ],
+  [
+   "pumphouse",
+   260,
+   720
+  ],
+  [
+   "substation_a",
+   300,
+   1480
+  ],
+  [
+   "depot",
+   624,
+   1346
+  ],
+  [
+   "substation_b",
+   960,
+   1410
+  ],
+  [
+   "switching",
+   1250,
+   1420
+  ],
+  [
+   "block_gate",
+   1328,
+   1430
+  ]
+ ],
+ "legs": [
+  [
+   "start",
+   "farmstead",
+   [
+    [
+     40,
+     210
+    ],
+    [
+     140,
+     430
+    ]
+   ]
+  ],
+  [
+   "farmstead",
+   "pumphouse",
+   [
+    [
+     140,
+     430
+    ],
+    [
+     260,
+     720
+    ]
+   ]
+  ],
+  [
+   "pumphouse",
+   "substation_a",
+   [
+    [
+     260,
+     720
+    ],
+    [
+     624,
+     968
+    ],
+    [
+     300,
+     1480
+    ]
+   ]
+  ],
+  [
+   "substation_a",
+   "depot",
+   [
+    [
+     300,
+     1480
+    ],
+    [
+     146,
+     786
+    ],
+    [
+     624,
+     1346
+    ]
+   ]
+  ],
+  [
+   "depot",
+   "substation_b",
+   [
+    [
+     624,
+     1346
+    ],
+    [
+     960,
+     1410
+    ]
+   ]
+  ],
+  [
+   "substation_b",
+   "switching",
+   [
+    [
+     960,
+     1410
+    ],
+    [
+     1250,
+     1420
+    ]
+   ]
+  ],
+  [
+   "switching",
+   "block_gate",
+   [
+    [
+     1250,
+     1420
+    ],
+    [
+     1328,
+     1430
+    ]
+   ]
+  ]
+ ],
+ "placed": [
+  {
+   "piece": "farmstead",
+   "x": 140,
+   "y": 105,
+   "z": 430,
+   "rotation": "none",
+   "on": "minecraft:orange_terracotta"
+  },
+  {
+   "piece": "pumphouse",
+   "x": 260,
+   "y": 69,
+   "z": 720,
+   "rotation": "none",
+   "on": "minecraft:red_sand"
+  },
+  {
+   "piece": "substation",
+   "x": 300,
+   "y": 78,
+   "z": 1480,
+   "rotation": "none",
+   "on": "minecraft:smooth_stone_slab"
+  },
+  {
+   "piece": "depot",
+   "x": 624,
+   "y": 63,
+   "z": 1346,
+   "rotation": "none",
+   "on": "immersive_weathering:earthen_clay"
+  },
+  {
+   "piece": "substation",
+   "x": 960,
+   "y": 110,
+   "z": 1410,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  },
+  {
+   "piece": "switching",
+   "x": 1250,
+   "y": 68,
+   "z": 1420,
+   "rotation": "none",
+   "on": "minecraft:stone"
+  },
+  {
+   "piece": "pylon",
+   "x": 57,
+   "y": 106,
+   "z": 252,
+   "rotation": "none",
+   "on": "minecraft:red_terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 77,
+   "y": 121,
+   "z": 296,
+   "rotation": "none",
+   "on": "minecraft:light_gray_terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 97,
+   "y": 104,
+   "z": 340,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 117,
+   "y": 94,
+   "z": 384,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 157,
+   "y": 105,
+   "z": 476,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 177,
+   "y": 96,
+   "z": 525,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 197,
+   "y": 72,
+   "z": 573,
+   "rotation": "none",
+   "on": "minecraft:red_sand"
+  },
+  {
+   "piece": "pylon",
+   "x": 217,
+   "y": 91,
+   "z": 621,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 237,
+   "y": 88,
+   "z": 670,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 297,
+   "y": 93,
+   "z": 746,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 338,
+   "y": 121,
+   "z": 773,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 378,
+   "y": 106,
+   "z": 801,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 419,
+   "y": 101,
+   "z": 828,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 459,
+   "y": 96,
+   "z": 856,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 500,
+   "y": 91,
+   "z": 883,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  },
+  {
+   "piece": "pylon",
+   "x": 540,
+   "y": 91,
+   "z": 911,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  },
+  {
+   "piece": "pylon",
+   "x": 581,
+   "y": 97,
+   "z": 938,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  },
+  {
+   "piece": "pylon",
+   "x": 594,
+   "y": 104,
+   "z": 1009,
+   "rotation": "none",
+   "on": "minecraft:red_terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 567,
+   "y": 96,
+   "z": 1051,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 540,
+   "y": 89,
+   "z": 1094,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 513,
+   "y": 80,
+   "z": 1137,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 486,
+   "y": 87,
+   "z": 1179,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 459,
+   "y": 86,
+   "z": 1222,
+   "rotation": "none",
+   "on": "minecraft:smooth_stone_slab"
+  },
+  {
+   "piece": "pylon",
+   "x": 432,
+   "y": 66,
+   "z": 1265,
+   "rotation": "none",
+   "on": "minecraft:sand"
+  },
+  {
+   "piece": "pylon",
+   "x": 378,
+   "y": 73,
+   "z": 1350,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  },
+  {
+   "piece": "pylon",
+   "x": 351,
+   "y": 77,
+   "z": 1393,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 324,
+   "y": 90,
+   "z": 1435,
+   "rotation": "none",
+   "on": "minecraft:smooth_stone_slab"
+  },
+  {
+   "piece": "pylon",
+   "x": 275,
+   "y": 63,
+   "z": 1379,
+   "rotation": "none",
+   "on": "minecraft:red_sand"
+  },
+  {
+   "piece": "pylon",
+   "x": 242,
+   "y": 73,
+   "z": 1230,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  },
+  {
+   "piece": "pylon",
+   "x": 231,
+   "y": 71,
+   "z": 1181,
+   "rotation": "none",
+   "on": "minecraft:red_sand"
+  },
+  {
+   "piece": "pylon",
+   "x": 220,
+   "y": 93,
+   "z": 1131,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 198,
+   "y": 73,
+   "z": 1032,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  },
+  {
+   "piece": "pylon",
+   "x": 187,
+   "y": 73,
+   "z": 982,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  },
+  {
+   "piece": "pylon",
+   "x": 176,
+   "y": 80,
+   "z": 933,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 165,
+   "y": 96,
+   "z": 883,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 154,
+   "y": 88,
+   "z": 834,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 175,
+   "y": 98,
+   "z": 821,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 207,
+   "y": 98,
+   "z": 859,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 239,
+   "y": 102,
+   "z": 896,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 270,
+   "y": 95,
+   "z": 933,
+   "rotation": "none",
+   "on": "minecraft:orange_terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 302,
+   "y": 96,
+   "z": 971,
+   "rotation": "none",
+   "on": "minecraft:smooth_stone_slab"
+  },
+  {
+   "piece": "pylon",
+   "x": 334,
+   "y": 109,
+   "z": 1008,
+   "rotation": "none",
+   "on": "minecraft:cut_sandstone"
+  },
+  {
+   "piece": "pylon",
+   "x": 366,
+   "y": 78,
+   "z": 1045,
+   "rotation": "none",
+   "on": "immersive_weathering:earthen_clay"
+  },
+  {
+   "piece": "pylon",
+   "x": 398,
+   "y": 78,
+   "z": 1083,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  },
+  {
+   "piece": "pylon",
+   "x": 430,
+   "y": 96,
+   "z": 1120,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 462,
+   "y": 91,
+   "z": 1157,
+   "rotation": "none",
+   "on": "minecraft:terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 494,
+   "y": 80,
+   "z": 1195,
+   "rotation": "none",
+   "on": "minecraft:yellow_terracotta"
+  },
+  {
+   "piece": "pylon",
+   "x": 525,
+   "y": 54,
+   "z": 1232,
+   "rotation": "none",
+   "on": "minecraft:sand"
+  },
+  {
+   "piece": "pylon",
+   "x": 557,
+   "y": 73,
+   "z": 1269,
+   "rotation": "none",
+   "on": "minecraft:moss_block"
+  },
+  {
+   "piece": "pylon",
+   "x": 717,
+   "y": 73,
+   "z": 1362,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  },
+  {
+   "piece": "pylon",
+   "x": 813,
+   "y": 113,
+   "z": 1381,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  },
+  {
+   "piece": "pylon",
+   "x": 861,
+   "y": 109,
+   "z": 1390,
+   "rotation": "none",
+   "on": "immersive_weathering:grassy_sandy_dirt"
+  },
+  {
+   "piece": "pylon",
+   "x": 909,
+   "y": 77,
+   "z": 1399,
+   "rotation": "none",
+   "on": "immersive_weathering:grassy_earthen_clay"
+  },
+  {
+   "piece": "pylon",
+   "x": 1005,
+   "y": 74,
+   "z": 1410,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  },
+  {
+   "piece": "pylon",
+   "x": 1102,
+   "y": 69,
+   "z": 1413,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  },
+  {
+   "piece": "pylon",
+   "x": 1199,
+   "y": 68,
+   "z": 1416,
+   "rotation": "none",
+   "on": "minecraft:grass_block"
+  }
+ ],
+ "skipped": [
+  [
+   "pylon",
+   405,
+   1307,
+   "water"
+  ],
+  [
+   "pylon",
+   286,
+   1428,
+   "city"
+  ],
+  [
+   "pylon",
+   264,
+   1329,
+   "water"
+  ],
+  [
+   "pylon",
+   253,
+   1280,
+   "water"
+  ],
+  [
+   "pylon",
+   209,
+   1081,
+   "city"
+  ],
+  [
+   "pylon",
+   589,
+   1307,
+   "city"
+  ],
+  [
+   "pylon",
+   669,
+   1353,
+   "water"
+  ],
+  [
+   "pylon",
+   765,
+   1371,
+   "city"
+  ],
+  [
+   "pylon",
+   1054,
+   1411,
+   "water"
+  ],
+  [
+   "pylon",
+   1150,
+   1415,
+   "city"
+  ]
+ ]
+}
