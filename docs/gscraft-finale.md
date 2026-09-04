@@ -41,7 +41,7 @@ who came for the same signal. The Warden's whole kit reads as this story: it hun
 guns are what it hears, it does not stop for walls, and its boom goes through armour.
 
 **Telegraph.** When stage 5 is placed, the tower function also lays a ring of sculk around the tower's plinth (the
-compound, x 64…191 × z −144…−17) and across the crater floor, and one sculk shrieker (inert — `can_summon` false) at the gate. Players who know the
+compound, x 64…191 × z −144…−17 — one place, one function) and one sculk shrieker (inert — `can_summon` false) at the gate. Players who know the
 game read it at once; players who do not get Tune's line: *"Whatever's under us heard that."* Radio 3
 shows wave 5 as "unknown, one, large" for the whole countdown.
 
