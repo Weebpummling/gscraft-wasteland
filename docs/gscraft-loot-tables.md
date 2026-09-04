@@ -11,7 +11,7 @@ they are vanilla.*
 
 1. **Small items are loot; products are not.** No table drops a working gun, armour, a vehicle, a
    complete part or an intermediate. Guns drop as **salvage** (`gscraft:damaged_pistol` …), armour
-   not at all (crafting §5.4).
+   not at all (crafting §5.5).
 2. **Every table is a building type first and a site second.** A chest in a Lost Cities office rolls
    the office table wherever it stands; a chest inside a strongpoint's rectangle rolls the site's
    own table, which is the building table plus that site's signature items.
@@ -31,7 +31,7 @@ hand-in list is covered here on purpose, at odds that make Trip 1 about 20 minut
 
 | Table | Rolls | Pool (weight) | Covers |
 |---|---|---|---|
-| `ruins/hardware` (wrecks, the shed) | 3–5 | bolt 20, nut 20, screw 15, nail 15, metal scrap 20, duct tape 8, silicone tube 6, **wrench 2**, pliers 2, screwdriver set 2 | W1 (8 bolts, 8 nuts, a wrench), W-A1's screws, the hand-tool ingredients (crafting §5.3, C2 fix) |
+| `ruins/hardware` (wrecks, the shed) | 3–5 | bolt 20, nut 20, screw 15, nail 15, metal scrap 20, duct tape 8, silicone tube 6, **wrench 2**, pliers 2, screwdriver set 2 | W1 (8 bolts, 8 nuts; the wrench is W1's reward and a rare find here), W-A1's screws, the hand-tool ingredients (crafting §5.3, C2 fix) |
 | `ruins/electrical` (the shed, the checkpoints) | 2–4 | wire spool 20, power cord 10, light bulb 10, capacitor 15, circuit board 8, **broken radio 4**, relay 4 | M1 (3 wire spools, a power cord), U1 (a circuit board, 2 capacitors, a broken radio), M2's light bulb |
 | `ruins/medical` (the tents) | 2–3 | bandage 25, painkillers 12, antiseptic 8, syringe 6, **water filter 6**, canned goods 10 | T1 (4 bandages, 2 painkillers), M1's water filter, T2's med kits |
 | `ruins/mixed` (buses, containers) | 2–4 | any hardware 30, any electrical 20, canned goods 15, **folder of documents 5**, motor oil 5, gunpowder 3, emerald 2 | J-B1's folder, W5's motor oil head start, D1's early junk |
@@ -109,12 +109,12 @@ chain) saves one of the six. Nothing else in the game asks for a hub item.
 | `gscraft:valuables_bag` | J3 | 8 rolls of the Valuables row: broken radio 5, computer parts 5, hard drive 3, folder of documents 5, emerald 6 |
 | `gscraft:components_crate` | J9 | a **choice** (FTB Quests choice reward, not a roll) of any 4 of heavy diesel engine, purification membrane, encrypted radio, medical analyzer — held-site components only, never a hub item |
 | the outpost's cache | R-W1 | 2 salvage rifles, 90 rifle rounds, 4 emeralds |
-| the finale chest | X8 (finale doc §4) | the season flag, the Warium decoration set, the Bradley ammunition blueprint if not yet earned |
+| the finale chest | X8 (finale doc §4) | the season flag, the Warium decoration set |
 
 ## 8. What this asks of Phase C
 
 - The `gscraft:` items above exist (design §4.2 plus saw blade, portable generator, flight recorder,
-  salvage weapons, the poultice, the ration pack, the two containers).
+  salvage weapons, the poultice, the ration pack, canned goods as a food item, the two containers).
 - The Lost Cities and Keerdm table ids to override, read from the jars, listed in `build/datapacks/gscraft/README`.
 - `tools/camp_ruins.json` chests bound to §2; the site rectangles to §4 by a KubeJS `LootEvents`
   hook (chest inside rect → site table) or by placing the chests' `LootTable` NBT at world build.

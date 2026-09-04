@@ -32,7 +32,7 @@ frozen-projectile complaint fixed (KubeJS sweep + simulation distance 10).
 
 **Design revised 2026-09-03 (draft 6, quests draft 2, crafting draft 1):** the site ladder and contested-site
 attacks, NPC building tiers with the grief lock, timed crafting at server-placed stations, the vehicle
-roster, equipment crafting, garrison tables, the Ender Dragon finale, batteries for the electric vehicles.
+roster, equipment crafting, garrison tables, the finale (now the Sleeper, `docs/gscraft-finale.md`), batteries for the electric vehicles.
 New tools: `dossiers.py` (dossier chests, `tools/dossiers.json`, `gscraft:dossiers`), `camp_ruins.py` (24
 ruin pieces in the camp, `gscraft:camp_ruins`, loot tables under `ruins/`). **EMI 1.1.24 added** to the
 server's `/mods` (client-side mod; the dedicated server skips it) and to `additions.json` / `manifest.json`;
@@ -136,10 +136,10 @@ do not, but they are fully generated so it no longer matters there).
 
 ## 4. The design documents
 
-- `docs/gscraft-map-design.md` - THE design (draft 5): the game in one paragraph, the map's three ranges,
+- `docs/gscraft-map-design.md` - THE design (draft 6): the game in one paragraph, the map's three ranges,
   the camp and its six NPCs, strongpoints, the item ladder, storage, hideout functions, the loop and
   timers, the tower, tech stack, build order with test gates.
-- `docs/gscraft-quests.md` - all 106 quests, six NPC chapters, what FTB Quests needs from KubeJS.
+- `docs/gscraft-quests.md` - all 121 quests, six NPC chapters, what FTB Quests needs from KubeJS.
 - `docs/gscraft-vendors.md` - the vendor system (2026-09-04): six counters, loyalty = building tier, prices, barters, night vision, the merchant-offers mechanism.
 - `docs/notes/gscraft-flashlight-and-nvg.md` - flashlight / night vision / thermal research; recommends adding Dynamic Flashlight 2.1.0 (owner's call).
 - `docs/gscraft-loot-tables.md` - every loot table by building type and site, the hub economy, the reward containers (2026-09-04).
@@ -159,7 +159,7 @@ do not, but they are fully generated so it no longer matters there).
 
 ## 5. Systems still to build (the next sessions' work)
 
-In the design's order (draft 5 section 9): Phase A visual pass -> `camp.py` (NPC buildings + the summon
+In the design's order (design section 9): Phase A visual pass -> `camp.py` (NPC buildings + the summon
 function `gscraft:camp_npcs`) -> Phase C systems v1 (KubeJS items with stack sizes and the bulky rule,
 IE blueprint recipes, datapack loot tables by building type, NPC right-click -> quest book, the five
 introduction chapters, Walker's storage levels) -> Phase D (held flags, fortify clock, warnings, attacks,

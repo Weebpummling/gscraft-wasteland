@@ -16,9 +16,9 @@ now has one.
 | A1 | Novo stale at "1.5 km S / substation pad" in design, quests (W5 "South, a mile", "sends them south"), onboard | 1.06 km ENE on the spine everywhere; W5 retitled "East, a mile" |
 | A2 | Financial Plaza stale at "2.5 km SE / hospital pad"; "sewers later under the hospital pad"; review Phase A item about the plaza's causeway; boat "the plaza before its road" | 2.1 km W, dry, one road; the stale lines corrected or struck |
 | A3 | Radio tower stale at "2.1 km E", origin (2066, 64, −141), a district → tower road, "the radio mast not visible from home" | the camp NE corner, origin (107, 100, −101); tower road dropped; the mast is the first thing seen |
-| A4 | Distances disagree by document: hub 6.0/6.2/6.18, settlement 3.6/3.7, plant 2.3/2.4, Bio Gen 3.9/4.0 | one set from the layout sheet (measured from the camp centre): Novo 1.06, residential 2.0, plant 2.3, FR-06 2.45, plaza 2.1, settlement 3.7, runway 3.9, Bio Gen 4.0, hub 6.2 |
-| A5 | Quest total 77 (design, HANDOFF) vs 105 (quests) vs 106 (crafting); Walker 22 vs 23 rows | 106 quests, Walker 23, everywhere |
-| A6 | Small items "~30" and J11 "the thirty small items" vs 40 in the catalogue | 40 |
+| A4 | Distances disagree by document: hub 6.0/6.2/6.18, settlement 3.6/3.7, plant 2.3/2.4, Bio Gen 3.9/4.0 | one set from the layout sheet (measured from the camp centre): Novo 1.06, residential 2.0, plant 2.3, FR-06 2.45, plaza 2.1, settlement 3.7, runway 3.9, Bio Gen 4.0, hub 6.2 *(2026-09-04: the layout sheet §3.1 now reads hempcrete 2.2, plant 2.4, residential 1.9, Bio Gen 3.9)* |
+| A5 | Quest total 77 (design, HANDOFF) vs 105 (quests) vs 106 (crafting); Walker 22 vs 23 rows | 106 quests, Walker 23, everywhere *(121 after the C items, 2026-09-04)* |
+| A6 | Small items "~30" and J11 "the thirty small items" vs 40 in the catalogue | 40 *(42 after the C items: gunpowder, emerald)* |
 | A7 | Bio Gen footprint 64×256 vs two groups | two groups, 64×64 and 16×32 |
 | A8 | Tune's shack x 60…75 vs moved to x 40…55 | 40…55 (design table) |
 | A9 | Design §2.4 roads list (district → Novo, district → tower, Novo may move) vs the built roads | §2.4 points at layout §4: spine via Novo, camp → plaza, district → runway, district → settlement |
@@ -28,7 +28,7 @@ now has one.
 | A13 | Onboard "four colours (dark / scouted / looted / held / defended)" lists five | five states, five colours |
 | A14 | "No mod is added" vs EMI added | "no gameplay mod is added; EMI is a client recipe viewer" |
 | A15 | Two Novo Expograds: the industrial zone and the hub; Marshall calls Novo "the refinery" (M4's word for the plant) | names fixed: **Novo** = the industrial zone (Act I strongpoint), **the hub** = the Novo Expograd city in the air ring; Marshall: "the industrial yard east along the road" |
-| A16 | HANDOFF says "draft 5" and "77 quests" in its design list | draft 6, 106 |
+| A16 | HANDOFF says "draft 5" and "77 quests" in its design list | draft 6, 106 *(121 after the C items)* |
 | A17 | Woods "1.3 km north of Novo", "due north" | 1.6 km north-north-east of Novo's pad |
 | A18 | Structure plan foot-range keeps "two bunkers, one fog house" vs table (houses foot = 0) | "two bunkers" |
 
@@ -59,23 +59,23 @@ Every other row: **the default, applied** in the same commit as this note.
 | B17 | **Fuel**: SW vehicles "electric, no fuel" vs fuel tanks in their recipes; three different pumps (garage, plant, drum rack); IV fuel pump recipe removed | crafting §2/§5.5, quests W8/M-B2, design | SW vehicles: batteries only, fuel tanks out of their recipes; IV vehicles fuel at **Michael's plant pump (tier 2)**; Walker's rack stores cans; W8 wording follows |
 | B18 | **Storage 2** "a car with a cargo crate" vs W6's iron backpack | design §4.5 | crate is W7's; §4.5 row corrected |
 | B19 | **Salvage**: a "damaged weapon" item vs the Apotheosis Salvaging Table | crafting §5.2, modcaps | the Salvaging Table in Walker's yard (tier 2) is the salvage mechanic; the damaged-weapon item is its input |
-| B20 | **Assault waves**: the loop script's edge spawns vs the Apotheosis Boss Spawner | design §6, modcaps | the script spawns waves; the Boss Spawner spawns the elite only |
+| B20 | **Assault waves**: the loop script's edge spawns vs the Apotheosis Boss Spawner | design §6, modcaps | the script spawns waves; the elite is an Apotheosis boss summoned by the loop's `spawn_boss` command, no block placed (C14) |
 | B21 | **Elites**: named mobs / kept boss towers / garrison tables | design, structure, modcaps | garrison tables name them; the kept towers are loot sites, not the elite source |
-| B22 | **Heavy diesel engine**: Novo's vs "in the Woods sawmill" | woods §4 | Novo keeps it; the sawmill holds a *second* source (an engine in the mill is the Woods' own reward) |
+| B22 | **Heavy diesel engine**: Novo's vs "in the Woods sawmill" | woods §4 | Novo keeps it; the sawmill's own drop is the saw blade (W-W1) — no second engine |
 | B23 | **W1 asks for a wrench** before any tool exists | quests W1, crafting L26 | W1 asks for bolts and nuts only; the wrench is W1's reward |
 | B24 | **W5 asks for motor oil "Novo's drops"** but oil drops elsewhere | quests W5, design §4.2 | add motor oil to Novo's site table |
-| B25 | **Death**: respawn point, what drops, bleed-out time, revive range numbers | nowhere | respawn at the camp (world spawn); everything drops except the secure pack (Storage 3); PlayerRevive bleed-out 5 min; revive range 4 m, ×2 at T-B2 |
+| B25 | **Death**: respawn point, what drops, bleed-out time, revive range numbers | nowhere | respawn at the camp (world spawn); everything drops except the secure pack (Storage 3); PlayerRevive bleed-out 5 min; revive range 6 m, one global value — the tiers act through the script (C18) |
 | B26 | **Late joiner / 6th player** | nowhere | stages are **team** stages (FTB Teams); a joiner gets the team's stages, the starting kit and the introductions as a tour |
 | B27 | **Team offline during a fortify clock or attack** | design §6 | clocks tick only while ≥ 2 team members are online; an attack that starts with < 2 online is postponed to the next login |
 | B28 | **Restart mid-assault** | quests §9 | the contested slot and clocks persist; a wave in progress restarts at its start; the marker stands |
 | B29 | **Lootr instancing vs hand-in counts and component containers** | design §6, HANDOFF | ordinary loot instanced; **component and dossier containers are shared** (one per site per cycle) |
 | B30 | **Finale**: dragon in the overworld, HP/affixes, fail state, retry | design §7, X7-X8 | **Decided by `gscraft-finale.md` (2026-09-04):** the Sleeper, a named Warden scaled by `/attribute`, with four Apotheosis-boss Captains; fail = the marker falls or all dead, retry = X6b one in-game day later; Phase E decides numbers |
-| B31 | **After the finale** | X9 | free play, board live, season 2 = the Woods' chain and a second tower part list (a design later) |
+| B31 | **After the finale** | X9 | free play, board live; the Woods chain is season 1's (C11); season 2 = a second part list and a new region (a design later) |
 | B32 | **Hunger / food** | D3 only | Farmer's Delight cooking at the camp kitchen (D3) plus canned goods in the loot tables; hunger left on |
 | B33 | **Sleep / night** | nowhere | sleep percentage 100 (no skipping) - nights are the game |
 | B34 | **PvP / friendly fire** | nowhere | pvp off; friendly fire off (sedparties) |
 | B35 | **Lost vehicle** | crafting §2 | re-kit; the bay repairs a damaged vehicle for one steel frame (W-B2's "repair at the bay") |
-| B36 | **Ammunition** | crafting §5.2 | ammo crafted at stations from casings + powder; powder from a Novo/plant chemical drop; loot ammo scarce |
+| B36 | **Ammunition** | crafting §5.2 | ammo crafted at stations from casings + powder; powder = 1 gunpowder + 1 solvent (crafting §5.6), gunpowder from the stone complex and military chests; loot ammo scarce |
 | B37 | **Stage sharing** (team vs player) | quests §9 | team for sites, functions, blueprints, car_built; player for first-time onboarding lines and revives_3 |
 | B38 | **Held sites and claims; how a marker falls** | design §6 | the marker is a block; it falls when broken by the attack's last wave reaching it or by a player; no player claims at strongpoints |
 | B39 | **World border warning** | nowhere | vanilla border damage off, warning distance 200 blocks |

@@ -8,7 +8,7 @@ Sits under design §7.1 and quests X6–X9. Everything here was checked against 
 ## 1. What the finale has to do
 
 The beacon lights at stage 5 (X6) and a 60-minute countdown starts. Then five waves come to the players'
-claim: waves 1–4 are the four defence tables of §6.3 stacked, and wave 5 carries the boss. The boss fight
+claim: waves 1–4 are the four defence tables of design §6.3 stacked, and wave 5 carries the boss. The boss fight
 has to work with what the players actually have by then: guns (TaCZ), the gatehouse at tier 3 (blast doors,
 floodlights), the M3A3 Bradley built during the countdown (crafting §2.1), Tony's med kits, and a team of
 two to six. So the boss must
@@ -26,7 +26,7 @@ two to six. So the boss must
 | **Ender Dragon** | vanilla | Outside the End it flies to (0, 0) — the crater — and dives at the ground, "does not perch" and "continues to fly around forever" (Minecraft Wiki, Ender Dragon). Damage to every part but the head is cut by ~75 %, and a Java bug gives the head the same reduction, so **every gun does a quarter of its damage**. Block breaking follows `mobGriefing` (Forge routes it through a per-entity event, so a startup-script handler like the tower lock's could deny it for the dragon alone — **(E)**). No portal, no egg outside the End. Whether TaCZ's own bullet raycast registers hits on the dragon's multipart hitboxes at all is **unknown (E)** — some gun mods shoot straight through it. | **No.** Fails 1 and 2: guns feel broken against it, and nothing about the base matters to a boss that never lands. Keep only as the story of the crater (it is the impact site; nothing needs to come back to it). |
 | **Wither** | vanilla | 300 HP; below half health it gains "wither armor" and is immune to arrows and other projectiles. TaCZ damage types are tagged `is_projectile` (that is what the pack's armour balance relies on), so **the guns stop working at 150 HP**. A CurseForge mod exists only to rebalance this pairing. Skulls explode with `mobGriefing` on. | **No.** Fails 1 outright and 3. |
 | **Warden** | vanilla | 500 HP, one hitbox, ground-bound, 2.9 tall. Melee 30 (kills an unarmoured player in one hit — Tony's chapter matters), **sonic boom 10 that ignores armour and enchantments** with a 15–20 block reach — the answer to players shooting from the wall. Applies Darkness. Hunts by vibration and smell, so **gunfire draws it**: the shooters are the targets. Digs down and despawns after 60 s without a disturbance unless it has a custom name / persistence — a named summon stays **(E: confirm a named warden does not dig)**. | **Yes** — the boss of wave 5. Fits 1–5. |
-| **Apotheosis boss** | Apotheosis 7.4.8 | Boss definitions are JSON (`data/<ns>/bosses/*.json`: entity, gear sets, rarity range, per-rarity attribute modifiers, effects, enchant levels); the pack ships 24 for zombie/husk/skeleton/witch/… Summoned by `/apoth spawn_boss <boss> [rarity]` (`BossCommand`), by the **Boss Spawner** block or the **Boss Summoner** item. Random surface bosses are already off (`Boss Spawn Cooldown` = 2147483647 in `config/apotheosis/adventure.cfg`). Human-sized, armoured, affixed mobs. | **Yes, as the escort** — four named captains around the Warden in wave 5, and the elite of every §6.3 table (B21 unchanged). Not the boss: nothing here is bigger than a man. |
+| **Apotheosis boss** | Apotheosis 7.4.8 | Boss definitions are JSON (`data/<ns>/bosses/*.json`: entity, gear sets, rarity range, per-rarity attribute modifiers, effects, enchant levels); the pack ships 24 for zombie/husk/skeleton/witch/… Summoned by `/apoth spawn_boss <boss> [rarity]` (`BossCommand`), by the **Boss Spawner** block or the **Boss Summoner** item. Random surface bosses are already off (`Boss Spawn Cooldown` = 2147483647 in `config/apotheosis/adventure.cfg`). Human-sized, armoured, affixed mobs. | **Yes, as the escort** — four named captains around the Warden in wave 5, and the elite of every design §6.3 table (B21 unchanged). Not the boss: nothing here is bigger than a man. |
 | **Man From The Fog** | The Man From The Fog 1.4 | A stalker that watches, follows and flees; not designed to be killed in a stand-up fight. | No. Stays ambient (structure plan: its house is not in the foot range). |
 | **Hordes** | The Hordes 1.5.4c | The horde event ships **disabled** (`enableHordeEvent = false`; only infection is on). It has a command-started mode (`hordesCommandOnly`) that could drive waves 1–4 if the script's edge spawns prove too thin — an option, not the plan (B20 stands). No boss entity. | Backup wave engine only. |
 | **In Control!** 9.3.3 | spawn rules | `spawn.json` rules fire `onjoin` (so on summoned mobs too) with `healthmultiply`, `healthadd`, `damagemultiply`, `speedmultiply`, `customname`, `nbt`, `potion`, `helditem`, `armor*`, `angry`; `phases.json` exists (empty). | Not needed for the boss (one `/attribute` command does the scaling); useful if the wave captains need pack-wide rules. |
@@ -45,7 +45,7 @@ around the plinth and one sculk shrieker (inert — `can_summon` false) at the g
 game read it at once; players who do not get Tune's line: *"Whatever's under us heard that."* Radio 3
 shows wave 5 as "unknown, one, large" for the whole countdown.
 
-**The fight, wave by wave** (the 60-minute countdown ends → waves 12 s apart per §6.3's cadence):
+**The fight, wave by wave** (the 60-minute countdown ends → waves 12 s apart per design §6.3's cadence):
 
 | Wave | Content | Where | Notes |
 |---|---|---|---|
@@ -79,15 +79,14 @@ seeing the Captains; Marshall's line should not promise more than that.
 
 - **Win:** the Sleeper dies → stage `finale_won`; X8 completes (kill task on `minecraft:warden` with tag
   `gscraft_boss`, or a stage set by the script's death hook); the finale chest appears at the plinth:
-  the season flag item, a **Warium** decoration set, and the Bradley's ammunition blueprint if it was not
-  earned. X9 opens (free play; the board stays live).
+  the season flag item, a **Warium** decoration set. X9 opens (free play; the board stays live).
 - **Fail** (B30/B38): the base's claim marker is broken by the wave reaching it, or every player online is
   dead at once → the script kills every `gscraft_boss`-tagged entity and the remaining wave, the beacon
   beam goes dark (stage 5's beacon block swapped for the unlit variant), stage `finale_failed`.
 - **Retry:** one in-game day later Marshall's **X6b Relight** (a repeatable, no hand-in) restarts the
   60-minute countdown; Radio 3 shows the same composition, so a team can prepare for exactly what beat
   them. No part is lost.
-- **Season 2** (B31): the Woods chain and a second part list; the Sleeper does not return — a season-2
+- **Season 2** (B31): a second part list and a new region (the Woods chain is season 1's); the Sleeper does not return — a season-2
   boss is a later doc.
 
 ## 5. What the finale script needs (Phase E build list)

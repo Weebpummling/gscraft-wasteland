@@ -73,7 +73,7 @@ towers, `mk_42`) and the IV vehicles with no role (`ft17`, `firetruck`, `gmcbrig
 
 **How the recipes exist.** Immersive Vehicles crafts at its own benches from `materialLists` in
 each pack, and the mod ships a **`config/mts/craftingoverrides.json`** (the class is in the jar)
-that replaces those lists per vehicle — so the four IV vehicles get our intermediates without
+that replaces those lists per vehicle — so the five IV vehicles get our intermediates without
 touching the packs. Superb Warfare's vehicles are plain datapack recipes
 (`superbwarfare:vehicle_assembling`, 24 of them in the jar), so KubeJS rewrites the three we keep
 and removes the rest. Both benches — the IV vehicle bench and the SW assembling table — live
@@ -119,7 +119,7 @@ bench can do and the quest book says when. Reaching a yard tier never unlocks a 
 | Black Hawk | 12 steel frame, 2 **avionics module**, 1 **transformer core**, 4 motor assembly, 1 large battery pack, 2 circuit assembly, 1 **satellite receiver** |
 | M3A3 Bradley | 16 steel frame, 8 plate, 1 heavy diesel engine, 1 large battery pack, 1 **reactor control module**, 1 **military circuit board**, 1 gun frame + barrel (the 25 mm), 2 wiring harness |
 
-Both are electric under Superb Warfare and draw from the battery packs of §5.5 - so their recipes carry battery packs, not fuel tanks (owner default, 2026-09-04); the exact registry ids are
+Both are electric under Superb Warfare and draw from the battery packs of §5.4 - so their recipes carry battery packs, not fuel tanks (owner default, 2026-09-04); the exact registry ids are
 read off the jars at Phase D (`vvp:` and `mcsp:` namespaces, 81 entities between them).
 
 ---
@@ -205,12 +205,12 @@ their mods; the yard template places those benches and the lock keeps them there
 ## 5. Equipment crafting
 
 **Loot supplies parts; the station supplies products.** Working guns, attachments, armour, packs
-and vehicles come out of loot tables; small items, the four new intermediates below, and *salvage*
+and vehicles come out of loot tables; small items, the new intermediates below, and *salvage*
 go in. The pack's own routes — the TaCZ gun-smith table, Superb Warfare's reforge table and
 blueprints, the IV benches outside the yard — are closed: their recipes are removed and their
 blocks are not craftable.
 
-### 5.1 Four new intermediates
+### 5.1 The new intermediates
 
 | Intermediate | Recipe | Blueprint from |
 |---|---|---|
@@ -222,8 +222,7 @@ blocks are not craftable.
 | Wheel | 2 metal scrap + 1 silicone tube | Walker, W7 |
 | Fuel tank | 4 metal scrap + 1 sealed tubing | Walker, W7 |
 
-**Salvage** is what loot gives instead of a gun: a *damaged* weapon, and the **Apotheosis Salvaging Table in Walker's yard (tier 2)** is where it is broken down into parts (owner default, 2026-09-04; the mechanic is the mod's, the input is ours) - one item per class, e.g.
-"damaged rifle") that counts as a gun frame + barrel in any recipe of its class. Ammunition drops
+**Salvage** is what loot gives instead of a gun: a *damaged* weapon, one item per class (e.g. "damaged rifle"), that counts as a gun frame + barrel in any recipe of its class. The **Apotheosis Salvaging Table in Walker's yard (tier 2)** is where salvage is broken down into parts (owner default, 2026-09-04: the mechanic is the mod's, the input is ours). Ammunition drops
 in loot in small amounts as before; casings and powder are craftable so it never runs dry.
 
 ### 5.2 Weapons — Walker's armoury line
@@ -250,7 +249,7 @@ pack's and are pinned in the recipe file at Phase C.
 | Backpacks | Storage 1–4 (W2, W6, W10, W13) | basic: 6 cloth + 2 duct tape; iron: + 4 plate; gold: + 1 steel frame + 1 **heavy anchor cable**; diamond: + 1 **satellite receiver** | Sophisticated Backpacks' own recipes are replaced |
 | Cloth | Quick | 2 wool or 4 string → 1 cloth | the one new Quick item |
 
-### 5.5 Power for the electric vehicles
+### 5.4 Power for the electric vehicles
 
 Superb Warfare's truck and speedboat carry no fuel: they run on **battery packs** charged at the
 **Charging Station**, which is Michael's — it appears in his plant at tier 2 (M-B2) and draws from
@@ -267,7 +266,7 @@ A charged small pack drives the truck one round trip to the district; the speedb
 session on a medium one. SW's own pack-assembly recipes are replaced by these; the Charging Station
 itself is placed by the M-B2 template, never crafted.
 
-### 5.4 What changes in the loot tables
+### 5.5 What changes in the loot tables
 
 - The `keerdm_zombie_essentials` `_tacz` chest tables — the ones that put working guns in Lost
   Cities chests — are overridden by the datapack (as the `_vics` tables already are) to drop

@@ -23,8 +23,7 @@ Rules that hold across every chapter:
 - **Introductions first.** Each NPC's first quest asks for common items from the camp's own ruins.
   Marshall does not speak until all five introductions are done.
 - **One strongpoint per act boundary.** Novo closes Act I; the residential block and the plant are
-  Act II; FR-06 and Financial Plaza are Act III; the hub is Act IV. The tower needs one component from
-  each.
+  Act II; FR-06 and Financial Plaza are Act III; the hub is Act IV. The tower's parts come from Novo, the plant, FR-06, the plaza and the hub; the block feeds the clinic.
 - **Every strongpoint is three quests in three chapters before it is held** (design §6.1): James's
   scout quest (reach it, bring back its dossier), the owning NPC's loot quest (hand-ins that drop
   only there, two or three trips), then Marshall's take (place the marker, win the 5-minute
@@ -57,7 +56,7 @@ Rules that hold across every chapter:
   is the proof of the trip.
 
 Quest counts: Walker 24 (4 armoury, 1 boat, 1 military blueprint, 1 Woods), Tony 14 (1 Woods), Michael 17 (1 Woods), Tune 17 (1 Woods, 3 bunkers), James 22 (5 scout, 3 Woods),
-Marshall 27 (loop 6, defences 4, farm 2, tower 10, gatehouse 3, Woods 2). One hundred and twenty-one quests, eighteen
+Marshall 27 (loop 6, walls 3, farm 3, tower 10, gatehouse 3, Woods 2). One hundred and twenty-one quests, eighteen
 of them the `*-B` building tiers. Which of them one outing clears is the trip table in
 `gscraft-map-design.md` §3.5; how many outings it takes is up to the players.
 
@@ -131,7 +130,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | M12 | Purification | III | industrial plant | hand in 1 purification membrane | M6 | **Water 3** |
 | M13 | Full grid | IV | the hub | hand in 1 military power filter, 2 wiring harnesses | M11, J7 | **Generator 3** |
 | M-B1 | Under a roof | I | camp | hand in 8 metal scrap, 2 wiring harnesses, 1 filter cartridge | M2 | **plant tier 1**: generator shed, water collector |
-| M-B2 | Tank farm | II–III | camp, industrial plant | hand in 4 steel frames, 32 concrete, 4 sealed tubing, 1 purification membrane (the plant respawns them while held) | M-B1, `plant_defended` | **plant tier 2**: tanks, pump house, pipe run to the lake, the fuel pump, **the charging station**; fuel cans refill at the pump; battery-pack blueprints (crafting §5.5) |
+| M-B2 | Tank farm | II–III | camp, industrial plant | hand in 4 steel frames, 32 concrete, 4 sealed tubing, 1 purification membrane (the plant respawns them while held) | M-B1, `plant_defended` | **plant tier 2**: tanks, pump house, pipe run to the lake, the fuel pump, **the charging station**; fuel cans refill at the pump; battery-pack blueprints (crafting §5.4) |
 | M-B3 | The grid | IV | camp, FR-06, the hub | hand in 8 steel frames, 1 transformer core, 1 military power filter | M-B2, M13 | **plant tier 3**: wind mast, transformer yard, biodiesel column; the camp lit and powered |
 
 ---
@@ -211,12 +210,11 @@ is still contested — one fight at a time, in this order.
 | D3 | Farm and kitchen | II | the claim, the mud village | hand in 16 seeds, 8 bowls, 1 med kit | D1 | **Farmer's Delight kit** (stove, cooking pot, skillet, cutting board, knife; 8 each of rice, tomato seeds, onions, cabbage seeds); **Farm 1**: the kitchen's meals feed the team |
 | D4 | Bunker | III | the claim | hand in 64 concrete, 4 steel frames, 1 heavy anchor cable | D2, W9 | **Walls 3**: blast doors, the laser tower and radar orders (crafting §5.7); armoured-car recipe |
 | D5 | Greenhouse | III | the claim, the plant | hand in 16 cabbages, 16 onions, 8 cooked meals (Farmer's Delight), 1 industrial pump (irrigation; the plant respawns them while held) | D3, `plant_defended` | **Farm 2**: greenhouse and irrigation; crops inside the claim grow at double rate (KubeJS random-tick boost) |
-| D6 | Rations | IV | the claim, the hub | hand in 32 cooked meals, 1 military power filter | D5, J7 | **Farm 3**: hydroponics; the **ration pack** recipe (4 meals → 1 pack, Saturation, stacks 16) — the hub run's food |
+| D6 | Rations | III–IV | the claim, the plant | hand in 32 cooked meals, 1 purification membrane (the plant respawns them while held) | D5, `plant_defended` | **Farm 3**: hydroponics; the **ration pack** recipe (4 meals → 1 pack, Saturation, stacks 16) — the hub run's food |
 
 ### 7.3 The tower
 
-**Gate ("significant progress"):** R2, R3, R4 done; Workshop 2, Water 2, Storage 2; stage
-`car_built`. Then X1 opens.
+**Gate:** the five introductions (R1). X1 opens with Marshall; the stages stay part-gated (owner, 2026-09-04).
 
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
@@ -265,7 +263,7 @@ map is not a grid; nothing here is required for the tower.
 
 ### 7.6 Bunker side quests (Tune; C12)
 
-Fourteen Underground Bunkers are kept (structure plan). Tune's side chain uses four of them; the
+Fourteen Underground Bunkers are kept (structure plan). Tune's side chain uses five of them; the
 rest are expedition finds with the `gscraft:building/military` table.
 
 | # | Quest | Act | Area | Tasks | Gate | Reward |

@@ -34,11 +34,11 @@ shortcut, loot buy-back as a sink, access by building tier and quest stage, on v
 ## 1. The game in one paragraph
 
 Five players wake in a crater camp run by six survivors. Around them is a Lost Cities wasteland with a
-custom-built district two kilometres east and five player-built strongpoints scattered between 1.5
+custom-built district two kilometres east and five player-built strongpoints scattered between 1
 and 2.5 km. Every ruin is full of small useful junk; the camp's NPCs teach the players to turn it into
-parts at the workbench and to grow their own hideout. Taking a strongpoint starts a clock; holding it
+parts at the stations and to grow their own hideout. Taking a strongpoint starts a clock; holding it
 means beating the one attack that follows, after which the site is yours for good; each strongpoint yields one
-complex component nothing can craft. Five of those, built into five complete parts, repair the radio
+complex component nothing can craft. Four of those and the hub's, built into five complete parts, repair the radio
 tower stage by stage until its beacon lights. That starts the countdown to the finale: waves on the
 players' own base, the last one carrying the boss. Cars get the parts home; the plane reaches the one
 site that holds the last component.
@@ -65,7 +65,7 @@ repair the tower → defend the base**. A strongpoint is four trips at least bef
 | Range | From the camp | Owned by | What lives there | Attackable? |
 |---|---|---|---|---|
 | **Foot** | 0 – 1.5 km | walking | the camp, glass tower, acacia hall, Novo on the spine | strongpoints only |
-| **Road** | 1.5 – 4 km | cars, boats | the district, the tower, Financial Plaza, the settlement, Bio Gen and the runway | strongpoints only |
+| **Road** | 1.5 – 4 km | cars, boats | the district, Financial Plaza, the settlement, Bio Gen and the runway | strongpoints only |
 | **Air** | 4.5 – 6.5 km | aircraft | the hub and generated cities kept as found; the only source of the rare loot-only parts | never |
 
 ### 2.2 The camp (starting area)
@@ -113,7 +113,7 @@ the same footprint, placed by the NPC's upgrade quests (§3.6).
 |---|---|---|---|---|---|
 | 1 | **Novo Expograd Industrial Zone** (transplant 144×160) | on the spine, x 992…1135 × z 96…255 | 1.06 km ENE | Heavy industry | Walker |
 | 2 | **Residential block** (district) | from 1328, 1376 | 1.9 km | Medical | Tony |
-| 3 | **Industrial plant** (district 464×272) | 1904…2367 × 864…1135 | 2.3 km | Fuel and water | Michael |
+| 3 | **Industrial plant** (district 464×272) | 1904…2367 × 864…1135 | 2.4 km | Fuel and water | Michael |
 | 4 | **FR-06 complex** (district 384×528) | 2192…2575 × 400…927 | 2.5 km E | Power and hangar | Michael |
 | 5 | **Financial Plaza Quarantine** (transplant 160×144) | dry land west, x −1952…−1793 × z 848…991 | 2.1 km W | Electronics | Tune |
 | — | **Radio tower** (custom) | in the camp, x 64…191 × z −144…−17 (pad y 99) | 0.15 km | Endgame | Marshall |
@@ -163,18 +163,18 @@ a datapack function (`gscraft:camp_npcs`) so they can be respawned in one comman
 entity-interact handler makes right-click open the quest book and print the NPC's line; each NPC's
 chapter is tagged with their name. Villager skins give each a look (Tony a cleric, Walker a
 toolsmith, Michael an armorer, Tune a librarian, James a fletcher, Marshall a nitwit in a helmet is
-the joke, or a cartographer if not). The Recruits mod in the pack stays for hireable guards later;
+the joke, or a cartographer if not). The Recruits mod supplies the hireable guards of D2 (Walls 2, at the gatehouse);
 it is not used for these six. No gameplay mod is added (EMI, a client-side recipe viewer, was added on 2026-09-03).
 
 **Who unlocks what.** The full chains, 121 quests across the six chapters, scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
 
 | NPC | Owns | Starting tasks (the introduction) | Unlocks when done | Their chain |
 |---|---|---|---|---|
-| Walker the Foreman | Workshop, Garage, Storage | bring 8 bolts, 8 nuts, a wrench | fastener-kit and steel-frame blueprints; the basic backpack | take and hold Novo; motor assembly; vehicles; the mast section kit |
+| Walker the Foreman | Workshop, Garage, Storage | bring 8 bolts, 8 nuts | a wrench, the fastener-kit and hand-tool blueprints, the personal station | take and hold Novo; motor assembly; vehicles; the mast section kit |
 | Tony the Medic | Medical | bring 4 bandages, 2 painkillers | med-kit blueprint | hold the residential block; revive a teammate; medical analyzer; finale readiness |
 | Michael the Engineer | Generator, Water | bring 3 wire spools, a power cord, a water filter | wiring-harness and filter blueprints | hold the plant; coolant; hold FR-06; the cooling loop, then the generator kit |
 | Tune the Technician | Radio / intel | bring a circuit board, 2 capacitors, a broken radio | circuit-assembly blueprint; the map | hold Financial Plaza; antenna elements; the transmitter, then the antenna array |
-| James the Scout | expeditions | visit the glass tower, the acacia hall and the library | waypoints; the expedition board | the settlement by car; the hub by air; the phased array element |
+| James the Scout | expeditions | visit the glass tower and the acacia hall | waypoints; the expedition board | the settlement by car; the hub by air; the phased array element |
 | Marshall | the strongpoint loop and the tower | **none: he talks once all five introductions are done, and the tower chapter opens with him (owner, 2026-09-04)** | the tower chapter and the strongpoint board | take → hold → defend; five parts in order; the beacon; the finale |
 
 
@@ -187,7 +187,7 @@ footprint and re-summons the NPC at their new spot, exactly as the tower stages 
 therefore grows visibly with the players' progress, and each NPC's site is a readout of how far their
 chain has come. Tiers are separate from the hideout function levels of §5 — the functions are the
 players' claim, the tiers are the NPCs' own places — but their gates line up so neither runs ahead of
-the other: tier 1 after the introduction, tier 2 after that NPC's strongpoint is held, tier 3 with a
+the other: tier 1 after the introduction, tier 2 after that NPC's strongpoint is defended, tier 3 with a
 hub component.
 
 | NPC | Tier 0 (as placed) | Tier 1 — Repair | Tier 2 — Expand | Tier 3 — Complete | What the tier adds |
@@ -196,15 +196,15 @@ hub component.
 | **Tony** — the clinic | a tarp over a wreck, one bed | walls, four beds, the med station | surgery room, its own generator, the lit red cross | two storeys, a ward, a quarantine tent, a marked helipad | T2: faster PlayerRevive at the clinic; T3: full revive without a surgical kit |
 | **Michael** — the plant | one generator on a pallet | generator shed, water collector | tank farm, pump house, pipe run down to the lake, the fuel pump | wind mast, transformer yard, biodiesel column, lit pipes | T2: fuel cans refill at the pump; T3: the camp outline is lit and powered |
 | **Tune** — the radio shack | shack and a 12-block mast stub | mast to 24 with a dish, the map wall | antenna field beside the shack, intel desk | mast to 40 with an aviation light, second dish, receiver on the roof | T2: the board shows the contested site's whole countdown (Radio 2's readout); T3: the coming attack's composition |
-| **James** — the lookout | 8×8 tower, 20 tall | platform, ladder, a flag | 30 tall, a spotlight that sweeps at night | 40 tall, glass cabin, telescope, waypoint beacon | T2: waypoints shared to the whole team; T3: every named site marked |
-| **Marshall** — the gatehouse | a gap in the wall and a table | the gate, wall stubs, the parts rack | walled gate, two watchtowers, barricades | blast doors, floodlights, the strongpoint board as a lit wall map | T2: guard villagers at the gate; T3: the finale's first wave breaks on the gate, not the crater |
+| **James** — the lookout | 8×8 tower, 20 tall | platform, ladder, a flag | 30 tall, a spotlight that sweeps at night | 40 tall, glass cabin, telescope, waypoint beacon | T2: the night spotlight (waypoint sharing is Radio 1's); T3: every named site marked |
+| **Marshall** — the gatehouse | a gap in the wall, a table, the parts rack | the gate, wall stubs | walled gate, two watchtowers, barricades | blast doors, floodlights, the strongpoint board as a lit wall map | T2: guard villagers at the gate; T3: the finale's first wave breaks on the gate, not the crater |
 
 Two mods carry the tiers' promises: **Guard Villagers** supply the armed guard each building gets at
 tier 2 (Marshall's tier-2 gate gets two), and **Recruits** supplies the hireable soldiers behind
-Marshall's D2 — recruited at the gatehouse tier 1 table, ranks from recruit to captain, and the mod's
+Marshall's D2 — hired at the gatehouse from Walls 2 (D2), ranks from recruit to captain, and the mod's
 own claim-and-siege logic is kept switched off so the loop stays the only attack calendar. Hordes'
 **player infection is on** (`hordes-common.toml`, `infectPlayers = true`, 75 % per zombie hit): the
-clinic cures it at tier 1 and the med kit cures it in the field from Medical 2, which is the medical
+clinic cures it from T1 and the med kit cures it in the field from Medical 2, which is the medical
 function's reason to exist.
 
 Hand-ins scale with the acts and reuse what the loop already produces: tier 1 is camp junk and the
@@ -235,10 +235,10 @@ site's component containers respawn every two in-game days, so nothing is lost b
 
 | Trip | Act | Area (from the camp) | Quests it serves | Haul (slots) | Bulky | Get there |
 |---|---|---|---|---|---|---|
-| 1 | I | the camp's own ruins (0–300 m) | W1, T1, M1, U1 hand-ins; D1 concrete later | 11 | — | foot |
+| 1 | I | the camp's own ruins (0–300 m) | W1, T1, M1, U1 hand-ins; X1's briefing once the five are done; D1 concrete later | 11 | — | foot |
 | 2 | I | glass tower + acacia hall (1.3–1.55 km) | J1 locations; W3 metal scrap; M2 light bulb; T2 med items | 6 | — | foot |
 | 3 | I | Novo (1.06 km E on the spine) | J-S1 dossier; W5 loot (spark plugs, scrap, oil) over two or three runs; R2 marker and assault; hardware and spark plugs for W7; after the hold: W11 heavy anchor cable, W9 heavy diesel engine | 8 | 2 (after the hold) | foot; the bulky parts one per carrier, or the first car |
-| 4 | II | the west edge: residential block, hempcrete compound, library (1.9–2.5 km) | J2 locations, J-S2 dossier; T3 loot (blood bags, syringes, antiseptic); R3 marker and assault; U3 hard drive, J3 folders; electrical items for U2 and U8; X1 briefing | 14 | — | foot, then the first car |
+| 4 | II | the west edge: residential block, hempcrete compound, library (1.9–2.5 km) | J2 locations, J-S2 dossier; T3 loot (blood bags, syringes, antiseptic); R3 marker and assault; U3 hard drive, J3 folders; electrical items for U2 and U8 | 14 | — | foot, then the first car |
 | 5 | II | the industrial plant (2.4 km) | J-S3 dossier; M4 loot (hoses, fins, fuel cans); R4 marker and assault; hoses, tubes and fins for M3 and M6; fuel cans for M7 and W8; after the hold: M6 industrial pump | 9 | 1 | car |
 | 6 | III | FR-06 (2.5 km E), with the factory annex and hopper array on the way | J-S4 dossier; M8 loot (relays, motors, a battery); R5 marker and assault; electrical items; after the hold: M10 transformer core, M11 avionics module and reactor control module | 10 | 3 | car |
 | 7 | III | Financial Plaza and the sewers under it (2.1 km W) | J-S5 dossier; U4 loot (circuit boards, computer parts, a hard drive); R5 marker and assault; U6 sewers and encrypted radio; electrical and valuables; after the hold: U7 military circuit board; D4 concrete | 12 | 1 | car |
@@ -285,6 +285,9 @@ crafting chain and a trip.
 | Tools | wrench, pliers, screwdriver set, hand drill, welding torch | garages, Novo, FR-06 hangar | 1 |
 | Valuables | broken radio, computer parts, hard drive, folder of documents, emerald (vanilla; the Recruits' hire currency) | offices, Financial Plaza, the hub | 1 |
 
+**Food is outside the ladder:** canned goods (`gscraft:canned_goods`, a KubeJS food item) and Farmer's Delight crops drop
+beside the small items (`gscraft-loot-tables.md`) and feed hunger; they count for no collection quest.
+
 ### 4.3 Intermediates (blueprints = team stages `bp_<recipe>`, ordered at the stations; the "blueprint from" column follows the quest tables)
 
 | Intermediate | Recipe | Blueprint from |
@@ -316,7 +319,7 @@ plant); reactor control module, avionics module (FR-06); encrypted radio (Financ
 analyzer, surgical kit (residential block, Bio Gen); satellite receiver, military power filter (the
 hub). They spawn in specific containers at their site, one or two per visit, and respawn on the
 respawn timer, so a held strongpoint keeps producing. Base upgrade kits have the same shape: a kit of
-intermediates, from level 2 one component from the role's strongpoint, at level 3 one from the hub.
+intermediates, from level 2 one component from the role's strongpoint, at level 3 one from the hub or the far ring (B3: the blanket hub rule is dropped).
 
 **The hub's economy (C17, 2026-09-04).** The game needs 3 phased array elements (X6, U9, J8), 6 satellite receivers
 (J8, W-B3, U-B3, J-B3, Storage 4, the Black Hawk) and 4 military power filters (T9, M13, T-B3, M-B3): thirteen hub
@@ -353,9 +356,9 @@ The players' claim (FTB Chunks, one team). Functions: Workshop, Garage, Storage 
 Generator, Water (Michael); Medical (Tony); Radio / intel (Tune); Walls and defences, Farm and
 kitchen (Marshall's chapter). Three levels each: level 1 from small items and intermediates, level 2
 needs the role's strongpoint held and one of its components, level 3 needs one component from the
-hub. Each level is a quest in the owning NPC's chapter; the reward flips a KubeJS stage that gates
+hub (Radio, Medical, Generator, Storage 4) or from the far ring (Water 3, Storage 3, Walls 3, Garage 3 — B3). Each level is a quest in the owning NPC's chapter; the reward flips a KubeJS stage that gates
 recipes, hands out the next blueprint, and applies the effect (guard villagers, warning length,
-vehicle recipes). Level 3 of every function requires holding ground, a plane and an expedition: the
+vehicle recipes). Between them the level 3s need held ground, the far ring and a plane: the
 whole map, used once.
 
 ---
@@ -397,12 +400,12 @@ and no site is ever drawn while the players are elsewhere — the only fights ar
 **One contested site at a time.** The marker is refused while another site is still contested, so
 the players finish one fight before starting the next and the map is taken in order — the pasted
 progression of R2 → R6. Clocks run on **online time** only (they advance while at least one player
-is on), so a defence never fires into an empty world. Hordes' 10-day event stays as the pack ships
-it — ambient pressure wherever the players are — and never targets a site. Tune's Radio levels read
+is on), so a defence never fires into an empty world. Hordes' horde event is off (the pack ships it disabled, B6); only its
+infection runs, wherever the players are, and nothing random ever targets a site. Tune's Radio levels read
 the contested site: Radio 1 shows the warning, Radio 2 the whole countdown from `held`, Radio 3 the
 attack's composition (wave count and mob types) as soon as the marker is placed.
 
-The tower's five components come from five different held sites, so the loop is the tower's supply
+The tower's components come from four held sites and the hub, so the loop is the tower's supply
 line; a component container arms on `held` and refills on its timer once the site is defended.
 
 ### 6.3 Garrisons — the mob tables Phase D builds from
@@ -482,8 +485,8 @@ Phase E's to confirm.
 ## 8. Tech stack (no custom mod)
 
 KubeJS (items, blueprint recipes, the work-station block and its timer, stages, the loop, the bulky rule, NPC interaction), EMI (recipe viewer, client side, added 2026-09-03), FTB Quests
-(chapters, tasks, rewards), FTB Chunks and Teams (claim, per-team state), Immersive Engineering (the
-workbench and blueprints), Sophisticated Backpacks and Curios (storage), In Control! and Hordes
+(chapters, tasks, rewards), FTB Chunks and Teams (claim, per-team state), Immersive Engineering (power and
+machines), Sophisticated Backpacks and Curios (storage), In Control! and Hordes
 (waves), Lootr (instanced loot), datapacks (loot tables, tower and camp templates, NPC summons). All
 of it edits live on the server without a client reinstall.
 
@@ -511,11 +514,11 @@ final building positions.
 visual pass.
 
 **Phase C — Systems v1.** KubeJS items (small, intermediate, complete, components, the five
-dossiers, the claim marker; stack sizes; bulky rule), IE blueprint recipes, datapack loot tables by
+dossiers, the claim marker; stack sizes; bulky rule), the station recipes and their `bp_*` stages, datapack loot tables by
 building type and site (dossier and component containers keyed to their site), Lootr refresh on,
 NPC interaction, the five introduction chapters, James's scout quests, Walker's storage levels,
 and the tier-1 building upgrades (`camp.py` tier templates 0 and 1 at least).
-*Test 2, five players, foot range only:* find items, craft at the workbench, reach Storage 1 and
+*Test 2, five players, foot range only:* find items, craft at the stations, reach Storage 1 and
 Workshop 1, scout Novo and hand its dossier to James, and get Marshall to talk.
 
 **Phase D — The loop and vehicles.** The site ladder as stages, the marker and the assault, the
@@ -534,10 +537,8 @@ the finale runs to the boss (`gscraft-finale.md` §5 is the build and test list)
 
 - Exact rim positions of the six buildings: after Phase A.
 - The full base-upgrade recipe sheet: written with Phase C, in the shape fixed in §4.4.
-- Whether the crater ramp takes a car: Phase A; the fallback is written in §2.4.
-- Recruits-mod guards as a Marshall "Walls and defences" level: later, not this build's first tests.
-- Lootr's container refresh interval (off by default): the config key and the value that gives
-  about two in-game days, checked in Phase C.
+- Whether the crater ramp takes a car: Phase A; the fallback is a second, shallower ramp cut on the visual pass.
+- Lootr refresh: set (`refresh_value` 120000 = 5 in-game days for `gscraft:` tables; mod-capabilities §5b). Done.
 - The five anchor points for the claim markers, one per strongpoint: chosen on the visual pass.
 - The dossier chests are placed: `tools/dossiers.json` and `gscraft:dossiers` (Novo 1028 78 158 new; the
   block 1330 84 1386 existing; the plant 2126 105 963 new; FR-06 2425 126 838 new; the plaza −1841 100 971

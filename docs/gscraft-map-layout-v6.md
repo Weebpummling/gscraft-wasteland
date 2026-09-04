@@ -87,8 +87,8 @@ road 1.5–4 km, air 4.5–6.5 km.
 | **The sewers** | dungeon, under the plaza | −1920 880 −1825 975 (chunks −120..−115 × 55..60) | 96×96 | under Financial Plaza | `sewers` | −16 (y −16…50, below the pad) | none; section-stacked into the plaza's chunks below y 48 | v5 pad |
 | **The settlement** | loot site, road + boat | 3520 640 3791 927 (chunks 220..236 × 40..57) | 272×288 | 3.7 km E | `world_east_site` | +16 (ground 62–70 → 78–86) | water pad re-cut 288×304 at y 80 (from 72) | v5 pad, water around |
 | **Runway** | air (Michael's airfield tier) | 3040 2519 3470 2710 | 430×192 | 3.9 km SE | strongpoint pad, east 430 m | — | airfield pad re-cut to y 67 (from 64) | v5 pad |
-| **Bio Gen offices, south group** | loot site | 2976 2528 3039 2591 (chunks 186..189 × 158..161) | 64×64 | 4.0 km SE | `biogen_strip` chunks 29..32 × −63..−60 | +64 (ground 3 → 67) | airfield pad west end, y 67 | v5 pad |
-| **Bio Gen offices, north group** | loot site | 2976 2608 2991 2639 (chunk 186 × 163..164) | 16×32 | 4.0 km SE | `biogen_strip` chunk 30 × −75..−74 | +64 | same | v5 pad |
+| **Bio Gen offices, south group** | loot site | 2976 2528 3039 2591 (chunks 186..189 × 158..161) | 64×64 | 3.9 km SE | `biogen_strip` chunks 29..32 × −63..−60 | +64 (ground 3 → 67) | airfield pad west end, y 67 | v5 pad |
+| **Bio Gen offices, north group** | loot site | 2976 2608 2991 2639 (chunk 186 × 163..164) | 16×32 | 3.9 km SE | `biogen_strip` chunk 30 × −75..−74 | +64 | same | v5 pad |
 | **The hub — Novo Expograd** | air-ring prize, never attacked | 5600 1184 6431 1823 (chunks 350..401 × 74..113) | 832×640 | 6.0 km E | `world_hub` (y ≤ 103, ships cut) | +16 (edge ground ≈66 → 82) | new pad, y 82; pregen terrain median 71, p90 89, 12% water | generated |
 | Radio tower | endgame | camp, §2 | 128×128 | 0.1 km | `tools/tower.py` | — | y 99 | v5 |
 | **The Woods** (planned) | wilderness zone, quest focus | 400 −3500 2400 −1500 | 2000×2000 | 2.9 km NNE | regenerated under the `woods` LC profile (no city); 5 sparse structures; `docs/gscraft-woods-plan.md` | — | none | generated |
@@ -109,7 +109,7 @@ visual pass.
 | Glass tower | 1184 464 1263 607 | 80×144 | 1.3 km | white stained glass, quartz pillars | Act I electrical (J1) |
 | Acacia hall | 1488 432 1599 511 | 112×80 | 1.55 km | acacia wood, IE wiring | Act I hardware (J1) |
 | Residential block | 1328 1376 1551 1775 | 224×400 | 1.9 km | stone brick, white concrete, oak | strongpoint 2 (Tony) |
-| Hempcrete compound | 1568 1152 1887 1471 | 320×320 | 2.0 km | IE hempcrete, razor wire | medical and hardware; fallback transplant site |
+| Hempcrete compound | 1568 1152 1887 1471 | 320×320 | 2.2 km | IE hempcrete, razor wire | medical and hardware; fallback transplant site |
 | Copper tower | 1920 1024 1999 1135 | 80×112 | 2.2 km | waxed copper | electrical |
 | Prismarine hall | 2016 768 2143 815 | 128×48 | 2.2 km | prismarine; sculk sensors, catalyst and shrieker inside | filters and chemicals; the Sleeper's first sign (finale §3) |
 | Library | 2032 1392 2127 1487 | 96×96 | 2.5 km | chiseled bookshelves, signs, beehives | valuables (J3, U3) |
