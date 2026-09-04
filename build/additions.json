@@ -286,6 +286,7 @@
     "sha1": "bcb2b2085c55015279ac96113ee8b12e65ebffaf",
     "date": "2026-08-02",
     "requires": [],
-    "note": "design requirement (starting-kit flashlight); docs/gscraft-modpack-review.md section 4; jar not yet downloaded - owner approval pending"
+    "note": "design requirement (starting-kit flashlight); docs/gscraft-modpack-review.md section 4; downloaded and hash-verified 2026-09-04, installed in server + client + client zip",
+    "sha256": "c537f3f03b17d737fc77139add6e3128c2841f68ec24f8f3a455f0c695a429af"
   }
 }

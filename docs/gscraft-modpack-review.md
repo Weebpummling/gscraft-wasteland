@@ -10,7 +10,7 @@ for the worlds and the builds that use their blocks. So this review adds and ali
 
 | Finding | Action |
 |---|---|
-| The design needs a **flashlight** in the starting kit and the pack has none (`notes/gscraft-flashlight-and-nvg.md`) | **add Dynamic Flashlight 2.1.0** (Forge 1.20.1, 93 KB, no dependencies) to server, client and manifest — §4 |
+| The design needs a **flashlight** in the starting kit and the pack had none (`notes/gscraft-flashlight-and-nvg.md`) | **Dynamic Flashlight 2.1.0 added 2026-09-04** (Forge 1.20.1, 93 KB, no dependencies) to server, client, manifest and the client zip — §4 |
 | **EMI 1.1.24** is in the manifest, on the hosted server and in the rebuilt client zip (`release-v7/GSCraft-Client.zip`, 2026-09-03) but was **missing from the local test server and the local Prism instance** | synced 2026-09-04 from the release-v7 copy — §4 |
 | Twelve **conditional libraries** are listed in the manifest and present nowhere | correct as is: they are the libraries other candidate mods would have pulled in; keep the entries as a reference list, do not install — §3 |
 | Every other capability the design names is already installed (§2) | nothing to add |
@@ -57,7 +57,7 @@ config was read in the jar on this machine.
 | Performance and server tooling | ModernFix, Canary, FerriteCore, Let Me Despawn, Get It Together Drops, chunksending, LongNbtKiller, Fast Furnace/Suite/Workbench, Recipe Essentials, AI Improvements, Dynamic View, Chunky, spark, BHStats, WorldEdit | installed |
 | Melee, HUD | Better Combat (+ player animation lib), AppleSkin, Almanac | installed; no design role, kept |
 | Libraries | GeckoLib, AzureLib, Architectury, Cloth Config, Resourceful Lib, Athena, Atlas Lib, Cupboard, Cryonic Config | installed as required |
-| **Flashlight** (starting kit, onboarding §8, camp spec §5) | **none** | **add** — §4 |
+| **Flashlight** (starting kit, onboarding §8, camp spec §5) | Dynamic Flashlight 2.1.0 (`flashlight`) | installed 2026-09-04 — §4 |
 | Night vision (Tune's vendor item), thermal | none needed: a KubeJS goggles item; thermal stays vehicle-only (vvp) | design decision, no mod |
 
 ## 3. The manifest's twelve conditional libraries
@@ -72,10 +72,10 @@ considered and not taken; the entries stay as documentation and are **not instal
 
 | Jar | Source | Size | Hashes | Goes to |
 |---|---|---|---|---|
-| `flashlight-2.1.0-forge-1.20.1.jar` (Dynamic Flashlight 2.1.0, 2026-08-02) | `https://cdn.modrinth.com/data/SemszBhn/versions/dkQtiEhc/flashlight-2.1.0-forge-1.20.1.jar` | 93,543 B | sha1 `bcb2b2085c55015279ac96113ee8b12e65ebffaf`; sha512 `45e97d9f…611530` | `server/mods`, client instance `mods`, hosted `/mods` (hand-run, HANDOFF §6), `build/manifest.json` (role `addition`, sha256 filled from the file), `build/additions.json` |
+| `flashlight-2.1.0-forge-1.20.1.jar` (Dynamic Flashlight 2.1.0, 2026-08-02) | `https://cdn.modrinth.com/data/SemszBhn/versions/dkQtiEhc/flashlight-2.1.0-forge-1.20.1.jar` | 93,543 B | sha1 `bcb2b2085c55015279ac96113ee8b12e65ebffaf`; sha512 `45e97d9f…611530` | **done 2026-09-04** (owner-approved): hash-verified, in `server/mods`, the Prism instance, `build/manifest.json` (sha256 from the file), `build/additions.json`, appended to `release-v7/GSCraft-Client.zip`; still to do by hand: the hosted `/mods` (HANDOFF §6) and the Drive re-issue |
 | `emi-1.1.24+1.20.1+forge.jar` (EMI 1.1.24, already pinned) | local copy `G:/GSCraft/release-v7/` (sha256 checked against the manifest) | 1,121,750 B | `server/mods`, the Prism instance `mods` — **done 2026-09-04**; the hosted server and the client zip already had it |
 
-After the flashlight lands: rebuild `GSCraft-Client.zip` from the Prism instance, re-issue it on the Drive link,
+The jar was appended to `GSCraft-Client.zip` (the Prism-export layout, `.minecraft/mods/`); re-issue it on the Drive link,
 and add one line to `client/GSCraft Install Guide.md` ("Flashlight: right-click to switch on, sneak +
 right-click with a battery to reload"). The manifest's `sha256` for the flashlight jar is computed
 from the downloaded file, never copied from a listing.

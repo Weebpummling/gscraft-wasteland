@@ -20,6 +20,8 @@ Server address: **199.115.76.82:9150** (also `gamesla308.bisecthosting.com:9150`
 
 That is it. Voice chat (Simple Voice Chat, push-to-talk **V**) works out of the box on the same address.
 
+Flashlight (Dynamic Flashlight): right-click to switch it on; sneak + right-click while holding a battery to reload it.
+
 ---
 
 ## Way 2 — official Minecraft launcher (manual)

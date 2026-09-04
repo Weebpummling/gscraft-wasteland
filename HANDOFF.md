@@ -36,7 +36,7 @@ roster, equipment crafting, garrison tables, the finale (now the Sleeper, `docs/
 New tools: `dossiers.py` (dossier chests, `tools/dossiers.json`, `gscraft:dossiers`), `camp_ruins.py` (24
 ruin pieces in the camp, `gscraft:camp_ruins`, loot tables under `ruins/`). **EMI 1.1.24 added** to the
 server's `/mods` (client-side mod; the dedicated server skips it) and to `additions.json` / `manifest.json`;
-the client pack was rebuilt with it on 2026-09-03 (`G:/GSCraft/release-v7/GSCraft-Client.zip`, 453 MB, EMI 1.1.24
+**Dynamic Flashlight 2.1.0 added 2026-09-04** (owner-approved; hash-verified; in `server/mods`, the Prism instance, `build/manifest.json`, and appended to `G:/GSCraft/release-v7/GSCraft-Client.zip` — the previous zip is kept as `GSCraft-Client-2026-09-03-emi.zip`; the hosted `/mods` still needs the jar by hand, §6, and the Drive link the new zip). Before that, the client pack was rebuilt with EMI on 2026-09-03 (`G:/GSCraft/release-v7/GSCraft-Client.zip`, 453 MB, EMI 1.1.24
 sha512-verified; goes up with the v7 release and replaces the Drive copy). `camp_ruins` has been run on the hosted world (24 pieces, read back from the region files). `tools/furnish.py`
 places loot chests in sites that came across without any (Novo has none above ground: its 1.12 source had
 34 k blocks and no containers; the plaza has one) — `gscraft:furnish_novo` and `gscraft:furnish_financial`, 12
@@ -87,7 +87,7 @@ from Novo. Plan and quest hooks: `docs/gscraft-woods-plan.md`. Not built yet.
 **Design addendum (owner, 2026-09-04):** military vehicle blueprints (Humvee RWS, Black Hawk, Bradley) are mid/late quest
 rewards (W-M1, W-B3, X6), never tier unlocks - crafting §2.1, quests draft 2.
 
-**Not started:** `tools/runway_lights.py` → `gscraft:runway_lights` (camp spec §5, Phase B); the flashlight update of `docs/gscraft-modpack-review.md` §4 (Dynamic Flashlight 2.1.0 — owner's approval, then server + client + manifest; EMI was synced into the local sets on 2026-09-04); Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
+**Not started:** `tools/runway_lights.py` → `gscraft:runway_lights` (camp spec §5, Phase B); Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
 `camp.py` (the six NPC buildings as templates onto their pads); the systems (KubeJS items, blueprints,
 stages, the strongpoint loop and timers; FTB Quests chapters from `docs/gscraft-quests.md`; loot tables
 by building type); the Superb Warfare small-arms toggle; old-world housekeeping on the hosted server

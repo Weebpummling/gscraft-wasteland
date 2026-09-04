@@ -1068,5 +1068,14 @@
     ],
     "nested": [],
     "requires": []
+  },
+  "flashlight-2.1.0-forge-1.20.1.jar": {
+    "role": "addition",
+    "sha256": "c537f3f03b17d737fc77139add6e3128c2841f68ec24f8f3a455f0c695a429af",
+    "modids": [
+      "flashlight"
+    ],
+    "nested": [],
+    "requires": []
   }
 }

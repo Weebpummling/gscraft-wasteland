@@ -89,11 +89,9 @@ next tier's function before re-summoning, so counts never drift. Their inventori
   (onboarding "Flying"). IE's powered `immersiveengineering:floodlight` is the gatehouse tier 3's
   and Walker's yard tier 3's light, wired to Michael's power.
 - **Flashlight**: the pack has no dynamic-light mod and no flashlight item (checked: the jars offer only
-  lanterns and IE's flare cartridge). Recommended: add **Dynamic Flashlight 2.1.0** (Forge 1.20.1, no
-  dependencies; beam visible to other players, optional server-side light blocks) — research and the
-  owner's call in `notes/gscraft-flashlight-and-nvg.md`. Until it is added, the fallback is a KubeJS item
-  (`gscraft:flashlight`) that gives **Night Vision** while held and drains a battery bar over 20 minutes;
-  either way the battery is the flashlight battery of crafting §5.6, recharged at Michael's charging
+  lanterns and IE's flare cartridge). **Dynamic Flashlight 2.1.0** (mod id `flashlight`; Forge 1.20.1, no dependencies; beam visible to other
+  players, optional server-side light blocks) was added on 2026-09-04 — research in `notes/gscraft-flashlight-and-nvg.md`.
+  The KubeJS Night-Vision item is no longer needed; the battery is the flashlight battery of crafting §5.6, recharged at Michael's charging
   station (M-B2) or with 1 car battery at any station. Night-vision goggles and thermal: `gscraft-vendors.md` §6.
 - **Notebook** (`gscraft:survivors_notebook`, Patchouli): `build/patchouli_books/survivors_notebook/`,
   the six pages of onboarding §6; the "Where things are" page's entries are advancement-gated, and

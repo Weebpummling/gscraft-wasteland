@@ -38,5 +38,5 @@ Modrinth API (project pages and version lists, read 2026-09-04).*
 3. **Thermal stays vehicle-only** (vvp). Player thermal would delete the dark, and the dark is where
    Eyes in the Darkness, the fog man and the Warden's Darkness pulse live.
 
-Adding a mod changes the pinned set; it is the owner's call and needs the client pack re-issued
-(the same step as EMI on 2026-09-03).
+Added 2026-09-04 with the owner's approval: hash-verified, installed in the server and client sets, the manifest and the
+client zip (`release-v7/GSCraft-Client.zip`); the hosted `/mods` and the Drive re-issue are the hand-run steps.
