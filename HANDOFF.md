@@ -168,8 +168,8 @@ do not, but they are fully generated so it no longer matters there).
 In the design's order (design section 9): Phase A visual pass -> `camp.py` (NPC buildings + the summon
 function `gscraft:camp_npcs`) -> Phase C systems v1 (KubeJS items with stack sizes and the bulky rule,
 the station recipes and `bp_*` stages, datapack loot tables by building type, NPC right-click -> quest book, the five
-introduction chapters, Walker's storage levels) -> Phase D (held flags, the friendly garrison per held site, fortify clock, warnings, the counterattacks at the base — owner 2026-09-04,
-garrison and component respawn, garage tier) -> Phase E (tower stages 1-5 wired to Marshall's chapter,
+introduction chapters, Walker's storage levels) -> Phase D (held flags, the site guard per held site, fortify clock, warnings, the counterattacks at the base — owner 2026-09-04,
+the site guard, occupier and component respawn, garage tier) -> Phase E (tower stages 1-5 wired to Marshall's chapter,
 the hub's rare loot, aircraft, the beacon countdown and base waves). The KubeJS scripts that exist: `gscraft_recipes.js` (the bench-recipe strip),
 `build/kubejs/server_scripts/gscraft_fixes.js` (recipe fix), `gscraft_tower_lock.js` + `startup_scripts/
 gscraft_tower_lock_native.js` (the lock), `gscraft_projectiles.js` (projectile sweep).

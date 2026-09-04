@@ -85,8 +85,8 @@ A few offers take items instead of coin — the vanilla trade UI supports two in
 | Vendor | Give | Get | Why |
 |---|---|---|---|
 | Walker | 4 salvage rifles | 1 assault rifle | the salvage rule in reverse; four broken guns are one working one |
-| Michael | 1 medium battery pack + 2 circuit assemblies + 4 relays | 1 transformer core | a slow second source of FR-06's component for a team that lost the reactor plaza |
-| Tune | 1 encrypted radio + 1 hard drive | 1 military circuit board | a second route to the transmitter's component for a team that lost Financial Plaza |
+| Michael | 1 medium battery pack + 2 circuit assemblies + 4 relays | 1 transformer core | a slow second source of FR-06's component between its respawns |
+| Tune | 1 encrypted radio + 1 hard drive | 1 military circuit board | a second route to the transmitter's component between the plaza's respawns |
 | Tony | 2 blood bags + 1 med kit | 1 surgical kit | the far-ring item from near-ring loot, once T7 is done |
 | James | 2 folders of documents | 1 site dossier copy | the copy marks the site on the board but completes no quest |
 

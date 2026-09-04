@@ -44,7 +44,7 @@ Every other row: **the default, applied** in the same commit as this note.
 | B2 | **NPC tier-2 gate**: strongpoint *held* (design) or *defended* (quests) | design §3.6 vs every *-B2 | defended (the quests) |
 | B3 | **Level-3 "one hub component" rule** vs the actual level-3 rewards (W10 anchor cable, W13 avionics, W14 none, M12 membrane, D4 anchor cable) | design §5 vs quests | drop the blanket rule; state per function which component it takes (the quests already do) |
 | B4 | **Component respawn**: every 2 in-game days / on defended / while held / Lootr refresh 5 days | design L232/367/385/397, quests, modcaps L83 | components respawn every 2 in-game days **while the site is held**; Lootr refresh 5 days is for ordinary loot only; write it once in design §6 |
-| B5 | **Attack warning** = max(10 min, foot travel): travel to every built site is under 10 min, so the rule is always 10 | design L384 | a flat 10 minutes; drop the formula |
+| B5 | **Attack warning** = max(10 min, foot travel): travel to every built site is under 10 min, so the rule is always 10 | design L384 | a flat 10 minutes; drop the formula *(2026-09-04: the counterattack is at the base, so the 10 minutes cover the drive home — every built site is under 4 km)* |
 | B6 | **Hordes event**: "as the pack ships it" (design) vs disabled (HANDOFF) | design L391 | disabled for good; the loop is the only calendar |
 | B7 | **Recruits**: "later / not these six" vs written into D2; the table at gatehouse tier 1 vs Walls 2 | design L164/202/522, quests D2 | Recruits hired from D2 (Walls 2) at the gatehouse; the tier-1 table is Marshall's map only |
 | B8 | **Parts rack**: rewarded twice (R-B1 and X1) and shown at minute 2 | quests, onboard | the rack exists from tier 0 (empty hooks are the point); R-B1 and X1 lose the reward line |
@@ -77,9 +77,9 @@ Every other row: **the default, applied** in the same commit as this note.
 | B35 | **Lost vehicle** | crafting §2 | re-kit; the bay repairs a damaged vehicle for one steel frame (W-B2's "repair at the bay") |
 | B36 | **Ammunition** | crafting §5.2 | ammo crafted at stations from casings + powder; powder = 1 gunpowder + 1 solvent (crafting §5.6), gunpowder from the stone complex and military chests; loot ammo scarce |
 | B37 | **Stage sharing** (team vs player) | quests §9 | team for sites, functions, blueprints, car_built; player for first-time onboarding lines and revives_3 |
-| B38 | **Held sites and claims; how a marker falls** | design §6 | the marker is a block; only a player can break it (owner 2026-09-04: sites are held by a friendly garrison and every counterattack comes to the base); no player claims at strongpoints |
+| B38 | **Held sites and claims; how a marker falls** | design §6 | the marker is a block; during the 5-minute assault the waves can destroy it (fail); once `held` only a player can break it (owner 2026-09-04: sites are held by a site guard and every counterattack comes to the base); no player claims at strongpoints |
 | B39 | **World border warning** | nowhere | vanilla border damage off, warning distance 200 blocks |
-| B40 | **2-of-5 players difficulty** | design L405 | wave size scales with players in the rectangle (×0.4 solo … ×1.2 for six+); clocks run for any team size (B27) |
+| B40 | **2-of-5 players difficulty** | design L405 | wave size scales ×0.4 solo … ×1.2 for six+ — by players in the site rectangle for the assault, by players online for the counterattack and the finale; clocks run for any team size (B27) |
 
 ## C. Assigned to a phase (was "later" with no owner)
 
@@ -100,7 +100,7 @@ Every other row: **the default, applied** in the same commit as this note.
 | C13 | Vehicle-qualified location tasks ("by car", "by air") | D (KubeJS check on the player's vehicle) |
 | C14 | Apotheosis affixes on elites without random bosses | D |
 | C15 | IV craftingoverrides file, backpack upgrade gating, ParCool ziplines, Guard Villagers per tier, Recruits hiring, SW defence orders | C / D (modcaps §2 rows) |
-| C16 | Marker anchor points per site; crater ramp car test; resurface pass; in-place pruning inside kept rects; Improved Mobs digging vs the lock; IV crash vs the fence | A (visual pass) |
+| C16 | Marker anchor points per site (the site guard spawns there too); crater ramp car test; resurface pass; in-place pruning inside kept rects; Improved Mobs digging vs the lock; IV crash vs the fence | A (visual pass) |
 | C17 | Hub component economy (phased array ×3, satellite receiver ×6, power filter ×4 at one or two per visit, 6 km by air) | D (respawn tuning) |
 | C18 | Infection-to-death timer; revive numbers | D |
 

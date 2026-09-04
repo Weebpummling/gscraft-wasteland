@@ -15,7 +15,7 @@ their starting tasks done. Draft 6 — **each NPC's building has three tiers**, 
 each, every tier a visible rebuild of their site (§3.6); and **every strongpoint is visited
 several times before it is taken**: scouted, looted on two or three trips, then cleared in one assault that the players start
 by placing the marker; holding it starts that site's own defence countdown to a first attack that
-always comes (superseded 2026-09-04: the attack comes to the base, see the addendum below); **attacks only ever target the site being contested** — a defended site is safe for
+always comes (superseded 2026-09-04: the attack comes to the base, see the addendum below); **attacks only ever target the site being contested** (superseded 2026-09-04: they target the camp) — a defended site is safe for
 good, there is no random cycle, and the loop quests run R2 → R6 in order up to every site held; a
 site is lost when its marker falls or nobody is there at the end of its defence, never on one
 death (superseded 2026-09-04: a held site is never lost to a wave).
@@ -27,7 +27,7 @@ unlocked by a yard tier alone (`gscraft-crafting.md` §2.1, `gscraft-quests.md`)
 **Onboarding (2026-09-04):** how all of this is taught in play rather than read - `gscraft-onboarding.md`.
 
 **Defence moved to the base (owner, 2026-09-04):** a strongpoint is still scouted, looted and taken by the players, but once
-taken it is held by a **friendly garrison** (Recruits soldiers and Guard Villagers the take unlocks), not by the players
+taken it is held by a **site guard** (Recruits soldiers and Guard Villagers the take unlocks, §6.1), not by the players
 standing there; the counterattack that follows each take comes to the **main base**, where the walls, the gate and the
 team are. No site is ever lost to a wave. §6 is written to this.
 
@@ -41,7 +41,7 @@ shortcut, loot buy-back as a sink, access by building tier and quest stage, on v
 A team of players — any number, from one up — wakes in a crater camp run by six survivors. Around them is a Lost Cities wasteland with a
 custom-built district two kilometres east and five player-built strongpoints scattered between 1
 and 2.5 km. Every ruin is full of small useful junk; the camp's NPCs teach the players to turn it into
-parts at the stations and to grow their own hideout. Taking a strongpoint puts a friendly garrison on it and starts a clock; when the clock runs out the
+parts at the stations and to grow their own hideout. Taking a strongpoint puts a site guard on it and starts a clock; when the clock runs out the
 counterattack comes to the camp, and beating it at the gate makes the site yours for good; each strongpoint yields one
 complex component nothing can craft. Four of those and the hub's, built into five complete parts, repair the radio
 tower stage by stage until its beacon lights. That starts the countdown to the finale: waves on the
@@ -69,8 +69,8 @@ repair the tower → defend the base**. A strongpoint is four trips at least bef
 
 | Range | From the camp | Owned by | What lives there | Attackable? |
 |---|---|---|---|---|
-| **Foot** | 0 – 1.5 km | walking | the camp, glass tower, acacia hall, Novo on the spine | strongpoints only |
-| **Road** | 1.5 – 4 km | cars, boats | the district, Financial Plaza, the settlement, Bio Gen and the runway | strongpoints only |
+| **Foot** | 0 – 1.5 km | walking | the camp, glass tower, acacia hall, Novo on the spine | the camp: every counterattack and the finale; Novo: its take only |
+| **Road** | 1.5 – 4 km | cars, boats | the district, Financial Plaza, the settlement, Bio Gen and the runway | the strongpoints' takes only; their counterattacks come to the camp |
 | **Air** | 4.5 – 6.5 km | aircraft | the hub and generated cities kept as found; the only source of the rare loot-only parts | never |
 
 ### 2.2 The camp (starting area)
@@ -384,24 +384,29 @@ skips a rung: the marker cannot be placed on a site that has not been scouted an
 | **Scouted** | `<site>_scouted` | reach the site; find its **dossier** (a valuables item that only spawns in one container there) and hand it to James; the strongpoint board then shows the site's garrison type (its strength from U3), its component container, and — once held — its timer | 1 | James, `J-S*` |
 | **Looted** | `<site>_looted` | the owning NPC's hand-ins of items that drop **only at that site's building types** (Novo: hardware, spark plugs; the plant: hoses, fins, fuel cans; the block: blood bags; FR-06: electrical; the plaza: valuables and circuit boards). Two or three trips with the loot budget of §4.5; Lootr refreshes the containers between visits | 2–3 | owning NPC |
 | **Cleared → Held** | `<site>_held` | Marshall's take. The team places the **claim marker** at the site's anchor point. That starts the **assault**: the garrison spawns in waves from the site's edges for 5 minutes; the marker must survive and at least one player must be inside the site rectangle when the 5 minutes end. Win → held, the fortify clock starts, the component container arms. Fail → the marker breaks, the garrison respawns, try again | 1, repeatable | Marshall, `R*` |
-| **Defended** | `<site>_defended` | the site's counterattack (§6.2) — fought **at the base**, not at the site: when the fortify clock ends the site's defence table marches on the camp gate. Win → the site is safe for good, its garrison doubles, and its components keep respawning | 0 (nobody travels) | owning NPC |
-| **Attack lost** | `<site>_lost` set (the site stays `held`) | the base was overrun during that site's counterattack (five or more attackers inside the camp outline for 30 s, the finale's check). Nothing is taken away: the wave withdraws and returns after another fortify clock; the board column turns red until it is won. A site leaves `held` only if a player breaks its marker | — | — |
+| **Defended** | `<site>_defended` | the site's counterattack (§6.2) — fought **at the base**, not at the site: when the fortify clock ends the site's defence table marches on the camp gate. Win → the site is safe for good, its site guard doubles, and its components keep respawning | 0 (nobody travels) | owning NPC |
+| **Attack lost** | `<site>_lost` set (the site stays `held`) | the base was overrun during that site's counterattack: five or more attackers inside the **crater** (x −16…47, z −16…47, the claim's last line) for 30 s. (The finale's own check is the tower compound, finale §4.) Nothing is taken away: the wave withdraws and returns after another fortify clock; the board column turns red until it is won. A site leaves `held` only if a player breaks its marker | — | — |
 
 The garrison before the take is In Control!'s ambient spawn for the site, thin enough to loot
 through with care; the assault is the fight. One player dying does not lose a site.
 
-**The friendly garrison (owner, 2026-09-04).** Winning the assault spawns the site's defenders at its anchor point:
-four **Recruits** soldiers (two recruits, a bowman, a shieldman — the mod's own entities, owned by the team) and two
-**Guard Villagers**, tagged `gscraft_garrison_<site>` and re-summoned by the script if they die. The site's ambient
-In Control! rule switches off on `held`, so the garrison faces only stragglers and keeps the site clear; the players
-never have to be there again except to collect components. Each hideout Walls level (D1, D2, D4) adds two soldiers
-to every garrison, and `defended` doubles it. Recruits the team hires at the gatehouse (D2) can be walked to a site
-and ordered to stay, on top of the script's own.
+**The site guard (owner, 2026-09-04).** Winning the assault runs `gscraft:siteguard_<site>`, which summons the site's
+defenders at its anchor point: four **Recruits** soldiers (two recruits, a bowman, a shieldman — the mod's entities,
+their `Owner` set to the player who placed the marker so the mod treats them as the team's) and two **Guard
+Villagers**, all tagged `gscraft_siteguard_<site>`. The script re-runs the function whenever the count drops below the
+site's target (six; +2 Recruits per hideout Walls level D1/D2/D4; doubled on `defended`). The site's ambient hostiles
+stop on `held`: the In Control! rules are static, so the script cancels hostile spawns inside a held rectangle
+(KubeJS `EntityEvents.checkSpawn`) and the guard mops up the stragglers. The players never have to be there again
+except to collect components. Recruits hired at the gatehouse (D2) can be walked to a site and ordered to stay, on
+top of the script's own. **If a player breaks the marker** the guard is removed (`gscraft:siteguard_<site>_clear`),
+the component container disarms, the ambient rule returns, a pending counterattack is cancelled, and the site drops
+to *looted* — re-take it from the marker step. The hostile mobs of §6.3 are the site's **occupiers**; "garrison" in
+the tables below means them.
 
 ### 6.2 Timers
 
 A site is **contested** from the moment its marker is placed until its counterattack is beaten at the base.
-Every counterattack comes to the **camp gate**, never to the site — the friendly garrison holds the site — so the
+Every counterattack comes to the **camp gate**, never to the site — the site guard holds the site — so the
 players fight where their walls are and never have to travel for a defence. A defended site is never attacked
 again. There is no random cycle: the only fights are the ones the players start by placing a marker.
 
@@ -409,7 +414,7 @@ again. There is no random cycle: the only fights are the ones the players start 
 |---|---|---|
 | Assault (the take) | 5 min from marker placement | waves every 45 s from the site edges; garrison scaled to players present |
 | Fortify clock | 2 in-game days (40 min) after `held` | build up, run the loot; nothing attacks during it |
-| **The counterattack (at the base)** | the warning starts when the fortify clock ends; the waves arrive at the camp gate | warning = a flat 10 minutes (owner, 2026-09-04; every built site is under 10 min on foot); the board shows the warning from Radio 1 and the whole countdown (fortify + warning) from the moment the site is held once Radio 2 is in (U5) |
+| **The counterattack (at the base)** | the waves arrive at the camp's entry points when the fortify clock ends; the warning is the clock's **last 10 minutes** | warning = a flat 10 minutes (owner, 2026-09-04: it covers the drive home from any built site — all are under 4 km, under 4 minutes by road — and a team on foot at the far ring arrives during wave 1); the board shows the warning from Radio 1 and the whole countdown (fortify + warning) from the moment the site is held once Radio 2 is in (U5) |
 | Component respawn | every 2 in-game days while the site is **held** (the held-site rule; the never-held sites' shared containers refill every 5 in-game days — §4.4, loot sheet §1; Lootr's 5-day refresh is for ordinary loot only - owner, 2026-09-04) | doubled once every site is held (R6) |
 | Finale countdown after the beacon lights | 3 in-game days (60 min) | waves at the base, the last one carries the boss (`gscraft-finale.md`) |
 
@@ -429,9 +434,10 @@ line; a component container arms on `held` and refills on its timer while the si
 Three layers per site, all from mobs the pack already has. **Ambient** is what In Control! spawns
 inside the site rectangle before the take (thin enough to loot through with care, per §6.1);
 **assault** is the six 45-second waves after the marker goes down; **defence** is that site's counterattack
-on the base at the end of the fortify clock (three waves at the camp gate). Counts are the baseline for five players inside the rectangle and the script scales them to the actual
-number (×0.4 for one, ×0.6 for two, ×0.8 for three or four, ×1.2 for six or more); every wave enters from the site's edges,
-never inside its buildings. Mob ids, checked against the jars: neither the Bandits mod nor Pillagers Gun registers an entity —
+on the base at the end of the fortify clock (three waves at the camp gate). Counts are the baseline for five players and the script scales them to the actual number (×0.4 for one, ×0.6 for
+two, ×0.8 for three or four, ×1.2 for six or more) — for the assault the players inside the site rectangle, for a
+counterattack and the finale the players online. Assault waves enter from the site's edges, never inside its
+buildings; counterattack waves enter 48 blocks outside the camp outline, at the east road and the north rim. Mob ids, checked against the jars: neither the Bandits mod nor Pillagers Gun registers an entity —
 "bandits" and "gun pillagers" are vanilla **pillagers and vindicators**, which Pillagers Gun arms;
 Hordes adds only the zombie-player variants, so zombies, husks and drowned are vanilla; IE's Fusilier /
 Commando / Bulwark (`immersiveengineering:*`), The Knocker (`the_knocker:knocker`), The Man From The
@@ -444,7 +450,7 @@ which is exactly what §6.2 forbids. **Zombie Awareness** stays on at sound stre
 block-breaking draw the ambient garrison, which is why loot trips are quiet work, the take is loud,
 and the suppressor of W-A4 is worth its price.
 
-| Site | Theme | Ambient (In Control! rule inside the rect) | Assault, six waves (at the site) | Counterattack, three waves (at the base) | Elite |
+| Site | Theme | Ambient (In Control! rule inside the rect) | Assault, six waves (at the site) | Counterattack, three waves (at the base; "defence" below) | Elite |
 |---|---|---|---|---|---|
 | **Novo** (Act I) | industrial squatters | zombies 6, bandits 2 at a time | zombies 8 → 10 → 12, bandits 2 per wave from wave 3 | zombies 15, then bandits 4 + zombies 10, then bandits 6 | a bandit captain with a shotgun (wave 6, defence 3) |
 | **Residential block** (Act II) | the dense dead | zombies 10, husks 4, Eyes at night | zombies 12 per wave, husks 4 from wave 2, spiders 6 on waves 4–6 | zombies 20, then 25, then 30 with 8 spiders | The Man From The Fog stalks the block from the take onward |
@@ -454,7 +460,7 @@ and the suppressor of W-A4 is worth its price.
 | **The sewers** (dungeon, never held) | the dark | cave spiders 10, zombies 8, Eyes always | — | — | — (U6's kill count of 20 is the ambient) |
 
 Ambient rules are In Control! `spawn.json` entries keyed to the site rectangle (`minx/maxx/minz/maxz`)
-with a `maxcount` cap; assault and defence waves are the loop script summoning at edge points, with
+with a `maxcount` cap; assault waves are the loop script summoning at the site's edge points and counterattack waves at the camp's two entry points, with
 the Hordes wave types for the zombie mixes. The camp's own suppression rule (no hostile spawns inside
 the outline) stays; the finale's waves at the base are §7.1.
 
@@ -535,9 +541,9 @@ and the tier-1 building upgrades (`camp.py` tier templates 0 and 1 at least).
 Workshop 1, scout Novo and hand its dossier to James, and get Marshall to talk.
 
 **Phase D — The loop and vehicles.** The site ladder as stages, the marker and the assault, the
-per-site fortify clock and defence, the one-contested-site rule, warnings, garrison and component
+per-site fortify clock and counterattack at the base, the one-contested-site rule, warnings, the site guard, occupier and component
 respawn, the loss condition; the garage tier and fuel chain. *Test 3:* loot Novo twice, take it
-by assault, watch its garrison appear, beat its counterattack at the camp gate when the fortify clock ends, bring a heavy anchor cable
+by assault, watch its site guard appear, beat its counterattack at the camp gate when the fortify clock ends, bring a heavy anchor cable
 home in a car, build the mast section kit.
 
 **Phase E — The tower, the air ring and the finale.** Stages 1–5 wired to Marshall's chapter; the

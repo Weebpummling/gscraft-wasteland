@@ -35,7 +35,7 @@ them the way to make it. Five holes and one loop, all fixed in quests draft 2; t
 | Aircraft | J7 (reach the hub **by air**), W13 (aircraft recipe) | **W13 was gated on J7 and J7 on W13 — a loop nobody could enter** | **fixed:** W13 gates on W9, M11, **J6** (the runway); J7 stays gated on J6 and W13 |
 | Firearms, ammunition, attachments | from the first night; the assaults and defences | **nothing taught them; the pack's own gun-smith and reforge tables were the implied route** | **fixed:** Walker's armoury line W-A1…W-A4 (§5), plus a starting sidearm and 30 rounds from Custom Starting Gear |
 | Body armour | the assaults | nothing | **fixed:** W-A2 |
-| The claim marker | R2 and every re-take after a loss | R1 handed out one item | **fixed:** R1 gives the marker *blueprint*; a lost site's marker is re-crafted, not begged from Marshall |
+| The claim marker | R2 and every re-take after a failed assault or a broken marker | R1 handed out one item | **fixed:** R1 gives the marker *blueprint*; a lost site's marker is re-crafted, not begged from Marshall |
 | Guard villagers, PlayerRevive, waypoints | D2, T8, U2 | rewards flip stages | fine |
 
 Rule going forward: **a quest may ask for an item only if an earlier quest in some chapter has
@@ -289,7 +289,7 @@ Recipes the quests assumed and no sheet carried, plus the three sequencing fixes
 | Boat cargo | 1 cargo crate + 2 planks + 1 fastener kit | Intermediate | Walker, W12 |
 | Truck cargo | 2 cargo crate + 2 steel frame | Intermediate | Walker, W10 |
 | Aircraft cargo | 1 cargo crate + 1 steel frame + 1 cloth | Intermediate | Walker, W13 |
-| Claim marker | 4 steel frame + 1 circuit assembly + 1 wiring harness + 1 white banner | Trip-length | Marshall, R1 (re-crafted after a loss) |
+| Claim marker | 4 steel frame + 1 circuit assembly + 1 wiring harness + 1 white banner | Trip-length | Marshall, R1 (re-crafted after a failed assault) |
 | Casings (×16) | 2 metal scrap | Quick | Walker, W-A1 |
 | Powder (×4) | 1 gunpowder + 1 solvent | Quick | Walker, W-A1 (gunpowder is a small item: the stone complex, military chests) |
 | Ammunition (×30) | 8 casings + 1 powder + 2 metal scrap | Quick | per class with the gun's blueprint |

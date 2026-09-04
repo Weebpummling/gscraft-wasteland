@@ -58,7 +58,7 @@ The Woods is the focus of a chain, not a stop on the way. Candidates by NPC:
 | Walker the Foreman | the sawmill: timber for the Walls and defences function; the mill's own drop is the **saw blade** (W-W1); Novo keeps the heavy diesel engine (B22) | lumber is the Woods' resource; the base's walls come from here |
 | Tony the Medic | herbs and the hunters' hide: foraging tasks, the surgical kit in the crashed aircraft's medkit | medical from the wild, not the ruin |
 | Michael the Engineer | the hunters' water and a generator in the ranger cabin | fuel and water sources outside the plant |
-| Marshall | the bandit outpost as a strongpoint-lite: the marker and the 5-minute assault, no fortify clock, no defence (R-W1); the Woods bunkers as the horror chapter's dungeons | contrast: an attack that comes through trees, not streets |
+| Marshall | the bandit outpost as a one-off clear (R-W1: kill 15 there; no marker, no site guard, no counterattack — it is not a strongpoint); the Woods bunkers as the horror chapter's dungeons | contrast: an attack that comes through trees, not streets |
 
 Decided (owner default, 2026-09-04): **no sixth strongpoint** — the Woods is a loot-and-quest region; its nine quests are
 J-W1–3, W-W1, T-W1, M-W1, U-W1, R-W1 and R-W2 in their NPCs' chapters of `gscraft-quests.md`.
