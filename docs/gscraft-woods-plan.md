@@ -20,13 +20,13 @@ removed), water and snow, at 1.5–4.5 km from the camp and clear of every site:
 
 | Window (blocks) | Forest | City now | Water | Snow | From camp | Verdict |
 |---|---|---|---|---|---|---|
-| **x 400…2400, z −3500…−1500** | **65 %** | 23 % | 5 % | 0 | 2.9 km NNE | **chosen** - densest forest, dry, no snow, due north of Novo |
+| **x 400…2400, z −3500…−1500** | **65 %** | 23 % | 5 % | 0 | 2.9 km NNE | **chosen** - densest forest, dry, no snow, north-north-east of Novo |
 | x 650…2650, z −3500…−1500 | 64 % | 21 % | 7 % | 0 | 3.0 km | same forest, wetter east edge |
 | x 400…2400, z −3250…−1250 | 63 % | 23 % | 6 % | 0 | 2.7 km | 250 m closer; touches the LC belt north of the district |
 | x 2900…4900, z −3250…−1250 | 60 % | 18 % | 8 % | 0 | 4.5 km | far north-east; air-ring distance |
 
-**The Woods = x 400…2400, z −3500…−1500**, centre (1400, −2500), 4 km². Its south edge is 1.3 km
-north of Novo's pad; the rest of the map is south and east of it, so it is an end of the world, not a
+**The Woods = x 400…2400, z −3500…−1500**, centre (1400, −2500), 4 km². Its south edge is 1.6 km
+north-north-east of Novo's pad; the rest of the map is south and east of it, so it is an end of the world, not a
 thoroughfare. No kept generated site falls inside it (structure plan check).
 
 ## 3. What is in it

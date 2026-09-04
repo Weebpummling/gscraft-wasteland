@@ -89,6 +89,8 @@ the rare material tier. ~390,000 chunks, ~2.4 h of Chunky, ~6 GB. The 5 km box (
 
 ## 6. What the map needs for vehicles to work at all
 
+*Superseded 2026-09-04 where it names pads or a tower road: the roads as built are `gscraft-map-layout-v6.md` §4.*
+
 - **Roads.** Cars are only cars on a surface. Build a spine with the terrain tools: crater → district
   west edge (900 m), and district → the two nearest pads (substation, radio tower). Lost Cities' own
   streets carry traffic inside cities; between them it is rubble and water. The two old rail causeways
@@ -107,6 +109,8 @@ the rare material tier. ~390,000 chunks, ~2.4 h of Chunky, ~6 GB. The 5 km box (
 **Superseded (draft 3 of the map design):** the four custom compounds are dropped; the pads become landing zones for foreign transplants (Novo Expograd on the substation pad, Financial Plaza on the hospital pad, Bio Gen on the airfield pad), the radio tower stays. Distance still orders the tiers: 1.5 km → 2.4 → 2.5 → 3.9.
 
 ## 8. Timers to set from this (for the KubeJS loop)
+
+*Superseded 2026-09-04: design draft 6 has no random attack cycle - only the contested site is attacked; the warning is a flat 10 minutes (gap audit B5).*
 
 - Fortify clock after taking a site: 2 in-game days (40 min).
 - Attack warning: max(10 min, foot travel time from home to the target) — 12–15 min for the ring.

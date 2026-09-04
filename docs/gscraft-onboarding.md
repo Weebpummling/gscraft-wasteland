@@ -32,7 +32,7 @@ are met.
 
 | When | What happens | What it teaches | What is said (all of it) |
 |---|---|---|---|
-| 0:00 | Spawn on the plaza of the Warium structure in the crater; **Custom Starting Gear** puts the personal work station, a pistol with one magazine, a flashlight, a bandage and the survivor's notebook (§6) in the inventory. Night is 10 minutes away. | the inventory; that this is a gun game | Title card: *WASTELAND*. One chat line, from **Tune (radio)**: "You're up. The ramp's on the east side of the pit - six of us on the rim." |
+| 0:00 | Spawn on the plaza of the Warium structure in the crater (Tune's three lines arrive over the first minute); **Custom Starting Gear** puts the personal work station, a pistol with one magazine, a flashlight, a bandage and the survivor's notebook (§6) in the inventory. Night is 10 minutes away. | the inventory; that this is a gun game | Title card: *WASTELAND*. One chat line, from **Tune (radio)**: "You're up. The ramp's on the east side of the pit - six of us on the rim." |
 | 0:02 | The crater ramp. At the top, the camp: six lit buildings, ten Magnum Torches, 24 ruin pieces (wrecks, sandbag checkpoints, a shed, tents). The gate and the radio tower ruin are visible against the sky. | the camp is the safe place; the ruin on the rim is important | Nothing. A **sign** on every NPC building: name, role, one line ("WALKER - the yard. Bring me anything with a thread on it."). |
 | 0:05 | Right-click any survivor: the quest book opens on their chapter's first quest. It asks for things (8 bolts, 8 nuts, a wrench). | hand-ins; that NPCs want junk; where the book is | The NPC's one line, in their voice, then the task in one line. |
 | 0:06–0:25 | The camp's own ruins. **Lootr** chests glow for the player who has not opened them; the wrecks have the hardware, the tents the bandages, the shed the wire. | looting; instanced loot ("your chests are your chests"); the item names | Item tooltips carry one line each ("Bolt - Walker wants these"). No quest text. |
@@ -42,7 +42,7 @@ are met.
 | 0:35–1:00 | The other four introductions in the same ruins (Tony's bandages, Michael's wire and filter, Tune's circuit board and broken radio, James's three locations). Michael's hand-in turns the **camp lights on** (his tier-1 function runs a datapack function). Tune's hand-in reveals the **map wall**. | each NPC owns one thing; rewards are visible in the world | Each NPC: one line. Michael: "There. Now we can see what's coming." |
 | 1:00 | Dusk. Nothing spawns inside the torches; the Man From The Fog is heard, once, far off. | the camp is safe **because of the torches**; the horror is out there | — |
 | 1:05 | James's J1: the glass tower (1.3 km) and the acacia hall (1.55 km). The first walk out along the spine. **Xaero** shows the road; **Ping Wheel** is explained by Tune's line. | the map, waypoints, pings; roads lead somewhere; distance costs time | Tune: "Press M for the map. Middle-mouse pings a spot for everyone." (the only control ever explained in chat) |
-| 1:30 | Back at camp with a backpack from W2 (Storage 1). Marshall, silent until now, **speaks**: the strongpoint board lights one tile - Novo, 1.06 km east, state *unknown*. | the loop exists; there is one target | Marshall: "Five of you, one town's worth of ruins. Start with the refinery east along the road. Ask James what's in it first." |
+| 1:30 | Back at camp with a backpack from W2 (Storage 1). Marshall, silent until now, **speaks**: the strongpoint board lights one tile - Novo, the industrial yard 1.06 km east along the spine, state *unknown*. | the loop exists; there is one target | Marshall: "Five of you, one town's worth of ruins. Start with the industrial yard east along the road. Ask James what's in it first." |
 | Session 2 | James J-S1: reach Novo, find the dossier (the board turns *scouted*, shows the garrison). Walker W5: two or three loot runs (*looted*). Marshall R2: the marker, the five-minute assault, the fortify clock, the first attack at its end (*held*, then *defended*). | the whole **site ladder**, one state per trip, each state a colour on the board and a banner at the site | Each state change is one radio line from Tune and a board tile changing colour. |
 
 By the end of session two the players have looted, ordered, carried, walked, scouted, taken, held and
@@ -89,7 +89,7 @@ The quest book (FTB Quests) is the **journal**. Rules for every quest in `gscraf
 ## 5. Diegetic aids - the world does the telling
 
 - **Signs** at every NPC building: name, role, one line. Placed by `camp.py` with the tier templates.
-- **The strongpoint board** at Marshall's gatehouse: five tiles, four colours (dark / scouted / looted /
+- **The strongpoint board** at Marshall's gatehouse: five tiles, five states, five colours (dark / scouted / looted /
   held / defended), rebuilt by function on each state change. It is the loop's whole UI.
 - **The map wall** at Tune's: the box, the roads, the sites as they are scouted (banner blocks placed by
   function). Tune's radio lines announce state changes and attack warnings.

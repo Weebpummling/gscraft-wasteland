@@ -61,7 +61,7 @@ repair the tower → defend the base**. A strongpoint is four trips at least bef
 
 | Range | From the camp | Owned by | What lives there | Attackable? |
 |---|---|---|---|---|
-| **Foot** | 0 – 1.5 km | walking | the camp, glass tower, acacia hall, Novo on the old substation pad | strongpoints only |
+| **Foot** | 0 – 1.5 km | walking | the camp, glass tower, acacia hall, Novo on the spine | strongpoints only |
 | **Road** | 1.5 – 4 km | cars, boats | the district, the tower, Financial Plaza, the settlement, Bio Gen and the runway | strongpoints only |
 | **Air** | 4.5 – 6.5 km | aircraft | the hub and generated cities kept as found; the only source of the rare loot-only parts | never |
 
@@ -96,7 +96,7 @@ Positions are first cut, to be adjusted on the visual pass against the rebuilt s
 | **Walker the Foreman** | the yard | 40×32 | south-east, x 60…99 × z 80…111 | the Engineer's Workbench (the only one), garage bays, a vehicle lot, scrap piles |
 | **Tony the Medic** | the clinic | 20×16 | north-west, x −100…−81 × z −100…−85 | beds, the med station, a PlayerRevive point |
 | **Michael the Engineer** | the plant | 32×24 | south, x −40…−9 × z 100…123, at the crater edge above the lake | generator shed, water collector, tanks, the fuel pump |
-| **Tune the Technician** | the radio shack | 16×16 with a 12-block mast | north-east high ground, x 60…75 × z −120…−105 | the small mast (a visible echo of the tower), the map board, the intel desk |
+| **Tune the Technician** | the radio shack | 16×16 with a 12-block mast | at the tower compound's west gate, x 40…55 × z −120…−105 | the small mast (a visible echo of the tower), the map board, the intel desk |
 | **James the Scout** | the lookout | 8×8 tower, 20 tall | north-west corner, x −150…−143 × z −150…−143 | the expedition board, a view over the approach |
 
 Each building is a structure template placed at world build by a generator in the style of
@@ -108,12 +108,12 @@ the same footprint, placed by the NPC's upgrade quests (§3.6).
 
 | # | Strongpoint (holdable) | Where | From the camp | Role | NPC |
 |---|---|---|---|---|---|
-| 1 | **Novo Expograd Industrial Zone** (transplant 144×160) | old substation pad 215…374 × 1415…1574 | 1.5 km S | Heavy industry | Walker |
+| 1 | **Novo Expograd Industrial Zone** (transplant 144×160) | on the spine, x 992…1135 × z 96…255 | 1.06 km ENE | Heavy industry | Walker |
 | 2 | **Residential block** (district) | from 1328, 1376 | 1.9 km | Medical | Tony |
-| 3 | **Industrial plant** (district 464×272) | 1904…2367 × 864…1135 | 2.4 km | Fuel and water | Michael |
+| 3 | **Industrial plant** (district 464×272) | 1904…2367 × 864…1135 | 2.3 km | Fuel and water | Michael |
 | 4 | **FR-06 complex** (district 384×528) | 2192…2575 × 400…927 | 2.5 km E | Power and hangar | Michael |
-| 5 | **Financial Plaza Quarantine** (transplant 160×144) | old hospital pad 675…866 × 2367…2558 | 2.5 km SE | Electronics | Tune |
-| — | **Radio tower** (custom) | 2023…2150 × −184…−57 | 2.1 km E | Endgame | Marshall |
+| 5 | **Financial Plaza Quarantine** (transplant 160×144) | dry land west, x −1952…−1793 × z 848…991 | 2.1 km W | Electronics | Tune |
+| — | **Radio tower** (custom) | in the camp, x 64…191 × z −144…−17 (pad y 99) | 0.15 km | Endgame | Marshall |
 
 **Generated sites, counted** (`tools/structures_v6.json`, every structure start in the 10 km box): 45 villages — Lukis Grand Capitals' versions, hostile under Hostile Villages — and 21 pillager outposts, the bandit settlements of the map; 284 Underground Bunkers; 439 Apotheosis boss towers (the elites of §6.3 can simply be the towers nearest each site); 23 ancient cities; 35 Man-From-The-Fog houses; 2 mansions; 8 strongholds. Nearest to the camp: villages (800, -2352), (2416, -672), (3216, 912); outposts (-1392, 1632), (-1952, 1232), (-512, 2368); bunkers (16, -368), (448, -384), (-784, -384); boss towers (32, -368), (832, -816), (1312, 64). James's J9 sends the players to four of the capitals, and the bunkers are the U-chapter's side dungeons. **Owner's verdict on the census: far too dense.** `gscraft-structure-plan.md` keeps **67** of the 964 sites
 (11 towers, 14 bunkers, 10 capitals, 6 outposts, 4 ancient cities, the rest expedition finds), none within 350 m of
@@ -125,21 +125,19 @@ plaza, a Typhoon-K convoy at the plant, an Mi-24 on the runway apron, a Pantsir 
 dressing pass, battery-less so they never move, their inventories the component containers. Immersive Weathering
 ages them and every tier-0 building on placement; a rebuilt tier is placed clean.
 
-Loot sites, never attacked: **Bio Gen Offices** (64×256) beside the runway on the old airfield pad;
+Loot sites, never attacked: **Bio Gen Offices** (two groups, 64×64 and 16×32) at the runway pad's west end;
 **the settlement** (272×288) on the water-treatment pad re-cut to 288×304; **the sewers** (96×96)
-under Financial Plaza, later under the hospital pad and the plant; **the hub** (832×640) in the air
-ring at about (6000, 1500), James's territory; the library, hempcrete compound, stone complex (a
+under Financial Plaza; **the hub** (832×640, the Novo Expograd city) in the air
+ring at x 5600…6431 × z 1184…1823, 6.2 km E, James's territory; the library, hempcrete compound, stone complex (a
 spawner dungeon) and the small district builds. If a transplant fails its remap, the hempcrete
 compound takes its role.
 
 ### 2.4 Roads and water
 
-1. **Spine:** Marshall's gate → district west edge (900 m), on the old rail causeways where they help.
-2. **Strongpoint roads:** district → Novo; district → the tower.
-3. **Causeways** at every water crossing; if the one to Novo is longer than the pad is wide, Novo
-   lands on dry ground instead.
-4. Nothing beyond the road ring. The crater ramp must take a car; if it cannot, Walker's yard gets
-   the garage and the crater stays foot-only.
+The roads as built (v6/v7) are the four of `gscraft-map-layout-v6.md` §4: the spine camp → Novo → the district's
+north-west corner; the west road camp → Financial Plaza; district → runway; district → settlement, plus the Woods
+spur (woods plan). All routed around water by `tools/roads.py`; none has water on its line. The district → tower
+road of draft 5 is gone: the tower is in the camp. The crater ramp still has to be driven (Phase A).
 
 ### 2.5 Travel (vehicles at their shipped speeds)
 
@@ -162,9 +160,9 @@ entity-interact handler makes right-click open the quest book and print the NPC'
 chapter is tagged with their name. Villager skins give each a look (Tony a cleric, Walker a
 toolsmith, Michael an armorer, Tune a librarian, James a fletcher, Marshall a nitwit in a helmet is
 the joke, or a cartographer if not). The Recruits mod in the pack stays for hireable guards later;
-it is not used for these six. No mod is added.
+it is not used for these six. No gameplay mod is added (EMI, a client-side recipe viewer, was added on 2026-09-03).
 
-**Who unlocks what.** The full chains, 77 quests across the six chapters, scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
+**Who unlocks what.** The full chains, 106 quests across the six chapters, scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
 
 | NPC | Owns | Starting tasks (the introduction) | Unlocks when done | Their chain |
 |---|---|---|---|---|
@@ -235,11 +233,11 @@ site's component containers respawn every two in-game days, so nothing is lost b
 |---|---|---|---|---|---|---|
 | 1 | I | the camp's own ruins (0–300 m) | W1, T1, M1, U1 hand-ins; D1 concrete later | 11 | — | foot |
 | 2 | I | glass tower + acacia hall (1.3–1.55 km) | J1 locations; W3 metal scrap; M2 light bulb; T2 med items | 6 | — | foot |
-| 3 | I | Novo (1.5 km S) | J-S1 dossier; W5 loot (spark plugs, scrap, oil) over two or three runs; R2 marker and assault; hardware and spark plugs for W7; after the hold: W11 heavy anchor cable, W9 heavy diesel engine | 8 | 2 (after the hold) | foot; the bulky parts one per carrier, or the first car |
-| 4 | II | the west edge: residential block, hempcrete compound, library, the tower ruin (1.9–2.5 km) | J2 locations, J-S2 dossier; T3 loot (blood bags, syringes, antiseptic); R3 marker and assault; U3 hard drive, J3 folders; electrical items for U2 and U8; X1 briefing | 14 | — | foot, then the first car |
+| 3 | I | Novo (1.06 km E on the spine) | J-S1 dossier; W5 loot (spark plugs, scrap, oil) over two or three runs; R2 marker and assault; hardware and spark plugs for W7; after the hold: W11 heavy anchor cable, W9 heavy diesel engine | 8 | 2 (after the hold) | foot; the bulky parts one per carrier, or the first car |
+| 4 | II | the west edge: residential block, hempcrete compound, library (1.9–2.5 km) | J2 locations, J-S2 dossier; T3 loot (blood bags, syringes, antiseptic); R3 marker and assault; U3 hard drive, J3 folders; electrical items for U2 and U8; X1 briefing | 14 | — | foot, then the first car |
 | 5 | II | the industrial plant (2.4 km) | J-S3 dossier; M4 loot (hoses, fins, fuel cans); R4 marker and assault; hoses, tubes and fins for M3 and M6; fuel cans for M7 and W8; after the hold: M6 industrial pump | 9 | 1 | car |
 | 6 | III | FR-06 (2.5 km E), with the factory annex and hopper array on the way | J-S4 dossier; M8 loot (relays, motors, a battery); R5 marker and assault; electrical items; after the hold: M10 transformer core, M11 avionics module and reactor control module | 10 | 3 | car |
-| 7 | III | Financial Plaza and the sewers under it (2.5 km SE) | J-S5 dossier; U4 loot (circuit boards, computer parts, a hard drive); R6 marker and assault; U6 sewers and encrypted radio; electrical and valuables; after the hold: U7 military circuit board; D4 concrete | 12 | 1 | car |
+| 7 | III | Financial Plaza and the sewers under it (2.1 km W) | J-S5 dossier; U4 loot (circuit boards, computer parts, a hard drive); R5 marker and assault; U6 sewers and encrypted radio; electrical and valuables; after the hold: U7 military circuit board; D4 concrete | 12 | 1 | car |
 | 8 | III | the far ring by road: stone complex, mud village, the settlement, Bio Gen, the runway (2.8–3.9 km) | J4 locations, J5 valuables, W12 pressure gauge, T7 surgical kit, J6 hard drive; W10 second anchor cable on the way back past Novo; M12 membrane at the plant | 9 | 3 | truck, or boat to the settlement |
 | 9 | IV | the hub (6.2 km E) and the four generated cities | J7, J9 locations; J8 phased array element and satellite receiver; T9 and M13 military power filters | 6 | 4 | aircraft |
 | 10 | II–IV | home: the gatehouse and the claim | X2–X6 hand-ins, T10 ready room, D1–D4, R6; the eighteen `*-B` building upgrades as their hand-ins come together | — | the five complete parts, one at a time | — |
@@ -263,7 +261,7 @@ visits, because scouting, looting and the take are separate quests in three diff
 
 | Tier | How you get it | Stack |
 |---|---|---|
-| **Small items** (~30, §4.2) | loot only, everywhere, by building type | 4–8, tools and valuables 1 |
+| **Small items** (40, §4.2) | loot only, everywhere, by building type | 4–8, tools and valuables 1 |
 | **Intermediates** | crafted at Walker's Engineer's Workbench from blueprints the NPCs hand out per base-function level | 4 |
 | **Complete parts** | intermediates **plus one loot-only component** | 1, bulky |
 | **Loot-only components** | at the strongpoint that owns the role, or the hub; no recipe exists | 1, bulky |
@@ -435,7 +433,7 @@ the outline) stays; the finale's waves at the base are §7.1.
 ## 7. The radio tower
 
 Six sparse structure templates in the datapack (`gscraft:tower_stage_0…5`, `tools/tower.py`, render
-`docs/renders/radio_tower_stages.png`), origin (2066, 64, −141). Stage 0 is placed at world build;
+`docs/renders/radio_tower_stages.png`), origin (107, 100, −101) on the camp pad at y 99. Stage 0 is placed at world build;
 each hand-in to Marshall runs the next stage's function.
 
 | Stage | Hand in | Appears |

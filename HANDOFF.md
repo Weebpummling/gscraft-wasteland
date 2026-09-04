@@ -15,7 +15,7 @@ was used is section 6.
 **The finished v6 world** is `G:/GSCraft/server/wasteland-v6` on the working machine (the local test
 server's world; tower stage 0 placed, roads laid, three KubeJS scripts armed, boot clean) and GitHub
 release `build-v6-2026-09-03` (three region zips under 1.9 GB + a meta zip; unpack all four into one
-`wasteland-v6` folder). The design it implements is `docs/gscraft-map-design.md` (draft 5) with the
+`wasteland-v6` folder). The design it implements is `docs/gscraft-map-design.md` (draft 6) with the
 placements of `docs/gscraft-map-layout-v6.md`; the whole-world audit is `docs/gscraft-map-review-v6.md`.
 
 What v6 contains: the 10 km pre-generated box (border 10,000 centred 1900,1250); the camp with the
@@ -139,7 +139,8 @@ do not, but they are fully generated so it no longer matters there).
 - `docs/gscraft-map-design.md` - THE design (draft 5): the game in one paragraph, the map's three ranges,
   the camp and its six NPCs, strongpoints, the item ladder, storage, hideout functions, the loop and
   timers, the tower, tech stack, build order with test gates.
-- `docs/gscraft-quests.md` - all 77 quests, six NPC chapters, what FTB Quests needs from KubeJS.
+- `docs/gscraft-quests.md` - all 106 quests, six NPC chapters, what FTB Quests needs from KubeJS.
+- `docs/gscraft-design-gaps.md` - the cross-document audit (2026-09-04): 18 stale facts fixed, 40 owner decisions with defaults, 18 items assigned to phases.
 - `docs/gscraft-onboarding.md` - how the game teaches itself: the first session minute by minute, each system's
   teaching moment, the book as a journal, the survivor's notebook (Patchouli), what Phase C must build for it.
 - `docs/gscraft-map-layout-v6.md` - every rectangle, offset, vertical shift and pad level as built; the

@@ -16,7 +16,7 @@ placement: the rules, the kept list, and the way to make the world match.
 2. **Kept sites stand apart**: bunkers 600 m from each other, boss towers 900 m, capitals 1.2 km,
    outposts 1 km, ancient cities 1.5 km.
 3. **Caps per range ring**, so density follows the acts: foot range (0–1.5 km) almost empty — two
-   bunkers, one Man-From-The-Fog house — road range (1.5–4 km) carries the middle game, the air ring
+   bunkers — road range (1.5–4 km) carries the middle game, the air ring
    (4.5–6.5 km) the expedition finds; nothing beyond 6.5 km is kept.
 4. **Near a road wins**: among candidates that pass the rules, the ones nearest a built road are
    chosen first, because those are the ones players will actually reach.

@@ -101,7 +101,7 @@ Immersive Vehicles already chunk-loads vehicles on roads (`chunkloadVehicles: tr
 ## 4. What Phase A (the visual pass) should look at, in order
 1. The camp rim: the six NPC sites, the tower compound and its gate side, the crater ramp with a car.
 2. The spine line and its six small crossings; where the LC city north of the district meets Novo's pad.
-3. Financial Plaza from the lake: is an island plaza the right feel, and where would the causeway land.
+3. Financial Plaza on its dry western site: the approach along the west road, and the sewers' entrance.
 4. The settlement's lakeside, the runway's flatness end to end, Bio Gen's green square.
 5. The hub by air: its edges after the smooth pass, the cut LC buildings around it, the lake that
    crossed its site (now under the pad).

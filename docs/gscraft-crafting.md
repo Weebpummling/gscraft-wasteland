@@ -45,13 +45,13 @@ and the gates in the quest book are the check.
 ## 2. Vehicles
 
 Every vehicle in the two Immersive Vehicles packs and in Superb Warfare was enumerated from the
-jars. The game uses eight; the rest are removed from crafting and never appear in loot.
+jars. The game uses eleven (eight civilian below, three military in §2.1); the rest are removed from crafting and never appear in loot.
 
 | Tier | Vehicle | Id (verified in the jar) | Seats / cargo | Role | Recipe from |
 |---|---|---|---|---|---|
 | Garage 1 (W7) | **Quad** | `mts:mtsofficialpack.quad` | 1 / small | the first wheels: fast over rubble, no cargo | W7 |
 | Garage 1 (W7) | **Runabout** (2CV-class) | `mts:oamp.cagouille` | 2 / a crate | the first car: the spine, the west edge | W7 |
-| Garage 1 (W-V1) | **Boat** | `minecraft:oak_boat` → `superbwarfare:speedboat` (J5) | 2 / — | the settlement by water; the plaza before its road | W-V1, J5 |
+| Garage 1 (W-V1) | **Boat** | `minecraft:oak_boat` → `superbwarfare:speedboat` (J5) | 2 / — | the settlement by water; the lakes between the district and the runway | W-V1, J5 |
 | Garage 2 (W9) | **Van** | `mts:oamp.ecoline` | 3 / 27 slots | the loot hauler | W9 |
 | Garage 2 (W9) | **Truck** | `superbwarfare:truck` | 2 / bulky bay | complete parts and components home | W9 |
 | Garage 3 (W13) | **Light aircraft** (Cessna-class) | `mts:mtsofficialpack.mc172` | 4 / 27 slots | the runway to the hub | W13 |
@@ -60,8 +60,8 @@ jars. The game uses eight; the rest are removed from crafting and never appear i
 
 Two further Superb Warfare add-on packs are in the jar set — **vvp** (56 entities: Mi-24, Black Hawk,
 Strykers, Bradleys, Pantsir) and **MCSP** (25: Humvees, BMD-4, Bradleys) — 44 more
-`vehicle_assembling` recipes between them. All of it is military hardware with no role in this
-design; every one of those recipes is stripped too.
+`vehicle_assembling` recipes between them. Three of them are the military tier of §2.1 (blueprint-gated);
+every other one is stripped.
 
 Removed from the game's recipes (KubeJS strips their recipes; their containers are not in any loot
 table): the fighting vehicles and artillery (`bmp_2`, `yx_100`, `type_63`, `plz_05`, `tom_6`,

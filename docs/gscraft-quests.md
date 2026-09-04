@@ -13,9 +13,9 @@ further; they run out of things to find where they are.
 
 | Act | Area | From the camp | What is there | How you get there | Sessions (est.) |
 |---|---|---|---|---|---|
-| **I — The Camp** | foot range | 0 – 1.5 km | camp ruins, glass tower (1.3 km), acacia hall (1.55 km), the generated ruins around the camp, **Novo** (1.5 km S) | on foot | 1–2 |
-| **II — The West Edge** | near district | 1.5 – 2.5 km | residential block (1.9), copper tower, prismarine hall, hempcrete compound (2.2), the tower ruin (2.1), **industrial plant** (2.4), library (2.5), **FR-06** (2.5) | on foot, then the first car | 3–5 |
-| **III — The Far Ring** | far road range | 2.5 – 4 km | **Financial Plaza** (2.5 SE) and the sewers under it, stone complex (2.9), mud village (2.8), the settlement (3.6 E), Bio Gen and the runway (3.9 SE) | car, truck, boat | 6–9 |
+| **I — The Camp** | foot range | 0 – 1.5 km | camp ruins, glass tower (1.3 km), acacia hall (1.55 km), the generated ruins around the camp, **Novo** (1.06 km E on the spine) | on foot | 1–2 |
+| **II — The West Edge** | near district | 1.5 – 2.5 km | residential block (1.9), copper tower, prismarine hall, hempcrete compound (2.2), the radio tower compound (in the camp), **industrial plant** (2.4), library (2.5), **FR-06** (2.5) | on foot, then the first car | 3–5 |
+| **III — The Far Ring** | far road range | 2.5 – 4 km | **Financial Plaza** (2.1 km W, dry land) and the sewers under it, stone complex (2.9), mud village (2.8), the settlement (3.7 E), Bio Gen and the runway (3.9 SE) | car, truck, boat | 6–9 |
 | **IV — The Sky** | air ring | 4.5 – 6.5 km | the hub (6.2 km E), the generated cities kept as found | aircraft | 10–12 |
 
 Rules that hold across every chapter:
@@ -53,8 +53,8 @@ Rules that hold across every chapter:
 - **Hand-ins of loot-only components need no "found in raid" tag**: they have no recipe, so the item
   is the proof of the trip.
 
-Quest counts: Walker 22 (4 armoury, 1 boat), Tony 13, Michael 16, Tune 13, James 19 (5 scout),
-Marshall 22 (loop 6, defences 4, tower 9, gatehouse 3). One hundred and five quests, eighteen
+Quest counts: Walker 23 (4 armoury, 1 boat, 1 military blueprint), Tony 13, Michael 16, Tune 13, James 19 (5 scout),
+Marshall 22 (loop 6, defences 4, tower 9, gatehouse 3). One hundred and six quests, eighteen
 of them the `*-B` building tiers. Which of them one outing clears is the trip table in
 `gscraft-map-design.md` §3.5; how many outings it takes is up to the players.
 
@@ -68,13 +68,13 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | W2 | A place for everything | I | camp | craft and hand in 2 fastener kits | W1 | **Storage 1**: basic backpack recipe, stash crates at the claim |
 | W3 | Frame of mind | I | camp, glass tower | hand in 12 metal scrap; show a welding torch | W2 | steel-frame blueprint, **Workshop 1** (IE machine recipes) |
 | W4 | The toolbox | I | camp | show a toolbox (crafted) | W3 | Workshop 1 effects; 16 iron ingots |
-| W5 | South, a mile | I | **Novo**, 1.5 km S | hand in 6 spark plugs, 12 metal scrap, 4 motor oil — Novo's drops | W4, J-S1 | stage `novo_looted`; Marshall R2 opens |
+| W5 | East, a mile | I | **Novo**, 1.06 km E on the spine | hand in 6 spark plugs, 12 metal scrap, 4 motor oil — Novo's drops | W4, J-S1 | stage `novo_looted`; Marshall R2 opens |
 | W6 | Hold the yard | I→II | Novo | stage `novo_held`; stage `novo_defended` (Novo's own first attack, at the end of its fortify clock) | W5, Marshall R2 | **Workshop 2**; **Storage 2**: iron backpack, stack upgrade ×2 |
 | W7 | Wheels | II | camp, Novo | hand in 1 motor assembly, 4 steel frames, 1 car battery | W6, M2 | **Garage 1**: quad and runabout recipes, wheel and fuel-tank blueprints, cargo crate; a full tank and 2 fuel cans; stage `car_built` when one is crafted |
-| W8 | Fuel run | II | camp | hand in 2 fuel cans | W7, M5 | fuel recipes at the garage pump |
+| W8 | Fuel run | II | camp | hand in 2 fuel cans | W7, M7 | fuel recipes at the garage pump |
 | W9 | Heavy metal | III | Novo | hand in 1 heavy diesel engine, 2 motor assemblies | W8, `novo_held` | **Garage 2**: truck recipe |
 | W10 | The big pack | III | Novo | hand in a second heavy anchor cable (Novo respawns them while held), 2 fastener kits | W9 | **Storage 3**: gold backpack, **everlasting upgrade** (the secure pack), truck cargo |
-| W11 | Mast section kit | II–III | camp | show 1 mast section kit (6 steel frames + 2 fastener kits + heavy anchor cable) | W6, `novo_held` | the kit is Marshall's X1 hand-in |
+| W11 | Mast section kit | II–III | camp | show 1 mast section kit (6 steel frames + 2 fastener kits + heavy anchor cable) | W6, `novo_held` | the kit is Marshall's X2 hand-in |
 | W12 | Boats | III | the settlement | reach the settlement by water (location); hand in 1 pressure gauge | W8, J4 | boat cargo recipe |
 | W13 | Hangar rights | III→IV | FR-06, the runway | hand in 1 avionics module, 2 circuit assemblies | W9, M11, J6 | **Garage 3**: light-aircraft recipe; **Storage 4** opens on J8 (diamond backpack needs the satellite receiver), aircraft cargo |
 | W14 | Foreman's pride | IV | everywhere | hand in one of every hardware and tool item (12 items) | W13 | Workshop 3; a named tool |
@@ -139,8 +139,8 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 |---|---|---|---|---|---|---|
 | U1 | Static | I | camp ruins | hand in 1 circuit board, 2 capacitors, 1 broken radio | — | circuit-assembly blueprint |
 | U2 | The map | I | camp | hand in 2 circuit assemblies | U1 | **Radio 1**: shared waypoints, the warning system |
-| U3 | Listening post | II | the tower ruin (2.1 km), the library | reach both (location); hand in 1 hard drive | U2, J2 | the strongpoint board shows garrison strength |
-| U4 | The plaza | III | **Financial Plaza**, 2.5 km SE | hand in 2 circuit boards, 2 computer parts, 1 hard drive — the plaza's drops | U3, W7, J-S5 | stage `financial_looted`; Marshall R5 opens |
+| U3 | Listening post | II | the tower compound (in the camp), the library | reach both (location); hand in 1 hard drive | U2, J2 | the strongpoint board shows garrison strength |
+| U4 | The plaza | III | **Financial Plaza**, 2.1 km W | hand in 2 circuit boards, 2 computer parts, 1 hard drive — the plaza's drops | U3, W7, J-S5 | stage `financial_looted`; Marshall R5 opens |
 | U5 | Hold the plaza | III | Financial Plaza | stage `financial_held`; stage `financial_defended` (the plaza's defence) | U4, Marshall R5 | **Radio 2**: the contested site's whole countdown on the board; antenna-element blueprint |
 | U6 | Under the plaza | III | the sewers | reach the sewers (location); kill 20 there; hand in 1 encrypted radio | U5 | the defence warning doubled |
 | U7 | Military board | III | Financial Plaza | hand in 1 military circuit board | U5 | transmitter blueprint |
@@ -158,7 +158,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
 | J1 | Get your bearings | I | glass tower, acacia hall | reach both (location) | — | waypoints; a compass and a map |
-| J-S1 | Scout: Novo | I | Novo, 1.5 km S | reach Novo (location); hand in the **Novo dossier** (the gatehouse office, chest at 1028 78 158) | J1 | stage `novo_scouted`; the board shows Novo's garrison and its component container; Walker W5 opens |
+| J-S1 | Scout: Novo | I | Novo, 1.06 km E | reach Novo (location); hand in the **Novo dossier** (the gatehouse office, chest at 1028 78 158) | J1 | stage `novo_scouted`; the board shows Novo's garrison and its component container; Walker W5 opens |
 | J2 | The west edge | II | residential block, hempcrete compound, library | reach all three (location) | J1 | waypoints; the expedition board |
 | J-S2 | Scout: the block | II | residential block | hand in the **block dossier** (the caretaker's flat, chest at 1330 84 1386) | J2 | stage `residential_scouted`; Tony T3 opens |
 | J-S3 | Scout: the plant | II | industrial plant | reach the plant (location); hand in the **plant dossier** (the control room, chest at 2126 105 963) | J2 | stage `plant_scouted`; Michael M4 opens |
@@ -169,10 +169,10 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | J5 | Settle in | III | the settlement | hand in 3 valuables found there | J4, W-V1 | speedboat blueprint |
 | J6 | Runway | III | the runway | stand on the runway (location); hand in 1 hard drive | J4 | aircraft prep flag |
 | J7 | The hub | IV | **the hub**, 6.2 km | reach the hub by air (location) | J6, W13 | the hub's loot tables switch on |
-| J8 | Bring it back | IV | the hub | hand in 1 phased array element, 1 satellite receiver | J7 | Tune U9 and Walker W13 open |
+| J8 | Bring it back | IV | the hub | hand in 1 phased array element, 1 satellite receiver | J7 | Tune U9 opens; Storage 4 (W13's diamond pack) unlocks |
 | J9 | Every capital | IV | the whole box | reach four of the Lukis capitals (location; the nearest four to the hub, from `tools/structures_v6.json`) | J7 | 4 rare components' worth of loot |
 | J10 | Cartographer | IV | everywhere | reach every named site on the map (location, 20) | J9 | a named backpack |
-| J11 | Every ruin | IV | everywhere | hand in one of each of the thirty small items | J10 | the Collector analogue: an extra everlasting slot |
+| J11 | Every ruin | IV | everywhere | hand in one of each of the forty small items | J10 | the Collector analogue: an extra everlasting slot |
 | J-B1 | A flag on it | I | camp | hand in 16 planks, 4 fastener kits, 1 folder of documents | J1 | **lookout tier 1**: platform, ladder, a flag |
 | J-B2 | The spotlight | III | camp, the far ring | hand in 4 steel frames, 2 light bulbs, 1 car battery, 3 valuables from the settlement | J-B1, J4 | **lookout tier 2**: 30 tall, a night spotlight; waypoints shared to the whole team |
 | J-B3 | The cabin | IV | camp, the hub | hand in 8 steel frames, 16 glass, 1 satellite receiver | J-B2, J7 | **lookout tier 3**: 40 tall, glass cabin, telescope, waypoint beacon; every named site marked |
@@ -215,7 +215,7 @@ is still contested — one fight at a time, in this order.
 
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
-| X1 | The tower | II | the tower ruin | reach the tower (location); checkmark after Marshall's briefing | the gate above | the tower chapter; the parts rack at the gatehouse |
+| X1 | The tower | II | the tower compound in the camp | reach the tower (location); checkmark after Marshall's briefing | the gate above | the tower chapter; the parts rack at the gatehouse |
 | X2 | Mast section kit | II | camp, Novo | hand in 1 mast section kit | X1, W11 | **stage 1** placed; the mast stands |
 | X3 | Cooling loop | II | camp, the plant | hand in 1 cooling loop | X2, M6 | **stage 2** placed |
 | X4 | Generator kit | III | camp, FR-06 | hand in 1 generator kit | X3, M10 | **stage 3** placed; the lights come on |
@@ -239,13 +239,13 @@ is still contested — one fight at a time, in this order.
 
 **Act I (sessions 1–2).** Five introductions in the camp's own ruins; the workbench, the first
 backpack, lights. James sends them to the glass tower and the acacia hall to learn the ground. Walker
-sends them south to Novo, the one strongpoint in walking range: first to find its dossier, then two
+sends them east along the spine to Novo, the one strongpoint in walking range: first to find its dossier, then two
 or three loot runs for Walker, then Marshall's marker and the assault. Novo is held, its fortify
 clock runs, and its first attack comes on schedule. Storage 2 and Workshop 2 arrive. Nothing here
 needs a vehicle.
 
 **Act II (sessions 3–5).** The residential block and the plant are taken and held; the first car is
-built from Novo's parts and the plant's fuel. The tower ruin is found and Marshall opens the chapter;
+built from Novo's parts and the plant's fuel. Marshall opens the tower chapter (the ruin has stood in the camp since the first minute);
 stages 1 and 2 go up. The district's west edge is looted for electrical items. The players are now
 2.5 km out on foot or wheels, and the loop is running with three sites in the pool.
 
