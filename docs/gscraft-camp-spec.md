@@ -12,7 +12,7 @@ so every variant is its own file; the loop script (KubeJS) calls them with `serv
 
 | Function | Count | What it does |
 |---|---|---|
-| `camp_<npc>_<tier>` (npc ∈ walker, tony, michael, tune, james, marshall; tier 0–3) | 24 | inside the NPC's lock rectangle: `fill … air` above the pad from y+1 to y+48, `place template gscraft:camp/<npc>_<tier>` at the rectangle's origin, then `camp_npc_<npc>`, the Magnum Torch at its fixed spot, the building's sign, and from tier 2 the guards (§4). Tier 0 is run by the world build. |
+| `camp_<npc>_<tier>` (npc ∈ walker, tony, michael, tune, james, marshall; tier 0–3) | 24 | inside the NPC's lock rectangle: `fill … air` above the pad from y+1 to y+48, `place template gscraft:camp/<npc>_<tier>` at the rectangle's origin, then `camp_npc_<npc>`, the Magnum Torch at its fixed spot, the building's sign, and from tier 2 the guards (§4). Tier 0 is run when `camp.py` lands (Phase C, after the visual pass). |
 | `camp_npc_<npc>` | 6 | `kill @e[type=villager,tag=gscraft_npc_<npc>]`, then `summon minecraft:villager <x> <y> <z> {NoAI:1b,Invulnerable:1b,PersistenceRequired:1b,Silent:1b,CustomName:'…',CustomNameVisible:1b,Tags:["gscraft_npc","gscraft_npc_<npc>"],VillagerData:{profession:"…",type:"plains",level:2},Offers:{Recipes:[]}}` at the tier's spot (a per-tier coordinate table in `camp.py`) |
 | `camp_npcs` | 1 | the six `camp_npc_*` in one call (respawn everything) |
 | `board_<site>_<state>` (site ∈ novo, residential, plant, fr06, financial, woods_outpost; state ∈ unknown, scouted, looted, held, defended, lost) | 36 | `fill` that site's 2×3 column on the gatehouse board wall with the state's block (§2); `held` also summons the site's banner on the watchtower (gatehouse tier 2+), `lost` and `defended` swap it |

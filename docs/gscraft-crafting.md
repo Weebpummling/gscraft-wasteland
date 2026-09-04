@@ -25,7 +25,7 @@ them the way to make it. Five holes and one loop, all fixed in quests draft 2; t
 | Battery packs (truck, speedboat, drones, LAV-150, Humvee, Black Hawk, Bradley) | W9, J5, D2, D4, W-M1, W-B3, X6 | M-B2 (small), M9 (medium), M13 (large) — **the consuming quests now gate on them** (2026-09-04); the truck takes a small pack | fixed |
 | Workbench and blueprint crafting | W2 (craft fastener kits) | W1 binds the personal station (§4) and hands out the first blueprints | fine |
 | Backpack | W2 onward | W2, Storage 1 | fine |
-| Hand tools (wrench, welding torch, hand drill) | W1 (a wrench), W3 (torch), steel frame (torch held) | **were loot only** | **fixed:** W1 now also gives the hand-tool blueprints; tools remain a rare loot find but are never required from loot |
+| Hand tools (wrench, welding torch, hand drill) | W-A1 (wrench in the tool slot), W3 (torch), steel frame (torch held) | **were loot only** | **fixed:** W1 now also gives the hand-tool blueprints; tools remain a rare loot find but are never required from loot |
 | Med kits, harnesses, filters, circuit assemblies | T2, M2, M3, U2 | T1, M1, U1 | fine |
 | Concrete (D1, D4, every `*-B` tier) | D1 | vanilla recipe, runs at any station | fine |
 | A car | J4 (by car), M8 and U4 (gate W7), R5 (`car_built`) | W7, Garage 1 | fine; W7's reward now includes a full tank and 2 fuel cans so the first car moves before the fuel chain (W8/M5) exists |

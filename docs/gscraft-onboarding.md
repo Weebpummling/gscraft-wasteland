@@ -21,7 +21,7 @@ Three consequences for everything below:
 - **Ask, do not tell.** A quest asks for eight bolts; it never says "loot the ruins". The player looks
   around, sees a wrecked car with a chest, and has learned looting without a sentence about it.
 - **The world pre-announces.** Before a system is introduced, its object is already visible: the
-  tower ruin stands over the camp from the first minute, Walker's yard has an empty garage bay, the
+  tower ruin stands over the camp from the first minute, Walker's yard has a dead quad on its lot, the
   parts rack at the gate has five empty hooks, the strongpoint board has six dark columns. Curiosity
   does the explaining.
 
@@ -32,7 +32,7 @@ are met.
 
 | When | What happens | What it teaches | What is said (all of it) |
 |---|---|---|---|
-| 0:00 | Spawn on the plaza of the Warium structure in the crater (Tune's three lines arrive over the first minute); **Custom Starting Gear** puts the personal work station, a pistol with one magazine, a flashlight with one battery, a bandage and the survivor's notebook (§6) in the inventory. Night is 10 minutes away. | the inventory; that this is a gun game | Title card: *WASTELAND*. One chat line, from **Tune (radio)**: "You're up. The ramp's on the east side of the pit - six of us on the rim." |
+| 0:00 | Spawn on the plaza of the Warium structure in the crater (Tune's three lines arrive over the first minute); **Custom Starting Gear** puts the personal work station, a pistol with one magazine, a flashlight with one battery, a bandage and the survivor's notebook (§6) in the inventory. Night is 10 minutes away. | the inventory; that this is a gun game | Title card: *WASTELAND*. The first of Tune's three lines, from **Tune (radio)**: "You're up. The ramp's on the east side of the pit - six of us on the rim." |
 | 0:02 | The crater ramp. At the top, the camp: six lit buildings, ten Magnum Torches, 24 ruin pieces (wrecks, sandbag checkpoints, a shed, tents). The gate and the radio tower ruin are visible against the sky. | the camp is the safe place; the ruin on the rim is important | Nothing. A **sign** on every NPC building: name, role, one line ("WALKER - the yard. Bring me anything with a thread on it."). |
 | 0:05 | Right-click any survivor: the quest book opens on their chapter's first quest. It asks for things (8 bolts, 8 nuts). | hand-ins; that NPCs want junk; where the book is | The NPC's one line, in their voice, then the task in one line. |
 | 0:06–0:25 | The camp's own ruins. **Lootr** chests glow for the player who has not opened them; the wrecks have the hardware, the tents the bandages, the shed the wire. | looting; instanced loot ("your chests are your chests"); the item names | Item tooltips carry one line each ("Bolt - Walker wants these"). No quest text. |
@@ -63,7 +63,7 @@ defended - every verb the game has - without one paragraph of instructions.
 | The assault and the fortify clock | R2 at Novo | boss bar for the five minutes; the board shows the ten-minute warning (the whole clock once Radio 2 is in); the first attack arrives exactly when it ends | Marshall: "Hold it five minutes and it's ours. Then dig in - they come back when the clock runs out." | losing the first attack: the column turns red, the garrison respawns, retake |
 | Infection | first zombie hit | the Hordes infection effect icon; Tony's clinic cures it | Tony's T1 line: "If one bites you, come to me before it spreads." | dying of it once, near the clinic |
 | Noise (Zombie Awareness) | first shot fired at a site | the site's garrison converges | Walker W-A4: "A suppressor is the difference between a quiet run and a fight." | one loud run |
-| Vehicles | W7 (Garage 1) | the empty bay in Walker's yard from minute 2; a dead quad in the lot as tier 0 dressing | Walker: "The bench builds it from a kit. The kit takes a trip." | the first drive out of the crater ramp |
+| Vehicles | W7 (Garage 1) | a dead quad on Walker's lot from minute 2 (tier 0 dressing); the first bay arrives with W-B1 | Walker: "The bench builds it from a kit. The kit takes a trip." | the first drive out of the crater ramp |
 | The tower | minute 2 (the ruin), X1 (the briefing), X2 (stage 1) | the ruin on the rim; each stage visibly grows; the parts rack fills hook by hook | Marshall, per stage: one line naming the part | none needed |
 | Flying | W13, the runway | the runway lights at night, visible from the settlement road | Walker: "Take off into the wind. Land the same way." | a crash: PlayerRevive and the second airframe |
 | Revive | first death | PlayerRevive's downed state; a teammate holds right-click | Tony's T1 line covers it | nobody nearby: the five-minute bleed-out |

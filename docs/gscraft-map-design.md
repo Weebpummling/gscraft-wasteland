@@ -102,7 +102,7 @@ Positions are first cut, to be adjusted on the visual pass against the rebuilt s
 | **Tune the Technician** | the radio shack | 16×16 with a 12-block mast | at the tower compound's west gate, x 40…55 × z −120…−105 | the small mast (a visible echo of the tower), the map board, the intel desk |
 | **James the Scout** | the lookout | 8×8 tower, 20 tall | north-west corner, x −150…−143 × z −150…−143 | the expedition board, a view over the approach |
 
-Each building is a structure template placed at world build by a generator in the style of
+Each building is a structure template placed by a generator (Phase C, on the positions the visual pass fixes) in the style of
 `tools/tower.py` (a `camp.py`, to write), so the camp can be re-cut without hand building. What is
 placed is **tier 0** of four: every building has three upgrade tiers, each its own template on
 the same footprint, placed by the NPC's upgrade quests (§3.6).
@@ -212,7 +212,7 @@ first intermediates; tier 2 needs bulk building material (concrete, steel frames
 of the strongpoint's loot-only components — a second item of the same site (the engine, the membrane, the encrypted radio,
 the analyzer), respawning while the site is held, so each upgrade is another trip to a site the players already own; tier 3 needs
 one hub item (the gatehouse's R-B3 takes FR-06's reactor control module instead). `camp.py` generates the 24 templates (six buildings × four tiers) and their placement
-functions `gscraft:camp_<npc>_<tier>`; tier 0 is placed at world build.
+functions `gscraft:camp_<npc>_<tier>`; tier 0 is placed first, by `camp.py` after the visual pass (Phase C).
 
 **Every building is locked the way the tower is.** The tower lock (`gscraft_tower_lock.js` and its
 native startup twin) refuses block breaking, placing, explosions and fluid flow inside one rectangle
