@@ -381,7 +381,7 @@ and no site is ever drawn while the players are elsewhere — the only fights ar
 | Fortify clock | 2 in-game days (40 min) after `held` | build up, run the loot; nothing attacks during it |
 | **The defence** | the warning starts when the fortify clock ends, **on this site only** | warning = a flat 10 minutes (owner, 2026-09-04; every built site is under 10 min on foot); the board shows the whole countdown (fortify + warning) from the moment the site is held |
 | Component respawn | every 2 in-game days while the site is **held** (the one rule; Lootr's 5-day refresh is for ordinary loot only - owner, 2026-09-04) | doubled once every site is held (R6) |
-| Finale countdown after the beacon lights | 3 in-game days (60 min) | waves at the base, the last one carries the boss |
+| Finale countdown after the beacon lights | 3 in-game days (60 min) | waves at the base, the last one carries the boss (`gscraft-finale.md`) |
 
 **One contested site at a time.** The marker is refused while another site is still contested, so
 the players finish one fight before starting the next and the map is taken in order — the pasted
@@ -448,16 +448,15 @@ each hand-in to Marshall runs the next stage's function.
 ### 7.1 The finale and the boss
 
 The countdown ends in five waves at the players' claim: waves 1–4 are the defence tables of §6.3
-stacked (Novo's, then the plant's, then FR-06's, then the plaza's, each ×1.5), and **wave 5 is the
-boss: the Ender Dragon**, chosen as the largest and most complicated entity the pack contains —
-16×8 blocks, five flight phases, strafing breath, a perch-and-charge cycle — and the one whose AI
-already fits the map: a dragon outside the End orbits world origin, and the crater is at (0, 0).
-The story writes itself: the crater is its impact, and the beacon wakes it. Summoned by the finale
-script with Apotheosis boss affixes, the dragon fights above the crater until killed; mob griefing
-is switched off for the duration so its passes do not erase the base, and the camp lock covers the
-NPC buildings anyway. The runner-up, the Warden (2.9 tall, sonic boom, darkness), is the fallback
-if the dragon's overworld pathing proves wrong on the local server in Phase E. Nothing modded
-comes close: the pack's largest mobs are The Knocker and IE's Bulwark, both under three blocks.
+stacked (Novo's, then the plant's, then FR-06's, then the plaza's, each ×1.5), each with a named
+Apotheosis-boss **Captain**, and **wave 5 is the boss: the Sleeper, a named Warden** that rises at the
+gate — the thing under the crater that the beacon's pulse woke. It was chosen over the Ender Dragon
+after research (`gscraft-finale.md` §2): outside the End the dragon never lands and cuts gun damage to a
+quarter, and the Wither becomes immune to projectiles at half health, which in this pack means immune to
+guns. The Warden is ground-bound, one hitbox, hunts the shooters by their gunfire, its sonic boom ignores
+armour, and it breaks no blocks, so `mobGriefing` stays untouched. Health scales with the players online
+by one `/attribute` command; fail, retry and the reward are `gscraft-finale.md` §4. The numbers are
+Phase E's to confirm.
 
 ---
 
@@ -508,7 +507,7 @@ home in a car, build the mast section kit.
 
 **Phase E — The tower, the air ring and the finale.** Stages 1–5 wired to Marshall's chapter; the
 hub's rare loot; aircraft; the beacon countdown and the base waves. *Test 4:* the beacon lights and
-the finale runs to the boss.
+the finale runs to the boss (`gscraft-finale.md` §5 is the build and test list).
 
 ---
 

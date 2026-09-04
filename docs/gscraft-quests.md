@@ -225,7 +225,8 @@ is still contested — one fight at a time, in this order.
 | X5 | Transmitter | III | camp, Financial Plaza | hand in 1 transmitter | X4, U7 | **stage 4** placed; the dish |
 | X6 | Antenna array | IV | camp, the hub | hand in 1 antenna array | X5, U9, T10 | **stage 5** placed; the beacon lights; the countdown starts; **M3A3 Bradley blueprint** - the finale's armoured vehicle is built during the countdown, not handed over (crafting §2.1) |
 | X7 | Hold the line | IV | the base | survive waves 1–4 (stages `wave_1`…`wave_4`) | X6 | between waves: 8 med kits, ammunition |
-| X8 | The boss | IV | the base | kill the Ender Dragon (kill task; design §7.1) | X7 | the game's ending; the season flag for the future |
+| X8 | The Sleeper | IV | the base | kill the Sleeper (a named Warden, tag `gscraft_boss`; `gscraft-finale.md`) | X7 | the game's ending; the season flag; the finale chest at the plinth |
+| X6b | Relight | IV | camp | repeatable, no hand-in; visible after `finale_failed`, one in-game day later | X6 | restarts the 60-minute countdown; Radio 3 shows the same composition |
 | X9 | Afterwards | IV | camp | checkmark | X8 | free play; the board stays live |
 
 ### 7.4 The gatehouse
@@ -259,7 +260,7 @@ means five defences fought and won, one at a time, and the map is theirs.
 
 **Act IV (sessions 10–12).** The hangar, the runway, the plane. The hub is reached, the phased array
 element comes home in the plane's cargo, the antenna array goes up, the beacon lights. Tony's ready
-room and Marshall's walls decide the finale; the waves come to the base; the boss.
+room and Marshall's walls decide the finale; the waves come to the base; the Sleeper (`gscraft-finale.md`).
 
 ---
 

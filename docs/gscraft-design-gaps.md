@@ -69,7 +69,7 @@ Every other row: **the default, applied** in the same commit as this note.
 | B27 | **Team offline during a fortify clock or attack** | design §6 | clocks tick only while ≥ 2 team members are online; an attack that starts with < 2 online is postponed to the next login |
 | B28 | **Restart mid-assault** | quests §9 | the contested slot and clocks persist; a wave in progress restarts at its start; the marker stands |
 | B29 | **Lootr instancing vs hand-in counts and component containers** | design §6, HANDOFF | ordinary loot instanced; **component and dossier containers are shared** (one per site per cycle) |
-| B30 | **Finale**: dragon in the overworld, HP/affixes, fail state, retry | design §7, X7-X8 | Warden-class boss from In Control at the crater instead of the dragon (no End mechanics); fail = the base's claim marker falls, retry after one in-game day; Phase E decides numbers |
+| B30 | **Finale**: dragon in the overworld, HP/affixes, fail state, retry | design §7, X7-X8 | **Decided by `gscraft-finale.md` (2026-09-04):** the Sleeper, a named Warden scaled by `/attribute`, with four Apotheosis-boss Captains; fail = the marker falls or all dead, retry = X6b one in-game day later; Phase E decides numbers |
 | B31 | **After the finale** | X9 | free play, board live, season 2 = the Woods' chain and a second tower part list (a design later) |
 | B32 | **Hunger / food** | D3 only | Farmer's Delight cooking at the camp kitchen (D3) plus canned goods in the loot tables; hunger left on |
 | B33 | **Sleep / night** | nowhere | sleep percentage 100 (no skipping) - nights are the game |
