@@ -288,5 +288,13 @@
     "requires": [],
     "note": "design requirement (starting-kit flashlight); docs/gscraft-modpack-review.md section 4; downloaded and hash-verified 2026-09-04, installed in server + client + client zip",
     "sha256": "c537f3f03b17d737fc77139add6e3128c2841f68ec24f8f3a455f0c695a429af"
+  },
+  "Parties Xaero Minimap Fix": {
+    "slug": "parties-xaeros-minimap-crash-fix",
+    "version": "1.0.0",
+    "filename": "parties_xaerominimap_fix-1.0.0.jar",
+    "url": "https://www.curseforge.com/api/v1/mods/1589418/files/8327208/download",
+    "sha512": "8bcb822847ac0597ce7251e9b6114097373fdb1da6cb4038e9a8941f90ecaef2303692c53196df7181f736ff008f1b54289111c247be4555c3505a3ba2645846",
+    "note": "CLIENT ONLY - not in /mods on the server. Parties 2.0-beta-p.7.1 crashes at client setup with Xaero's Minimap >= 25.3.2 (xaero.common.gui.IScreenBase moved); this one-mixin fix (CurseForge 1589418, unusualgravy) replaces Parties' XMCompatManager init. Ships in the client zip's .minecraft/mods (owner decision 2026-09-04)."
   }
 }

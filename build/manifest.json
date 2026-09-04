@@ -1077,5 +1077,18 @@
     ],
     "nested": [],
     "requires": []
+  },
+  "parties_xaerominimap_fix-1.0.0.jar": {
+    "role": "addition",
+    "sha256": "5f2b55cb4b28cae8625e96f5adecf2f010c1f08cd9d70d5760658a1f6c1ea1d3",
+    "modids": [
+      "parties_xaerominimap_fix"
+    ],
+    "nested": [],
+    "requires": [
+      "sedparties",
+      "xaerominimap"
+    ],
+    "side": "client"
   }
 }

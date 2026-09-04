@@ -1,6 +1,6 @@
 # Handoff: picking the work up in another session
 
-State as of 2026-09-04 (v6 live on the hosted server; v7 rebuild queued). Everything needed is in this repository plus the two GitHub releases;
+State as of 2026-09-04 (v6 live on the hosted server; **v7 built, reviewed and released**, deploy = section 6). Everything needed is in this repository plus the two GitHub releases;
 the working machine's paths are given so a session on it can continue directly, and section 2 says
 how to rebuild the same state elsewhere.
 
@@ -57,19 +57,19 @@ and `enableHordeEvent = false` in `hordes-common.toml` (the horde event stays of
 infection runs). Until that restart the gamerule alone is what stops spawns. To turn spawns back on for Phase D: run
 `function gscraft:spawns_on`, delete the first rule of `spawn.json`, run `/incontrol reload` as an op (or restart). `function gscraft:spawns_off` re-applies the off state and kills the loose hostiles.
 
-**World build v7 is on the Phase B list (owner, 2026-09-03):** the generated structures are too dense (964 sites);
+**World build v7 was built on 2026-09-04** (below, and `docs/gscraft-map-review-v7.md`). The reason it exists (owner, 2026-09-03): the generated structures are too dense (964 sites);
 `docs/gscraft-structure-plan.md` and `buildmap/structure_plan_v7.json` keep 67 and prune 897. Route: datapack override
 disabling the pruned structure sets, re-run the 10 km pre-generation on the build machine (20 GB heap), place the 67 back
 at their census coordinates, then the v6 pipeline unchanged (pads, transplants, roads, camp ruins, torches, dossiers,
-furnishing). Until v7 lands, spawns stay off — that also keeps the 439 boss spawners quiet. Owner also ruled: vvp, MCSP,
+furnishing). Spawns stay off until the owner's Phase A pass on v7 is done — that also keeps the boss spawners quiet. Owner also ruled: vvp, MCSP,
 Immersive Weathering, the server tools and the TaCZ fire-control extension all STAY (uses in `gscraft-mod-capabilities.md`
 §4 and `gscraft-crafting.md` §2.1: the military vehicle tier and the dead-vehicle site dressing).
 
 **Handoff state:** the hosted server runs v6 with EMI in `/mods` (client pack rebuilt with EMI on 2026-09-03: `G:/GSCraft/release-v7/GSCraft-Client.zip`), ruins v2, torches, dossier
 and site chests in place; the datapack on the server matches `build/datapacks/gscraft` except `dossiers_fill`, parked
-in `build/phase_c/`. Loot tables carry vanilla stand-ins until Phase C. Nothing is pending on the working machine.
+in `build/phase_c/`. Loot tables carry vanilla stand-ins until Phase C. Pending on the working machine: the owner's Phase A flight on v7 (local server up in the visual profile), then the hosted deploy of v7 (section 6).
 
-**World build v7 - ready to run on the working machine:** `tools/carve_regen.py <pregen> <carved>` (keeps the v5 rects +
+**World build v7 - DONE 2026-09-04 (this is the sequence that was run; `README-local.md` on the working machine has the timings):** `tools/carve_regen.py <pregen> <carved>` (keeps the v5 rects +
 camp, drops 405,699 chunks), copy `build/datapacks/gscraft_worldgen` into `<carved>/datapacks`, `tools/localpregen.py`
 on it (2 h 15 min, cycling), `carve_regen.py --drop-rect -1024 -1536 4607 4095` (the inner rings Chunky generated before the palette fix landed in
 life 5; the v5 rectangles and the camp are spared) + one more `localpregen.py` pass over the box to regenerate them - the
@@ -77,14 +77,17 @@ error chunks are HOLES with no city at all, about a third of the city chunks gen
 then `tools/place_kept.py <server>` (batches of six: force-load, wait, place, release; never as one function), then `buildv6.py`, `roads.py
 build`, the camp functions (`gscraft:camp_ruins`, `camp_torches`, `dossiers`, `furnish_novo`, `furnish_financial`, `runway_lights`),
 `reviewv6.py`, release, deploy (section 6). Details: `docs/gscraft-structure-plan.md` section 3, route A'.
+Result: 421,775 chunks, 0 LC errors after the fix, 67/67 kept + 5/5 Woods sites verified, 0 edge gaps, five roads (52,134 columns), spawn 19 94 26. World: `G:/GSCraft/server/wasteland-v7` (server copy, has the player flight's chunks after Phase A) and `scratch/worlds/wasteland-v7-final` (release master); release `build-v7-2026-09-04`. Three tool fixes went in: `roads.py route` now bounds its search (the spur's A* had reached 23 GB), a city scan must skip sections below y 32 (geodes), and Lost Cities keeps street/highway modes in `<world>/data/LostCity*.dat` so a profile switch on an existing world changes only city/scatter/railway settings.
 
 **The Woods (owner, 2026-09-04):** a Tarkov-style wilderness zone, x 400..2400 z -3500..-1500 (2 x 2 km, 2.9 km NNE of the
 camp, 65 % forest, no snow), built AFTER the v7 pre-generation: carve the rectangle, regenerate it under the `woods` Lost
 Cities profile (no cities/highways/railways/scattered buildings; identical terrain), five sparse structures, a road spur
-from Novo. Plan and quest hooks: `docs/gscraft-woods-plan.md`. Not built yet.
+from Novo. Plan and quest hooks: `docs/gscraft-woods-plan.md`. **Built in v7** (0.5 % city-fingerprint chunks inside vs 48 % outside; bunkers at 1264,-2400 and 1632,-2752, outpost 720,-3440, fog-man houses 2048,-2672 and 1900,-2000; spur 2,352 m). The custom sites (sawmill, cabin, aircraft, hide) wait for `camp.py`.
 
 **Design addendum (owner, 2026-09-04):** military vehicle blueprints (Humvee RWS, Black Hawk, Bradley) are mid/late quest
 rewards (W-M1, W-B3, X6), never tier unlocks - crafting §2.1, quests draft 2.
+
+**Client crash fixed 2026-09-04:** Parties 2.0-beta-p.7.1 + Xaero's Minimap 26.4.2 crash every client at mod setup (`xaero/common/gui/IScreenBase`). `parties_xaerominimap_fix-1.0.0.jar` (CurseForge 1589418, client-side only, owner-approved) is in the Prism instance, `release-v7/GSCraft-Client.zip`, the packwiz pack (`mods/parties-xaerominimap-fix-1-0-0.pw.toml`, side client, asset on `pack-files-2026-09-04`) and the manifests. Never put it in the server's `/mods`.
 
 **Not started:** `tools/runway_lights.py` → `gscraft:runway_lights` (camp spec §5, Phase B); Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
 `camp.py` (the six NPC buildings as templates onto their pads); the systems (KubeJS items, blueprints,
@@ -177,7 +180,7 @@ gscraft_tower_lock_native.js` (the lock), `gscraft_projectiles.js` (projectile s
 
 The working-machine assistant is not permitted to run panel calls that change the hosted server (the
 auto-mode permission classifier blocks them, uploads included), so this is run by a person from
-PowerShell in `tools/` with `~/.bisect/config.json` in place. `W` = `G:/GSCraft/server/wasteland-v6`,
+PowerShell in `tools/` with `~/.bisect/config.json` in place. `W` = `G:/GSCraft/server/wasteland-v6` (for v7: `G:/GSCraft/scratch/worlds/wasteland-v7-final`, folder `/wasteland-v7`, properties `B/phase03/server.properties.v7`, and the datapacks now include `gscraft_worldgen` and `gscraft_lcfix` — mirror all three),
 `B` = the repo's `build/` folder. Uploads can be done first, while the old server is still running.
 
 1. World folders and upload (about 5.3 GB; `putdir` uploads every file in one folder, `put` one file):
@@ -209,6 +212,6 @@ Rollback is the reverse: `scratch/rollback/rollback.py` on the working machine h
 ## 7. Release assets
 
 `handoff-2026-09-02` was deleted on 2026-09-04 (owner: not needed); every one of its 15 assets is kept on this machine in `G:\GSCraft
-elease\` (sizes verified before deletion). `build-v6-2026-09-03` (4 assets): the finished v6 world. Player identity files
+elease\` (sizes verified before deletion). `build-v6-2026-09-03` (4 assets): the finished v6 world. `build-v7-2026-09-04` (5 assets): the finished v7 world (three region parts + meta, unpack into one `wasteland-v7` folder) and the client pack with the Parties/Xaero fix. `pack-files-2026-09-04` carries the packwiz-hosted jars including `parties_xaerominimap_fix-1.0.0.jar`. Player identity files
 (ops, whitelist, user caches) are deliberately not published. `tools/release_upload.py` re-uploads a folder
 of zips to a tag, skipping what is already there.
