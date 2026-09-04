@@ -65,7 +65,7 @@ of `rack_<n>`. Empty hooks show the sign only.
   with a thread on it.").
 - **Road signs** at the three junctions (Doomsday Decoration's street-sign blocks, ids pinned at
   camp.py time; fallback `minecraft:oak_sign` on a `minecraft:iron_bars` post): "NOVO 1 km →",
-  "← PLAZA 2 km", "WOODS ↑ 3 km" at the Novo north gate, with a `doomsday_decoration:streetlamp_1`
+  "← PLAZA 2 km", "WOODS ↑ 1.6 km" at the Novo north gate, with a `doomsday_decoration:streetlamp_1`
   at each.
 
 ## 4. Guards and recruits (C15)

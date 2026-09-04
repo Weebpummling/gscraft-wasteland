@@ -30,7 +30,7 @@ them the way to make it. Five holes and one loop, all fixed in quests draft 2; t
 | Concrete (D1, D4, every `*-B` tier) | D1 | vanilla recipe, runs at any station | fine |
 | A car | J4 (by car), M8 and U4 (gate W7), R5 (`car_built`) | W7, Garage 1 | fine; W7's reward now includes a full tank and 2 fuel cans so the first car moves before the fuel chain (W8/M5) exists |
 | Fuel | every vehicle | M5 → W8 (biodiesel chain, fuel cans) | fine; fuel cans also drop at the plant as before |
-| A truck | J-B2, W10 (truck cargo), the bulky hauls | W9, Garage 2 | fine |
+| A truck | W10 (truck cargo), the bulky hauls | W9, Garage 2 | fine |
 | A boat | W12 ("reach the settlement by water"), J5 | **J5 handed out a boat as a gift; no recipe anywhere** | **fixed:** new W-V1 "Something that floats" (boat blueprint, Garage 1); J5's reward is now the speedboat blueprint |
 | Aircraft | J7 (reach the hub **by air**), W13 (aircraft recipe) | **W13 was gated on J7 and J7 on W13 — a loop nobody could enter** | **fixed:** W13 gates on W9, M11, **J6** (the runway); J7 stays gated on J6 and W13 |
 | Firearms, ammunition, attachments | from the first night; the assaults and defences | **nothing taught them; the pack's own gun-smith and reforge tables were the implied route** | **fixed:** Walker's armoury line W-A1…W-A4 (§5), plus a starting sidearm and 30 rounds from Custom Starting Gear |
@@ -96,7 +96,7 @@ vehicle in a second.
 | Light helicopter | 6 steel frame, 1 **avionics module**, 1 **transformer core**, 2 motor assembly, 2 fuel tank, 1 circuit assembly |
 | Armoured car | 12 steel frame, 4 plate (§5.1), 1 heavy diesel engine, 6 wheel, 1 medium battery pack, 1 **reactor control module** |
 
-Every vehicle above the quad needs a loot-only component, so every tier of the garage is a trip
+Every vehicle from the truck up needs a loot-only component, so the upper garage tiers are trips
 to a held site — the same rule as the tower parts.
 
 ### 2.1 The military tier (vvp, MCSP — kept, owner 2026-09-03)
@@ -284,7 +284,7 @@ Recipes the quests assumed and no sheet carried, plus the three sequencing fixes
 | Item | Recipe | Class | Blueprint from |
 |---|---|---|---|
 | Empty fuel can | 2 metal scrap + 1 sealed tubing | Intermediate | Walker, W7 (W7 is now gated on **M3**, Water 1, so sealed tubing exists — C2) |
-| Fuel can (full) | empty can at the plant's pump (M-B2), or the ranger's still: 1 motor oil + 1 empty can (M-W1) | — | Michael, M-B2 / M-W1 |
+| Fuel can (full) | empty can at the plant's pump (M-B2), or the ranger's still: 1 motor oil + 1 empty can (M-W1) | — | Walker, W8 (refill at Michael's pump, M-B2) / Michael, M-W1 |
 | Cargo crate | 4 planks + 2 metal scrap + 1 fastener kit | Intermediate | Walker, W7 |
 | Boat cargo | 1 cargo crate + 2 planks + 1 fastener kit | Intermediate | Walker, W12 |
 | Truck cargo | 2 cargo crate + 2 steel frame | Intermediate | Walker, W10 |

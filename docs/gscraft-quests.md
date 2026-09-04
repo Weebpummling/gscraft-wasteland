@@ -14,8 +14,8 @@ further; they run out of things to find where they are.
 | Act | Area | From the camp | What is there | How you get there | Sessions (est.) |
 |---|---|---|---|---|---|
 | **I — The Camp** | foot range | 0 – 1.5 km | camp ruins, glass tower (1.3 km), acacia hall (1.55 km), the generated ruins around the camp, **Novo** (1.06 km E on the spine) | on foot | 1–2 |
-| **II — The West Edge** | near district | 1.5 – 2.5 km | residential block (1.9), copper tower, prismarine hall, hempcrete compound (2.2), the radio tower compound (in the camp), **industrial plant** (2.4), library (2.5), **FR-06** (2.5); **the Woods** (2.9 km NNE, its own chain, §7.5) | on foot, then the first car | 3–5 |
-| **III — The Far Ring** | far road range | 2.5 – 4 km | **Financial Plaza** (2.1 km W, dry land) and the sewers under it, stone complex (2.9), mud village (2.8), the settlement (3.7 E), Bio Gen and the runway (3.9 SE) | car, truck, boat | 6–9 |
+| **II — The West Edge** | near district | 1.5 – 2.5 km | residential block (1.9), copper tower, prismarine hall, hempcrete compound (2.0), the radio tower compound (in the camp), **industrial plant** (2.4), library (2.5); **the Woods** (2.9 km NNE, its own chain, §7.5) | on foot, then the first car | 3–5 |
+| **III — The Far Ring** | far road range | 2.5 – 4 km | **FR-06** (2.5 km E), **Financial Plaza** (2.1 km W, dry land) and the sewers under it, stone complex (2.9), mud village (2.8), the settlement (3.7 E), Bio Gen and the runway (3.9 SE) | car, truck, boat | 6–9 |
 | **IV — The Sky** | air ring | 4.5 – 6.5 km | the hub (6.2 km E), the generated cities kept as found | aircraft | 10–12 |
 
 Rules that hold across every chapter:
@@ -71,20 +71,20 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | W3 | Frame of mind | I | camp, glass tower | hand in 12 metal scrap; show a welding torch | W2 | steel-frame blueprint, **Workshop 1** (IE machine recipes) |
 | W4 | The toolbox | I | camp | show a toolbox (crafted) | W3 | Workshop 1 effects; 16 iron ingots |
 | W5 | East, a mile | I | **Novo**, 1.06 km E on the spine | hand in 6 spark plugs, 12 metal scrap, 4 motor oil — Novo's drops | W4, J-S1 | stage `novo_looted`; Marshall R2 opens |
-| W6 | Hold the yard | I→II | Novo | stage `novo_held`; stage `novo_defended` (Novo's own first attack, at the end of its fortify clock) | W5, Marshall R2 | **Workshop 2** (motor-assembly blueprint); **Storage 2**: iron backpack, stack upgrade ×2, magnet upgrade |
+| W6 | Hold the yard | I→II | Novo | stage `novo_held`; stage `novo_defended` (Novo's own first attack, at the end of its fortify clock) | W5, Marshall R2 | **Workshop 2** (motor-assembly and mast-section-kit blueprints); **Storage 2**: iron backpack, stack upgrade ×2, magnet upgrade |
 | W7 | Wheels | II | camp, Novo | hand in 1 motor assembly, 4 steel frames, 1 car battery | W6, M3 | **Garage 1**: quad and runabout recipes, wheel, fuel-tank, empty-fuel-can and cargo-crate blueprints; a full tank and 2 fuel cans; stage `car_built` when one is crafted |
 | W8 | Fuel run | II | camp | hand in 2 fuel cans | W7, M7 | fuel-can refill recipe (at Michael's plant pump, M-B2; Walker's drum rack stores them) |
 | W9 | Heavy metal | III | Novo | hand in 1 heavy diesel engine, 2 motor assemblies | W8, M-B2, `novo_held` | **Garage 2**: truck recipe |
 | W10 | The big pack | III | Novo | hand in a second heavy anchor cable (Novo respawns them while held), 2 fastener kits | W9 | **Storage 3**: gold backpack, **everlasting upgrade** (the secure pack), feeding and pickup upgrades, truck cargo |
 | W11 | Mast section kit | II–III | camp | show 1 mast section kit (6 steel frames + 2 fastener kits + heavy anchor cable) | W6, `novo_held` | the kit is Marshall's X2 hand-in |
-| W12 | Boats | III | the settlement | reach the settlement by water (location); hand in 1 pressure gauge | W8, J4 | boat cargo recipe |
+| W12 | Boats | III | the settlement | reach the settlement by water (location); hand in 1 pressure gauge | W8, J4, W-V1 | boat cargo recipe |
 | W13 | Hangar rights | III→IV | FR-06, the runway | hand in 1 avionics module, 2 circuit assemblies | W9, M11, J6 | **Garage 3**: light-aircraft recipe; **Storage 4** opens on J8 (diamond backpack needs the satellite receiver), tank and void upgrades, aircraft cargo |
 | W14 | Foreman's pride | IV | everywhere | hand in one of every hardware and tool item (12 items) | W13 | Workshop 3; **the Foreman's Wrench** (an unbreakable, named wrench that fills a station's tool slot without wear) |
 | W-A1 | Sidearm | I | camp | hand in 6 metal scrap, 4 screws, 1 fastener kit, 4 planks | W1 | gun-frame, barrel and trigger-group blueprints; pistol, pump-shotgun and their ammunition blueprints; the salvage rule (crafting §5.2) |
 | W-A2 | Plates | I–II | camp | hand in 8 metal scrap, 2 duct tape | W3 | plate blueprint; scrap vest and helmet blueprints; rifle ammunition |
 | W-A3 | Long guns | II | camp | hand in 2 gun frames, 1 steel frame | W-A1, `novo_defended` | assault-rifle and SMG blueprints; iron sights, extended magazine |
 | W-A4 | Precision | III | camp, Financial Plaza | hand in 1 circuit assembly, 1 military circuit board | W-A3, W9 | sniper, machine-gun and launcher blueprints; optics, suppressor |
-| W-M1 | Motor pool | III→IV | camp, FR-06, Financial Plaza | hand in 1 military circuit board, 4 plates, 1 heavy diesel engine; stages `fr06_defended` and `financial_defended` | W-A4, D4, R5 | **Humvee RWS blueprint** (crafting §2.1; the SW assembling table at yard tier 2 builds it from the kit) |
+| W-M1 | Motor pool | III→IV | camp, FR-06, Financial Plaza | hand in 1 military circuit board, 4 plates, 1 heavy diesel engine; stages `fr06_defended` and `financial_defended` | W-A2, W-A4, D4, R5 | **Humvee RWS blueprint** (crafting §2.1; the SW assembling table at yard tier 2 builds it from the kit) |
 | W-V1 | Something that floats | II | camp, the lake | hand in 12 planks, 1 fastener kit | W7 | boat blueprint; boat cargo opens with W12 |
 | W-B1 | The yard, roofed | I | camp | hand in 8 metal scrap, 4 fastener kits, 16 planks | W2 | **yard tier 1**: roofed workshop, one bay, the lot fenced |
 | W-B2 | Second bay | II–III | camp, Novo | hand in 4 steel frames, 32 concrete, 1 heavy diesel engine (Novo respawns them while held) | W-B1, `novo_defended` | **yard tier 2**: two bays, gantry crane, fuel rack, lights; vehicle repair at the bay |
@@ -175,7 +175,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | J9 | Every capital | IV | the whole box | reach four of the Lukis capitals (location; the nearest four to the hub, from `tools/structures_v6.json`) | J7 | a **components crate**: choose any 4 of heavy diesel engine, purification membrane, encrypted radio, medical analyzer (held-site components, never a hub item; loot sheet §7) |
 | J10 | Cartographer | IV | everywhere | reach every named site on the map (location, 20) | J9 | **the Cartographer's Pack**: a diamond backpack fitted with magnet, everlasting and stack ×4, named |
 | J11 | Every ruin | IV | everywhere | hand in one of each of the forty-two small items | J10 | the Collector analogue: an **inception upgrade** and a second everlasting upgrade — a nested pack that also survives death |
-| J-B1 | A flag on it | I | camp | hand in 16 planks, 4 fastener kits, 1 folder of documents | J1 | **lookout tier 1**: platform, ladder, a flag |
+| J-B1 | A flag on it | I | camp | hand in 16 planks, 4 fastener kits, 1 folder of documents | J1, W1 | **lookout tier 1**: platform, ladder, a flag |
 | J-B2 | The spotlight | III | camp, the far ring | hand in 4 steel frames, 2 light bulbs, 1 car battery, 3 valuables from the settlement | J-B1, J4 | **lookout tier 2**: 30 tall, a night spotlight (waypoint sharing is Radio 1's); zipline rope and hook orders (crafting §5.7) |
 | J-B3 | The cabin | IV | camp, the hub | hand in 8 steel frames, 16 glass, 1 satellite receiver | J-B2, J7 | **lookout tier 3**: 40 tall, glass cabin, telescope, waypoint beacon; every named site marked |
 
@@ -270,7 +270,7 @@ rest are expedition finds with the `gscraft:building/military` table.
 |---|---|---|---|---|---|---|
 | U-D1 | Go down | I–II | the bunker at (−784, −384), 0.9 km NW | reach it (location); hand in 1 hard drive from it | U2 | stage `bunker_1`; 2 circuit assemblies; the notebook's "Getting hurt" page notes the dark |
 | U-D2 | Deeper | III | the road-range bunkers at (1648, 32), (−1536, 1600), (−2384, 32) | reach all three (location); hand in 1 encrypted radio | U-D1, W7 | 1 military circuit board |
-| U-D3 | The archive | IV | the air-ring bunker at (4864, −336), 4.9 km E | reach it by air (`bunker_east_by_air`); hand in 2 hard drives | U-D2, J7 | 1 satellite receiver (a second source; shortens the hub economy by one visit, design §4.4) |
+| U-D3 | The archive | IV | the air-ring bunker at (4864, −336), 4.9 km E | reach it by air (`bunker_east_by_air`); hand in 2 hard drives | U-D2, J7 | 1 satellite receiver (a second source: one fewer hub item to find, design §4.4) |
 
 ---
 

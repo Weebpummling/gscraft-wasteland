@@ -173,7 +173,7 @@ it is not used for these six. No gameplay mod is added (EMI, a client-side recip
 | Walker the Foreman | Workshop, Garage, Storage | bring 8 bolts, 8 nuts | a wrench, the fastener-kit and hand-tool blueprints, the personal station | take and hold Novo; motor assembly; vehicles; the mast section kit |
 | Tony the Medic | Medical | bring 4 bandages, 2 painkillers | med-kit blueprint | hold the residential block; revive a teammate; medical analyzer; finale readiness |
 | Michael the Engineer | Generator, Water | bring 3 wire spools, a power cord, a water filter | wiring-harness and filter blueprints | hold the plant; coolant; hold FR-06; the cooling loop, then the generator kit |
-| Tune the Technician | Radio / intel | bring a circuit board, 2 capacitors, a broken radio | circuit-assembly blueprint; the map | hold Financial Plaza; antenna elements; the transmitter, then the antenna array |
+| Tune the Technician | Radio / intel | bring a circuit board, 2 capacitors, a broken radio | circuit-assembly blueprint | hold Financial Plaza; antenna elements; the transmitter, then the antenna array |
 | James the Scout | expeditions | visit the glass tower and the acacia hall | waypoints; the expedition board | the settlement by car; the hub by air; the phased array element |
 | Marshall | the strongpoint loop and the tower | **none: he talks once all five introductions are done, and the tower chapter opens with him (owner, 2026-09-04)** | the tower chapter and the strongpoint board | take → hold → defend; five parts in order; the beacon; the finale |
 
@@ -497,14 +497,14 @@ of it edits live on the server without a client reinstall.
 Each phase ends in a test with a pass condition; nothing in a later phase starts until the earlier
 test passes.
 
-**Phase A — Visual pass on the v5 world (now).** Local server, `start-visual.bat`, five players or
+**Phase A — Visual pass on the v7 world (after the v7 build; gaps C16).** Local server, `start-visual.bat`, five players or
 one. Fly the camp rim and mark the six building sites on the rebuilt surface; drive out of the
 crater; walk the spine line and note every water crossing; check each landing pad's fit; look at the
 generated cities between the camp and the district. *Pass:* a marked-up list of terrain fixes and
 final building positions.
 
 **Phase B — World build v6 (offline, on the pristine set + v5 edits, then uploaded).**
-1. Border set; water pad re-cut to 288×304; four pads' outlines left for the transplants to overwrite.
+1. Border set; water pad re-cut to 288×304; transplant pads laid without outlines (foundations, not marked lots).
 2. Roads and causeways from the Phase A list (`terrain.py`, `runpass.py`).
 3. Camp buildings (`camp.py`, to write) and tower stage 0 placed; the NPC summon function.
 4. Transplants as the remap allows, in this order: the settlement, Novo, Financial Plaza, Bio Gen,

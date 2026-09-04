@@ -7,7 +7,7 @@ how to rebuild the same state elsewhere.
 ## 1. Where things stand
 
 **The hosted server (Bisect, 199.115.76.82:9150, panel id 493d6256) RUNS v6** since 2026-09-03 evening:
-world `wasteland-v6`, MOTD "GSCraft Wasteland - test build v6", the rebuild pack with EMI added, the three KubeJS
+world `wasteland-v6`, MOTD "GSCraft Wasteland - test build v6", the rebuild pack with EMI added, the KubeJS
 scripts, camp ruins v2, Magnum torches, dossier and site chests placed; **mob spawning is OFF** (owner) until the
 designs are done and v7 lands. The rolled-back folders sit beside it as `*_old_20260902`. The deploy recipe that
 was used is section 6.
@@ -66,7 +66,7 @@ furnishing). Until v7 lands, spawns stay off — that also keeps the 439 boss sp
 Immersive Weathering, the server tools and the TaCZ fire-control extension all STAY (uses in `gscraft-mod-capabilities.md`
 §4 and `gscraft-crafting.md` §2.1: the military vehicle tier and the dead-vehicle site dressing).
 
-**Handoff state:** the hosted server runs v6 with EMI in `/mods` (client pack not rebuilt), ruins v2, torches, dossier
+**Handoff state:** the hosted server runs v6 with EMI in `/mods` (client pack rebuilt with EMI on 2026-09-03: `G:/GSCraft/release-v7/GSCraft-Client.zip`), ruins v2, torches, dossier
 and site chests in place; the datapack on the server matches `build/datapacks/gscraft` except `dossiers_fill`, parked
 in `build/phase_c/`. Loot tables carry vanilla stand-ins until Phase C. Nothing is pending on the working machine.
 
@@ -87,7 +87,7 @@ from Novo. Plan and quest hooks: `docs/gscraft-woods-plan.md`. Not built yet.
 **Design addendum (owner, 2026-09-04):** military vehicle blueprints (Humvee RWS, Black Hawk, Bradley) are mid/late quest
 rewards (W-M1, W-B3, X6), never tier unlocks - crafting §2.1, quests draft 2.
 
-**Not started:** the two mod-set updates of `docs/gscraft-modpack-review.md` §4 (Dynamic Flashlight 2.1.0 — owner's approval, then server + client + manifest; EMI 1.1.24 into the local server and client sets); Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
+**Not started:** the two mod-set updates of `docs/gscraft-modpack-review.md` §4 (Dynamic Flashlight 2.1.0 — owner's approval, then server + client + manifest; EMI 1.1.24 into the local Prism instance — done 2026-09-04 from the release-v7 copy); Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
 `camp.py` (the six NPC buildings as templates onto their pads); the systems (KubeJS items, blueprints,
 stages, the strongpoint loop and timers; FTB Quests chapters from `docs/gscraft-quests.md`; loot tables
 by building type); the Superb Warfare small-arms toggle; old-world housekeeping on the hosted server
@@ -136,6 +136,9 @@ do not, but they are fully generated so it no longer matters there).
 
 ## 4. The design documents
 
+- `docs/gscraft-mod-capabilities.md` - what each mod supplies to the design; the config changes made (§5b, §5c).
+- `docs/gscraft-structure-plan.md` - the generated-structure prune (67 of 964 kept) behind world build v7.
+- `docs/gscraft-woods-plan.md` - the Woods: where, what is in it, how it is built, the adopted quest hooks.
 - `docs/gscraft-map-design.md` - THE design (draft 6): the game in one paragraph, the map's three ranges,
   the camp and its six NPCs, strongpoints, the item ladder, storage, hideout functions, the loop and
   timers, the tower, tech stack, build order with test gates.

@@ -47,7 +47,7 @@ thoroughfare. No kept generated site falls inside it (structure plan check).
 - **Spawning**: In Control! rules for the rectangle - fewer zombies, more animals, the fog man and the
   eyes at night; bandits only at the outpost. The rectangle is the rule's `dimension`/`minx…maxz`.
 
-## 4. Quest hooks (for the design session to adopt or rewrite)
+## 4. Quest hooks (adopted 2026-09-04 as `gscraft-quests.md` §7.5: nine quests, season 1)
 
 The Woods is the focus of a chain, not a stop on the way. Candidates by NPC:
 
@@ -55,13 +55,13 @@ The Woods is the focus of a chain, not a stop on the way. Candidates by NPC:
 |---|---|---|
 | James the Scout | the Woods expedition: reach the ranger cabin, map the two bunkers, find the downed aircraft | his chapter is exploration; the Woods is the one place the map is not a grid |
 | Tune the Technician | a relay: climb the high ground, plant an antenna element, receive a signal only the Woods is quiet enough for | radio in the hills; ties to the tower's antenna stage |
-| Walker the Foreman | the sawmill: timber for the Walls and defences function; the first heavy diesel engine is in the mill | lumber is the Woods' resource; the base's walls come from here |
+| Walker the Foreman | the sawmill: timber for the Walls and defences function; the mill's own drop is the **saw blade** (W-W1); Novo keeps the heavy diesel engine (B22) | lumber is the Woods' resource; the base's walls come from here |
 | Tony the Medic | herbs and the hunters' hide: foraging tasks, the surgical kit in the crashed aircraft's medkit | medical from the wild, not the ruin |
 | Michael the Engineer | the hunters' water and a generator in the ranger cabin | fuel and water sources outside the plant |
-| Marshall | the bandit outpost as a strongpoint-lite: clear it, hold it for one cycle; the Woods bunkers as the horror chapter's dungeons | contrast: an attack that comes through trees, not streets |
+| Marshall | the bandit outpost as a strongpoint-lite: the marker and the 5-minute assault, no fortify clock, no defence (R-W1); the Woods bunkers as the horror chapter's dungeons | contrast: an attack that comes through trees, not streets |
 
-The site ladder (scouted → looted → held → defended) can apply to the sawmill as the Woods'
-strongpoint if the design wants a sixth; otherwise the Woods stays a loot-and-quest region.
+Decided (owner default, 2026-09-04): **no sixth strongpoint** — the Woods is a loot-and-quest region; its nine quests are
+J-W1–3, W-W1, T-W1, M-W1, U-W1, R-W1 and R-W2 in `gscraft-quests.md` §7.5.
 
 ## 5. How it is built (after the v7 pre-generation)
 

@@ -11,7 +11,7 @@ for the worlds and the builds that use their blocks. So this review adds and ali
 | Finding | Action |
 |---|---|
 | The design needs a **flashlight** in the starting kit and the pack has none (`notes/gscraft-flashlight-and-nvg.md`) | **add Dynamic Flashlight 2.1.0** (Forge 1.20.1, 93 KB, no dependencies) to server, client and manifest — §4 |
-| **EMI 1.1.24** is in the manifest and on the hosted server (added 2026-09-03) but **missing from the local server and the client instance** | sync: put the pinned jar in both local sets; rebuild the client zip — §4 |
+| **EMI 1.1.24** is in the manifest, on the hosted server and in the rebuilt client zip (`release-v7/GSCraft-Client.zip`, 2026-09-03) but was **missing from the local test server and the local Prism instance** | synced 2026-09-04 from the release-v7 copy — §4 |
 | Twelve **conditional libraries** are listed in the manifest and present nowhere | correct as is: they are the libraries other candidate mods would have pulled in; keep the entries as a reference list, do not install — §3 |
 | Every other capability the design names is already installed (§2) | nothing to add |
 | Lost Cities **7.5.4** was published on 2026-09-03 (railway level offset; no fix for the palette null) | **do not update** during the v7 build; the world is generated with 7.5.3 and the `gscraft_lcfix` datapack carries the fix — revisit for a v8 world |
@@ -53,7 +53,7 @@ config was read in the jar on this machine.
 | Camp props, wrecks, signs, streetlamps, floodlights | Doomsday Decoration 1.1.3; Refurbished Furniture 1.0.20 (+ Framework); Chipped, Chisel, Factory Blocks, Antiblocks (the transplanted builds' palettes) | installed |
 | Weathering / aging | Immersive Weathering 2.0.5 + Moonlight | installed |
 | World: Lost Cities, capitals, bunkers, hostile villages | Lost Cities 7.5.3, Lukis Grand Capitals 1.1.2, Underground Bunkers 1.0.5, Hostile Villages 5.7 | installed; **never remove** — the v7 world is generated with them |
-| Maps, pings, voice, recipe viewer | Xaero minimap + world map, Ping Wheel 1.12.0, Simple Voice Chat 2.6.22, **EMI 1.1.24 (missing locally)** | see §4 |
+| Maps, pings, voice, recipe viewer | Xaero minimap + world map, Ping Wheel 1.12.0, Simple Voice Chat 2.6.22, EMI 1.1.24 (synced locally 2026-09-04) | installed |
 | Performance and server tooling | ModernFix, Canary, FerriteCore, Let Me Despawn, Get It Together Drops, chunksending, LongNbtKiller, Fast Furnace/Suite/Workbench, Recipe Essentials, AI Improvements, Dynamic View, Chunky, spark, BHStats, WorldEdit | installed |
 | Melee, HUD | Better Combat (+ player animation lib), AppleSkin, Almanac | installed; no design role, kept |
 | Libraries | GeckoLib, AzureLib, Architectury, Cloth Config, Resourceful Lib, Athena, Atlas Lib, Cupboard, Cryonic Config | installed as required |
@@ -73,9 +73,9 @@ considered and not taken; the entries stay as documentation and are **not instal
 | Jar | Source | Size | Hashes | Goes to |
 |---|---|---|---|---|
 | `flashlight-2.1.0-forge-1.20.1.jar` (Dynamic Flashlight 2.1.0, 2026-08-02) | `https://cdn.modrinth.com/data/SemszBhn/versions/dkQtiEhc/flashlight-2.1.0-forge-1.20.1.jar` | 93,543 B | sha1 `bcb2b2085c55015279ac96113ee8b12e65ebffaf`; sha512 `45e97d9f…611530` | `server/mods`, client instance `mods`, hosted `/mods` (hand-run, HANDOFF §6), `build/manifest.json` (role `addition`, sha256 filled from the file), `build/additions.json` |
-| `emi-1.1.24+1.20.1+forge.jar` (EMI 1.1.24, already pinned) | `build/additions.json` URL (Modrinth `fRiHVvU7/Axuu9I9R`) | — | `server/mods`, client instance `mods` (the hosted server already has it) |
+| `emi-1.1.24+1.20.1+forge.jar` (EMI 1.1.24, already pinned) | local copy `G:/GSCraft/release-v7/` (sha256 checked against the manifest) | 1,121,750 B | `server/mods`, the Prism instance `mods` — **done 2026-09-04**; the hosted server and the client zip already had it |
 
-After both land: rebuild `GSCraft-Client.zip` from the Prism instance, re-issue it on the Drive link,
+After the flashlight lands: rebuild `GSCraft-Client.zip` from the Prism instance, re-issue it on the Drive link,
 and add one line to `client/GSCraft Install Guide.md` ("Flashlight: right-click to switch on, sneak +
 right-click with a battery to reload"). The manifest's `sha256` for the flashlight jar is computed
 from the downloaded file, never copied from a listing.

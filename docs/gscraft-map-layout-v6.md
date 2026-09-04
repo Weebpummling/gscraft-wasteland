@@ -109,7 +109,7 @@ visual pass.
 | Glass tower | 1184 464 1263 607 | 80×144 | 1.3 km | white stained glass, quartz pillars | Act I electrical (J1) |
 | Acacia hall | 1488 432 1599 511 | 112×80 | 1.55 km | acacia wood, IE wiring | Act I hardware (J1) |
 | Residential block | 1328 1376 1551 1775 | 224×400 | 1.9 km | stone brick, white concrete, oak | strongpoint 2 (Tony) |
-| Hempcrete compound | 1568 1152 1887 1471 | 320×320 | 2.2 km | IE hempcrete, razor wire | medical and hardware; fallback transplant site |
+| Hempcrete compound | 1568 1152 1887 1471 | 320×320 | 2.0 km | IE hempcrete, razor wire | medical and hardware; fallback transplant site |
 | Copper tower | 1920 1024 1999 1135 | 80×112 | 2.2 km | waxed copper | electrical |
 | Prismarine hall | 2016 768 2143 815 | 128×48 | 2.2 km | prismarine; sculk sensors, catalyst and shrieker inside | filters and chemicals; the Sleeper's first sign (finale §3) |
 | Library | 2032 1392 2127 1487 | 96×96 | 2.5 km | chiseled bookshelves, signs, beehives | valuables (J3, U3) |
@@ -125,7 +125,7 @@ visual pass.
 2. **West road, camp → Financial Plaza:** from the camp's west edge (−176, 40) to the plaza's east
    gate (−1780, 924). About 1.8 km, routed around water and buildings by `tools/roads.py`.
 3. **District → runway:** from the mud village (2368, 1552) south-east to the pad (3040, 2600).
-   0.9 km. The settlement is reached by road along the district's east side and by boat.
+   1.25 km. The settlement is reached by road along the district's east side and by boat.
 4. **District → settlement:** from the district's east edge (3103, 783) to the settlement's west gate
    (3512, 783). 0.4 km, plus the boat.
 5. Roads are routed (`roads.py route`: least-cost path on 8-block cells, water ×40, buildings ×80,
@@ -143,7 +143,7 @@ visual pass.
   deepslate below.
 - **Section-stack write** in `runplan.py` — DONE: a rectangle with `"sections_below_y": 48` merges
   only its sections (and block entities) below that height into the chunks already at the
-  destination. Proven: the sewers at −16 under the plaza at +64 share one chunk column, the sewer
+  destination. Proven: the sewers at −16 under the plaza at +16 share one chunk column, the sewer
   ceiling at 47, the plaza's bedrock at 16.
 - **Plan file** `buildmap/transplant_plan_v6.json` — the seven rectangles of §6 with `source_dir`
   pointing at the merged worlds; `runplan.py --dry-run` is clean (2,467 chunks, every block
@@ -167,7 +167,7 @@ visual pass.
 | Rect | Source chunks (x0 z0 x1 z1) | Destination chunks | Offset (dx, dz) chunks | dy |
 |---|---|---|---|---|
 | novo_industrial | 39 9 47 18 | 62 6 70 15 | (+23, −3) | −160 |
-| financial_plaza | −27 −73 −18 −65 | 43 148 52 156 | (+70, +221) | +16 |
+| financial_plaza | −27 −73 −18 −65 | −122 53 −113 61 | (−95, +126) | +16 |
 | sewers | −59 −20 −54 −15 | −120 55 −115 60 | (−61, +75) | −16 |
 | world_east_site | −27 92 −11 109 | 220 40 236 57 | (+247, −52) | +16 |
 | biogen south | 29 −63 32 −60 | 186 158 189 161 | (+157, +221) | +64 |

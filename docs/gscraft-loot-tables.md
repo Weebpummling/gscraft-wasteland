@@ -17,7 +17,7 @@ they are vanilla.*
    own table, which is the building table plus that site's signature items.
 3. **Loot-only components never sit in ordinary chests.** They spawn in named component containers
    (`gscraft:components/<site>`) that the loop arms on `held` and refills on the component timer
-   (design §6.2). The hub's containers are the exception (§6 below).
+   (design §6.2). The exceptions are the never-held sites — the hub (§6), Bio Gen, the sewers, the Woods and the bunkers (§5) — whose component containers sit on Lootr's refresh.
 4. **Refresh:** Lootr `refresh_modids = ["gscraft"]`, `refresh_value = 120000` (5 in-game days), so
    every `gscraft:` table refreshes per player on that rhythm; Lost Cities' own tables stay one-shot
    per player. A held site's component containers use the loop's timer instead (design §6.2).
@@ -79,7 +79,7 @@ Positions are `gscraft-map-layout-v6.md` §3.1. Rolls 2–4 unless noted.
 | **Acacia hall** (1.55 km) | hall with IE wiring | Act I's hardware and the first mechanical items | workshop + spark plug 6, silicone tube 8 |
 | **Copper tower** (2.2 km) | the wired tower | **electrical**: Act II's wire and relays for the harnesses | office + wire spool 20, relay 12, capacitor 10, electric motor 3 |
 | **Prismarine hall** (2.2 km) | the wet hall; sculk on its floor | **filters and chemicals**; and the story's first sign of the Sleeper (finale §3) | store + water filter 12, bleach 10, antifreeze 8, solvent 8, computer parts 4 |
-| **Hempcrete compound** (2.2 km) | a walled survivor holdout | **medical and hardware**; the fallback transplant site | apartment + hospital, canned goods 15, duct tape 10, rare tools (wrench, pliers 2 each) |
+| **Hempcrete compound** (2.0 km) | a walled survivor holdout | **medical and hardware**; the fallback transplant site | apartment + hospital, canned goods 15, duct tape 10, rare tools (wrench, pliers 2 each) |
 | **Library** (2.5 km) | the reading room | **valuables**: J3's folders, U3's hard drive | library table as is |
 | **Stone complex** (2.9 km) | the spawner dungeon | **the ammunition dump**: gunpowder and salvage; U6-style dark work without the sewers | military + gunpowder 15, rifle ammo 12, salvage rifle 4, salvage shotgun 3, welding torch 1; rolls 3–5 |
 | **Mud village** (2.8 km) | farm hamlet | **food and the farm**: D3's seeds and bowls, D5's crops; emeralds | canned goods 20, Farmer's Delight seeds (rice, tomato, onion, cabbage) 10 each, bowl 10, bandage 8, emerald 5 |
