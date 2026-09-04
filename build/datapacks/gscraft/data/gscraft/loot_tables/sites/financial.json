@@ -9,39 +9,9 @@
    "entries": [
     {
      "type": "minecraft:item",
-     "name": "minecraft:copper_ingot",
+     "name": "minecraft:comparator",
      "weight": 10,
-     "gscraft_item": "gscraft:wire_spool",
-     "functions": [
-      {
-       "function": "minecraft:set_count",
-       "count": {
-        "min": 1,
-        "max": 3
-       }
-      }
-     ]
-    },
-    {
-     "type": "minecraft:item",
-     "name": "minecraft:lead",
-     "weight": 3,
-     "gscraft_item": "gscraft:power_cord",
-     "functions": [
-      {
-       "function": "minecraft:set_count",
-       "count": {
-        "min": 1,
-        "max": 2
-       }
-      }
-     ]
-    },
-    {
-     "type": "minecraft:item",
-     "name": "minecraft:glowstone_dust",
-     "weight": 3,
-     "gscraft_item": "gscraft:light_bulb",
+     "gscraft_item": "gscraft:circuit_board",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -69,9 +39,69 @@
     },
     {
      "type": "minecraft:item",
-     "name": "minecraft:comparator",
+     "name": "minecraft:repeater",
      "weight": 3,
-     "gscraft_item": "gscraft:circuit_board",
+     "gscraft_item": "gscraft:relay",
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 1,
+        "max": 2
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:copper_ingot",
+     "weight": 10,
+     "gscraft_item": "gscraft:wire_spool",
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 1,
+        "max": 3
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:observer",
+     "weight": 3,
+     "gscraft_item": "gscraft:computer_parts",
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 1,
+        "max": 1
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:music_disc_13",
+     "weight": 3,
+     "gscraft_item": "gscraft:hard_drive",
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 1,
+        "max": 1
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:book",
+     "weight": 3,
+     "gscraft_item": "gscraft:folder_of_documents",
      "functions": [
       {
        "function": "minecraft:set_count",

@@ -9,8 +9,9 @@
    "entries": [
     {
      "type": "minecraft:item",
-     "name": "gscraft:bolt",
+     "name": "minecraft:iron_nugget",
      "weight": 10,
+     "gscraft_item": "gscraft:bolt",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -23,8 +24,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:nut",
+     "name": "minecraft:iron_nugget",
      "weight": 10,
+     "gscraft_item": "gscraft:nut",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -37,8 +39,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:screw",
+     "name": "minecraft:iron_nugget",
      "weight": 10,
+     "gscraft_item": "gscraft:screw",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -51,8 +54,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:nail",
+     "name": "minecraft:iron_nugget",
      "weight": 10,
+     "gscraft_item": "gscraft:nail",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -65,8 +69,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:metal_scrap",
+     "name": "minecraft:iron_ingot",
      "weight": 10,
+     "gscraft_item": "gscraft:metal_scrap",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -79,8 +84,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:duct_tape",
+     "name": "minecraft:string",
      "weight": 10,
+     "gscraft_item": "gscraft:duct_tape",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -93,8 +99,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:wrench",
+     "name": "minecraft:iron_pickaxe",
      "weight": 3,
+     "gscraft_item": "gscraft:wrench",
      "functions": [
       {
        "function": "minecraft:set_count",

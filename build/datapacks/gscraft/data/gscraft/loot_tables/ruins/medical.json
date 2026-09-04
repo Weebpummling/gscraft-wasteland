@@ -9,8 +9,9 @@
    "entries": [
     {
      "type": "minecraft:item",
-     "name": "gscraft:bandage",
+     "name": "minecraft:paper",
      "weight": 10,
+     "gscraft_item": "gscraft:bandage",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -23,8 +24,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:painkillers",
+     "name": "minecraft:sugar",
      "weight": 10,
+     "gscraft_item": "gscraft:painkillers",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -37,8 +39,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:antiseptic",
+     "name": "minecraft:honey_bottle",
      "weight": 3,
+     "gscraft_item": "gscraft:antiseptic",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -51,8 +54,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:syringe",
+     "name": "minecraft:glass_bottle",
      "weight": 3,
+     "gscraft_item": "gscraft:syringe",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -65,8 +69,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:water_filter",
+     "name": "minecraft:charcoal",
      "weight": 3,
+     "gscraft_item": "gscraft:water_filter",
      "functions": [
       {
        "function": "minecraft:set_count",

@@ -1,0 +1,12 @@
+setblock -1917 136 865 minecraft:chest[facing=north]{LootTable:"gscraft:sites/financial"} keep
+setblock -1854 135 886 minecraft:chest[facing=north]{LootTable:"gscraft:sites/financial"} keep
+setblock -1818 133 916 minecraft:chest[facing=north]{LootTable:"gscraft:sites/financial"} keep
+setblock -1929 130 880 minecraft:chest[facing=north]{LootTable:"gscraft:sites/financial"} keep
+setblock -1884 129 853 minecraft:chest[facing=north]{LootTable:"gscraft:sites/financial"} keep
+setblock -1923 126 934 minecraft:chest[facing=north]{LootTable:"gscraft:sites/financial"} keep
+setblock -1884 104 865 minecraft:chest[facing=north]{LootTable:"gscraft:sites/financial"} keep
+setblock -1920 103 916 minecraft:chest[facing=north]{LootTable:"gscraft:sites/financial"} keep
+setblock -1836 102 931 minecraft:chest[facing=north]{LootTable:"gscraft:sites/financial"} keep
+setblock -1836 102 907 minecraft:chest[facing=north]{LootTable:"gscraft:sites/financial"} keep
+setblock -1884 100 949 minecraft:chest[facing=north]{LootTable:"gscraft:sites/financial"} keep
+setblock -1905 100 958 minecraft:chest[facing=north]{LootTable:"gscraft:sites/financial"} keep

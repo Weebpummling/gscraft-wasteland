@@ -1,0 +1,156 @@
+{
+ "novo": {
+  "table": "gscraft:sites/novo",
+  "chests": [
+   {
+    "x": 1063,
+    "y": 80,
+    "z": 164,
+    "floor": "factory_blocks:factory"
+   },
+   {
+    "x": 1063,
+    "y": 80,
+    "z": 191,
+    "floor": "factory_blocks:factory"
+   },
+   {
+    "x": 1063,
+    "y": 80,
+    "z": 179,
+    "floor": "factory_blocks:factory"
+   },
+   {
+    "x": 1042,
+    "y": 77,
+    "z": 152,
+    "floor": "immersiveengineering:slab_steel_scaffolding_standard"
+   },
+   {
+    "x": 1036,
+    "y": 77,
+    "z": 191,
+    "floor": "immersiveengineering:slab_steel_scaffolding_standard"
+   },
+   {
+    "x": 1021,
+    "y": 77,
+    "z": 191,
+    "floor": "immersiveengineering:slab_steel_scaffolding_standard"
+   },
+   {
+    "x": 1057,
+    "y": 77,
+    "z": 152,
+    "floor": "immersiveengineering:slab_steel_scaffolding_standard"
+   },
+   {
+    "x": 1051,
+    "y": 77,
+    "z": 191,
+    "floor": "immersiveengineering:slab_steel_scaffolding_standard"
+   },
+   {
+    "x": 1000,
+    "y": 71,
+    "z": 158,
+    "floor": "minecraft:stone"
+   },
+   {
+    "x": 997,
+    "y": 71,
+    "z": 182,
+    "floor": "minecraft:stone"
+   },
+   {
+    "x": 994,
+    "y": 71,
+    "z": 203,
+    "floor": "minecraft:stone"
+   },
+   {
+    "x": 1021,
+    "y": 71,
+    "z": 170,
+    "floor": "immersiveengineering:hempcrete"
+   }
+  ]
+ },
+ "financial": {
+  "table": "gscraft:sites/financial",
+  "chests": [
+   {
+    "x": -1917,
+    "y": 136,
+    "z": 865,
+    "floor": "minecraft:red_concrete"
+   },
+   {
+    "x": -1854,
+    "y": 135,
+    "z": 886,
+    "floor": "minecraft:end_rod"
+   },
+   {
+    "x": -1818,
+    "y": 133,
+    "z": 916,
+    "floor": "minecraft:purple_concrete"
+   },
+   {
+    "x": -1929,
+    "y": 130,
+    "z": 880,
+    "floor": "minecraft:light_blue_concrete"
+   },
+   {
+    "x": -1884,
+    "y": 129,
+    "z": 853,
+    "floor": "minecraft:white_concrete"
+   },
+   {
+    "x": -1923,
+    "y": 126,
+    "z": 934,
+    "floor": "minecraft:white_concrete"
+   },
+   {
+    "x": -1884,
+    "y": 104,
+    "z": 865,
+    "floor": "minecraft:white_concrete"
+   },
+   {
+    "x": -1920,
+    "y": 103,
+    "z": 916,
+    "floor": "minecraft:end_rod"
+   },
+   {
+    "x": -1836,
+    "y": 102,
+    "z": 931,
+    "floor": "minecraft:black_concrete"
+   },
+   {
+    "x": -1836,
+    "y": 102,
+    "z": 907,
+    "floor": "minecraft:black_concrete"
+   },
+   {
+    "x": -1884,
+    "y": 100,
+    "z": 949,
+    "floor": "minecraft:white_concrete"
+   },
+   {
+    "x": -1905,
+    "y": 100,
+    "z": 958,
+    "floor": "minecraft:white_concrete"
+   }
+  ]
+ }
+}

@@ -9,8 +9,9 @@
    "entries": [
     {
      "type": "minecraft:item",
-     "name": "gscraft:metal_scrap",
+     "name": "minecraft:iron_ingot",
      "weight": 10,
+     "gscraft_item": "gscraft:metal_scrap",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -23,8 +24,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:duct_tape",
+     "name": "minecraft:string",
      "weight": 3,
+     "gscraft_item": "gscraft:duct_tape",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -37,8 +39,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:bandage",
+     "name": "minecraft:paper",
      "weight": 10,
+     "gscraft_item": "gscraft:bandage",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -51,8 +54,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:wire_spool",
+     "name": "minecraft:copper_ingot",
      "weight": 3,
+     "gscraft_item": "gscraft:wire_spool",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -65,8 +69,9 @@
     },
     {
      "type": "minecraft:item",
-     "name": "gscraft:spark_plug",
+     "name": "minecraft:flint",
      "weight": 3,
+     "gscraft_item": "gscraft:spark_plug",
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -81,6 +86,7 @@
      "type": "minecraft:item",
      "name": "minecraft:gunpowder",
      "weight": 10,
+     "gscraft_item": "minecraft:gunpowder",
      "functions": [
       {
        "function": "minecraft:set_count",

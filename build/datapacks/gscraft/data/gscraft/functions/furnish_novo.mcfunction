@@ -1,0 +1,12 @@
+setblock 1063 80 164 minecraft:chest[facing=north]{LootTable:"gscraft:sites/novo"} keep
+setblock 1063 80 191 minecraft:chest[facing=north]{LootTable:"gscraft:sites/novo"} keep
+setblock 1063 80 179 minecraft:chest[facing=north]{LootTable:"gscraft:sites/novo"} keep
+setblock 1042 77 152 minecraft:chest[facing=north]{LootTable:"gscraft:sites/novo"} keep
+setblock 1036 77 191 minecraft:chest[facing=north]{LootTable:"gscraft:sites/novo"} keep
+setblock 1021 77 191 minecraft:chest[facing=north]{LootTable:"gscraft:sites/novo"} keep
+setblock 1057 77 152 minecraft:chest[facing=north]{LootTable:"gscraft:sites/novo"} keep
+setblock 1051 77 191 minecraft:chest[facing=north]{LootTable:"gscraft:sites/novo"} keep
+setblock 1000 71 158 minecraft:chest[facing=north]{LootTable:"gscraft:sites/novo"} keep
+setblock 997 71 182 minecraft:chest[facing=north]{LootTable:"gscraft:sites/novo"} keep
+setblock 994 71 203 minecraft:chest[facing=north]{LootTable:"gscraft:sites/novo"} keep
+setblock 1021 71 170 minecraft:chest[facing=north]{LootTable:"gscraft:sites/novo"} keep

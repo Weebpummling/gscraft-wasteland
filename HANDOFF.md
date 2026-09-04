@@ -37,7 +37,11 @@ New tools: `dossiers.py` (dossier chests, `tools/dossiers.json`, `gscraft:dossie
 ruin pieces in the camp, `gscraft:camp_ruins`, loot tables under `ruins/`). **EMI 1.1.24 added** to the
 server's `/mods` (client-side mod; the dedicated server skips it) and to `additions.json` / `manifest.json`;
 the client pack in the release does NOT yet carry it — rebuild the pack or drop the jar into each
-player's `mods` folder. The v6 world on the hosted server has not had `camp_ruins` or `dossiers` run yet.
+player's `mods` folder. `camp_ruins` has been run on the hosted world (24 pieces, read back from the region files). `tools/furnish.py`
+places loot chests in sites that came across without any (Novo has none above ground: its 1.12 source had
+34 k blocks and no containers; the plaza has one) — `gscraft:furnish_novo` and `gscraft:furnish_financial`, 12
+chests each, tables `gscraft:sites/*`. All loot tables carry vanilla stand-in items with the intended
+`gscraft_item` beside each entry until Phase C. `docs/gscraft-mod-capabilities.md` is the pack review.
 
 **Not started:** Phase A (the owner's mob-free visual pass on the local server, `start-visual.bat`);
 `camp.py` (the six NPC buildings as templates onto their pads); the systems (KubeJS items, blueprints,

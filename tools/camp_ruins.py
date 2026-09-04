@@ -43,15 +43,22 @@ STONE_BRICK, CRACKED, SLAB, WALL, WOOL, FENCE, GLASS_PANE, LANTERN = ("minecraft
     "minecraft:gray_stained_glass_pane", "minecraft:soul_lantern")
 IRON_TRAP, IRON_BLOCK, BLACK_CONC, DEEPSLATE_TILE = "minecraft:iron_trapdoor", "minecraft:iron_block", "minecraft:black_concrete", "minecraft:deepslate_tiles"
 
+# Loot tables. The gscraft items arrive in Phase C; until then every entry carries a vanilla
+# stand-in so the datapack loads clean, and the intended id sits beside it for the swap.
 LOOT = {
-    "hardware": [("gscraft:bolt", 2, 6), ("gscraft:nut", 2, 6), ("gscraft:screw", 2, 6), ("gscraft:nail", 2, 8),
-                 ("gscraft:metal_scrap", 1, 4), ("gscraft:duct_tape", 1, 2), ("gscraft:wrench", 0, 1)],
-    "electrical": [("gscraft:wire_spool", 1, 3), ("gscraft:power_cord", 0, 2), ("gscraft:light_bulb", 0, 2),
-                   ("gscraft:capacitor", 1, 3), ("gscraft:circuit_board", 0, 1), ("gscraft:broken_radio", 0, 1)],
-    "medical": [("gscraft:bandage", 2, 4), ("gscraft:painkillers", 1, 2), ("gscraft:antiseptic", 0, 1),
-                ("gscraft:syringe", 0, 2), ("gscraft:water_filter", 0, 1)],
-    "mixed": [("gscraft:metal_scrap", 1, 3), ("gscraft:duct_tape", 0, 2), ("gscraft:bandage", 1, 2),
-              ("gscraft:wire_spool", 0, 2), ("gscraft:spark_plug", 0, 1), ("minecraft:gunpowder", 1, 3)],
+    "hardware": [("minecraft:iron_nugget", "gscraft:bolt", 2, 6), ("minecraft:iron_nugget", "gscraft:nut", 2, 6),
+                 ("minecraft:iron_nugget", "gscraft:screw", 2, 6), ("minecraft:iron_nugget", "gscraft:nail", 2, 8),
+                 ("minecraft:iron_ingot", "gscraft:metal_scrap", 1, 4), ("minecraft:string", "gscraft:duct_tape", 1, 2),
+                 ("minecraft:iron_pickaxe", "gscraft:wrench", 0, 1)],
+    "electrical": [("minecraft:copper_ingot", "gscraft:wire_spool", 1, 3), ("minecraft:lead", "gscraft:power_cord", 0, 2),
+                   ("minecraft:glowstone_dust", "gscraft:light_bulb", 0, 2), ("minecraft:redstone", "gscraft:capacitor", 1, 3),
+                   ("minecraft:comparator", "gscraft:circuit_board", 0, 1), ("minecraft:jukebox", "gscraft:broken_radio", 0, 1)],
+    "medical": [("minecraft:paper", "gscraft:bandage", 2, 4), ("minecraft:sugar", "gscraft:painkillers", 1, 2),
+                ("minecraft:honey_bottle", "gscraft:antiseptic", 0, 1), ("minecraft:glass_bottle", "gscraft:syringe", 0, 2),
+                ("minecraft:charcoal", "gscraft:water_filter", 0, 1)],
+    "mixed": [("minecraft:iron_ingot", "gscraft:metal_scrap", 1, 3), ("minecraft:string", "gscraft:duct_tape", 0, 2),
+              ("minecraft:paper", "gscraft:bandage", 1, 2), ("minecraft:copper_ingot", "gscraft:wire_spool", 0, 2),
+              ("minecraft:flint", "gscraft:spark_plug", 0, 1), ("minecraft:gunpowder", "minecraft:gunpowder", 1, 3)],
 }
 
 
@@ -214,9 +221,9 @@ def main(argv):
         sizes[name] = size
         print(f"ruin_{name:11} {n:3} blocks  size {size}  loot {tables}")
     for table, rows in LOOT.items():
-        entries = [{"type": "minecraft:item", "name": item, "weight": 10 if lo else 3,
+        entries = [{"type": "minecraft:item", "name": item, "weight": 10 if lo else 3, "gscraft_item": intended,
                     "functions": [{"function": "minecraft:set_count", "count": {"min": max(lo, 1), "max": hi}}]}
-                   for item, lo, hi in rows]
+                   for item, intended, lo, hi in rows]
         tbl = {"type": "minecraft:chest", "pools": [{"rolls": {"min": 2, "max": 4}, "entries": entries}]}
         p = DATAPACK / "loot_tables" / "ruins" / f"{table}.json"
         p.parent.mkdir(parents=True, exist_ok=True)
