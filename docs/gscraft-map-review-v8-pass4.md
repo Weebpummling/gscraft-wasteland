@@ -147,7 +147,12 @@ region, entities, data without the local map items, serverconfig, the worldgen a
 datapack), `/mods_20260905` (the 2026-09-05 set, Superb Warfare 0.8.8), `/config_20260905`, `/defaultconfigs_20260905`,
 `server.properties.v8` (peaceful, spawn-monsters=false, level-name wasteland-v8, survival). Swap: mods/config/defaultconfigs
 folders renamed, `/kubejs` moved aside as `/kubejs_off_20260905` (no scripts), properties swapped, start. Forge on the host
-stays 47.4.10 (every mod's range accepts it). Result recorded in HANDOFF §1.
+stays 47.4.10 (every mod's range accepts it). Deployed 2026-09-05 16:04: `Done (2.2 s)`, "Preparing level wasteland-v8",
+ModernFix 22 s load, the benign error set, no `[gscraft]` lines (scripts off), one expected warning "Missing data pack
+file/gscraft" (the level.dat still lists the gameplay datapack that was deliberately not uploaded); mcping answers with
+MOTD "GSCraft Wasteland - test build v8 (map review, enemies off)", 0/10. Old folders kept on the host as
+`*_old_20260905`, `kubejs_off_20260905`, `server.properties.v7`. Left for a later pass: a right-angled small bay on the
+strait's south-west shore (x -1050..-975, z -2130..-2050).
 
 ## 3. Open
 

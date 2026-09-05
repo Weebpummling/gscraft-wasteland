@@ -48,6 +48,12 @@ how to rebuild the same state elsewhere.
 
 ## 1. Where things stand
 
+**Hosted server (2026-09-05 16:04): running the v8 world** (`/wasteland-v8`), the 2026-09-05 mod set on Forge 47.4.10,
+`difficulty=peaceful` + `spawn-monsters=false` (owner: enemies off while gameplay is worked on locally), KubeJS scripts moved
+aside (`/kubejs_off_20260905`), MOTD "test build v8 (map review, enemies off)". Deployed with `tools/deploy_v8.py`; old
+folders kept as `*_old_20260905`. Client pack: release `client-installer-2026-09-05` (Forge 47.4.23 client, 17 mod updates).
+The local server (`G:/GSCraft/server`) keeps the scripts and runs 47.4.23 for the gameplay work.
+
 **The hosted server (Bisect, 199.115.76.82:9150, panel id 493d6256) RUNS v6** since 2026-09-03 evening:
 world `wasteland-v6`, MOTD "GSCraft Wasteland - test build v6", the rebuild pack with EMI added, the KubeJS
 scripts, camp ruins v2, Magnum torches, dossier and site chests placed; **mob spawning is OFF** (owner) until the
