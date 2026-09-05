@@ -4,6 +4,70 @@
   "points": [
    [
     -1011,
+    -1345
+   ],
+   [
+    -995,
+    -1440
+   ],
+   [
+    -930,
+    -1560
+   ],
+   [
+    -830,
+    -1660
+   ],
+   [
+    -713,
+    -1726
+   ],
+   [
+    -684,
+    -1766
+   ]
+  ],
+  "width": [
+   16,
+   26
+  ],
+  "levels": [
+   [
+    0.0,
+    53
+   ],
+   [
+    0.08,
+    54
+   ],
+   [
+    0.16,
+    55
+   ],
+   [
+    0.26,
+    56
+   ],
+   [
+    0.38,
+    57
+   ]
+  ],
+  "depth": 3,
+  "meander": {
+   "amp": 18,
+   "wavelength": 220,
+   "amp2": 7,
+   "wavelength2": 90,
+   "seed": 3
+  },
+  "bank_slope": [
+   2.5,
+   4.5
+  ],
+  "restore": [
+   [
+    -1011,
     -1350
    ],
    [
@@ -23,10 +87,41 @@
     -1726
    ]
   ],
-  "width": 22,
-  "level": 57,
-  "depth": 3,
-  "land": 65,
-  "note": "lake level 57; the channel drops into the sector river gorge (y 39) at the mouth"
+  "restore_reach": 52,
+  "protect": "integrate_skad_mask.npz",
+  "lake_rect": [
+   -760,
+   -1800,
+   -560,
+   -1600
+  ],
+  "note": "Skadowsky river (y 53) up to the lake (y 57): four 1-block rapids; the first carve's straight 22-wide channel and its flat 65 corridor go back to the relief",
+  "mouth_t": 0.06
+ },
+ {
+  "shore": "skadowsky_west_bank_north",
+  "rect": [
+   -1140,
+   -1358,
+   -1089,
+   -956
+  ],
+  "water": "E",
+  "level": 53,
+  "width": 36,
+  "protect": "integrate_skad_mask.npz"
+ },
+ {
+  "shore": "skadowsky_west_bank_south",
+  "rect": [
+   -1140,
+   -935,
+   -1089,
+   -737
+  ],
+  "water": "E",
+  "level": 53,
+  "width": 36,
+  "protect": "integrate_skad_mask.npz"
  }
 ]

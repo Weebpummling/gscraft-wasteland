@@ -1,0 +1,48 @@
+[
+ {
+  "source": "skad",
+  "source_dir": "G:/GSCraft/incoming/skadowsky/unpacked12/Region Skadowsky 1.20.1 1.2",
+  "chunks": [
+   -30,
+   -77,
+   -2,
+   -31
+  ],
+  "offset": [
+   -38,
+   -16
+  ],
+  "dy": 35,
+  "what": "Region Skadowsky 1.2 sector; highway level 30 -> 65, its river stays low",
+  "dest_blocks": [
+   -1088,
+   -1488,
+   -625,
+   -737
+  ],
+  "chunk_count": 1363
+ },
+ {
+  "source": "hub",
+  "source_dir": "G:/GSCraft/scratch/upgrade/world/world",
+  "chunks": [
+   -91,
+   96,
+   -40,
+   135
+  ],
+  "offset": [
+   -120,
+   -135
+  ],
+  "dy": -1,
+  "what": "Novo Expograd hub -> cyberpunk district at the ridge foot",
+  "dest_blocks": [
+   -3376,
+   -624,
+   -2545,
+   15
+  ],
+  "chunk_count": 2080
+ }
+]
