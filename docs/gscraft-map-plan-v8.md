@@ -34,6 +34,23 @@ land use, buildings). All three fit the 4 km border; the roads, rail and water c
 Recommendation: Pripyat's network as the skeleton, with Tosno's highway-and-rail corridor idea borrowed if a stronger
 east-west spine is wanted. Decision: owner.
 
+### 1b. Ready-made Pripyat worlds (owner-supplied, 2026-09-04)
+
+Two downloaded packs in `G:/GSCraft/incoming/pripyat/` replace the OpenStreetMap tracing: the roads, rail, river,
+lake, town and plant already exist as blocks. Census by `tools/census_world.py` + `tools/crop_render.py`, renders in
+`incoming/census/`.
+
+| Pack | Version | What it holds | Ground | Fit |
+|---|---|---|---|---|
+| **Pripyat After the Accident (Outdated Project)** | 1.16.5 (DataVersion 2586), Bukkit world, vanilla blocks only (498 ids) | the whole exclusion zone: Pripyat town (1.85 x 2.25 km grid of 9-storey blocks, avenues, the diagonal main road), the ChNPP complex (reactor block, turbine hall, cooling towers, switchyard), the cooling pond and river, the rail yard, roads between, forest and fields; built extent about 3.7 x 4.4 km | flat, natural ground y 65, buildings to 89 (town) / 113 (plant) | **the basis**: roads, rail, water, land use and two whole sectors in one piece; upgrade path = vanilla `--forceUpgrade` (`upgrade112.py`, running into `scratch/upgrade/pripyat_after`) |
+| **ПРИПЯТЬ** | 1.21.8 (DataVersion 4440), vanilla, 31 block ids newer than 1.20.1 (tuff and copper variants, short grass) | the town centre only, 1.0 x 1.5 km: stadium, central square, culture palace, hotel, shops, a few blocks, dense forest around | superflat floor at y -61 with the town at y -5..48 | **the detail donor** for the town centre: overlays the same area of the older world once aligned; needs `tools/remap121.json` (drafted) and a 1.20.1 rewrite (my anvil tools) |
+
+Decision to take: the older world as the spine (its roads and rail are the network; the town and the plant are two of
+the sectors; the lake and river are the water), trimmed to the border; our sectors (camp, Skadowsky, the player builds,
+Novo, plaza, settlement, hub, runway, the Woods) placed on the open land along its roads; the 1.21 centre swapped in
+where it is better. Attribution: both packs' authors to be credited in the docs and release notes (owner to supply the
+sources).
+
 ## 2. Terrain heights (to decide next)
 
 Proposal to react to: sea level 63 as the river and lake level; the general ground 70-80 (rolling, 2-4 block folds
