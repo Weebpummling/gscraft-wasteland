@@ -138,6 +138,9 @@ Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700
   vertical shifts (section shift + residual column shift), every block resolving in the pack (Custom NPCs waypoint
   markers -> air). The hub, Novo, plaza + sewers, Bio Gen, Skadowsky (+35), settlement, mega-base, industrial district,
   hempcrete compound, library and 29 farmsteads are in.
-- Edge grading: `grade_v8.py` blends the land around every build into y 65 over 48 blocks (running).
+- Edge grading: `grade_v8.py` blends the land around every build into y 65 over 48 blocks. First run used the wasteland
+  terracotta fill (brown rings in `incoming/census/v8_cell_topdown.png`); re-run with dirt/grass and a repaint of the rings.
+- Server: `server/wasteland-v8` booted clean on the local server 2026-09-05 00:27 (visual profile) for the owner's fly-through;
+  spawn is still the pack's (in the town), the camp sector itself is not built yet (its plateau and basin are).
 - Next: render, boot on the local server for the owner's fly-through (visual pass), then step 6 (adjust / clean up).
 

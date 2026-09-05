@@ -13,6 +13,8 @@ usage: grade.py <world dir> x1 z1 x2 z2 --y Y [--falloff R] [--bowl bx1 bz1 bx2 
                       ground around it is blended from --bowl-floor at the rect edge up to Y over
                       --bowl-width blocks (a crater wall)
   --protect ...       rects never touched (block coordinates, repeatable)
+  --fill B --top B    ground body / surface blocks (default: the wasteland terracotta); grass worlds: minecraft:dirt minecraft:grass_block
+  --repaint B         replace this block (an earlier fill) inside the region with the new fill/top
   --keep-built-beyond N   built columns further than N blocks outside the core are left alone (a city
                       around a site keeps its buildings; N=0 removes every building the falloff reaches;
                       default: remove everything inside core+falloff)
@@ -24,7 +26,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from terrain import World, column_is_built, water_top, FILL, TOP, WATER, AIR
+import terrain
+from terrain import World, column_is_built, water_top, WATER, AIR
 
 
 def smoothstep(t):
@@ -40,7 +43,8 @@ def cheb_dist(x, z, r):
 
 
 def grade(world, core, y, falloff=64, bowl=None, bowl_floor=None, bowl_width=32, protect=(), keep_built_beyond=None,
-          label="", dry=False):
+          label="", dry=False, fill=None, top=None, repaint=None):
+    FILL = fill or terrain.FILL; TOP = top or terrain.TOP
     x1, z1, x2, z2 = core
     R = falloff
     rx1, rz1, rx2, rz2 = x1 - R, z1 - R, x2 + R, z2 + R
@@ -121,6 +125,17 @@ def grade(world, core, y, falloff=64, bowl=None, bowl_floor=None, bowl_width=32,
         if wt is not None and t < wt and cheb_dist(x, z, core) > 0:
             for yy in range(t + 1, wt + 1): world.set(x, yy, z, WATER)   # a lake outside the core keeps its level
         changed += 1
+    repainted = 0
+    if repaint:
+        for x in range(rx1, rx2 + 1):
+            for z in range(rz1, rz2 + 1):
+                if protected(x, z): continue
+                ty, tb = world.top(x, z)
+                if ty is None: continue
+                for yy in range(max(ty - 12, 40), ty + 1):
+                    if world.get(x, yy, z) == repaint:
+                        world.set(x, yy, z, TOP if yy == ty else FILL); repainted += 1
+        print(f"repainted {repainted} {repaint} blocks to {TOP}/{FILL}")
     dropped = world.drop_block_entities(rx1, rz1, rx2, rz2, lambda x, z: target.get((x, z)), protected)
     files, chunks = world.save(dry)
     print(f"grade {label}: core x {x1}..{x2} z {z1}..{z2} at y={y}, falloff {R}, bowl {bowl}: {changed} columns set "
@@ -140,7 +155,8 @@ def main(a):
     for i, v in enumerate(a):
         if v == "--protect": protect.append(tuple(int(q) for q in a[i + 1:i + 5]))
     grade(world, core, opt("--y", 1), opt("--falloff", 1, 64), opt("--bowl", 4), opt("--bowl-floor", 1),
-          opt("--bowl-width", 1, 32), protect, opt("--keep-built-beyond", 1), opt("--label", 1, "", str), "--dry-run" in a)
+          opt("--bowl-width", 1, 32), protect, opt("--keep-built-beyond", 1), opt("--label", 1, "", str), "--dry-run" in a,
+          opt("--fill", 1, None, str), opt("--top", 1, None, str), opt("--repaint", 1, None, str))
 
 
 if __name__ == "__main__":
