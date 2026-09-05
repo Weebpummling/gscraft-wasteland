@@ -51,10 +51,27 @@ Novo, plaza, settlement, hub, runway, the Woods) placed on the open land along i
 where it is better. Attribution: both packs' authors to be credited in the docs and release notes (owner to supply the
 sources).
 
-## 2. Terrain heights (to decide next)
+## 2. Terrain heights (over the Pripyat footprint; draft for decision, render `incoming/census/height_plan_step2.png`)
 
-Proposal to react to: sea level 63 as the river and lake level; the general ground 70-80 (rolling, 2-4 block folds
-over 100 m, so a road never needs a cutting deeper than 3); a plateau of 84-90 north of the river where the camp sits
-(the camp basin is cut 6 into it, the crater lake at 63); a low ridge of 95-105 along the west edge as a wall; nothing
-above 110 inside the border; the Woods on ground 72-82 with dense trees and a stream. The real terrain of all three
-candidates is flat, so the relief is authored, not copied.
+The source ground is y 65 everywhere (superflat), water at 62. Everything built keeps its level: the town, the plant,
+every road and rail line, the lake and river banks. Relief is authored only on open land, graded so no road climbs
+steeper than 1:8 and the town and plant edges never see a wall.
+
+| Zone | Where (blocks) | Heights | Purpose |
+|---|---|---|---|
+| A  Camp plateau | the open land between the town's east edge and the lake, about x -2150..-1250, z -2700..-2000 | 84-90, a basin cut down to the lake level (63) at its centre for the crater lake and the Warium island; slopes 1:6 to the town side, a bluff to the lake | the camp overlooks both the town and the water; the only high ground in the middle of the map |
+| B  West ridge | the western strip x -4000..-3450, from z -2600 south to the border | 95-105, a continuous wall with two saddles at 88 where roads cross | the map's western edge reads as a wall, not a fence |
+| C  The Woods | the forest and fields south of the town, x -3400..-1600, z -1400..100 | 66-74 rolling, dense trees, a stream at 63 running north to the river | the wilderness zone of the design |
+| D  Rolling fields | the open land east of the town and around the lake's south shore, and the strip north of the town (D2) | 65-72, folds of 2-4 blocks over 100 m | ground for the placed sectors (Skadowsky, Novo, plaza, settlement, runway) |
+| Fixed | town (x -3700..-1850, z -3700..-1450), plant (x -1100..1120, z -350..1870), the rail yard and every road | 65 | as built |
+| Water | lake, river, channels | 62, banks 65 | as built; the Woods stream added |
+
+**Border options** (owner decision):
+- **A: 5.1 x 4.6 km, everything in place** - x -3900..1200, z -3900..700. Town, lake, river, plant and rail yard exactly
+  where the pack has them. Longest trip (town centre to plant) 4.3 km.
+- **B: 4.2 x 4.2 km, plant moved** - x -3900..300, z -3900..300, the plant complex transplanted 900 blocks north-west
+  onto the lake's south shore (its rail and road links rebuilt in step 8). Longest trip 3.2 km. Denser, closer to the
+  4 km the owner asked for; costs the pack's true geography between lake and plant.
+
+Ungenerated holes inside either border (black in the render) are filled by the terrain build.
+
