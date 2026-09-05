@@ -32,6 +32,7 @@ RAW = f"https://raw.githubusercontent.com/{GH_REPO}/main/build/packwiz/"
 FILES_TAG = sys.argv[sys.argv.index("--files-tag") + 1] if "--files-tag" in sys.argv else "pack-files-2026-09-04"
 REL = f"https://github.com/{GH_REPO}/releases/download/{FILES_TAG}/"      # the maintenance release that hosts the non-Modrinth jars
 INSTALLER = f"https://github.com/{GH_REPO}/releases/download/{TAG}/"      # the player-facing release: one bundle zip
+FORGE = "47.4.23"          # the client Forge build; the server runs the same (2026-09-05)
 PRISM_VER = "11.1.0"
 PRISM_ZIP = f"https://github.com/PrismLauncher/PrismLauncher/releases/download/{PRISM_VER}/PrismLauncher-Windows-MSVC-Portable-{PRISM_VER}.zip"
 BOOTSTRAP = G / "incoming" / "tools" / "packwiz-installer-bootstrap.jar"
@@ -139,11 +140,11 @@ def main():
     (OUT / "pack.toml").write_bytes((
         f'name = "GSCraft"\nauthor = "GSCraft"\nversion = {toml_str(VERSION)}\npack-format = "packwiz:1.1.0"\n\n'
         f'[index]\nfile = "index.toml"\nhash-format = "sha256"\nhash = "{sha(OUT / "index.toml", "sha256")}"\n\n'
-        f'[versions]\nforge = "47.4.10"\nminecraft = "1.20.1"\n').encode("utf-8"))
+        f'[versions]\nforge = "{FORGE}"\nminecraft = "1.20.1"\n').encode("utf-8"))
     # .mrpack: the same files, overrides = the plain files
     mr = {"formatVersion": 1, "game": "minecraft", "versionId": VERSION, "name": "GSCraft",
-          "summary": "GSCraft wasteland - Minecraft 1.20.1 Forge 47.4.10", "files": mr_files,
-          "dependencies": {"minecraft": "1.20.1", "forge": "47.4.10"}}
+          f"summary": "GSCraft wasteland - Minecraft 1.20.1 Forge {FORGE}", "files": mr_files,
+          f"dependencies": {"minecraft": "1.20.1", "forge": "{FORGE}"}}
     with zipfile.ZipFile(ASSETS / "GSCraft.mrpack", "w", zipfile.ZIP_DEFLATED) as z:
         z.writestr("modrinth.index.json", json.dumps(mr, indent=1))
         for rel in plain:
@@ -197,12 +198,12 @@ def main():
         'if not "%~1"=="" set "MC=%~1"',
         'set "JDIR=%LOCALAPPDATA%\\GSCraft\\java"',
         'set "JAVA_URL=https://api.adoptium.net/v3/binary/latest/17/ga/windows/x64/jre/hotspot/normal/eclipse?project=jdk"',
-        'set "FORGE_URL=https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.10/forge-1.20.1-47.4.10-installer.jar"',
+        f'set "FORGE_URL=https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-{FORGE}/forge-1.20.1-{FORGE}-installer.jar"',
         f'set "BOOT_URL={REL}packwiz-installer-bootstrap.jar"',
         f'set "PACK={RAW}pack.toml"',
         "echo.",
         "echo  GSCraft setup for the official Minecraft launcher.",
-        "echo  This installs Java 17 (private copy), Forge 47.4.10 and the GSCraft pack into %MC%.",
+        f"echo  This installs Java 17 (private copy), Forge {FORGE} and the GSCraft pack into %MC%.",
         "echo  Re-run this file whenever the pack is updated (the official launcher cannot update it by itself).",
         "echo.",
         'if not exist "%MC%\\launcher_profiles.json" (',
@@ -216,8 +217,8 @@ def main():
         "call :findjava",
         'if "%JAVA%"=="" goto :fail',
         ":havejava",
-        'if not exist "%MC%\\versions\\1.20.1-forge-47.4.10" (',
-        "  echo  Installing Forge 47.4.10 ...",
+        f'if not exist "%MC%\\versions\\1.20.1-forge-{FORGE}" (',
+        f"  echo  Installing Forge {FORGE} ...",
         f"  {ps}\"{tls}Invoke-WebRequest -Uri '%FORGE_URL%' -OutFile '%TEMP%\\forge-installer.jar'\" || goto :fail",
         '  "%JAVA%" -jar "%TEMP%\\forge-installer.jar" --installClient "%MC%" || goto :fail',
         ")",
