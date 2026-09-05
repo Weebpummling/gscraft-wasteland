@@ -73,6 +73,7 @@ def run_rect(src_world: Path, dst_world: Path, rect, offset, remap, dry, agg: Co
             ns = tp.shift_chunk(name, root, dx, dz, remap, {}, dy16)
             if res:
                 residual_shift(root, res)
+            root["Status"] = (8, "minecraft:full")        # upgraded 1.12 saves carry 'spawn'/'empty' statuses; a transplanted chunk is finished
             agg.update(ns)
             if not dry:
                 ncx, ncz = cx + dx, cz + dz
