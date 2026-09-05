@@ -1,0 +1,1331 @@
+{
+ "OAmP-1.20.1-V3.jar": {
+  "project_id": "OP76SB7W",
+  "installed": "OAmP-V3",
+  "installed_date": "2026-04-16",
+  "latest": "OAmP-V3",
+  "latest_date": "2026-04-16",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "getittogetherdrops-forge-1.20-1.3.jar": {
+  "project_id": "T0OUgf8P",
+  "installed": "v1.3",
+  "installed_date": "2023-06-10",
+  "latest": "v1.3",
+  "latest_date": "2023-06-10",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "lostcities-1.20-7.5.3.jar": {
+  "project_id": "8VDCUS3b",
+  "installed": "1.20-7.5.3",
+  "installed_date": "2026-08-31",
+  "latest": "1.20-7.5.4",
+  "latest_date": "2026-09-03",
+  "latest_type": "release",
+  "newer_count": 1,
+  "changelogs": [
+   {
+    "v": "1.20-7.5.4",
+    "date": "2026-09-03",
+    "type": "release",
+    "text": "## LostCities 1.20-7.5.4\n- Added a new railwayLevelOffset profile option to allow railways to be raised or lowered in 6-block increments, with stations and building cellars respecting the configured level\n- Add a new page to the world customization screen for editing every profile setting, with range and allowed-value validation\n"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "MTS Official Pack-1.20.1-V29.jar": {
+  "project_id": "C7TiPPJz",
+  "installed": "29",
+  "installed_date": "2026-04-18",
+  "latest": "29",
+  "latest_date": "2026-04-18",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "modernfix-forge-5.25.2+mc1.20.1.jar": {
+  "project_id": "nmDcB62a",
+  "installed": "5.25.2+mc1.20.1",
+  "installed_date": "2025-12-08",
+  "latest": "5.27.83+mc1.20.1",
+  "latest_date": "2026-08-31",
+  "latest_type": "release",
+  "newer_count": 38,
+  "changelogs": [
+   {
+    "v": "5.27.83+mc1.20.1",
+    "date": "2026-08-31",
+    "type": "release",
+    "text": "Please check the [GitHub wiki](https://github.com/embeddedt/ModernFix/wiki/Changelog) for major changes."
+   },
+   {
+    "v": "5.27.79+mc1.20.1",
+    "date": "2026-08-30",
+    "type": "release",
+    "text": "Please check the [GitHub wiki](https://github.com/embeddedt/ModernFix/wiki/Changelog) for major changes."
+   },
+   {
+    "v": "5.27.78+mc1.20.1",
+    "date": "2026-08-30",
+    "type": "release",
+    "text": "Please check the [GitHub wiki](https://github.com/embeddedt/ModernFix/wiki/Changelog) for major changes."
+   },
+   {
+    "v": "5.27.78+mc1.20.1",
+    "date": "2026-08-29",
+    "type": "release",
+    "text": "Please check the [GitHub wiki](https://github.com/embeddedt/ModernFix/wiki/Changelog) for major changes."
+   },
+   {
+    "v": "5.27.77+mc1.20.1",
+    "date": "2026-08-21",
+    "type": "release",
+    "text": "Please check the [GitHub wiki](https://github.com/embeddedt/ModernFix/wiki/Changelog) for major changes."
+   },
+   {
+    "v": "5.27.76+mc1.20.1",
+    "date": "2026-08-16",
+    "type": "release",
+    "text": "Please check the [GitHub wiki](https://github.com/embeddedt/ModernFix/wiki/Changelog) for major changes."
+   }
+  ],
+  "in_server_mods": true
+ },
+ "immersive_weathering-1.20.1-2.0.5-forge.jar": {
+  "project_id": "jkskOO9i",
+  "installed": "1.20.1-2.0.5",
+  "installed_date": "2025-01-23",
+  "latest": "1.20.1-2.0.5",
+  "latest_date": "2025-01-23",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "xaerominimap-forge-1.20.1-26.4.2.jar": {
+  "project_id": "1bokaNcj",
+  "installed": "forge-1.20.1-26.4.2",
+  "installed_date": "2026-07-17",
+  "latest": "forge-1.20.1-26.4.2",
+  "latest_date": "2026-07-17",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "appleskin-forge-mc1.20.1-2.5.1.jar": {
+  "project_id": "EsAfCjCV",
+  "installed": "2.5.1+mc1.20.1",
+  "installed_date": "2023-09-27",
+  "latest": "2.5.1+mc1.20.1",
+  "latest_date": "2023-09-27",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "zombieawareness-1.20.1-1.13.1.jar": {
+  "project_id": "mMTOWOaA",
+  "installed": "1.20.1-1.13.1",
+  "installed_date": "2024-09-14",
+  "latest": "1.20.1-1.13.1",
+  "latest_date": "2024-09-14",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "lukis-grand-capitals-1.1.2.jar": {
+  "project_id": "8Lw09aLb",
+  "installed": "1.1.2+mod",
+  "installed_date": "2025-07-19",
+  "latest": "1.1.3+mod",
+  "latest_date": "2026-01-13",
+  "latest_type": "release",
+  "newer_count": 1,
+  "changelogs": [
+   {
+    "v": "1.1.3+mod",
+    "date": "2026-01-13",
+    "type": "release",
+    "text": "-Removed Mansions (They're in their own pack now!)"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "moonlight-1.20-2.16.15-forge.jar": {
+  "project_id": "twkfQtEc",
+  "installed": "1.20-2.16.15-forge",
+  "installed_date": "2025-10-18",
+  "latest": "1.20-2.16.34-forge",
+  "latest_date": "2026-06-16",
+  "latest_type": "release",
+  "newer_count": 16,
+  "changelogs": [
+   {
+    "v": "1.20-2.16.34-forge",
+    "date": "2026-06-16",
+    "type": "release",
+    "text": "- minor fixes\n- minor changes to media buttons"
+   },
+   {
+    "v": "1.20-2.16.33-forge",
+    "date": "2026-06-05",
+    "type": "release",
+    "text": "- a few new methods for WoodType's boat - Backported from 1.21"
+   },
+   {
+    "v": "1.20-2.16.32-forge",
+    "date": "2026-05-12",
+    "type": "release",
+    "text": "some backports"
+   },
+   {
+    "v": "1.20-2.16.31-forge",
+    "date": "2026-05-05",
+    "type": "release",
+    "text": "more changes to recoloring logic 3"
+   },
+   {
+    "v": "1.20-2.16.30-forge",
+    "date": "2026-04-18",
+    "type": "release",
+    "text": "more changes to recoloring logic 2"
+   },
+   {
+    "v": "1.20-2.16.28-forge",
+    "date": "2026-02-22",
+    "type": "release",
+    "text": "fixed an issue with villager trades"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "tenshilib-1.20.1-1.7.6-forge.jar": {
+  "project_id": "P2rffivS",
+  "installed": "1.20.1-1.7.6",
+  "installed_date": "2024-04-06",
+  "latest": "1.20.1-1.7.6",
+  "latest_date": "2024-04-06",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "the_knocker-1.5.0-forge-1.20.1.jar": {
+  "project_id": "hTju2zcV",
+  "installed": "1.5.0",
+  "installed_date": "2025-06-20",
+  "latest": "1.5.2",
+  "latest_date": "2026-06-15",
+  "latest_type": "release",
+  "newer_count": 2,
+  "changelogs": [
+   {
+    "v": "1.5.2",
+    "date": "2026-06-15",
+    "type": "release",
+    "text": "- fixed Knocker not spawning naturally sometimes"
+   },
+   {
+    "v": "1.5.1",
+    "date": "2026-06-09",
+    "type": "release",
+    "text": "- Added Knocker Theme Disc\n- When Knocker is lurking, it has a chance of disguising as a player\n- Ported to new MC versions\n- Removed Sign ambient event"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "player-animation-lib-forge-1.0.2-rc1+1.20.jar": {
+  "project_id": "gedNE4y2",
+  "installed": "1.0.2-rc1+1.20-forge",
+  "installed_date": "2023-06-14",
+  "latest": "1.0.2-rc1+1.20-forge",
+  "latest_date": "2023-06-14",
+  "latest_type": "beta",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "ferritecore-6.0.1-forge.jar": {
+  "project_id": "uXXizFIs",
+  "installed": "6.0.1",
+  "installed_date": "2023-10-22",
+  "latest": "6.0.1",
+  "latest_date": "2023-10-22",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "voicechat-forge-1.20.1-2.6.22.jar": {
+  "project_id": "9eGKb6K1",
+  "installed": "forge-1.20.1-2.6.22",
+  "installed_date": "2026-08-08",
+  "latest": "forge-1.20.1-2.6.23",
+  "latest_date": "2026-09-04",
+  "latest_type": "beta",
+  "newer_count": 1,
+  "changelogs": [
+   {
+    "v": "forge-1.20.1-2.6.23",
+    "date": "2026-09-04",
+    "type": "beta",
+    "text": "- Fixed JoinGroupEvent being fired for wrong password attempts\n- Fixed error when shutting down a server\n- Improved resiliency against mods that change the camera off-thread\n"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "ParCool-1.20.1-3.4.2.0.jar": {
+  "project_id": "Fsvx2bdR",
+  "installed": "1.20.1-3.4.2.0",
+  "installed_date": "2025-11-21",
+  "latest": "1.20.1-4.0.0.3",
+  "latest_date": "2026-08-30",
+  "latest_type": "alpha",
+  "newer_count": 7,
+  "changelogs": [
+   {
+    "v": "1.20.1-4.0.0.3",
+    "date": "2026-08-30",
+    "type": "alpha",
+    "text": "### Bugfix\n\n- #503\n- #504\n- #506"
+   },
+   {
+    "v": "1.20.1-4.0.0.2",
+    "date": "2026-08-26",
+    "type": "alpha",
+    "text": "### New Features\n\n- Optional Mod Support :[Curios API](https://www.curseforge.com/minecraft/mc-mods/curios)\n    - Only for 1.20.1+\n\n### Bugfix\n\n- #497\n- #501\n- #502"
+   },
+   {
+    "v": "1.20.1-4.0.0.1",
+    "date": "2026-08-25",
+    "type": "alpha",
+    "text": "### New Features\n\n- Climb Up variants : Jump / Swooce\n\n### Bugfix\n\n- #496\n- #499\n- #500"
+   },
+   {
+    "v": "1.20.1-4.0.0.0",
+    "date": "2026-08-23",
+    "type": "alpha",
+    "text": "### New Features\n\n- New Actions\n    - Castaway\n    - ClingToCliff -> HangOn\n    - Flipping -> TrickJump\n    - WallSlide -> SlideDown\n- New Animation Engine\n- New Animations\n    - Castaway\n    - Dash Vault\n    - Reverse Vault\n    - Side Flip\n    - Stride\n    - Pole Climbing\n    - Hang Down Swinging\n    - Creative Fly\n- New Items\n    - *ParCool Guide*\n        - Builtin in-game Guide and Skill Tree\n    - Equipments\n        - *Traceur's Gloves*\n        - *Traceur's Boots*\n    - Grappling Hook\n        - Physics based Rope Swinging\n        - Aim Assist Cone, used only when the crosshair itself misses\n- Reworked Existing Animations\n- Powered Zipline\n- Additional APIs\n- Some Attributes\n- Sounds for Some Actions\n\n### Modified\n\n- ParCool API\n- Re-implement Internal Base System\n- Re-implement Actions\n- Re-implement Zipline\n- Extend Zipline Length Limit\n\n### Removed\n\n- Action:Catleap\n- Limitation\n- Patchouli mod Support\n\n### Bugfixes\n\n- I haven't counted past the third one"
+   },
+   {
+    "v": "1.20.1-3.4.3.3",
+    "date": "2026-03-15",
+    "type": "release",
+    "text": "- Zipline entity provides bounding box for culling additionally\n- Optimize packet networking"
+   },
+   {
+    "v": "1.20.1-3.4.3.2",
+    "date": "2026-01-24",
+    "type": "release",
+    "text": "- Add Stamina Support of EpicFight on 1.21.1\n- #342\n- bugfix : possible to use actions even if stamina is depleted"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "mob_factions-1.0.0-forge-1.20.1.jar": {
+  "project_id": "plbFcob5",
+  "installed": "1.0.0",
+  "installed_date": "2024-10-04",
+  "latest": "1.0.0",
+  "latest_date": "2024-10-04",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "coroutil-forge-1.20.1-1.3.7.jar": {
+  "project_id": "rLLJ1OZM",
+  "installed": "1.20.1-1.3.7",
+  "installed_date": "2024-02-10",
+  "latest": "1.20.1-1.3.7",
+  "latest_date": "2024-02-10",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "spark-1.10.53-forge.jar": {
+  "project_id": "l6YH9Als",
+  "installed": "1.10.53-forge",
+  "installed_date": "2023-09-05",
+  "latest": "1.10.53-forge",
+  "latest_date": "2023-09-05",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "Atlas Lib-1.20.1-1.1.12.jar": {
+  "project_id": "G6VHtQr4",
+  "installed": "1.20.1-1.1.12",
+  "installed_date": "2024-04-11",
+  "latest": "1.20.1-1.1.12",
+  "latest_date": "2024-04-11",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "curios-forge-5.14.1+1.20.1.jar": {
+  "project_id": "vvuO3ImH",
+  "installed": "5.14.1+1.20.1",
+  "installed_date": "2025-04-13",
+  "latest": "5.14.1+1.20.1",
+  "latest_date": "2025-04-13",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "xaeroworldmap-forge-1.20.1-1.45.0.jar": {
+  "project_id": "NcUtCpym",
+  "installed": "forge-1.20.1-1.45.0",
+  "installed_date": "2026-08-21",
+  "latest": "forge-1.20.1-1.45.0",
+  "latest_date": "2026-08-21",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "tacz-1.20.1-1.1.8-hotfix.jar": {
+  "project_id": "SzzJttH8",
+  "installed": "1.1.8-hotfix",
+  "installed_date": "2026-05-25",
+  "latest": "1.1.8-hotfix",
+  "latest_date": "2026-05-25",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "ImmersiveEngineering-1.20.1-10.2.0-183.jar": {
+  "project_id": "tIm2nV03",
+  "installed": "10.2.0-183",
+  "installed_date": "2025-02-18",
+  "latest": "10.2.0-183",
+  "latest_date": "2025-02-18",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "Apotheosis-1.20.1-7.4.8.jar": {
+  "project_id": "rqFWfVlz",
+  "installed": "7.4.8",
+  "installed_date": "2026-06-19",
+  "latest": "7.4.8",
+  "latest_date": "2026-06-19",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "flashlight-2.1.0-forge-1.20.1.jar": {
+  "project_id": "SemszBhn",
+  "installed": "2.1.0-forge",
+  "installed_date": "2026-08-02",
+  "latest": "2.1.0-forge",
+  "latest_date": "2026-08-02",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "factory_blocks-forge-1.4.0+mc1.20.1.jar": {
+  "project_id": "ht0eTMEs",
+  "installed": "forge-1.20.1-1.4.0",
+  "installed_date": "2025-03-05",
+  "latest": "forge-1.20.1-1.4.0",
+  "latest_date": "2025-03-05",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "MagnumTorch-v8.0.2-1.20.1-Forge.jar": {
+  "project_id": "jorDmSKv",
+  "installed": "v8.0.2-1.20.1-Forge",
+  "installed_date": "2024-01-20",
+  "latest": "v8.0.2-1.20.1-Forge",
+  "latest_date": "2024-01-20",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "The-Man-From-The-Fog-1.4-1.20.1.jar": {
+  "project_id": "hIZHlLOF",
+  "installed": "1.4",
+  "installed_date": "2024-11-29",
+  "latest": "1.4",
+  "latest_date": "2024-11-29",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "CreativeCore_FORGE_v2.12.32_mc1.20.1.jar": {
+  "project_id": "OsZiaDHq",
+  "installed": "2.12.32",
+  "installed_date": "2025-04-04",
+  "latest": "2.12.39",
+  "latest_date": "2026-06-23",
+  "latest_type": "release",
+  "newer_count": 6,
+  "changelogs": [
+   {
+    "v": "2.12.39",
+    "date": "2026-06-23",
+    "type": "release",
+    "text": "* Fixed crash when config uses CreativeIngredient but it is not loaded yet\n"
+   },
+   {
+    "v": "2.12.38",
+    "date": "2026-05-22",
+    "type": "release",
+    "text": "* Fixed crash when min max is configured wrong (min being larger than max)\n"
+   },
+   {
+    "v": "2.12.37",
+    "date": "2026-04-28",
+    "type": "release",
+    "text": "* Fixed executing reloader manager off thread\n"
+   },
+   {
+    "v": "2.12.37",
+    "date": "2026-04-28",
+    "type": "release",
+    "text": "* Fixed executing reloader manager off thread\n"
+   },
+   {
+    "v": "2.12.36",
+    "date": "2026-04-24",
+    "type": "release",
+    "text": "* Fixed crash when playing sound config if the event does not exist\n* Added forge and fabric method to CreativeLoader\n* Fix: Remove hasBounds() check in VectorFan.generate() to resolve compact CTM slope render issue (by nickeh913678)\n"
+   },
+   {
+    "v": "2.12.35",
+    "date": "2026-02-19",
+    "type": "release",
+    "text": "* Removed IntersectionHelper\n* Fixed issues with connected textures and collision\n"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "recruits-1.20.1-1.14.0.jar": {
+  "project_id": "WOg9lm4u",
+  "installed": "1.14.0",
+  "installed_date": "2025-12-06",
+  "latest": "1.15.2",
+  "latest_date": "2026-06-29",
+  "latest_type": "release",
+  "newer_count": 7,
+  "changelogs": [
+   {
+    "v": "1.15.2",
+    "date": "2026-06-29",
+    "type": "release",
+    "text": "+ improved target finding and stabilize performance\n+ improved recuit spawn rate on nobles\n\n+ fixed siege starts by random faction that is not involved\n+ fixed villager type do not apply to recruits when recruited\n+ fixed nomad attack rate\n+ fixed siege enginner do not spawn with nametag\n+ fixed siege engineer not in noble trades\n\n+ added banner icons to siege overlay when there are more factions\n+ added last command info to groups in command screen\n+ added \"set claim faction\" and \"set claim owner\" admin command for servers\n+ added config to disable toasts\n\n"
+   },
+   {
+    "v": "1.15.1",
+    "date": "2026-06-15",
+    "type": "release",
+    "text": "- fixed crash when non living entities get hit by arrows or other projectiles \n- fixed siege engineer cannot load catapult with other projectiles than cobblestone\n- fixed incorrect npc counts when assigning troops to other factions\n\n- improved corpse compat by adding different poses and recruits skins  (messire)\n- improved the world map in all aspects (messire)"
+   },
+   {
+    "v": "1.15.0",
+    "date": "2026-04-10",
+    "type": "release",
+    "text": "**Routes:** \nIn the world-map it is now possible to add a route. Routes can be edited and waypoints can be added on the word-map.\nWaypoints can be dragged, deleted and edited. Actions can be setup, only the Wait-Action is implemented yet. Routes can be assigned to a Captain or Commander. If the route gets edited the route has to be assigned again.\n\n**Formation Tightness Setting:**\nA new button can be toggled to use tighter formations. If toggled the selected formation will have less gaps.\n\n**Hold Formation Setting:**\nA new button can be toggled to make recruits hold the formations. If toggled the recruits will not run towards enemies.\n\n**Face-Command:**\nIf pressed, the selected groups will face the direction you are looking. \nThis applies also to formations, they will adjust to the facing.\n\n**Siege Engineer:**\nImplementation of the Siege Engineer with compatibility for Siege Weapons Mod. Siege Engineer can steer, reload, repair and shoot the ballista and catapult. Also compatible with face and formation commands.\nThe Siege Engineer has his own interface where a target priority can be selected. Siege engineers will adapt to all ranged commands like \"hold fire\" and \"fire at will\".\n\n*"
+   },
+   {
+    "v": "1.14.2.3",
+    "date": "2026-01-29",
+    "type": "release",
+    "text": "+ fixed crash when siege succsess\n+ fixed hud not showing attacker faction\n+ fixed siege healthbar not correct"
+   },
+   {
+    "v": "1.14.2.2",
+    "date": "2026-01-27",
+    "type": "release",
+    "text": "- fixed cannot recruit from noble villager when needs villager setting is off"
+   },
+   {
+    "v": "1.14.2.1",
+    "date": "2026-01-12",
+    "type": "release",
+    "text": "- fixed cannot recruit when no faction"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "chipped-forge-1.20.1-3.0.7.jar": {
+  "project_id": "BAscRYKm",
+  "installed": "3.0.7",
+  "installed_date": "2024-10-15",
+  "latest": "3.0.7",
+  "latest_date": "2024-10-15",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "Ping-Wheel-1.12.0-forge-1.20.1.jar": {
+  "project_id": "QQXAdCzh",
+  "installed": "1.12.0",
+  "installed_date": "2025-10-22",
+  "latest": "1.12.1",
+  "latest_date": "2026-01-02",
+  "latest_type": "beta",
+  "newer_count": 1,
+  "changelogs": [
+   {
+    "v": "1.12.1",
+    "date": "2026-01-02",
+    "type": "beta",
+    "text": "* Updated argentine spanish localization (by Texaliuz)\n* Updated compatibility with Distant Horizons to version 2.4.4-b and later (API version 5.1.0)\n"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "LeavesBeGone-v8.0.0-1.20.1-Forge.jar": {
+  "project_id": "AVq17PqV",
+  "installed": "v8.0.0-1.20.1-Forge",
+  "installed_date": "2023-06-28",
+  "latest": "v8.0.0-1.20.1-Forge",
+  "latest_date": "2023-06-28",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "improvedmobs-1.20.1-1.13.7-forge.jar": {
+  "project_id": "23MovWyi",
+  "installed": "1.20.1-1.13.7-forge",
+  "installed_date": "2026-06-19",
+  "latest": "1.20.1-1.13.7-forge",
+  "latest_date": "2026-06-19",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "resourcefullib-forge-1.20.1-2.1.29.jar": {
+  "project_id": "G1hIVOrD",
+  "installed": "2.1.29",
+  "installed_date": "2024-08-24",
+  "latest": "2.1.29",
+  "latest_date": "2024-08-24",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "FastWorkbench-1.20.1-8.0.4.jar": {
+  "project_id": "5NYPwQRn",
+  "installed": "8.0.4",
+  "installed_date": "2026-06-19",
+  "latest": "8.0.4",
+  "latest_date": "2026-06-19",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "lootr-forge-1.20-0.7.35.94.jar": {
+  "project_id": "EltpO5cN",
+  "installed": "0.7.35.94",
+  "installed_date": "2025-11-26",
+  "latest": "0.7.35.94",
+  "latest_date": "2025-11-26",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "Immersive Vehicles-1.20.1-24.0.0.jar": {
+  "project_id": "BCzBuhJ5",
+  "installed": "24.0.0-1.20.1",
+  "installed_date": "2026-04-16",
+  "latest": "24.0.0-1.20.1",
+  "latest_date": "2026-04-16",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "bettercombat-forge-1.9.0+1.20.1.jar": {
+  "project_id": "5sy6g3kz",
+  "installed": "1.9.0+1.20.1-forge",
+  "installed_date": "2025-12-02",
+  "latest": "1.9.0+1.20.1-forge",
+  "latest_date": "2025-12-02",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "kubejs-forge-2001.6.5-build.26.jar": {
+  "project_id": "umyGl7zF",
+  "installed": "2001.6.5-build.26+forge",
+  "installed_date": "2026-05-01",
+  "latest": "2001.6.5-build.26+forge",
+  "latest_date": "2026-05-01",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "rhino-forge-2001.2.3-build.10.jar": {
+  "project_id": "sk9knFPE",
+  "installed": "2001.2.3-build.10+forge",
+  "installed_date": "2025-02-12",
+  "latest": "2001.2.3-build.10+forge",
+  "latest_date": "2025-02-12",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "azurelib-neo-1.20.1-3.1.2.jar": {
+  "project_id": "7zlUOZvb",
+  "installed": "3.1.2",
+  "installed_date": "2025-11-28",
+  "latest": "3.1.12",
+  "latest_date": "2026-07-04",
+  "latest_type": "release",
+  "newer_count": 10,
+  "changelogs": [
+   {
+    "v": "3.1.12",
+    "date": "2026-07-04",
+    "type": "release",
+    "text": "v3.1.12\n\n### Fixes\n- Fixed an issue where `q.x` queries were not working correctly.\n- Fixed crash when overriding bedrock easings with other bedrock easings. Now properly works."
+   },
+   {
+    "v": "3.1.11",
+    "date": "2026-06-17",
+    "type": "release",
+    "text": "v3.1.11\n\n## Performance \u2014 Rendering Pipeline Overhaul\n\nThis release is a focused performance pass targeting the client-side rendering pipeline. The goal was to bring per-entity CPU and GC cost for complex animated models in line with vanilla mob rendering. All changes are backwards-compatible \u2014 no model files, animator classes, or existing renderer configurations require modification.\n\n### Fixes\n- Fixed registry of easing types (Credit to Collinvh for fix)\n- Fixed bedrock easing interpolation having the position incorrectly in the place of the first value. (Credit to Collinvh for fix)\n- Fixed broken matrix translation in `RenderUtils.translateMatrix`. The previous implementation used `Matrix4f.add()` to apply a translation vector, which is mathematically incorrect and produced wrong world-space matrix results for bone tracking. Now uses `Matrix4f.translate()` as intended.\n- Fixed triple `boneTextureOverrideProvider` call per bone. The provider lambda was invoked three times per bone per frame in `getOrRefreshRenderBuffer`. Now called once, result cached locally.\n- Replaced per-cube `pushPose`/`popPose` with save/restore in `renderCubesOfBone`. The pose stack entry is now captured o"
+   },
+   {
+    "v": "3.1.10",
+    "date": "2026-05-18",
+    "type": "release",
+    "text": "v3.1.10\n\n### Fixes\n- Prevent MolangVariableHolder NPE for constant fallbacks"
+   },
+   {
+    "v": "3.1.9",
+    "date": "2026-04-21",
+    "type": "release",
+    "text": "v3.1.9\n\n### Fixes\n- Fixes endless loading if geo has broken parent bone\n- Fixes crash if animatable is null on animation queuing.\n- Fixes AzAutoGlowingLayer not restoring rendertype/vertext data.\n- Fixes crash on a missing geo file and animating.\n\n### Changes\n- Improves logging of animation including features."
+   },
+   {
+    "v": "3.1.8",
+    "date": "2026-04-16",
+    "type": "release",
+    "text": "v3.1.8\n\n### Fixes\n- Fixed empty nbt on crafted items."
+   },
+   {
+    "v": "3.1.7",
+    "date": "2026-04-13",
+    "type": "release",
+    "text": "v3.1.7\n\n### Fixes\n- Fixed mixin crash.\n\n\n### Changes\n- Added reRenderWithBakedModel for AzRenderLayer so modders can change the model on layers more easily."
+   }
+  ],
+  "in_server_mods": true
+ },
+ "almanac-1.20.x-forge-1.0.2.jar": {
+  "project_id": "Gi02250Z",
+  "installed": "1.0.2",
+  "installed_date": "2024-10-11",
+  "latest": "1.0.2",
+  "latest_date": "2024-10-11",
+  "latest_type": "beta",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "letmedespawn-1.20.x-forge-1.5.0.jar": {
+  "project_id": "vE2FN5qn",
+  "installed": "1.5.0",
+  "installed_date": "2025-03-16",
+  "latest": "1.5.0",
+  "latest_date": "2025-03-16",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "athena-forge-1.20.1-3.1.2.jar": {
+  "project_id": "b1ZV3DIJ",
+  "installed": "3.1.2",
+  "installed_date": "2024-03-12",
+  "latest": "3.1.2",
+  "latest_date": "2024-03-12",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "guardvillagers-1.20.1-1.6.15.jar": {
+  "project_id": "H1sntfo8",
+  "installed": "1.6.15",
+  "installed_date": "2025-12-08",
+  "latest": "1.6.19",
+  "latest_date": "2026-08-23",
+  "latest_type": "release",
+  "newer_count": 4,
+  "changelogs": [
+   {
+    "v": "1.6.19",
+    "date": "2026-08-23",
+    "type": "release",
+    "text": "\n- [CHANGE] fix weird bug where guards patrolling would stutter on corners\n"
+   },
+   {
+    "v": "1.6.18",
+    "date": "2026-06-11",
+    "type": "release",
+    "text": "\n- [CHANGE] fix #301 (rare crash with villagers not having the nearest living entities memory value)\n"
+   },
+   {
+    "v": "1.6.17",
+    "date": "2026-03-03",
+    "type": "release",
+    "text": "\n- [CHANGE] stop guards from moving around slightly while patrolling\n- [CHANGE] make it so return to village ai has higher priority than attacking mob ai so guards are able to return to the village more effectively\n"
+   },
+   {
+    "v": "1.6.16",
+    "date": "2026-02-26",
+    "type": "release",
+    "text": "\n-  [CHANGE] hopefully reduces issues with guard pathfinding to patrol points (with help from hrmcngs)\n    - If guards are continually stuck they will simply pause their patrol finding ai for a moment before reactivating their ai to walk back to their patrol point\n"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "Placebo-1.20.1-8.6.3.jar": {
+  "project_id": "tCkE8p2N",
+  "installed": "8.6.3",
+  "installed_date": "2026-06-14",
+  "latest": "8.6.3",
+  "latest_date": "2026-06-14",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "Patchouli-1.20.1-84.1-FORGE.jar": {
+  "project_id": "nU0bVIaL",
+  "installed": "1.20.1-84.1-forge",
+  "installed_date": "2025-02-06",
+  "latest": "1.20.1-85-forge",
+  "latest_date": "2026-03-08",
+  "latest_type": "release",
+  "newer_count": 1,
+  "changelogs": [
+   {
+    "v": "1.20.1-85-forge",
+    "date": "2026-03-08",
+    "type": "release",
+    "text": "https://github.com/VazkiiMods/Patchouli/releases/tag/release-1.20.1-85"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "FarmersDelight-1.20.1-1.2.9.jar": {
+  "project_id": "R2OftAxM",
+  "installed": "1.20.1-1.2.9",
+  "installed_date": "2025-08-23",
+  "latest": "1.20.1-1.3.4",
+  "latest_date": "2026-08-29",
+  "latest_type": "release",
+  "newer_count": 8,
+  "changelogs": [
+   {
+    "v": "1.20.1-1.3.4",
+    "date": "2026-08-29",
+    "type": "release",
+    "text": "## 1.3.4\n\n### Fixes\n- Fixed a broken behavior when pushing Feasts with Pistons;"
+   },
+   {
+    "v": "1.20.1-1.3.3",
+    "date": "2026-08-17",
+    "type": "release",
+    "text": "## 1.3.3\n\n### Fixes\n- Fixed Rope reeling not working if the rope is touching the void layer (minimum build height);\n- Fixed suppressed packet error due to an unsafe property check in TomatoBlock;\n- Fixed Canvas Signs not keeping text color when NBT-copied (such as CTRL + middle-click);"
+   },
+   {
+    "v": "1.20.1-1.3.2",
+    "date": "2026-05-13",
+    "type": "release",
+    "text": "## 1.3.2\n\n### Updates\n- Fried Rice and Chicken Soup have been nerfed down to the 3-minute tier of meals, due to their ease of cooking;\n- Rice Bag has been removed from the `straw_blocks` tag, due to not being actually made with Straw.\n  - Instead, it has been directly added to `mineable/knife`, which is the main use of the tag above.\n- Added fuel values to the following items:\n  - Straw Bale: Smelts 5 items;\n  - Rope Fence and Rope Fence Gate: Smelts 1 item each;\n\n### Fixes\n- Fixed occasional crash with a tag reference load order;\n\n### Translations\n- Added:\n  - bg_bg (thanks, OmegaSleepy and friends!);\n- Updated:\n  - es_ar (thanks, MilanesaGG!);\n  - ja_jp (thanks, Abbage230!);\n  - ko_kr (thanks, Kardane!);\n  - ru_ru (thanks, mpustovoi!);\n  - zh_cn, zh_tw, zh_hk and lzh;\n    - Thanks to BoredYukolin, deemsss2, MechtaSnezhevna and Kaohaaa for this translation batch!;"
+   },
+   {
+    "v": "1.20.1-1.3.1",
+    "date": "2026-04-28",
+    "type": "release",
+    "text": "## 1.3.1\n\n### Updates\n- Re-introduced deprecated references in code, to alleviate crashes with add-ons which depended on them:\n  - Tag references;\n  - Configuration;\n  - Block and item fields for BASKET now point to BAMBOO_BASKET;\n\n### Fixes\n- (1.20) Fix MixinExtras dependency not being present as a jar-jar in the mod file;"
+   },
+   {
+    "v": "1.20.1-1.3.0",
+    "date": "2026-04-27",
+    "type": "release",
+    "text": "## 1.3.0\n\n### Additions\n- New items:\n  - **Onion Soup** - A simple dish made with Onions, Milk and Bread;\n- New blocks:\n  - **Gleaming Salad** - A salad that shines like a Lush Cave! Made with fresh Glow Berries and a rich selection of vegetables, it will (literally) illuminate your dinner table;\n  - **Rope Fence** - A thin and sleek flavor of fence, complete with its own **Rope Fence Gate**!\n    - Crafted by replacing planks with rope in the standard fence and fence gate recipes;\n  - The **Basket** has gained a **wooden variant**, made with Sticks instead of Bamboo! It functions exactly the same as the existing Basket:\n    - This was done to make the block easier to obtain; Bamboo has unpredictable/unreliable world gen conditions, so locking it behind this material felt pointless;\n    - The old Basket has been renamed to **Bamboo Basket**, and can still be crafted, using Bamboo instead of Sticks;\n    - Both blocks can be salvaged for Canvas and scraps on the Cutting Board, using an axe;\n- Pumpkin Pie can now be **placed as a block**, like the other pies!\n  - By default, it is placeable without secondary action. A config exists to require sneaking, if preferred;\n- Farmer's Delight "
+   },
+   {
+    "v": "1.20.1-1.2.11a",
+    "date": "2026-04-20",
+    "type": "release",
+    "text": "## 1.2.11a\n\n### Fixes\n- Fix block entities not clearing properly on contraption mods;"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "FastFurnace-1.20.1-8.0.2.jar": {
+  "project_id": "9X0318ev",
+  "installed": "8.0.2",
+  "installed_date": "2026-06-19",
+  "latest": "8.0.2",
+  "latest_date": "2026-06-19",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "AI-Improvements-1.20-0.5.2.jar": {
+  "project_id": "DSVgwcji",
+  "installed": "0.5.2",
+  "installed_date": "2023-06-10",
+  "latest": "0.5.2",
+  "latest_date": "2023-06-10",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar": {
+  "project_id": "Cd3DYqzn",
+  "installed": "0.8.8",
+  "installed_date": "2025-12-04",
+  "latest": "0.8.9.1-hotfix",
+  "latest_date": "2026-08-20",
+  "latest_type": "release",
+  "newer_count": 8,
+  "changelogs": [
+   {
+    "v": "0.8.9.1-hotfix",
+    "date": "2026-08-20",
+    "type": "release",
+    "text": "Bug fix"
+   },
+   {
+    "v": "0.8.9.1",
+    "date": "2026-08-18",
+    "type": "release",
+    "text": "### New Content\n\n#### Vehicles\n\n- AC-130H\n- Happiest Ghast\n- Kirov Airship\n- Air Sheep\n- FH-77BW Archer Self-Propelled Artillery\n\n#### Weapon Perks\n\n- Aqua Bullet\n- Eager Edge\n- Target Lock\n\n#### Tools\n\n- Cemented Carbide Tools\n\n#### Accessories\n\n- Superb Handsome Goggles\n\n#### Ammunition\n\n- Aircraft Flare Ammo\n- Vehicle Smoke Ammo\n\n#### Blocks\n\n- Catapult Controller\n\n#### Other Items\n\n- Vehicle Key\n- Skin Spray\n- Steel Plate\n- Engineering Plastic\n- Towline\n- Tow Bar\n- Catapult Shuttle\n- Crust\n\n#### Skins\n\n- Mortar \"Fireworks\" Skin\n\n#### Commands\n\n- `/sbw loiter [<enabled>|set <x> <y> <z> <radius>|get|edit [x|y|z|r] <value> <force>]`\n  Set the current aircraft's loiter point\n- `/sbw skin <vehicle> [set <id>|clear]`\n  Change vehicle skin\n\n### Optimizations & Adjustments\n\n#### Mechanics\n\n- Added vehicle skin system\n- Added tactical map system (experimental, disabled by default)\n- Added beyond-visual-range vehicle rendering (experimental, disabled by default)\n- Added auto-cruise function for fixed-wing aircraft; double-tap W to disengage cruise\n- Almost all projectiles now have headshot detection and can be enhanced by ammo perks\n- Weapon Perk can now be modified via data packs\n- Adde"
+   },
+   {
+    "v": "0.8.9.1-snapshot",
+    "date": "2026-08-14",
+    "type": "alpha",
+    "text": "### New Content\n\n#### Vehicles\n\n- AC-130H\n- Happiest Ghast\n- Kirov Airship\n- Air Sheep\n- FH-77BW Archer Self-Propelled Artillery\n\n#### Weapon Perks\n\n- Aqua Bullet\n- Eager Edge\n- Target Lock\n\n#### Tools\n\n- Cemented Carbide Tools\n\n#### Accessories\n\n- Superb Handsome Goggles\n\n#### Ammunition\n\n- Aircraft Flare Ammo\n- Vehicle Smoke Ammo\n\n#### Blocks\n\n- Catapult Controller\n\n#### Other Items\n\n- Vehicle Key\n- Skin Spray\n- Steel Plate\n- Engineering Plastic\n- Towline\n- Tow Bar\n- Catapult Shuttle\n- Crust\n\n#### Skins\n\n- Mortar \"Fireworks\" Skin\n\n#### Commands\n\n- `/sbw loiter [<enabled>|set <x> <y> <z> <radius>|get|edit [x|y|z|r] <value> <force>]`\n  Set the current aircraft's loiter point\n- `/sbw skin <vehicle> [set <id>|clear]`\n  Change vehicle skin\n\n### Optimizations & Adjustments\n\n#### Mechanics\n\n- Added vehicle skin system\n- Added tactical map system (experimental, disabled by default)\n- Added beyond-visual-range vehicle rendering (experimental, disabled by default)\n- Added auto-cruise function for fixed-wing aircraft; double-tap W to disengage cruise\n- Almost all projectiles now have headshot detection and can be enhanced by ammo perks\n- Weapon Perk can now be modified via data packs\n- Adde"
+   },
+   {
+    "v": "0.8.9-final",
+    "date": "2026-05-17",
+    "type": "release",
+    "text": "- Added translations\n- Upgrade SBM to 2.3.3"
+   },
+   {
+    "v": "0.8.9-hotfix2",
+    "date": "2026-05-16",
+    "type": "release",
+    "text": "- Bug fix\n- Added built-in legacy texture pack\n- Added a new config"
+   },
+   {
+    "v": "0.8.9",
+    "date": "2026-05-06",
+    "type": "release",
+    "text": "From this version, Superb Warfare requires the **Kotlin For Forge** mod as dependency!\n\n**New Content**\n\nVehicles:\n- Sodayo Pickups\n- Mini Speedboats\n- LAV-25\n- LAV-AD\n- M2 Bradley\n- T-90A\n- M1A2\n- ZTZ-99A (Thanks to Limitless Vehicle)\n- Ju-87\n- KV-16\n\nWeapons:\n- Super Star Shooter\n\nPerks:\n- Cast No Shadows\n- Brain Storm\n- Phosphorus Bullet\n- Battle of Wits\n\nBlocks:\n- Blueprint Research Block\n- Biogas Generator\n- Raw ores blocks\n\nTools:\n- Military Shovel\n\nAccessories:\n- Thermal Imaging Goggles\n\nMobs:\n- Steel Coil\n\nOther Items:\n- EDD\n- WP Heads\n- New material packs\n- Researching modules\n\nCommands:\n- /sbw ride\n- /sbw dismount\n\n**Mechanics**\n- Added vehicle wreckage; dismantling wreckage recovers crafting materials\n- Readjusted storage space for different vehicles (configurable)\n- Enhanced FuMO25 fire control radar; other function modes now have no time limit and automatically scan out-of-sight enemy vehicle information\n- Added config option and command to enable/disable projectile chunk loading\n- Some vehicles have built\u2011in thermal imaging; press K to toggle\n- Added hover function for helicopters; press Space to toggle\n- Added accessories for M870\n- Weapons can no longer only equip 3"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "cloth-config-11.1.136-forge.jar": {
+  "project_id": "9s6osm5g",
+  "installed": "11.1.136+forge",
+  "installed_date": "2024-09-16",
+  "latest": "11.1.136+forge",
+  "latest_date": "2024-09-16",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "antiblocksrechiseled-0.4.8.jar": {
+  "project_id": "uLWeFJiL",
+  "installed": "0.4.8",
+  "installed_date": "2025-09-04",
+  "latest": "0.4.8",
+  "latest_date": "2025-09-04",
+  "latest_type": "beta",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "UndergroundBunkers-1.0.5-1.20.x-forge.jar": {
+  "project_id": "MRK4tULJ",
+  "installed": "1.0.5",
+  "installed_date": "2024-09-16",
+  "latest": "1.0.5",
+  "latest_date": "2024-09-16",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "ApothicAttributes-1.20.1-1.3.7.jar": {
+  "project_id": "DGaH8Rh0",
+  "installed": "1.3.7",
+  "installed_date": "2026-06-19",
+  "latest": "1.3.7",
+  "latest_date": "2026-06-19",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "cryonicconfig-forge-1.0.0+mc1.20.1.jar": {
+  "project_id": "oEhQIkOs",
+  "installed": "forge-1.20.1-1.0.0",
+  "installed_date": "2025-02-28",
+  "latest": "forge-1.20.1-1.0.0",
+  "latest_date": "2025-02-28",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "PlayerRevive_FORGE_v2.0.31_mc1.20.1.jar": {
+  "project_id": "ABIMzABM",
+  "installed": "2.0.31",
+  "installed_date": "2025-01-03",
+  "latest": "2.0.31",
+  "latest_date": "2025-01-03",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "architectury-9.2.14-forge.jar": {
+  "project_id": "lhGA9TYQ",
+  "installed": "9.2.14+forge",
+  "installed_date": "2024-02-26",
+  "latest": "9.2.14+forge",
+  "latest_date": "2024-02-26",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "worldedit-mod-7.2.15.jar": {
+  "project_id": "1u6JkXh5",
+  "installed": "7.2.15",
+  "installed_date": "2023-10-19",
+  "latest": "7.2.15",
+  "latest_date": "2023-10-19",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "canary-mc1.20.1-0.3.3.jar": {
+  "project_id": "qa2H4BS9",
+  "installed": "mc1.20.1-0.3.3",
+  "installed_date": "2024-02-08",
+  "latest": "mc1.20.1-0.3.3",
+  "latest_date": "2024-02-08",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "MCSP-1.20.1-V1.0.8.jar": {
+  "project_id": "QxMzmFVS",
+  "installed": "1.0.8",
+  "installed_date": "2025-12-20",
+  "latest": "1.0.8",
+  "latest_date": "2025-12-20",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "chisel-forge-2.0.0+mc1.20.1.jar": {
+  "project_id": "4KWv7wbN",
+  "installed": "forge-1.20.1-2.0.0",
+  "installed_date": "2025-03-05",
+  "latest": "forge-1.20.1-2.0.0",
+  "latest_date": "2025-03-05",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "PuzzlesLib-v8.1.33-1.20.1-Forge.jar": {
+  "project_id": "QAGBst4M",
+  "installed": "v8.1.33-1.20.1-Forge",
+  "installed_date": "2025-08-23",
+  "latest": "v8.1.33-1.20.1-Forge",
+  "latest_date": "2025-08-23",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "Chunky-1.3.146.jar": {
+  "project_id": "fALzjamp",
+  "installed": "1.3.146",
+  "installed_date": "2024-05-06",
+  "latest": "1.3.146",
+  "latest_date": "2024-05-06",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "emi-1.1.24+1.20.1+forge.jar": {
+  "project_id": "fRiHVvU7",
+  "installed": "1.1.24+1.20.1+forge",
+  "installed_date": "2026-05-13",
+  "latest": "1.1.24+1.20.1+forge",
+  "latest_date": "2026-05-13",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "geckolib-forge-1.20.1-4.8.2.jar": {
+  "project_id": "8BmcQJ2H",
+  "installed": "4.8.2",
+  "installed_date": "2025-09-23",
+  "latest": "4.8.4",
+  "latest_date": "2026-06-20",
+  "latest_type": "release",
+  "newer_count": 2,
+  "changelogs": [
+   {
+    "v": "4.8.4",
+    "date": "2026-06-20",
+    "type": "release",
+    "text": "v4.8.4\n\n- Updated the logo\n- Remove error logging for some versions since GeckoLib does actually support face UV rotation\n- Added some nullability markers to GeoCubes\n- Changed the error message for GeckoLib Oculus Compat to maybe be more clear\n- Adjusted the deprecation on GeoRenderer#getPackedOverlay to not be as dramatic"
+   },
+   {
+    "v": "4.8.3",
+    "date": "2026-01-31",
+    "type": "release",
+    "text": "v4.8.3\n\n- Fix GeckoLib not knowing what `math.pi` is and breaking animations (??? How has no-one told me about this until now)\n- Add incompatibility with geckoanimfix since the author refuses to remove the mod even though it breaks Geckolib and actually does nothing at all"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "pomkotsmechs-forge-0.0.1-alpha.8.jar": {
+  "project_id": "2rcrhKI8",
+  "installed": "0.0.1-alpha.8",
+  "installed_date": "2026-07-19",
+  "latest": "0.0.1-alpha.8",
+  "latest_date": "2026-07-19",
+  "latest_type": "alpha",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "leawind_third_person-v2.1.0-mc1.20.1-forge.jar": {
+  "project_id": "S3D3QF0M",
+  "installed": "2.1.0",
+  "installed_date": "2024-08-31",
+  "latest": "3.0.3-beta+forge-1.20.1",
+  "latest_date": "2026-08-08",
+  "latest_type": "beta",
+  "newer_count": 10,
+  "changelogs": [
+   {
+    "v": "3.0.3-beta+forge-1.20.1",
+    "date": "2026-08-08",
+    "type": "beta",
+    "text": ""
+   },
+   {
+    "v": "3.0.2-beta+forge-1.20.1",
+    "date": "2026-08-07",
+    "type": "beta",
+    "text": ""
+   },
+   {
+    "v": "3.0.1-beta+forge-1.20.1",
+    "date": "2026-08-05",
+    "type": "beta",
+    "text": ""
+   },
+   {
+    "v": "3.0.0-beta.2+forge-1.20.1",
+    "date": "2026-08-01",
+    "type": "beta",
+    "text": ""
+   },
+   {
+    "v": "3.0.0-beta.1+forge-1.20.1",
+    "date": "2026-07-31",
+    "type": "beta",
+    "text": ""
+   },
+   {
+    "v": "2.2.0",
+    "date": "2024-12-04",
+    "type": "release",
+    "text": "### Changed\n\n* Add rotate mode: _Turn to Moving Direction_\n* Reduce camera offset when looking up and down\n* Update adjustable range of some config items\n\n### Fixed\n\n* Camera pitch set to zero when locked\n"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "create-1.20.1-6.0.8.jar": {
+  "project_id": "LNytGWDc",
+  "installed": "mc1.20.1-6.0.8",
+  "installed_date": "2025-11-02",
+  "latest": "mc1.20.1-6.0.8",
+  "latest_date": "2025-11-02",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "createbigcannons-5.11.4-mc.1.20.1-forge.jar": {
+  "project_id": "GWp4jCJj",
+  "installed": "5.11.4",
+  "installed_date": "2026-05-31",
+  "latest": "5.11.4",
+  "latest_date": "2026-05-31",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "ritchiesprojectilelib-2.1.1+mc.1.20.1-forge.jar": {
+  "project_id": "B3pb093D",
+  "installed": "2.1.1",
+  "installed_date": "2025-12-08",
+  "latest": "2.1.1",
+  "latest_date": "2025-12-08",
+  "latest_type": "release",
+  "newer_count": 0,
+  "changelogs": [],
+  "in_server_mods": true
+ },
+ "waterframes-FORGE-mc1.20.1-v2.1.22.jar": {
+  "project_id": "eBzFuVTM",
+  "installed": "FORGE-mc1.20.1-v2.1.22",
+  "installed_date": "2025-10-21",
+  "latest": "FORGE-mc1.20.1-v2.2.0-beta.6",
+  "latest_date": "2026-06-22",
+  "latest_type": "beta",
+  "newer_count": 6,
+  "changelogs": [
+   {
+    "v": "FORGE-mc1.20.1-v2.2.0-beta.6",
+    "date": "2026-06-22",
+    "type": "beta",
+    "text": "# UPDATE 2.2.0-beta.5\n- \u2728 Updated to support WaterMedia v3 Beta 18\n"
+   },
+   {
+    "v": "FORGE-mc1.20.1-v2.2.0-beta.5",
+    "date": "2026-06-01",
+    "type": "beta",
+    "text": "# UPDATE 2.2.0-beta.5\n- \u2728 Updated to support WaterMedia v3 Beta 17\n"
+   },
+   {
+    "v": "FORGE-mc1.20.1-v2.2.0-beta.4",
+    "date": "2026-04-20",
+    "type": "beta",
+    "text": "# UPDATE 2.2.0-beta.1\n- \u2728 Updated to support WaterMedia v3 Beta 12\n  - \u26a1 Seek is temporarily disabled due to problems around synchronization.\n"
+   },
+   {
+    "v": "FORGE-mc1.20.1-v2.2.0-beta.3",
+    "date": "2026-04-05",
+    "type": "beta",
+    "text": "# UPDATE 2.2.0-beta.1\n- \u2728 Updated to support WaterMedia v3 Beta 12\n  - \u26a1 Seek is temporarily disabled due to problems around synchronization.\n"
+   },
+   {
+    "v": "FORGE-mc1.20.1-v2.2.0-beta.2",
+    "date": "2026-03-01",
+    "type": "beta",
+    "text": "# UPDATE 2.2.0-beta.1\n- \u2728 Updated to support WaterMedia v3\n  - Refactored codebase to align with WaterMedia v3 architecture\n  - This update after final release will not add more features.\n"
+   },
+   {
+    "v": "FORGE-mc1.20.1-v2.2.0-beta.1",
+    "date": "2026-02-02",
+    "type": "beta",
+    "text": "# UPDATE 2.2.0-beta.1\n- \u2728 Updated to support WaterMedia v3\n  - Refactored codebase to align with WaterMedia v3 architecture\n  - This update after final release will not add more features.\n"
+   }
+  ],
+  "in_server_mods": true
+ },
+ "watermedia-2.1.37.jar": {
+  "project_id": "G922NeHS",
+  "installed": "2.1.37",
+  "installed_date": "2025-12-01",
+  "latest": "3.0.0.23",
+  "latest_date": "2026-07-27",
+  "latest_type": "beta",
+  "newer_count": 20,
+  "changelogs": [
+   {
+    "v": "3.0.0.23",
+    "date": "2026-07-27",
+    "type": "beta",
+    "text": "# \ud83d\udce6 UPDATE 3.0.0.23 (RC)\n## \u26a1 MediaAPI\n- \ud83d\udca5 BREAKING CHANGE (requires re-compile):`start()` and `startPaused()` return `boolean` instead of `void`. Every other control already answered whether it took effect, and the sync layer needs that answer from these two as well: an implementation now writes `if (!super.start()) return false;` before its pipeline work, and a bridged player reports `false` when the call went to the session instead of to the local pipeline. **Calling code does not change** \u2014 `player.start();` and `player::start` as a `Runnable` both still compile \u2014 but this is a binary break: anything compiled against 3.0.0.22 must be recompiled, or it fails at runtime with `NoSuchMethodError`\n- \u2728 Added: synchronized playback is now built into `MediaPlayer` \u2014 pass a **`Bridge`** (one method, `send(ByteBuffer)`, backed by a game packet, a socket, any byte carrier) to the constructor or `MediaAPI.createPlayer(...)`, feed what you receive into `player.sync(ByteBuffer)`, and that is the whole integration. Nothing about peer identity reaches WaterMedia: the bridge knows which session it serves and routes accordingly, so the natural shape is a small class holding that key: no polling "
+   },
+   {
+    "v": "3.0.0.22",
+    "date": "2026-07-24",
+    "type": "beta",
+    "text": "# \ud83d\udce6 UPDATE 3.0.0.22 (BETA)\n## \u26a1 Core \u2014 Boot pipeline, modules & progress metrics\n- \u2699\ufe0f Renamed: `WaterMediaAPI` \u2192 `WaterMediaModule` (moved to `org.watermedia`) \u2014 non-API boot processes extend it too now; the lifecycle (`load`/`start`/`release`) is `protected`, so only the `WaterMedia` orchestrator (same package) can drive it\n- \u2699\ufe0f Changed: Binaries and Config are homologated as boot modules \u2014 `WaterMediaBinaries` and `WaterMediaConfig` extend `WaterMediaModule` and boot through the same registry, ordered `Binaries \u2192 Config \u2192 Codecs \u2192 Platform \u2192 Media \u2192 Network`; the hand-rolled pre-registry startup blocks in `WaterMedia.start` are gone\n- \u2699\ufe0f Changed: the global `load()` pre-pass is interleaved per module (`load` \u2192 `start`), so config-dependent step counts (e.g. `NetworkAPI`'s file-server step) read registered config values instead of compile-time defaults\n- \u2699\ufe0f Changed: the FFmpeg bootstrap is centralized in `MediaAPI` (code-sectioning into the player served no purpose) \u2014 `FFMediaPlayer.load()/loaded()/loadError()/vulkanDecodeAvailable()` became `MediaAPI.ffmpegLoaded()/ffmpegError()/vulkanDecode()`; binaries extraction stays separate in the binaries module\n- \u2728 Added: three-level boot"
+   },
+   {
+    "v": "3.0.0.21",
+    "date": "2026-06-29",
+    "type": "beta",
+    "text": "# \ud83d\udce6 UPDATE 3.0.0.21 (BETA)\n## \u26a1 Packaging\n- \ud83d\udc1b Fixed: `gson` was being bundled inside the final WaterMedia jar \u2014 it leaked in as a transitive dependency of the `tools` module (declared there as `implementation`) and got shaded by the `include` configuration; `tools` now declares `gson` as a provided `library`, so the loader-provided copy is used and `gson` is no longer duplicated in the jar\n- \u2699\ufe0f Changed: homologated the `tools` buildscript and `gradle.properties` with the `watermedia`/`binaries` conventions (`include`/`library` configurations, build-info logging, aligned JUnit BOM and `gson` versions)\n"
+   },
+   {
+    "v": "3.0.0.20",
+    "date": "2026-06-29",
+    "type": "beta",
+    "text": "# \ud83d\udce6 UPDATE 3.0.0.20 (BETA)\n## \u26a1 MediaAPI \u2014 Playback engine (FFMediaPlayer)\n- \u2699\ufe0f Added: `AV_HWDEVICE_TYPE_AMF` (AMD) and `AV_HWDEVICE_TYPE_OHCODEC` (OpenHarmony) to the hardware decoder candidates\n- \u2699\ufe0f Changed: `VULKAN` restored as a last-resort generic GPU decoder (kept last in the candidate list, after D3D11/D3D12 and the platform decoders); `OPENCL` stays excluded\n- \u2699\ufe0f Fixed: AV1 software decode \u2014 FFmpeg's native `av1` decoder is hwaccel-only and emits zero frames without a GPU accelerator (video \"ended\" instantly); the software path now picks a real software decoder (`libdav1d`, else `libaom-av1`), on both the initial open and the HW\u2192SW fallback\n- \u2699\ufe0f Fixed: decoders with a reorder window (libdav1d, native av1) lost the tail of the stream / produced nothing on repeat \u2014 the video/audio decode loops now drain the decoder with a flush packet at a clean EOF, while an `abort()` teardown still drops the stale backlog\n- \u2699\ufe0f Changed: a video stream that drains without ever emitting a frame now reports `ERROR` instead of `ENDED` \u2014 dead-decoder failures are visible and no longer retried forever by `repeat()`\n- \u2699\ufe0f Added: `PacketQueue#endOfFile()` \u2014 distinguishes a clean end-of-stream from an"
+   },
+   {
+    "v": "3.0.0.19",
+    "date": "2026-06-25",
+    "type": "beta",
+    "text": "# \ud83d\udce6 UPDATE 3.0.0.19 (BETA)\n- \ud83d\udc1b Fixed: Stall opening youtube videos \n"
+   },
+   {
+    "v": "3.0.0.18",
+    "date": "2026-06-22",
+    "type": "beta",
+    "text": "# \ud83d\udce6 UPDATE 3.0.0.18 (BETA)\n## \u26a1 CodecsAPI\n- \u2699\ufe0f Added: `ImageReader#reset()` \u2014 frame-0 rewind (GIF/PNG/APNG/WebP; other formats full re-open)\n- \u2699\ufe0f Added: `CodecsAPI#available(String)` \u2014 codec-availability query (pure-Java codecs `PNG`/`JPEG`/`GIF`/`WEBP`/`NETPBM` always present)\n- \u2699\ufe0f Added: `common.dds.DDSHeader` (DX10 DDS + per-frame-delay footer), `common.bc.BCCodec` (native seam, bindings pending)\n## \u26a1 MediaAPI \u2014 Animated images (TxMediaPlayer / GLEngine)\n- \u2699\ufe0f Added: codec cache (BC over DDS) \u2014 `NetworkCache.Mode` (`DISK`/`CODEC`, from `media.txCodecCache`) + streaming `CodecWriter`; dormant until native BC ships (playback unchanged)\n- \u2699\ufe0f Added: `GFXEngine#supportsCompressedTextures(String)` / `uploadCompressedFrames(ByteBuffer[], String, int)` \u2014 default-off BCn upload hooks\n- \u2699\ufe0f Added: config `media.txCodecCache` (default off)\n- \u2699\ufe0f Changed: Mode 2 gated by VRAM budget \u2014 `media.txFrameTexturesBudgetMB` (32 MB, 0 disables) replaces `media.txMultiTextureFrameThreshold`; 256-frame cap\n- \u2699\ufe0f Changed: Mode 2 passive clock \u2014 no thread per animated image; frame resolved from wall time on `texture()`\n- \u2699\ufe0f Changed: preloaded frame-texture sets upload progressively (no load hitch on long an"
+   }
+  ],
+  "in_server_mods": false
+ }
+}
