@@ -128,3 +128,16 @@ the town by the lake; the 29 old sites scatter as farmsteads 40 m off roads, 150
 Farmstead centres: (-2192,224), (-1472,-256), (-2176,-576), (-2192,-32), (-1712,-1744), (-2720,-1072), (-2112,-896), (-1696,-272), (-1568,-1472), (432,-2448), (-2432,-1168), (-304,-2848), (128,-2368), (-1312,-864), (-1920,-272), (-2080,576), (-3792,-2848), (-1344,-3152), (-528,-2640), (672,-2320), (-208,-2432), (-2320,512), (144,-3456), (-1200,-3792), (-3760,-3712), (-720,-2400), (-2208,-304), (-3008,416), (-2416,240).
 
 Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700; the Woods x -2450..-1600 z -1350..100.
+
+## 5. Build log (v8, 2026-09-05)
+
+- World: `scratch/worlds/v8-build` = the upgraded Pripyat world, 14,877 holes filled flat (`flatfill.py`).
+- Relief: `applyheight.py` shifted 4,828,237 columns in 36,969 chunks (138 s) to the authored heights; roads, rail,
+  water and buildings untouched; trees and cover moved with their ground (ground-under-canopy raster).
+- Transplants: `runplan.py` with `buildmap/plan_v8/transplant_plan_v8.json` - 40 entries, 5,678 chunks, block-exact
+  vertical shifts (section shift + residual column shift), every block resolving in the pack (Custom NPCs waypoint
+  markers -> air). The hub, Novo, plaza + sewers, Bio Gen, Skadowsky (+35), settlement, mega-base, industrial district,
+  hempcrete compound, library and 29 farmsteads are in.
+- Edge grading: `grade_v8.py` blends the land around every build into y 65 over 48 blocks (running).
+- Next: render, boot on the local server for the owner's fly-through (visual pass), then step 6 (adjust / clean up).
+
