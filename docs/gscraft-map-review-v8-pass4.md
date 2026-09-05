@@ -93,6 +93,19 @@ ending at a quay), 19 water (all under 8 wide, rounded or closed), 16 elevated (
 `scratch/worlds/v8-build` copied to `server/wasteland-v8` (region, entities, level.dat) for the local server; the hosted
 server is untouched (HANDOFF §6).
 
+### 2.7 Pass 5 - hard edges of the terrain (owner: "from an overall point of view, smooth out the hard edges on the map -
+terrain related only, not buildings")
+
+`tools/smoothcliffs.py` over the whole cell from the pass-4 height arrays: (1) every step of 3+ blocks between two open-land
+columns (23,745 cliff columns - the west border rim's slope, the mega-base hull's edges, the hempcrete compound's terrain,
+odd steps at the cell's north and south edges) gets the ground within 12 blocks replaced by a smoothed height field, so a
+step becomes a slope; (2) every open-land column within 14 blocks of a lake or river and more than 1 block above its
+surface (140,332 columns - the big lake's steep Pripyat banks above all) is graded to water + 1 with a sand/gravel beach on
+the first two blocks. 198 k columns changed (mean 3.2 blocks), 2,848 chunks. Untouched: built columns, roads and 6 blocks
+of shoulder, water, Skadowsky's own terrain. Render `v8_cell_pass5_inspect.png`; staged to `server/wasteland-v8`.
+What remains as hard edges is not terrain: the paved edges of the city blocks (mega-base, plaza, Novo) and Skadowsky's
+quays on the river.
+
 ## 3. Open
 
 - Step 8 is done for this pass: every sector's gates are connected, the river is bridged, quays end at the water.
