@@ -17,7 +17,7 @@ def main(a):
     minw = int(a[a.index("--min-width") + 1]) if "--min-width" in a else 8
     jobs = []
     for f in feats:
-        if f["kind"] != "water" or f["width"] < minw: continue
+        if f["kind"] != "water" or f["width"] < minw or f["y"] < 40: continue           # y < 40: a cave pool, not a surface feature
         p = sectors[f["sector"]]
         if p.get("group") == "removed" or f["sector"] == "skad": continue                # Skadowsky's water is the region's river now
         dx, dz = DIRS[f["side"]]

@@ -1,0 +1,274 @@
+[
+ {
+  "name": "lib_E12",
+  "points": [
+   [
+    -2379,
+    -3739
+   ],
+   [
+    -2432,
+    -3708
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Library E stub (width 25) -> network, 61 m"
+ },
+ {
+  "name": "lib_W15",
+  "points": [
+   [
+    -2486,
+    -3788
+   ],
+   [
+    -2432,
+    -3708
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Library W stub (width 9) -> network, 97 m"
+ },
+ {
+  "name": "lib_N13",
+  "points": [
+   [
+    -2433,
+    -3814
+   ],
+   [
+    -2432,
+    -3708
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Library N stub (width 7) -> network, 108 m"
+ },
+ {
+  "name": "mega_E16",
+  "points": [
+   [
+    757,
+    -1894
+   ],
+   [
+    800,
+    -1896
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Mega-base E stub (width 12) -> network, 44 m"
+ },
+ {
+  "name": "mega_W20",
+  "points": [
+   [
+    362,
+    -1607
+   ],
+   [
+    448,
+    -1560
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Mega-base W stub (width 12) -> network, 100 m"
+ },
+ {
+  "name": "mega_S18",
+  "points": [
+   [
+    370,
+    -1595
+   ],
+   [
+    432,
+    -1536
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Mega-base S stub (width 6) -> network, 87 m"
+ },
+ {
+  "name": "old02_W26",
+  "points": [
+   [
+    -1750,
+    -1741
+   ],
+   [
+    -1732,
+    -1676
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 2 W stub (width 9) -> network, 70 m"
+ },
+ {
+  "name": "old16_W32",
+  "points": [
+   [
+    -566,
+    -2648
+   ],
+   [
+    -532,
+    -2604
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 16 W stub (width 8) -> network, 56 m"
+ },
+ {
+  "name": "biogen_E0",
+  "points": [
+   [
+    -2443,
+    -702
+   ],
+   [
+    -2608,
+    -680
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Bio Gen offices E stub (width 6) -> network, 165 m"
+ },
+ {
+  "name": "biogen_W1",
+  "points": [
+   [
+    -2518,
+    -684
+   ],
+   [
+    -2608,
+    -680
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Bio Gen offices W stub (width 3) -> network, 88 m"
+ },
+ {
+  "name": "old15_N29",
+  "points": [
+   [
+    -1840,
+    -310
+   ],
+   [
+    -1840,
+    -212
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 15 N stub (width 6) -> network, 100 m"
+ },
+ {
+  "name": "plaza_E39",
+  "points": [
+   [
+    -3291,
+    -745
+   ],
+   [
+    -3308,
+    -804
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Financial Plaza + sewers E stub (width 6) -> network, 58 m"
+ },
+ {
+  "name": "plaza_W41",
+  "points": [
+   [
+    -3462,
+    -729
+   ],
+   [
+    -3376,
+    -808
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Financial Plaza + sewers W stub (width 6) -> network, 116 m"
+ },
+ {
+  "name": "hemp_E2",
+  "points": [
+   [
+    -3067,
+    -1092
+   ],
+   [
+    -3020,
+    -1092
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Hempcrete compound E stub (width 5) -> network, 48 m"
+ },
+ {
+  "name": "hemp_S3",
+  "points": [
+   [
+    -3139,
+    -1019
+   ],
+   [
+    -3140,
+    -976
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Hempcrete compound S stub (width 5) -> network, 44 m"
+ },
+ {
+  "name": "hub_S8",
+  "points": [
+   [
+    -2579,
+    21
+   ],
+   [
+    -2660,
+    16
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Novo Expograd hub (desert city) S stub (width 4) -> network, 80 m"
+ },
+ {
+  "name": "indu_S11",
+  "points": [
+   [
+    610,
+    -1099
+   ],
+   [
+    792,
+    -1100
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Industrial district S stub (width 3) -> network, 184 m"
+ }
+]

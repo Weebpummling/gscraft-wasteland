@@ -1,0 +1,322 @@
+[
+ {
+  "name": "mega_E_751_-1896",
+  "points": [
+   [
+    749,
+    -1896
+   ],
+   [
+    757,
+    -1896
+   ]
+  ],
+  "width": [
+   4,
+   4
+  ],
+  "levels": [
+   [
+    0.0,
+    77
+   ]
+  ],
+  "depth": 2,
+  "meander": null,
+  "bank_slope": [
+   2.5,
+   4.0
+  ],
+  "protect": "integrate_mega_mask.npz",
+  "mouth_t": 0.0,
+  "note": "Mega-base E edge: water 4 wide at y 77 cut by the footprint - rounded end outside"
+ },
+ {
+  "name": "indu_N_364_-1376",
+  "points": [
+   [
+    364,
+    -1374
+   ],
+   [
+    364,
+    -1382
+   ]
+  ],
+  "width": [
+   5,
+   5
+  ],
+  "levels": [
+   [
+    0.0,
+    57
+   ]
+  ],
+  "depth": 2,
+  "meander": null,
+  "bank_slope": [
+   2.5,
+   4.0
+  ],
+  "protect": "integrate_indu_mask.npz",
+  "mouth_t": 0.0,
+  "note": "Industrial district N edge: water 5 wide at y 57 cut by the footprint - rounded end outside"
+ },
+ {
+  "name": "indu_N_421_-1376",
+  "points": [
+   [
+    421,
+    -1374
+   ],
+   [
+    421,
+    -1382
+   ]
+  ],
+  "width": [
+   8,
+   8
+  ],
+  "levels": [
+   [
+    0.0,
+    57
+   ]
+  ],
+  "depth": 2,
+  "meander": null,
+  "bank_slope": [
+   2.5,
+   4.0
+  ],
+  "protect": "integrate_indu_mask.npz",
+  "mouth_t": 0.0,
+  "note": "Industrial district N edge: water 8 wide at y 57 cut by the footprint - rounded end outside"
+ },
+ {
+  "name": "indu_N_435_-1376",
+  "points": [
+   [
+    435,
+    -1374
+   ],
+   [
+    435,
+    -1385
+   ]
+  ],
+  "width": [
+   15,
+   15
+  ],
+  "levels": [
+   [
+    0.0,
+    57
+   ]
+  ],
+  "depth": 2,
+  "meander": null,
+  "bank_slope": [
+   2.5,
+   4.0
+  ],
+  "protect": "integrate_indu_mask.npz",
+  "mouth_t": 0.0,
+  "note": "Industrial district N edge: water 15 wide at y 57 cut by the footprint - rounded end outside"
+ },
+ {
+  "name": "indu_N_452_-1376",
+  "points": [
+   [
+    452,
+    -1374
+   ],
+   [
+    452,
+    -1385
+   ]
+  ],
+  "width": [
+   15,
+   15
+  ],
+  "levels": [
+   [
+    0.0,
+    57
+   ]
+  ],
+  "depth": 2,
+  "meander": null,
+  "bank_slope": [
+   2.5,
+   4.0
+  ],
+  "protect": "integrate_indu_mask.npz",
+  "mouth_t": 0.0,
+  "note": "Industrial district N edge: water 15 wide at y 57 cut by the footprint - rounded end outside"
+ },
+ {
+  "name": "indu_N_469_-1376",
+  "points": [
+   [
+    469,
+    -1374
+   ],
+   [
+    469,
+    -1385
+   ]
+  ],
+  "width": [
+   15,
+   15
+  ],
+  "levels": [
+   [
+    0.0,
+    57
+   ]
+  ],
+  "depth": 2,
+  "meander": null,
+  "bank_slope": [
+   2.5,
+   4.0
+  ],
+  "protect": "integrate_indu_mask.npz",
+  "mouth_t": 0.0,
+  "note": "Industrial district N edge: water 15 wide at y 57 cut by the footprint - rounded end outside"
+ },
+ {
+  "name": "indu_N_480_-1376",
+  "points": [
+   [
+    480,
+    -1374
+   ],
+   [
+    480,
+    -1382
+   ]
+  ],
+  "width": [
+   4,
+   4
+  ],
+  "levels": [
+   [
+    0.0,
+    57
+   ]
+  ],
+  "depth": 2,
+  "meander": null,
+  "bank_slope": [
+   2.5,
+   4.0
+  ],
+  "protect": "integrate_indu_mask.npz",
+  "mouth_t": 0.0,
+  "note": "Industrial district N edge: water 4 wide at y 57 cut by the footprint - rounded end outside"
+ },
+ {
+  "name": "indu_N_615_-1376",
+  "points": [
+   [
+    615,
+    -1374
+   ],
+   [
+    615,
+    -1382
+   ]
+  ],
+  "width": [
+   4,
+   4
+  ],
+  "levels": [
+   [
+    0.0,
+    57
+   ]
+  ],
+  "depth": 2,
+  "meander": null,
+  "bank_slope": [
+   2.5,
+   4.0
+  ],
+  "protect": "integrate_indu_mask.npz",
+  "mouth_t": 0.0,
+  "note": "Industrial district N edge: water 4 wide at y 57 cut by the footprint - rounded end outside"
+ },
+ {
+  "name": "indu_W_336_-1263",
+  "points": [
+   [
+    338,
+    -1263
+   ],
+   [
+    330,
+    -1263
+   ]
+  ],
+  "width": [
+   5,
+   5
+  ],
+  "levels": [
+   [
+    0.0,
+    57
+   ]
+  ],
+  "depth": 2,
+  "meander": null,
+  "bank_slope": [
+   2.5,
+   4.0
+  ],
+  "protect": "integrate_indu_mask.npz",
+  "mouth_t": 0.0,
+  "note": "Industrial district W edge: water 5 wide at y 57 cut by the footprint - rounded end outside"
+ },
+ {
+  "name": "lib_W_-2480_-3790",
+  "points": [
+   [
+    -2478,
+    -3790
+   ],
+   [
+    -2486,
+    -3790
+   ]
+  ],
+  "width": [
+   5,
+   5
+  ],
+  "levels": [
+   [
+    0.0,
+    8
+   ]
+  ],
+  "depth": 2,
+  "meander": null,
+  "bank_slope": [
+   2.5,
+   4.0
+  ],
+  "protect": "integrate_lib_mask.npz",
+  "mouth_t": 0.0,
+  "note": "Library W edge: water 5 wide at y 8 cut by the footprint - rounded end outside"
+ }
+]

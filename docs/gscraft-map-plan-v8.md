@@ -223,7 +223,8 @@ Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700
   landscape with `integrate.py` (manmade+lift / hull / plate / remove modes per group), the settlement removed on the
   owner's call, six empty old sites dropped, canal mouths rounded (`edgewater.py`), the 11 connectors under 300 m built in
   the Skadowsky style. Full review and results: `docs/gscraft-map-review-v8-pass4.md`. Render `v8_cell_pass4_inspect.png`.
-- Next: the owner's WorldPainter look; step 8 decisions (the long connectors, bridges on the river, the 80 road stubs).
+- Pass 4b/4c: all 27 sector connectors, 17 stub connectors, two river viaducts, water edge ends; staged to `server/wasteland-v8`.
+- Next: the owner's look (WorldPainter or the local server); then step 9+ (camp, Lost Cities modules, props).
 
 ## 7-8. Road hooks (prepared 2026-09-05, not built)
 

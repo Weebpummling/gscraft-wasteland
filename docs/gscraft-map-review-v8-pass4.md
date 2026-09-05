@@ -70,16 +70,32 @@ the gravel highway (embankment y 76) gets a 341 m viaduct between its intact end
 cobble road a 233 m one (x -1293 to -1060, deck y 65, 9 wide): gray-concrete deck, andesite-wall kerbs, 3-wide concrete piers
 every 10 blocks down to the bank or bed, nothing under the deck touched.
 
-### 2.4 Edge audit after the pass (`buildmap/plan_v8/edge_features_v8.json`)
+### 2.4 Finishing the edges (owner: "Go ahead and finish it up")
 
-124 features: 80 road (step 8 material - every sector's own road/pavement reaching its edge), 21 water (all under 8 wide
-now), 23 elevated (pipes and decks at the mega-base, industrial district, Novo, plaza, hub, some farmsteads - broken ends,
-left as wasteland).
+- **Stub connectors** (`tools/edgeroads.py`, `roads_v8_stubs.json`): every remaining road stub at a footprint edge (3-30
+  wide) was matched to the network - the census roads plus the connectors already built. 27 gates already touch a road, 5 end
+  at water (Skadowsky's quays on the river: a road ending at a quay is its designed end), the rest became connectors: one gate
+  per 80 m of edge and at most three per sector, so a small build does not sprout a fan of tracks (a first run gave the
+  library six; those were stripped again with `unroad.py`). 17 built, 9.7 k road columns.
+- **Small water edges** (`edgewater.py --min-width 3`): nine ditches and canal mouths of 4-8 blocks at the industrial district
+  and mega-base edges got rounded ends. One lesson: the audit listed a *cave pool* at y 8 under the library's west edge as a
+  water feature and the first run carved a 26 k-column crater down to it; `regrade.py` (new) put the land back on the plan
+  and edgewater now ignores water below y 40.
+- **Elevated ends** (16 left): pipes and decks that stop at a footprint edge - broken infrastructure, wasteland-plausible, left.
+
+### 2.5 Edge audit after the pass (`buildmap/plan_v8/edge_features_v8.json`)
+
+126 features: 91 road (the sectors' own pavements and roads reaching their edges - all now within reach of a connector or
+ending at a quay), 19 water (all under 8 wide, rounded or closed), 16 elevated (broken ends).
+
+### 2.6 Staged
+
+`scratch/worlds/v8-build` copied to `server/wasteland-v8` (region, entities, level.dat) for the local server; the hosted
+server is untouched (HANDOFF §6).
 
 ## 3. Open
 
-- Step 8 remainder: the 97 road stubs the audit still lists are the sectors' own roads and pavements reaching their footprint
-  edges (city-block kerbs, second gates); each sector is connected through its main gate now.
+- Step 8 is done for this pass: every sector's gates are connected, the river is bridged, quays end at the water.
 - Step 9+: the camp on the plateau, Lost Cities modules in the city zones, props; the runway.
 - Sector list housekeeping: drop the six empty old sites and the settlement from `sectors_v8.json` when the plan is next
   regenerated (they are marked, not deleted, so the tools skip them).
