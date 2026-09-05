@@ -1,69 +1,97 @@
 [
  {
-  "name": "skadowsky_to_lake",
+  "name": "skadowsky_river",
   "points": [
    [
-    -1011,
-    -1345
-   ],
-   [
-    -995,
-    -1440
-   ],
-   [
-    -930,
-    -1560
+    -740,
+    -1720
    ],
    [
     -830,
     -1660
    ],
    [
-    -713,
-    -1726
+    -930,
+    -1560
    ],
    [
-    -684,
-    -1766
+    -995,
+    -1440
+   ],
+   [
+    -1040,
+    -1330
+   ],
+   [
+    -1080,
+    -1250
+   ],
+   [
+    -1080,
+    -800
+   ],
+   [
+    -1075,
+    -737
+   ],
+   [
+    -1120,
+    -500
+   ],
+   [
+    -1200,
+    -200
+   ],
+   [
+    -1250,
+    100
+   ],
+   [
+    -1300,
+    400
+   ],
+   [
+    -1350,
+    700
    ]
   ],
   "width": [
-   16,
-   26
+   84,
+   110
   ],
   "levels": [
    [
     0.0,
-    53
+    57
    ],
    [
-    0.08,
-    54
-   ],
-   [
-    0.16,
-    55
-   ],
-   [
-    0.26,
+    0.02,
     56
    ],
    [
-    0.38,
-    57
+    0.04,
+    55
+   ],
+   [
+    0.06,
+    54
+   ],
+   [
+    0.08,
+    53
    ]
   ],
-  "depth": 3,
+  "depth": 4,
   "meander": {
-   "amp": 18,
-   "wavelength": 220,
-   "amp2": 7,
-   "wavelength2": 90,
-   "seed": 3
+   "amp": 30,
+   "wavelength": 420,
+   "amp2": 10,
+   "wavelength2": 130,
+   "seed": 5
   },
   "bank_slope": [
-   2.5,
-   4.5
+   3.0,
+   6.0
   ],
   "restore": [
    [
@@ -87,7 +115,7 @@
     -1726
    ]
   ],
-  "restore_reach": 52,
+  "restore_reach": 60,
   "protect": "integrate_skad_mask.npz",
   "lake_rect": [
    -760,
@@ -95,33 +123,8 @@
    -560,
    -1600
   ],
-  "note": "Skadowsky river (y 53) up to the lake (y 57): four 1-block rapids; the first carve's straight 22-wide channel and its flat 65 corridor go back to the relief",
-  "mouth_t": 0.06
- },
- {
-  "shore": "skadowsky_west_bank_north",
-  "rect": [
-   -1140,
-   -1358,
-   -1089,
-   -956
-  ],
-  "water": "E",
-  "level": 53,
-  "width": 36,
-  "protect": "integrate_skad_mask.npz"
- },
- {
-  "shore": "skadowsky_west_bank_south",
-  "rect": [
-   -1140,
-   -935,
-   -1089,
-   -737
-  ],
-  "water": "E",
-  "level": 53,
-  "width": 36,
-  "protect": "integrate_skad_mask.npz"
+  "mouth_t": 0.0,
+  "cut_roads": true,
+  "note": "the region's main river (Skadowsky's west water, y 53): drains the lake (y 57, four rapids in the first 200 m), runs along the sector's west edge (its own straight-cut water becomes the east half of the channel), then south out of the cell at z 700. Roads on the line are cut: bridge sites for step 8."
  }
 ]

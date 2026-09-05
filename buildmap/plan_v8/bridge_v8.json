@@ -1,0 +1,18 @@
+[
+ {
+  "name": "skadowsky_highway_west",
+  "template_x": -1030,
+  "z0": -958,
+  "z1": -933,
+  "y0": 44,
+  "y1": 95,
+  "deck_y": 66,
+  "start_x": -1089,
+  "dx": -1,
+  "pier_every": 12,
+  "max_len": 200,
+  "abutment": 60,
+  "water_y": 53,
+  "note": "the source map's highway viaduct ended at the map edge (x -1088); its far bank is now the widened river's west bank; the deck profile continues 60 columns onto the west bank as the highway at grade (step 8 continues it)"
+ }
+]

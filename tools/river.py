@@ -30,6 +30,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from terrain import World, column_is_built, AIR, LIQUID, PLANT
 from roads import densify
+from stubs import is_road
 
 CENSUS = Path(r"G:/GSCraft/incoming/census"); CX0, CZ0 = -3900, -3900
 
@@ -149,7 +150,11 @@ def carve(world, job, land, dry):
             in_old = dold[iz, ix] <= (job.get("restore_reach", 52) if old is not None else -1)
             if not (in_new or in_old): continue
             mouth = dist <= half and tt[i] < job.get("mouth_t", 0.0)                   # the channel may cut through protected terrain at its mouth
-            if (protect(x, z) and not mouth) or column_is_built(world, x, z): stats["skipped"] += 1; continue
+            built = column_is_built(world, x, z)
+            if built and job.get("cut_roads") and not protect(x, z):
+                ty, tb = world.top(x, z)
+                if is_road(tb) or is_road(world.get(x, (ty or 0) - 1, z)): built = False   # a road on the line is cut (bridge site for step 8)
+            if (protect(x, z) and not mouth) or built: stats["skipped"] += 1; continue
             if lake and lake[0] <= x <= lake[2] and lake[1] <= z <= lake[3]:
                 ty, tb = world.top(x, z)
                 if tb in LIQUID and dist > half: stats["skipped"] += 1; continue

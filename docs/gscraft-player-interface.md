@@ -241,16 +241,23 @@ friendly fire is off. Team invites happen here once, on the first evening, and n
 ### 4.8 The gun and the site keepers (the Create fork)
 - **The first gun is the camp's.** G1–G4 happen at Walker's yard and the gun pit on the crater rim (create doc §4,
   owner 2026-09-05); the sites make it bigger, faster and mobile from G5 on.
-- **Sighting:** Create Big Cannons' own seat and aim. While seated the action bar reads
-  `GUN PIT — 042° / +11° — solid shot — 3 charges`; an empty loader reads `GUN PIT — needs: a charge and a shot`.
-- **Spotting:** James, from the lookout, calls the fall of every shot that lands within 400 m of a board target, one
-  line per shot in the radio format (§3.4): *"Short. Come up fifty."* / *"Long."* / *"On. Fire for effect."* The
-  20-second rate applies, so a fast gun gets one call in three. From G5 the map wall carries range rings
-  (300 / 600 / 900 m from the pit).
+- **Nothing about operating the gun is ours** (owner, 2026-09-05: no direct control, that is not how artillery
+  works; the mod's own mechanics, read from Create Big Cannons 5.11.4). A big cannon sits on a **Cannon Mount** that
+  is laid by rotation — a hand crank or gearshift on its pitch face, a **Yaw Controller** for traverse — assembled by
+  powering the mount's hammer face and fired by powering its firing face (a lever). There is no seat, no sight, no
+  reticle and no key that aims it. The lay is read on Engineer's goggles (`Cannon Pitch: 11°`, `Cannon Yaw: 42°`,
+  `Cannon Strength`) or on a Create display board fed by a **display link from the mount** — the pit board, Tune's
+  U-B2. The only gun a player holds is an autocannon with handles (G8, the watchtower nests), the mod's own design
+  for point defence. The cannon carriage (G9) moves a gun; emplaced, it is laid and fired the same way.
+- **A gun is served by a crew:** one lays, one loads (the cannon loader, ram head; charges and shot), one fires.
+  Fall of shot is watched by eye and by the players at the lookout on voice; nobody in the game calls corrections.
+- **What we add:** the quest gates; the **gunner's manual** (G5, Vera): a Patchouli range card per gun — pitch and
+  charges to range — because the mod ships none; the range rings on the map wall (G5); the keeper's counters.
 - **The site keeper is a survivor:** same door sign, same right-click for the journal (chapter `S-<site>`), same
   sneak-click for the counter. The site's core building carries the readout sign: name, tier, what the keeper sells,
   rebuilt with the tier like the camp's door signs.
-- **Ponder is the tutorial.** No quest, note or line explains a Create machine the Ponder screen already shows.
+- **Ponder is the tutorial.** Casting, boring, building, welding, loading, mounting, firing, fuzing and the
+  autocannon each have a Ponder scene in the mod; no quest, note or line repeats one.
 
 ## 5. Each system: state → interface → input
 
@@ -272,7 +279,7 @@ friendly fire is off. Team invites happen here once, on the first evening, and n
 | **Vehicles** | Walker's dead quad (tier 0); the bay; the vehicle's own HUD when driven | builds from a kit at the bench | a crash | Immersive Vehicles / SBW / vvp, the notebook's Driving page |
 | **Recruits / guards** | §4.6; guards at doors by tier | hires | — | Recruits, Guard Villagers |
 | **Vendors** | §4.5 | trades | sold out (vanilla) | script-written offers |
-| **Artillery** (Create fork) | the sighting readout while seated; James's spotting lines; the board's range rings (G5); the site keeper's sign; Ponder as the machine tutorial (§4.8) | builds G1–G4 in the camp, then the site chains | `needs: a charge and a shot`; a miss is James's line | Create Big Cannons + KubeJS |
+| **Artillery** (Create fork) | the mod's own: pitch and yaw on goggles and on the pit's display board, the loader, the lever; ours: the range card, the map wall's rings (G5), the keeper's sign; Ponder as the tutorial (§4.8) | lays by crank and yaw controller, loads, fires by lever; builds G1–G4 in the camp, then the site chains | the mod's own messages (an unsafe load bursts the gun; a misassembled cannon refuses with its reason) | Create Big Cannons |
 | **Finale** | the sculk ring and the shrieker as the telegraph; the beacon; title THE SLEEPER; the boss bar; Marshall's lines per wave | lights the beacon, holds | fail → `finale_failed`, X6b Relight in the book; no title for the failure, the dark beacon is the title | finale script |
 | **World border** | vanilla's red vignette from 200 blocks | turns around | none (no damage) | vanilla |
 | **The team / late joiner** | Tune's three lines; the notebook; a full board; James's waypoints re-sent on join; the book with the team's ticks and their own five introductions | plays | — | first-join script (per-player stage `joined`) |

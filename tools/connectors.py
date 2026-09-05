@@ -28,6 +28,8 @@ def main(a):
         x0, z0, x1, z1 = p["x0"] - X0, p["z0"] - Z0, p["x1"] - X0, p["z1"] - Z0
         inside[max(z0, 0):z1 + 1, max(x0, 0):x1 + 1] = True
     net = road & ~inside
+    lab, n = ndimage.label(net); sizes = ndimage.sum(net, lab, range(1, n + 1))
+    net &= np.isin(lab, np.nonzero(sizes >= 3000)[0] + 1)          # the network proper: fragments (a 40-px farm track) are not a target
     # distance to the network and the index of the nearest network pixel, on a 4-block grid
     net4 = ndimage.zoom(net.astype(np.float32), 0.25, order=1) > 0.15
     dist4, idx4 = ndimage.distance_transform_edt(~net4, return_indices=True)

@@ -23,29 +23,45 @@
     -629
    ],
    [
-    -2736,
-    -760
+    -2624,
+    -684
    ]
   ],
   "width": 9,
   "style": "skadowsky",
-  "note": "Novo Expograd hub (desert city) N gate (minecraft:sandstone, stub width 4) -> nearest existing road, 505 m"
+  "note": "Novo Expograd hub (desert city) N gate (minecraft:sandstone, stub width 4) -> nearest existing road, 602 m"
  },
  {
-  "name": "plaza_E",
+  "name": "novo_E",
   "points": [
    [
-    -3291,
-    -728
+    -2731,
+    -736
    ],
    [
-    -2736,
-    -760
+    -2632,
+    -764
    ]
   ],
   "width": 9,
   "style": "skadowsky",
-  "note": "Financial Plaza + sewers E gate (fallback, stub width 0) -> nearest existing road, 557 m"
+  "note": "Novo Expograd Industrial Zone E gate (fallback, stub width 0) -> nearest existing road, 104 m"
+ },
+ {
+  "name": "plaza_N",
+  "points": [
+   [
+    -3376,
+    -806
+   ],
+   [
+    -3016,
+    -1300
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Financial Plaza + sewers N gate (fallback, stub width 0) -> nearest existing road, 610 m"
  },
  {
   "name": "biogen_S",
@@ -55,29 +71,13 @@
     -443
    ],
    [
-    -2536,
-    -428
+    -2516,
+    -360
    ]
   ],
   "width": 9,
   "style": "skadowsky",
-  "note": "Bio Gen offices S gate (fallback, stub width 0) -> nearest existing road, 58 m"
- },
- {
-  "name": "skad_W",
-  "points": [
-   [
-    -1093,
-    -945
-   ],
-   [
-    -1212,
-    -932
-   ]
-  ],
-  "width": 9,
-  "style": "skadowsky",
-  "note": "Skadowsky sector W gate (minecraft:stone, stub width 18) -> nearest existing road, 117 m"
+  "note": "Bio Gen offices S gate (fallback, stub width 0) -> nearest existing road, 91 m"
  },
  {
   "name": "skad_E",
@@ -87,29 +87,45 @@
     -945
    ],
    [
-    -1212,
-    -932
+    -620,
+    -216
    ]
   ],
   "width": 9,
   "style": "skadowsky",
-  "note": "Skadowsky sector E gate (minecraft:andesite, stub width 16) -> nearest existing road, 592 m"
+  "note": "Skadowsky sector E gate (minecraft:andesite, stub width 16) -> nearest existing road, 732 m"
  },
  {
-  "name": "mega_N",
+  "name": "skad_W",
+  "points": [
+   [
+    -1093,
+    -945
+   ],
+   [
+    -1100,
+    -212
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Skadowsky sector W gate (minecraft:stone, stub width 18) -> nearest existing road, 736 m"
+ },
+ {
+  "name": "mega_S",
   "points": [
    [
     559,
-    -2134
+    -1595
    ],
    [
-    516,
-    -2248
+    564,
+    -644
    ]
   ],
   "width": 9,
   "style": "skadowsky",
-  "note": "Mega-base N gate (fallback, stub width 0) -> nearest existing road, 119 m"
+  "note": "Mega-base S gate (fallback, stub width 0) -> nearest existing road, 952 m"
  },
  {
   "name": "indu_E",
@@ -119,13 +135,13 @@
     -1116
    ],
    [
-    1012,
-    -1196
+    724,
+    -648
    ]
   ],
   "width": 9,
   "style": "skadowsky",
-  "note": "Industrial district E gate (immersiveengineering:hempcrete, stub width 24) -> nearest existing road, 227 m"
+  "note": "Industrial district E gate (immersiveengineering:hempcrete, stub width 24) -> nearest existing road, 474 m"
  },
  {
   "name": "indu_N",
@@ -135,13 +151,13 @@
     -1382
    ],
    [
-    556,
-    -924
+    564,
+    -644
    ]
   ],
   "width": 9,
   "style": "skadowsky",
-  "note": "Industrial district N gate (immersiveengineering:hempcrete_pillar, stub width 26) -> nearest existing road, 505 m"
+  "note": "Industrial district N gate (immersiveengineering:hempcrete_pillar, stub width 26) -> nearest existing road, 771 m"
  },
  {
   "name": "hemp_E",
@@ -160,20 +176,36 @@
   "note": "Hempcrete compound E gate (fallback, stub width 0) -> nearest existing road, 127 m"
  },
  {
-  "name": "settle_S",
+  "name": "lib_S",
   "points": [
    [
-    -1067,
-    -1725
+    -2432,
+    -3707
    ],
    [
-    -968,
-    -1696
+    -2432,
+    -3664
    ]
   ],
-  "width": 9,
-  "style": "skadowsky",
-  "note": "Settlement S gate (minecraft:stone, stub width 24) -> nearest existing road, 105 m"
+  "width": 5,
+  "style": "track",
+  "note": "Library S gate (fallback, stub width 0) -> nearest existing road, 44 m"
+ },
+ {
+  "name": "runway_W",
+  "points": [
+   [
+    -2070,
+    -3696
+   ],
+   [
+    -2216,
+    -3552
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Runway (pad) W gate (fallback, stub width 0) -> nearest existing road, 204 m"
  },
  {
   "name": "settle_N",
@@ -183,13 +215,29 @@
     -2020
    ],
    [
-    -1440,
-    -1992
+    -1284,
+    -1832
    ]
   ],
   "width": 9,
   "style": "skadowsky",
-  "note": "Settlement N gate (minecraft:stone, stub width 16) -> nearest existing road, 166 m"
+  "note": "Settlement N gate (minecraft:stone, stub width 16) -> nearest existing road, 188 m"
+ },
+ {
+  "name": "settle_S",
+  "points": [
+   [
+    -1067,
+    -1725
+   ],
+   [
+    -1284,
+    -1820
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Settlement S gate (minecraft:stone, stub width 24) -> nearest existing road, 235 m"
  },
  {
   "name": "old01_N",
@@ -206,5 +254,245 @@
   "width": 5,
   "style": "track",
   "note": "farmstead 1 N gate (minecraft:smooth_stone_slab, stub width 14) -> nearest existing road, 40 m"
+ },
+ {
+  "name": "old04_S",
+  "points": [
+   [
+    -1280,
+    -779
+   ],
+   [
+    -1304,
+    -212
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 4 S gate (fallback, stub width 0) -> nearest existing road, 569 m"
+ },
+ {
+  "name": "old07_S",
+  "points": [
+   [
+    431,
+    -2411
+   ],
+   [
+    564,
+    -644
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 7 S gate (fallback, stub width 0) -> nearest existing road, 1773 m"
+ },
+ {
+  "name": "old10_N",
+  "points": [
+   [
+    -1552,
+    -1526
+   ],
+   [
+    -1616,
+    -1704
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 10 N gate (fallback, stub width 0) -> nearest existing road, 187 m"
+ },
+ {
+  "name": "old12_S",
+  "points": [
+   [
+    -272,
+    -2827
+   ],
+   [
+    -1284,
+    -1832
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 12 S gate (fallback, stub width 0) -> nearest existing road, 1420 m"
+ },
+ {
+  "name": "old13_E",
+  "points": [
+   [
+    -2715,
+    -1056
+   ],
+   [
+    -2640,
+    -1056
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 13 E gate (fallback, stub width 0) -> nearest existing road, 76 m"
+ },
+ {
+  "name": "old16_S",
+  "points": [
+   [
+    -528,
+    -2603
+   ],
+   [
+    -1284,
+    -1832
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 16 S gate (fallback, stub width 0) -> nearest existing road, 1081 m"
+ },
+ {
+  "name": "old19_W",
+  "points": [
+   [
+    -1222,
+    -3744
+   ],
+   [
+    -2048,
+    -3360
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 19 W gate (fallback, stub width 0) -> nearest existing road, 909 m"
+ },
+ {
+  "name": "old20_W",
+  "points": [
+   [
+    -102,
+    -2336
+   ],
+   [
+    -1284,
+    -1832
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 20 W gate (fallback, stub width 0) -> nearest existing road, 1283 m"
+ },
+ {
+  "name": "old23_W",
+  "points": [
+   [
+    154,
+    -2400
+   ],
+   [
+    -1284,
+    -1832
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 23 W gate (fallback, stub width 0) -> nearest existing road, 1544 m"
+ },
+ {
+  "name": "old24_S",
+  "points": [
+   [
+    -720,
+    -2363
+   ],
+   [
+    -1284,
+    -1832
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 24 S gate (fallback, stub width 0) -> nearest existing road, 775 m"
+ },
+ {
+  "name": "old25_W",
+  "points": [
+   [
+    -2518,
+    -1152
+   ],
+   [
+    -2632,
+    -1152
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 25 W gate (fallback, stub width 0) -> nearest existing road, 112 m"
+ },
+ {
+  "name": "old26_S",
+  "points": [
+   [
+    -3776,
+    -3675
+   ],
+   [
+    -3776,
+    -3456
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 26 S gate (fallback, stub width 0) -> nearest existing road, 220 m"
+ },
+ {
+  "name": "old27_W",
+  "points": [
+   [
+    -118,
+    -2576
+   ],
+   [
+    -1284,
+    -1832
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 27 W gate (fallback, stub width 0) -> nearest existing road, 1381 m"
+ },
+ {
+  "name": "old28_W",
+  "points": [
+   [
+    -822,
+    -2720
+   ],
+   [
+    -1756,
+    -2500
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 28 W gate (fallback, stub width 0) -> nearest existing road, 958 m"
+ },
+ {
+  "name": "old29_S",
+  "points": [
+   [
+    671,
+    -2315
+   ],
+   [
+    720,
+    -648
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 29 S gate (fallback, stub width 0) -> nearest existing road, 1669 m"
  }
 ]

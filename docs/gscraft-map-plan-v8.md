@@ -192,7 +192,35 @@ Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700
     river.py as its protect layer).
   - Not done yet with the same tool: the mega-base, industrial district and settlement footprints still carry their own
     imported ground slabs (visible as squares in the full render); `integrate.py` takes a new SECTORS entry per sector.
-- Next: the owner's WorldPainter look at `scratch/worlds/v8-build`; then step 7-8 (connectors) once the sectors are signed off.
+- Pass 3b (2026-09-05, owner: "that section of the river makes no sense, and a bridge on Skadowsky also doesn't; transplants
+  have blending issues exactly at their edges"). Diagnosis: the source map's west water is the town's big river cut at the
+  map boundary; keeping the cut left a rectangle of water with a straight edge, a stream leaving its corner and the highway
+  viaduct ending at the map edge. Ground blending is solved by the integrate pass; what remains at every footprint edge is
+  *linear features* running off the source map, which need a continuation in their own vocabulary or a designed end.
+  - The river is now the region's main river (`rivers_v8.json`, one job): it drains the lake (y 57, four 1-block rapids in
+    the first 200 m), runs 84-110 wide along Skadowsky's west side (the map's straight-cut water is its east half, the
+    kept columns untouched), then south out of the cell at z 700 (owner: "out of the cell"). Roads on the line are cut
+    (`cut_roads`: the gravel highway embankment at z -520 and the road at z -205 - bridge sites for step 8). The 22-wide
+    channel and the shore strips are gone. 227 k channel + 271 k bank columns.
+  - `tools/bridge.py` (new): stamps the viaduct's own cross-section (two decks, earth median, lamp posts, taken at
+    x -1030) from the map edge across the river to the new west bank, with the median as piers every 12 blocks and open
+    water between, then 60 columns onto the bank as the highway at grade; ends at x -1234 (`bridge_v8.json`, stub in
+    `bridge_v8.json.stubs.json` for step 8). A routed 9-wide connector was tried first and removed (`tools/unroad.py`):
+    its target was a 42-pixel farm track and the router's 32-block cells gave a dogleg.
+  - `tools/statusfix.py` (new): 7,263 chunks of the cell still carried the 1.12 upgrade's `spawn`/`carvers` status; every
+    World-based tool skipped them (the river had gaps south of z 300, the relief pass had skipped them too - checked: the
+    open land there was already at plan height). All chunks are `full` now.
+  - `tools/edgeaudit.py` (new): every footprint edge scanned for water, elevated (deck) and road/rail features running
+    off the source map -> `buildmap/plan_v8/edge_features_v8.json`: 158 features (85 road, 47 water, 26 elevated). The
+    water ones are the industrial district's north edge (its own canal system cut at the edge), the hempcrete compound's
+    west edge, the mega-base's west edge, the settlement's east edge; the elevated ones are pipes/decks at the mega-base,
+    industrial district and settlement edges. Each is a step-7/8 item: continue it or end it.
+  - `tools/connectors.py`: connector targets are now the road network proper (components of 3000+ pixels); the earlier
+    plan sent both Skadowsky gates and several farmsteads to a 42-pixel track. `roads_v8.json` regenerated (16 connectors;
+    the far farmsteads now show 1-1.8 km tracks - a design decision for step 8, not built).
+  - Renders: `incoming/census/wide_river_inspect.png` (the whole course), `bridge_area_inspect.png`.
+- Next: the owner's WorldPainter look at `scratch/worlds/v8-build`; then step 7-8 (connectors, bridge sites, the edge
+  features list) once the sectors are signed off.
 
 ## 7-8. Road hooks (prepared 2026-09-05, not built)
 
