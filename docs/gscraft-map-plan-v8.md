@@ -156,7 +156,15 @@ Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700
   the local grass), mega-base 133,680 / 69,072, industrial district 63,986 / 47,282, settlement 14,777 / 52,982, hempcrete
   11,567 / 90,827, Novo 16,688 / 239, plaza 5,221 / 479, library 2,319 / 6,897, 29 farmsteads. Re-staged to
   `server/wasteland-v8` and booted 01:39 for the owner's fly-through.
-- Next: the owner's fly-through, then step 7 (roads hooked to the builds' own stubs in the Skadowsky vocabulary).
+- Owner's notes after the first fly-through (2026-09-05) and what was done: (1) "pave the ground" of the hub - its desert
+  floor restored (hub re-transplanted) and the settle run with sand counted as pavement, so the platform, streets and
+  sand floor stay and only true soil becomes grass; (2) Skadowsky's edges blended - `settle.py --edge-only`: the outer
+  40 blocks of its footprint meet the outside level, the interior untouched; (3) water where it should not be - the settle
+  pass now removes imported ponds standing on open columns (trees kept); (4) "connect the river to Skadowsky's river" -
+  `tools/river.py` carves a 22-wide channel from the sector's river mouth (-1011, -1356) north-east to the lake at
+  (-713, -1726), bed 3 under the water, banks 1:3 (`buildmap/plan_v8/rivers_v8.json`); the sector's south outlet at
+  (-1045, -745) is left as a stream end for now.
+- Next: re-stage, render, the owner's second look; then step 7-8 (connectors) once the sectors are signed off.
 
 ## 7-8. Road hooks (prepared 2026-09-05, not built)
 
