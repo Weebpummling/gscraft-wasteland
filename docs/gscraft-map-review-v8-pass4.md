@@ -55,14 +55,20 @@ four canal mouths at the industrial district's north edge (8-15 wide, y 57) got 
 river.py jobs of the canal's width running 9-12 blocks out, banks graded, the district's columns protected
 (`buildmap/plan_v8/rivers_edges_v8.json`).
 
-### 2.3 Connectors under 300 m (`roads_v8_short.json`, `routes_v8_short.json`)
+### 2.3 Connectors - all of them (`roads_v8_short.json` + `roads_v8_long.json`, routes `routes_v8_*.json`)
 
-Built in the Skadowsky vocabulary (`roads.py build --style skadowsky`): hub S (105 m), Novo E (100), Bio Gen S (96),
-hempcrete E (117, track), library S (44, track), runway W (153, track), farmsteads 01 N, 10 N, 13 E, 25 W, 26 S (tracks);
-8,449 road columns. Not built - owner decisions for step 8 (`roads_v8.json`, 29 entries): the long ones - Skadowsky's
-highway west of the new bridge (736 m to the network), Skadowsky E (732), hub N (602), plaza N (610), mega-base S (952),
-industrial N/E (771/474), farmsteads 04, 07, 12, 16, 19, 20, 23, 24, 27, 28, 29 at 570-1,770 m. A farmstead 1.5 km from
-any road is a design question (a track that long, or no road), not a build step.
+Owner: "Those aren't decisions?" - they are not; roads are the spine, every sector's gate is connected. Built in the
+Skadowsky vocabulary (`roads.py build --style skadowsky`; farm tracks 5 wide, sector roads 9 wide): the 11 short ones
+(hub S, Novo E, Bio Gen S, hempcrete E, library S, runway W, farmsteads 01/10/13/25/26) and the 16 long ones - hub N 598 m,
+plaza N 629, Skadowsky E 1,214 (routed round the lake), Skadowsky W 865 (from the extended viaduct's west end, retargeted to
+the network *west* of the river so it does not cross it again), mega-base S 1,040, industrial E 477 / N 769, farmsteads 04,
+12, 16, 19, 20, 23, 24, 27, 29 at 630-1,700 m. 118 k road columns. The routes cross at most 8 m of water (a stream) and
+avoid every building. The connectors of the removed sites (settlement, old07, old28) were dropped.
+
+**Two viaducts** where the river cut the Pripyat roads (`tools/bridge.py` viaduct mode, `buildmap/plan_v8/viaducts_v8.json`):
+the gravel highway (embankment y 76) gets a 341 m viaduct between its intact ends (x -1302 to -962, deck y 76, 7 wide) and the
+cobble road a 233 m one (x -1293 to -1060, deck y 65, 9 wide): gray-concrete deck, andesite-wall kerbs, 3-wide concrete piers
+every 10 blocks down to the bank or bed, nothing under the deck touched.
 
 ### 2.4 Edge audit after the pass (`buildmap/plan_v8/edge_features_v8.json`)
 
@@ -72,8 +78,8 @@ left as wasteland).
 
 ## 3. Open
 
-- Step 8: the long connectors (owner decisions above), bridges at the two cut roads on the river (z -520 gravel highway,
-  z -205 road), the 80 road stubs.
+- Step 8 remainder: the 97 road stubs the audit still lists are the sectors' own roads and pavements reaching their footprint
+  edges (city-block kerbs, second gates); each sector is connected through its main gate now.
 - Step 9+: the camp on the plateau, Lost Cities modules in the city zones, props; the runway.
 - Sector list housekeeping: drop the six empty old sites and the settlement from `sectors_v8.json` when the plan is next
   regenerated (they are marked, not deleted, so the tools skip them).

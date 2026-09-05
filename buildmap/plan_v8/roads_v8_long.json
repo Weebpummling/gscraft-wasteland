@@ -1,21 +1,5 @@
 [
  {
-  "name": "hub_S",
-  "points": [
-   [
-    -2660,
-    20
-   ],
-   [
-    -2660,
-    124
-   ]
-  ],
-  "width": 9,
-  "style": "skadowsky",
-  "note": "Novo Expograd hub (desert city) S gate (minecraft:sandstone, stub width 10) -> nearest existing road, 104 m"
- },
- {
   "name": "hub_N",
   "points": [
    [
@@ -32,22 +16,6 @@
   "note": "Novo Expograd hub (desert city) N gate (minecraft:sandstone, stub width 4) -> nearest existing road, 602 m"
  },
  {
-  "name": "novo_E",
-  "points": [
-   [
-    -2731,
-    -736
-   ],
-   [
-    -2632,
-    -764
-   ]
-  ],
-  "width": 9,
-  "style": "skadowsky",
-  "note": "Novo Expograd Industrial Zone E gate (fallback, stub width 0) -> nearest existing road, 104 m"
- },
- {
   "name": "plaza_N",
   "points": [
    [
@@ -62,22 +30,6 @@
   "width": 9,
   "style": "skadowsky",
   "note": "Financial Plaza + sewers N gate (fallback, stub width 0) -> nearest existing road, 610 m"
- },
- {
-  "name": "biogen_S",
-  "points": [
-   [
-    -2480,
-    -443
-   ],
-   [
-    -2516,
-    -360
-   ]
-  ],
-  "width": 9,
-  "style": "skadowsky",
-  "note": "Bio Gen offices S gate (fallback, stub width 0) -> nearest existing road, 91 m"
  },
  {
   "name": "skad_E",
@@ -160,70 +112,6 @@
   "note": "Industrial district N gate (immersiveengineering:hempcrete_pillar, stub width 26) -> nearest existing road, 771 m"
  },
  {
-  "name": "hemp_E",
-  "points": [
-   [
-    -3067,
-    -1184
-   ],
-   [
-    -3016,
-    -1300
-   ]
-  ],
-  "width": 5,
-  "style": "track",
-  "note": "Hempcrete compound E gate (fallback, stub width 0) -> nearest existing road, 127 m"
- },
- {
-  "name": "lib_S",
-  "points": [
-   [
-    -2432,
-    -3707
-   ],
-   [
-    -2432,
-    -3664
-   ]
-  ],
-  "width": 5,
-  "style": "track",
-  "note": "Library S gate (fallback, stub width 0) -> nearest existing road, 44 m"
- },
- {
-  "name": "runway_W",
-  "points": [
-   [
-    -2070,
-    -3696
-   ],
-   [
-    -2216,
-    -3552
-   ]
-  ],
-  "width": 5,
-  "style": "track",
-  "note": "Runway (pad) W gate (fallback, stub width 0) -> nearest existing road, 204 m"
- },
- {
-  "name": "old01_N",
-  "points": [
-   [
-    -2168,
-    -614
-   ],
-   [
-    -2128,
-    -616
-   ]
-  ],
-  "width": 5,
-  "style": "track",
-  "note": "farmstead 1 N gate (minecraft:smooth_stone_slab, stub width 14) -> nearest existing road, 40 m"
- },
- {
   "name": "old04_S",
   "points": [
    [
@@ -256,22 +144,6 @@
   "note": "farmstead 7 S gate (fallback, stub width 0) -> nearest existing road, 1773 m"
  },
  {
-  "name": "old10_N",
-  "points": [
-   [
-    -1552,
-    -1526
-   ],
-   [
-    -1616,
-    -1704
-   ]
-  ],
-  "width": 5,
-  "style": "track",
-  "note": "farmstead 10 N gate (fallback, stub width 0) -> nearest existing road, 187 m"
- },
- {
   "name": "old12_S",
   "points": [
    [
@@ -286,22 +158,6 @@
   "width": 5,
   "style": "track",
   "note": "farmstead 12 S gate (fallback, stub width 0) -> nearest existing road, 1420 m"
- },
- {
-  "name": "old13_E",
-  "points": [
-   [
-    -2715,
-    -1056
-   ],
-   [
-    -2640,
-    -1056
-   ]
-  ],
-  "width": 5,
-  "style": "track",
-  "note": "farmstead 13 E gate (fallback, stub width 0) -> nearest existing road, 76 m"
  },
  {
   "name": "old16_S",
@@ -382,38 +238,6 @@
   "width": 5,
   "style": "track",
   "note": "farmstead 24 S gate (fallback, stub width 0) -> nearest existing road, 775 m"
- },
- {
-  "name": "old25_W",
-  "points": [
-   [
-    -2518,
-    -1152
-   ],
-   [
-    -2632,
-    -1152
-   ]
-  ],
-  "width": 5,
-  "style": "track",
-  "note": "farmstead 25 W gate (fallback, stub width 0) -> nearest existing road, 112 m"
- },
- {
-  "name": "old26_S",
-  "points": [
-   [
-    -3776,
-    -3675
-   ],
-   [
-    -3776,
-    -3456
-   ]
-  ],
-  "width": 5,
-  "style": "track",
-  "note": "farmstead 26 S gate (fallback, stub width 0) -> nearest existing road, 220 m"
  },
  {
   "name": "old27_W",

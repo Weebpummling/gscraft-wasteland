@@ -1,0 +1,32 @@
+[
+ {
+  "viaduct": "pripyat_highway_river",
+  "a": [
+   -1302,
+   -501
+  ],
+  "b": [
+   -962,
+   -530
+  ],
+  "width": 7,
+  "deck_y": 76,
+  "pier_every": 10,
+  "note": "the gravel highway (y 76 embankment) cut by the region's river; 340 m viaduct in the Skadowsky vocabulary between the intact ends"
+ },
+ {
+  "viaduct": "pripyat_road_river",
+  "a": [
+   -1293,
+   -202
+  ],
+  "b": [
+   -1060,
+   -202
+  ],
+  "width": 9,
+  "deck_y": 65,
+  "pier_every": 10,
+  "note": "the cobble road (y 65) cut by the river; 233 m viaduct"
+ }
+]

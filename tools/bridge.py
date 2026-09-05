@@ -75,9 +75,43 @@ def build(world, job, dry):
     return {"name": job["name"], "x": end_x + dx, "z": zc, "y": deck + 2, "side": "W" if dx < 0 else "E", "width": z1 - z0 - 4}
 
 
+def viaduct(world, job, dry):
+    """A new viaduct in the Skadowsky vocabulary between two road ends: {"viaduct": name, "a": [x, z], "b": [x, z], "width": 7,
+    "deck_y": 76, "pier_every": 10}. Deck of gray concrete at deck_y with andesite-wall kerbs, a beam under it, 3-wide
+    concrete piers down to the ground or bed every pier_every blocks, headroom cleared; nothing under the deck is touched."""
+    import math
+    (ax, az), (bx, bz) = job["a"], job["b"]; w = job.get("width", 7); deck = job["deck_y"]; every = job.get("pier_every", 10)
+    L = math.hypot(bx - ax, bz - az); ux, uz = (bx - ax) / L, (bz - az) / L; nx, nz = -uz, ux
+    done = set(); piers = 0
+    for k in range(int(L) + 1):
+        cx, cz = ax + ux * k, az + uz * k
+        pier = (k % every) == 0 and 4 < k < L - 4
+        for t in range(-(w // 2) - 1, w // 2 + 2):
+            x, z = int(round(cx + nx * t)), int(round(cz + nz * t))
+            if (x, z) in done: continue
+            done.add((x, z))
+            edge = abs(t) > w // 2
+            g = world.ground(x, z)
+            if g is not None and g >= deck - 1: continue                    # on the road / its embankment: leave it
+            for yy in range(deck + 1, deck + 7):
+                if world.get(x, yy, z) not in AIR: world.set(x, yy, z, "minecraft:air")
+            if edge: world.set(x, deck, z, "minecraft:gray_concrete"); world.set(x, deck + 1, z, "minecraft:andesite_wall")
+            else: world.set(x, deck, z, "minecraft:gray_concrete" if (x + z) % 7 else "minecraft:andesite"); world.set(x, deck - 1, z, "minecraft:gray_concrete")
+            if pier and abs(t) <= 1:
+                yy = deck - 2
+                while yy > (g if g is not None else -64):
+                    world.set(x, yy, z, "minecraft:gray_concrete"); yy -= 1
+                piers += 1
+    files, chunks = world.save(dry)
+    print(f"viaduct {job['viaduct']}: {int(L)} m, width {w}, deck y {deck}, {len(done)} columns, {piers} pier columns, {chunks} chunks{' (dry)' if dry else ''}")
+
+
 def main(a):
     if len(a) < 3: sys.exit(__doc__)
     world = World(Path(a[1])); jobs = json.load(open(a[2])); dry = "--dry-run" in a
+    if all("viaduct" in j for j in jobs):
+        for j in jobs: viaduct(world, j, dry)
+        return
     stubs = [build(world, j, dry) for j in jobs]
     json.dump(stubs, open(a[2] + ".stubs.json", "w"), indent=1); print("road stubs ->", a[2] + ".stubs.json", stubs)
 

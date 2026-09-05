@@ -2,17 +2,47 @@
  {
   "sector": "hub",
   "side": "N",
-  "kind": "elevated",
+  "kind": "road",
   "from": [
-   -3130,
+   -3158,
    -624
   ],
   "to": [
-   -3122,
+   -3146,
    -624
   ],
-  "width": 9,
-  "y": 73
+  "width": 13,
+  "y": 65
+ },
+ {
+  "sector": "hub",
+  "side": "N",
+  "kind": "road",
+  "from": [
+   -3134,
+   -624
+  ],
+  "to": [
+   -3132,
+   -624
+  ],
+  "width": 3,
+  "y": 65
+ },
+ {
+  "sector": "hub",
+  "side": "N",
+  "kind": "elevated",
+  "from": [
+   -3131,
+   -624
+  ],
+  "to": [
+   -3121,
+   -624
+  ],
+  "width": 11,
+  "y": 74
  },
  {
   "sector": "hub",
@@ -237,6 +267,36 @@
    -800
   ],
   "width": 32,
+  "y": 65
+ },
+ {
+  "sector": "plaza",
+  "side": "N",
+  "kind": "road",
+  "from": [
+   -3342,
+   -800
+  ],
+  "to": [
+   -3330,
+   -800
+  ],
+  "width": 13,
+  "y": 65
+ },
+ {
+  "sector": "plaza",
+  "side": "N",
+  "kind": "road",
+  "from": [
+   -3318,
+   -800
+  ],
+  "to": [
+   -3306,
+   -800
+  ],
+  "width": 13,
   "y": 65
  },
  {
@@ -714,10 +774,25 @@
   ],
   "to": [
    -625,
-   -938
+   -946
   ],
-  "width": 16,
+  "width": 8,
   "y": 68
+ },
+ {
+  "sector": "mega",
+  "side": "N",
+  "kind": "road",
+  "from": [
+   747,
+   -2128
+  ],
+  "to": [
+   749,
+   -2128
+  ],
+  "width": 3,
+  "y": 65
  },
  {
   "sector": "mega",
@@ -908,10 +983,25 @@
    -1376
   ],
   "to": [
+   346,
+   -1376
+  ],
+  "width": 11,
+  "y": 58
+ },
+ {
+  "sector": "indu",
+  "side": "N",
+  "kind": "road",
+  "from": [
+   349,
+   -1376
+  ],
+  "to": [
    361,
    -1376
   ],
-  "width": 26,
+  "width": 13,
   "y": 84
  },
  {
@@ -1122,7 +1212,7 @@
    -1266
   ],
   "width": 111,
-  "y": 84
+  "y": 58
  },
  {
   "sector": "indu",
@@ -1575,6 +1665,36 @@
   "y": 63
  },
  {
+  "sector": "runway",
+  "side": "S",
+  "kind": "road",
+  "from": [
+   -1625,
+   -3601
+  ],
+  "to": [
+   -1621,
+   -3601
+  ],
+  "width": 5,
+  "y": 65
+ },
+ {
+  "sector": "runway",
+  "side": "E",
+  "kind": "road",
+  "from": [
+   -1553,
+   -3673
+  ],
+  "to": [
+   -1553,
+   -3669
+  ],
+  "width": 5,
+  "y": 65
+ },
+ {
   "sector": "old01",
   "side": "N",
   "kind": "road",
@@ -1618,6 +1738,36 @@
   ],
   "width": 3,
   "y": 88
+ },
+ {
+  "sector": "old04",
+  "side": "N",
+  "kind": "road",
+  "from": [
+   -1312,
+   -848
+  ],
+  "to": [
+   -1306,
+   -848
+  ],
+  "width": 7,
+  "y": 65
+ },
+ {
+  "sector": "old04",
+  "side": "W",
+  "kind": "road",
+  "from": [
+   -1312,
+   -848
+  ],
+  "to": [
+   -1312,
+   -842
+  ],
+  "width": 7,
+  "y": 65
  },
  {
   "sector": "old05",
@@ -1756,6 +1906,21 @@
  },
  {
   "sector": "old16",
+  "side": "N",
+  "kind": "road",
+  "from": [
+   -501,
+   -2672
+  ],
+  "to": [
+   -499,
+   -2672
+  ],
+  "width": 3,
+  "y": 65
+ },
+ {
+  "sector": "old16",
   "side": "W",
   "kind": "road",
   "from": [
@@ -1800,6 +1965,21 @@
   "y": 78
  },
  {
+  "sector": "old16",
+  "side": "E",
+  "kind": "road",
+  "from": [
+   -497,
+   -2643
+  ],
+  "to": [
+   -497,
+   -2639
+  ],
+  "width": 5,
+  "y": 65
+ },
+ {
   "sector": "old20",
   "side": "N",
   "kind": "elevated",
@@ -1831,6 +2011,21 @@
  },
  {
   "sector": "old20",
+  "side": "S",
+  "kind": "road",
+  "from": [
+   -57,
+   -2305
+  ],
+  "to": [
+   -53,
+   -2305
+  ],
+  "width": 5,
+  "y": 65
+ },
+ {
+  "sector": "old20",
   "side": "W",
   "kind": "elevated",
   "from": [
@@ -1843,6 +2038,66 @@
   ],
   "width": 9,
   "y": 78
+ },
+ {
+  "sector": "old20",
+  "side": "E",
+  "kind": "road",
+  "from": [
+   -33,
+   -2317
+  ],
+  "to": [
+   -33,
+   -2315
+  ],
+  "width": 3,
+  "y": 65
+ },
+ {
+  "sector": "old24",
+  "side": "S",
+  "kind": "road",
+  "from": [
+   -737,
+   -2369
+  ],
+  "to": [
+   -733,
+   -2369
+  ],
+  "width": 5,
+  "y": 65
+ },
+ {
+  "sector": "old24",
+  "side": "E",
+  "kind": "road",
+  "from": [
+   -689,
+   -2425
+  ],
+  "to": [
+   -689,
+   -2421
+  ],
+  "width": 5,
+  "y": 65
+ },
+ {
+  "sector": "old24",
+  "side": "E",
+  "kind": "road",
+  "from": [
+   -689,
+   -2417
+  ],
+  "to": [
+   -689,
+   -2413
+  ],
+  "width": 5,
+  "y": 65
  },
  {
   "sector": "old25",
