@@ -75,3 +75,24 @@ steeper than 1:8 and the town and plant edges never see a wall.
 
 Ungenerated holes inside either border (black in the render) are filled by the terrain build.
 
+## 3. The spine: roads and terrain (draft, 2026-09-04)
+
+Inputs: the upgraded world `scratch/upgrade/pripyat_after/world` (1.20.1; the cell's 14,877 ungenerated chunks filled
+flat at y 65 by `tools/flatfill.py`), the per-block surface class raster (`tools/classraster.py`: ground, road, rail,
+water, building, tree, bare) and `tools/heightplan.py`, which authors the relief from the section-2 zones.
+
+Results (seed 7): 18.3 % of the cell's columns are fixed (roads, rail, water, buildings, with a 24-block apron); 8.6 M
+columns move, 53 M blocks of fill and 8.9 M of cut, almost all of it the west ridge (mean 94.6, top 103). Existing
+hills - the pack has a low rise of 70-77 inside the river bend - are kept and the relief adds to them. The camp plateau
+zone comes out low (mean 72, top 88) because scattered sheds inside it pin their surroundings; the camp sector's own
+grade shapes that ground when it is placed, so this is accepted. Woods 65-77 (mean 68), fields 61-74. Renders:
+`incoming/census/heightplan/height_preview.png`, statistics in `height_stats.txt`.
+
+Road network (`tools/roadnet.py`): 158 km of road centre line extracted from the blocks - the town's grid and ring road,
+the main road south-east to the plant, the diagonal to the south-west, the plant's internal roads, the field tracks; 834
+dead ends, of which the ones at the border are the map's exits and the rest are stubs sectors can hook onto. The skeleton
+is noisy inside paved courtyards (16 k "junctions"); it is pruned before it is used for gates. The rail embankment
+reads as bare ground (coarse dirt) rather than rails and is traced separately. Render: `incoming/census/roadnet/roadnet.png`.
+
+Next: apply the heightmap to the world (column raise/cut with the grade tool's column writer; ground cover and trees
+follow with WorldPainter), then a fly-through render; then step 4, sector placement on the rolling fields.
