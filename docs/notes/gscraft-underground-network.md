@@ -34,7 +34,7 @@ railways are the long straight grid lines at y 48–63.
 
 | Save | Underground finding | Player rail |
 |---|---|---|
-| **SewerPVP** (vanilla terrain, spawn −124 64 −248) | One compact hand-built complex, chunks x −59…−54 z −21…−16 = blocks **x −944…−849, z −336…−241 (96×96)**, built y 14…60 (20,740 blocks below y 40 in the modded core), HBM steel grates and rusted pipe runs, IE stone decoration, Chisel; the ring of vanilla stone-brick chunks around the core is the same complex. Everything else in the save (890 "built" chunks) is natural caves and 12 mineshafts. This is what `scratch/upgrade/sewers` already holds. | none of its own (9 mineshaft rails inside the box) |
+| **SewerPVP** (vanilla terrain, spawn −124 64 −248) | One compact hand-built complex, chunks x −59…−54 z −21…−16 = blocks **x −944…−849, z −336…−241 (96×96)**, built y 14…60 (20,740 blocks below y 40 in the modded core), HBM steel grates and rusted pipe runs, IE stone decoration, Chisel; the ring of vanilla stone-brick chunks around the core is the same complex. Rendered by depth band it is **one sewer arena, about 80×60 blocks: a slab floor with water pools at y 14…23 and a walled level with a few rooms at y 24…39**; no housing, no rail. Everything else in the save (890 "built" chunks) is natural caves and 12 mineshafts. This is what `scratch/upgrade/sewers` already holds. | none of its own (9 mineshaft rails inside the box) |
 | **world** (Lost Cities 2.0 + BoP, spawn −790 151 1675) | Two hand-built underground rooms south of spawn: **x −960…−929, z 1808…1855 (32×48), y 14…63**, ~10,000 built blocks: HBM factory and laboratory blocks, illuminant blocks, red sandstone (an underground lab / bunker; the best candidate for the "boss fight" room); and **x −1040…−1025, z 1840…1855**, y 27…63, ~2,500 blocks of factory, steel grate, tungsten ladders. The 498 other underground chunks are Lost Cities 2.0 cellars and railways. | **`hbm:rail_highspeed`: a straight double track at y 61, x −985…−751, z 1903…1910 (235 blocks)**, 230 m south of spawn, next to the lab; **`golden_rail`: 566 blocks at y 54, a powered minecart line running x −1545…151 along z ≈ 1104…1119 with branches** (a 1.7 km east–west minecart route) |
 | **Financial Plaza Quarantine** (superflat) | The plaza has a full basement level, y 35…63, concrete / antiblock / road blocks, **x −384…−321, z −1152…−1121** core (8,759 built blocks below y 60) | **`hbm:rail_highspeed`: 140 blocks at y 40, x −367…−360, z −1141…−1069**: the "small rail system" under the plaza, 72 blocks long, dead-ends both ways (the stub to extend) |
 | **Novo Expograd Industrial Zone** (superflat, ground y 230) | 31,000 blocks built below y 60 relative to its own datum (basements and pits under the refinery yard) | no rail blocks of any kind in this save; the "two rail connections" the creator remembers are not in this copy (a different export, or built as roads/pipe runs rather than rail blocks) |
@@ -68,14 +68,44 @@ railways are the long straight grid lines at y 48–63.
   below y 48 in v6; the rail trunk at LC's level would cut through them. The terrain plan must reserve a rail
   corridor band (say y 44…52) under every sector before grading.
 
-## 4. Open questions for the creator (through the owner)
+## 4. Questions put to the creator, and the answers (2026-09-04)
 
-1. Which save held the industrial zone with the two rail connections? The copy we have has no rail blocks.
-2. Is the lab south of spawn in `world` (HBM factory + laboratory blocks, red sandstone, y 14…63) the boss room?
-3. Slums + railway in the video's first section: is that inside the SewerPVP 96×96 core, or a part of the world
-   that was not exported?
-4. Preferred rail level and gauge: HBM high-speed (double track) or vanilla powered rail; one trunk level for the
-   whole map?
+1. *Which save held the industrial zone with the two rail connections?* Probably not saved anywhere any more.
+   **Not recovered; the intention is adopted** (a railyard stop at the industrial storage area, and a line on the
+   far edge of the map).
+2. *Is the lab south of spawn in `world` the boss room?* **Yes.** It transplants whole: x −960…−929, z 1808…1855,
+   y 14…63, from `incoming/Maps/world`, HBM blocks through `remap112.json`.
+3. *Slums + railway in the video's first section — inside the SewerPVP core?* Checked by rendering the core in four
+   depth bands (`scratch/underground/sewerpvp_core_layers.png`): the core is **one sewer arena of about 80×60
+   blocks**, a slab floor with water pools at y 14…23 and a walled level with a few rooms at y 24…39, no housing,
+   no rail (the 44 rails nearby are a mineshaft). The slums-and-railway section is in no exported save. **Not
+   recovered; the intention is adopted**: the smuggling hub gets built around the arena as its centrepiece.
+4. *Rail standard?* **HBM high-speed, double track, one trunk level for the whole map.** HBM does not exist for
+   1.20.1 (the remap already sends `hbm:rail_highspeed` to IE sheet-metal steel), so the standard is a **look**,
+   built from the pack: two vanilla powered-rail tracks on a 7-wide bed (dark concrete sleepers, gravel ballast,
+   IE steel scaffolding and railings for the catenary posts every 16 blocks, sheet-metal median), a 5-high tunnel
+   profile in cut, an embankment or IE-steel viaduct in the open, LC-style stations. Minecarts run on it; the
+   dressing sells the high-speed line.
+
+Owner's ruling: **take the intentions into the design; do not try to recover what may not be recoverable.**
+
+## 4b. The underground layer, as designed from those intentions
+
+- **One trunk level** for the high-speed line across the whole map, fixed in the terrain plan before grading
+  (proposed y 48…52 rail bed, tunnel clear to y 57), so every sector's foundation and every Lost Cities city zone
+  is placed above it. Lost Cities' own railways (`railwaysEnabled`) ride the same band inside the city zones and
+  become the trunk there; hand-laid line joins city zone to city zone and reaches each sector's rail gate.
+- **Rail gates per sector** (built, not recovered): a railyard with a loading stop at the industrial zone's storage
+  yard and a second connection on the map's far edge; the plaza's basement stub extended to the trunk; a platform
+  under Skadowsky where its own N–S line crosses; a smugglers' halt at the sewer hub; a dead-end siding into the
+  lab (the boss room). Bio Gen and the settlement get surface stops, not tunnels.
+- **The sewer hub** = the SewerPVP arena as the centre, with slums (shanty housing in the Doomsday Decoration /
+  IE vocabulary) built along the trunk approach and a covered platform: the smuggling hub of the quests (Teddy's
+  counter and the illicit economy). Storm-drain entrances from the river and a manhole in the plaza district.
+- **The boss room** at the end of a siding, sealed until its quest (the finale doc's underground chapter).
+- **Old builds' rail carried over**: the district's east-edge four-track yard (y 66) stays as the surface railyard
+  the trunk surfaces into; the 1.7 km minecart route and the world's high-speed track are not transplanted (their
+  ground is not coming), but their gauge and spacing set the standard above.
 
 ## 5. Files
 
