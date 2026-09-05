@@ -1,6 +1,6 @@
 # GSCraft Wasteland — The player's interface
 
-Draft 1, 2026-09-05. Scope: what a player sees, presses and reads, and how every system of the game shows its
+Draft 1, 2026-09-05 (mockups: the "GSCraft Player Interface" artifact, same day). Scope: what a player sees, presses and reads, and how every system of the game shows its
 state and takes the player's input. It sits on top of the onboarding doc (draft 2: the teaching rule, the first
 session, the notebook), the camp spec (§2 the board, the rack, the map wall), the quests (draft 3), the vendors
 and the crafting sheet (§3–§4 stations). Nothing here changes what those documents say the game *is*; this is
@@ -86,8 +86,8 @@ One line per small item, KubeJS `tooltip`: what it is for and who wants it. *"Bo
 one exception that lists things: its needs (§4.3), because that list *is* the recipe.
 
 ### 3.2 Block — the state
-The strongpoint board (six columns, six colours), the clock sign, the composition sign, the contested lamp, the
-parts rack's five hooks, the tower's stages, the watchtower banners, the door signs, the road signs, the map wall,
+The strongpoint board (six columns, six colours, each column's gloss four words or fewer — the full sentence is the
+notebook's), the clock sign, the composition sign, the contested lamp, the parts rack's five hooks, the tower's stages, the watchtower banners, the door signs, the road signs, the map wall,
 the Lootr glow, a station's lit texture while it works. Rebuilt by function on the change; never animated,
 never blinking. A player who wants to know where the game stands walks to the gatehouse and looks.
 
@@ -98,7 +98,7 @@ player looks away. This is how a screen-less block answers a question without a 
 | Looking at | Readout |
 |---|---|
 | a station with an order running | `STEEL FRAME — 1:58` (then `STEEL FRAME — done` until taken) |
-| a station missing something | `steel frame — needs: welding torch` / `needs: 2 iron plate` |
+| a station missing something | `steel frame — needs: welding torch` / `— needs: 2 more iron plate` (when some are loaded) |
 | a board column | `NOVO — held — clock 31:20 — garrison 3/5` |
 | the clock sign or the lamp | `next attack: 09:40 — the gate` (Radio 2+; before that, the sign alone) |
 | a rack hook | `COOLING — Michael's kit, not yet` |
@@ -122,7 +122,9 @@ A chat line is a survivor speaking. Format, fixed for every line in the game:
   the first; later joins print nothing).
 - One line, two sentences at most, no numbers unless the sentence is the number (a distance, a count).
 - **Rate:** one line per player per 20 s; later lines queue; nothing is dropped; a queue longer than three
-  collapses to the newest per speaker. A line never plays during a title.
+  collapses to the newest per speaker. A line never plays during a title, and never while a look-at readout is
+  showing (the readout sits one line above the hunger row, chat one line above that; the mockups showed the two
+  colliding). Chat is capped at four visible lines; the voice icons stay on the hotbar's baseline below it.
 - `tellraw` from the loop script (`gscraft:say <npc> <key>` — the text lives in a lang file, not in the script).
 
 ### 3.5 Title — the four moments
@@ -135,7 +137,8 @@ Titles are the loudest thing on screen and are used exactly four times in the ga
 | **NOVO IS OURS** (the site's name) / **THE GATE HELD** / **THE GATE FELL** | *hold five minutes* / *nothing lost — they'll be back* | the assault won; the counterattack won; the counterattack lost |
 | **THE SLEEPER** | *sixty minutes* | the beacon lit (finale) |
 
-Nothing else is a title. Not a stage, not a tier, not a quest, not a death.
+Nothing else is a title. Not a stage, not a tier, not a quest, not a death. A title and a boss bar never share the
+screen: the two-minute title fires before the gate bar exists, the result title after the bar is removed.
 
 ### 3.6 Boss bar — the clock you cannot look away from
 Three bars, one at a time, coloured to match the board: the assault (blue, `NOVO — hold — 4:12`), the gate (red,
