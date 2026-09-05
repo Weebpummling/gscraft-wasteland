@@ -22,7 +22,7 @@ that are actively wrong for this design.
    marches in line and reflects light, the Horrors are alone and quiet.
 4. **Factions fight each other.** Mob Factions is configured so an unclaimed site is a three-way
    war the players can watch, wait out, or start.
-5. **Difficulty is distance, then act.** Improved Mobs scales attributes by distance from the crater;
+5. **Difficulty is distance, then act.** Improved Mobs scales attributes by distance from the world spawn — and on the v8 map four strongpoints and the hub all sit 2.0–2.4 km out, so the distance rings alone no longer separate the acts: the take order (Skadowsky first, then Novo and the plaza, then the lake's far side) and each site's own table carry the curve (review fix 6);
    the equipment tables step up per act. A zombie at the hub is not the zombie outside the gate.
 
 ## 1. The five factions
@@ -90,7 +90,7 @@ the mod's: pistol 50 %, shotgun 20 %, assault rifle 20 %, sniper 5 %, bazooka 5 
 
 **Bazooka rank is cut.** `Bazooka Chance` goes to 0: an explosion level 5 at the camp gate would take
 out Marshall's gatehouse, which the grief lock cannot stop because mob explosions are cancelled only
-inside the locked rectangles (design §3.6). The flamethrower stays at 5 %, `Break Block` false.
+inside the locked rectangles (design §3.6). Pillagers Gun 3.1.0 registers no flamethrower (mod audit §4), so its config key is dead; `Break Block` false.
 
 ### 3.3 The Militia
 

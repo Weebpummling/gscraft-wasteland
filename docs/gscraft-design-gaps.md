@@ -180,3 +180,24 @@ levelled); the six Line stops' coordinates; the town landmarks named in design �
 buildings); the S-chain hand-in rows per site (the Create chapter §3 has the tiers, not the item lists); the keeper
 counters' JSON; the Create/CBC section of `gscraft_recipes.js`; design §7.1's dragon paragraph (finale §6 calls it
 history; left in place).
+
+## F. The design review on the final sectors and the mod audit (2026-09-05)
+
+`gscraft-design-review-v8.md` (the loop holds on the final rectangles; the paperwork did not) and
+`gscraft-mod-utilization-2026-09-05.md` (45 mods rated: none 3, low 9, medium 19, full 14; fifteen capability
+mismatches) were applied the same day. What changed and what stays open:
+
+| # | Item | State |
+|---|---|---|
+| F1 | E1 applied to the quest rows: R2 = Skadowsky after L6, R3 = Novo, R4 = the plaza, R5 = FR-06 + the plant; T3–T7, J-S2/3/5, M4–M6, X3, W7 relabelled; §8 rewritten; onboarding's session 2 | done |
+| F2 | The first car before the district walk: L4 (the depot) hands out the motor-assembly blueprint; W7 gates on L4 + T5 + M3 | done (loot §2: an electric motor in the depot's chest — **map/dressing session**) |
+| F3 | No crater: design §2.2/§6.1, onboarding §2, create §2, camp spec §1, finale §3 reworded; the plaza rectangle is the base's last line | done |
+| F4 | Blueprint cards per player + a 4-emerald copy (E15 revised) | done |
+| F5 | Vendors restock every three in-game days; four hub runs (eighteen hub items) | done |
+| F6 | Difficulty by take order, not distance rings; the Skadowsky counterattack the lightest (the Matron) | done (enemies §1.5, quests R2); design §6.3's tables re-ranked in Phase D |
+| F7 | Interface: `held` is the title's moment (no line); the 10-minute warning is one rung per player; the beacon title has no line; the clock readout waits for Radio 2; FTB Quests toasts off; the marker's anchor is a banner post; the component container's lid shows its refresh | done |
+| F8 | Mod ids: MCSP `humvee_standart_camo` / `m3a3_bradley`; vvp Mi-8 for the runway wreck; CBC moulds `small_cast_mould` / `cannon_end_cast_mould`, four fuzes and no fuze head, autocannon handles are a breech state; Sophisticated Backpacks slot caps (iron 2, gold 3, diamond 5, stack ×3); no flamethrower in Pillagers Gun; onions, not onion seeds; Chipped's benches to strip | done |
+| F9 | **Map/dressing session (handed over in HANDOFF):** re-cut the camp ring inside the §4 rectangle (Marshall, James, Walker, the gun pit are east of x −1409 — N1); the world spawn's y (ground 88 + the platform); the Line's ford at the pump house and the east-bank road in step 8 (N4); the town's landmarks for §2.7 (N5 defaults: palace of culture, tallest block, central square, four microdistricts, the pool, the hotel, the bus depot, the four farmsteads south of the Woods); the road signs at the junctions (v6 text) | open |
+| F10 | **Phase C config wins from the audit:** `mtsconfig.json` `generateOverrideConfigs: true`; `/hordes SpawnHordeWave` as the wave engine; In Control `areas.json` per site and `effects.json` (the sewers' Darkness); FTB Quests' Stage Barrier (hangar door, tower gate), Quest Chest (the rack) and Item Filters for the "any of" hand-ins; Antiblocks for the lit board, the Doomsday safe for the dossiers; Apotheosis' and IV's first-join books off (the kit is five slots); Recruits patrols off; Hostile Villages `vanillaVillageChance` 0; enemies §8's config rows 1–5 | open |
+| F11 | Gunpowder's v8 source (the stone complex is gone): the bus depot's role or the plant complex; the IE steel route for G6 named in crafting | open |
+| F12 | The "plant sector" is "the waterworks" in speech (N7) | done in design §2.3; other docs as they are touched |

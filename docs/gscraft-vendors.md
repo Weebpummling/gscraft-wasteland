@@ -60,7 +60,7 @@ loyalty level is the **site's tier** (S-<site>-1…3), and they sell what the si
 |---|---|---|---|---|---|
 | **Vera** — the hospital | Skadowsky (the residential block) | blood bags, medical items | the gunner's manual pages, poultice | bandages, painkillers (a second clinic; the cure is free here too) | train tickets: nothing — the train is a hauler, not fast travel (owner default E12) |
 | **Kessler** — the foundry | Novo | scrap, cast iron | casting sand, cast-iron nuggets | cast-iron ingots (4 a day), blaze cakes | bronze ingots |
-| **Ilya** — the fuze lab | Financial Plaza | valuables, redstone | redstone dust, quartz | fuze heads | proximity fuzes (2 a day) |
+| **Ilya** — the fuze lab | Financial Plaza | valuables, redstone | redstone dust, quartz | impact and timed fuzes | proximity fuzes (2 a day) |
 | **Rook** — the steel works | FR-06 | steel scrap, plates | steel plates | big cartridges (empty) | autocannon barrels (1 a day) |
 | **Oksana** — the power house | the plant | filters, chemicals | boiler water, packed gunpowder | nitrate (H8's input), drill bits | coolant, boiler parts |
 
@@ -88,7 +88,7 @@ vendor pays for the items. Buy prices are per stack of the item's normal stack s
 | Night-vision goggles | — | 60 (LL2, Tune) |
 | Defences | — | sandbag (4) 2, barbed wire (2) 2, claymore 6, HE shell (G7, Ilya) 3, drone 30, C4 12 |
 | Explosives (Teddy) | — | hand grenade 3, smoke 2, RGO 5, 40 mm (2) 4, standard rocket 12, TBG rocket 20; nitropowder (2) 4, guncotton (2) 6 (H8) |
-| The keepers' goods | casting sand 1, cast-iron nugget 1, redstone 1, quartz 1, steel scrap 2, boiler water 1, nitrate 2 (the keepers buy) | cast-iron ingot 3, bronze ingot 4, blaze cake 6, fuze head 3, proximity fuze 8, steel plate 3, big cartridge 4, autocannon barrel 20, packed gunpowder 2, drill bit 6, coolant 3, manual page 2 |
+| The keepers' goods | casting sand 1, cast-iron nugget 1, redstone 1, quartz 1, steel scrap 2, boiler water 1, nitrate 2 (the keepers buy) | cast-iron ingot 3, bronze ingot 4, blaze cake 6, impact fuze 3, timed fuze 4, proximity fuze 8, steel plate 3, big cartridge 4, autocannon barrel 20, packed gunpowder 2, drill bit 6, coolant 3, manual page 2 |
 
 Daily caps (Tarkov's limited stock) keep the vendor a floor and not a faucet: ammunition 4 stacks a
 day per class, med kits 4, fuel cans 6, one gun of each unlocked class, one armour piece each; at Teddy's, grenades
@@ -133,7 +133,7 @@ weapon light, no thermal scope.
 - **Opening the counter:** right-click on an NPC keeps opening the quest book (design §3); **sneak +
   right-click** lets the vanilla villager interaction through, which opens the trade screen. A NoAI
   villager trades normally; it never restocks on its own, so —
-- **Restock:** once per in-game day (online time) the script rewrites every vendor's Offers, which
+- **Restock:** once every **three in-game days** (online time; a 20-minute day made the caps a faucet — review fix 10) the script rewrites every vendor's Offers, which
   resets `uses` to 0. Tune's Radio 1 line at dawn: *"Counters are open."*
 - **Unlocks:** the rebuild runs on every change of `camp_<npc>_<tier>`, `bp_*`, `storage_*`,
   `<site>_defended` and the W-A / D stages, so a new item appears the moment its quest completes.
@@ -153,4 +153,4 @@ weapon light, no thermal scope.
 - Crafting §5: unchanged — the station stays the cheap route; the vendor price rule (§4) is the check.
 - Camp spec §6: a counter prop per tier-1 template (written); Teddy's counter prop is placed by `npc_teddy` beside him in the outpost's tower.
 - The five keepers' counters (§3) need five more `build/kubejs/data/gscraft/vendors/<keeper>.json` files and a loyalty rule keyed to `site_<site>_<tier>` instead of `camp_<npc>_<tier>` (Phase C).
-- Lost blueprint cards: every camp NPC's counter carries a "re-issue" offer per card they gave out, 4 emeralds, gated on the team's `bp_<recipe>` stage (crafting §4).
+- Blueprint cards are **per player** (review fix 7): a card reward goes to every team member online at the hand-in, and every camp NPC's counter carries a "copy" offer per card they gave out, 4 emeralds, gated on the team's `bp_<recipe>` stage (crafting §4) — so five stations can run the same recipe.

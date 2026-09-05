@@ -100,7 +100,7 @@ player looks away. This is how a screen-less block answers a question without a 
 |---|---|
 | a station with an order running | `STEEL FRAME — 1:58` (then `STEEL FRAME — done` until taken) |
 | a station missing something | `steel frame — needs: welding torch` / `— needs: 2 more iron plate` (when some are loaded) |
-| a board column | `NOVO — held — clock 31:20 — garrison 3/5` |
+| a board column | `NOVO — held — garrison 3/5` (the clock joins the readout from Radio 2: `— clock 31:20`; design §6.2) |
 | the clock sign or the lamp | `next attack: 09:40 — the gate` (Radio 2+; before that, the sign alone) |
 | a rack hook | `COOLING — Michael's kit, not yet` |
 | a survivor | `WALKER — sneak + right-click to trade` (once the counter exists) |
@@ -138,7 +138,8 @@ Titles are the loudest thing on screen and are used exactly four times in the ga
 | **NOVO IS OURS** (the site's name) / **THE GATE HELD** / **THE GATE FELL** | *hold five minutes* / *nothing lost — they'll be back* | the assault won; the counterattack won; the counterattack lost |
 | **THE SLEEPER** | *sixty minutes* | the beacon lit (finale) |
 
-Nothing else is a title. Not a stage, not a tier, not a quest, not a death. A title and a boss bar never share the
+Nothing else is a title. Not a stage, not a tier, not a quest, not a death. FTB Quests' own completion toasts are switched
+off in the shipped client config: a completed quest is read in the book, and its reward is seen in the world. A title and a boss bar never share the
 screen: the two-minute title fires before the gate bar exists, the result title after the bar is removed.
 
 ### 3.6 Boss bar — the clock you cannot look away from
@@ -208,7 +209,9 @@ blueprint is a card, and the card is the order.**
   the block stays lit until the output is taken. The card stays in the station: a station full of cards *is* the
   player's recipe list, and locked recipes do not exist because the card was never handed out.
 - **Owner binding:** the first player to open it owns it; anyone else sees the screen but the block ignores their
-  items (`needs: Walker's station — this one is Tune's`). Team stages gate the cards, not the blocks.
+  items (`needs: Walker's station — this one is Tune's`). Team stages gate the cards, not the blocks. **Cards are per
+  player** (review fix 7): the hand-in gives one to every team member online, and the NPC's counter sells a copy for
+  4 emeralds, so five stations can run the same recipe at once.
 - **Readouts:** the action bar (§3.3) while looking; the lit texture from across the yard; the chime. A player
   away from the block has no readout and does not need one: an order is two to ten minutes, and the block is
   inside the wire.
@@ -274,10 +277,10 @@ hidden by default, Freecam unbound, FTB Ultimine by hand) is researched in `docs
 
 | System | The player sees | The player does | Failure feedback | Where it is built |
 |---|---|---|---|---|
-| **Site ladder** (unknown → scouted → looted → held → defended → lost) | the board column's colour; the watchtower banner (tier 2+); the Xaero waypoint colour; one radio line per change (Tune) | scouts (James's dossier task ticks it), loots, places **Marshall's marker** (a banner item from R2) at the site's flag point, holds five minutes | marker refused: Marshall *"James hasn't been. Neither have you."* and the marker drops back into the hand | loop script + `gscraft:board_<site>_<state>` functions |
+| **Site ladder** (unknown → scouted → looted → held → defended → lost; the marker's anchor is a banner post placed by the site's dressing, the one block the marker snaps to) | the board column's colour; the watchtower banner (tier 2+); the Xaero waypoint colour; one radio line per change (Tune) — except `held`, which is the title's moment and gets no line | scouts (James's dossier task ticks it), loots, places **Marshall's marker** (a banner item from R2) at the site's flag point, holds five minutes | marker refused: Marshall *"James hasn't been. Neither have you."* and the marker drops back into the hand | loop script + `gscraft:board_<site>_<state>` functions |
 | **Assault** (5 min) | boss bar `NOVO — hold — 4:12`; the waves; the elite | fights; stays inside the site's rectangle | leaving the rectangle pauses the bar and Marshall says *"Get back in there."* once | loop script |
-| **Fortify clock** (40 min) | clock sign at the gatehouse; board readout; contested lamp lit | nothing (it is time) | — | `data merge` each minute |
-| **Counterattack** | 10 min: gate bell + Tune's line + the sign; 2 min: title THEY'RE COMING; arrival: boss bar `THE GATE — wave 1 of 3`; result title | defends the gate | lost: title THE GATE FELL, column red, banner red; the site stays ours | loop script |
+| **Fortify clock** (40 min) | clock sign at the gatehouse (from Radio 2; before that the lamp alone says *contested*); board readout; the component container's lid closed until its refresh (the refresh is a block state, review §6) | nothing (it is time) | — | `data merge` each minute |
+| **Counterattack** | 10 min: the sign, and one rung per player — the bell for a player inside the camp outline, Tune's line for a player outside it; 2 min: title THEY'RE COMING; arrival: boss bar `THE GATE — wave 1 of 3`; result title | defends the gate | lost: title THE GATE FELL, column red, banner red; the site stays ours | loop script |
 | **Tower** | the rack's five hooks fill; each stage's geometry grows; the lock rectangle's action-bar line; Marshall's one line per stage | hands the kits to Marshall (X2–X6 quests) | breaking inside the rectangle: the readout only | tower functions + `gscraft_tower_lock.js` |
 | **Camp tiers** | the building is replaced by its next tier with a 10-second scaffold in between (a function pair, so the rebuild is *seen*); the door sign gains a line; a new Magnum Torch appears; Marshall's line names it | completes the NPC's tier quest | — | `camp.py` tier templates |
 | **Stations / orders** | §4.3 | §4.3 | §4.3 | KubeJS block entity |
@@ -291,7 +294,7 @@ hidden by default, Freecam unbound, FTB Ultimine by hand) is researched in `docs
 | **Recruits / guards** | §4.6; guards at doors by tier | hires | — | Recruits, Guard Villagers |
 | **Vendors** | §4.5 | trades | sold out (vanilla) | script-written offers |
 | **Artillery** (Create fork) | the mod's own: pitch and yaw on goggles and on the pit's display board, the loader, the lever; ours: the range card, the map wall's rings (G5), the keeper's sign; Ponder as the tutorial (§4.8) | lays by crank and yaw controller, loads, fires by lever; builds G1–G4 in the camp, then the site chains | the mod's own messages (an unsafe load bursts the gun; a misassembled cannon refuses with its reason) | Create Big Cannons |
-| **Finale** | the sculk ring and the shrieker as the telegraph; the beacon; title THE SLEEPER; the boss bar; Marshall's lines per wave | lights the beacon, holds | fail → `finale_failed`, X6b Relight in the book; no title for the failure, the dark beacon is the title | finale script |
+| **Finale** | the sculk ring and the shrieker as the telegraph; the beacon; title THE SLEEPER (no line under it); the boss bar; Marshall's lines per wave | lights the beacon, holds | fail → `finale_failed`, X6b Relight in the book; no title for the failure, the dark beacon is the title | finale script |
 | **World border** | vanilla's red vignette from 200 blocks | turns around | none (no damage) | vanilla |
 | **The team / late joiner** | Tune's three lines; the notebook; a full board; James's waypoints re-sent on join; the book with the team's ticks and their own five introductions | plays | — | first-join script (per-player stage `joined`) |
 | **The operator and the designers** | `/gscraft` (KubeJS command): `state` (the board as text), `site <id> <state>`, `tower <n>`, `say <npc> <key> [player]`, `tour <player>` (replays the first-join sequence), `clock <minutes>`; WorldEdit with its CUI for hand repairs (§4.9) | fixes things from the console or in place; the hosted panel needs no more than this | every command answers in one line on the console, nothing in the players' chat | server script |

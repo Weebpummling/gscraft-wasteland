@@ -38,8 +38,8 @@ any size. So the boss must
 
 ## 3. The design: "what the beacon woke"
 
-**Story.** The crater is an impact site; the beacon's pulse is a vibration the whole map can feel. Something
-under the crater feels it first. Wave 5 is that thing walking up out of the ground at the gate — the
+**Story.** The plateau is an impact site; the beacon's pulse is a vibration the whole map can feel. Something
+under the plateau feels it first. Wave 5 is that thing walking up out of the ground at the gate — the
 **Sleeper** (a Warden, named) — with four **Captains** (Apotheosis bosses of the pack's own zombie types)
 who came for the same signal. The Warden's whole kit reads as this story: it hunts by vibration, the
 guns are what it hears, it does not stop for walls, and its boom goes through armour.
@@ -55,7 +55,7 @@ hall's sculk floor (Michael's M-P1, Act II), where Tune says once, *"That stuff 
 | Wave | Content | Where | Notes |
 |---|---|---|---|
 | 1 | Novo's defence table ×1.5 | breaks on the gate (R-B3) | the gate's tier-3 doors hold; players shoot from the walls |
-| 2 | the plant's table ×1.5 | gate + the crater's north lip | first Captain |
+| 2 | the plant's table ×1.5 | gate + the west edge (the town side) | first Captain |
 | 3 | FR-06's table ×1.5 | both approaches | second Captain; Tony's between-wave med kits (X7) |
 | 4 | the plaza's table ×1.5 | the whole rim | third Captain; 90 s pause after it, the sculk shrieker screams |
 | 5 | **the Sleeper** + the fourth Captain | rises at the gate (summoned 8 blocks outside the doors) | the boss; the doors are what it hits first |

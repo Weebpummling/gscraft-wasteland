@@ -28,7 +28,7 @@ so every variant is its own file; the loop script (KubeJS) calls them with `serv
 | `tower_stage_0…5`, `tower_beacon_dark` | exist / 1 | the tower; the fail-state beacon swap (finale §4) |
 
 `camp_james_3` and `tower_stage_1` also place `parcool:iron_zipline_hook`s (crafting §5.7): the lookout's to the gate,
-the tower's 64-metre platform to the crater rim.
+the tower's 64-metre platform to the gatehouse (no crater in v8).
 
 The board's clock and the attack composition are **text on signs**, written by the loop script
 directly (`data merge block <x> <y> <z> {front_text:{messages:['…']}}`) — no function, since the

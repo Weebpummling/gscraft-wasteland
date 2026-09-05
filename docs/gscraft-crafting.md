@@ -113,9 +113,9 @@ else in those packs is a static wreck at a strongpoint (design §2.3), placed de
 
 | Blueprint from (owner, 2026-09-04: quest rewards, mid/late game) | Vehicle | Id | Role | Bench |
 |---|---|---|---|---|
-| **W-M1 Motor pool** (Act III, after FR-06 and the plaza are both defended) | **Humvee RWS** | MCSP `humvee_rws` (green) | the gate's armed car, turret on the roof; beside the LAV-150 | SW assembling table, yard tier 2 |
+| **W-M1 Motor pool** (Act III, after FR-06 and the plaza are both defended) | **Humvee** | MCSP `humvee_standart_camo` (green; the jar has no `humvee_rws` — its RWS is a variant of the standard hull; `humvee_carc` and `humvee_sand` are the other liveries) | the gate's armed car, turret on the roof; beside the LAV-150 | SW assembling table, yard tier 2 |
 | **W-B3 The shed** (Act IV) | **UH-60 Black Hawk** | vvp `uh60` | the heavy helicopter: six seats and cargo, the whole team to the hub | SW assembling table, yard tier 3; the Bell 47 stays as the two-seat scout |
-| **X6 Antenna array** (Act IV, the beacon) | **M3A3 Bradley** | MCSP `m3a3` | the armoured vehicle for the finale's base defence - built, not given | SW assembling table, yard tier 2 (the table exists from tier 2; the blueprint is the gate) |
+| **X6 Antenna array** (Act IV, the beacon) | **M3A3 Bradley** | MCSP `m3a3_bradley` (the BUSK and sand variants are wrecks) | the armoured vehicle for the finale's base defence - built, not given | SW assembling table, yard tier 2 (the table exists from tier 2; the blueprint is the gate) |
 
 The military tier is **blueprint-gated, never tier-unlocked**: the three vehicles have recipes (below), but each
 recipe is locked behind a blueprint item that only a quest hands out, in the same way the IE workbench
@@ -162,7 +162,7 @@ Quick class; there is no way to buy time back with more ingredients.
 
 **Crafting happens only at server-placed stations.** The vanilla crafting table is inert (its
 recipe is removed and right-clicking one does nothing — Lost Cities is full of them), the
-Engineer's Workbench recipe is removed, and no other mod's bench is craftable. Three kinds of
+Engineer's Workbench recipe is removed, and no other mod's bench is craftable (Chipped's seven workbenches included: one `event.remove` each, mod audit §4). Three kinds of
 station exist, and beside them Create's machines (a fourth locus: placed by tier templates at the yard and the
 sites, ordered as intermediates, never crafted at a bench — §2.1):
 
@@ -175,7 +175,7 @@ sites, ordered as intermediates, never crafted at a bench — §2.1):
 Every station has a **tool slot**: recipes the design wrote as "torch held" or "wrench held" read
 the tool from that slot and take one point of its durability per order, since nobody is standing
 there when the order finishes. A **blueprint is a card** (owner, 2026-09-05, `gscraft-player-interface.md` §4.3):
-the quest reward hands the player a card item whose tooltip lists the recipe's needs; the card sits in the station's
+the quest reward hands every team member online at the hand-in a card item whose tooltip lists the recipe's needs (review fix 7: one card per player, a 4-emerald copy at the counter); the card sits in the station's
 card slot and *is* the order — there is no recipe menu, and a recipe nobody holds a card for does not exist. The team
 stage `bp_<recipe>` is still set by the same reward: it is the team's record, and the vendors' and quests' gate. A lost
 card is re-issued by its NPC for 4 emeralds (a counter offer that needs the stage).
@@ -322,7 +322,7 @@ need nothing from Act II; the fuel tank's sealed tubing is covered by W7's new g
 | **Walls 2** | `superbwarfare:drone`: 1 circuit assembly + 1 motor assembly + 1 small battery pack; `swarm_drone` ×2: 1 circuit assembly + 4 metal scrap. **No mortar** (2026-09-05): Superb Warfare's artillery stays stripped; the map's artillery is the Create chapter's gun, built in the camp from G1 | Marshall, D2 |
 | **Walls 3** | the autocannon nests are G8's (the Create chapter; the laser tower is gone); `superbwarfare:fumo_25` (radar): 4 steel frame + 2 antenna element + 1 military circuit board; `superbwarfare:c4_bomb`: 4 powder (or 1 high-energy explosive after H7) + 1 circuit assembly + 1 duct tape; `superbwarfare:jump_pad`: 2 steel frame + 1 medium battery pack | Marshall, D4 |
 | **Storage 1** | `sophisticatedbackpacks:backpack` (basic: 6 cloth + 2 duct tape) | Walker, W2 |
-| **Storage 2** | iron backpack (basic + 4 plate); `stack_upgrade_tier_1` ×2: 2 steel frame + 1 fastener kit; `magnet_upgrade`: 1 circuit assembly + 2 metal scrap | Walker, W6 |
+| **Storage 2** | iron backpack (basic + 4 plate; **two upgrade slots** — `sophisticatedbackpacks-server.toml`); `stack_upgrade_tier_1` ×1: 2 steel frame + 1 fastener kit; `magnet_upgrade`: 1 circuit assembly + 2 metal scrap | Walker, W6 |
 | **Storage 3** | gold backpack (+ 1 steel frame + 1 heavy anchor cable); `everlasting_upgrade`: 1 circuit assembly + 1 transformer core; `feeding_upgrade`: 1 circuit assembly + 4 canned goods; `pickup_upgrade`: 2 metal scrap + 1 wire spool | Walker, W10 |
 | **Storage 4** | diamond backpack (+ 1 satellite receiver); `tank_upgrade`: 2 steel frame + 1 sealed tubing; `void_upgrade`: 1 circuit assembly + 1 solvent; `inception_upgrade` is J11's reward only | Walker, W13 / J8 |
 | **Ziplines** | `parcool:zipline_rope`: 4 string + 2 metal scrap (Quick); `parcool:iron_zipline_hook` ×2: 2 metal scrap + 1 fastener kit — the lookout tier 3 and the tower's 64-metre platform get hooks placed by their functions; the rope is the players' | James, J-B2 |
@@ -363,7 +363,7 @@ materialises, the fallback is that the station order for an IV vehicle yields th
 ## 6. What this adds to the quest book
 
 Six quests and seven reward/gate edits, all in quests draft 2 (Teddy's seven explosives quests followed in draft 3, §5.8): W-A1…W-A4, W-V1, W-M1; W13's gate, W7's
-reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and seventy-two quests (144 in the seven chapters plus The Gun 10 and the site chains 18 — quests §1; the Woods chain, the bunker side quests, Farm 2/3, X6b, the placed-structure quests, Teddy's chapter and the two mech quests added 2026-09-04).
+reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and seventy-three quests (144 in the seven chapters plus The Gun 10, the site chains 18 and H8 — quests §1; the Woods chain, the bunker side quests, Farm 2/3, X6b, the placed-structure quests, Teddy's chapter and the two mech quests added 2026-09-04).
 
 Related: `gscraft-map-design.md` §3.6 (Walker's yard tiers), §4 (the item ladder),
 `gscraft-quests.md` §2 (Walker), `build/kubejs/` (the station script, Phase C).

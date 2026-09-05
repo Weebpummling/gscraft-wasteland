@@ -15,6 +15,12 @@ how to rebuild the same state elsewhere.
 > designer; the owner stays level 4 in `ops.json`); WorldEdit CUI `WorldEditCUI-1.20+01.jar` is client-only in the pack
 > (`CLIENT_EXTRA_JARS`, packwiz 2026.09.05). The researched kit (Lighty, IBE Editor, Jade, Freecam, FTB Ultimine by hand)
 > is `docs/notes/gscraft-designer-tools.md`, owner's pick pending.
+>
+> **For the map session (from the design review, 2026-09-05; `docs/gscraft-design-gaps.md` §F9):** the camp ring of
+> plan §9 straddles the §4 rectangle's east edge (Marshall x −1350, James −1370, the gun pit −1340…−1329, Walker's east
+> half are beyond x −1409) — re-cut it inside; fix the world spawn's y; add the Line's ford at the pump house and the
+> east-bank road to the step-8 connector list; name the town's landmarks for design §2.7 (defaults in review §7 N5);
+> put an electric motor in the depot's chest; replace the v6 junction road-sign text.
 
 ## 1. Where things stand
 
