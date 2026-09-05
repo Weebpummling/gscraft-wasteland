@@ -100,6 +100,8 @@ to a held site — the same rule as the tower parts.
 
 ### 2.1 The military tier (vvp, MCSP — kept, owner 2026-09-03)
 
+> Fork 2026-09-04: Create Big Cannons' parts (casts, mounts, loaders, shells, fuzes, autocannon assemblies) are the site keepers' station orders and Create's machine recipes are Walker's blueprints from Workshop 2 — `gscraft-create-and-artillery.md` §1, §4–5.
+
 Three vehicles from the two Superb Warfare add-on packs sit above the civilian garage; everything
 else in those packs is a static wreck at a strongpoint (design §2.3), placed dead and never craftable.
 

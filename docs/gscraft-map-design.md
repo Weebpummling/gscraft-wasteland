@@ -219,6 +219,8 @@ it is not used for these six. No gameplay mod is added (EMI, a client-side recip
 
 ### 3.6 NPC building tiers
 
+> **Fork (owner, 2026-09-04): Create and Create Big Cannons return; every strongpoint gets a site keeper NPC with a three-tier rebuild chain, and the Big Gun is built across the strongpoints — `gscraft-create-and-artillery.md` (sections 3 and 4). The site tiers below stay the model.**
+
 Every NPC's building has **four states, tier 0 to tier 3**, and three upgrade quests in that NPC's
 chapter (`*-B1`, `*-B2`, `*-B3`) climb them. Each hand-in **rebuilds the building where it stands**:
 the reward runs a datapack function that places the next tier's structure template over the same
@@ -544,6 +546,8 @@ Phase E's to confirm.
 ---
 
 ## 8. Tech stack (no custom mod)
+
+> Fork 2026-09-04: **Create 6.0.8, Create Big Cannons 5.11.4, Ritchie's Projectile Library 2.1.1** added (kinetic machines, trains, contraptions, the artillery) — `gscraft-create-and-artillery.md` §1–2.
 
 KubeJS (items, blueprint recipes, the work-station block and its timer, stages, the loop, the bulky rule, NPC interaction), EMI (recipe viewer, client side, added 2026-09-03), FTB Quests
 (chapters, tasks, rewards), FTB Chunks and Teams (claim, per-team state), Immersive Engineering (power and

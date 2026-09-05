@@ -231,6 +231,8 @@ is still contested — one fight at a time, in this order.
 
 ### 7.2 Walls, defences, farm, the field
 
+> Fork 2026-09-04: Walls 2's mortar is replaced by the Create Big Cannons autocannon (G8) and a new chapter **7.6 The Gun** (G1–G10) plus the six site-keeper chains S-* are specified in `gscraft-create-and-artillery.md` §3–4; to be merged here when adopted.
+
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
 | D1 | Walls | I | the claim | hand in 32 concrete, 2 fastener kits | R1 | **Walls 1**: sandbag, barbed-wire and claymore orders (crafting §5.7); the timber barricade after W-W1; +2 soldiers at every site guard |
