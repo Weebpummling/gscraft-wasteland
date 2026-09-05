@@ -142,5 +142,9 @@ Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700
   terracotta fill (brown rings in `incoming/census/v8_cell_topdown.png`); re-run with dirt/grass and a repaint of the rings.
 - Server: `server/wasteland-v8` booted clean on the local server 2026-09-05 00:27 (visual profile) for the owner's fly-through;
   spawn is still the pack's (in the town), the camp sector itself is not built yet (its plateau and basin are).
-- Next: render, boot on the local server for the owner's fly-through (visual pass), then step 6 (adjust / clean up).
+- Step 6 started (owner: the sectors themselves may change to unify with the terrain): `settle.py` keeps every structure
+  inside a footprint and re-grounds the open columns - imported desert sand, superflat plates and hillsides become the local
+  dirt/grass at a height that meets the neighbouring foundations and the outside level, so footprint edges disappear.
+  Skadowsky (its own landscape) and the camp are excluded. Running on all other footprints.
+- Next: re-stage to the server, render, the owner's fly-through, then step 7 (roads hooked to the builds' own stubs).
 
