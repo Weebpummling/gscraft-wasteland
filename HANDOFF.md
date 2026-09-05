@@ -29,7 +29,10 @@ how to rebuild the same state elsewhere.
 > as seated villagers, guards, the Recruits ranks and where each is hired, the site guard, placed animals, six factions
 > (the Machines added), ranks, where each faction lives (In Control areas), waves by site, elites and bosses (the
 > Overseer added at the plant complex), drops, the twelve config/script changes and **test T1** (does In Control's
-> `onjoin` deny rule swallow summons and waves with `doMobSpawning` off — run it before any of §4–§6 is built).
+> `onjoin` deny rule swallow summons and waves with `doMobSpawning` off — **run 2026-09-05: it does not**;
+> `docs/notes/gscraft-incontrol-onjoin-test.md`. Watch instead: the local server's `difficulty=peaceful` removes every
+> hostile; the three In Control rules with `minx/maxx` are rejected at load. RCON is now enabled on the local server
+> (`rcon.password` in `server.properties`, local only; client `scratch/incontrol_test/rcon.py`).
 > Inventory behind it: `docs/notes/gscraft-entity-inventory.md`.
 >
 > **The underused mods put to work, 2026-09-05:** `docs/gscraft-mod-utilization-plan.md` — 49 hooks by land (the camp

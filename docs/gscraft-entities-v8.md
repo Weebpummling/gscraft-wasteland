@@ -234,9 +234,13 @@ dog-tag bounty (enemies §9 E2) is a vendor barter: 10 dog tags for a claymore.
 | C11 | Mob drop tables: `gscraft:mobs/machine` added to enemies §6's sheet; the Converted use their old faction's table | `data/gscraft/loot_tables/mobs/` |
 | C12 | The loop: the site guard's `patrol_leader`; the Overseer's summon on entering the control room and the container it opens; the Custodian's existing hook | `gscraft_loop.js` |
 
-**Test T1 (before any of this is built):** with `doMobSpawning=false` and In Control's `onjoin` deny rule, confirm
-that `/summon`, `/hordes spawnWave`, `/apoth spawn_boss` and a datapack template's entities actually appear on the
-local server; the inventory suspects the rule swallows them. Everything in §4–§6 depends on the answer.
+**Test T1 — run 2026-09-05 (`docs/notes/gscraft-incontrol-onjoin-test.md`):** the `onjoin` deny rule does **not**
+cancel summoned hostiles — a zombie, a pillager and a husk summoned into a force-loaded chunk with the shipped rules
+all joined and stayed, `doMobSpawning` off. Nothing in §4–§6 is blocked by it; the rule stays as the natural-spawn
+backstop (narrowed with `"spawntype": "natural"` for tidiness). Two findings that matter more: the local server runs
+at **`difficulty=peaceful`**, which is what would remove every hostile (Normal or Hard before any mob test, on the
+hosted server too), and the three rules carrying `minx/maxx` are rejected at load (C2). Still to run with a player
+online: one Hordes wave, one Apotheosis boss, one garrison reload.
 
 ## 9. Open decisions
 
