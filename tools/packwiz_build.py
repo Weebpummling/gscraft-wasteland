@@ -143,8 +143,8 @@ def main():
         f'[versions]\nforge = "{FORGE}"\nminecraft = "1.20.1"\n').encode("utf-8"))
     # .mrpack: the same files, overrides = the plain files
     mr = {"formatVersion": 1, "game": "minecraft", "versionId": VERSION, "name": "GSCraft",
-          f"summary": "GSCraft wasteland - Minecraft 1.20.1 Forge {FORGE}", "files": mr_files,
-          f"dependencies": {"minecraft": "1.20.1", "forge": "{FORGE}"}}
+          "summary": f"GSCraft wasteland - Minecraft 1.20.1 Forge {FORGE}", "files": mr_files,
+          "dependencies": {"minecraft": "1.20.1", "forge": FORGE}}
     with zipfile.ZipFile(ASSETS / "GSCraft.mrpack", "w", zipfile.ZIP_DEFLATED) as z:
         z.writestr("modrinth.index.json", json.dumps(mr, indent=1))
         for rel in plain:
