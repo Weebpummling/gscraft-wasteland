@@ -25,6 +25,13 @@ how to rebuild the same state elsewhere.
 > road, boat landings on both shores, the plant's west gate) and the collective farm's fields to plant (wheat gone wild,
 > hay, a barn at the farmstead (−2112, −896)).
 >
+> **Everyone and everything that moves (v8), 2026-09-05:** `docs/gscraft-entities-v8.md` — the survivors and keepers
+> as seated villagers, guards, the Recruits ranks and where each is hired, the site guard, placed animals, six factions
+> (the Machines added), ranks, where each faction lives (In Control areas), waves by site, elites and bosses (the
+> Overseer added at the plant complex), drops, the twelve config/script changes and **test T1** (does In Control's
+> `onjoin` deny rule swallow summons and waves with `doMobSpawning` off — run it before any of §4–§6 is built).
+> Inventory behind it: `docs/notes/gscraft-entity-inventory.md`.
+>
 > **For the map session (from the design review, 2026-09-05; `docs/gscraft-design-gaps.md` §F9):** the camp ring of
 > plan §9 straddles the §4 rectangle's east edge (Marshall x −1350, James −1370, the gun pit −1340…−1329, Walker's east
 > half are beyond x −1409) — re-cut it inside; fix the world spawn's y; add the Line's ford at the pump house and the
