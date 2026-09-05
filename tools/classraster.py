@@ -23,7 +23,8 @@ def regs(f):
         except Exception: pass
     return out
 H=Z1-Z0+1; Wd=X1-X0+1
-cls=np.full((H,Wd),7,np.uint8); hgt=np.zeros((H,Wd),np.int16)
+cls=np.full((H,Wd),7,np.uint8); hgt=np.zeros((H,Wd),np.int16); gnd=np.zeros((H,Wd),np.int16)
+GROUND={'grass_block','dirt','coarse_dirt','podzol','sand','gravel','stone','mycelium','mud','rooted_dirt','clay','red_sand','snow_block','moss_block','andesite','granite','diorite','sandstone','red_sandstone','terracotta','water','farmland','dirt_path','grass_path'}
 for rx in range(X0>>9,(X1>>9)+1):
     for rz in range(Z0>>9,(Z1>>9)+1):
         f=W/'region'/f'r.{rx}.{rz}.mca'
@@ -35,7 +36,7 @@ for rx in range(X0>>9,(X1>>9)+1):
             except Exception: continue
             secs=root.get('sections')
             if not secs: continue
-            top={}; rail={}
+            top={}; rail={}; ground={}
             for s in sorted(secs[1][1], key=lambda s:s['Y'][1]):
                 if s['Y'][1]>7: break
                 dd=decode(s)
@@ -46,8 +47,9 @@ for rx in range(X0>>9,(X1>>9)+1):
                 short=[n.split(':')[1] for n in names]
                 for i,v in enumerate(idx):
                     if v in air: continue
-                    k=(i&15,(i>>4)&15); top[k]=(sy+(i>>8),short[v])
+                    k=(i&15,(i>>4)&15); yb=sy+(i>>8); top[k]=(yb,short[v])
                     if short[v] in RAIL: rail[k]=1
+                    if short[v] in GROUND and yb<=90: ground[k]=yb
             for (lx,lz),(y,n) in top.items():
                 x,z=cx*16+lx,cz*16+lz
                 if not (X0<=x<=X1 and Z0<=z<=Z1): continue
@@ -58,8 +60,8 @@ for rx in range(X0>>9,(X1>>9)+1):
                 elif n in NATURAL: c=6 if n in ('sand','coarse_dirt','dirt_path','dirt') else 0
                 elif 'leaves' in n or n in ('vine','azalea','flowering_azalea'): c=5
                 else: c=4
-                cls[z-Z0,x-X0]=c; hgt[z-Z0,x-X0]=y
-np.save('classes.npy',cls); np.save('surface_y.npy',hgt)
+                cls[z-Z0,x-X0]=c; hgt[z-Z0,x-X0]=y; gnd[z-Z0,x-X0]=ground.get((lx,lz),y)
+np.save('classes.npy',cls); np.save('surface_y.npy',hgt); np.save('ground_y.npy',gnd)
 PAL=[(70,110,50),(200,200,200),(230,140,40),(40,80,190),(120,80,80),(30,60,30),(170,150,110),(0,0,0)]
 im=Image.fromarray(cls,'P'); im.putpalette(sum(PAL,())); im.convert('RGB').resize((Wd//3,H//3),Image.NEAREST).save('classes_small.png')
 print('classes:', {i:int((cls==i).sum()) for i in range(8)})

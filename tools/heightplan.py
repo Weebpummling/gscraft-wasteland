@@ -48,7 +48,8 @@ def noise(shape, rng, scales=((400, 1.0), (150, 0.5), (60, 0.25))):
 def main(a):
     cdir, out = Path(a[1]), Path(a[2]); out.mkdir(parents=True, exist_ok=True)
     seed = int(a[a.index("--seed") + 1]) if "--seed" in a else 7
-    cls = np.load(cdir / "classes.npy"); sy = np.load(cdir / "surface_y.npy").astype(np.float32)
+    cls = np.load(cdir / "classes.npy")
+    sy = np.load(cdir / ("ground_y.npy" if (cdir / "ground_y.npy").exists() else "surface_y.npy")).astype(np.float32)   # the ground under trees, not the canopy
     H, W = cls.shape; assert (H, W) == (Z1 - Z0 + 1, X1 - X0 + 1), cls.shape
     rng = np.random.default_rng(seed)
     # work on a 4-block grid for the smooth fields, upsample at the end
