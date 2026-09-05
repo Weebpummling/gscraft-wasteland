@@ -1,0 +1,210 @@
+[
+ {
+  "name": "hub_S",
+  "points": [
+   [
+    -2660,
+    20
+   ],
+   [
+    -2660,
+    124
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Novo Expograd hub (desert city) S gate (minecraft:sandstone, stub width 10) -> nearest existing road, 104 m"
+ },
+ {
+  "name": "hub_N",
+  "points": [
+   [
+    -3221,
+    -629
+   ],
+   [
+    -2736,
+    -760
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Novo Expograd hub (desert city) N gate (minecraft:sandstone, stub width 4) -> nearest existing road, 505 m"
+ },
+ {
+  "name": "plaza_E",
+  "points": [
+   [
+    -3291,
+    -728
+   ],
+   [
+    -2736,
+    -760
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Financial Plaza + sewers E gate (fallback, stub width 0) -> nearest existing road, 557 m"
+ },
+ {
+  "name": "biogen_S",
+  "points": [
+   [
+    -2480,
+    -443
+   ],
+   [
+    -2536,
+    -428
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Bio Gen offices S gate (fallback, stub width 0) -> nearest existing road, 58 m"
+ },
+ {
+  "name": "skad_W",
+  "points": [
+   [
+    -1093,
+    -945
+   ],
+   [
+    -1212,
+    -932
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Skadowsky sector W gate (minecraft:stone, stub width 18) -> nearest existing road, 117 m"
+ },
+ {
+  "name": "skad_E",
+  "points": [
+   [
+    -619,
+    -945
+   ],
+   [
+    -1212,
+    -932
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Skadowsky sector E gate (minecraft:andesite, stub width 16) -> nearest existing road, 592 m"
+ },
+ {
+  "name": "mega_N",
+  "points": [
+   [
+    559,
+    -2134
+   ],
+   [
+    516,
+    -2248
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Mega-base N gate (fallback, stub width 0) -> nearest existing road, 119 m"
+ },
+ {
+  "name": "indu_E",
+  "points": [
+   [
+    803,
+    -1116
+   ],
+   [
+    1012,
+    -1196
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Industrial district E gate (immersiveengineering:hempcrete, stub width 24) -> nearest existing road, 227 m"
+ },
+ {
+  "name": "indu_N",
+  "points": [
+   [
+    348,
+    -1382
+   ],
+   [
+    556,
+    -924
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Industrial district N gate (immersiveengineering:hempcrete_pillar, stub width 26) -> nearest existing road, 505 m"
+ },
+ {
+  "name": "hemp_E",
+  "points": [
+   [
+    -3067,
+    -1184
+   ],
+   [
+    -3016,
+    -1300
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Hempcrete compound E gate (fallback, stub width 0) -> nearest existing road, 127 m"
+ },
+ {
+  "name": "settle_S",
+  "points": [
+   [
+    -1067,
+    -1725
+   ],
+   [
+    -968,
+    -1696
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Settlement S gate (minecraft:stone, stub width 24) -> nearest existing road, 105 m"
+ },
+ {
+  "name": "settle_N",
+  "points": [
+   [
+    -1274,
+    -2020
+   ],
+   [
+    -1440,
+    -1992
+   ]
+  ],
+  "width": 9,
+  "style": "skadowsky",
+  "note": "Settlement N gate (minecraft:stone, stub width 16) -> nearest existing road, 166 m"
+ },
+ {
+  "name": "old01_N",
+  "points": [
+   [
+    -2168,
+    -614
+   ],
+   [
+    -2128,
+    -616
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 1 N gate (minecraft:smooth_stone_slab, stub width 14) -> nearest existing road, 40 m"
+ }
+]

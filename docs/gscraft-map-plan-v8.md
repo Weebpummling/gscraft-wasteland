@@ -158,3 +158,15 @@ Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700
   `server/wasteland-v8` and booted 01:39 for the owner's fly-through.
 - Next: the owner's fly-through, then step 7 (roads hooked to the builds' own stubs in the Skadowsky vocabulary).
 
+## 7-8. Road hooks (prepared 2026-09-05, not built)
+
+`tools/stubs.py` scans each footprint's outer 3-block ring for road materials that lead inward (a plate edge or a wall
+base fails the test) and records the builds' own stubs (`buildmap/plan_v8/stubs_v8.json`: the hub 5, Skadowsky 4, the
+settlement 4, the industrial district 3, Bio Gen 3, the hempcrete compound 5 tracks, the library 2 slab paths; the plate-
+edged 1.12 builds and the runway have none). `tools/connectors.py` turns the stubs (or a fallback gate on the edge facing
+the nearest road) into connector roads to the nearest point of the existing network, at most two per build, none when the
+network is already within 40 m; `roads.py route` routed them on the built terrain: 13 connectors, 3.4 km
+(`roads_v8.json`, `routes_v8.json`, render `incoming/census/connectors_v8.png`). They are built with
+`roads.py build --style skadowsky` (stone / andesite / gravel carriageway, andesite-wall kerbs, dirt fill, 9 wide) or
+`--style track` (gravel and coarse dirt, 5 wide) once the owner is happy with the sectors (step 6).
+
