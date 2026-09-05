@@ -32,6 +32,11 @@ how to rebuild the same state elsewhere.
 > `onjoin` deny rule swallow summons and waves with `doMobSpawning` off — run it before any of §4–§6 is built).
 > Inventory behind it: `docs/notes/gscraft-entity-inventory.md`.
 >
+> **The underused mods put to work, 2026-09-05:** `docs/gscraft-mod-utilization-plan.md` — 49 hooks by land (the camp
+> 27, the home bank 6, the river line 3, the far bank 3, the district 7, the two edges 3), the audit's five wins as
+> Phase C tasks with file paths (§7), Bandits / Lukis / Waterframes as background jars (§8), every new task, order,
+> loot row and config line it adds (§9), and the rulings (§10).
+>
 > **For the map session (from the design review, 2026-09-05; `docs/gscraft-design-gaps.md` §F9):** the camp ring of
 > plan §9 straddles the §4 rectangle's east edge (Marshall x −1350, James −1370, the gun pit −1340…−1329, Walker's east
 > half are beyond x −1409) — re-cut it inside; fix the world spawn's y; add the Line's ford at the pump house and the
