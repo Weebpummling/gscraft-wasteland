@@ -237,6 +237,21 @@ command screen (they are spawned without an owner). The Guard Villagers at the b
 `P`. The party is the FTB team (sedparties `useFTBTeams`); this screen shows who is online, xp share is on,
 friendly fire is off. Team invites happen here once, on the first evening, and never again.
 
+
+### 4.8 The gun and the site keepers (the Create fork)
+- **The first gun is the camp's.** G1–G4 happen at Walker's yard and the gun pit on the crater rim (create doc §4,
+  owner 2026-09-05); the sites make it bigger, faster and mobile from G5 on.
+- **Sighting:** Create Big Cannons' own seat and aim. While seated the action bar reads
+  `GUN PIT — 042° / +11° — solid shot — 3 charges`; an empty loader reads `GUN PIT — needs: a charge and a shot`.
+- **Spotting:** James, from the lookout, calls the fall of every shot that lands within 400 m of a board target, one
+  line per shot in the radio format (§3.4): *"Short. Come up fifty."* / *"Long."* / *"On. Fire for effect."* The
+  20-second rate applies, so a fast gun gets one call in three. From G5 the map wall carries range rings
+  (300 / 600 / 900 m from the pit).
+- **The site keeper is a survivor:** same door sign, same right-click for the journal (chapter `S-<site>`), same
+  sneak-click for the counter. The site's core building carries the readout sign: name, tier, what the keeper sells,
+  rebuilt with the tier like the camp's door signs.
+- **Ponder is the tutorial.** No quest, note or line explains a Create machine the Ponder screen already shows.
+
 ## 5. Each system: state → interface → input
 
 | System | The player sees | The player does | Failure feedback | Where it is built |
@@ -257,7 +272,7 @@ friendly fire is off. Team invites happen here once, on the first evening, and n
 | **Vehicles** | Walker's dead quad (tier 0); the bay; the vehicle's own HUD when driven | builds from a kit at the bench | a crash | Immersive Vehicles / SBW / vvp, the notebook's Driving page |
 | **Recruits / guards** | §4.6; guards at doors by tier | hires | — | Recruits, Guard Villagers |
 | **Vendors** | §4.5 | trades | sold out (vanilla) | script-written offers |
-| **Artillery** (Create fork) | the board's range lines (G5); the site keeper NPC; Create's Ponder screens as the machine tutorial | builds the chain | Ponder | Create |
+| **Artillery** (Create fork) | the sighting readout while seated; James's spotting lines; the board's range rings (G5); the site keeper's sign; Ponder as the machine tutorial (§4.8) | builds G1–G4 in the camp, then the site chains | `needs: a charge and a shot`; a miss is James's line | Create Big Cannons + KubeJS |
 | **Finale** | the sculk ring and the shrieker as the telegraph; the beacon; title THE SLEEPER; the boss bar; Marshall's lines per wave | lights the beacon, holds | fail → `finale_failed`, X6b Relight in the book; no title for the failure, the dark beacon is the title | finale script |
 | **World border** | vanilla's red vignette from 200 blocks | turns around | none (no damage) | vanilla |
 | **The team / late joiner** | Tune's three lines; the notebook; a full board; James's waypoints re-sent on join; the book with the team's ticks and their own five introductions | plays | — | first-join script (per-player stage `joined`) |

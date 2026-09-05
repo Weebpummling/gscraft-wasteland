@@ -1,6 +1,6 @@
 # GSCraft Wasteland — Create and the Big Gun (design fork)
 
-Draft 1, 2026-09-04. Owner's ruling: player feedback finds Superb Warfare's artillery undeveloped and unfun; Create with
+Draft 2, 2026-09-05 (draft 1 the day before; the first gun moved into the camp). Owner's ruling: player feedback finds Superb Warfare's artillery undeveloped and unfun; Create with
 Create Big Cannons was far more immersive. **Create and Create Big Cannons come back.** The players build the map's
 artillery through a quest chain, and every strongpoint gets its own rebuild questline, given by an NPC who appears
 there once it is captured. Superb Warfare stays for guns, vehicles and the roster items (owner rule: nothing is
@@ -60,8 +60,8 @@ gate the artillery chain of section 4. The keepers' names and looks are first cu
 
 | Strongpoint | Keeper | Tier 1 — Repair | Tier 2 — Works (what the site now makes) | Tier 3 — Fortify | Artillery piece it unlocks |
 |---|---|---|---|---|---|
-| **Novo Expograd Industrial Zone** (heavy industry) | **Kessler**, the foundryman | rubble cleared from the main hall, roof patched, the yard lit | the **foundry**: cannon casts, the mould bench (Create saw), three basins on blaze burners, casting-sand pit — cast iron and bronze pour here | walled yard, two site-guard posts, a **crane** over the cast pit (rope pulley) | cast-iron cannon blocks, the cannon cast set (4.2) |
-| **Industrial plant** (fuel and water) | **Oksana**, the plant chief | pump house cleared, one boiler relit | the **power house**: steam engine on the rebuilt boilers, the shaft run to the **boring mill** (cannon drill + drill bit) | fence, a guard tower, the water intake fortified | boring (4.3): unbored casts become barrels here |
+| **Novo Expograd Industrial Zone** (heavy industry) | **Kessler**, the foundryman | rubble cleared from the main hall, roof patched, the yard lit | the **foundry**: the mould bench (Create saw), three basins on blaze burners, casting-sand pit — cast iron and bronze pour here four barrels at a time (the camp's yard pours one) | walled yard, two site-guard posts, a **crane** over the cast pit (rope pulley) | bulk cast iron and bronze for the steel gun (4.6) |
+| **Industrial plant** (fuel and water) | **Oksana**, the plant chief | pump house cleared, one boiler relit | the **power house**: steam engine on the rebuilt boilers, the shaft run to the **boring mill** (cannon drill + drill bit) | fence, a guard tower, the water intake fortified | fast boring: the steel barrels of G6 (the camp's hand-cranked frame bores cast iron only) |
 | **FR-06 complex** (power and hangar) | **Rook**, the millwright | reactor hall floor cleared, the hangar door freed (a Create sliding door) | the **steel works**: the cannon builder (built-up layers), the mechanical press line for cartridges, the hangar as the gun shed | blast wall, autocannon nest on the roof | steel guns (4.4), big cartridges |
 | **Financial Plaza Quarantine** (electronics) | **Ilya**, the clerk | ground floor cleared, the lifts (rope pulleys) running | the **fuze lab**: mechanical crafters for shells, the fuze bench (impact, inertia, delayed, proximity) | shutters, a guard post in the lobby, the sewers sealed behind a bar | shells and fuzes (4.5) |
 | **Residential block** (medical) | **Vera**, the nurse | the school building cleared as the field hospital | the hospital: a second PlayerRevive point on the map, the cure at the site | fenced yard | the **gunner's manual** (a book item): the sighting quest of 4.3 needs it |
@@ -76,19 +76,21 @@ defended site.
 
 ## 4. The Big Gun — the artillery chain
 
-One quest chain, in Marshall's chapter as **7.6 The Gun**, builds the map's artillery piece by piece across the
-strongpoints. The gun is fired from the camp (the gun pit on the crater rim, a fixed cannon mount) and, later, from a
+One quest chain, in Marshall's chapter as **7.6 The Gun**, builds the map's artillery. **The first gun is built in the
+camp** (owner, 2026-09-05): G1–G4 happen at Walker's yard and the gun pit on the crater rim, with materials looted from
+Novo, so the team fires a gun before it holds a single site; the strongpoints then scale it up (steel, boring, shells,
+the battery, the carriage). The gun is fired from the camp (the gun pit, a fixed cannon mount) and, later, from a
 carriage the team tows. Recipes are Create Big Cannons' own (read from the mod's data, 5.11.4); the quest gates are
 ours.
 
 | Quest | Name | Act | Where | Gate | Task | Reward / unlock |
 |---|---|---|---|---|---|---|
-| G1 | Sand and iron | II | Novo T2 | `novo_held`, S-novo-2 | hand in 16 casting sand (2 sand + dirt + clay each), 8 cast-iron ingots (Kessler's counter), 4 logs | the **cannon cast** and the very-small and cannon-end moulds (Create saw cuts them from logs); the foundry's basins pour molten cast iron |
-| G2 | The first pour | II | Novo | G1 | pour a cast: cannon cast + mould + molten cast iron → an unbored cast-iron barrel and a cannon end | `gun_cast` stage; Kessler's crane |
-| G3 | The bore | II–III | the plant T2 | S-plant-2, G2 | the **cannon drill** (andesite casing, piston pole, fluid pipe) and a drill bit on the boring mill; bore two barrels and a chamber | bored cast-iron barrel, chamber, end; `gun_bored` |
-| G4 | Mount and charge | III | camp (gun pit) | G3, Walls 2 | the **fixed cannon mount** in the gun pit, the **cannon loader** with a ram head and a worm head, 8 powder charges (packed gunpowder = 3 gunpowder compacted, in a wool charge), 4 solid shot | the first gun: end + chamber + 2 barrels; **fire it**: CBC's own advancement is the task |
+| G1 | Sand and iron | II | **camp — Walker's yard** | W-B2 (the basin and blaze burner), `novo_looted` | hand in 16 casting sand (2 sand + dirt + clay each), 8 cast-iron ingots (Novo's loot table; later Kessler's counter), 4 logs | the **cannon cast** and the very-small and cannon-end moulds (the yard's Create saw cuts them from logs); the yard's basins pour molten cast iron |
+| G2 | The first pour | II | camp — the yard | G1 | pour a cast in the yard: cannon cast + mould + molten cast iron → an unbored cast-iron barrel and a cannon end | `gun_cast` stage; Walker's crane (the rope pulley over the cast pit) |
+| G3 | The bore | II | camp — the yard | G2 | the **cannon drill** (andesite casing, piston pole, fluid pipe) and a drill bit on the yard's hand-cranked boring frame (slow: a barrel takes four minutes; the plant's boring mill does it in one after S-plant-2); bore two barrels and a chamber | bored cast-iron barrel, chamber, end; `gun_bored` |
+| G4 | Mount and charge | II–III | camp — the gun pit | G3, Walls 1 | the **fixed cannon mount** in the gun pit, the **cannon loader** with a ram head and a worm head, 8 powder charges (packed gunpowder = 3 gunpowder compacted, in a wool charge), 4 solid shot | the first gun: end + chamber + 2 barrels; **fire it**: CBC's own advancement is the task; James spots the fall of shot from the lookout (interface doc §5) |
 | G5 | The gunner's manual | III | the block | S-block-1, G4 | hand in the manual (Vera) and 2 spyglasses | the **cannon mount** (yaw) and the yaw controller: a traversing gun; the strongpoint board shows ranges |
-| G6 | Steel | III | FR-06 T2 | S-fr06-2, G5, `fr06_defended` | 24 steel ingots (IE steel, `forge:ingots/steel`) melted at Novo, poured as steel barrels; the **cannon builder** at FR-06 wraps built-up layers | the long gun: steel chamber + 5 barrels; the quick-firing breech |
+| G6 | Steel | III | FR-06 T2 (the cast iron now pours at Novo's foundry, S-novo-2, four barrels a pour) | S-fr06-2, S-novo-2, G5, `fr06_defended` | 24 steel ingots (IE steel, `forge:ingots/steel`) melted at Novo, poured as steel barrels; the **cannon builder** at FR-06 wraps built-up layers | the long gun: steel chamber + 5 barrels; the quick-firing breech |
 | G7 | Shells | III–IV | the plaza T2 | S-plaza-2, G6 | mechanical crafters: 4 HE shells, 2 AP shells, 2 shrapnel; fuzes: impact (fuze head + redstone), proximity (iron bars, quartz, iron, redstone) | shells and fuzes as station orders; the smoke shell for the Woods |
 | G8 | The battery | IV | FR-06 T3, the gatehouse T3 | S-fr06-3, R-B3 | a bronze **autocannon** (breech extractor by sequenced assembly, recoil spring, 3 barrels; big cartridges pressed from brass sheets) on each watchtower; an ammo container of AP rounds | Walls 3 = the autocannon nests (they replace the laser tower); the crater's last line has guns on it |
 | G9 | The carriage | IV | Walker T3 | G6, W-B3 | the **cannon carriage** (shafts, planks, a pair of cannon wheels from the yard) and a second gun for it; tow it with the truck (IV) | a mobile gun for the counterattack fields and the finale |
