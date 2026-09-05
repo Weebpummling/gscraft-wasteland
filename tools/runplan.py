@@ -20,6 +20,22 @@ import transplant as tp  # noqa: E402
 from planblocks import KEEP  # noqa: E402
 
 
+def residual_shift(root, res):
+    """Shift every block of the chunk by res (-15..15) blocks vertically after the section-level shift, so a build lands
+    on an exact ground level. Uses applyheight's numpy section codec; block entities move with it."""
+    import numpy as np
+    from applyheight import decode_chunk, encode_chunk
+    ids, pal, tmpl = decode_chunk(root)
+    out = np.full_like(ids, -1)
+    if res > 0: out[res:] = ids[:-res]
+    else: out[:res] = ids[-res:]
+    encode_chunk(root, out, pal, tmpl)
+    bes = root.get("block_entities")
+    if bes:
+        for be in bes[1][1]:
+            if "y" in be: be["y"] = (be["y"][0], be["y"][1] + res)
+
+
 def stack_into(existing_raw, name, root, below_y):
     """Merge only the sections of `root` below block y `below_y` into the chunk already at the destination
     (existing_raw: decompressed NBT bytes or None). Block entities follow the same split."""
@@ -53,7 +69,10 @@ def run_rect(src_world: Path, dst_world: Path, rect, offset, remap, dry, agg: Co
                 continue
             ts, comp, raw = entry
             name, root = tp.R(raw).root()
-            ns = tp.shift_chunk(name, root, dx, dz, remap, {}, dy)
+            dy16 = 16 * round(dy / 16); res = dy - dy16
+            ns = tp.shift_chunk(name, root, dx, dz, remap, {}, dy16)
+            if res:
+                residual_shift(root, res)
             agg.update(ns)
             if not dry:
                 ncx, ncz = cx + dx, cz + dz

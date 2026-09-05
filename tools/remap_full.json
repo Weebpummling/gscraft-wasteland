@@ -353,5 +353,6 @@
  "createbigcannons:cannon_loader": "minecraft:air",
  "waystones:mossy_waystone": "minecraft:lodestone",
  "tf_dnv:wood_table": "minecraft:air",
- "tf_dnv:mushroom_bed": "minecraft:air"
+ "tf_dnv:mushroom_bed": "minecraft:air",
+ "customnpcs:npcwaypoint": "minecraft:air"
 }
