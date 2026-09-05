@@ -1115,5 +1115,39 @@
     "requires": [
       "architectury"
     ]
+  },
+  "create-1.20.1-6.0.8.jar": {
+    "role": "addition",
+    "sha256": "6fbb910c367dbce8e4fc7e5bf64b6edd4de980906ed00af8e47e4af843c0d9b0",
+    "modids": [
+      "create",
+      "flywheel",
+      "ponder",
+      "registrate"
+    ],
+    "nested": [],
+    "requires": []
+  },
+  "createbigcannons-5.11.4-mc.1.20.1-forge.jar": {
+    "role": "addition",
+    "sha256": "11845f0d79a9014977f667a57b14d0527928bee8b66bc6b50bedcc29ee81878a",
+    "modids": [
+      "createbigcannons"
+    ],
+    "nested": [],
+    "requires": [
+      "create"
+    ]
+  },
+  "ritchiesprojectilelib-2.1.1+mc.1.20.1-forge.jar": {
+    "role": "addition",
+    "sha256": "5531ec454792f98993fa29d55f8810444ba3e9ef8f04331c5811b84ec8d0c3dc",
+    "modids": [
+      "ritchiesprojectilelib"
+    ],
+    "nested": [],
+    "requires": [
+      "create"
+    ]
   }
 }

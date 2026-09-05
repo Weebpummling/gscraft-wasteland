@@ -7,7 +7,8 @@
 
 const TOWER = { x0: 64, z0: -144, x1: 191, z1: -17 };   // tools/strongpoints.json radio_tower, tools/tower.py PAD
 const DIM = 'minecraft:overworld';
-const Result = Java.loadClass('net.minecraftforge.eventbus.api.Event$Result');
+// startup scripts share one scope: a plain `Result` collides with other scripts' consts (gscraft_mech_griefing.js), so the name is prefixed
+const TL_Result = Java.loadClass('net.minecraftforge.eventbus.api.Event$Result');
 
 function inRect(x, z) {
   return x >= TOWER.x0 && x <= TOWER.x1 && z >= TOWER.z0 && z <= TOWER.z1;
@@ -41,7 +42,7 @@ ForgeEvents.onEvent('net.minecraftforge.event.entity.EntityMobGriefingEvent', ev
   try {
     const e = event.getEntity();
     if (!e || !isOverworld(prop(e, 'level'))) return;
-    if (inRect(Math.floor(e.getX()), Math.floor(e.getZ()))) event.setResult(Result.DENY);
+    if (inRect(Math.floor(e.getX()), Math.floor(e.getZ()))) event.setResult(TL_Result.DENY);
   } catch (x) { console.warn('[gscraft] tower lock griefing handler: ' + x); }
 });
 

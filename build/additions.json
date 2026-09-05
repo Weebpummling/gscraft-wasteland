@@ -325,5 +325,29 @@
       "architectury"
     ],
     "note": "owner-approved 2026-09-04 after the isolated server test; hub + FR-06 only (docs/notes/gscraft-pomkots-mechs.md)"
+  },
+  "Create": {
+    "slug": "create",
+    "version": "mc1.20.1-6.0.8",
+    "filename": "create-1.20.1-6.0.8.jar",
+    "url": "https://cdn.modrinth.com/data/LNytGWDc/versions/8amzvn9x/create-1.20.1-6.0.8.jar",
+    "sha512": "5b51f5d31437d9bfbf221b67459abd87260d284874e1e23b7ed1d522b23a48059a3b1d2c1c541428da35dc6be15561b4f3c7f36aac6df3a0e8db6a278f6b0316",
+    "note": "kinetic machines, trains, contraptions; embeds Flywheel 1.0.5, Ponder, Registrate, MixinExtras (owner decision 2026-09-04: Create + Big Cannons return; design gscraft-create-and-artillery.md)"
+  },
+  "Create Big Cannons": {
+    "slug": "create-big-cannons",
+    "version": "5.11.4",
+    "filename": "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "url": "https://cdn.modrinth.com/data/GWp4jCJj/versions/ZRgu5o3x/createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "sha512": "11b919dcce377dfce563c9250e287e870ac22b622ac9b4a4839bcc2ea8b894956d42632ef5f9d2701534aa3eba6f896761e26ada0e6bbd2042353507164b7dd0",
+    "note": "the artillery: big cannons, autocannons, casting, shells and fuzes; needs Create and RPL"
+  },
+  "Ritchie's Projectile Library": {
+    "slug": "rpl",
+    "version": "2.1.1",
+    "filename": "ritchiesprojectilelib-2.1.1+mc.1.20.1-forge.jar",
+    "url": "https://cdn.modrinth.com/data/B3pb093D/versions/PdGBsNte/ritchiesprojectilelib-2.1.1%2Bmc.1.20.1-forge.jar",
+    "sha512": "454e1808261940dc135ed8af4f0fa44296ec502b985104e42178146adc539a29cd7c56369c075f78d60da4f9465229aceaafa8f5724a008205aa65b5a81e4419",
+    "note": "CBC's projectile library"
   }
 }

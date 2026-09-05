@@ -394,7 +394,7 @@ hash = "f28173484cb81557cba16b36b87af8a4ca36592c7570f8e1a524cb453dd7d4fa"
 
 [[files]]
 file = "config/mtsconfig.json"
-hash = "f8174b70e778bfeec2bf562769110086c0b427fdd449f6d1700980574e010a48"
+hash = "9319597242228d4a564d4140d4f5fdb3b9035ff0d9b7ca0563d53645d29573a9"
 
 [[files]]
 file = "config/pingwheel.server.json"
@@ -502,7 +502,7 @@ hash = "1ba4e976b799be07b1d28c18330a4110a6ee4a87bca3cba5c82e4d1523436130"
 
 [[files]]
 file = "kubejs/startup_scripts/gscraft_tower_lock_native.js"
-hash = "5f261f006df44d4dd70047d0d23899e7688a879e8f199584c2a999ffb3da398f"
+hash = "c0878b058377ca938b57aaa70ab6c5b21c3c07a00add9babec929863ea48ddbd"
 
 [[files]]
 file = "mods/ai-improvements-1-20-0-5-2.pw.toml"
@@ -602,6 +602,16 @@ metafile = true
 [[files]]
 file = "mods/coroutil-forge-1-20-1-1-3-7.pw.toml"
 hash = "193dcc0ae17ce22f68d0ab893767bf27409d78362722c1164feb1785e091b1cf"
+metafile = true
+
+[[files]]
+file = "mods/create-1-20-1-6-0-8.pw.toml"
+hash = "b561c5919a0423c2582bd93a9f0df7ac018cef3983df88741b8f019ba8fdad68"
+metafile = true
+
+[[files]]
+file = "mods/createbigcannons-5-11-4-mc-1-20-1-forge.pw.toml"
+hash = "bc6c841342fc1aa03860cec61399707147e08c1f917cbec6623cfba3128e7527"
 metafile = true
 
 [[files]]
@@ -912,6 +922,11 @@ metafile = true
 [[files]]
 file = "mods/rhino-forge-2001-2-3-build-10.pw.toml"
 hash = "5e92706ef06f095228f5885e1e740db7736c0d0727950986198ca1f7465ec541"
+metafile = true
+
+[[files]]
+file = "mods/ritchiesprojectilelib-2-1-1-mc-1-20-1-forge.pw.toml"
+hash = "45d17c66741b0eb3252341db332b098c8d5a0408397c9220c539ee1a3bdab1f9"
 metafile = true
 
 [[files]]
