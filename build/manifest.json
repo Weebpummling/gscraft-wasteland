@@ -1149,5 +1149,27 @@
     "requires": [
       "create"
     ]
+  },
+  "waterframes-FORGE-mc1.20.1-v2.1.22.jar": {
+    "role": "addition",
+    "sha256": "e7727c11b4d32aa25a7f1176cddef5f230f6f6b6dda3e37bf418b7f025b39ed8",
+    "modids": [
+      "waterframes"
+    ],
+    "nested": [],
+    "requires": [
+      "creativecore"
+    ],
+    "side": "both"
+  },
+  "watermedia-2.1.37.jar": {
+    "role": "addition",
+    "sha256": "cdd8e1b50e4dee0892c5ed02724cea6b1a74d2b718c7e974c9cfc0efa8c10389",
+    "modids": [
+      "watermedia"
+    ],
+    "nested": [],
+    "requires": [],
+    "side": "client"
   }
 }
