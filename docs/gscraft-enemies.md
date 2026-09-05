@@ -174,7 +174,7 @@ gun, armour piece, intermediate or complete part — the same rule the container
 
 ## 7. Difficulty
 
-Improved Mobs' `DISTANCESPAWN` scaling is centred on `0-0`, which is the crater: the design's rings
+Improved Mobs' `DISTANCESPAWN` scaling is centred on the world spawn, which v8 puts on the Warium plaza at (−1490, −2230): the design's rings
 and the mod's steps already agree, and the steps are tuned to them —
 
 | Distance | Improved Mobs level | Ring | What it means |

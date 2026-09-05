@@ -1,6 +1,6 @@
-# GSCraft Wasteland — Create and the Big Gun (design fork)
+# GSCraft Wasteland — Create and the Big Gun (design chapter)
 
-Draft 2, 2026-09-05 (draft 1 the day before; the first gun moved into the camp). Owner's ruling: player feedback finds Superb Warfare's artillery undeveloped and unfun; Create with
+Draft 3, 2026-09-05 (draft 1 the day before as a fork; draft 2 the first gun into the camp; draft 3 **adopted**: the parents now carry it — design §2.2–2.3, §3.6, §6.1, §8; quests §7.6, §7B, §9; crafting §2.1, §4, §5.7–5.8; vendors §3–4; camp spec §1; the gaps ledger §E). Owner's ruling: player feedback finds Superb Warfare's artillery undeveloped and unfun; Create with
 Create Big Cannons was far more immersive. **Create and Create Big Cannons come back.** The players build the map's
 artillery through a quest chain, and every strongpoint gets its own rebuild questline, given by an NPC who appears
 there once it is captured. Superb Warfare stays for guns, vehicles and the roster items (owner rule: nothing is
@@ -41,7 +41,7 @@ while IE keeps the electrical half.
 | **Michael — the plant** (Generator/Water functions) | tier 1: the water wheel on the lake outlet and a hand crank (the first rotation); tier 2: the windmill on the wind mast, the encased fan; tier 3: the **steam engine** (boilers fed by the pump house) as the big rotational source; the mechanical pump replaces the pipe run | M-B1…B3 as today; the steam engine's boiler is the plant strongpoint's rebuilt product (section 3) |
 | **Walker — the yard** (Workshop/Garage) | tier 1: the mechanical press and the millstone under the lean-to; tier 2: the **basin + blaze burner** (the camp's small foundry: brass, andesite alloy, melting scrap), the deployer line; tier 3: the gantry crane becomes a real Create crane (a rope-pulley contraption) and the mechanical crafters | W-B1…B3; the burner's blaze cake is a Novo loot drop |
 | **Marshall — the gatehouse** (Walls) | tier 1: the gate is a **piston-driven bar**; tier 2: the drawbridge over the crater ramp (a bearing contraption) and the two watchtowers' spotlights on a gearshift; tier 3: the blast doors are a sliding-door contraption on a clutch, the floodlights on a rotation speed controller; the **autocannon nest** on each watchtower (section 4.6) | R-B1…B3; Walls 2 hands out the autocannon instead of the mortar |
-| **James — expeditions** | the **train**: Skadowsky's rail line and Pripyat's station are real Create track once the sectors are placed (map plan §5); J-W-series trip = restore the line, build the first locomotive (steam, Create's train system), run it between the sector stations as the team's heavy hauler; the schedule block runs it unattended | after `skadowsky_held` and the plant's tier 2 (boiler) |
+| **James — expeditions** | the **train**: Skadowsky's rail line and Pripyat's station are real Create track once the sectors are placed (map plan §4); J-W-series trip = restore the line, build the first locomotive (steam, Create's train system), run it between the sector stations as the team's heavy hauler; the schedule block runs it unattended | after `residential_defended` (Skadowsky is the residential block), S-residential-3 and the plant's tier 2 (boiler) |
 | **Tune — radio** | the display links and display boards for the strongpoint board (Create's display link replaces the sign-writing script for the board's clock), the nixie tubes on the radio shack | U-B2 |
 | **Tony — the clinic** | nothing kinetic; the clinic's tier-3 helipad stays a pad | — |
 | **The hideout** (§5 functions) | Storage: Create's item vaults and the mechanical arm for the players' own sorting; Farm (R-F1..F3): the harvester contraption and the tree fell, replacing the manual farm | Storage 3, Farm 2 |
@@ -64,15 +64,14 @@ gate the artillery chain of section 4. The keepers' names and looks are first cu
 | **Industrial plant** (fuel and water) | **Oksana**, the plant chief | pump house cleared, one boiler relit | the **power house**: steam engine on the rebuilt boilers, the shaft run to the **boring mill** (cannon drill + drill bit) | fence, a guard tower, the water intake fortified | fast boring: the steel barrels of G6 (the camp's hand-cranked frame bores cast iron only) |
 | **FR-06 complex** (power and hangar) | **Rook**, the millwright | reactor hall floor cleared, the hangar door freed (a Create sliding door) | the **steel works**: the cannon builder (built-up layers), the mechanical press line for cartridges, the hangar as the gun shed | blast wall, autocannon nest on the roof | steel guns (4.4), big cartridges |
 | **Financial Plaza Quarantine** (electronics) | **Ilya**, the clerk | ground floor cleared, the lifts (rope pulleys) running | the **fuze lab**: mechanical crafters for shells, the fuze bench (impact, inertia, delayed, proximity) | shutters, a guard post in the lobby, the sewers sealed behind a bar | shells and fuzes (4.5) |
-| **Residential block** (medical) | **Vera**, the nurse | the school building cleared as the field hospital | the hospital: a second PlayerRevive point on the map, the cure at the site | fenced yard | the **gunner's manual** (a book item): the sighting quest of 4.3 needs it |
-| **Skadowsky sector** (new, map plan §5) | **Danylo**, the stationmaster | the station cleared, the level crossing freed | the **rail yard**: the train's depot, the schedule block, the fuel bunker | the highway viaduct's checkpoint | the train (section 2, James) |
+| **Skadowsky sector — the residential block** (medical; v8 rebase, design §2.3) | **Vera**, the nurse | the hospital's school wing cleared as the field hospital; the level crossing freed | the **hospital**: a second revive point (the script's camp-revive rule applied to the hospital rectangle) and the cure, free, as at Tony's | the **rail yard**: the train's depot, the schedule block, the fuel bunker; the highway viaduct's checkpoint | the **gunner's manual** (tier 1, a book item: the range card of G5); the train (tier 3; section 2, James) |
 
 Hand-ins follow §3.6's rule: tier 1 = camp junk and first intermediates (planks, metal scrap, fastener kits); tier 2 =
 bulk material (concrete, steel frames) plus one more of the site's own loot-only component; tier 3 = one hub item. The
 keeper also sells the site's product at a counter (vendors doc): Kessler sells casting sand and cast-iron nuggets,
 Oksana boiler water and packed gunpowder, Rook steel plates, Ilya redstone dust and quartz, Vera the manual's pages,
-Danylo train tickets (the fast-travel token). Tier 2 doubles the site guard (design §6.1) so a working site is a
-defended site.
+the rail yard nothing to sell — the train is a hauler, not fast travel (owner default E12). Tier 2 adds two Recruits to the site guard (design §6.1: the guard doubles once, on `defended`) so a working site is a
+better-held site.
 
 ## 4. The Big Gun — the artillery chain
 
@@ -85,16 +84,16 @@ ours.
 
 | Quest | Name | Act | Where | Gate | Task | Reward / unlock |
 |---|---|---|---|---|---|---|
-| G1 | Sand and iron | II | **camp — Walker's yard** | W-B2 (the basin and blaze burner), `novo_looted` | hand in 16 casting sand (2 sand + dirt + clay each), 8 cast-iron ingots (Novo's loot table; later Kessler's counter), 4 logs | the **cannon cast** and the very-small and cannon-end moulds (the yard's Create saw cuts them from logs); the yard's basins pour molten cast iron |
-| G2 | The first pour | II | camp — the yard | G1 | pour a cast in the yard: cannon cast + mould + molten cast iron → an unbored cast-iron barrel and a cannon end | `gun_cast` stage; Walker's crane (the rope pulley over the cast pit) |
+| G1 | Sand and iron | II | **camp — Walker's yard** | W-B2 (the basin and blaze burner), `novo_looted` | hand in 16 casting sand (2 sand + dirt + clay each), 8 cast-iron ingots (Novo's loot table; later Kessler's counter), 4 logs | the **cannon cast** and the very-small and cannon-end moulds (the yard's Create saw cuts them from logs); the yard's basins pour molten cast iron (Walker tier 2 gains the basin, blaze burner, saw, cast pit and boring frame — design §3.6) |
+| G2 | The first pour | II | camp — the yard | G1 | pour a cast in the yard: cannon cast + mould + molten cast iron → an unbored cast-iron barrel and a cannon end | `gun_cast` stage; the cast pit's hoist (tier 2; the rope-pulley crane proper is tier 3) |
 | G3 | The bore | II | camp — the yard | G2 | the **cannon drill** (andesite casing, piston pole, fluid pipe) and a drill bit on the yard's hand-cranked boring frame (slow: a barrel takes four minutes; the plant's boring mill does it in one after S-plant-2); bore two barrels and a chamber | bored cast-iron barrel, chamber, end; `gun_bored` |
 | G4 | Mount and charge | II–III | camp — the gun pit | G3, Walls 1 | the **cannon mount** in the gun pit with a hand crank on its pitch face and a **yaw controller**, the **cannon loader** with a ram head and a worm head, a lever on the firing face, 8 powder charges (packed gunpowder = 3 gunpowder compacted, in a wool charge), 4 solid shot | the first gun: end + chamber + 2 barrels; **fire it**: CBC's own advancement is the task. Laid by rotation, fired by redstone, read on goggles — no seat, no sight (owner, 2026-09-05) |
-| G5 | The gunner's manual | III | the block | S-block-1, G4 | hand in the manual (Vera) and 2 spyglasses | the **range card**: a Patchouli book per gun, pitch and charges to range (the mod ships none); the pit's display board (a Create display link from the mount, Tune's U-B2) and the range rings on the map wall |
+| G5 | The gunner's manual | III | Skadowsky | S-residential-1, G4 | hand in the manual (Vera) and 2 spyglasses | the **range card**: a Patchouli book per gun, pitch and charges to range (the mod ships none); the pit's display board (a Create display link from the mount, Tune's U-B2) and the range rings on the map wall |
 | G6 | Steel | III | FR-06 T2 (the cast iron now pours at Novo's foundry, S-novo-2, four barrels a pour) | S-fr06-2, S-novo-2, G5, `fr06_defended` | 24 steel ingots (IE steel, `forge:ingots/steel`) melted at Novo, poured as steel barrels; the **cannon builder** at FR-06 wraps built-up layers | the long gun: steel chamber + 5 barrels; the quick-firing breech |
-| G7 | Shells | III–IV | the plaza T2 | S-plaza-2, G6 | mechanical crafters: 4 HE shells, 2 AP shells, 2 shrapnel; fuzes: impact (fuze head + redstone), proximity (iron bars, quartz, iron, redstone) | shells and fuzes as station orders; the smoke shell for the Woods |
+| G7 | Shells | III–IV | the plaza T2 | S-financial-2, G6 | mechanical crafters: 4 HE shells, 2 AP shells, 2 shrapnel; fuzes: impact (fuze head + redstone), proximity (iron bars, quartz, iron, redstone) | shells and fuzes as station orders; the smoke shell for the Woods |
 | G8 | The battery | IV | FR-06 T3, the gatehouse T3 | S-fr06-3, R-B3 | a bronze **autocannon** with handles (breech extractor by sequenced assembly, recoil spring, 3 barrels; big cartridges pressed from brass sheets) on each watchtower — the one gun a player holds, the mod's point-defence design; an ammo container of AP rounds | Walls 3 = the autocannon nests (they replace the laser tower); the crater's last line has guns on it |
 | G9 | The carriage | IV | Walker T3 | G6, W-B3 | the **cannon carriage** (shafts, planks, a pair of cannon wheels from the yard) and a second gun for it; tow it with the truck (IV); emplaced, it is laid and fired like the pit gun | a mobile gun for the counterattack fields and the finale |
-| G10 | Nethersteel (optional) | IV | the tower | tower stage 4 | nethersteel (steel + nether material mixed superheated) — the finale gun: thick chamber, nethersteel layers | the shot that opens the Sleeper's vault (finale doc): the finale's shell is the gun's last job |
+| G10 | Nethersteel (optional) | IV | the tower | tower stage 4 | nethersteel (steel + nether material mixed superheated) — the finale gun: thick chamber, nethersteel layers | the designed answer to the fifth wave's vehicle (finale doc); nothing in the finale is gated on it |
 
 Ammunition economy: gunpowder is Superb Warfare's/vanilla's; **nitropowder and guncotton** (CBC's better propellants,
 mixed from nitrate and cotton) are Teddy's (7A) — his explosives chapter already owns everything that goes bang, so the
@@ -108,10 +107,10 @@ board and the wall's rings; every mechanism has the mod's own Ponder scene.
 
 What the gun is for in play: the counterattacks arrive at the camp gate (design §6.2) along known lines; a gun in the
 pit with shrapnel shells makes the fortify clock's last ten minutes an artillery problem, which is the immersive part
-the feedback asked for. The finale (the Sleeper) needs G10's shot to breach; without the gun the tower's last stage
-stays closed — the gun is the map's second spine after the tower.
+the feedback asked for. The finale's fifth wave carries a vehicle and G10's shot is the designed answer to it; nothing is gated on the gun —
+it is the map's second spine after the tower because the players will want it, not because a door needs it.
 
-## 5. What changes elsewhere (pointers, applied when the fork is adopted)
+## 5. What changed elsewhere (applied 2026-09-05)
 
 - `gscraft-map-design.md` §2.3: keeper column added to the strongpoint table; §3.6: the site tiers reference this doc;
   §6.1 "held" adds the keeper summon; §8 tech stack lists Create, CBC, RPL.

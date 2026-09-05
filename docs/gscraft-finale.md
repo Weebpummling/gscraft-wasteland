@@ -5,6 +5,10 @@ Sits under design §7.1 and quests X6–X9. Everything here was checked against 
 (`G:\GSCraft\server\mods`) and the mods' documentation; each number that Phase E still has to test is marked
 **(E)**.*
 
+
+> **The gun (2026-09-05).** Nothing in the finale is gated on artillery. The Create chapter's G10 nethersteel gun is the
+> designed answer to the fifth wave's vehicle, not a key: a team without it fights the wave as written here.
+
 ## 1. What the finale has to do
 
 The beacon lights at stage 5 (X6) and a 60-minute countdown starts. Then five waves come to the players'
@@ -41,7 +45,7 @@ who came for the same signal. The Warden's whole kit reads as this story: it hun
 guns are what it hears, it does not stop for walls, and its boom goes through armour.
 
 **Telegraph.** When stage 5 is placed, the tower function also lays a ring of sculk around the tower's plinth (the
-compound, x 64…191 × z −144…−17 — one place, one function) and one sculk shrieker (inert — `can_summon` false) at the gate. Players who know the
+compound, v8: x −1560…−1433 × z −2460…−2333 — one place, one function) and one sculk shrieker (inert — `can_summon` false) at the gate. Players who know the
 game read it at once; players who do not get Tune's line: *"Whatever's under us heard that."* Radio 3
 shows wave 5 as "unknown, one, large" for the whole countdown. The very first sign comes much earlier: the prismarine
 hall's sculk floor (Michael's M-P1, Act II), where Tune says once, *"That stuff wasn't there last year."*

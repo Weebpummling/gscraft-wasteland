@@ -42,12 +42,12 @@ quests bring things up. Times are approximate and assume a player who wanders a 
 | 0:06–0:25 | The camp's own ruins. **Lootr** chests glow for a player who has not opened them yet; the wrecks hold hardware, the tents bandages, the shed wire. | looting; instanced loot (each player has their own chest contents); the item names | Item tooltips carry one line each ("Bolt — Walker wants these"). No quest text. |
 | 0:10 | Dusk. Nothing spawns inside the torches; the Man From The Fog is heard once, far off. | the camp is safe **because of the torches**; the horror is outside | — |
 | 0:25 | First hand-in to Walker. Reward: a wrench and two blueprints; the station from the kit binds itself to its owner. | the reward loop; **stations** exist | Walker: "Good. Set your station down somewhere inside the wire. It'll only ever answer to you." |
-| 0:27 | Placing the personal station. The fastener-kit recipe is in it; an order takes two minutes (the Intermediate class). The player waits, or walks off and comes back. | **timed orders** (the tool slot comes up at W3, when the steel frame needs the torch) | Station UI header: "Order — 1:58". Nothing else. |
+| 0:27 | Placing the personal station. The fastener-kit card from W1 goes in its card slot, the parts in the nine below; an order takes two minutes (the Intermediate class). The player waits, or walks off and comes back. | **timed orders** (the tool slot comes up at W3, when the steel frame needs the torch) | The action bar while looking at the block: "FASTENER KIT — 1:58". Nothing else (interface doc §3.3, §4.3). |
 | 0:30 | W2 asks for two fastener kits; the second order runs while the player loots for Tony. | orders run while you do other things | — |
 | 0:35–1:00 | Three more introductions from the same ruins (Tony's bandages, Michael's wire and filter, Tune's circuit board and broken radio). James's two locations (J1) wait for the first walk out. | each survivor owns one thing; rewards are visible in the world | Each NPC: one line. Michael: "There. Now we can see what's coming." |
-| 1:05 | James's J1: the glass tower (1.3 km) and the acacia hall (1.55 km). The first walk out along the spine. **Xaero** shows the road; **Ping Wheel** is explained by Tune's line. | the map, waypoints, pings; roads lead somewhere; distance costs time | Tune: "Press M for the map. Middle-mouse pings a spot for everyone." (the only control ever explained in chat) |
-| 1:30 | Back at camp with a backpack from W2 (Storage 1). The fifth introduction is done, so Marshall **speaks** for the first time: the camp outline lights up and the map wall is revealed (R1, a datapack function); the strongpoint board lights one column — Novo, the industrial yard 1.06 km east along the spine, state *unknown*; the tower chapter appears in the book, and X1's briefing names its five hooks. | the loop exists; there is one target; the tower is the long game | Marshall: "A whole town's worth of ruins out there. Start with the industrial yard east along the road. Ask James what's in it first." |
-| Session 2 | James J-S1: reach Novo, find the dossier (the board turns *scouted* and shows the garrison). Walker W5: two or three loot runs (*looted*). Marshall R2: the marker, the five-minute assault, the site guard that appears when it is won, the fortify clock. Walker W6: the counterattack that arrives at the camp gate when the clock ends (*held*, then *defended*). | the whole **site ladder**, one state per trip, each state a colour on the board (the watchtower banners come later, with gatehouse tier 2) | Each state change is one radio line from Tune and a board column changing colour. |
+| 1:05 | James's J1: the settlement (0.6 km) and the runway (1.4 km) (v8; the glass tower and the acacia hall are gone). The first walk out along the spine. **Xaero** shows the road; **Ping Wheel** is explained by Tune's line. | the map, waypoints, pings; roads lead somewhere; distance costs time | Tune: "Press M for the map. Middle-mouse pings a spot for everyone." (the only control ever explained in chat) |
+| 1:30 | Back at camp with a backpack from W2 (Storage 1). The fifth introduction is done, so Marshall **speaks** for the first time: the camp outline lights up and the map wall is revealed (R1, a datapack function); the strongpoint board lights one column — Skadowsky, the town across the fields 1.4 km south-east down the Line, state *unknown* (v8, design §2.7); the tower chapter appears in the book, and X1's briefing names its five hooks. | the loop exists; there is one target; the tower is the long game | Marshall: "A whole town's worth of ruins out there. Start with the block down the line, south-east. Ask James what's in it first." |
+| Session 2 | James J-S2: reach Skadowsky, find the dossier (the board turns *scouted* and shows the garrison). Walker W5: two or three loot runs (*looted*). Marshall R2: the marker, the five-minute assault, the site guard that appears when it is won, the fortify clock. Walker W6: the counterattack that arrives at the camp gate when the clock ends (*held*, then *defended*). | the whole **site ladder**, one state per trip, each state a colour on the board (the watchtower banners come later, with gatehouse tier 2) | Each state change is one radio line from Tune and a board column changing colour. |
 
 By the end of session two the team has looted, ordered, carried, walked, scouted, taken, held and
 defended (at their own gate) — every action the game has — without one paragraph of instructions. A player who joins
@@ -109,11 +109,11 @@ The quest book (FTB Quests) is the **journal**. Rules for every quest in `gscraf
 
 ## 6. The one piece of paper: the survivor's notebook
 
-Patchouli is in the pack. It gets exactly one book, six pages, given at first join and never required:
-**Controls** (quest book key, map M, ping middle-mouse, voice V, backpack key, the station's UI),
+Patchouli is in the pack. It gets exactly one book, seven pages, given at first join and never required:
+**Controls** (quest book key, map M, ping middle-mouse, voice V, backpack G, the station's card slot),
 **The camp** (the six names and what each wants), **Reading the board** (the six colours), **Carrying**
 (packs, bulky items, cars), **Getting hurt** (revive, infection, the clinic), **Where things are** (one
-line per site as it is scouted; the page grows). No rules text, no lore. Each page is under sixty words
+line per site as it is scouted; the page grows), **Driving** (appears with Garage 1: the vehicle keys, 2026-09-05). No rules text, no lore. Each page is under sixty words
 and a picture. That is the entire written manual of the game.
 
 ## 7. Failure is the second teacher
@@ -149,6 +149,9 @@ time to the first order; whether anyone opens the book unprompted; whether anyon
 voice chat that a line above should have answered. Every such question is a gap in this document, not
 in the player. Pass: everyone who plays reaches Marshall's first line inside two sessions without a word
 from the operator.
+
+The screen itself — the HUD, the key map, the channel ladder, the station's card model, the journal's rules and every
+system's readout — is `gscraft-player-interface.md` (2026-09-05); this document is the order in which the player meets it.
 
 Related: `gscraft-map-design.md` §2.2, §3, §3.6, §4.5 (the rules of play, including late joiners);
 `gscraft-quests.md` §1, §8; `gscraft-crafting.md` §4; `gscraft-mod-capabilities.md` (Custom Starting

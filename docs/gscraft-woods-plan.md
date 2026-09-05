@@ -4,6 +4,13 @@ Draft 1, 2026-09-04. Owner's ask: a Tarkov-style "Woods" — a large wilderness 
 few scattered structures, the focus of certain quests, and a deliberate contrast to the cityscape
 everywhere else. This is the plan; it is built after the v7 pre-generation finishes (section 5).
 
+
+> **Superseded by v8 (2026-09-05).** The Woods is a named area on the forest that already exists in the v8 cell —
+> x −2450…−1600, z −1350…100 (map plan §4): no relief, no regeneration, no carve. §5 below (the v7 carve, the spur from
+> Novo's north gate, `carve_regen.py`, `localpregen.py`) is history; §1–§4's design of what the Woods *is* (the bunkers,
+> the relay, the outpost, Teddy) stands and is placed by the v8 dressing pass at the Woods farmsteads (design §2.7):
+> Teddy's outpost at (−2176, −576), the fog house at (−2192, −32).
+
 ## 1. What it is for
 
 The rest of the map is ruin: Lost Cities on a fifth of the land, highways across all of it, the built

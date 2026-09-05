@@ -10,7 +10,7 @@ they are vanilla.*
 ## 1. Rules
 
 1. **Small items are loot; products are not.** No table drops a working gun, armour, a vehicle, a
-   complete part or an intermediate. Guns drop as **salvage** (`gscraft:damaged_pistol` …), armour
+   complete part or an intermediate; Create's metals (zinc and copper ingots, brass sheets — the Create chapter §1) are small items and drop like hardware. Guns drop as **salvage** (`gscraft:damaged_pistol` …), armour
    not at all (crafting §5.5).
 2. **Every table is a building type first and a site second.** A chest in a Lost Cities office rolls
    the office table wherever it stands; a chest inside a strongpoint's rectangle rolls the site's

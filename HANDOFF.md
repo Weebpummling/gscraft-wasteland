@@ -4,6 +4,12 @@ State as of 2026-09-04 (v6 live on the hosted server; **v7 built, reviewed and r
 the working machine's paths are given so a session on it can continue directly, and section 2 says
 how to rebuild the same state elsewhere.
 
+
+> **2026-09-05 — design integration.** The design documents were rebased on the v8 geography and the Create fork was
+> adopted as a chapter; the player interface is `docs/gscraft-player-interface.md` (mockups: the "GSCraft Player
+> Interface" artifact). The eighteen decisions the rebase forced are `docs/gscraft-design-gaps.md` §E, each with its
+> default — read that table before any Phase C work.
+
 ## 1. Where things stand
 
 **The hosted server (Bisect, 199.115.76.82:9150, panel id 493d6256) RUNS v6** since 2026-09-03 evening:

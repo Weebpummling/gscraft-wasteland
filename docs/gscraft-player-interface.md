@@ -1,6 +1,7 @@
 # GSCraft Wasteland — The player's interface
 
-Draft 1, 2026-09-05 (mockups: the "GSCraft Player Interface" artifact, same day). Scope: what a player sees, presses and reads, and how every system of the game shows its
+Draft 1, 2026-09-05 (mockups: the "GSCraft Player Interface" artifact, same day; its §8 decisions are carried into
+crafting §4, onboarding §2 and §6, camp spec §5 and the gaps ledger §E on the same day). Scope: what a player sees, presses and reads, and how every system of the game shows its
 state and takes the player's input. It sits on top of the onboarding doc (draft 2: the teaching rule, the first
 session, the notebook), the camp spec (§2 the board, the rack, the map wall), the quests (draft 3), the vendors
 and the crafting sheet (§3–§4 stations). Nothing here changes what those documents say the game *is*; this is
@@ -253,7 +254,7 @@ friendly fire is off. Team invites happen here once, on the first evening, and n
   Fall of shot is watched by eye and by the players at the lookout on voice; nobody in the game calls corrections.
 - **What we add:** the quest gates; the **gunner's manual** (G5, Vera): a Patchouli range card per gun — pitch and
   charges to range — because the mod ships none; the range rings on the map wall (G5); the keeper's counters.
-- **The site keeper is a survivor:** same door sign, same right-click for the journal (chapter `S-<site>`), same
+- **The site keeper is a survivor** (five of them: Vera at Skadowsky — the residential block in v8 — Kessler, Ilya, Rook, Oksana): same door sign, same right-click for the journal (chapter `S-<site>`), same
   sneak-click for the counter. The site's core building carries the readout sign: name, tier, what the keeper sells,
   rebuilt with the tier like the camp's door signs.
 - **Ponder is the tutorial.** Casting, boring, building, welding, loading, mounting, firing, fuzing and the

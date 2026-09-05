@@ -68,7 +68,7 @@ every other one is stripped.
 Removed from the game's recipes (KubeJS strips their recipes; their containers are not in any loot
 table): the fighting vehicles and artillery (`bmp_2`, `yx_100`, `type_63`, `plz_05`, `tom_6`,
 `ah_6`, `mi_28`, `a_10a`, `prism_tank`, `annihilator`, `bl_132`, `mle_1934`, `hpj_11`, the Waveforce
-tower, `mk_42`, SW's `wheel_chair`; the laser tower returns as a Walls 3 order, §5.7) and the IV vehicles with no role (`ft17`, `firetruck`, `gmcbrig`, `merc230`,
+tower, `mk_42`, SW's `wheel_chair`; the laser tower does not return — the Create chapter's autocannon nests are Walls 3, §5.7) and the IV vehicles with no role (`ft17`, `firetruck`, `gmcbrig`, `merc230`,
 `fordmustang69`, `scout`, `bell206`, `comanche`, `e500`, `pzlp11`, `pzl37los`, `skyhawk`,
 `trimotor`, `vulcanair`, `camaro`, `escargot`, `highwayman`, `luxorama`, `stationmerc`, `vwbus`).
 
@@ -100,7 +100,13 @@ to a held site — the same rule as the tower parts.
 
 ### 2.1 The military tier (vvp, MCSP — kept, owner 2026-09-03)
 
-> Fork 2026-09-04: Create Big Cannons' parts (casts, mounts, loaders, shells, fuzes, autocannon assemblies) are the site keepers' station orders and Create's machine recipes are Walker's blueprints from Workshop 2 — `gscraft-create-and-artillery.md` §1, §4–5.
+**Create and Create Big Cannons (adopted 2026-09-05, `gscraft-create-and-artillery.md`).** Create's machines are a
+fourth locus beside the three stations below: kinetic blocks placed by the yard's and the sites' tier templates, never
+bench-crafted; their bench recipes are removed (`gscraft_recipes.js` §4, Phase C) and return as Walker's Workshop 2
+blueprint cards. Create Big Cannons' parts follow the same split: the first gun's casts, mount, loader and charges are
+Walker's cards (G1–G4, made in the camp); shells, fuzes, steel layers and the autocannon are the site keepers' station
+orders (G6–G8); CBC's own crafting-table recipes for mounts, loaders, fuzes and shot are removed and come back as those
+orders. Propellants (nitropowder, guncotton) are Teddy's H8 (§5.8).
 
 Three vehicles from the two Superb Warfare add-on packs sit above the civilian garage; everything
 else in those packs is a static wreck at a strongpoint (design §2.3), placed dead and never craftable.
@@ -157,7 +163,8 @@ Quick class; there is no way to buy time back with more ingredients.
 **Crafting happens only at server-placed stations.** The vanilla crafting table is inert (its
 recipe is removed and right-clicking one does nothing — Lost Cities is full of them), the
 Engineer's Workbench recipe is removed, and no other mod's bench is craftable. Three kinds of
-station exist:
+station exist, and beside them Create's machines (a fourth locus: placed by tier templates at the yard and the
+sites, ordered as intermediates, never crafted at a bench — §2.1):
 
 | Station | How many | Where | Who |
 |---|---|---|---|
@@ -167,12 +174,14 @@ station exist:
 
 Every station has a **tool slot**: recipes the design wrote as "torch held" or "wrench held" read
 the tool from that slot and take one point of its durability per order, since nobody is standing
-there when the order finishes. A **blueprint** is not an item any more: it is a team stage
-(`bp_<recipe>`) that the quest reward sets, and a station only accepts orders for recipes whose
-stage the team holds. The book shows the recipe on the quest that grants it.
+there when the order finishes. A **blueprint is a card** (owner, 2026-09-05, `gscraft-player-interface.md` §4.3):
+the quest reward hands the player a card item whose tooltip lists the recipe's needs; the card sits in the station's
+card slot and *is* the order — there is no recipe menu, and a recipe nobody holds a card for does not exist. The team
+stage `bp_<recipe>` is still set by the same reward: it is the team's record, and the vendors' and quests' gate. A lost
+card is re-issued by its NPC for 4 emeralds (a counter offer that needs the stage).
 
-A personal station takes one order at a time. A workshop bench takes one order at tier 1, a
-queue of two at tier 2 and three at tier 3. For a team of five, a tier-3 yard is eight
+A personal station takes one order at a time (one card slot). A workshop bench takes one order at tier 1, a
+queue of two at tier 2 and three at tier 3 — the tier's template swaps in a bench with two and three card slots. For a team of five, a tier-3 yard is eight
 orders in flight plus the vehicle benches, which is the ceiling the timers were tuned against (a smaller team has fewer stations and the same timers, so it simply runs fewer orders at once): a
 full tower stage (six steel frames, eight fastener kits counting the frames' own, the kit itself) is fourteen
 intermediate orders across the team's stations and one trip-length order, and a team that plans it starts the intermediates before leaving and
@@ -195,10 +204,12 @@ the team owns, personal ones included, because the tier is a property of the tea
 stage, not of the block.
 
 **Implementation, no custom mod.** The station is a KubeJS custom block with a block entity
-(KubeJS 2001.6.5 ships `BlockEntityBuilder`, an inventory and a server ticker — verified in the
-jar): nine input slots, one output row, an order in NBT (recipe id, ticks remaining, owner). A
-server script matches the inputs against the `gscraft` recipe list, sets the countdown from the
-class and the workshop stage, ticks it, and moves the result out. Personal binding and the
+(KubeJS 2001.6.5 ships `BlockEntityBuilder`, an inventory attachment, `rightClickOpensInventory` and a server ticker —
+verified in the jar): a 3×4 container screen — card slot, tool slot, take-only output on the top row, nine inputs
+below — and an order in NBT (recipe id, ticks remaining, owner). Every second the block compares the card against the
+inputs; when they match it consumes the parts, ticks the countdown from the class and the workshop stage, lights its
+working state and moves the result to the output; the countdown and every failure show on the action bar while the
+block is looked at (interface §3.3). Personal binding and the
 one-per-player rule are the same script; the workshop stage is a team stage set by the `W-B`
 quests. IV and SW vehicles keep their own benches because their items are placed as entities by
 their mods; the yard template places those benches and the lock keeps them there.
@@ -308,8 +319,8 @@ need nothing from Act II; the fuel tank's sealed tubing is covered by W7's new g
 | Group | Orders (Superb Warfare / Sophisticated Backpacks / ParCool ids verified in the jars) | Blueprint from |
 |---|---|---|
 | **Walls 1** | `superbwarfare:sandbag` ×4: 2 cloth + 4 sand; `superbwarfare:barbed_wire` ×2: 3 metal scrap; `superbwarfare:claymore_mine`: 2 metal scrap + 1 gunpowder + 1 wire spool | Marshall, D1 |
-| **Walls 2** | the mortar (`mortar_barrel` 2 steel frame; `mortar_base_plate` 1 steel frame + 4 metal scrap; `mortar_bipod` 4 metal scrap; the `mortar_deployer` from the three) and `mortar_shell` ×2: 2 metal scrap + 2 powder (Quick; ×4 with 1 high-energy explosive after H7); `superbwarfare:drone`: 1 circuit assembly + 1 motor assembly + 1 small battery pack; `swarm_drone` ×2: 1 circuit assembly + 4 metal scrap | Marshall, D2 |
-| **Walls 3** | the laser tower (4 plate + 2 circuit assembly + 1 transformer core + 1 military circuit board; the mod's laser unit is stripped); `superbwarfare:fumo_25` (radar): 4 steel frame + 2 antenna element + 1 military circuit board; `superbwarfare:c4_bomb`: 4 powder (or 1 high-energy explosive after H7) + 1 circuit assembly + 1 duct tape; `superbwarfare:jump_pad`: 2 steel frame + 1 medium battery pack | Marshall, D4 |
+| **Walls 2** | `superbwarfare:drone`: 1 circuit assembly + 1 motor assembly + 1 small battery pack; `swarm_drone` ×2: 1 circuit assembly + 4 metal scrap. **No mortar** (2026-09-05): Superb Warfare's artillery stays stripped; the map's artillery is the Create chapter's gun, built in the camp from G1 | Marshall, D2 |
+| **Walls 3** | the autocannon nests are G8's (the Create chapter; the laser tower is gone); `superbwarfare:fumo_25` (radar): 4 steel frame + 2 antenna element + 1 military circuit board; `superbwarfare:c4_bomb`: 4 powder (or 1 high-energy explosive after H7) + 1 circuit assembly + 1 duct tape; `superbwarfare:jump_pad`: 2 steel frame + 1 medium battery pack | Marshall, D4 |
 | **Storage 1** | `sophisticatedbackpacks:backpack` (basic: 6 cloth + 2 duct tape) | Walker, W2 |
 | **Storage 2** | iron backpack (basic + 4 plate); `stack_upgrade_tier_1` ×2: 2 steel frame + 1 fastener kit; `magnet_upgrade`: 1 circuit assembly + 2 metal scrap | Walker, W6 |
 | **Storage 3** | gold backpack (+ 1 steel frame + 1 heavy anchor cable); `everlasting_upgrade`: 1 circuit assembly + 1 transformer core; `feeding_upgrade`: 1 circuit assembly + 4 canned goods; `pickup_upgrade`: 2 metal scrap + 1 wire spool | Walker, W10 |
@@ -347,10 +358,12 @@ materialises, the fallback is that the station order for an IV vehicle yields th
 
 ---
 
+| **Propellants (H8, Teddy)** | CBC's nitropowder ×2: 2 gunpowder + 1 nitrate (the plant's loot) and guncotton ×2: 2 cotton + 1 nitrate + 1 solvent — the better charges for the long gun; **H8 The better powder** (Act IV, after H5) is Teddy's eighth quest and his counter's fourth level | Teddy, H8 |
+
 ## 6. What this adds to the quest book
 
 Six quests and seven reward/gate edits, all in quests draft 2 (Teddy's seven explosives quests followed in draft 3, §5.8): W-A1…W-A4, W-V1, W-M1; W13's gate, W7's
-reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and thirty-eight quests (the Woods chain, the bunker side quests, Farm 2/3, X6b, the placed-structure quests, Teddy's chapter and the two mech quests added 2026-09-04).
+reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and seventy-two quests (144 in the seven chapters plus The Gun 10 and the site chains 18 — quests §1; the Woods chain, the bunker side quests, Farm 2/3, X6b, the placed-structure quests, Teddy's chapter and the two mech quests added 2026-09-04).
 
 Related: `gscraft-map-design.md` §3.6 (Walker's yard tiers), §4 (the item ladder),
 `gscraft-quests.md` §2 (Walker), `build/kubejs/` (the station script, Phase C).

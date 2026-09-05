@@ -51,7 +51,18 @@ what Tarkov shows: a trader whose stock grows as the relationship does, and a fe
 | **Tune** — the shack | electronics, attachments, optics | electrical items, valuables | iron sights, extended magazines, wire spools | optics, suppressor (after W-A4), **night-vision goggles** (§6), flashlight batteries | thermal? **no** — thermal stays vehicle-only (§6); laser sights, the encrypted-radio *decrypt* barter |
 | **James** — the lookout | maps, expedition kit | folders, hard drives | compass, map, torches, zipline rope (after J-B2) | site dossier *copies* (a bought dossier does **not** count for J-S quests — the original must be found) | the Cartographer's odd lots: 1 random Valuables item a day |
 | **Teddy** — the Woods outpost (after R-W1) | explosives | gunpowder, powder | hand grenades, smoke grenades (after H1/H2) | RGO grenades, 40 mm grenades (after H4) | rockets, standard and TBG (after H5/H6) — loyalty = his quests, he has no building tiers |
-| **Marshall** — the gatehouse | defences, recruits | gunpowder, powder, plates | sandbags, barbed wire (after D1); recruits (after D2, the mod's own hire) | claymores, mortar shells (after D2) | drones, C4 (after D4); rifle and MG ammunition at double the daily cap from X6 onward (the finale's stockpile) |
+| **Marshall** — the gatehouse | defences, recruits | gunpowder, powder, plates | sandbags, barbed wire (after D1); recruits (after D2, the mod's own hire) | claymores, drones (after D2) | drones, C4 (after D4); rifle and MG ammunition at double the daily cap from X6 onward (the finale's stockpile) |
+
+**The site keepers (Create chapter §3, adopted 2026-09-05).** Each held strongpoint's keeper is a counter too; their
+loyalty level is the **site's tier** (S-<site>-1…3), and they sell what the site makes:
+
+| Keeper | Site | Buys | Tier 1 sells | Tier 2 adds | Tier 3 adds |
+|---|---|---|---|---|---|
+| **Vera** — the hospital | Skadowsky (the residential block) | blood bags, medical items | the gunner's manual pages, poultice | bandages, painkillers (a second clinic; the cure is free here too) | train tickets: nothing — the train is a hauler, not fast travel (owner default E12) |
+| **Kessler** — the foundry | Novo | scrap, cast iron | casting sand, cast-iron nuggets | cast-iron ingots (4 a day), blaze cakes | bronze ingots |
+| **Ilya** — the fuze lab | Financial Plaza | valuables, redstone | redstone dust, quartz | fuze heads | proximity fuzes (2 a day) |
+| **Rook** — the steel works | FR-06 | steel scrap, plates | steel plates | big cartridges (empty) | autocannon barrels (1 a day) |
+| **Oksana** — the power house | the plant | filters, chemicals | boiler water, packed gunpowder | nitrate (H8's input), drill bits | coolant, boiler parts |
 
 ## 4. Prices (first cut; Phase C tunes against the loot value table)
 
@@ -75,8 +86,9 @@ vendor pays for the items. Buy prices are per stack of the item's normal stack s
 | Fuel, power | — | empty can 2, full can 5, small pack 15, medium pack 40, flashlight battery 2 |
 | Kit | — | tools 4, compass 2, map 3, zipline rope 3, torches (8) 1, poultice 2, ration pack 3 |
 | Night-vision goggles | — | 60 (LL2, Tune) |
-| Defences | — | sandbag (4) 2, barbed wire (2) 2, claymore 6, mortar shell 3, drone 30, C4 12 |
-| Explosives (Teddy) | — | hand grenade 3, smoke 2, RGO 5, 40 mm (2) 4, standard rocket 12, TBG rocket 20 |
+| Defences | — | sandbag (4) 2, barbed wire (2) 2, claymore 6, HE shell (G7, Ilya) 3, drone 30, C4 12 |
+| Explosives (Teddy) | — | hand grenade 3, smoke 2, RGO 5, 40 mm (2) 4, standard rocket 12, TBG rocket 20; nitropowder (2) 4, guncotton (2) 6 (H8) |
+| The keepers' goods | casting sand 1, cast-iron nugget 1, redstone 1, quartz 1, steel scrap 2, boiler water 1, nitrate 2 (the keepers buy) | cast-iron ingot 3, bronze ingot 4, blaze cake 6, fuze head 3, proximity fuze 8, steel plate 3, big cartridge 4, autocannon barrel 20, packed gunpowder 2, drill bit 6, coolant 3, manual page 2 |
 
 Daily caps (Tarkov's limited stock) keep the vendor a floor and not a faucet: ammunition 4 stacks a
 day per class, med kits 4, fuel cans 6, one gun of each unlocked class, one armour piece each; at Teddy's, grenades
@@ -103,7 +115,7 @@ Phase E check. TaCZ's default pack has laser sights and "white light" (illuminat
 weapon light, no thermal scope.
 
 - **Flashlight:** a real dynamic-light flashlight needs a mod (`notes/gscraft-flashlight-and-nvg.md`
-  has the candidates; the recommendation is *Dynamic Flashlight 2.1.0*, Forge 1.20.1, no
+  has the candidates; *Dynamic Flashlight 2.1.0* was added 2026-09-04 (camp spec §5), no
   dependencies). Until it is added the KubeJS Night-Vision flashlight of the camp spec stands.
 - **Night-vision goggles:** a KubeJS Curios/helmet item (`gscraft:nvg`) giving Night Vision while
   worn, draining a battery bar; sold by Tune at LL2 for 60, never crafted, never looted — the one
@@ -140,3 +152,5 @@ weapon light, no thermal scope.
   quests doc when Phase C writes the book; not counted in the 138 until then.
 - Crafting §5: unchanged — the station stays the cheap route; the vendor price rule (§4) is the check.
 - Camp spec §6: a counter prop per tier-1 template (written); Teddy's counter prop is placed by `npc_teddy` beside him in the outpost's tower.
+- The five keepers' counters (§3) need five more `build/kubejs/data/gscraft/vendors/<keeper>.json` files and a loyalty rule keyed to `site_<site>_<tier>` instead of `camp_<npc>_<tier>` (Phase C).
+- Lost blueprint cards: every camp NPC's counter carries a "re-issue" offer per card they gave out, 4 emeralds, gated on the team's `bp_<recipe>` stage (crafting §4).

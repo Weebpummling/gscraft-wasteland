@@ -45,15 +45,15 @@ shortcut, loot buy-back as a sink, access by building tier and quest stage, on v
 
 ## 1. The game in one paragraph
 
-A team of players — any number, from one up — wakes in a crater camp run by six survivors. Around them is a Lost Cities wasteland with a
-custom-built district two kilometres east and five player-built strongpoints scattered between 1
-and 2.5 km. Every ruin is full of small useful junk; the camp's NPCs teach the players to turn it into
+A team of players — any number, from one up — wakes in a crater camp run by six survivors on a plateau above a dead
+town. Around them is the v8 cell (`gscraft-map-plan-v8.md`): the town's ruins to the west, a lake and a river to the
+east, the cyberpunk district against the far ridge, and five strongpoints between 1.4 and 2.4 km. Every ruin is full of small useful junk; the camp's NPCs teach the players to turn it into
 parts at the stations and to grow their own hideout. Taking a strongpoint puts a site guard on it and starts a clock; when the clock runs out the
 counterattack comes to the camp, and beating it at the gate makes the site yours for good; each strongpoint yields one
 complex component nothing can craft. Four of those and the hub's, built into five complete parts, repair the radio
 tower stage by stage until its beacon lights. That starts the countdown to the finale: waves on the
-players' own base, the last one carrying the boss. Cars get the parts home; the plane reaches the one
-site that holds the last component.
+players' own base, the last one carrying the boss. Cars get the parts home; the far edge — the pack's own power-plant complex beyond the river — holds
+the last component, and the runway's aircraft is the fast way over the water to it.
 
 The loop, in order: **scavenge → craft → upgrade the hideout → scout → loot → take → hold →
 repair the tower → defend the base**. A strongpoint is four trips at least before it is held
@@ -63,27 +63,37 @@ repair the tower → defend the base**. A strongpoint is four trips at least bef
 
 ## 2. The map
 
-> **Placement revision (v6, 2026-09-03):** the coordinates below are draft 5's first cut. The
-> revised placements — the radio tower in the camp (north-east corner, locked), Novo on the spine
-> 1.1 km east, the old substation pad restored, offsets and pad levels for every transplant — are
-> in `gscraft-map-layout-v6.md`, which the world build uses. Where the two differ, the sheet wins.
+> **Geography rebased on v8 (2026-09-05).** The map is the v8 cell of `gscraft-map-plan-v8.md`: the Pripyat pack's
+> town, lake, river and plant as the spine, the builds set into it by the art pass (its §4 table is the source of every
+> rectangle below), the camp on the plateau between the town and the lake. The v6 sheet and the v7 structure plan are
+> history. **The v8 layout is mostly decided but still in its clean-up pass (owner, 2026-09-05): every rectangle,
+> distance and derived coordinate below is provisional until `gscraft-map-plan-v8.md` §4 is marked final** — treat
+> them as the current draft, not as build input. Where a number below and the v8 plan differ, the v8 plan wins. The
+> decisions this rebase forced (acts by
+> the new distances, the residential block, the hub by road, the re-targeted quests) are listed with their defaults in
+> `gscraft-design-gaps.md` §E — each is the owner's to overturn.
 
 ### 2.1 Border and ranges
 
-**10 km square, centred on (1900, 1250)**: x −3100 … 6900, z −3750 … 6250. About 390,000 chunks,
-~2.4 h of Chunky, ~6 GB, pre-generated in full before the first test. Set once with
-`/worldborder center 1900 1250` and `/worldborder set 10000`.
+**5.1 × 4.6 km: x −3900 … 1200, z −3900 … 700** (v8 border A, owner 2026-09-04) — the town, lake, river, plant and rail
+yard exactly where the pack has them; the world border is the vanilla square that contains it, 5.1 km centred on
+(−1350, −1600), so a strip of landscape north and south of the cell lies inside the border and nothing designed does.
+The cell is pre-built (relief, transplants, roads); Lost Cities generates only beyond it. There is no air ring: the
+farthest designed site is 2.4 km from the camp, the pack's plant complex 2.9–4.3 km, and aircraft are for the lake and
+the plant's exclusion zone, not for reaching a site nothing else can.
 
 | Range | From the camp | Owned by | What lives there | Attackable? |
 |---|---|---|---|---|
-| **Foot** | 0 – 1.5 km | walking | the camp, glass tower, acacia hall, Novo on the spine | the camp: every counterattack and the finale; Novo: its take only |
-| **Road** | 1.5 – 4 km | cars, boats | the district, Financial Plaza, the settlement, Bio Gen and the runway | the strongpoints' takes only; their counterattacks come to the camp |
-| **Air** | 4.5 – 6.5 km | aircraft | the hub and generated cities kept as found; the only source of the rare loot-only parts | never |
+| **Foot** | 0 – 1.5 km | walking | the camp, the settlement (0.6 km SE), the runway (1.4 km N), the library (1.7 km NNW), **Skadowsky** (1.4 km SE), the town's near edge | the camp: every counterattack and the finale; Skadowsky: its take only |
+| **Road** | 1.5 – 3 km | cars, boats | the town, **Novo** (2.0 km SW), the hempcrete compound (2.0 km WSW), **the mega-base / FR-06** (2.2 km E, across the lake), **the industrial district / the plant sector** (2.4 km ESE), **Financial Plaza** (2.4 km SW), **the hub** (2.4 km SW, inside the cyberpunk district) | the strongpoints' takes only; their counterattacks come to the camp |
+| **Far** | 3 – 4.3 km | truck, boat, aircraft | the pack's power-plant complex and the rail yard's far end; the only source of the last component | never |
 
 ### 2.2 The camp (starting area)
 
-The 384×384 cleared area around the crater, x/z −176…207, with the Warium structure on its lake
-island in the pit (plaza y 93, world spawn 19 94 26) and the rebuilt surface on the rim. The camp is
+The 384×384 camp on the plateau, **x −1792…−1409, z −2492…−2109, centre (−1600, −2300)** (v8 §4; the camp's own
+design is v8 §9: no centre lake, the tower on its own pad), with the Warium structure at x −1506…−1475, z −2246…−2215 in
+the crater basin cut to the lake level and the world spawn on its plaza (−1490, −2230; the y is fixed when the camp core
+is levelled in Phase C — every distance-based rule, Improved Mobs included, measures from this spawn). The camp is
 **neutral ground**: the NPC buildings are protected, spawns are suppressed inside the outline by **ten
 diamond Magnum Torches** (64-block ellipsoid each; one at each of the five NPC pads away from the gate, one at Marshall's gate, four on a
 ring — `tools/camp_torches.py`, placed by `gscraft:camp_torches`), and the players' own hideout is
@@ -107,55 +117,63 @@ Positions are first cut, to be adjusted on the visual pass against the rebuilt s
 
 | NPC | Building | Footprint (blocks) | Where on the rim | What is in it |
 |---|---|---|---|---|
-| **Marshall** | the gatehouse | 24×16 | east gate, x 150…173 × z 0…15, where the spine leaves the camp | the map table, the tower parts rack (empty until parts arrive), the strongpoint board; players pass him on every trip east |
-| **Walker the Foreman** | the yard | 40×32 | south-east, x 60…99 × z 80…111 | the workshop benches (crafting §4), garage bays, a vehicle lot, scrap piles |
-| **Tony the Medic** | the clinic | 20×16 | north-west, x −100…−81 × z −100…−85 | beds, the med station, a PlayerRevive point |
-| **Michael the Engineer** | the plant | 32×24 | south, x −40…−9 × z 100…123, at the crater edge above the lake | generator shed, water collector, tanks, the fuel pump |
-| **Tune the Technician** | the radio shack | 16×16 with a 12-block mast | at the tower compound's west gate, x 40…55 × z −120…−105 | the small mast (a visible echo of the tower), the map board, the intel desk |
-| **James the Scout** | the lookout | 8×8 tower, 20 tall | north-west corner, x −150…−143 × z −150…−143 | the expedition board, a view over the approach |
+| **Marshall** | the gatehouse | 24×16 | east side, x −1350…−1327 × z −2238…−2223, where the road leaves the camp for the lake shore | the map table, the tower parts rack (empty until parts arrive), the strongpoint board; players pass him on every trip east |
+| **Walker the Foreman** | the yard | 40×32 | south-east, x −1420…−1381 × z −2170…−2139 | the workshop benches (crafting §4), garage bays, a vehicle lot, scrap piles |
+| **Tony the Medic** | the clinic | 20×16 | west, x −1640…−1621 × z −2300…−2285 | beds, the med station, a PlayerRevive point |
+| **Michael the Engineer** | the plant | 32×24 | south, x −1530…−1499 × z −2135…−2112, at the crater edge | generator shed, water collector, tanks, the fuel pump |
+| **Tune the Technician** | the radio shack | 16×16 with a 12-block mast | north-west, x −1590…−1575 × z −2370…−2355, at the tower pad's south-west corner | the small mast (a visible echo of the tower), the map board, the intel desk |
+| **James the Scout** | the lookout | 8×8 tower, 20 tall | south-east corner, x −1370…−1363 × z −2100…−2093, over the road to Skadowsky | the expedition board, a view over the approach |
+| **The gun pit** (Create chapter, G4) | a 12×12 emplacement | 12×12 | the rim's east bluff beside the gatehouse, x −1340…−1329 × z −2290…−2279, locked like the buildings | tier 0: a dead barrel on blocks and an empty mount ring, visible from minute 2; G4 places the cannon mount, the loader and the pit board |
 
-Each building is a structure template placed by a generator (Phase C, on the positions the visual pass fixes) in the style of
-`tools/tower.py` (a `camp.py`, to write), so the camp can be re-cut without hand building. What is
+Each building is a structure template placed by a generator (Phase C, on the v8 §9 positions; `camp.py`, to write) in
+the style of `tools/tower.py`, so the camp can be re-cut without hand building; the gun pit is its 25th template pair
+(tier 0 and the G4 emplacement). What is
 placed is **tier 0** of four: every building has three upgrade tiers, each its own template on
 the same footprint, placed by the NPC's upgrade quests (§3.6).
 
 ### 2.3 Strongpoints and sites
 
-| # | Strongpoint (holdable) | Where | From the camp | Role | NPC |
-|---|---|---|---|---|---|
-| 1 | **Novo Expograd Industrial Zone** (transplant 144×160) | on the spine, x 992…1135 × z 96…255 | 1.06 km ENE | Heavy industry | Walker |
-| 2 | **Residential block** (district) | from 1328, 1376 | 1.9 km | Medical | Tony |
-| 3 | **Industrial plant** (district 464×272) | 1904…2367 × 864…1135 | 2.4 km | Fuel and water | Michael |
-| 4 | **FR-06 complex** (district 384×528) | 2192…2575 × 400…927 | 2.5 km E | Power and hangar | Michael |
-| 5 | **Financial Plaza Quarantine** (transplant 160×144) | dry land west, x −1952…−1793 × z 848…991 | 2.1 km W | Electronics | Tune |
-| — | **Radio tower** (custom) | in the camp, x 64…191 × z −144…−17 (pad y 99) | 0.1 km | Endgame | Marshall |
+| # | Strongpoint (holdable) | Where (v8 §4) | From the camp | Role | Camp NPC | Site keeper (Create chapter §3) |
+|---|---|---|---|---|---|---|
+| 1 | **Skadowsky sector** — the residential block (owner default E2: it takes the block's role; the v6 block has no v8 placement) | x −1088…−625 × z −1488…−737 | 1.4 km SE, by road | Medical; the hospital, then the rail yard | Tony | **Vera**, the nurse |
+| 2 | **Novo Expograd Industrial Zone** | x −2880…−2737 × z −816…−657, in the cyberpunk district | 2.0 km SW | Heavy industry | Walker | **Kessler**, the foundryman |
+| 3 | **Financial Plaza Quarantine** (+ the sewers under it) | x −3456…−3297 × z −800…−657, in the district | 2.4 km SW | Electronics | Tune | **Ilya**, the clerk |
+| 4 | **FR-06 complex** (v8: the mega-base sector) | x 368…751 × z −2128…−1601, the lake's east shore | 2.2 km E | Power and hangar | Michael | **Rook**, the millwright |
+| 5 | **Industrial plant** (v8: the industrial district, beside the pack's plant) | x 336…799 × z −1376…−1105 | 2.4 km ESE | Fuel and water | Michael | **Oksana**, the plant chief |
+| — | **Radio tower** (custom) | in the camp, pad x −1560…−1433 × z −2460…−2333 | 0.1 km | Endgame | Marshall | — |
 
-**Generated sites, counted** (`tools/structures_v6.json`, every structure start in the 10 km box): 45 villages — Lukis Grand Capitals' versions, hostile under Hostile Villages — and 21 pillager outposts, the bandit settlements of the map; 284 Underground Bunkers; 439 Apotheosis boss towers; 23 ancient cities; 35 Man-From-The-Fog houses; 2 mansions; 8 strongholds; 107 smaller starts (trail ruins, igloos, pyramids, monuments) — 964 in all. Pre-prune census, nearest to the camp (the kept ones are `buildmap/structure_plan_v7.json`): villages (800, -2352), (2416, -672), (3216, 912); outposts (-1392, 1632), (-1952, 1232), (-512, 2368); bunkers (16, -368), (448, -384), (-784, -384); boss towers (32, -368), (832, -816), (1312, 64). James's J9 sends the players to four of the capitals, and the bunkers are the U-chapter's side dungeons. **Owner's verdict on the census: far too dense.** `gscraft-structure-plan.md` keeps **67** of the 964 sites
-(11 towers, 14 bunkers, 10 capitals, 6 outposts, 4 ancient cities, the rest expedition finds), none within 350 m of
-a designed site, spaced by type, capped per range ring, nearest the roads first; the world is regenerated as **v7**
-with the pruned structure sets disabled and the kept ones placed back (`buildmap/structure_plan_v7.json`).
+**The ruin field is the town.** There are no generated structures inside the v8 cell: the Pripyat pack's town
+(x −3750…−1800, z −3750…−1400, the camp's western neighbour) and its plant complex (x −1150…1200, z −400…700) are the
+wasteland, dressed with Lost Cities modules and props in the v8 plan's last step; Lost Cities proper generates beyond
+the border. The v7 structure census (964 starts, 67 kept) is history, and every quest that named a kept structure is
+re-targeted in §2.7.
 
-**Dead military vehicles dress the strongpoints** (vvp and MCSP, kept): a BMPT and two Strykers on FR-06's reactor
-plaza, a Typhoon-K convoy at the plant, an Mi-24 on the runway apron, a Pantsir at the hub, and Pomkot's Mechs' dormant units (a PMS04 beside FR-06's
+Loot sites, never attacked: **the hub** (the Novo Expograd city, 832×640 at x −3376…−2545 × z −624…15, 2.4 km SW,
+walled into the cyberpunk district, the Custodian at its heart — Act IV, by truck or by air over the lake; owner
+default E3); **the settlement** (272×288 at x −1280…−1009 × z −2016…−1729, 0.6 km SE, Act I's first walk); **Bio Gen
+offices** (x −2512…−2449 × z −704…−449, the district's east strip); **the hempcrete compound** (x −3392…−3073 ×
+z −1344…−1025, 2.0 km WSW under the ridge); **the library** (x −2480…−2385 × z −3808…−3713, 1.7 km NNW by the lake);
+**the runway** (x −2064…−1553 × z −3792…−3601, 1.4 km N); **the sewers** under the plaza; the **29 farmsteads** (v8 §4,
+40 m off the roads, 150 m apart, the Woods included) — the old sites of the live world, each a small loot stop; and the
+town's own landmarks, given loot roles in `gscraft-loot-tables.md` §5 as the dressing pass names them.
+
+**Dead military vehicles dress the strongpoints** (vvp and MCSP, kept): a BMPT and two Strykers on FR-06's (the mega-base's) reactor
+plaza, a Typhoon-K convoy at the plant sector, an Mi-24 on the runway apron, a Pantsir at the hub, and Pomkot's Mechs' dormant units (a PMS04 beside FR-06's
 BMPT, a PMS02 and a PMS05 on the hub's rail spine: `gscraft:furnish_fr06`, `gscraft:furnish_hub`) — placed by the site
 dressing pass (Phase C, alongside `camp.py`), battery-less so they never move, their inventories the component containers where the site has one (FR-06, the plant, the hub). Immersive Weathering
 ages them and every tier-0 building on placement; a rebuilt tier is placed clean.
 
-Loot sites, never attacked: **Bio Gen Offices** (two groups, 64×64 and 16×32) at the runway pad's west end;
-**the settlement** (272×288) on the water-treatment pad re-cut to 288×304; **the sewers** (96×96)
-under Financial Plaza; **the hub** (832×640, the Novo Expograd city) in the air
-ring at x 5600…6431 × z 1184…1823, 6.2 km E, James's territory; the library, hempcrete compound, stone complex (a
-spawner dungeon) and the small district builds — all located in `gscraft-map-layout-v6.md` §3.1 and given loot roles in
-`gscraft-loot-tables.md` §5 (2026-09-04). If a transplant fails its remap, the hempcrete
-compound takes its role.
+(The v6 loot-site list that stood here — Bio Gen, the settlement, the sewers, the hub in the air ring — is replaced by the v8 list above.)
 
 
 ### 2.4 Roads and water
 
-The roads as built (v6/v7) are the four of `gscraft-map-layout-v6.md` §4: the spine camp → Novo → the district's
-north-west corner; the west road camp → Financial Plaza; district → runway; district → settlement, plus the Woods
-spur (woods plan). All routed around water by `tools/roads.py`; none has water on its line. The district → tower
-road of draft 5 is gone: the tower is in the camp. The crater ramp still has to be driven (Phase A).
+The roads are the pack's own (the town's streets, the highway to the plant, the road round the lake) plus the
+connectors of v8 §7–8: thirteen hooks from each build's own road stubs to the nearest existing road, in the Skadowsky
+vocabulary (stone and andesite carriageway, andesite-wall kerbs, gravel tracks for the farmsteads and the small builds).
+Water: the lake east of the camp, the river from the lake to Skadowsky's own river (v8 §5, the meandering channel with
+its four rapids), the Woods stream. The camp's crater basin holds the Warium island; there is no centre lake. The
+crater ramp still has to be driven (Phase A).
 
 ### 2.5 Travel (vehicles at their shipped speeds)
 
@@ -171,28 +189,46 @@ Minutes one way; a Minecraft day is 20 real minutes.
 
 ### 2.6 The Line — the rural approach to the residential block
 
-A sparsely populated corridor, the one part of the map that was countryside before the end: an old
-power line running 1.3 km from the camp's south edge to the residential block's west gate, with six
-small buildings a few hundred metres apart and 56 lattice pylons marking the way between them.
-It is the walking route into the block (Act II's first strongpoint) — the players follow the pylons
-instead of the road, and each building is a stop with a chest on `gscraft:sites/line` and one quest
-object. Generated by `tools/theline.py` (sparse templates, ground-snapped, water and city chunks
-refused), placed by `gscraft:theline`; placements in `buildmap/theline_v7.json`.
+A sparsely populated corridor, the one part of the map that was countryside before the end: an old power line running
+about 1.2 km from the camp's south-east gate down the fields to Skadowsky's north edge, with six small buildings a few
+hundred metres apart and pylons marking the way between them. It is the walking route into the block (Act I's
+strongpoint, owner default E1) — the players follow the pylons instead of the road, and each building is a stop with a
+chest on `gscraft:sites/line` and one quest object. Generated by `tools/theline.py` (sparse templates, ground-snapped,
+water and rail refused), placed by `gscraft:theline`; the v7 placements are void, the v8 stops are placed by the
+dressing pass on the fields between (−1500, −2100) and (−900, −1500) and recorded in `buildmap/plan_v8/theline_v8.json`
+(owner default E6).
 
-| Stop | Where | What it is | Quest |
-|---|---|---|---|
-| Farmstead | (140, 430) | a house, a barn with hay, a wheat field gone wild, a forklift in the yard | L1 (Tony: seeds and herbs; Marshall's D3 farm kit) |
-| Pump house | (260, 720) | a brick hut on the water with an IE pump and a pipe run into the lake | L2 (Michael: Water 1's first clean water) |
-| Substation A | (300, 1480) | a fenced transformer yard on the freed substation pad, a block house | L3 (Michael: the line's first component, a wiring harness kit) |
-| Depot | (624, 1346) | the line workers' garage: two vans, drums, a tank | L4 (Walker: hardware, and the truck-cab blueprint) |
-| Substation B | (960, 1410) | the second yard, its relay mast the tallest thing for a kilometre | L5 (Tune: a relay site — one of U-W1's three) |
-| Switching station | (1250, 1420) | a concrete hall of breakers behind sandbags and wire at the block's edge | L6 (Marshall: the checkpoint; clearing it opens R3, the block's take) |
+| Stop | What it is | Quest |
+|---|---|---|
+| Farmstead | a house, a barn with hay, a wheat field gone wild, a forklift in the yard | L1 (Tony: seeds and herbs; Marshall's D3 farm kit) |
+| Pump house | a brick hut on the river with an IE pump and a pipe run into the water | L2 (Michael: Water 1's first clean water) |
+| Substation A | a fenced transformer yard, a block house | L3 (Michael: the line's first component, a wiring harness kit) |
+| Depot | the line workers' garage: two vans, drums, a tank | L4 (Walker: hardware, and the truck-cab blueprint) |
+| Substation B | the second yard, its relay mast the tallest thing for a kilometre | L5 (Tune: a relay site — one of U-W1's three) |
+| Switching station | a concrete hall of breakers behind sandbags and wire at Skadowsky's edge | L6 (Marshall: the checkpoint; clearing it opens R3, the block's take) |
 
-The corridor is deliberately empty between the stops — no generated structures within 350 m of it
-(the structure plan's buffer applies to the whole line), no Lost Cities chunk on it — so the pylons
-are the only landmarks and the block's skyline is what the players walk toward.
+The corridor is deliberately empty between the stops — no farmstead within 150 m of it, no Lost Cities module on it —
+so the pylons are the only landmarks and Skadowsky's skyline is what the players walk toward.
 
----
+### 2.7 What the rebase re-targets (defaults; owner decisions E4–E7 in the gaps ledger)
+
+v8 has no generated structures inside the cell, so every quest that pointed at a kept structure points at a placed one:
+the mods' own templates (Underground Bunkers' fifty, the Man-From-The-Fog house, a pillager outpost) placed by the
+dressing pass at farmsteads, and the town's landmarks for the rest.
+
+| Was | Is (default) | Quests |
+|---|---|---|
+| the nearest kept boss tower (1808, −272) | the town's tallest apartment block, its roof boss spawned by the loop, 1.2 km W | W-A6 |
+| the nearest ancient city (−1488, −272) | a sculk-dressed cellar placed under the town's palace of culture, 1.1 km W | U-A1 |
+| the bunker at (−784, −384) | a bunker template under the farmstead at (−1712, −1744), 0.6 km | U-D1 |
+| the road-range bunkers | bunker templates under the farmsteads at (−2432, −1168), (−528, −2640), (432, −2448) | U-D2 |
+| the air-ring bunker (4864, −336) | the plant complex's own bunker, Act IV, reached by air over the lake (`bunker_east_by_air`) | U-D3 |
+| the four kept capitals / the nearest capital | the town's four quarters / the town centre by car, 1.2 km W | J9 / J-C1 |
+| the nearest fog house (2288, −400) | a Man-From-The-Fog house placed at the Woods farmstead (−2192, −32) | J-C2 |
+| the pillager outpost (−1392, 1632) | an outpost template at the farmstead (−2720, −1072), 1.7 km SW | D-O1 |
+| the Woods' bandit outpost (720, −3440) | the Woods farmstead at (−2176, −576), 1.8 km S; Teddy's tower is its barn | R-W1, Teddy |
+| the Woods (x 400…2400, z −3500…−1500) | the named area x −2450…−1600, z −1350…100 on the existing forest (v8 §4; no relief, no regeneration) | all Woods quests, §6.3 |
+| the glass tower (1.3 km), the acacia hall (1.55 km) | the settlement (0.6 km SE) and the runway (1.4 km N): Act I's first two walks | J1 |
 
 ## 3. The NPCs
 
@@ -204,7 +240,7 @@ toolsmith, Michael an armorer, Tune a librarian, James a fletcher, Marshall a ni
 the joke, or a cartographer if not). The Recruits mod supplies the hireable guards of D2 (Walls 2, at the gatehouse);
 it is not used for these six. No gameplay mod is added (EMI, a client-side recipe viewer, was added on 2026-09-03).
 
-**Who unlocks what.** The full chains, 138 quests across the seven chapters, scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
+**Who unlocks what.** The full chains, 172 quests across the seven chapters and the Create chapter (144 + The Gun 10 + the site chains 18; the 18 Counter pages are not counted), scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
 
 | NPC | Owns | Starting tasks (the introduction) | Unlocks when done | Their chain |
 |---|---|---|---|---|
@@ -219,7 +255,14 @@ it is not used for these six. No gameplay mod is added (EMI, a client-side recip
 
 ### 3.6 NPC building tiers
 
-> **Fork (owner, 2026-09-04): Create and Create Big Cannons return; every strongpoint gets a site keeper NPC with a three-tier rebuild chain, and the Big Gun is built across the strongpoints — `gscraft-create-and-artillery.md` (sections 3 and 4). The site tiers below stay the model.**
+**Create and Create Big Cannons are in the design (adopted 2026-09-05; `gscraft-create-and-artillery.md` is the chapter).**
+Every strongpoint, once held, gets a **site keeper** — an invulnerable no-AI villager like the camp's six — with a
+three-tier rebuild chain (Repair, Works, Fortify) on the model below, and the map's artillery is built in the camp
+first (G1–G4 at Walker's yard and the gun pit) and scaled up at the sites (G5–G10). Create's kinetic side goes into the
+tiers: Walker's tier 2 gains the basin and blaze burner, the Create saw, the cast pit and the hand-cranked boring frame;
+his tier 3 crane is a rope-pulley contraption; Michael's tiers gain the water wheel, the windmill and the steam engine;
+Marshall's gate is a piston bar at tier 1 and a bearing drawbridge at tier 2; Tune's tier 2 feeds the board from Create
+display links.
 
 Every NPC's building has **four states, tier 0 to tier 3**, and three upgrade quests in that NPC's
 chapter (`*-B1`, `*-B2`, `*-B3`) climb them. Each hand-in **rebuilds the building where it stands**:
@@ -233,7 +276,7 @@ hub component (the gatehouse: FR-06's reactor control module).
 
 | NPC | Tier 0 (as placed) | Tier 1 — Repair | Tier 2 — Expand | Tier 3 — Complete | What the tier adds |
 |---|---|---|---|---|---|
-| **Walker** — the yard (**the workshop**) | scrap piles, a lean-to (personal stations only) | roofed workshop, one garage bay, a fenced lot, the IV vehicle bench | second bay, gantry crane over the lot, fuel-drum rack, lights, the SW assembling table, the Apotheosis Salvaging Table | steel shed with a vehicle lift, floodlit painted lot, truck bay | crafting speed ×0.85 / ×0.7 / ×0.5 and 1 / 2 / 3 shared benches by tier (crafting §4); T2: vehicle repair at the bay; T3: aircraft parking |
+| **Walker** — the yard (**the workshop**) | scrap piles, a lean-to (personal stations only) | roofed workshop, one garage bay, a fenced lot, the IV vehicle bench, the mechanical press and millstone under the lean-to | second bay, gantry crane over the lot, fuel-drum rack, lights, the SW assembling table, the Apotheosis Salvaging Table; **the small foundry** (basin + blaze burner, the Create saw, the cast pit) and the **hand-cranked boring frame** (Create chapter G1–G3) | steel shed with a vehicle lift, floodlit painted lot, truck bay; the crane becomes a Create rope-pulley contraption and the mechanical crafters arrive | crafting speed ×0.85 / ×0.7 / ×0.5 and 1 / 2 / 3 shared benches by tier (crafting §4); T2: vehicle repair at the bay; T3: aircraft parking |
 | **Tony** — the clinic | a tarp over a wreck, one bed | walls, four beds, the med station | surgery room, its own generator, the lit red cross | two storeys, a ward, a quarantine tent, a marked helipad | T2: faster PlayerRevive at the clinic; T3: full revive without a surgical kit |
 | **Michael** — the plant | one generator on a pallet | generator shed, water collector | tank farm, pump house, pipe run down to the lake, the fuel pump, the charging station | wind mast, transformer yard, biodiesel column, lit pipes | T2: fuel cans refill at the pump; T3: the camp outline is lit and powered |
 | **Tune** — the radio shack | shack and a 12-block mast stub | mast to 24 with a dish, the map wall | antenna field beside the shack, intel desk | mast to 40 with an aviation light, second dish, receiver on the roof | T2: the intel desk (the board's countdown readout is Radio 2's, U5); T3: the attack's composition gets its lit wall map (Radio 3's readout) |
@@ -277,17 +320,17 @@ site's component containers respawn every two in-game days, so nothing is lost b
 | Trip | Act | Area (from the camp) | Quests it serves | Haul (slots) | Bulky | Get there |
 |---|---|---|---|---|---|---|
 | 1 | I | the camp's own ruins (0–300 m) | W1, T1, M1, U1 hand-ins; X1's briefing once the five are done; D1 concrete later | 11 | — | foot |
-| 2 | I | glass tower + acacia hall (1.3–1.55 km) | J1 locations; W3 metal scrap; M2 light bulb; T2 med items | 6 | — | foot |
-| 3 | I | Novo (1.06 km E on the spine) | J-S1 dossier; W5 loot (spark plugs, scrap, oil) over two or three runs; R2 marker and assault; hardware and spark plugs for W7; after the hold: W11 heavy anchor cable, W9 heavy diesel engine | 8 | 2 (after the hold) | foot; the bulky parts one per carrier, or the first car |
-| 4 | II | the west edge: residential block, hempcrete compound, library (1.9–2.5 km) | J2 locations, J-S2 dossier; T3 loot (blood bags, syringes, antiseptic); R3 marker and assault; U3 hard drive, J3 folders; electrical items for U2 and U8; D3's seeds and bowls at the hempcrete compound | 14 | — | foot, then the first car |
-| 5 | II | the industrial plant (2.4 km) | J-S3 dossier; M4 loot (hoses, fins, fuel cans); R4 marker and assault; hoses, tubes and fins for M3 and M6; fuel cans for M7 and W8; after the hold: M6 industrial pump | 9 | 1 | car |
-| 6 | III | FR-06 (2.5 km E), with the factory annex and hopper array on the way | J-S4 dossier; M8 loot (relays, motors, a battery); R5 marker and assault; electrical items; after the hold: M10 transformer core, M11 avionics module and reactor control module | 10 | 3 | car |
-| 7 | III | Financial Plaza and the sewers under it (2.1 km W) | J-S5 dossier; U4 loot (circuit boards, computer parts, a hard drive); R5 marker and assault; U6 sewers and encrypted radio; electrical and valuables; after the hold: U7 military circuit board; D4 concrete | 12 | 1 | car |
-| 8 | III | the far ring by road: stone complex, mud village, the settlement, Bio Gen, the runway (2.8–3.9 km) | J4 locations, J5 valuables, W12 pressure gauge, T7 surgical kit, J6 hard drive; W10 second anchor cable on the way back past Novo; M12 membrane at the plant | 9 | 3 | truck, or boat to the settlement |
-| 9 | IV | the hub (6.2 km E) and the four generated cities | J7, J9 locations; J8 phased array element and satellite receiver; T9 and M13 military power filters | 6 | 4 | aircraft |
+| 2 | I | the settlement and the runway (0.6–1.4 km; v8) | J1 locations; W3 metal scrap; M2 light bulb; T2 med items | 6 | — | foot |
+| 3 | II | Novo (2.0 km SW, in the cyberpunk district; v8) | J-S1 dossier; W5 loot (spark plugs, scrap, oil) over two or three runs; R2 marker and assault; hardware and spark plugs for W7; after the hold: W11 heavy anchor cable, W9 heavy diesel engine | 8 | 2 (after the hold) | foot; the bulky parts one per carrier, or the first car |
+| 4 | I | Skadowsky — the residential block, down the Line (1.4 km SE; v8) | J2 locations, J-S2 dossier; T3 loot (blood bags, syringes, antiseptic); R3 marker and assault; U3 hard drive, J3 folders; electrical items for U2 and U8; D3's seeds and bowls at the hempcrete compound | 14 | — | foot, then the first car |
+| 5 | III | the industrial plant — the plant sector across the lake (2.4 km ESE; v8) | J-S3 dossier; M4 loot (hoses, fins, fuel cans); R4 marker and assault; hoses, tubes and fins for M3 and M6; fuel cans for M7 and W8; after the hold: M6 industrial pump | 9 | 1 | car |
+| 6 | III | FR-06 — the mega-base on the lake's east shore (2.2 km E; v8), by boat or the lake road | J-S4 dossier; M8 loot (relays, motors, a battery); R5 marker and assault; electrical items; after the hold: M10 transformer core, M11 avionics module and reactor control module | 10 | 3 | car |
+| 7 | II | Financial Plaza and the sewers under it (2.4 km SW, in the cyberpunk district; v8) | J-S5 dossier; U4 loot (circuit boards, computer parts, a hard drive); R5 marker and assault; U6 sewers and encrypted radio; electrical and valuables; after the hold: U7 military circuit board; D4 concrete | 12 | 1 | car |
+| 8 | II–III | the town and the ruin field by road: the library, the hempcrete compound, Bio Gen's strip (1.7–2.4 km; v8) | J4 locations, J5 valuables, W12 pressure gauge, T7 surgical kit, J6 hard drive; W10 second anchor cable on the way back past Novo; M12 membrane at the plant | 9 | 3 | truck, or boat to the settlement |
+| 9 | IV | the hub (2.4 km SW, the district's heart) and the plant complex beyond the river (2.9–4.3 km; v8) | J7, J9 locations; J8 phased array element and satellite receiver; T9 and M13 military power filters | 6 | 4 | aircraft |
 | 10 | II–IV | home: the gatehouse and the claim | X2–X6 hand-ins, T10 ready room, D1–D6, R6; the eighteen `*-B` building upgrades as their hand-ins come together | — | the five complete parts, one at a time | — |
-| 11 | II–III | the kept structures and the district's small sites (1.5–2.9 km): the copper tower, prismarine hall, stone complex, the nearest boss tower, ancient city, capital, fog house and outpost, the two near bunkers | U-C1, M-P1, W-A5, W-A6, U-A1, J-C1, J-C2, D-O1, U-D1, U-D2 — one or two per outing, folded into trips 4–8 | 6 | — | foot, then car |
-| 12 | II–IV | the Woods (2.9 km NNE, the spur from Novo) | J-W1 first, then W-W1, T-W1, M-W1, U-W1, J-W2, J-W3, R-W1, R-W2, and Teddy's H1–H7 at the cleared outpost, over five or six visits | 8 | 1 | car |
+| 11 | II–III | the placed templates and the town's landmarks of design §2.7 (1–2.2 km; v8): the boss block, the sculk cellar, the bunkers, the fog house, the outpost | U-C1, M-P1, W-A5, W-A6, U-A1, J-C1, J-C2, D-O1, U-D1, U-D2 — one or two per outing, folded into trips 4–8 | 6 | — | foot, then car |
+| 12 | II–IV | the Woods (the named area south of the camp, 1–2 km; v8) | J-W1 first, then W-W1, T-W1, M-W1, U-W1, J-W2, J-W3, R-W1, R-W2, and Teddy's H1–H7 at the cleared outpost, over five or six visits | 8 | 1 | car |
 
 What the table fixes is the pairing: which NPCs' quests point at the same place in the same act, so
 the group decides together where to go next and everyone has a reason to be there. How many trips
@@ -379,7 +422,7 @@ part's shopping list is 6–10 different items, so the budget is spent on **vari
 - Small items stack 4–8; intermediates 4; complete parts and components **stack 1 and are bulky**:
   no backpack, Slowness and no sprint while carried (KubeJS item + player tick; backpack exclusion
   through the backpack mod's config if it has one, else a KubeJS insert check).
-- Death drops everything except the secure pack (keepInventory off; PlayerRevive makes it rare). **Rules of play (owner defaults, 2026-09-04):** respawn is the camp (world spawn 19 94 26; a bed at the clinic from T-B1 moves it); a downed player bleeds out in 5 minutes unless revived (PlayerRevive `bleedTime` 6000 and `maxDistance` 6 — one global value each, the mod has no runtime config command, so Medical 1 and the clinic tiers act through the script instead: the camp revive point at Medical 1, a 3-second clinic revive at T-B2, full health at T-B3 — C18, 2026-09-04); infection kills 20 minutes after the bite (Hordes: four 5-minute phases, `ticksForEffectStage` 6000) unless cured at the clinic (T1) or by a med kit (Medical 2), and that death is a real death, not a bleed-out (`hordes:infection` bypasses PlayerRevive); a late joiner receives the team's stages (all progress stages are **team** stages via FTB Teams; only the first-time onboarding lines and `revives_3` are per player), the starting kit and the introductions as a tour; the fortify clock, warning and defence tick while **at least one** team member is online (owner, 2026-09-04: no assumption about team size — a solo player's clocks run too, and the waves scale to who is present); a restart mid-assault keeps the contested slot, the clocks and the marker, and the interrupted wave restarts from its beginning; pvp and friendly fire are off; the sleep percentage is 100 so nights are never skipped; hunger stays on and is fed from Marshall's kitchen (D3) and canned goods in the loot tables; the world border warns at 200 blocks and does no damage.
+- Death drops everything except the secure pack (keepInventory off; PlayerRevive makes it rare). **Rules of play (owner defaults, 2026-09-04):** respawn is the camp (world spawn on the Warium plaza, (−1490, −2230); a bed at the clinic from T-B1 moves it); a downed player bleeds out in 5 minutes unless revived (PlayerRevive `bleedTime` 6000 and `maxDistance` 6 — one global value each, the mod has no runtime config command, so Medical 1 and the clinic tiers act through the script instead: the camp revive point at Medical 1, a 3-second clinic revive at T-B2, full health at T-B3 — C18, 2026-09-04); infection kills 20 minutes after the bite (Hordes: four 5-minute phases, `ticksForEffectStage` 6000) unless cured at the clinic (T1) or by a med kit (Medical 2), and that death is a real death, not a bleed-out (`hordes:infection` bypasses PlayerRevive); a late joiner receives the team's stages (all progress stages are **team** stages via FTB Teams; only the first-time onboarding lines and `revives_3` are per player), the starting kit and the introductions as a tour; the fortify clock, warning and defence tick while **at least one** team member is online (owner, 2026-09-04: no assumption about team size — a solo player's clocks run too, and the waves scale to who is present); a restart mid-assault keeps the contested slot, the clocks and the marker, and the interrupted wave restarts from its beginning; pvp and friendly fire are off; the sleep percentage is 100 so nights are never skipped; hunger stays on and is fed from Marshall's kitchen (D3) and canned goods in the loot tables; the world border warns at 200 blocks and does no damage.
 - **Storage is Walker's function**, on Sophisticated Backpacks in the Curios slot:
 
 | Storage | Unlocks | Carried |
@@ -421,13 +464,15 @@ skips a rung: the marker cannot be placed on a site that has not been scouted an
 | **Looted** | `<site>_looted` | the owning NPC's hand-ins of items that drop **only at that site's building types** (Novo: hardware, spark plugs; the plant: hoses, fins, fuel cans; the block: blood bags; FR-06: electrical; the plaza: valuables and circuit boards). Two or three trips with the loot budget of §4.5; Lootr refreshes the containers between visits | 2–3 | owning NPC |
 | **Cleared → Held** | `<site>_held` | Marshall's take. The team places the **claim marker** at the site's anchor point. That starts the **assault**: the garrison spawns in waves from the site's edges for 5 minutes; the marker must survive and at least one player must be inside the site rectangle when the 5 minutes end. Win → held, the fortify clock starts, the component container arms. Fail → the marker breaks, the garrison respawns, try again | 1, repeatable | Marshall, `R*` |
 | **Defended** | `<site>_defended` | the site's counterattack (§6.2) — fought **at the base**, not at the site: when the fortify clock ends the site's defence table marches on the camp gate. Win → the site is safe for good, its site guard doubles, and its components keep respawning | 0 (nobody travels) | owning NPC |
-| **Attack lost** | `<site>_lost` set (the site stays `held`) | the base was overrun during that site's counterattack: five or more attackers inside the **crater** (x −16…47, z −16…47, the claim's last line) for 30 s. (The finale's own check is the tower compound, finale §4.) Nothing is taken away: the wave withdraws and returns after another fortify clock; the board column turns red until it is won. A site leaves `held` only if a player breaks its marker | — | — |
+| **Attack lost** | `<site>_lost` set (the site stays `held`) | the base was overrun during that site's counterattack: five or more attackers inside the **crater** (x −1522…−1459, z −2262…−2199, the claim's last line) for 30 s. (The finale's own check is the tower compound, finale §4.) Nothing is taken away: the wave withdraws and returns after another fortify clock; the board column turns red until it is won. A site leaves `held` only if a player breaks its marker | — | — |
 
 The garrison before the take is In Control!'s ambient spawn for the site, thin enough to loot
 through with care; the assault is the fight. One player dying does not lose a site.
 
-**The site guard (owner, 2026-09-04).** Winning the assault runs `gscraft:siteguard_<site>`, which summons the site's
-defenders at its anchor point: four **Recruits** soldiers (two recruits, a bowman, a shieldman — the mod's entities,
+**The site guard and the keeper (owner, 2026-09-04; keeper 2026-09-05).** Winning the assault runs
+`gscraft:siteguard_<site>`, which summons the site's defenders at its anchor point, and `gscraft:sitekeeper_<site>`,
+which summons the site keeper (Create chapter §3) beside them and opens the chain `S-<site>-1…3` in the book. The
+guard doubles once, on `defended`; the keeper's tier 2 adds two Recruits to it instead of doubling again. The defenders: four **Recruits** soldiers (two recruits, a bowman, a shieldman — the mod's entities,
 their `Owner` set to the player who placed the marker so the mod treats them as the team's) and two **Guard
 Villagers**, all tagged `gscraft_siteguard_<site>`. The script re-runs the function whenever the count drops below the
 site's target (six; +2 Recruits per hideout Walls level D1/D2/D4; doubled on `defended`). The site's ambient hostiles
@@ -509,7 +554,7 @@ the outline) stays; the finale's waves at the base are §7.1.
 (the site's mob type, a TaCZ gear set, rarity rare–epic, +40…+80 HP, knockback resistance 0.5), summoned by the loop
 script with `/apoth spawn_boss gscraft:elite_<site> <rarity>` at the wave the table names — the same call the Boss
 Spawner block makes, with no block to place. Natural bosses stay off (`Boss Spawn Cooldown` at its maximum), so an
-affixed mob is always a designed moment. **The Woods** (x 400…2400, z −3500…−1500) has its own In Control! rule:
+affixed mob is always a designed moment. **The Woods** (v8: the named area x −2450…−1600, z −1350…100) has its own In Control! rule:
 zombies capped at 4, no husks, drowned 2 at water, bandits only inside the outpost's rectangle until R-W1, spiders
 below y 40 (the bunkers), the fog man and the eyes at night as their mods spawn them (the Woods quests sit in the NPC chapters of `gscraft-quests.md`).
 
@@ -518,7 +563,7 @@ below y 40 (the bunkers), the fog man and the eyes at night as their mods spawn 
 ## 7. The radio tower
 
 Six sparse structure templates in the datapack (`gscraft:tower_stage_0…5`, `tools/tower.py`, render
-`docs/renders/radio_tower_stages.png`), origin (107, 100, −101) on the camp pad at y 99. Stage 0 is placed at world build;
+`docs/renders/radio_tower_stages.png`), origin (−1517, pad y, −2417) on the tower pad x −1560…−1433 × z −2460…−2333 (v8 §9; the v6 origin (107, 100, −101) is history). Stage 0 is placed at world build;
 each hand-in to Marshall runs the next stage's function.
 
 | Stage | Hand in | Appears |
@@ -547,9 +592,7 @@ Phase E's to confirm.
 
 ## 8. Tech stack (no custom mod)
 
-> Fork 2026-09-04: **Create 6.0.8, Create Big Cannons 5.11.4, Ritchie's Projectile Library 2.1.1** added (kinetic machines, trains, contraptions, the artillery) — `gscraft-create-and-artillery.md` §1–2.
-
-KubeJS (items, blueprint recipes, the work-station block and its timer, stages, the loop, the bulky rule, NPC interaction), EMI (recipe viewer, client side, added 2026-09-03), FTB Quests
+KubeJS (items, the blueprint cards, the work-station block and its timer, stages, the loop, the bulky rule, NPC interaction, the look-at readouts and radio lines of `gscraft-player-interface.md`), EMI (recipe viewer, client side, added 2026-09-03), **Create 6.0.8, Create Big Cannons 5.11.4 and Ritchie's Projectile Library 2.1.1** (kinetic machines, the artillery, display links for the board; installed and booted 2026-09-05), FTB Quests
 (chapters, tasks, rewards), FTB Chunks and Teams (claim, per-team state), Immersive Engineering (power and
 machines), Sophisticated Backpacks and Curios (storage), In Control! and Hordes
 (waves), Lootr (instanced loot), datapacks (loot tables, tower and camp templates, NPC summons). All
@@ -568,7 +611,7 @@ crater; walk the spine line and note every water crossing; check each landing pa
 generated cities between the camp and the district. *Pass:* a marked-up list of terrain fixes and
 final building positions.
 
-**Phase B — World build (v6 built and deployed 2026-09-03; v7 = the structure prune and the Woods, in progress).**
+**Phase B — World build (v6 built 2026-09-03, v7 flown and rejected 2026-09-05; v8 = the Pripyat spine with the builds set into it, `gscraft-map-plan-v8.md`, in progress).**
 Done in v6: border set; pads laid as foundations without outlines; the transplants (the settlement, Novo, Financial
 Plaza, Bio Gen, the sewers, the hub) through the 1.12 → 1.20 pipeline (`anvil112.py`, `remap112.json`, `transplant.py`);
 the four roads routed by `roads.py`; tower stage 0, the camp ruins and the torches placed by function. Coming with v7
@@ -589,7 +632,7 @@ respawn, the loss condition; the garage tier and fuel chain. *Test 3:* loot Novo
 by assault, watch its site guard appear, beat its counterattack at the camp gate when the fortify clock ends, bring a heavy anchor cable
 home in a car, build the mast section kit.
 
-**Phase E — The tower, the air ring and the finale.** Stages 1–5 wired to Marshall's chapter; the
+**Phase E — The tower, the far edge and the finale.** Stages 1–5 wired to Marshall's chapter; the
 hub's rare loot; aircraft; the beacon countdown and the base waves. *Test 4:* the beacon lights and
 the finale runs to the boss (`gscraft-finale.md` §5 is the build and test list).
 
@@ -602,8 +645,8 @@ the finale runs to the boss (`gscraft-finale.md` §5 is the build and test list)
 - Whether the crater ramp takes a car: Phase A; the fallback is a second, shallower ramp cut on the visual pass.
 - Lootr refresh: set (`refresh_value` 120000 = 5 in-game days for `gscraft:` tables; mod-capabilities §5b). Done.
 - The five anchor points for the claim markers, one per strongpoint: chosen on the visual pass.
-- The dossier chests are placed: `tools/dossiers.json` and `gscraft:dossiers` (Novo 1028 78 158 new; the
-  block 1330 84 1386 existing; the plant 2126 105 963 new; FR-06 2425 126 838 new; the plaza −1841 100 971
+- The dossier chests are placed: `tools/dossiers.json` and `gscraft:dossiers` (v8: Novo (−2844, −754) new; the block: Skadowsky's hospital, placed with the sector's dressing; the plant sector (558, −1277) new;
+  FR-06 (601, −1690) new; the plaza (−3345, −677)
   new), each an enclosed upper-floor spot found by `tools/dossiers.py`; confirm the rooms read as their
   names on the visual pass.
 - The 24 camp templates: tier 0 and 1 for Phase C, tiers 2 and 3 can follow in Phase D and E as

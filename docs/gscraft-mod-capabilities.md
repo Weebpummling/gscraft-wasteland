@@ -77,7 +77,7 @@ ordered by how much it would add for how little it costs, with a recommendation 
   vehicles outside the roster, plus TaCZ's gun smith table, Apotheosis' five tables and every Sophisticated Backpacks
   recipe (packs and upgrades are Storage 1-4 orders). The inert crafting table (block interaction) and the station block are Phase C.
 - **Improved Mobs by distance:** `Difficulty type = DISTANCESPAWN`, difficulty 0 inside 1.5 km of the camp, 3 from 1.5 km,
-  6 from 2.5 km, 10 from 4 km, 15 in the air ring - the three ranges of the design, measured from the world spawn. It was
+  6 from 2.5 km, 10 from 4 km (v8: there is no air ring; the far band is the plant complex) - the ranges of the design, measured from the world spawn, which v8 puts on the Warium plaza at (−1490, −2230). It was
   GLOBAL (time-based) before, so the "hardens with distance" line in §3 was not true until now.
 - **sedparties:** `useFTBTeams = true` - the party is the FTB team; xp share was already on.
 - **Lootr:** `refresh_modids = ["gscraft"]`, `refresh_value = 120000` (5 in-game days): the site chests that carry `gscraft:` tables refresh per player on that rhythm; component containers are shared and script-timed (2 days while held, 5 days at the never-held sites — design §6.2, loot sheet §1); Lost Cities chests stay one-shot per player.

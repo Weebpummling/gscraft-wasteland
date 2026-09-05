@@ -40,7 +40,7 @@ Every other row: **the default, applied** in the same commit as this note.
 
 | # | Question | Where it shows | Recommended default |
 |---|---|---|---|
-| B1 | **Tower chapter gate**: after the five introductions (design), after R1 (onboard), or R2+R3+R4 + Workshop 2 + Water 2 + Storage 2 + car (quests) | design L13/176, onboard §2, quests L33-35 | the quests' gate (end of Act II); design and onboard adopt it. Marshall *speaks* after the introductions; the *tower chapter* opens at the gate |
+| B1 | **Tower chapter gate**: after the five introductions (design), after R1 (onboard), or R2+R3+R4 + Workshop 2 + Water 2 + Storage 2 + car (quests) | design L13/176, onboard §2, quests L33-35 | **decided 2026-09-04: after the five introductions** (design §3.6, quests §7.3, onboard §4.4) — this row's earlier recommendation is superseded |
 | B2 | **NPC tier-2 gate**: strongpoint *held* (design) or *defended* (quests) | design §3.6 vs every *-B2 | defended (the quests) |
 | B3 | **Level-3 "one hub component" rule** vs the actual level-3 rewards (W10 anchor cable, W13 avionics, W14 none, M12 membrane, D4 anchor cable) | design §5 vs quests | drop the blanket rule; state per function which component it takes (the quests already do) |
 | B4 | **Component respawn**: every 2 in-game days / on defended / while held / Lootr refresh 5 days | design L232/367/385/397, quests, modcaps L83 | components respawn every 2 in-game days **while the site is held**; Lootr refresh 5 days is for ordinary loot only; write it once in design §6 |
@@ -143,3 +143,40 @@ closes D1–D6 and opens E1–E5 (its §9) as owner questions.
 
 Related: every design document above. The A fixes are applied in the same commit as this file; B is the
 owner's list; C rows are copied into the phase they name in `HANDOFF.md`.
+
+## E. The v8 rebase and the fork integration (2026-09-05)
+
+A full read of the sixteen design documents found the design still on the v6/v7 geography while the world is v8, the
+Create chapter still a fork, and the interface doc's decisions in no parent. All three were folded in on 2026-09-05
+(design §2.1–2.7, §3.6, §6.1, §8; quests §1, §7.2, §7.6, §7B, §9; crafting §2.1, §4, §5.7–5.8; vendors §3–4, §8; camp
+spec §1, §5; onboarding §2, §6; the woods plan, modpack review, finale, loot, mod capabilities). The rebase forced
+decisions; each below was taken with the default shown and is the owner's to overturn. **Caveat (owner, 2026-09-05):
+the v8 layout is mostly decided but its clean-up pass is still running in another session; every coordinate and
+distance used here (E1, E3, E5, E6, E10, E17 and design §2) is provisional until the v8 plan's §4 is marked final.**
+
+| # | Decision | Default taken | Why |
+|---|---|---|---|
+| E1 | Acts by v8 distance | Act I closes with **Skadowsky** (1.4 km); Act II Novo + the plaza (2.0–2.4 km, the cyberpunk district); Act III FR-06 + the plant (across the lake); Act IV the hub + the plant complex | Novo is 2.0 km from the v8 camp, twice the tutorial walk; Skadowsky is the only strongpoint in foot range |
+| E2 | The residential block | **Skadowsky is the residential block** (Tony's strongpoint, keeper Vera; the hospital at tier 2, the rail yard at tier 3); the v6 block has no v8 placement | the sector is a town with a hospital and a station; the design's board, stages and chapters keep the `residential` name |
+| E3 | The hub without an air ring | the hub is 2.4 km SW inside the cyberpunk district, reached by truck or by air over the lake; Act IV is "the far edge", the plant complex is the far band | the v8 cell is 5.1 × 4.6 km; nothing is 4.5 km away |
+| E4 | Quests that named generated structures | re-targeted to placed templates at farmsteads and to the town's landmarks (design §2.7) | v8 has no generated structures inside the cell |
+| E5 | Teddy's outpost | the Woods farmstead at (−2176, −576) | inside the v8 Woods, 1.8 km from the camp |
+| E6 | The Line | re-routed camp → Skadowsky's north edge, ~1.2 km, six stops placed by the dressing pass | the block moved |
+| E7 | Danylo | dropped; Vera keeps Skadowsky; the rail yard is her tier 3 | one keeper per site |
+| E8 | Quest count | **172** = 144 + The Gun 10 + the site chains 18 (15 + the train's 3, J-T1…3); the 18 Counter pages are not counted | four different totals stood in four docs |
+| E9 | Walls 2 and 3 | no mortar, no laser tower: Superb Warfare's artillery stays stripped, the Create chapter's gun and G8's autocannon nests are the artillery | the fork's ruling, applied to crafting §5.7, quests §7.2, vendors §3–4 |
+| E10 | The gun pit | 12×12 at x −1340…−1329 × z −2290…−2279 beside the gatehouse, locked, tier 0 visible from minute 2 | onboarding §1: show the object before the system |
+| E11 | Walker's tier 2 | gains the basin, blaze burner, Create saw, cast pit and hand-cranked boring frame; tier 3's crane is a rope-pulley contraption | G1–G3 happen in the camp |
+| E12 | The train | James's J-T1…3 after `residential_defended` and S-residential-3; a hauler on a schedule, **no tickets, no fast travel** | design §2.5 prices the game in travel minutes |
+| E13 | Site-guard growth | doubles once on `defended`; a keeper's tier 2 adds two Recruits | two triggers stood |
+| E14 | A second revive point | the script's camp-revive rule applied to the hospital rectangle (PlayerRevive has one global distance) | design §4.5 |
+| E15 | The station model | **the blueprint is a card** in the station's card slot; `bp_<recipe>` stays as the team's record and the vendors' gate; lost cards re-issued for 4 emeralds | interface §4.3 vs crafting §4 |
+| E16 | Infection cure at a site | free at Vera's, as at Tony's | vendors §3 |
+| E17 | The world spawn | the Warium plaza at (−1490, −2230); Improved Mobs' distance rings measure from it | enemies §7, mod caps §5b |
+| E18 | The notebook | seven pages (Driving appears with Garage 1) | interface §3.9 |
+
+Still open after this pass (Phase C finds): the y of the spawn and the tower origin (fixed when the camp core is
+levelled); the six Line stops' coordinates; the town landmarks named in design §2.7 (the dressing pass assigns real
+buildings); the S-chain hand-in rows per site (the Create chapter §3 has the tiers, not the item lists); the keeper
+counters' JSON; the Create/CBC section of `gscraft_recipes.js`; design §7.1's dragon paragraph (finale §6 calls it
+history; left in place).

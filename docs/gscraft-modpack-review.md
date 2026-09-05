@@ -6,6 +6,13 @@ Inputs: `build/manifest.json` (108 entries, the pinned set), the local server (`
 every design document. Rule carried from 2026-09-03: **nothing is cut** — mods without a design role stay
 for the worlds and the builds that use their blocks. So this review adds and aligns; it removes nothing.*
 
+
+> **Version column superseded (2026-09-05).** Seventeen jars and Forge 47.4.23 were applied and boot-tested on the
+> local server — `gscraft-modpack-update-applied-2026-09-05.md` (its §4 is the conflict review); Lost Cities is 7.5.4;
+> Superb Warfare is held at 0.8.8 by its two vehicle add-ons. **Create 6.0.8, Create Big Cannons 5.11.4 and
+> Ritchie's Projectile Library 2.1.1 are installed** (the Create chapter, adopted the same day) — §3's "not installed"
+> for `ritchiesprojectilelib` no longer holds.
+
 ## 1. Verdict in one table
 
 | Finding | Action |
