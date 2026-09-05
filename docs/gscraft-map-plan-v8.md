@@ -97,30 +97,34 @@ reads as bare ground (coarse dirt) rather than rails and is traced separately. R
 Next: apply the heightmap to the world (column raise/cut with the grade tool's column writer; ground cover and trees
 follow with WorldPainter), then a fly-through render; then step 4, sector placement on the rolling fields.
 
-## 4. Sector placement (proposal 1, 2026-09-04; `tools/place_sectors.py`, `buildmap/plan_v8/sectors_v8.json`)
+## 4. Sector placement - art pass (owner rules, 2026-09-04; `tools/place_sectors.py`, `buildmap/plan_v8/sectors_v8.json`)
 
-Rule set: a sector sits on free ground (no water or rail under it; at most 2 % small sheds or field tracks, which the
-transplant replaces), 16 blocks clear of anything fixed, 48 blocks clear of other sectors, next to an existing road, on
-flat ground, at its distance ring from the camp (near 400-1100 m, mid 1100-2200 m, far 2200-3600 m), spread around the
-compass. Render: `incoming/census/sectors/sectors_v8.png`.
+Owner's rules for this pass: it is an art pass, not a gameplay pass (areas for play are defined later); the four
+Novo Expograd builds form ONE cyberpunk district; the Woods is a named area on the forest that already exists (no
+relief, no regeneration); the player builds are not kept together as a district but set individually into the landscape;
+every build is integrated with the existing terrain (set at ground level, edges blended, roads and trees around it kept,
+no pads). Placement is by visual fit: free ground (no water or rail under it, at most a few sheds or field tracks that the
+transplant replaces), 12-90 m from an existing road and never on one, flat, 16 blocks clear of anything built, 48 of
+other placed builds. The cyberpunk district stands against the west ridge at the end of the south-west road; Skadowsky
+in the centre fields north of the rail embankment; the mega-base on the lake's east shore; the industrial district
+beside the plant; the hempcrete compound under the ridge south-west of the town; the library and the runway north of
+the town by the lake; the 29 old sites scatter as farmsteads 40 m off roads, 150 m apart, the Woods included. Render:
+`incoming/census/sectors/sectors_v8.png`.
 
-| Sector | Position (blocks) | Footprint | m from camp | m to a road |
+| Build | Group | Position (blocks) | Footprint | m to a road |
 |---|---|---|---|---|
-| Camp | x -1942..-1559, z -2572..-2189 | 384 x 384 | - | - |
-| Skadowsky sector | x -1232..-769, z -1280..-529 | 464 x 752 | 1672 | 0 |
-| Novo Expograd hub (desert city) | x -3488..-2657, z -592..47 | 832 x 640 | 2481 | 29 |
-| Mega-base | x 320..703, z -1584..-1057 | 384 x 528 | 2514 | 24 |
-| Industrial district | x -3536..-3073, z -1296..-1025 | 464 x 272 | 1977 | 0 |
-| Runway (pad) | x -3760..-3249, z -3664..-3473 | 512 x 192 | 2103 | 40 |
-| Hempcrete compound | x -2112..-1793, z -3792..-3473 | 320 x 320 | 1266 | 36 |
-| Settlement | x 416..687, z -2096..-1809 | 272 x 288 | 2353 | 16 |
-| 29 old sites cluster | x -1136..-801, z -1872..-1489 | 336 x 384 | 1059 | 0 |
-| Financial Plaza + sewers | x -1568..-1409, z -1568..-1425 | 160 x 144 | 936 | 0 |
-| Novo Expograd Industrial Zone | x -800..-657, z -2768..-2609 | 144 x 160 | 1074 | 8 |
-| Bio Gen offices | x -1264..-1201, z -3008..-2753 | 64 x 256 | 716 | 0 |
-| Library | x -1344..-1249, z -3168..-3073 | 96 x 96 | 863 | 11 |
+| Camp | camp | x -1792..-1409, z -2492..-2109 | 384 x 384 | - |
+| Novo Expograd hub (desert city) | cyber | x -3376..-2545, z -624..15 | 832 x 640 | 40 |
+| Novo Expograd Industrial Zone | cyber | x -2880..-2737, z -816..-657 | 144 x 160 | 86 |
+| Financial Plaza + sewers | cyber | x -3456..-3297, z -800..-657 | 160 x 144 | 91 |
+| Bio Gen offices | cyber | x -2512..-2449, z -704..-449 | 64 x 256 | 99 |
+| Skadowsky sector | sector | x -1088..-625, z -1488..-737 | 464 x 752 | 89 |
+| Mega-base | player | x 368..751, z -2128..-1601 | 384 x 528 | 40 |
+| Industrial district | player | x 336..799, z -1376..-1105 | 464 x 272 | 86 |
+| Hempcrete compound | player | x -3392..-3073, z -1344..-1025 | 320 x 320 | 68 |
+| Library | player | x -2480..-2385, z -3808..-3713 | 96 x 96 | 96 |
+| Runway (pad) | pad | x -2064..-1553, z -3792..-3601 | 512 x 192 | 58 |
 
-Notes for the owner's pass: the camp box overlaps the town's east strip and should move about 150 blocks east onto the
-plateau proper; the hub landed inside the Woods zone (the only free area of its size) - either the Woods gives up its
-east third or the hub goes to the south-centre fields; the Skadowsky sector sits against the rail embankment, which lets
-its own rail join the line; Library, Bio Gen and Novo took the rise inside the river bend.
+Farmstead centres: (-2192,224), (-1472,-256), (-2176,-576), (-2192,-32), (-1712,-1744), (-2720,-1072), (-2112,-896), (-1696,-272), (-1568,-1472), (432,-2448), (-2432,-1168), (-304,-2848), (128,-2368), (-1312,-864), (-1920,-272), (-2080,576), (-3792,-2848), (-1344,-3152), (-528,-2640), (672,-2320), (-208,-2432), (-2320,512), (144,-3456), (-1200,-3792), (-3760,-3712), (-720,-2400), (-2208,-304), (-3008,416), (-2416,240).
+
+Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700; the Woods x -2450..-1600 z -1350..100.

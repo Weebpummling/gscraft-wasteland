@@ -11,7 +11,7 @@ usage: heightplan.py <census dir> <out dir> [--seed N]
 Rules: every road, rail, water and building column keeps its surface (fixed); fixed areas carry a 24-block apron that
 also stays; from there the relief blends in over 64 blocks (smoothstep). Zones (blocks, from the plan):
   A camp plateau 84-90 with a basin cut to 63 at its centre (radius 90, rim at 84);
-  B west ridge 95-105; C the Woods 66-74; D / D2 rolling fields 65-72. Elsewhere 65 with folds of +-1.
+  B west ridge 95-105; D / D2 rolling fields 65-72. (The Woods is a named area on the existing forest, owner 2026-09-04.) Elsewhere 65 with folds of +-1.
 Noise is layered gaussian-smoothed random fields so folds are 2-4 blocks over 100 m, never spiky.
 """
 import sys, json
@@ -25,7 +25,6 @@ BASE = 65.0
 ZONES = {  # name: (polygon in blocks, lo, hi)
     "A_plateau": ([(-2250, -2800), (-1350, -2850), (-1150, -2400), (-1350, -1950), (-2150, -1900)], 84, 90),
     "B_ridge": ([(-3900, -2600), (-3550, -2600), (-3450, -1600), (-3650, -600), (-3400, 300), (-3500, 700), (-3900, 700)], 95, 105),
-    "C_woods": ([(-3400, -1350), (-1800, -1400), (-1600, -600), (-1900, 100), (-3350, 100)], 66, 74),
     "D_fields": ([(-1500, -2000), (-500, -2150), (-300, -1500), (-1100, -1100), (-1500, -1300)], 65, 72),
     "D2_fields": ([(-3300, -3900), (-2600, -3900), (-2700, -3400), (-3200, -3300)], 65, 72),
 }
