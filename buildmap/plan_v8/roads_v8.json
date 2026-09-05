@@ -99,8 +99,8 @@
   "name": "skad_W",
   "points": [
    [
-    -1093,
-    -945
+    -1235,
+    -946
    ],
    [
     -1100,
@@ -109,7 +109,7 @@
   ],
   "width": 9,
   "style": "skadowsky",
-  "note": "Skadowsky sector W gate (minecraft:stone, stub width 18) -> nearest existing road, 736 m"
+  "note": "from the extended highway viaduct west end ->  nearest existing road, 736 m"
  },
  {
   "name": "mega_S",
@@ -206,38 +206,6 @@
   "width": 5,
   "style": "track",
   "note": "Runway (pad) W gate (fallback, stub width 0) -> nearest existing road, 204 m"
- },
- {
-  "name": "settle_N",
-  "points": [
-   [
-    -1274,
-    -2020
-   ],
-   [
-    -1284,
-    -1832
-   ]
-  ],
-  "width": 9,
-  "style": "skadowsky",
-  "note": "Settlement N gate (minecraft:stone, stub width 16) -> nearest existing road, 188 m"
- },
- {
-  "name": "settle_S",
-  "points": [
-   [
-    -1067,
-    -1725
-   ],
-   [
-    -1284,
-    -1820
-   ]
-  ],
-  "width": 9,
-  "style": "skadowsky",
-  "note": "Settlement S gate (minecraft:stone, stub width 24) -> nearest existing road, 235 m"
  },
  {
   "name": "old01_N",

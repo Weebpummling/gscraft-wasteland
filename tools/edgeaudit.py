@@ -58,6 +58,7 @@ def main(a):
     for p in sectors:
         if only and p["id"] not in only: continue
         if p["id"] == "camp": continue
+        if p.get("group") == "removed": continue
         f = audit(w, p); feats += f
         if f: print(f"{p['name']:34s} " + ", ".join(f"{q['side']} {q['kind']} w{q['width']} @{q['from']}" for q in f))
     json.dump(feats, open(a[3], "w"), indent=1)

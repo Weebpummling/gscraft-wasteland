@@ -40,6 +40,7 @@ def main(a):
     roads = []
     for p in sectors:
         if p["id"] == "camp": continue
+        if p.get("group") == "removed": continue
         s = stubs.get(p["id"], {}).get("stubs", [])
         gates = []
         best_per_side = {}

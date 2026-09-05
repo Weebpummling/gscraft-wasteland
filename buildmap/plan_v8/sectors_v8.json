@@ -133,9 +133,10 @@
    "z0": -2016,
    "x1": -1009,
    "z1": -1729,
-   "group": "player",
+   "group": "removed",
    "road_m": 82,
-   "source": "scratch/upgrade/world east site (1.12)"
+   "source": "scratch/upgrade/world east site (1.12)",
+   "note": "owner 2026-09-05: \"this sector can be removed, its a pointless area\" - footprint restored to landscape"
   },
   {
    "id": "old01",
@@ -166,9 +167,10 @@
    "z0": 528,
    "x1": -2273,
    "z1": 591,
-   "group": "farmstead",
+   "group": "removed",
    "road_m": 49,
-   "source": "live world, old site"
+   "source": "live world, old site",
+   "note": "pass 4: nothing man-made on the site (0-8 columns); footprint is landscape"
   },
   {
    "id": "old04",
@@ -210,9 +212,10 @@
    "z0": -2480,
    "x1": 463,
    "z1": -2417,
-   "group": "farmstead",
+   "group": "removed",
    "road_m": 45,
-   "source": "live world, old site"
+   "source": "live world, old site",
+   "note": "pass 4: nothing man-made on the site (0-8 columns); footprint is landscape"
   },
   {
    "id": "old08",
@@ -320,9 +323,10 @@
    "z0": -1312,
    "x1": -2721,
    "z1": -1249,
-   "group": "farmstead",
+   "group": "removed",
    "road_m": 64,
-   "source": "live world, old site"
+   "source": "live world, old site",
+   "note": "pass 4: nothing man-made on the site (0-8 columns); footprint is landscape"
   },
   {
    "id": "old18",
@@ -331,9 +335,10 @@
    "z0": -176,
    "x1": -2017,
    "z1": -113,
-   "group": "farmstead",
+   "group": "removed",
    "road_m": 64,
-   "source": "live world, old site"
+   "source": "live world, old site",
+   "note": "pass 4: nothing man-made on the site (0-8 columns); footprint is landscape"
   },
   {
    "id": "old19",
@@ -364,9 +369,10 @@
    "z0": 176,
    "x1": -2657,
    "z1": 239,
-   "group": "farmstead",
+   "group": "removed",
    "road_m": 74,
-   "source": "live world, old site"
+   "source": "live world, old site",
+   "note": "pass 4: nothing man-made on the site (0-8 columns); footprint is landscape"
   },
   {
    "id": "old22",
@@ -441,9 +447,10 @@
    "z0": -2752,
    "x1": -753,
    "z1": -2689,
-   "group": "farmstead",
+   "group": "removed",
    "road_m": 48,
-   "source": "live world, old site"
+   "source": "live world, old site",
+   "note": "pass 4: nothing man-made on the site (0-8 columns); footprint is landscape"
   },
   {
    "id": "old29",

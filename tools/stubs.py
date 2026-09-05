@@ -93,6 +93,7 @@ def main(a):
     for p in sectors:
         if only and p["id"] not in only: continue
         if p["id"] == "camp": continue
+        if p.get("group") == "removed": continue
         s = stubs_for(w, p); result[p["id"]] = {"name": p["name"], "rect": [p["x0"], p["z0"], p["x1"], p["z1"]], "stubs": s}
         print(f"  {p['name']:34s} {len(s):2d} stubs: " + ", ".join(f"{q['side']}@({q['x']},{q['z']}) w{q['width']} {q['material'].split(':')[-1]}{' RAIL' if q['rail'] else ''}" for q in s[:6]))
     json.dump(result, open(out / "stubs_v8.json", "w"), indent=1)

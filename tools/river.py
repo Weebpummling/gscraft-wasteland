@@ -116,7 +116,7 @@ def carve(world, job, land, dry):
     pts, tt, tan = centerline(job["points"], job.get("meander"))
     wmin, wmax = job.get("width", [16, 26]); levels = job.get("levels", [[0, job.get("level", 63)]]); depth0 = job.get("depth", 3)
     smin, smax = job.get("bank_slope", [2.5, 4.5]); protect = Protect(job.get("protect")); lake = job.get("lake_rect")
-    rng = np.random.default_rng(job.get("meander", {}).get("seed", 3) + 11)
+    rng = np.random.default_rng((job.get("meander") or {}).get("seed", 3) + 11)
     n = len(pts)
     width = wmin + (wmax - wmin) * (0.5 + 0.5 * np.sin(2 * math.pi * tt * n / 140.0 + rng.uniform(0, 6)))       # ~140-block rhythm
     slope_l = smin + (smax - smin) * (0.5 + 0.5 * np.sin(2 * math.pi * tt * n / 260.0 + rng.uniform(0, 6)))
@@ -131,7 +131,7 @@ def carve(world, job, land, dry):
         old = np.array(densify([tuple(p) for p in job["restore"]]), np.float64); oreach = job.get("restore_reach", 52); otree = cKDTree(old)
         x0, z0 = min(x0, int(old[:, 0].min() - oreach)), min(z0, int(old[:, 1].min() - oreach)); x1, z1 = max(x1, int(old[:, 0].max() + oreach)), max(z1, int(old[:, 1].max() + oreach))
     H, W = z1 - z0 + 1, x1 - x0 + 1
-    noise = value_noise((H, W), 18, 1.2, job.get("meander", {}).get("seed", 3) + 5) + value_noise((H, W), 6, 0.4, 17)
+    noise = value_noise((H, W), 18, 1.2, (job.get("meander") or {}).get("seed", 3) + 5) + value_noise((H, W), 6, 0.4, 17)
     xs, zs = np.meshgrid(np.arange(x0, x1 + 1), np.arange(z0, z1 + 1))
     d, idx = tree.query(np.stack([xs.ravel(), zs.ravel()], 1)); d = d.reshape(H, W); idx = idx.reshape(H, W)
     dold = otree.query(np.stack([xs.ravel(), zs.ravel()], 1))[0].reshape(H, W) if old is not None else np.full((H, W), 1e9)

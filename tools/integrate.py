@@ -45,9 +45,28 @@ DESERT_NATURAL = {"minecraft:sand", "minecraft:red_sand", "minecraft:sandstone",
                   "minecraft:mycelium", "minecraft:packed_ice", "minecraft:dripstone_block", "minecraft:mud"} | AIRS
 ROAD_TOPS = {"minecraft:stone", "minecraft:andesite", "minecraft:gravel", "minecraft:smooth_stone", "minecraft:stone_bricks", "minecraft:cobblestone"}
 SECTORS = {
-    "hub": dict(rect=(-3376, -624, -2545, 15), mode="manmade", close=10, apron=3, min_comp=60, band=32, edge_drop=20, lift=True),
+    "hub": dict(rect=(-3376, -624, -2545, 15), mode="manmade", natural="desert", close=10, apron=3, min_comp=60, band=32, edge_drop=20, lift=True),
     "skad": dict(rect=(-1088, -1488, -625, -737), mode="plate", close=4, apron=2, min_comp=0, band=40),
 }
+GROUP_DEFAULTS = {                          # every other sector in sectors_v8.json
+    # cyber districts and farmsteads: flat-floored builds - the man-made columns on the restored landscape, lifted to the land
+    "cyber": dict(mode="manmade", natural="default", close=8, apron=3, min_comp=40, band=32, lift=True),
+    "farmstead": dict(mode="manmade", natural="default", close=6, apron=3, min_comp=20, band=24, lift=True),
+    # player bases built into real terrain (hills, a lake, tunnels): the build and the ground inside its hull stay as one landform,
+    # blended to the landscape over 48 blocks; only the imported terrain outside the hull goes
+    "player": dict(mode="hull", natural="default", close=24, apron=4, min_comp=40, band=80),
+    "removed": dict(mode="remove", natural="default", close=0, apron=0, min_comp=0, band=32),      # the whole footprint becomes landscape
+}
+OVERRIDES = {"plaza": dict(keep_underground=True), "hemp": dict(min_comp=30), "lib": dict(mode="manmade", close=8, apron=3, band=32, lift=True)}
+
+
+def sector_config(sid):
+    if sid in SECTORS: return SECTORS[sid]
+    p = next(p for p in json.load(open(SECTORS_JSON))["sectors"] if p["id"] == sid)
+    g = "farmstead" if sid.startswith("old") else p.get("group", "player")
+    if g not in GROUP_DEFAULTS: raise SystemExit(f"{sid}: group {g} has no integrate rules (camp, pads)")
+    cfg = dict(GROUP_DEFAULTS[g], rect=(p["x0"], p["z0"], p["x1"], p["z1"])); cfg.update(OVERRIDES.get(sid, {}))
+    return cfg
 MARGIN = 48
 YS = np.arange(-64, 320, dtype=np.int32)[:, None, None]
 
@@ -60,7 +79,11 @@ def is_plant(n):
 
 
 def is_natural(n):
-    return n in NATURAL or is_plant(n) or n in LIQUID or n in AIRS or n.endswith("_leaves") or n.endswith("_log") or "ore" in n.split(":")[-1] or n in DESERT_NATURAL
+    """Landscape blocks of the grass/wasteland worlds. Hempcrete is a build material here (Lost Cities city ground and the
+    hempcrete compound's walls alike are kept as the build); Immersive Weathering soils are ground."""
+    if "hempcrete" in n: return False
+    if n.startswith("immersive_weathering:"): return True
+    return n in NATURAL or is_plant(n) or n in LIQUID or n in AIRS or n.endswith("_leaves") or n.endswith("_log") or "ore" in n.split(":")[-1] or n in DESERT_NATURAL or n.endswith("terracotta")
 
 
 def is_desert_natural(n):
@@ -137,7 +160,7 @@ def flat_chunk(y_ground=65):
 def main(a):
     if len(a) < 4: sys.exit(__doc__)
     build, fresh, sid = Path(a[1]), Path(a[2]), a[3]; dry = "--dry-run" in a
-    cfg = SECTORS[sid]; x0, z0, x1, z1 = cfg["rect"]
+    cfg = sector_config(sid); x0, z0, x1, z1 = cfg["rect"]
     ax0, az0, ax1, az1 = x0 - MARGIN, z0 - MARGIN, x1 + MARGIN, z1 + MARGIN
     H, Wd = az1 - az0 + 1, ax1 - ax0 + 1
     cls = np.load(CENSUS / "classes.npy"); gnd = np.load(CENSUS / "ground_y.npy").astype(np.int32); tgt = np.load(HEIGHT).astype(np.int32)
@@ -168,7 +191,7 @@ def main(a):
                 if root is None: continue
                 if in_fp: missing += 1
             ids, pal, tmpl = decode_chunk(root)
-            g, top, wt, m, rt = column_stats(ids, pal, desert=(cfg["mode"] == "manmade" and has_fresh))
+            g, top, wt, m, rt = column_stats(ids, pal, desert=(cfg.get("natural") == "desert" and has_fresh))
             if has_fresh and cfg.get("edge_drop"):                  # hub: the source map's border fence along the east edge goes; its roads stay
                 xs_abs = np.arange(cx * 16, cx * 16 + 16)[None, :]
                 m = m & ~((xs_abs >= x1 - cfg["edge_drop"]) & ~rt)
@@ -190,7 +213,8 @@ def main(a):
     print(f"pass 1: {len(chunks)} chunks read in {time.time()-t0:.0f}s ({missing} footprint chunks without a source chunk: landscape only); man-made columns in the footprint {int((man & inside).sum()):,}")
     # ---- keep mask
     small = np.zeros_like(man)
-    if cfg["mode"] == "manmade":
+    if cfg["mode"] == "remove": man &= False
+    if cfg["mode"] in ("manmade", "hull", "remove"):
         mask = man & inside
         lab, n = ndimage.label(mask); sizes = ndimage.sum(mask, lab, range(1, n + 1))
         small = np.isin(lab, np.nonzero(sizes < cfg["min_comp"])[0] + 1); mask[small] = False
@@ -201,7 +225,8 @@ def main(a):
         mask &= ~np.isin(lab, np.nonzero(sizes < 2000)[0] + 1)                       # display pads on the plate are not terrain
     disk = lambda r: (lambda yy, xx: (xx * xx + yy * yy) <= r * r)(*np.mgrid[-r:r + 1, -r:r + 1])
     if cfg["close"]: mask = ndimage.binary_closing(mask, disk(cfg["close"]), border_value=0)
-    if cfg["mode"] == "manmade": mask |= man & inside & ~small
+    if cfg["mode"] == "hull": mask = ndimage.binary_fill_holes(mask)                   # the ground inside the build's hull is part of the landform
+    if cfg["mode"] in ("manmade", "hull"): mask |= man & inside & ~small
     else:
         lab, n = ndimage.label((man & inside) | mask); keep_lab = np.unique(lab[mask & (g_base > 40)])
         mask |= np.isin(lab, keep_lab[keep_lab > 0]) & man & inside                    # man-made columns standing on the map's terrain
@@ -221,7 +246,7 @@ def main(a):
             if ring_c.sum() < 4: ring_c = comp & (g_base > -999)
             if ring_c.sum() == 0: continue
             dy = int(np.clip(round(float(np.median(nat0[comp])) - float(np.median(g_base[ring_c]))), -40, 40)); lift[comp & (g_base > -999)] = dy
-        print(f"lift: {nc} kept components, {int((lift != 0).sum()):,} columns shifted, dy {lift[mask].min()}..{lift[mask].max()}")
+        if mask.any(): print(f"lift: {nc} kept components, {int((lift != 0).sum()):,} columns shifted, dy {lift[mask].min()}..{lift[mask].max()}")
         g_base = np.where(mask, g_base + lift, g_base)
     print(f"mask: {int(mask.sum()):,} columns kept ({int((man & inside).sum()):,} man-made), {int((restore & inside).sum()):,} footprint + {int((restore & ~inside).sum()):,} margin columns restored to the local landscape")
     # ---- height targets for the restored columns: the landscape, bent to the build's floor over `band` blocks at the mask
@@ -231,8 +256,14 @@ def main(a):
     ring = open_in & (d_in <= 6)
     if cfg["mode"] == "plate": ring &= g_base > 40
     if ring.sum() == 0: ring = mask & (d_in <= 2)
+    if ring.sum() == 0: ring[0, 0] = True                                                  # empty mask: a dummy ring, the band is then all landscape
     _, ridx = ndimage.distance_transform_edt(~ring, return_indices=True)
-    h_edge = np.where(ring, g_base, 0)[ridx[0], ridx[1]].astype(np.float32)
+    ring_h = np.where((w_base > -999) & (cfg["mode"] == "hull"), w_base, g_base)          # a lake at the hull edge meets the land at its surface, not its bed
+    h_near = np.where(ring, ring_h, 0)[ridx[0], ridx[1]].astype(np.float32)
+    num = ndimage.gaussian_filter(np.where(ring, ring_h, 0).astype(np.float32), 14, truncate=3.0); den = ndimage.gaussian_filter(ring.astype(np.float32), 14, truncate=3.0)
+    h_smooth = np.where(den > 1e-4, num / np.maximum(den, 1e-4), h_near)                 # smooth field of the ring heights; nearest column only far from any ring
+    s_near = smoothstep(ndimage.distance_transform_edt(~mask) / 16.0)
+    h_edge = h_near * (1 - s_near) + h_smooth * s_near                                     # exact at the build's edge (no step), smooth further out (no facets)
     d_mask = ndimage.distance_transform_edt(~mask)
     s = smoothstep(d_mask / cfg["band"])
     target = h_edge * (1 - s) + target * s
@@ -246,7 +277,8 @@ def main(a):
     target = target + value_noise((H, Wd), 24, 1.7, 7) * blend + value_noise((H, Wd), 8, 0.5, 11) * blend
     target = np.round(target).astype(np.int32)
     chg = restore & (g_nat > -999) & (target != g_nat)
-    print(f"targets: {int(chg.sum()):,} restored columns change height (mean |d| {np.abs(target - g_nat)[chg].mean() if chg.any() else 0:.1f}), edge floor {h_edge[mask].min():.0f}..{h_edge[mask].max():.0f}, band {cfg['band']}")
+    if not mask.any(): print("  nothing man-made survives the speck filter: the whole footprint becomes landscape"); target = np.round(nat).astype(np.int32)
+    print(f"targets: {int(chg.sum()):,} restored columns change height (mean |d| {np.abs(target - g_nat)[chg].mean() if chg.any() else 0:.1f}), edge floor {h_edge[mask].min() if mask.any() else 0:.0f}..{h_edge[mask].max() if mask.any() else 0:.0f}, band {cfg['band']}")
     save_preview(sid, mask, man & inside, restore, target, ax0, az0)
     if dry: return
     # ---- pass 2: write every chunk of the analysis area whose columns change
@@ -262,6 +294,11 @@ def main(a):
         mpal, ma, mb = merge_palettes(pal, npal)
         out = np.where(k16[None], ma[np.where(ids < 0, len(pal), ids)], mb[np.where(nids < 0, len(npal), nids)])
         out[(k16[None] & (ids < 0)) | (~k16[None] & (nids < 0))] = -1
+        if cfg.get("keep_underground") and has_fresh:
+            split = np.minimum(np.where(gn16 > -999, gn16, 65), np.where(gb16 > -999, gb16, 65)) + 64 - 6       # below this the source stays (sewers)
+            deep = (np.arange(384)[:, None, None] < split[None]) & ~k16[None]
+            src = ma[np.where(ids < 0, len(pal), ids)]; src[ids < 0] = -1
+            out = np.where(deep, src, out)
         pindex = {key_of(e): i for i, e in enumerate(mpal)}
         def pid(n):
             if (n, ()) not in pindex: pindex[(n, ())] = len(mpal); mpal.append({"Name": (T_STRING, n)})

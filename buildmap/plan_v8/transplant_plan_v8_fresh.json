@@ -1,5 +1,167 @@
 [
  {
+  "source": "hub",
+  "source_dir": "G:/GSCraft/scratch/upgrade/world/world",
+  "chunks": [
+   -91,
+   96,
+   -40,
+   135
+  ],
+  "offset": [
+   -120,
+   -135
+  ],
+  "dy": -1,
+  "what": "Novo Expograd hub -> cyberpunk district at the ridge foot",
+  "dest_blocks": [
+   -3376,
+   -624,
+   -2545,
+   15
+  ],
+  "chunk_count": 2080
+ },
+ {
+  "source": "novo",
+  "source_dir": "G:/GSCraft/scratch/upgrade/novo_industrial/world",
+  "chunks": [
+   39,
+   9,
+   47,
+   18
+  ],
+  "offset": [
+   -219,
+   -60
+  ],
+  "dy": -165,
+  "what": "Novo Expograd Industrial Zone; superflat source ground 230",
+  "dest_blocks": [
+   -2880,
+   -816,
+   -2737,
+   -657
+  ],
+  "chunk_count": 90
+ },
+ {
+  "source": "plaza",
+  "source_dir": "G:/GSCraft/scratch/upgrade/financial_plaza/world",
+  "chunks": [
+   -27,
+   -73,
+   -18,
+   -65
+  ],
+  "offset": [
+   -189,
+   23
+  ],
+  "dy": 11,
+  "what": "Financial Plaza; source ground 54",
+  "dest_blocks": [
+   -3456,
+   -800,
+   -3297,
+   -657
+  ],
+  "chunk_count": 90
+ },
+ {
+  "source": "sewers",
+  "source_dir": "G:/GSCraft/scratch/upgrade/sewers/world",
+  "chunks": [
+   -59,
+   -20,
+   -54,
+   -15
+  ],
+  "offset": [
+   -155,
+   -28
+  ],
+  "dy": -21,
+  "what": "sewers under the plaza, sections below y 43 only",
+  "dest_blocks": [
+   -3424,
+   -768,
+   -3329,
+   -673
+  ],
+  "chunk_count": 36,
+  "sections_below_y": 43
+ },
+ {
+  "source": "biogen_s",
+  "source_dir": "G:/GSCraft/scratch/upgrade/biogen_strip/world",
+  "chunks": [
+   29,
+   -63,
+   32,
+   -60
+  ],
+  "offset": [
+   -186,
+   19
+  ],
+  "dy": 62,
+  "what": "Bio Gen south group",
+  "dest_blocks": [
+   -2512,
+   -704,
+   -2449,
+   -641
+  ],
+  "chunk_count": 16
+ },
+ {
+  "source": "biogen_n",
+  "source_dir": "G:/GSCraft/scratch/upgrade/biogen_strip/world",
+  "chunks": [
+   30,
+   -75,
+   30,
+   -74
+  ],
+  "offset": [
+   -187,
+   36
+  ],
+  "dy": 62,
+  "what": "Bio Gen north group",
+  "dest_blocks": [
+   -2512,
+   -624,
+   -2497,
+   -593
+  ],
+  "chunk_count": 2
+ },
+ {
+  "source": "settle",
+  "source_dir": "G:/GSCraft/scratch/upgrade/world/world",
+  "chunks": [
+   -27,
+   92,
+   -11,
+   109
+  ],
+  "offset": [
+   -53,
+   -218
+  ],
+  "dy": 1,
+  "what": "the settlement (1.12 east compound); source ground 64",
+  "dest_blocks": [
+   -1280,
+   -2016,
+   -1009,
+   -1729
+  ],
+  "chunk_count": 306
+ },
+ {
   "source": "skad",
   "source_dir": "G:/GSCraft/incoming/skadowsky/unpacked12/Region Skadowsky 1.20.1 1.2",
   "chunks": [
@@ -23,26 +185,762 @@
   "chunk_count": 1363
  },
  {
-  "source": "hub",
-  "source_dir": "G:/GSCraft/scratch/upgrade/world/world",
+  "source": "mega",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
   "chunks": [
-   -91,
-   96,
-   -40,
-   135
+   137,
+   25,
+   160,
+   57
   ],
   "offset": [
-   -120,
-   -135
+   -114,
+   -158
+  ],
+  "dy": -25,
+  "what": "Mega-base (live world), ground median 90",
+  "dest_blocks": [
+   368,
+   -2128,
+   751,
+   -1601
+  ],
+  "chunk_count": 792
+ },
+ {
+  "source": "indu",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   119,
+   54,
+   147,
+   70
+  ],
+  "offset": [
+   -98,
+   -140
+  ],
+  "dy": -5,
+  "what": "Industrial district (live), ground 70",
+  "dest_blocks": [
+   336,
+   -1376,
+   799,
+   -1105
+  ],
+  "chunk_count": 493
+ },
+ {
+  "source": "hemp",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   98,
+   72,
+   117,
+   91
+  ],
+  "offset": [
+   -310,
+   -156
+  ],
+  "dy": 0,
+  "what": "Hempcrete compound (live), ground 65",
+  "dest_blocks": [
+   -3392,
+   -1344,
+   -3073,
+   -1025
+  ],
+  "chunk_count": 400
+ },
+ {
+  "source": "lib",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   127,
+   87,
+   132,
+   92
+  ],
+  "offset": [
+   -282,
+   -325
+  ],
+  "dy": -52,
+  "what": "Library (live), hill top 117",
+  "dest_blocks": [
+   -2480,
+   -3808,
+   -2385,
+   -3713
+  ],
+  "chunk_count": 36
+ },
+ {
+  "source": "old01",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   160,
+   22,
+   163,
+   25
+  ],
+  "offset": [
+   -298,
+   -60
+  ],
+  "dy": -5,
+  "what": "old site 1 as a farmstead; ground 70",
+  "dest_blocks": [
+   -2208,
+   -608,
+   -2145,
+   -545
+  ],
+  "chunk_count": 16
+ },
+ {
+  "source": "old02",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   157,
+   22,
+   159,
+   24
+  ],
+  "offset": [
+   -266,
+   -133
+  ],
+  "dy": -7,
+  "what": "old site 2 as a farmstead; ground 72",
+  "dest_blocks": [
+   -1744,
+   -1776,
+   -1697,
+   -1729
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old03",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   67,
+   192,
+   69,
+   194
+  ],
+  "offset": [
+   -213,
+   -159
+  ],
+  "dy": -45,
+  "what": "old site 3 as a farmstead; ground 110",
+  "dest_blocks": [
+   -2336,
+   528,
+   -2289,
+   575
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old04",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   214,
+   64,
+   216,
+   66
+  ],
+  "offset": [
+   -296,
+   -117
+  ],
+  "dy": -22,
+  "what": "old site 4 as a farmstead; ground 87",
+  "dest_blocks": [
+   -1312,
+   -848,
+   -1265,
+   -801
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old05",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   193,
+   47,
+   195,
+   50
+  ],
+  "offset": [
+   -327,
+   -105
+  ],
+  "dy": -27,
+  "what": "old site 5 as a farmstead; ground 92",
+  "dest_blocks": [
+   -2144,
+   -928,
+   -2097,
+   -865
+  ],
+  "chunk_count": 12
+ },
+ {
+  "source": "old06",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   70,
+   142,
+   72,
+   144
+  ],
+  "offset": [
+   -164,
+   -160
   ],
   "dy": -1,
-  "what": "Novo Expograd hub -> cyberpunk district at the ridge foot",
+  "what": "old site 6 as a farmstead; ground 66",
   "dest_blocks": [
-   -3376,
-   -624,
-   -2545,
-   15
+   -1504,
+   -288,
+   -1457,
+   -241
   ],
-  "chunk_count": 2080
+  "chunk_count": 9
+ },
+ {
+  "source": "old07",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   194,
+   85,
+   196,
+   87
+  ],
+  "offset": [
+   -169,
+   -240
+  ],
+  "dy": -38,
+  "what": "old site 7 as a farmstead; ground 103",
+  "dest_blocks": [
+   400,
+   -2480,
+   447,
+   -2433
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old08",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   71,
+   191,
+   73,
+   193
+  ],
+  "offset": [
+   -210,
+   -173
+  ],
+  "dy": -49,
+  "what": "old site 8 as a farmstead; ground 114",
+  "dest_blocks": [
+   -2224,
+   288,
+   -2177,
+   335
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old09",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   294,
+   190,
+   296,
+   192
+  ],
+  "offset": [
+   -441,
+   -190
+  ],
+  "dy": -6,
+  "what": "old site 9 as a farmstead; ground 71",
+  "dest_blocks": [
+   -2352,
+   0,
+   -2305,
+   47
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old10",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   249,
+   192,
+   251,
+   194
+  ],
+  "offset": [
+   -348,
+   -287
+  ],
+  "dy": 4,
+  "what": "old site 10 as a farmstead; ground 61",
+  "dest_blocks": [
+   -1584,
+   -1520,
+   -1537,
+   -1473
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old11",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   85,
+   141,
+   87,
+   143
+  ],
+  "offset": [
+   -227,
+   -227
+  ],
+  "dy": 3,
+  "what": "old site 11 as a farmstead; ground 62",
+  "dest_blocks": [
+   -2272,
+   -1376,
+   -2225,
+   -1329
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old12",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   61,
+   150,
+   63,
+   153
+  ],
+  "offset": [
+   -80,
+   -331
+  ],
+  "dy": 3,
+  "what": "old site 12 as a farmstead; ground 62",
+  "dest_blocks": [
+   -304,
+   -2896,
+   -257,
+   -2833
+  ],
+  "chunk_count": 12
+ },
+ {
+  "source": "old13",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   127,
+   132,
+   130,
+   134
+  ],
+  "offset": [
+   -301,
+   -200
+  ],
+  "dy": 1,
+  "what": "old site 13 as a farmstead; ground 64",
+  "dest_blocks": [
+   -2784,
+   -1088,
+   -2721,
+   -1041
+  ],
+  "chunk_count": 12
+ },
+ {
+  "source": "old14",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   203,
+   64,
+   205,
+   67
+  ],
+  "offset": [
+   -442,
+   -244
+  ],
+  "dy": -26,
+  "what": "old site 14 as a farmstead; ground 91",
+  "dest_blocks": [
+   -3824,
+   -2880,
+   -3777,
+   -2817
+  ],
+  "chunk_count": 12
+ },
+ {
+  "source": "old15",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   247,
+   192,
+   249,
+   194
+  ],
+  "offset": [
+   -363,
+   -211
+  ],
+  "dy": 2,
+  "what": "old site 15 as a farmstead; ground 63",
+  "dest_blocks": [
+   -1856,
+   -304,
+   -1809,
+   -257
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old16",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   248,
+   190,
+   250,
+   192
+  ],
+  "offset": [
+   -283,
+   -357
+  ],
+  "dy": 3,
+  "what": "old site 16 as a farmstead; ground 62",
+  "dest_blocks": [
+   -560,
+   -2672,
+   -513,
+   -2625
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old17",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   61,
+   147,
+   63,
+   149
+  ],
+  "offset": [
+   -235,
+   -229
+  ],
+  "dy": 7,
+  "what": "old site 17 as a farmstead; ground 58",
+  "dest_blocks": [
+   -2784,
+   -1312,
+   -2737,
+   -1265
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old18",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   63,
+   173,
+   65,
+   175
+  ],
+  "offset": [
+   -193,
+   -184
+  ],
+  "dy": -4,
+  "what": "old site 18 as a farmstead; ground 69",
+  "dest_blocks": [
+   -2080,
+   -176,
+   -2033,
+   -129
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old19",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   260,
+   190,
+   262,
+   192
+  ],
+  "offset": [
+   -336,
+   -426
+  ],
+  "dy": -5,
+  "what": "old site 19 as a farmstead; ground 70",
+  "dest_blocks": [
+   -1216,
+   -3776,
+   -1169,
+   -3729
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old20",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   193,
+   51,
+   195,
+   53
+  ],
+  "offset": [
+   -199,
+   -199
+  ],
+  "dy": -36,
+  "what": "old site 20 as a farmstead; ground 101",
+  "dest_blocks": [
+   -96,
+   -2368,
+   -49,
+   -2321
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old21",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   68,
+   199,
+   70,
+   201
+  ],
+  "offset": [
+   -238,
+   -188
+  ],
+  "dy": -41,
+  "what": "old site 21 as a farmstead; ground 106",
+  "dest_blocks": [
+   -2720,
+   176,
+   -2673,
+   223
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old22",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   81,
+   178,
+   83,
+   180
+  ],
+  "offset": [
+   -213,
+   -143
+  ],
+  "dy": -22,
+  "what": "old site 22 as a farmstead; ground 87",
+  "dest_blocks": [
+   -2112,
+   560,
+   -2065,
+   607
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old23",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   64,
+   178,
+   66,
+   180
+  ],
+  "offset": [
+   -54,
+   -330
+  ],
+  "dy": 1,
+  "what": "old site 23 as a farmstead; ground 64",
+  "dest_blocks": [
+   160,
+   -2432,
+   207,
+   -2385
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old24",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   201,
+   48,
+   203,
+   50
+  ],
+  "offset": [
+   -248,
+   -200
+  ],
+  "dy": -6,
+  "what": "old site 24 as a farmstead; ground 71",
+  "dest_blocks": [
+   -752,
+   -2432,
+   -705,
+   -2385
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old25",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   272,
+   182,
+   274,
+   184
+  ],
+  "offset": [
+   -429,
+   -256
+  ],
+  "dy": 0,
+  "what": "old site 25 as a farmstead; ground 65",
+  "dest_blocks": [
+   -2512,
+   -1184,
+   -2465,
+   -1137
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old26",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   195,
+   76,
+   197,
+   78
+  ],
+  "offset": [
+   -433,
+   -310
+  ],
+  "dy": -20,
+  "what": "old site 26 as a farmstead; ground 85",
+  "dest_blocks": [
+   -3808,
+   -3744,
+   -3761,
+   -3697
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old27",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   82,
+   167,
+   84,
+   169
+  ],
+  "offset": [
+   -89,
+   -330
+  ],
+  "dy": 2,
+  "what": "old site 27 as a farmstead; ground 63",
+  "dest_blocks": [
+   -112,
+   -2608,
+   -65,
+   -2561
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old28",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   59,
+   182,
+   61,
+   184
+  ],
+  "offset": [
+   -110,
+   -354
+  ],
+  "dy": 9,
+  "what": "old site 28 as a farmstead; ground 56",
+  "dest_blocks": [
+   -816,
+   -2752,
+   -769,
+   -2705
+  ],
+  "chunk_count": 9
+ },
+ {
+  "source": "old29",
+  "source_dir": "G:/GSCraft/scratch/worlds/wasteland-v7-pregen",
+  "chunks": [
+   71,
+   184,
+   73,
+   186
+  ],
+  "offset": [
+   -31,
+   -333
+  ],
+  "dy": -2,
+  "what": "old site 29 as a farmstead; ground 67",
+  "dest_blocks": [
+   640,
+   -2384,
+   687,
+   -2337
+  ],
+  "chunk_count": 9
  }
 ]

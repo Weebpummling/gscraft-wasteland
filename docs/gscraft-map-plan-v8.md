@@ -219,8 +219,11 @@ Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700
     plan sent both Skadowsky gates and several farmsteads to a 42-pixel track. `roads_v8.json` regenerated (16 connectors;
     the far farmsteads now show 1-1.8 km tracks - a design decision for step 8, not built).
   - Renders: `incoming/census/wide_river_inspect.png` (the whole course), `bridge_area_inspect.png`.
-- Next: the owner's WorldPainter look at `scratch/worlds/v8-build`; then step 7-8 (connectors, bridge sites, the edge
-  features list) once the sectors are signed off.
+- Pass 4 (2026-09-05, owner: "do a complete review of the issues, then start applying the fixes"): every sector onto the
+  landscape with `integrate.py` (manmade+lift / hull / plate / remove modes per group), the settlement removed on the
+  owner's call, six empty old sites dropped, canal mouths rounded (`edgewater.py`), the 11 connectors under 300 m built in
+  the Skadowsky style. Full review and results: `docs/gscraft-map-review-v8-pass4.md`. Render `v8_cell_pass4_inspect.png`.
+- Next: the owner's WorldPainter look; step 8 decisions (the long connectors, bridges on the river, the 80 road stubs).
 
 ## 7-8. Road hooks (prepared 2026-09-05, not built)
 
