@@ -1,0 +1,26 @@
+[
+ {
+  "square": "arm_island_1_deepen",
+  "box": [
+   -388,
+   -3384,
+   -362,
+   -3358
+  ],
+  "level": 62,
+  "depth": 11,
+  "force": true
+ },
+ {
+  "square": "arm_island_2_deepen",
+  "box": [
+   -342,
+   -3267,
+   -316,
+   -3241
+  ],
+  "level": 62,
+  "depth": 11,
+  "force": true
+ }
+]

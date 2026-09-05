@@ -1,0 +1,114 @@
+[
+ {
+  "name": "old12_S",
+  "points": [
+   [
+    -272,
+    -2827
+   ],
+   [
+    -925,
+    -2366
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "to the north end of the lake tracks bridge"
+ },
+ {
+  "name": "old16_S",
+  "points": [
+   [
+    -528,
+    -2603
+   ],
+   [
+    -925,
+    -2366
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "to the north end of the lake tracks bridge"
+ },
+ {
+  "name": "old20_W",
+  "points": [
+   [
+    -102,
+    -2336
+   ],
+   [
+    -925,
+    -2366
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "to the north end of the lake tracks bridge"
+ },
+ {
+  "name": "old23_W",
+  "points": [
+   [
+    154,
+    -2400
+   ],
+   [
+    -925,
+    -2366
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "to the north end of the lake tracks bridge"
+ },
+ {
+  "name": "old24_S",
+  "points": [
+   [
+    -720,
+    -2363
+   ],
+   [
+    -925,
+    -2366
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "to the north end of the lake tracks bridge"
+ },
+ {
+  "name": "old27_W",
+  "points": [
+   [
+    -118,
+    -2576
+   ],
+   [
+    -925,
+    -2366
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "to the north end of the lake tracks bridge"
+ },
+ {
+  "name": "lake_bridge_S",
+  "points": [
+   [
+    -885,
+    -2044
+   ],
+   [
+    -1284,
+    -1832
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "from the bridge's south end to the network"
+ }
+]

@@ -28,7 +28,7 @@ from scipy.spatial import cKDTree
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from terrain import World, column_is_built, AIR, LIQUID, PLANT
+from terrain import World, column_is_built, water_top, AIR, LIQUID, PLANT
 from roads import densify
 from stubs import is_road
 
@@ -88,6 +88,18 @@ def level_at(levels, t):
     for tt, l in levels:
         if t >= tt: lv = l
     return lv
+
+
+TREE_K = ("_leaves", "_log", "_wood", "vine", "_sapling", "mushroom", "azalea", "bamboo")
+
+
+def column_built(world, x, z):
+    """A build stands on the column: the first non-plant, non-tree block from the top is not natural. Trees are landscape."""
+    y, b = world.top(x, z)
+    while b is not None and y > -60 and (b in PLANT or b.endswith(TREE_K) or "grass" in b or "fern" in b):
+        y -= 1; b = world.get(x, y, z)
+    from terrain import NATURAL
+    return b is not None and b not in NATURAL and b not in AIR
 
 
 def column_op(world, x, z, want, top_block, dry_count):
@@ -150,14 +162,18 @@ def carve(world, job, land, dry):
             in_old = dold[iz, ix] <= (job.get("restore_reach", 52) if old is not None else -1)
             if not (in_new or in_old): continue
             mouth = dist <= half and tt[i] < job.get("mouth_t", 0.0)                   # the channel may cut through protected terrain at its mouth
-            built = column_is_built(world, x, z)
+            built = column_built(world, x, z)
+            if dist <= half and job.get("cut_protected_natural") and not built and protect(x, z):
+                gq = world.ground(x, z)
+                near_build = any(column_built(world, x + ddx, z + ddz) for ddx, ddz in ((4, 0), (-4, 0), (0, 4), (0, -4), (3, 3), (-3, 3), (3, -3), (-3, -3)))
+                if gq is not None and gq <= level + 12 and not near_build: mouth = True   # leftover land, rocks and islets inside the channel go; quays next to builds and decks (13+ above) stay
             if built and job.get("cut_roads") and not protect(x, z):
                 ty, tb = world.top(x, z)
                 if is_road(tb) or is_road(world.get(x, (ty or 0) - 1, z)): built = False   # a road on the line is cut (bridge site for step 8)
-            if (protect(x, z) and not mouth) or built: stats["skipped"] += 1; continue
-            if lake and lake[0] <= x <= lake[2] and lake[1] <= z <= lake[3]:
-                ty, tb = world.top(x, z)
-                if tb in LIQUID and dist > half: stats["skipped"] += 1; continue
+            if (protect(x, z) and not mouth) or (built and not job.get("cut_roads_over_built", False)): stats["skipped"] += 1; continue
+            if lake and lake[0] <= x <= lake[2] and lake[1] <= z <= lake[3] and dist > half:
+                ty, tb = world.top(x, z); wtp = water_top(world, x, z)                  # existing water (kelp or lilies on top included) is left alone
+                if tb in LIQUID or (wtp is not None and wtp >= level - 3): stats["skipped"] += 1; continue
             g = world.ground(x, z)
             if g is None: continue
             if dist <= half:                                                          # channel

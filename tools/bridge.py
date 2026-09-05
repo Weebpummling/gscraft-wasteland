@@ -21,6 +21,16 @@ from anvil import block_index
 SOLID_GROUND = {"minecraft:stone", "minecraft:dirt", "minecraft:grass_block", "minecraft:coarse_dirt", "minecraft:gravel", "minecraft:cobblestone", "minecraft:andesite"}
 
 
+def save_mask(name, cols):
+    """The bridge's columns as a protect mask (integrate-style npz) so smoothcliffs/river/lakefill leave them alone."""
+    import numpy as np
+    if not cols: return
+    xs = [c[0] for c in cols]; zs = [c[1] for c in cols]; ox, oz = min(xs) - 2, min(zs) - 2
+    m = np.zeros((max(zs) - oz + 3, max(xs) - ox + 3), bool)
+    for x, z in cols: m[z - oz - 1:z - oz + 2, x - ox - 1:x - ox + 2] = True
+    np.savez_compressed(Path(r"G:/GSCraft/incoming/census") / f"bridge_{name}_mask.npz", mask=m, origin=np.array([ox, oz]))
+
+
 def get_state(world, x, y, z):
     c = world.chunk(x >> 4, z >> 4)
     if not c: return None, None
@@ -71,6 +81,7 @@ def build(world, job, dry):
         if on_bank >= 3 + abut: break
         x += dx
     files, chunks = world.save(dry)
+    save_mask(job["name"], [(x, z) for x in (range(sx, end_x - 1, dx) if end_x is not None else []) for z in range(z0, z1 + 1)])
     print(f"bridge {job['name']}: {stamped} columns stamped from x {sx} towards {'west' if dx < 0 else 'east'}, ends at x {end_x} (bank reached: {on_bank >= 3}), {chunks} chunks{' (dry)' if dry else ''}")
     return {"name": job["name"], "x": end_x + dx, "z": zc, "y": deck + 2, "side": "W" if dx < 0 else "E", "width": z1 - z0 - 4}
 
@@ -103,6 +114,7 @@ def viaduct(world, job, dry):
                     world.set(x, yy, z, "minecraft:gray_concrete"); yy -= 1
                 piers += 1
     files, chunks = world.save(dry)
+    save_mask(job["viaduct"], list(done))
     print(f"viaduct {job['viaduct']}: {int(L)} m, width {w}, deck y {deck}, {len(done)} columns, {piers} pier columns, {chunks} chunks{' (dry)' if dry else ''}")
 
 

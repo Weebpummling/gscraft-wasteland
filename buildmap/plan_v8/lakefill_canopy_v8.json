@@ -1,0 +1,20 @@
+[
+ {
+  "clear_over_water": "river_canopy",
+  "box": [
+   -1400,
+   -1850,
+   -600,
+   700
+  ]
+ },
+ {
+  "clear_over_water": "arm_canopy",
+  "box": [
+   -500,
+   -3200,
+   -100,
+   -3000
+  ]
+ }
+]

@@ -106,6 +106,49 @@ of shoulder, water, Skadowsky's own terrain. Render `v8_cell_pass5_inspect.png`;
 What remains as hard edges is not terrain: the paved edges of the city blocks (mega-base, plaza, Novo) and Skadowsky's
 quays on the river.
 
+### 2.8 Pass 6 - water fixes (owner: the land tongue on the lake with a bridge instead, the north-east stripes, the arm cut
+off from the lake, the river mouth, the trees over the Skadowsky river, the leftover land in it)
+
+- **Lake land tongue** (x -1030..-790, z -2350..-2060): a chunk-stepped flat at y 65 between the lake's two lobes, carrying
+  six farm tracks. The tracks were stripped (`unroad.py`), the tongue went back to the relief plan and a 190-230-wide strait
+  was carved through it (`river.py`, `rivers_strait_v8.json`), its remnants forming capes; the tracks now cross on a 308 m
+  track viaduct (`viaduct_lake_v8.json`, deck y 65, piers every 10) and were re-routed to its ends (`roads_v8_lake.json`).
+  Two detours on the way are recorded here because they cost time: a box-shaped fill and an "organic" refill both left
+  straight shorelines; the strait as a river job with the lake protected was the answer.
+- **North-east arm** (y 62): the chunk strip across its north shore and two 16-block square islands became water, the straight
+  north shore was given a wavy edge (`shoreline.py wobble`, 20 blocks), and the broken connection to the lake's north tip
+  became a 34-44-wide stream with five one-block rapids from the arm (62) down to the lake (57) (`rivers_arm_v8.json`).
+- **River mouth at the lake**: the two beach tongues went (`lakefill.py`), the junction is open water.
+- **Shorelines**: `shoreline.py naturalize` blurs the water mask (sigma 8-9) and re-thresholds it over the lake and the arm,
+  so chunk staircases become curves (about 6 k shore columns each way); the Pripyat cooling-pond's stone embankments are
+  builds and stay stepped.
+- **Trees in the river**: the river tool had counted any column with a tree as *built* (leaves and logs are not in the
+  terrain set) and skipped it, which is why a forest stood in the river through the wood south of Skadowsky and why the
+  first canopy clean-up found little. `river.column_built` now treats trees as landscape; the Skadowsky river and the arm
+  stream were re-carved (275 k channel columns) and the canopy over water cleared (`lakefill.py clear_over_water`).
+- **Leftover land in the Skadowsky river**: inside the protected map terrain, natural columns in the channel up to 12 blocks
+  above the water and without a stone/road top are carved (`cut_protected_natural`); quays, embankments and the town's
+  own highway bridge stay. A first version of the rule (any natural column) took that bridge as leftover land and carved it;
+  Skadowsky was re-integrated from the clean transplant and the bridge re-stamped. Bridges now write protect masks
+  (`bridge_<name>_mask.npz`) that `smoothcliffs.py` and the river tools honour.
+- Second round on the same points after the render: the strait's rounded ends had cut circular bays into the lobes'
+  shallow margins (the shoreline blur had turned those margins to land first), so the strait was re-carved with its
+  endpoints in open water; two straight leftover edges south-west of the strait were given wavy shores (`shoreline.py
+  wobble`); the remaining stone rocks and islets in Skadowsky's river go unless within 4 blocks of a build (the map's quays)
+  or 13+ above the water (the bridge deck); the square islands' shallow beds were deepened; the arm's rectangular notch got
+  a wavy west edge and the rectangular pond by the arm-to-lake stream went back to land.
+- Then `smoothcliffs.py` over the new shores and the whole cell again; render `v8_cell_pass6_inspect.png`; staged.
+
+### 2.9 Hosted server (2026-09-05, owner: "upload the current map onto the server, and restart the server with enemies
+turned off; gameplay is worked on locally, scripting on the server only when finalised")
+
+`tools/deploy_v8.py` (upload-pack, upload-world, swap, status) drives `bisectpanel.py`. Uploaded: `/wasteland-v8` (level.dat,
+region, entities, data without the local map items, serverconfig, the worldgen and lcfix datapacks - not the gameplay
+datapack), `/mods_20260905` (the 2026-09-05 set, Superb Warfare 0.8.8), `/config_20260905`, `/defaultconfigs_20260905`,
+`server.properties.v8` (peaceful, spawn-monsters=false, level-name wasteland-v8, survival). Swap: mods/config/defaultconfigs
+folders renamed, `/kubejs` moved aside as `/kubejs_off_20260905` (no scripts), properties swapped, start. Forge on the host
+stays 47.4.10 (every mod's range accepts it). Result recorded in HANDOFF §1.
+
 ## 3. Open
 
 - Step 8 is done for this pass: every sector's gates are connected, the river is bridged, quays end at the water.

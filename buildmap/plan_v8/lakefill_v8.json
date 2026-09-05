@@ -1,0 +1,74 @@
+[
+ {
+  "fill": "lake_land_bridge",
+  "box": [
+   -1030,
+   -2350,
+   -790,
+   -2060
+  ],
+  "level": 57,
+  "depth": 6,
+  "round": 14,
+  "clear_built": true,
+  "note": "chunk-stepped land tongue between the lake's lobes carrying a bundle of farm tracks; becomes lake, the tracks get a bridge"
+ },
+ {
+  "fill": "arm_north_strip",
+  "box": [
+   -125,
+   -3392,
+   40,
+   -3358
+  ],
+  "level": 62,
+  "depth": 5,
+  "round": 6
+ },
+ {
+  "fill": "arm_island_1",
+  "box": [
+   -386,
+   -3382,
+   -364,
+   -3360
+  ],
+  "level": 62,
+  "depth": 5,
+  "round": 4
+ },
+ {
+  "fill": "arm_island_2",
+  "box": [
+   -340,
+   -3265,
+   -318,
+   -3243
+  ],
+  "level": 62,
+  "depth": 5,
+  "round": 4
+ },
+ {
+  "fill": "river_mouth",
+  "box": [
+   -775,
+   -1805,
+   -655,
+   -1690
+  ],
+  "level": 57,
+  "depth": 5,
+  "round": 16,
+  "note": "leftover bank tongues where the region's river meets the lake"
+ },
+ {
+  "clear_over_water": "river_canopy",
+  "box": [
+   -1400,
+   -1850,
+   -600,
+   700
+  ]
+ }
+]

@@ -10,8 +10,8 @@
   "start_x": -1089,
   "dx": -1,
   "pier_every": 12,
-  "max_len": 200,
-  "abutment": 60,
+  "max_len": 149,
+  "abutment": 200,
   "water_y": 53,
   "note": "the source map's highway viaduct ended at the map edge (x -1088); its far bank is now the widened river's west bank; the deck profile continues 60 columns onto the west bank as the highway at grade (step 8 continues it)"
  }

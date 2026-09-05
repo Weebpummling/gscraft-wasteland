@@ -264,6 +264,14 @@ gscraft_tower_lock_native.js` (the lock), `gscraft_projectiles.js` (projectile s
 
 ## 6. Deploying a world build to the hosted server (hand-run; this is how v6 went up)
 
+**v8 (2026-09-05): `python tools/deploy_v8.py plan | upload | swap | status`** wraps the whole recipe below for the v8 world
+(`server/wasteland-v8`), the 2026-09-05 mod set and configs, `build/phase03/server.properties.v8` (peaceful, no monster
+spawns - owner: enemies off while gameplay is worked on locally) and moves `/kubejs` aside (scripting off until final).
+Forge stays 47.4.10 on the host for now. Run `upload` while the old server runs, then `swap`, then `status` after two minutes.
+Note (2026-09-05): the v8 world's `level.dat` inherited the Pripyat source's **superflat** generator; it was replaced by the
+v7 level.dat's settings (noise generator, seed 2404991234066556536, Forge/mod data) with LevelName wasteland-v8 and the v8
+spawn (-2555, 72, -2539). The superflat copies are kept as `level.dat.superflat.bak` beside both worlds.
+
 The working-machine assistant is not permitted to run panel calls that change the hosted server (the
 auto-mode permission classifier blocks them, uploads included), so this is run by a person from
 PowerShell in `tools/` with `~/.bisect/config.json` in place. `W` = `G:/GSCraft/server/wasteland-v6` (for v7: `G:/GSCraft/scratch/worlds/wasteland-v7-final`, folder `/wasteland-v7`, properties `B/phase03/server.properties.v7`, and the datapacks now include `gscraft_worldgen` and `gscraft_lcfix` — mirror all three),

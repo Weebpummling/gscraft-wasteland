@@ -1,0 +1,65 @@
+[
+ {
+  "name": "lake_strait",
+  "points": [
+   [
+    -1165,
+    -2335
+   ],
+   [
+    -1075,
+    -2290
+   ],
+   [
+    -980,
+    -2235
+   ],
+   [
+    -890,
+    -2170
+   ],
+   [
+    -800,
+    -2125
+   ],
+   [
+    -745,
+    -2100
+   ],
+   [
+    -685,
+    -2068
+   ]
+  ],
+  "width": [
+   230,
+   260
+  ],
+  "levels": [
+   [
+    0.0,
+    57
+   ]
+  ],
+  "depth": 6,
+  "meander": {
+   "amp": 12,
+   "wavelength": 200,
+   "amp2": 4,
+   "wavelength2": 70,
+   "seed": 13
+  },
+  "bank_slope": [
+   3.0,
+   5.0
+  ],
+  "lake_rect": [
+   -1350,
+   -2500,
+   -500,
+   -1900
+  ],
+  "mouth_t": 0.0,
+  "note": "the strait joining the lake's two lobes where the chunk-filled land tongue was; the tongue's remnants become capes"
+ }
+]

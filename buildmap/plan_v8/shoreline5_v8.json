@@ -1,0 +1,30 @@
+[
+ {
+  "wobble": "strait_L_west",
+  "box": [
+   -1030,
+   -2128,
+   -996,
+   -2058
+  ],
+  "water": "W",
+  "level": 57,
+  "amp": 18,
+  "wavelength": 40,
+  "depth": 5
+ },
+ {
+  "wobble": "strait_L_south",
+  "box": [
+   -1030,
+   -2092,
+   -972,
+   -2058
+  ],
+  "water": "S",
+  "level": 57,
+  "amp": 18,
+  "wavelength": 40,
+  "depth": 5
+ }
+]

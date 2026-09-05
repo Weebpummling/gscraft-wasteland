@@ -1,0 +1,17 @@
+[
+ {
+  "viaduct": "lake_tracks",
+  "a": [
+   -925,
+   -2358
+  ],
+  "b": [
+   -885,
+   -2052
+  ],
+  "width": 5,
+  "deck_y": 65,
+  "pier_every": 10,
+  "note": "the farm-track bundle's crossing between the lake's lobes, on a bridge instead of the filled land tongue"
+ }
+]

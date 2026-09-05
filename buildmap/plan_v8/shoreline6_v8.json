@@ -1,0 +1,16 @@
+[
+ {
+  "wobble": "arm_notch_west",
+  "box": [
+   -192,
+   -3396,
+   -158,
+   -3356
+  ],
+  "water": "E",
+  "level": 62,
+  "amp": 16,
+  "wavelength": 40,
+  "depth": 4
+ }
+]

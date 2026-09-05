@@ -1,0 +1,75 @@
+[
+ {
+  "naturalize": "lake_shores",
+  "box": [
+   -1700,
+   -3200,
+   400,
+   -900
+  ],
+  "sigma": 5,
+  "protect": "integrate_skad_mask.npz",
+  "note": "chunk staircases along the big lake's shore become curves"
+ },
+ {
+  "naturalize": "arm_shores",
+  "box": [
+   -1100,
+   -3900,
+   1200,
+   -2900
+  ],
+  "sigma": 5
+ },
+ {
+  "organic": "lake_land_bridge",
+  "box": [
+   -1030,
+   -2350,
+   -790,
+   -2060
+  ],
+  "level": 57,
+  "depth": 6,
+  "keep_water_from": "v8_cell_pass5_inspect.npz",
+  "erode": 24,
+  "amp": 14,
+  "wavelength": 60,
+  "note": "the filled land tongue: the natural lake plus an organic blob instead of a box"
+ },
+ {
+  "wobble": "arm_north_strip_shore",
+  "box": [
+   -125,
+   -3396,
+   170,
+   -3376
+  ],
+  "water": "S",
+  "level": 62,
+  "amp": 12,
+  "wavelength": 50
+ },
+ {
+  "square": "arm_island_1",
+  "box": [
+   -388,
+   -3384,
+   -362,
+   -3358
+  ],
+  "level": 62,
+  "depth": 5
+ },
+ {
+  "square": "arm_island_2",
+  "box": [
+   -342,
+   -3267,
+   -316,
+   -3241
+  ],
+  "level": 62,
+  "depth": 5
+ }
+]

@@ -23,7 +23,7 @@ def present():
 
 def main():
     have = present()
-    todo = [p for p in sorted(REL.glob("*.zip")) if have.get(p.name) != p.stat().st_size]
+    todo = [p for p in sorted(x for pat in ("*.zip", "*.jar", "*.mrpack", "*.cmd") for x in REL.glob(pat)) if have.get(p.name) != p.stat().st_size]
     print(f"{len(have)} assets on the release; {len(todo)} to upload", flush=True)
     for p in todo:
         t = time.time()
@@ -33,7 +33,7 @@ def main():
         if not ok:
             print("    ", (r.stderr or r.stdout).strip()[-300:], flush=True)
     have = present()
-    missing = [p.name for p in REL.glob("*.zip") if have.get(p.name) != p.stat().st_size]
+    missing = [p.name for pat in ("*.zip", "*.jar", "*.mrpack", "*.cmd") for p in REL.glob(pat) if have.get(p.name) != p.stat().st_size]
     print(f"assets on release: {len(have)}; still missing: {missing}", flush=True)
 
 

@@ -1,0 +1,47 @@
+[
+ {
+  "naturalize": "lake_shores",
+  "box": [
+   -1700,
+   -3200,
+   400,
+   -900
+  ],
+  "sigma": 9,
+  "protect": "integrate_skad_mask.npz"
+ },
+ {
+  "naturalize": "arm_shores",
+  "box": [
+   -1100,
+   -3900,
+   1200,
+   -2900
+  ],
+  "sigma": 8
+ },
+ {
+  "square": "arm_strip_west",
+  "box": [
+   -150,
+   -3392,
+   -120,
+   -3345
+  ],
+  "level": 62,
+  "depth": 5
+ },
+ {
+  "wobble": "arm_north_shore",
+  "box": [
+   -160,
+   -3425,
+   170,
+   -3392
+  ],
+  "water": "S",
+  "level": 62,
+  "amp": 20,
+  "wavelength": 60
+ }
+]

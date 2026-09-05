@@ -1,0 +1,23 @@
+[
+ {
+  "square": "strait_L_block",
+  "box": [
+   -1052,
+   -2135,
+   -972,
+   -2052
+  ],
+  "level": 57,
+  "depth": 6
+ },
+ {
+  "naturalize": "strait_rings",
+  "box": [
+   -1320,
+   -2620,
+   -480,
+   -1880
+  ],
+  "sigma": 9
+ }
+]

@@ -125,6 +125,7 @@
   ],
   "mouth_t": 0.0,
   "cut_roads": true,
-  "note": "the region's main river (Skadowsky's west water, y 53): drains the lake (y 57, four rapids in the first 200 m), runs along the sector's west edge (its own straight-cut water becomes the east half of the channel), then south out of the cell at z 700. Roads on the line are cut: bridge sites for step 8."
+  "note": "the region's main river (Skadowsky's west water, y 53): drains the lake (y 57, four rapids in the first 200 m), runs along the sector's west edge (its own straight-cut water becomes the east half of the channel), then south out of the cell at z 700. Roads on the line are cut: bridge sites for step 8.",
+  "cut_protected_natural": true
  }
 ]
