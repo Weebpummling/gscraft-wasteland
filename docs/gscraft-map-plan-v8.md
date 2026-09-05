@@ -66,7 +66,7 @@ steeper than 1:8 and the town and plant edges never see a wall.
 | Fixed | town (x -3700..-1850, z -3700..-1450), plant (x -1100..1120, z -350..1870), the rail yard and every road | 65 | as built |
 | Water | lake, river, channels | 62, banks 65 | as built; the Woods stream added |
 
-**Border options** (owner decision):
+**Border: A chosen (owner, 2026-09-04).** The options were:
 - **A: 5.1 x 4.6 km, everything in place** - x -3900..1200, z -3900..700. Town, lake, river, plant and rail yard exactly
   where the pack has them. Longest trip (town centre to plant) 4.3 km.
 - **B: 4.2 x 4.2 km, plant moved** - x -3900..300, z -3900..300, the plant complex transplanted 900 blocks north-west
