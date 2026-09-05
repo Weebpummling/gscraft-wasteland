@@ -1,0 +1,16 @@
+{
+  "enableEntityBlockDestruction": false,
+  "enablePlayerVehicleBlockDestruction": true,
+  "nonDestructiveBlocks": "minecraft:bedrock,minecraft:structure_void,minecraft:structure_block",
+  "nonDropBlocks": "minecraft:stone,minecraft:grass_block,minecraft:dirt,minecraft:gravel",
+  "enableHudHealthBar": true,
+  "consumeBlocksWhenPlacing": true,
+  "dropItemsWhenDestroyBlock": false,
+  "enablePartsLevelCompatibility": true,
+  "survivalModeEnabled": false,
+  "debugModeEnabled": false,
+  "forceThirdPersonViewWhenRidingMech": true,
+  "targetLockNonPomkotsMobs": true,
+  "targetLockPlayers": true,
+  "targetLockPomkotsVehicles": true
+}

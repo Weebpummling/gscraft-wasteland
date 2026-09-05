@@ -77,7 +77,8 @@ class Chunk:
     def set(self, x, y, z, name, props=None):
         s = self.secs.get(y >> 4)
         if not s:
-            return False  # section absent (above/below world or empty) - not created here
+            s = self._create_section(y >> 4)     # an empty section (no block_states) is created on demand
+            if not s: return False
         sec, names, pal, idx, _ = s
         key = (name, tuple(sorted((props or {}).items())))
         for i, p in enumerate(pal):
@@ -94,6 +95,19 @@ class Chunk:
         if hm is not None and name not in AIR and hm[(z << 4) | x] < y + 1:
             hm[(z << 4) | x] = y + 1          # keep the scan hint valid after raising ground
         return True
+
+    def _create_section(self, sy):
+        """Give a missing or empty section (within -4..19) block_states so blocks can be placed in it."""
+        if sy < -4 or sy > 19: return None
+        lst = self.root.setdefault("sections", (T_LIST, (T_COMPOUND, [])))[1][1]
+        sec = next((s for s in lst if s["Y"][1] == sy), None)
+        if sec is None:
+            sec = {"Y": (T_BYTE, sy), "biomes": (T_COMPOUND, {"palette": (T_LIST, (T_STRING, ["minecraft:plains"]))})}
+            lst.append(sec); lst.sort(key=lambda s: s["Y"][1])
+        air = {"Name": (T_STRING, "minecraft:air")}
+        sec["block_states"] = (T_COMPOUND, {"palette": (T_LIST, (T_COMPOUND, [air]))})
+        self.secs[sy] = [sec, ["minecraft:air"], [air], [0] * 4096, False]
+        return self.secs[sy]
 
     def _heightmap(self):
         """MOTION_BLOCKING heightmap decoded to 256 heights (top non-air y + 1), or None."""

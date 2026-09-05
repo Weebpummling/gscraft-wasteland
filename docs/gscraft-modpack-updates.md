@@ -36,6 +36,9 @@ does applying the updates affect the server.
 
 ## 2. Recommendation
 
+**Applied 2026-09-05 on the local server - see `gscraft-modpack-update-applied-2026-09-05.md` for what went in, what was held
+(Superb Warfare) and the conflict review.**
+
 Do not update the live v6 server piecemeal. Bundle: take class A, Forge 47.4.23 and Lost Cities 7.5.4 with the v8
 release (one client refresh), test-boot on the local server (5 server + 2 startup scripts, the benign error set, one
 play session), then decide class B one mod at a time with its design work: Superb Warfare after the vehicle roster and

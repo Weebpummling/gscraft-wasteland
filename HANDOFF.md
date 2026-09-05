@@ -112,7 +112,14 @@ rewards (W-M1, W-B3, X6), never tier unlocks - crafting §2.1, quests draft 2.
 "Pripyat After the Accident" world (1.16.5 -> 1.20.1 by `upgrade112.py`, `scratch/upgrade/pripyat_after/world`), border A
 x -3900..1200 z -3900..700, relief authored from zones (`heightplan.py`) and applied by whole-column shifts (`applyheight.py`),
 40 transplants placed by the art-pass placer (`place_sectors.py` -> `buildmap/plan_v8/sectors_v8.json`,
-`plan_v8.py` -> `transplant_plan_v8.json`, `runplan.py` with block-exact shifts), edges graded (`grade_v8.py`, dirt/grass).
+`plan_v8.py` -> `transplant_plan_v8.json`, `runplan.py` with block-exact shifts), edges graded (`grade_v8.py`, dirt/grass). Pass 3
+(2026-09-05): `integrate.py` rebuilds a sector footprint keeping only the build's own columns on the restored landscape
+(hub, Skadowsky done; mega/indu/settle pending), `river.py` v2 carves the meandering stepped river to the lake, and
+`anvil.py` `Chunk.set` creates empty sections on demand (an old silent block-loss bug). Renders in `incoming/census/`
+(`v8_cell_pass3_inspect.png`). Plan `docs/gscraft-map-plan-v8.md` §5.
+Mod pack (2026-09-05): the local server runs Forge 47.4.23 with 17 updated jars (Superb Warfare held at 0.8.8 by its
+add-ons' exact pins); boot clean; conflict review clean (`tools/modcheck.py`); `docs/gscraft-modpack-update-applied-2026-09-05.md`.
+The hosted server still runs 47.4.10 with the old jars - it moves with the v8 release (hand-run, §6).
 Build world `scratch/worlds/v8-build`; staged copy `server/wasteland-v8` with `server.properties.v8visual`. The owner's
 fly-through is the review; steps 6-9 of the plan (clean-up, road hooks in the Skadowsky vocabulary, Lost Cities modules
 inside city zones, props) follow. The second Pripyat pack (1.21.8 town centre) is the detail donor, remap `remap121.json`.

@@ -1,8 +1,0 @@
-name = "The-Hordes-1.20.1-1.5.4c"
-filename = "The-Hordes-1.20.1-1.5.4c.jar"
-side = "both"
-
-[download]
-url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files-2026-09-04/The-Hordes-1.20.1-1.5.4c.jar"
-hash-format = "sha512"
-hash = "4452d5534033ab29307a3d86b5679470ddfd1a8a98630e999831912382f43687f80c55be43205c10bf0269ad4d42a5a80a05b1b80302cc8e425ff56fc9480490"

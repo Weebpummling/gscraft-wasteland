@@ -164,7 +164,35 @@ Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700
   `tools/river.py` carves a 22-wide channel from the sector's river mouth (-1011, -1356) north-east to the lake at
   (-713, -1726), bed 3 under the water, banks 1:3 (`buildmap/plan_v8/rivers_v8.json`); the sector's south outlet at
   (-1045, -745) is left as a stream end for now.
-- Next: re-stage, render, the owner's second look; then step 7-8 (connectors) once the sectors are signed off.
+- Pass 3 (2026-09-05, after the owner's second look: "the water and river system looks unnatural, grass chunks, weird
+  patches", "the desert city looks like a cut and paste job - the city is what I want preserved, the surrounding terrain can
+  be discarded"):
+  - `tools/integrate.py` (new): a sector footprint is rebuilt column by column from a *fresh* transplant
+    (`buildmap/plan_v8/transplant_plan_v8_fresh.json` -> `scratch/worlds/fresh_sectors`) and the spine world with the relief
+    applied. Only the build's own columns are kept (hub: man-made blocks in the top 9, specks under 60 columns dropped,
+    courtyards closed r 10, apron 3, the source map's east border fence dropped, every kept component lifted so its floor
+    meets the land, dy -11..+5; Skadowsky: the map's own terrain above y 40 in components of 2000+ columns plus the
+    man-made columns standing on it - the y 38 plate the map was built on and the template displays parked on it go).
+    Everything else inside the footprint and every open column in a 48-block margin becomes the local landscape again; a
+    band (32/40 blocks) bends the land to the build's floor with low-frequency noise; other sectors' footprints and any
+    man-made column in the margin are never touched. Hub: 43 k columns kept of 532 k; Skadowsky: 226 k kept of 349 k
+    (the sector had been sitting on its 27-block-deep plate, which is what the 40-block edge terraces were blending to).
+  - `tools/river.py` rewritten: meandering centre line (18/220 + 7/90 sine offsets, ends pinned), width 16-26, water
+    stepping 53 -> 57 in four 1-block rapids from the Skadowsky river (its surface is y 53 at the map edge) up to the lake,
+    smoothstep banks 1:2.5-1:4.5 varying per side, sand/gravel beach, noise, the natural land taken from the relief plan
+    (so the first carve's flat 65 corridor went back to the 69-70 relief), the old straight channel's corridor restored,
+    the lake and the kept Skadowsky columns protected, the channel allowed to cut its mouth through the map's rim
+    (`mouth_t`). Shore jobs grade the Skadowsky river's west bank outside the footprint (the map ends in a straight cliff
+    there) down to the water over 36 blocks. `buildmap/plan_v8/rivers_v8.json`.
+  - `tools/anvil.py`: `Chunk.set` now creates a missing/empty section on demand. Before this every World-based tool
+    silently lost blocks placed into an empty 16-block section (a bank filled to y 66 through an empty section 4 ended as
+    dirt at y 63) - the source of several "dirt patches" in pass 2.
+  - Renders: `incoming/census/v8_cell_pass3_inspect.png` (full cell, hillshaded), `v8_pass3_hub.png`,
+    `v8_pass3_skadowsky_river.png`, and the per-sector `integrate_<id>_preview.png` / `_mask.npz` (the kept mask, used by
+    river.py as its protect layer).
+  - Not done yet with the same tool: the mega-base, industrial district and settlement footprints still carry their own
+    imported ground slabs (visible as squares in the full render); `integrate.py` takes a new SECTORS entry per sector.
+- Next: the owner's WorldPainter look at `scratch/worlds/v8-build`; then step 7-8 (connectors) once the sectors are signed off.
 
 ## 7-8. Road hooks (prepared 2026-09-05, not built)
 

@@ -1,0 +1,13 @@
+name = "the_knocker-1.5.2-forge-1.20.1"
+filename = "the_knocker-1.5.2-forge-1.20.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/hTju2zcV/versions/WDUdi6LI/the_knocker-1.5.2-forge-1.20.1.jar"
+hash-format = "sha512"
+hash = "11d48b3258977e0c76bd5a98af0ec4c95b9cee3405c029f4e895c62f4499ff3f9a2710848035794ea275d8790e021955d0329e866955d9c15588098ade05cca6"
+
+[update]
+[update.modrinth]
+mod-id = "hTju2zcV"
+version = "WDUdi6LI"

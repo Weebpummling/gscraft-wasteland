@@ -1,0 +1,5732 @@
+{
+ "installed": {
+  "forge": "47.4.23",
+  "minecraft": "1.20.1",
+  "aiimprovements": "0.5.2",
+  "almanac": "1.0.2",
+  "antiblocksrechiseled": "0.4.8",
+  "apotheosis": "7.4.8",
+  "attributeslib": "1.3.7",
+  "appleskin": "2.5.1+mc1.20.1",
+  "architectury": "9.2.14",
+  "athena": "3.1.2",
+  "atlaslib": "1.1.12",
+  "azurelib": "3.1.12",
+  "mixinextras": "0.4.1",
+  "bettercombat": "1.9.0+1.20.1",
+  "bisecthosting": "1.20-1.0.6",
+  "canary": "0.3.3",
+  "chaoszprojectbandits": "1.0.0",
+  "chipped": "3.0.7",
+  "chisel": "2.0.0+mc1.20.1",
+  "chunksending": "1.20.1-2.8",
+  "chunky": "1.3.146",
+  "cloth_config": "11.1.136",
+  "coroutil": "1.20.1-1.3.7",
+  "create": "6.0.8",
+  "ponder": "1.0.91",
+  "flywheel": "1.0.5",
+  "createbigcannons": "5.11.4",
+  "creativecore": "2.12.39",
+  "cryonicconfig": "1.0.0+mc1.20.1",
+  "cupboard": "1.20.1-2.7",
+  "curios": "5.14.1+1.20.1",
+  "customstartinggear": "2.0.3",
+  "doomsday_decoration": "1.0.0",
+  "dynview": "2.3",
+  "emi": "1.1.24+1.20.1+forge",
+  "eyesinthedarkness": "1.3.10",
+  "factory_blocks": "1.4.0+mc1.20.1",
+  "farmersdelight": "1.20.1-1.3.4",
+  "fastfurnace": "8.0.2",
+  "fastsuite": "5.1.0",
+  "fastbench": "8.0.4",
+  "ferritecore": "6.0.1",
+  "flashlight": "2.1.0-forge-1.20.1",
+  "framework": "0.7.15",
+  "ftbchunks": "2001.3.8",
+  "ftblibrary": "2001.2.13",
+  "ftbquests": "2001.4.22",
+  "ftbteams": "2001.3.2",
+  "geckolib": "4.8.4",
+  "getittogetherdrops": "1.3",
+  "guardvillagers": "1.20.1-1.6.19",
+  "hostilevillages": "1.20.1-5.7",
+  "mts": "24.0.0",
+  "immersive_weathering": "1.20.1-2.0.5",
+  "immersiveengineering": "1.20.1-10.2.0-183",
+  "improvedmobs": "1.20.1-1.13.7",
+  "incontrol": "1.20-9.5.0",
+  "itemfilters": "2001.1.0-build.59",
+  "keerdm_zombie_essentials": "1.4",
+  "kubejs": "2001.6.5-build.26",
+  "leavesbegone": "8.0.0",
+  "leawind_third_person": "2.1.0",
+  "letmedespawn": "1.5.0",
+  "longnbtkiller": "1.0.0",
+  "lootr": "0.7.35.94",
+  "lostcities": "1.20-7.5.4",
+  "magnumtorch": "8.0.2",
+  "mcsp": "1.0.8",
+  "mob_factions": "1.0.0",
+  "modernfix": "5.27.83+mc1.20.1",
+  "moonlight": "1.20-2.16.34",
+  "mtsofficialpack": "29",
+  "oamp": "3",
+  "parcool": "3.4.2.0",
+  "patchouli": "1.20.1-85-FORGE",
+  "pillagers_gun": "3.1.0",
+  "pingwheel": "1.12.1",
+  "placebo": "8.6.3",
+  "playeranimator": "1.0.2-rc1+1.20",
+  "playerrevive": "2.0.31",
+  "pomkotsmechs": "0.0.1-alpha.8",
+  "puzzleslib": "8.1.33",
+  "puzzlesaccessapi": "20.1.1",
+  "recipeessentials": "1.20.1-4.0",
+  "recruits": "1.15.2",
+  "refurbished_furniture": "1.0.20",
+  "resourcefullib": "2.1.29",
+  "rhino": "2001.2.3-build.10",
+  "ritchiesprojectilelib": "2.1.1",
+  "sedparties": "2.0-beta-p.7.1",
+  "sophisticatedbackpacks": "3.24.67.2109",
+  "sophisticatedcore": "1.3.84.2308",
+  "spark": "1.10.53",
+  "superbwarfare": "0.8.8",
+  "tacz": "1.1.8-hotfix",
+  "simplebedrockmodel": "2.2.2-forge+mc1.20.1",
+  "tacz_fire_control_extension": "1.1.3+mc1.20.1+tacz1.1.4",
+  "gunsmithlib": "2.0.0+mc1.20.1+tacz1.1.4",
+  "tenshilib": "1.20.1-1.7.6",
+  "hordes": "1.6.3g",
+  "man": "1.4",
+  "the_knocker": "1.5.2",
+  "underground_bunkers": "1.0.5",
+  "voicechat": "1.20.1-2.6.23",
+  "voicechat_api": "2.6.20",
+  "vvp": "0.2.0",
+  "waterframes": "2.1.22",
+  "worldedit": "7.2.15+6463-5ca4dff",
+  "xaerominimap": "26.4.2",
+  "xaerolib": "1.7.1",
+  "xaeroworldmap": "1.45.0",
+  "zombieawareness": "1.20.1-1.13.1"
+ },
+ "providers": {
+  "aiimprovements": [
+   [
+    "AI-Improvements-1.20-0.5.2.jar",
+    "0.5.2"
+   ]
+  ],
+  "almanac": [
+   [
+    "almanac-1.20.x-forge-1.0.2.jar",
+    "1.0.2"
+   ]
+  ],
+  "antiblocksrechiseled": [
+   [
+    "antiblocksrechiseled-0.4.8.jar",
+    "0.4.8"
+   ]
+  ],
+  "apotheosis": [
+   [
+    "Apotheosis-1.20.1-7.4.8.jar",
+    "7.4.8"
+   ]
+  ],
+  "attributeslib": [
+   [
+    "ApothicAttributes-1.20.1-1.3.7.jar",
+    "1.3.7"
+   ]
+  ],
+  "appleskin": [
+   [
+    "appleskin-forge-mc1.20.1-2.5.1.jar",
+    "2.5.1+mc1.20.1"
+   ]
+  ],
+  "architectury": [
+   [
+    "architectury-9.2.14-forge.jar",
+    "9.2.14"
+   ]
+  ],
+  "athena": [
+   [
+    "athena-forge-1.20.1-3.1.2.jar",
+    "3.1.2"
+   ]
+  ],
+  "atlaslib": [
+   [
+    "Atlas Lib-1.20.1-1.1.12.jar",
+    "1.1.12"
+   ]
+  ],
+  "azurelib": [
+   [
+    "azurelib-neo-1.20.1-3.1.12.jar",
+    "3.1.12"
+   ]
+  ],
+  "mixinextras": [
+   [
+    "azurelib-neo-1.20.1-3.1.12.jar :: mixinextras-forge-0.4.1.jar",
+    "0.4.1"
+   ],
+   [
+    "create-1.20.1-6.0.8.jar :: mixinextras-forge-0.4.1.jar",
+    "0.4.1"
+   ],
+   [
+    "FarmersDelight-1.20.1-1.3.4.jar :: mixinextras-forge-0.3.6.jar",
+    "0.3.6"
+   ],
+   [
+    "modernfix-forge-5.27.83+mc1.20.1.jar :: mixinextras-forge-0.4.1.jar",
+    "0.4.1"
+   ],
+   [
+    "PuzzlesLib-v8.1.33-1.20.1-Forge.jar :: mixinextras-forge-0.4.1.jar",
+    "0.4.1"
+   ],
+   [
+    "tacz-1.20.1-1.1.8-hotfix.jar :: mixinextras-forge-0.3.6.jar",
+    "0.3.6"
+   ],
+   [
+    "The-Hordes-1.20.1-1.6.3g.jar :: mixinextras-forge-0.3.5.jar",
+    "0.3.5"
+   ]
+  ],
+  "bettercombat": [
+   [
+    "bettercombat-forge-1.9.0+1.20.1.jar",
+    "1.9.0+1.20.1"
+   ]
+  ],
+  "bisecthosting": [
+   [
+    "BHStats_Forge_1.20+.jar",
+    "1.20-1.0.6"
+   ]
+  ],
+  "canary": [
+   [
+    "canary-mc1.20.1-0.3.3.jar",
+    "0.3.3"
+   ]
+  ],
+  "chaoszprojectbandits": [
+   [
+    "chaoszproject-bandits-1.0.0-1.20.1.jar",
+    "1.0.0"
+   ]
+  ],
+  "chipped": [
+   [
+    "chipped-forge-1.20.1-3.0.7.jar",
+    "3.0.7"
+   ]
+  ],
+  "chisel": [
+   [
+    "chisel-forge-2.0.0+mc1.20.1.jar",
+    "2.0.0+mc1.20.1"
+   ]
+  ],
+  "chunksending": [
+   [
+    "chunksending-1.20.1-2.8.jar",
+    "1.20.1-2.8"
+   ]
+  ],
+  "chunky": [
+   [
+    "Chunky-1.3.146.jar",
+    "1.3.146"
+   ]
+  ],
+  "cloth_config": [
+   [
+    "cloth-config-11.1.136-forge.jar",
+    "11.1.136"
+   ]
+  ],
+  "coroutil": [
+   [
+    "coroutil-forge-1.20.1-1.3.7.jar",
+    "1.20.1-1.3.7"
+   ]
+  ],
+  "create": [
+   [
+    "create-1.20.1-6.0.8.jar",
+    "6.0.8"
+   ]
+  ],
+  "ponder": [
+   [
+    "create-1.20.1-6.0.8.jar :: Ponder-Forge-1.20.1-1.0.91.jar",
+    "1.0.91"
+   ]
+  ],
+  "flywheel": [
+   [
+    "create-1.20.1-6.0.8.jar :: flywheel-forge-1.20.1-1.0.5.jar",
+    "1.0.5"
+   ]
+  ],
+  "createbigcannons": [
+   [
+    "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "5.11.4"
+   ]
+  ],
+  "creativecore": [
+   [
+    "CreativeCore_FORGE_v2.12.39_mc1.20.1.jar",
+    "2.12.39"
+   ]
+  ],
+  "cryonicconfig": [
+   [
+    "cryonicconfig-forge-1.0.0+mc1.20.1.jar",
+    "1.0.0+mc1.20.1"
+   ]
+  ],
+  "cupboard": [
+   [
+    "cupboard-1.20.1-2.7.jar",
+    "1.20.1-2.7"
+   ]
+  ],
+  "curios": [
+   [
+    "curios-forge-5.14.1+1.20.1.jar",
+    "5.14.1+1.20.1"
+   ]
+  ],
+  "customstartinggear": [
+   [
+    "CustomStartingGear-1.20-2.0.3.jar",
+    "2.0.3"
+   ]
+  ],
+  "doomsday_decoration": [
+   [
+    "doomsday_decoration-1.1.3-forge-1.20.1.jar",
+    "1.0.0"
+   ]
+  ],
+  "dynview": [
+   [
+    "dynview-1.20.1-4.0.jar",
+    "2.3"
+   ]
+  ],
+  "emi": [
+   [
+    "emi-1.1.24+1.20.1+forge.jar",
+    "1.1.24+1.20.1+forge"
+   ]
+  ],
+  "eyesinthedarkness": [
+   [
+    "EyesInTheDarkness-1.20.1-1.3.10.jar",
+    "1.3.10"
+   ]
+  ],
+  "factory_blocks": [
+   [
+    "factory_blocks-forge-1.4.0+mc1.20.1.jar",
+    "1.4.0+mc1.20.1"
+   ]
+  ],
+  "farmersdelight": [
+   [
+    "FarmersDelight-1.20.1-1.3.4.jar",
+    "1.20.1-1.3.4"
+   ]
+  ],
+  "fastfurnace": [
+   [
+    "FastFurnace-1.20.1-8.0.2.jar",
+    "8.0.2"
+   ]
+  ],
+  "fastsuite": [
+   [
+    "FastSuite-1.20.1-5.1.0.jar",
+    "5.1.0"
+   ]
+  ],
+  "fastbench": [
+   [
+    "FastWorkbench-1.20.1-8.0.4.jar",
+    "8.0.4"
+   ]
+  ],
+  "ferritecore": [
+   [
+    "ferritecore-6.0.1-forge.jar",
+    "6.0.1"
+   ]
+  ],
+  "flashlight": [
+   [
+    "flashlight-2.1.0-forge-1.20.1.jar",
+    "2.1.0-forge-1.20.1"
+   ]
+  ],
+  "framework": [
+   [
+    "framework-forge-1.20.1-0.7.15.jar",
+    "0.7.15"
+   ]
+  ],
+  "ftbchunks": [
+   [
+    "ftb-chunks-forge-2001.3.8.jar",
+    "2001.3.8"
+   ]
+  ],
+  "ftblibrary": [
+   [
+    "ftb-library-forge-2001.2.13.jar",
+    "2001.2.13"
+   ]
+  ],
+  "ftbquests": [
+   [
+    "ftb-quests-forge-2001.4.22.jar",
+    "2001.4.22"
+   ]
+  ],
+  "ftbteams": [
+   [
+    "ftb-teams-forge-2001.3.2.jar",
+    "2001.3.2"
+   ]
+  ],
+  "geckolib": [
+   [
+    "geckolib-forge-1.20.1-4.8.4.jar",
+    "4.8.4"
+   ]
+  ],
+  "getittogetherdrops": [
+   [
+    "getittogetherdrops-forge-1.20-1.3.jar",
+    "1.3"
+   ]
+  ],
+  "guardvillagers": [
+   [
+    "guardvillagers-1.20.1-1.6.19.jar",
+    "1.20.1-1.6.19"
+   ]
+  ],
+  "hostilevillages": [
+   [
+    "hostilevillages-1.20.1-5.7.jar",
+    "1.20.1-5.7"
+   ]
+  ],
+  "mts": [
+   [
+    "Immersive Vehicles-1.20.1-24.0.0.jar",
+    "24.0.0"
+   ]
+  ],
+  "immersive_weathering": [
+   [
+    "immersive_weathering-1.20.1-2.0.5-forge.jar",
+    "1.20.1-2.0.5"
+   ]
+  ],
+  "immersiveengineering": [
+   [
+    "ImmersiveEngineering-1.20.1-10.2.0-183.jar",
+    "1.20.1-10.2.0-183"
+   ]
+  ],
+  "improvedmobs": [
+   [
+    "improvedmobs-1.20.1-1.13.7-forge.jar",
+    "1.20.1-1.13.7"
+   ]
+  ],
+  "incontrol": [
+   [
+    "incontrol-1.20-9.5.0.jar",
+    "1.20-9.5.0"
+   ]
+  ],
+  "itemfilters": [
+   [
+    "item-filters-forge-2001.1.0-build.59.jar",
+    "2001.1.0-build.59"
+   ]
+  ],
+  "keerdm_zombie_essentials": [
+   [
+    "Keerdm Zombie Apocalypse Essentials (TACZ) 1.41.jar",
+    "1.4"
+   ]
+  ],
+  "kubejs": [
+   [
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "2001.6.5-build.26"
+   ]
+  ],
+  "leavesbegone": [
+   [
+    "LeavesBeGone-v8.0.0-1.20.1-Forge.jar",
+    "8.0.0"
+   ]
+  ],
+  "leawind_third_person": [
+   [
+    "leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+    "2.1.0"
+   ]
+  ],
+  "letmedespawn": [
+   [
+    "letmedespawn-1.20.x-forge-1.5.0.jar",
+    "1.5.0"
+   ]
+  ],
+  "longnbtkiller": [
+   [
+    "LongNbtKiller-Forge-1.20.1-1.0.0.jar",
+    "1.0.0"
+   ]
+  ],
+  "lootr": [
+   [
+    "lootr-forge-1.20-0.7.35.94.jar",
+    "0.7.35.94"
+   ]
+  ],
+  "lostcities": [
+   [
+    "lostcities-1.20-7.5.4.jar",
+    "1.20-7.5.4"
+   ]
+  ],
+  "magnumtorch": [
+   [
+    "MagnumTorch-v8.0.2-1.20.1-Forge.jar",
+    "8.0.2"
+   ]
+  ],
+  "mcsp": [
+   [
+    "MCSP-1.20.1-V1.0.8.jar",
+    "1.0.8"
+   ]
+  ],
+  "mob_factions": [
+   [
+    "mob_factions-1.0.0-forge-1.20.1.jar",
+    "1.0.0"
+   ]
+  ],
+  "modernfix": [
+   [
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "5.27.83+mc1.20.1"
+   ]
+  ],
+  "moonlight": [
+   [
+    "moonlight-1.20-2.16.34-forge.jar",
+    "1.20-2.16.34"
+   ]
+  ],
+  "mtsofficialpack": [
+   [
+    "MTS Official Pack-1.20.1-V29.jar",
+    "29"
+   ]
+  ],
+  "oamp": [
+   [
+    "OAmP-1.20.1-V3.jar",
+    "3"
+   ]
+  ],
+  "parcool": [
+   [
+    "ParCool-1.20.1-3.4.2.0.jar",
+    "3.4.2.0"
+   ]
+  ],
+  "patchouli": [
+   [
+    "Patchouli-1.20.1-85-FORGE.jar",
+    "1.20.1-85-FORGE"
+   ]
+  ],
+  "pillagers_gun": [
+   [
+    "Pillagers Gun-1.20.1-forge-3.1.0.jar",
+    "3.1.0"
+   ]
+  ],
+  "pingwheel": [
+   [
+    "Ping-Wheel-1.12.1-forge-1.20.1.jar",
+    "1.12.1"
+   ]
+  ],
+  "placebo": [
+   [
+    "Placebo-1.20.1-8.6.3.jar",
+    "8.6.3"
+   ]
+  ],
+  "playeranimator": [
+   [
+    "player-animation-lib-forge-1.0.2-rc1+1.20.jar",
+    "1.0.2-rc1+1.20"
+   ]
+  ],
+  "playerrevive": [
+   [
+    "PlayerRevive_FORGE_v2.0.31_mc1.20.1.jar",
+    "2.0.31"
+   ]
+  ],
+  "pomkotsmechs": [
+   [
+    "pomkotsmechs-forge-0.0.1-alpha.8.jar",
+    "0.0.1-alpha.8"
+   ]
+  ],
+  "puzzleslib": [
+   [
+    "PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
+    "8.1.33"
+   ]
+  ],
+  "puzzlesaccessapi": [
+   [
+    "PuzzlesLib-v8.1.33-1.20.1-Forge.jar :: puzzlesaccessapi-forge-20.1.1.jar",
+    "20.1.1"
+   ]
+  ],
+  "recipeessentials": [
+   [
+    "recipeessentials-1.20.1-4.0.jar",
+    "1.20.1-4.0"
+   ]
+  ],
+  "recruits": [
+   [
+    "recruits-1.20.1-1.15.2.jar",
+    "1.15.2"
+   ]
+  ],
+  "refurbished_furniture": [
+   [
+    "refurbished_furniture-forge-1.20.1-1.0.20.jar",
+    "1.0.20"
+   ]
+  ],
+  "resourcefullib": [
+   [
+    "resourcefullib-forge-1.20.1-2.1.29.jar",
+    "2.1.29"
+   ]
+  ],
+  "rhino": [
+   [
+    "rhino-forge-2001.2.3-build.10.jar",
+    "2001.2.3-build.10"
+   ]
+  ],
+  "ritchiesprojectilelib": [
+   [
+    "ritchiesprojectilelib-2.1.1+mc.1.20.1-forge.jar",
+    "2.1.1"
+   ]
+  ],
+  "sedparties": [
+   [
+    "sedparties-1.20.1-2.0-beta-p.7.1.jar",
+    "2.0-beta-p.7.1"
+   ]
+  ],
+  "sophisticatedbackpacks": [
+   [
+    "sophisticatedbackpacks-1.20.1-3.24.67.2109.jar",
+    "3.24.67.2109"
+   ]
+  ],
+  "sophisticatedcore": [
+   [
+    "sophisticatedcore-1.20.1-1.3.84.2308.jar",
+    "1.3.84.2308"
+   ]
+  ],
+  "spark": [
+   [
+    "spark-1.10.53-forge.jar",
+    "1.10.53"
+   ]
+  ],
+  "superbwarfare": [
+   [
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar",
+    "0.8.8"
+   ]
+  ],
+  "tacz": [
+   [
+    "tacz-1.20.1-1.1.8-hotfix.jar",
+    "1.1.8-hotfix"
+   ]
+  ],
+  "simplebedrockmodel": [
+   [
+    "tacz-1.20.1-1.1.8-hotfix.jar :: simplebedrockmodel-2.2.2-forge+mc1.20.1.jar",
+    "2.2.2-forge+mc1.20.1"
+   ]
+  ],
+  "tacz_fire_control_extension": [
+   [
+    "tacz_fire_control_extension-1.1.3+mc1.20.1+tacz1.1.4.jar",
+    "1.1.3+mc1.20.1+tacz1.1.4"
+   ]
+  ],
+  "gunsmithlib": [
+   [
+    "tacz_fire_control_extension-1.1.3+mc1.20.1+tacz1.1.4.jar :: gunsmithlib-2.0.0+mc1.20.1+tacz1.1.4.jar",
+    "2.0.0+mc1.20.1+tacz1.1.4"
+   ]
+  ],
+  "tenshilib": [
+   [
+    "tenshilib-1.20.1-1.7.6-forge.jar",
+    "1.20.1-1.7.6"
+   ]
+  ],
+  "hordes": [
+   [
+    "The-Hordes-1.20.1-1.6.3g.jar",
+    "1.6.3g"
+   ]
+  ],
+  "man": [
+   [
+    "The-Man-From-The-Fog-1.4-1.20.1.jar",
+    "1.4"
+   ]
+  ],
+  "the_knocker": [
+   [
+    "the_knocker-1.5.2-forge-1.20.1.jar",
+    "1.5.2"
+   ]
+  ],
+  "underground_bunkers": [
+   [
+    "UndergroundBunkers-1.0.5-1.20.x-forge.jar",
+    "1.0.5"
+   ]
+  ],
+  "voicechat": [
+   [
+    "voicechat-forge-1.20.1-2.6.23.jar",
+    "1.20.1-2.6.23"
+   ]
+  ],
+  "voicechat_api": [
+   [
+    "voicechat-forge-1.20.1-2.6.23.jar",
+    "2.6.20"
+   ]
+  ],
+  "vvp": [
+   [
+    "vvp-alpha-1.20.1-0.2.0.jar",
+    "0.2.0"
+   ]
+  ],
+  "waterframes": [
+   [
+    "waterframes-FORGE-mc1.20.1-v2.1.22.jar",
+    "2.1.22"
+   ]
+  ],
+  "worldedit": [
+   [
+    "worldedit-mod-7.2.15.jar",
+    "7.2.15+6463-5ca4dff"
+   ]
+  ],
+  "xaerominimap": [
+   [
+    "xaerominimap-forge-1.20.1-26.4.2.jar",
+    "26.4.2"
+   ]
+  ],
+  "xaerolib": [
+   [
+    "xaerominimap-forge-1.20.1-26.4.2.jar :: xaerolib-forge-1.20.1-1.7.1.jar",
+    "1.7.1"
+   ],
+   [
+    "xaeroworldmap-forge-1.20.1-1.45.0.jar :: xaerolib-forge-1.20.1-1.7.1.jar",
+    "1.7.1"
+   ]
+  ],
+  "xaeroworldmap": [
+   [
+    "xaeroworldmap-forge-1.20.1-1.45.0.jar",
+    "1.45.0"
+   ]
+  ],
+  "zombieawareness": [
+   [
+    "zombieawareness-1.20.1-1.13.1.jar",
+    "1.20.1-1.13.1"
+   ]
+  ]
+ },
+ "problems": [],
+ "unparsed": [],
+ "hot": [
+  [
+   "LivingEntity",
+   [
+    "Apotheosis-1.20.1-7.4.8.jar",
+    "ApothicAttributes-1.20.1-1.3.7.jar",
+    "ParCool-1.20.1-3.4.2.0.jar",
+    "bettercombat-forge-1.9.0+1.20.1.jar",
+    "canary-mc1.20.1-0.3.3.jar",
+    "create-1.20.1-6.0.8.jar",
+    "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "improvedmobs-1.20.1-1.13.7-forge.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "pomkotsmechs-forge-0.0.1-alpha.8.jar",
+    "recruits-1.20.1-1.15.2.jar",
+    "refurbished_furniture-forge-1.20.1-1.0.20.jar",
+    "sedparties-1.20.1-2.0-beta-p.7.1.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar",
+    "tacz-1.20.1-1.1.8-hotfix.jar",
+    "tenshilib-1.20.1-1.7.6-forge.jar"
+   ]
+  ],
+  [
+   "Entity",
+   [
+    "ApothicAttributes-1.20.1-1.3.7.jar",
+    "Immersive Vehicles-1.20.1-24.0.0.jar",
+    "ParCool-1.20.1-3.4.2.0.jar",
+    "almanac-1.20.x-forge-1.0.2.jar",
+    "canary-mc1.20.1-0.3.3.jar",
+    "create-1.20.1-6.0.8.jar",
+    "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "improvedmobs-1.20.1-1.13.7-forge.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "moonlight-1.20-2.16.34-forge.jar",
+    "refurbished_furniture-forge-1.20.1-1.0.20.jar",
+    "sedparties-1.20.1-2.0-beta-p.7.1.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar"
+   ]
+  ],
+  [
+   "ItemStack",
+   [
+    "Apotheosis-1.20.1-7.4.8.jar",
+    "ApothicAttributes-1.20.1-1.3.7.jar",
+    "FastSuite-1.20.1-5.1.0.jar",
+    "Placebo-1.20.1-8.6.3.jar",
+    "bettercombat-forge-1.9.0+1.20.1.jar",
+    "canary-mc1.20.1-0.3.3.jar",
+    "emi-1.1.24+1.20.1+forge.jar",
+    "item-filters-forge-2001.1.0-build.59.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "recipeessentials-1.20.1-4.0.jar"
+   ]
+  ],
+  [
+   "Player",
+   [
+    "ApothicAttributes-1.20.1-1.3.7.jar",
+    "ParCool-1.20.1-3.4.2.0.jar",
+    "PlayerRevive_FORGE_v2.0.31_mc1.20.1.jar",
+    "create-1.20.1-6.0.8.jar",
+    "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "pomkotsmechs-forge-0.0.1-alpha.8.jar",
+    "sedparties-1.20.1-2.0-beta-p.7.1.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar",
+    "tenshilib-1.20.1-1.7.6-forge.jar"
+   ]
+  ],
+  [
+   "Minecraft",
+   [
+    "Immersive Vehicles-1.20.1-24.0.0.jar",
+    "PlayerRevive_FORGE_v2.0.31_mc1.20.1.jar",
+    "azurelib-neo-1.20.1-3.1.12.jar",
+    "leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "moonlight-1.20-2.16.34-forge.jar",
+    "sedparties-1.20.1-2.0-beta-p.7.1.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar",
+    "tenshilib-1.20.1-1.7.6-forge.jar",
+    "waterframes-FORGE-mc1.20.1-v2.1.22.jar"
+   ]
+  ],
+  [
+   "ServerLevel",
+   [
+    "LeavesBeGone-v8.0.0-1.20.1-Forge.jar",
+    "canary-mc1.20.1-0.3.3.jar",
+    "create-1.20.1-6.0.8.jar",
+    "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "immersive_weathering-1.20.1-2.0.5-forge.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "moonlight-1.20-2.16.34-forge.jar",
+    "refurbished_furniture-forge-1.20.1-1.0.20.jar"
+   ]
+  ],
+  [
+   "LevelRenderer",
+   [
+    "Immersive Vehicles-1.20.1-24.0.0.jar",
+    "ImmersiveEngineering-1.20.1-10.2.0-183.jar",
+    "create-1.20.1-6.0.8.jar",
+    "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+    "player-animation-lib-forge-1.0.2-rc1+1.20.jar",
+    "pomkotsmechs-forge-0.0.1-alpha.8.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar"
+   ]
+  ],
+  [
+   "ClientPacketListener",
+   [
+    "ApothicAttributes-1.20.1-1.3.7.jar",
+    "FastSuite-1.20.1-5.1.0.jar",
+    "ftb-chunks-forge-2001.3.8.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "moonlight-1.20-2.16.34-forge.jar",
+    "recipeessentials-1.20.1-4.0.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar"
+   ]
+  ],
+  [
+   "Mob",
+   [
+    "canary-mc1.20.1-0.3.3.jar",
+    "improvedmobs-1.20.1-1.13.7-forge.jar",
+    "letmedespawn-1.20.x-forge-1.5.0.jar",
+    "recruits-1.20.1-1.15.2.jar",
+    "sedparties-1.20.1-2.0-beta-p.7.1.jar",
+    "sophisticatedbackpacks-1.20.1-3.24.67.2109.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar"
+   ]
+  ],
+  [
+   "Camera",
+   [
+    "Immersive Vehicles-1.20.1-24.0.0.jar",
+    "create-1.20.1-6.0.8.jar",
+    "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+    "player-animation-lib-forge-1.0.2-rc1+1.20.jar",
+    "pomkotsmechs-forge-0.0.1-alpha.8.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar"
+   ]
+  ],
+  [
+   "LivingEntityRenderer",
+   [
+    "Immersive Vehicles-1.20.1-24.0.0.jar",
+    "Pillagers Gun-1.20.1-forge-3.1.0.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "player-animation-lib-forge-1.0.2-rc1+1.20.jar",
+    "pomkotsmechs-forge-0.0.1-alpha.8.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar",
+    "tenshilib-1.20.1-1.7.6-forge.jar"
+   ]
+  ],
+  [
+   "Gui",
+   [
+    "Apotheosis-1.20.1-7.4.8.jar",
+    "create-1.20.1-6.0.8.jar",
+    "ftb-chunks-forge-2001.3.8.jar",
+    "leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+    "pomkotsmechs-forge-0.0.1-alpha.8.jar",
+    "sedparties-1.20.1-2.0-beta-p.7.1.jar"
+   ]
+  ],
+  [
+   "GameRenderer",
+   [
+    "create-1.20.1-6.0.8.jar",
+    "leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "moonlight-1.20-2.16.34-forge.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar",
+    "tacz-1.20.1-1.1.8-hotfix.jar"
+   ]
+  ],
+  [
+   "PlayerRenderer",
+   [
+    "ParCool-1.20.1-3.4.2.0.jar",
+    "Pillagers Gun-1.20.1-forge-3.1.0.jar",
+    "create-1.20.1-6.0.8.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "player-animation-lib-forge-1.0.2-rc1+1.20.jar",
+    "pomkotsmechs-forge-0.0.1-alpha.8.jar"
+   ]
+  ],
+  [
+   "ServerPlayer",
+   [
+    "PlayerRevive_FORGE_v2.0.31_mc1.20.1.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "moonlight-1.20-2.16.34-forge.jar",
+    "sedparties-1.20.1-2.0-beta-p.7.1.jar",
+    "tacz-1.20.1-1.1.8-hotfix.jar"
+   ]
+  ],
+  [
+   "LocalPlayer",
+   [
+    "ParCool-1.20.1-3.4.2.0.jar",
+    "PlayerRevive_FORGE_v2.0.31_mc1.20.1.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+    "pomkotsmechs-forge-0.0.1-alpha.8.jar",
+    "tacz-1.20.1-1.1.8-hotfix.jar"
+   ]
+  ],
+  [
+   "Block",
+   [
+    "Apotheosis-1.20.1-7.4.8.jar",
+    "PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
+    "canary-mc1.20.1-0.3.3.jar",
+    "create-1.20.1-6.0.8.jar",
+    "kubejs-forge-2001.6.5-build.26.jar"
+   ]
+  ],
+  [
+   "Item",
+   [
+    "Apotheosis-1.20.1-7.4.8.jar",
+    "ftb-library-forge-2001.2.13.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+    "moonlight-1.20-2.16.34-forge.jar"
+   ]
+  ],
+  [
+   "LevelChunk",
+   [
+    "LeavesBeGone-v8.0.0-1.20.1-Forge.jar",
+    "canary-mc1.20.1-0.3.3.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "moonlight-1.20-2.16.34-forge.jar",
+    "refurbished_furniture-forge-1.20.1-1.0.20.jar"
+   ]
+  ],
+  [
+   "Biome",
+   [
+    "Immersive Vehicles-1.20.1-24.0.0.jar",
+    "canary-mc1.20.1-0.3.3.jar",
+    "ftb-chunks-forge-2001.3.8.jar",
+    "immersive_weathering-1.20.1-2.0.5-forge.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar"
+   ]
+  ],
+  [
+   "ClientLevel",
+   [
+    "canary-mc1.20.1-0.3.3.jar",
+    "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+    "recruits-1.20.1-1.15.2.jar"
+   ]
+  ],
+  [
+   "MouseHandler",
+   [
+    "CreativeCore_FORGE_v2.12.39_mc1.20.1.jar",
+    "create-1.20.1-6.0.8.jar",
+    "leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar",
+    "tacz-1.20.1-1.1.8-hotfix.jar"
+   ]
+  ],
+  [
+   "EntityRenderDispatcher",
+   [
+    "MCSP-1.20.1-V1.0.8.jar",
+    "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "player-animation-lib-forge-1.0.2-rc1+1.20.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar",
+    "tenshilib-1.20.1-1.7.6-forge.jar"
+   ]
+  ],
+  [
+   "BlockStateBase",
+   [
+    "canary-mc1.20.1-0.3.3.jar",
+    "ferritecore-6.0.1-forge.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar"
+   ]
+  ],
+  [
+   "Level",
+   [
+    "canary-mc1.20.1-0.3.3.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "refurbished_furniture-forge-1.20.1-1.0.20.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar"
+   ]
+  ],
+  [
+   "HumanoidModel",
+   [
+    "Immersive Vehicles-1.20.1-24.0.0.jar",
+    "create-1.20.1-6.0.8.jar",
+    "tacz-1.20.1-1.1.8-hotfix.jar",
+    "tenshilib-1.20.1-1.7.6-forge.jar"
+   ]
+  ],
+  [
+   "Screen",
+   [
+    "emi-1.1.24+1.20.1+forge.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "refurbished_furniture-forge-1.20.1-1.0.20.jar",
+    "tenshilib-1.20.1-1.7.6-forge.jar"
+   ]
+  ],
+  [
+   "RecipeManager",
+   [
+    "FarmersDelight-1.20.1-1.3.4.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "recipeessentials-1.20.1-4.0.jar"
+   ]
+  ],
+  [
+   "MinecraftServer",
+   [
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "moonlight-1.20-2.16.34-forge.jar",
+    "waterframes-FORGE-mc1.20.1-v2.1.22.jar"
+   ]
+  ],
+  [
+   "ReloadableServerResources",
+   [
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "moonlight-1.20-2.16.34-forge.jar",
+    "recipeessentials-1.20.1-4.0.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar"
+   ]
+  ],
+  [
+   "ItemInHandRenderer",
+   [
+    "moonlight-1.20-2.16.34-forge.jar",
+    "player-animation-lib-forge-1.0.2-rc1+1.20.jar",
+    "tacz-1.20.1-1.1.8-hotfix.jar",
+    "tenshilib-1.20.1-1.7.6-forge.jar"
+   ]
+  ],
+  [
+   "PlayerModel",
+   [
+    "ParCool-1.20.1-3.4.2.0.jar",
+    "player-animation-lib-forge-1.0.2-rc1+1.20.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar",
+    "tacz-1.20.1-1.1.8-hotfix.jar"
+   ]
+  ],
+  [
+   "MixinServerPlayer",
+   [
+    "The-Hordes-1.20.1-1.6.3g.jar",
+    "worldedit-mod-7.2.15.jar",
+    "xaerominimap-forge-1.20.1-26.4.2.jar",
+    "xaeroworldmap-forge-1.20.1-1.45.0.jar"
+   ]
+  ],
+  [
+   "ModelBakery",
+   [
+    "PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
+    "athena-forge-1.20.1-3.1.2.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar"
+   ]
+  ],
+  [
+   "PlayerList",
+   [
+    "azurelib-neo-1.20.1-3.1.12.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar"
+   ]
+  ],
+  [
+   "PlayerEntity",
+   [
+    "bettercombat-forge-1.9.0+1.20.1.jar",
+    "player-animation-lib-forge-1.0.2-rc1+1.20.jar",
+    "pomkotsmechs-forge-0.0.1-alpha.8.jar"
+   ]
+  ],
+  [
+   "MinecraftClient",
+   [
+    "bettercombat-forge-1.9.0+1.20.1.jar",
+    "emi-1.1.24+1.20.1+forge.jar",
+    "kubejs-forge-2001.6.5-build.26.jar"
+   ]
+  ],
+  [
+   "WalkNodeEvaluator",
+   [
+    "canary-mc1.20.1-0.3.3.jar",
+    "improvedmobs-1.20.1-1.13.7-forge.jar",
+    "recruits-1.20.1-1.15.2.jar"
+   ]
+  ],
+  [
+   "StateHolder",
+   [
+    "canary-mc1.20.1-0.3.3.jar",
+    "create-1.20.1-6.0.8.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar"
+   ]
+  ],
+  [
+   "PalettedContainer",
+   [
+    "canary-mc1.20.1-0.3.3.jar",
+    "ferritecore-6.0.1-forge.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar"
+   ]
+  ],
+  [
+   "ChunkHolder",
+   [
+    "canary-mc1.20.1-0.3.3.jar",
+    "chunksending-1.20.1-2.8.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar"
+   ]
+  ],
+  [
+   "ServerEntity",
+   [
+    "canary-mc1.20.1-0.3.3.jar",
+    "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "ritchiesprojectilelib-2.1.1+mc.1.20.1-forge.jar"
+   ]
+  ],
+  [
+   "ArmorStand",
+   [
+    "canary-mc1.20.1-0.3.3.jar",
+    "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "ftb-chunks-forge-2001.3.8.jar"
+   ]
+  ],
+  [
+   "Explosion",
+   [
+    "canary-mc1.20.1-0.3.3.jar",
+    "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar"
+   ]
+  ],
+  [
+   "BlockItem",
+   [
+    "PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
+    "create-1.20.1-6.0.8.jar",
+    "moonlight-1.20-2.16.34-forge.jar"
+   ]
+  ],
+  [
+   "CropBlock",
+   [
+    "create-1.20.1-6.0.8.jar",
+    "immersive_weathering-1.20.1-2.0.5-forge.jar",
+    "kubejs-forge-2001.6.5-build.26.jar"
+   ]
+  ],
+  [
+   "ItemRenderer",
+   [
+    "emi-1.1.24+1.20.1+forge.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar",
+    "pomkotsmechs-forge-0.0.1-alpha.8.jar"
+   ]
+  ],
+  [
+   "Util",
+   [
+    "ftb-chunks-forge-2001.3.8.jar",
+    "kubejs-forge-2001.6.5-build.26.jar",
+    "modernfix-forge-5.27.83+mc1.20.1.jar"
+   ]
+  ],
+  [
+   "Villager",
+   [
+    "guardvillagers-1.20.1-1.6.19.jar",
+    "moonlight-1.20-2.16.34-forge.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar"
+   ]
+  ],
+  [
+   "ItemInHandLayer",
+   [
+    "Pillagers Gun-1.20.1-forge-3.1.0.jar",
+    "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar",
+    "tacz-1.20.1-1.1.8-hotfix.jar"
+   ]
+  ],
+  [
+   "MixinMinecraftServer",
+   [
+    "worldedit-mod-7.2.15.jar",
+    "xaerominimap-forge-1.20.1-26.4.2.jar",
+    "xaeroworldmap-forge-1.20.1-1.45.0.jar"
+   ]
+  ]
+ ],
+ "infos": [
+  {
+   "jar": "AI-Improvements-1.20-0.5.2.jar",
+   "mods": [
+    {
+     "modId": "aiimprovements",
+     "version": "0.5.2",
+     "displayName": "AI-Improvements",
+     "description": "''Small adjustments and improvements to AI logic focusing on optimizations for increased server performance''"
+    }
+   ],
+   "deps": {
+    "aiimprovements": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "almanac-1.20.x-forge-1.0.2.jar",
+   "mods": [
+    {
+     "modId": "almanac",
+     "version": "1.0.2",
+     "displayName": "Almanac",
+     "authors": "frikinjay",
+     "description": "'",
+     "logoFile": "almanac.png"
+    }
+   ],
+   "deps": {
+    "almanac": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "SERVER"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "SERVER"
+     }
+    ]
+   },
+   "mixins": [
+    "almanac.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "antiblocksrechiseled-0.4.8.jar",
+   "mods": [
+    {
+     "modId": "antiblocksrechiseled",
+     "version": "0.4.8",
+     "displayName": "AntiBlocksReChiseled",
+     "updateJSONURL": "https://raw.githubusercontent.com/manmaed/AntiBlocksReChiseled/main/update.json",
+     "authors": "manmaed",
+     "logoFile": "abrc.logo.png",
+     "description": "''Readds The AnitBlocks From Chsiel''"
+    }
+   ],
+   "deps": {
+    "antiblocksrechiseled": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.3.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "Apotheosis-1.20.1-7.4.8.jar",
+   "mods": [
+    {
+     "modId": "apotheosis",
+     "version": "7.4.8",
+     "displayName": "Apotheosis",
+     "description": "''All things that should have been''"
+    }
+   ],
+   "deps": {
+    "apotheosis": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "placebo",
+      "mandatory": true,
+      "versionRange": "[8.6.2,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "attributeslib",
+      "mandatory": true,
+      "versionRange": "[1.3.5,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "apotheosis.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "ApothicAttributes-1.20.1-1.3.7.jar",
+   "mods": [
+    {
+     "modId": "attributeslib",
+     "version": "1.3.7",
+     "displayName": "Apothic Attributes",
+     "description": "''A library mod providing Attributes and related things.''"
+    }
+   ],
+   "deps": {
+    "attributeslib": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "placebo",
+      "mandatory": true,
+      "versionRange": "[8.6.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "attributeslib.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "appleskin-forge-mc1.20.1-2.5.1.jar",
+   "mods": [
+    {
+     "modId": "appleskin",
+     "version": "2.5.1+mc1.20.1",
+     "displayName": "AppleSkin",
+     "displayURL": "https://github.com/squeek502/AppleSkin",
+     "logoFile": "appleskin.png",
+     "authors": "squeek",
+     "description": "Adds various food-related HUD improvements"
+    }
+   ],
+   "deps": {
+    "appleskin": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.0.12,)",
+      "ordering": "AFTER",
+      "side": "CLIENT"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "architectury-9.2.14-forge.jar",
+   "mods": [
+    {
+     "modId": "architectury",
+     "version": "9.2.14",
+     "displayName": "Architectury",
+     "authors": "shedaniel",
+     "description": "'",
+     "logoFile": "icon.png",
+     "license": "LGPL-3"
+    }
+   ],
+   "deps": {
+    "architectury": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "architectury.mixins.json",
+    "architectury-common.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "athena-forge-1.20.1-3.1.2.jar",
+   "mods": [
+    {
+     "modId": "athena",
+     "version": "3.1.2",
+     "displayName": "Athena",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/athena",
+     "logoFile": "icon.png",
+     "authors": "ThatGravyBoat",
+     "credits": "",
+     "description": "Crossplatform Baked Model Loader"
+    }
+   ],
+   "deps": {
+    "athena": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "athena.mixins.json",
+    "athena-forge.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "Atlas Lib-1.20.1-1.1.12.jar",
+   "mods": [
+    {
+     "modId": "atlaslib",
+     "version": "1.1.12",
+     "displayName": "Atlas Lib",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/atlas-lib",
+     "updateJSONURL": "https://raw.githubusercontent.com/SmileycorpMC/Atlas-Lib/1.20/update.json",
+     "credits": "Smileycorp",
+     "authors": "Smileycorp",
+     "description": ""
+    }
+   ],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "azurelib-neo-1.20.1-3.1.12.jar",
+   "mods": [
+    {
+     "modId": "azurelib",
+     "version": "3.1.12",
+     "displayName": "AzureLib",
+     "displayURL": "https://modrinth.com/mod/azurelib",
+     "logoFile": "azurelib.png",
+     "credits": "AzureDoom, Bvanseg, DerToaster, ZigyTheBird, Gecko, Eliot, Chappie, Tslat",
+     "authors": "AzureDoom, Bvanseg, DerToaster, ZigyTheBird, Gecko, Eliot, Chappie, Tslat",
+     "description": "''Java Minecraft mod using Bedrock models to create custom models and animations for items, blocks, entities''"
+    }
+   ],
+   "deps": {
+    "azurelib": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1, 1.20.2)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "azurelib.mixins.json",
+    "azurelib.forge.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "azurelib-neo-1.20.1-3.1.12.jar :: mixinextras-forge-0.4.1.jar",
+   "mods": [
+    {
+     "modId": "mixinextras",
+     "version": "0.4.1",
+     "displayName": "MixinExtras",
+     "description": "'",
+     "authors": "LlamaLad7",
+     "displayURL": "https://github.com/LlamaLad7/MixinExtras",
+     "displayTest": "IGNORE_SERVER_VERSION"
+    }
+   ],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "bettercombat-forge-1.9.0+1.20.1.jar",
+   "mods": [
+    {
+     "logoFile": "logo.png",
+     "modId": "bettercombat",
+     "version": "1.9.0+1.20.1",
+     "displayName": "Better Combat",
+     "credits": "KosmX, Gecko, LukeGrahamLandry",
+     "authors": "Daedelus",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "bettercombat": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "playeranimator",
+      "mandatory": true,
+      "versionRange": "[1,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "cloth_config",
+      "mandatory": true,
+      "versionRange": "[11.0.0,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "bettercombat.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "BHStats_Forge_1.20+.jar",
+   "mods": [
+    {
+     "modId": "bisecthosting",
+     "version": "1.20-1.0.6",
+     "displayName": "BisectHosting",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "bisecthosting": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "canary-mc1.20.1-0.3.3.jar",
+   "mods": [
+    {
+     "modId": "canary",
+     "version": "0.3.3",
+     "displayName": "Canary",
+     "updateJSONURL": "https://github.com/AbdElAziz333/Canary/raw/mc1.19.2/dev/updates.json",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/canary",
+     "logoFile": "logo.png",
+     "credits": "AbdlElAziz, Jellysquid, 2No2Name",
+     "authors": "AbdElAziz",
+     "displayTest": "MATCH_VERSION",
+     "description": "''A performance mod designed to optimize Minecraft's general performance and unofficial fork of Lithium mod for Minecraft Forge.''"
+    }
+   ],
+   "deps": {
+    "canary": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "canary.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "chaoszproject-bandits-1.0.0-1.20.1.jar",
+   "mods": [
+    {
+     "modId": "chaoszprojectbandits",
+     "version": "1.0.0",
+     "displayName": "ChaosZProject: Bandits!",
+     "authors": "ChaosCraft",
+     "description": "This Mod was Created for the ChaosZProject Modpack"
+    }
+   ],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "chipped-forge-1.20.1-3.0.7.jar",
+   "mods": [
+    {
+     "modId": "chipped",
+     "version": "3.0.7",
+     "displayName": "Chipped",
+     "displayURL": "https://modrinth.com/mod/chipped",
+     "logoFile": "icon.png",
+     "authors": "Alex Nijjar, Grimbop, Kekie6, ThatGravyBoat",
+     "credits": "CodexAdrian, Facu, Marc-IceBlade, MsRandom",
+     "description": "Every block needs a friend!"
+    }
+   ],
+   "deps": {
+    "chipped": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "resourcefullib",
+      "mandatory": true,
+      "versionRange": "[2.1.20,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "athena",
+      "mandatory": true,
+      "versionRange": "[3.1.1,)",
+      "ordering": "NONE",
+      "side": "CLIENT"
+     },
+     {
+      "modId": "jei",
+      "mandatory": false,
+      "versionRange": "[15.20.0,)",
+      "ordering": "NONE",
+      "side": "CLIENT"
+     }
+    ]
+   },
+   "mixins": [
+    "chipped-common.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "chisel-forge-2.0.0+mc1.20.1.jar",
+   "mods": [
+    {
+     "modId": "chisel",
+     "version": "2.0.0+mc1.20.1",
+     "displayName": "Chisel Reborn",
+     "authors": "[\"Slaincow\", \"KnowYourKnot\", \"Original Creator: AUTOMATIC_MAIDEN\"]",
+     "description": "'",
+     "logoFile": "assets/chisel/icon.png"
+    }
+   ],
+   "deps": {
+    "chisel": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "architectury",
+      "mandatory": true,
+      "versionRange": "[9.1.12,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "cryonicconfig",
+      "mandatory": true,
+      "versionRange": "[0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "chisel.forge.mixins.json",
+    "chisel.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "chunksending-1.20.1-2.8.jar",
+   "mods": [
+    {
+     "modId": "chunksending",
+     "version": "1.20.1-2.8",
+     "displayName": "chunksending mod",
+     "logoFile": "examplemod.png",
+     "credits": "",
+     "authors": "Someaddon",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "chunksending": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[30,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.30)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "cupboard",
+      "mandatory": true,
+      "versionRange": "[1.20.1-1.5,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "chunksending.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "Chunky-1.3.146.jar",
+   "mods": [
+    {
+     "modId": "chunky",
+     "version": "1.3.146",
+     "displayName": "Chunky",
+     "displayURL": "https://github.com/pop4959/Chunky",
+     "logoFile": "icon.png",
+     "authors": "pop4959",
+     "description": "Pre-generates chunks, quickly, efficiently, and safely"
+    }
+   ],
+   "deps": {
+    "chunky": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "cloth-config-11.1.136-forge.jar",
+   "mods": [
+    {
+     "modId": "cloth_config",
+     "version": "11.1.136",
+     "displayName": "Cloth Config v10 API",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "cloth_config": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[45,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "coroutil-forge-1.20.1-1.3.7.jar",
+   "mods": [
+    {
+     "modId": "coroutil",
+     "version": "1.20.1-1.3.7",
+     "displayName": "CoroUtil",
+     "authors": "Corosus",
+     "description": "''It utils''"
+    }
+   ],
+   "deps": {
+    "coroutil": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "coroutil.mixins.json",
+    "coroutil_fabric.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "create-1.20.1-6.0.8.jar",
+   "mods": [
+    {
+     "modId": "create",
+     "version": "6.0.8",
+     "displayName": "Create",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/create",
+     "logoFile": "icon.png",
+     "authors": "simibubi",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "create": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1.3,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "flywheel",
+      "mandatory": true,
+      "versionRange": "[1.0.0,2.0)",
+      "ordering": "AFTER",
+      "side": "CLIENT"
+     },
+     {
+      "modId": "ponder",
+      "mandatory": true,
+      "versionRange": "[0.8,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "jei",
+      "mandatory": false,
+      "versionRange": "[15.19.0,)",
+      "ordering": "NONE",
+      "side": "CLIENT"
+     }
+    ]
+   },
+   "mixins": [
+    "create.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "create-1.20.1-6.0.8.jar :: Ponder-Forge-1.20.1-1.0.91.jar",
+   "mods": [
+    {
+     "modId": "ponder",
+     "version": "1.0.91",
+     "displayName": "Ponder",
+     "displayURL": "https://github.com/Creators-of-Create/Ponder",
+     "logoFile": "logo.png",
+     "authors": "simibubi, Pepper, zelophed",
+     "credits": "Special Thanks to IThundxr, Jozufozu, Snownee, gamez7, tterrag and Grimmauld",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "ponder": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1, 1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "flywheel",
+      "mandatory": true,
+      "versionRange": "[1.0.0,2.0)",
+      "ordering": "AFTER",
+      "side": "CLIENT"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "create-1.20.1-6.0.8.jar :: Registrate-MC1.20-1.3.3.jar",
+   "mods": [],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "create-1.20.1-6.0.8.jar :: flywheel-forge-1.20.1-1.0.5.jar",
+   "mods": [
+    {
+     "modId": "flywheel",
+     "version": "1.0.5",
+     "displayName": "Flywheel",
+     "description": "An overhauled entity and block entity rendering API.",
+     "logoFile": "logo.png",
+     "authors": "Jozufozu, PepperCode1",
+     "displayURL": "https://github.com/Engine-Room/Flywheel",
+     "displayTest": "IGNORE_ALL_VERSION"
+    }
+   ],
+   "deps": {
+    "flywheel": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,1.20.2)",
+      "side": "CLIENT"
+     },
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.0.0,)",
+      "side": "CLIENT"
+     },
+     {
+      "modId": "embeddium",
+      "mandatory": false,
+      "versionRange": "[0.3.25,)",
+      "side": "CLIENT"
+     },
+     {
+      "modId": "sodium",
+      "mandatory": false,
+      "versionRange": "[0.6.0-beta.2,)",
+      "side": "CLIENT"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "create-1.20.1-6.0.8.jar :: mixinextras-forge-0.4.1.jar",
+   "mods": [
+    {
+     "modId": "mixinextras",
+     "version": "0.4.1",
+     "displayName": "MixinExtras",
+     "description": "'",
+     "authors": "LlamaLad7",
+     "displayURL": "https://github.com/LlamaLad7/MixinExtras",
+     "displayTest": "IGNORE_SERVER_VERSION"
+    }
+   ],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "createbigcannons-5.11.4-mc.1.20.1-forge.jar",
+   "mods": [
+    {
+     "modId": "createbigcannons",
+     "version": "5.11.4",
+     "displayName": "Create Big Cannons",
+     "authors": "rbasamoyai",
+     "description": "Artillery engineering comes to Create",
+     "logoFile": "icon.png"
+    }
+   ],
+   "deps": {
+    "createbigcannons": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "create",
+      "mandatory": true,
+      "versionRange": "[6.0.7,6.1.0)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "ritchiesprojectilelib",
+      "mandatory": true,
+      "versionRange": "[2.1.1,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "copycats",
+      "mandatory": false,
+      "versionRange": "[3.0.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "framedblocks",
+      "mandatory": false,
+      "versionRange": "[9.0.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "curios",
+      "mandatory": false,
+      "versionRange": "[5.2.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "cbc_at",
+      "mandatory": false,
+      "versionRange": "[0.1.4,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "createbigcannons-common.mixins.json",
+    "createbigcannons.mixin",
+    "createbigcannons.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "CreativeCore_FORGE_v2.12.39_mc1.20.1.jar",
+   "mods": [
+    {
+     "modId": "creativecore",
+     "logoFile": "creativecore.png",
+     "version": "2.12.39",
+     "displayName": "CreativeCore",
+     "displayURL": "https://modrinth.com/mod/creativecore",
+     "authors": "CreativeMD",
+     "description": "''A simple but powerful coremod.''"
+    }
+   ],
+   "deps": {
+    "creativecore": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "creativecore.mixins.json",
+    "creativecore.forge.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "cryonicconfig-forge-1.0.0+mc1.20.1.jar",
+   "mods": [
+    {
+     "modId": "cryonicconfig",
+     "version": "1.0.0+mc1.20.1",
+     "displayName": "Cryonic Config",
+     "authors": "Slainlight",
+     "description": "'",
+     "logoFile": "assets/cryonicconfig/logo.png"
+    }
+   ],
+   "deps": {
+    "cryonicconfig": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "cryonicconfig.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "cupboard-1.20.1-2.7.jar",
+   "mods": [
+    {
+     "modId": "cupboard",
+     "version": "1.20.1-2.7",
+     "displayName": "Cupboard utilities",
+     "logoFile": "examplemod.png",
+     "credits": "",
+     "authors": "Someaddon",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "cupboard": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[30,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.19,1.30)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "cupboard.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "curios-forge-5.14.1+1.20.1.jar",
+   "mods": [
+    {
+     "modId": "curios",
+     "version": "5.14.1+1.20.1",
+     "displayName": "Curios API",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/curios",
+     "authors": "C4",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "curios": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "curios.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "CustomStartingGear-1.20-2.0.3.jar",
+   "mods": [
+    {
+     "modId": "customstartinggear",
+     "displayName": "Custom Starter Gear",
+     "version": "2.0.3",
+     "authors": "brandon3055",
+     "description": "''This is a very simple mod that allows you to control exactly what items players start with when they login for the first time.''"
+    }
+   ],
+   "deps": {
+    "customstartinggear": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "doomsday_decoration-1.1.3-forge-1.20.1.jar",
+   "mods": [
+    {
+     "modId": "doomsday_decoration",
+     "version": "1.0.0",
+     "displayName": "Doomsday Decoration",
+     "displayURL": "https://mcreator.net",
+     "credits": "Created using mod maker MCreator - https://mcreator.net/about",
+     "authors": "Administrator, MCreator"
+    }
+   ],
+   "deps": {
+    "doomsday_decoration": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "dynview-1.20.1-4.0.jar",
+   "mods": [
+    {
+     "modId": "dynview",
+     "version": "2.3",
+     "displayName": "Dynamic view distance",
+     "displayURL": "https://github.com/ldtteam/DynView/",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "dynview": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[28,)",
+      "ordering": "NONE",
+      "side": "SERVER"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.30]",
+      "ordering": "NONE",
+      "side": "SERVER"
+     }
+    ]
+   },
+   "mixins": [
+    "dynview.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "emi-1.1.24+1.20.1+forge.jar",
+   "mods": [
+    {
+     "modId": "emi",
+     "version": "1.1.24+1.20.1+forge",
+     "displayName": "EMI",
+     "authors": "Emi",
+     "description": "'",
+     "logoFile": "icon.png"
+    }
+   ],
+   "deps": {
+    "emi": [
+     {
+      "modId": "jei",
+      "mandatory": false,
+      "versionRange": "[15.20.0.0,)",
+      "ordering": "BEFORE",
+      "side": "CLIENT"
+     }
+    ]
+   },
+   "mixins": [
+    "emi.mixins.json",
+    "emi-forge.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "EyesInTheDarkness-1.20.1-1.3.10.jar",
+   "mods": [
+    {
+     "modId": "eyesinthedarkness",
+     "version": "1.3.10",
+     "displayName": "Eyes in the Darkness",
+     "authors": "gigaherz",
+     "description": "'",
+     "displayURL": "https://github.com/gigaherz/EyesInTheDarkness",
+     "logoFile": "logo.png"
+    }
+   ],
+   "deps": {
+    "eyesinthedarkness": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46.0.12,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "factory_blocks-forge-1.4.0+mc1.20.1.jar",
+   "mods": [
+    {
+     "modId": "factory_blocks",
+     "version": "1.4.0+mc1.20.1",
+     "displayName": "Factory Blocks",
+     "authors": "slaincow",
+     "description": "'",
+     "logoFile": "assets/factory_blocks/icon.png"
+    }
+   ],
+   "deps": {
+    "factory_blocks": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.20.2]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "architectury",
+      "mandatory": true,
+      "versionRange": "[0,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "FarmersDelight-1.20.1-1.3.4.jar",
+   "mods": [
+    {
+     "modId": "farmersdelight",
+     "version": "1.20.1-1.3.4",
+     "displayName": "Farmer's Delight",
+     "displayURL": "https://github.com/vectorwing/FarmersDelight",
+     "logoFile": "logo.png",
+     "logoBlur": false,
+     "credits": "Chloe Dawn, Grimmauld, CDAGaming, TelepathicGrunt, ConductiveFoam, simibubi, Jozufozu, bagel, Silk, SkySom, Eutro, RaymondBlaze and many others!",
+     "authors": "vectorwing",
+     "description": "A cozy farming and cooking expansion for Minecraft!",
+     "itemIcon": "farmersdelight:stove",
+     "configBackground": "minecraft:textures/block/bricks.png"
+    }
+   ],
+   "deps": {
+    "farmersdelight": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "crafttweaker",
+      "mandatory": false,
+      "versionRange": "[14.0.6,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "farmersdelight.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "FarmersDelight-1.20.1-1.3.4.jar :: mixinextras-forge-0.3.6.jar",
+   "mods": [
+    {
+     "modId": "mixinextras",
+     "version": "0.3.6",
+     "displayName": "MixinExtras",
+     "description": "'",
+     "authors": "LlamaLad7",
+     "displayURL": "https://github.com/LlamaLad7/MixinExtras",
+     "displayTest": "IGNORE_SERVER_VERSION"
+    }
+   ],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "FastFurnace-1.20.1-8.0.2.jar",
+   "mods": [
+    {
+     "modId": "fastfurnace",
+     "version": "8.0.2",
+     "displayName": "FastFurnace",
+     "description": "''Furnacing things faster, performance-wise''"
+    }
+   ],
+   "deps": {
+    "fastfurnace": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "placebo",
+      "mandatory": true,
+      "versionRange": "[8.2.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "fastfurnace.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "FastSuite-1.20.1-5.1.0.jar",
+   "mods": [
+    {
+     "modId": "fastsuite",
+     "version": "5.1.0",
+     "displayName": "Fast Suite",
+     "description": "''Introduces multithreading to the json recipe system.''"
+    }
+   ],
+   "deps": {
+    "fastsuite": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "placebo",
+      "mandatory": true,
+      "versionRange": "[8.2.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "fastsuite.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "FastWorkbench-1.20.1-8.0.4.jar",
+   "mods": [
+    {
+     "modId": "fastbench",
+     "version": "8.0.4",
+     "displayName": "Fast Workbench",
+     "description": "''Speeding up crafting operations - massively.''"
+    }
+   ],
+   "deps": {
+    "fastbench": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "placebo",
+      "mandatory": true,
+      "versionRange": "[8.2.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "fastbench.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "ferritecore-6.0.1-forge.jar",
+   "mods": [
+    {
+     "modId": "ferritecore",
+     "version": "6.0.1",
+     "displayName": "Ferrite Core",
+     "authors": "malte0811",
+     "description": "'",
+     "logoFile": "logo.png"
+    }
+   ],
+   "deps": {
+    "ferritecore": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46.0.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "ferritecore.predicates.mixin.json",
+    "ferritecore.fastmap.mixi",
+    "ferritecore.blockstatecache.mixin.json",
+    "ferritecore.dedupbakedquad.mixin.json",
+    "ferritecore.dedupmultipart.mixin.json",
+    "ferritecore.fastmap.mixin.json",
+    "ferritecore.modelsides.mixin.json",
+    "ferritecore.mrl.mixin.json",
+    "ferritecore.threaddetec.mixin.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "flashlight-2.1.0-forge-1.20.1.jar",
+   "mods": [
+    {
+     "modId": "flashlight",
+     "version": "2.1.0-forge-1.20.1",
+     "displayName": "Flashlight",
+     "authors": "REDKING",
+     "description": "''An animated battery-powered flashlight with multiplayer-visible server lighting for Forge 1.20.1.''"
+    }
+   ],
+   "deps": {
+    "flashlight": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "framework-forge-1.20.1-0.7.15.jar",
+   "mods": [
+    {
+     "modId": "framework",
+     "version": "0.7.15",
+     "displayName": "Framework",
+     "displayURL": "https://mrcrayfish.com/mods?id=framework",
+     "logoFile": "framework_icon.png",
+     "authors": "MrCrayfish",
+     "description": "A library providing powerful utilities for developers"
+    }
+   ],
+   "deps": {
+    "framework": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1.47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "ftb-chunks-forge-2001.3.8.jar",
+   "mods": [
+    {
+     "modId": "ftbchunks",
+     "version": "2001.3.8",
+     "displayName": "FTB Chunks",
+     "authors": "FTB Team",
+     "description": "'",
+     "license": "All Rights Reserved"
+    }
+   ],
+   "deps": {
+    "ftbchunks": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1.47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "architectury",
+      "mandatory": true,
+      "versionRange": "[9.1.12,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "ftblibrary",
+      "mandatory": true,
+      "versionRange": "[2001.2.9,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "ftbteams",
+      "mandatory": true,
+      "versionRange": "[2001.3.1,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "ftbchunks-common.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "ftb-library-forge-2001.2.13.jar",
+   "mods": [
+    {
+     "modId": "ftblibrary",
+     "version": "2001.2.13",
+     "displayName": "FTB Library",
+     "authors": "FTB Team",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "ftblibrary": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.3,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "architectury",
+      "mandatory": true,
+      "versionRange": "[9.0.8,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "ftbquests",
+      "mandatory": false,
+      "versionRange": "[2001.4.8,)",
+      "ordering": "BEFORE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "ftblibrary-common.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "ftb-quests-forge-2001.4.22.jar",
+   "mods": [
+    {
+     "modId": "ftbquests",
+     "version": "2001.4.22",
+     "displayName": "FTB Quests",
+     "authors": "FTB Team",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "ftbquests": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "architectury",
+      "mandatory": true,
+      "versionRange": "[9.0.8,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "ftblibrary",
+      "mandatory": true,
+      "versionRange": "[2001.2.1,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "ftbteams",
+      "mandatory": true,
+      "versionRange": "[2001.1.4,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "itemfilters",
+      "mandatory": false,
+      "versionRange": "[2001.1.0-build.55,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "ftb-teams-forge-2001.3.2.jar",
+   "mods": [
+    {
+     "modId": "ftbteams",
+     "version": "2001.3.2",
+     "displayName": "FTB Teams",
+     "authors": "FTB Team",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "ftbteams": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1.47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "architectury",
+      "mandatory": true,
+      "versionRange": "[9.1.12,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "ftblibrary",
+      "mandatory": true,
+      "versionRange": "[2001.2.0,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "geckolib-forge-1.20.1-4.8.4.jar",
+   "mods": [
+    {
+     "modId": "geckolib",
+     "version": "4.8.4",
+     "displayName": "GeckoLib 4",
+     "displayURL": "http://geckolib.com/",
+     "logoFile": "geckolib.png",
+     "credits": "Gecko, Eliot, AzureDoom, DerToaster, Tslat, Witixin",
+     "authors": "Gecko, Eliot, AzureDoom, DerToaster, Tslat, Witixin",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "geckolib": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "geckoanimfix",
+      "mandatory": false,
+      "versionRange": "[9.removeoculusgeckolibcompat,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "geckolib.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "geckolib-forge-1.20.1-4.8.4.jar :: mclib-20.jar",
+   "mods": [],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "getittogetherdrops-forge-1.20-1.3.jar",
+   "mods": [
+    {
+     "modId": "getittogetherdrops",
+     "version": "1.3",
+     "displayName": "Get It Together, Drops!",
+     "displayURL": "http://minecraft.curseforge.com/projects/get-it-together-drops",
+     "authors": "bl4ckscor3",
+     "description": "''Adds configuration options for defining how dropped items should combine.''"
+    }
+   ],
+   "deps": {
+    "getittogetherdrops": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "getittogetherdrops.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "guardvillagers-1.20.1-1.6.19.jar",
+   "mods": [
+    {
+     "modId": "guardvillagers",
+     "version": "1.20.1-1.6.19",
+     "displayName": "Guard Villagers",
+     "updateJSONURL": "https://raw.githubusercontent.com/seymourimadeit/guardvillagers/master/update.json",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/guard-villagers",
+     "credits": "TallestEgg and HadeZ/SadNya69 for the textures.",
+     "authors": "TallestEgg, HadeZ/SadNya69 for the textures.",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "guardvillagers": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46.0.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "guardvillagers.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "hostilevillages-1.20.1-5.7.jar",
+   "mods": [
+    {
+     "modId": "hostilevillages",
+     "version": "1.20.1-5.7",
+     "displayName": "Example Mod",
+     "logoFile": "",
+     "credits": "",
+     "authors": "Someaddon",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "hostilevillages": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[36,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.30)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "cupboard",
+      "mandatory": true,
+      "versionRange": "[1.20.1-1.5,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "hostilevillages.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "Immersive Vehicles-1.20.1-24.0.0.jar",
+   "mods": [
+    {
+     "modId": "mts",
+     "version": "24.0.0",
+     "displayName": "Immersive Vehicles (formerly MTS)",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/minecraft-transport-simulator",
+     "logoFile": "vingette.png",
+     "credits": "Don Bruce & The Modeling Crew.",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "mts": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1.47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "mts.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "immersive_weathering-1.20.1-2.0.5-forge.jar",
+   "mods": [
+    {
+     "modId": "immersive_weathering",
+     "version": "1.20.1-2.0.5",
+     "displayName": "Immersive Weathering",
+     "authors": "Ordana, MehVahdJukaar, Keybounce",
+     "logoFile": "icon.png",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "immersive_weathering": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[40,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "moonlight",
+      "mandatory": true,
+      "versionRange": "[1.20-2.7.0,]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "immersive_weathering-common.mixins.json",
+    "immersive_weatheri",
+    "immersive_weathering.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "ImmersiveEngineering-1.20.1-10.2.0-183.jar",
+   "mods": [
+    {
+     "modId": "immersiveengineering",
+     "version": "1.20.1-10.2.0-183",
+     "displayName": "Immersive Engineering",
+     "description": "A tech based mod focused on realism.",
+     "authors": "BluSunrize and Damien A.W. Hazard",
+     "updateJSONURL": "https://raw.githubusercontent.com/BluSunrize/ImmersiveEngineering/1.20.1/changelog.json",
+     "displayURL": "https://minecraft.curseforge.com/projects/immersive-engineering/",
+     "logoFile": "logo.png",
+     "credits": "All the great other Git Contributors, and the nerds on IRC!"
+    }
+   ],
+   "deps": {
+    "immersiveengineering": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.3.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "jei",
+      "mandatory": false,
+      "versionRange": "[15.2.0.23,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "immersiveengineering.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "improvedmobs-1.20.1-1.13.7-forge.jar",
+   "mods": [
+    {
+     "modId": "improvedmobs",
+     "version": "1.20.1-1.13.7",
+     "displayName": "Improved Mobs Mod",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/improved-mobs",
+     "logoFile": "icon.png",
+     "authors": "Flemmli97",
+     "description": "''Improved AI and customizations for mobs.''"
+    }
+   ],
+   "deps": {
+    "improvedmobs": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1.3,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "tenshilib",
+      "mandatory": true,
+      "versionRange": "[1.20.1-1.7.2,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "improvedmobs.mixins.json",
+    "improvedmobs.mixins.compat.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "incontrol-1.20-9.5.0.jar",
+   "mods": [
+    {
+     "modId": "incontrol",
+     "version": "1.20-9.5.0",
+     "displayName": "InControl",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "incontrol": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[43.1.30,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "lostcities",
+      "mandatory": false,
+      "versionRange": "[1.19-6.0.6,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "kubejs",
+      "mandatory": false,
+      "versionRange": "[2001,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "item-filters-forge-2001.1.0-build.59.jar",
+   "mods": [
+    {
+     "modId": "itemfilters",
+     "version": "2001.1.0-build.59",
+     "displayName": "Item Filters",
+     "authors": "LatvianModder",
+     "description": "'",
+     "license": "GNU LGPLv3"
+    }
+   ],
+   "deps": {
+    "itemfilters": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "architectury",
+      "mandatory": true,
+      "versionRange": "[9.0.8,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "itemfilters-common.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "Keerdm Zombie Apocalypse Essentials (TACZ) 1.41.jar",
+   "mods": [
+    {
+     "modId": "keerdm_zombie_essentials",
+     "version": "1.4",
+     "displayName": "Keerdm's Zombie Apocalypse Essentials",
+     "description": "Enhance your zombie apocolypse modpack",
+     "authors": "keerdm",
+     "logoFile": "icon.png"
+    }
+   ],
+   "deps": {
+    "keerdm_zombie_essentials": [
+     {
+      "modId": "lostcities",
+      "mandatory": true,
+      "versionRange": "[1.19-6.2.0,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "immersive_weathering",
+      "mandatory": true,
+      "versionRange": "[1.19-3.0,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "kubejs-forge-2001.6.5-build.26.jar",
+   "mods": [
+    {
+     "modId": "kubejs",
+     "version": "2001.6.5-build.26",
+     "displayName": "KubeJS",
+     "authors": "LatvianModder",
+     "description": "'",
+     "logoFile": "kubejs_logo.png",
+     "license": "GNU LGPLv3"
+    }
+   ],
+   "deps": {
+    "kubejs": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "rhino",
+      "mandatory": true,
+      "versionRange": "[2001.2.2-build.1,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "architectury",
+      "mandatory": true,
+      "versionRange": "[9.1.12,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "jei",
+      "mandatory": false,
+      "versionRange": "[1.0.0,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "roughlyenoughitems",
+      "mandatory": false,
+      "versionRange": "[9.1.572,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "kubejs-forge.mixins.json",
+    "kubejs-common.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "LeavesBeGone-v8.0.0-1.20.1-Forge.jar",
+   "mods": [
+    {
+     "modId": "leavesbegone",
+     "displayName": "Leaves Be Gone",
+     "description": "Quick leaf decay from cutting down trees. Built for great performance and mod compat!",
+     "version": "8.0.0",
+     "authors": "Fuzs",
+     "logoFile": "mod_banner.png",
+     "logoBlur": false,
+     "displayURL": "https://github.com/Fuzss/leavesbegone",
+     "updateJSONURL": "https://raw.githubusercontent.com/Fuzss/modresources/main/update/leavesbegone.json",
+     "displayTest": "IGNORE_SERVER_VERSION"
+    }
+   ],
+   "deps": {
+    "leavesbegone": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.0.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "puzzleslib",
+      "mandatory": true,
+      "versionRange": "[8.0.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "leavesbegone.common.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "leawind_third_person-v2.1.0-mc1.20.1-forge.jar",
+   "mods": [
+    {
+     "modId": "leawind_third_person",
+     "version": "2.1.0",
+     "displayName": "Leawind's Third Person",
+     "description": "A practical, smooth, feature-rich third-person mod.",
+     "authors": "Leawind",
+     "logoFile": "TODO",
+     "displayURL": "https://leawind.github.io/Third-Person/en-US/?autolang"
+    }
+   ],
+   "deps": {
+    "leawind_third_person": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "CLIENT",
+      "referraUrl": "https://files.minecraftforge.net/"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "CLIENT",
+      "referraUrl": "https://www.minecraft.net/"
+     },
+     {
+      "modId": "architectury",
+      "mandatory": true,
+      "versionRange": "(,9.2.14]",
+      "ordering": "AFTER",
+      "side": "CLIENT",
+      "referraUrl": "https://modrinth.com/mod/architectury-api"
+     },
+     {
+      "modId": "cloth_config",
+      "mandatory": false,
+      "versionRange": "*",
+      "ordering": "NONE",
+      "side": "CLIENT",
+      "referraUrl": "https://modrinth.com/mod/cloth-config"
+     }
+    ]
+   },
+   "mixins": [
+    "leawind_third_person-common.mixins.json",
+    "leawind_third_pers",
+    "leawind_third_person.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "letmedespawn-1.20.x-forge-1.5.0.jar",
+   "mods": [
+    {
+     "modId": "letmedespawn",
+     "version": "1.5.0",
+     "displayName": "Let Me Despawn",
+     "authors": "frikinjay",
+     "description": "'",
+     "logoFile": "lmd.png"
+    }
+   ],
+   "deps": {
+    "letmedespawn": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "SERVER"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "SERVER"
+     },
+     {
+      "modId": "almanac",
+      "mandatory": true,
+      "versionRange": "[1.0.2,)",
+      "ordering": "AFTER",
+      "side": "SERVER"
+     }
+    ]
+   },
+   "mixins": [
+    "letmedespawn.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "LongNbtKiller-Forge-1.20.1-1.0.0.jar",
+   "mods": [
+    {
+     "modId": "longnbtkiller",
+     "version": "1.0.0",
+     "displayName": "LongNbtKiller",
+     "authors": "Tapio",
+     "displayTest": "IGNORE_ALL_VERSION",
+     "description": "''Prevent minecraft from crashing while encountering deep nbt tags''"
+    }
+   ],
+   "deps": {},
+   "mixins": [
+    "longnbtkiller.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "lootr-forge-1.20-0.7.35.94.jar",
+   "mods": [
+    {
+     "modId": "lootr",
+     "version": "0.7.35.94",
+     "displayName": "Lootr",
+     "displayURL": "https://minecraft.curseforge.com/projects/lootr",
+     "authors": "Noobanidus",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "Lootr": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[44.0.40,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.19.3,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "lootr.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "lostcities-1.20-7.5.4.jar",
+   "mods": [
+    {
+     "modId": "lostcities",
+     "version": "1.20-7.5.4",
+     "displayName": "LostCities",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "lostcities": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[43.1.30,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "lukis-grand-capitals-1.1.2.jar",
+   "mods": [],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "MagnumTorch-v8.0.2-1.20.1-Forge.jar",
+   "mods": [
+    {
+     "modId": "magnumtorch",
+     "displayName": "Magnum Torch",
+     "description": "Powerful torches to prevent mob spawns around your home in a large area.",
+     "version": "8.0.2",
+     "authors": "Fuzs",
+     "logoFile": "mod_banner.png",
+     "logoBlur": false,
+     "displayURL": "https://github.com/Fuzss/magnumtorch",
+     "updateJSONURL": "https://raw.githubusercontent.com/Fuzss/modresources/main/update/magnumtorch.json",
+     "displayTest": "MATCH_VERSION"
+    }
+   ],
+   "deps": {
+    "magnumtorch": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.0.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "puzzleslib",
+      "mandatory": true,
+      "versionRange": "[8.0.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "MCSP-1.20.1-V1.0.8.jar",
+   "mods": [
+    {
+     "modId": "mcsp",
+     "version": "1.0.8",
+     "displayName": "MCSP",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/mcsp-military-vehicle",
+     "logoFile": "mcsp_logo.png",
+     "credits": "Thanks to the Superb Warfare team for their amazing mod!",
+     "authors": "v2rayz, Tornqvista, MrMulle,",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "mcsp": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "superbwarfare",
+      "mandatory": true,
+      "versionRange": "[0.8.8]",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "mcsp.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "mob_factions-1.0.0-forge-1.20.1.jar",
+   "mods": [
+    {
+     "modId": "mob_factions",
+     "version": "1.0.0",
+     "displayName": "Mob Factions",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/mob-factions",
+     "logoFile": "logo.png",
+     "credits": "Spiderman31807",
+     "authors": "Spiderman318",
+     "description": "A fully customiseable faction based attacking system for any mob (that doesn't use a brain instead of goals)",
+     "displayTest": "IGNORE_SERVER_VERSION"
+    }
+   ],
+   "deps": {
+    "mob_factions": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1]",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "modernfix-forge-5.27.83+mc1.20.1.jar",
+   "mods": [
+    {
+     "modId": "modernfix",
+     "version": "5.27.83+mc1.20.1",
+     "displayName": "ModernFix",
+     "displayURL": "https://modrinth.com/mod/modernfix",
+     "logoFile": "icon.png",
+     "authors": "embeddedt",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "modernfix": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46.0.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20, 1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "jei",
+      "mandatory": false,
+      "versionRange": "[15.8.0.11,)",
+      "ordering": "NONE",
+      "side": "CLIENT"
+     }
+    ]
+   },
+   "mixins": [
+    "modernfix-modernfix.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "modernfix-forge-5.27.83+mc1.20.1.jar :: mixinextras-forge-0.4.1.jar",
+   "mods": [
+    {
+     "modId": "mixinextras",
+     "version": "0.4.1",
+     "displayName": "MixinExtras",
+     "description": "'",
+     "authors": "LlamaLad7",
+     "displayURL": "https://github.com/LlamaLad7/MixinExtras",
+     "displayTest": "IGNORE_SERVER_VERSION"
+    }
+   ],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "moonlight-1.20-2.16.34-forge.jar",
+   "mods": [
+    {
+     "modId": "moonlight",
+     "version": "1.20-2.16.34",
+     "displayName": "Moonlight Library",
+     "authors": "MehVahdJukaar",
+     "modUrl": "https://www.curseforge.com/minecraft/mc-mods/selene",
+     "logoFile": "icon.png",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "moonlight": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[43.0.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.20.2)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "moonlight-common.mixins.json",
+    "moonlight.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "MTS Official Pack-1.20.1-V29.jar",
+   "mods": [
+    {
+     "modId": "mtsofficialpack",
+     "version": "29",
+     "displayName": "Immersive Vehicles (MTS/IV) - Official Content Pack",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/minecraft-transport-simulator",
+     "logoFile": "vingette.png",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "mtsofficialpack": [
+     {
+      "modId": "mts",
+      "mandatory": true,
+      "versionRange": "[22.18.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "OAmP-1.20.1-V3.jar",
+   "mods": [
+    {
+     "modId": "oamp",
+     "version": "3",
+     "displayName": "Immersive Vehicles (MTS/IV) - Official Automobile Pack",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/minecraft-transport-simulator",
+     "logoFile": "vingette.png",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "oamp": [
+     {
+      "modId": "mts",
+      "mandatory": true,
+      "versionRange": "[23.0.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "mtsofficialpack",
+      "mandatory": true,
+      "versionRange": "[29,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "ParCool-1.20.1-3.4.2.0.jar",
+   "mods": [
+    {
+     "modId": "parcool",
+     "version": "3.4.2.0",
+     "displayName": "ParCool!",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/parcool",
+     "logoFile": "parcool_logo.png",
+     "authors": "alRex_U",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "parcool": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[43,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "feathers",
+      "mandatory": false,
+      "versionRange": "[0.1,)",
+      "ordering": "BEFORE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "paraglider",
+      "mandatory": false,
+      "versionRange": "[20.1.1,)",
+      "ordering": "BEFORE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "betterthirdperson",
+      "mandatory": false,
+      "versionRange": "[1.9.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "shouldersurfing",
+      "mandatory": false,
+      "versionRange": "[1.20.1-4.11.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "epicfight",
+      "mandatory": false,
+      "versionRange": "[20.7.4,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "parcool.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "Patchouli-1.20.1-85-FORGE.jar",
+   "mods": [
+    {
+     "modId": "patchouli",
+     "displayName": "Patchouli",
+     "version": "1.20.1-85-FORGE",
+     "authors": "Vazkii",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "patchouli": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1.3,)"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,1.21)"
+     }
+    ]
+   },
+   "mixins": [
+    "patchouli_xplat.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "Pillagers Gun-1.20.1-forge-3.1.0.jar",
+   "mods": [
+    {
+     "modId": "pillagers_gun",
+     "version": "3.1.0",
+     "displayName": "Pillager's Gun",
+     "authors": "Scrarsol, \u767d\u4e45\u8c37",
+     "description": "''This is a mod adding guns for pillagers.''"
+    }
+   ],
+   "deps": {
+    "pillagers_gun": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.3.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "pillagers_gun.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "Ping-Wheel-1.12.1-forge-1.20.1.jar",
+   "mods": [
+    {
+     "modId": "pingwheel",
+     "version": "1.12.1",
+     "displayName": "Ping Wheel",
+     "displayURL": "https://github.com/LukenSkyne/Minecraft-Ping-Wheel",
+     "logoFile": "icon.png",
+     "authors": "Luken, RXJpaw",
+     "description": "''Mark locations similar to the ping mechanism found in modern co-op multiplayer games.''",
+     "displayTest": "IGNORE_SERVER_VERSION"
+    }
+   ],
+   "deps": {
+    "pingwheel": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "Placebo-1.20.1-8.6.3.jar",
+   "mods": [
+    {
+     "modId": "placebo",
+     "version": "8.6.3",
+     "displayName": "Placebo",
+     "description": "''1 (one) library boi''"
+    }
+   ],
+   "deps": {
+    "placebo": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "placebo.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "player-animation-lib-forge-1.0.2-rc1+1.20.jar",
+   "mods": [
+    {
+     "modId": "playeranimator",
+     "version": "1.0.2-rc1+1.20",
+     "displayName": "Player Animator",
+     "authors": "KosmX",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "playeranimator": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "playerAnimator-common.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "PlayerRevive_FORGE_v2.0.31_mc1.20.1.jar",
+   "mods": [
+    {
+     "modId": "playerrevive",
+     "logoFile": "playerrevive.png",
+     "version": "2.0.31",
+     "displayName": "PlayerRevive",
+     "displayURL": "https://modrinth.com/mod/playerrevive",
+     "authors": "CreativeMD",
+     "description": "''Help your friends in need and revive them.''"
+    }
+   ],
+   "deps": {
+    "playerrevive": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "creativecore",
+      "mandatory": true,
+      "ordering": "NONE",
+      "side": "BOTH",
+      "versionRange": "2.11.20"
+     }
+    ]
+   },
+   "mixins": [
+    "playerrevive.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "pomkotsmechs-forge-0.0.1-alpha.8.jar",
+   "mods": [
+    {
+     "modId": "pomkotsmechs",
+     "version": "0.0.1-alpha.8",
+     "displayName": "Pomkots Mechs",
+     "authors": "grc_mcs",
+     "description": "'",
+     "logoFile": "assets/pomkotsmechs/icon.png"
+    }
+   ],
+   "deps": {
+    "pomkotsmechs": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "architectury",
+      "mandatory": true,
+      "versionRange": "[9.2.14,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "geckolib",
+      "mandatory": true,
+      "versionRange": "[4.4.9,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "gbf",
+      "mandatory": false,
+      "versionRange": "[1.0.1,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "cloth_config",
+      "mandatory": true,
+      "versionRange": "[11.1.118,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "leawind_third_person",
+      "mandatory": true,
+      "versionRange": "[2.1.0,)",
+      "ordering": "AFTER",
+      "side": "CLIENT"
+     }
+    ]
+   },
+   "mixins": [
+    "pomkotsmechs.mixins.json",
+    "pomkots.forge.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "PuzzlesLib-v8.1.33-1.20.1-Forge.jar",
+   "mods": [
+    {
+     "modId": "puzzleslib",
+     "displayName": "Puzzles Lib",
+     "description": "Why's it called Puzzles you ask? That's the puzzle!",
+     "version": "8.1.33",
+     "authors": "Fuzs",
+     "logoFile": "mod_banner.png",
+     "logoBlur": false,
+     "displayURL": "https://github.com/Fuzss/puzzleslib",
+     "updateJSONURL": "https://raw.githubusercontent.com/Fuzss/modresources/main/update/puzzleslib.json",
+     "displayTest": "MATCH_VERSION"
+    }
+   ],
+   "deps": {
+    "puzzleslib": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "puzzlesaccessapi",
+      "mandatory": true,
+      "versionRange": "*",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "puzzleslib.common.mixins.json",
+    "puzzleslib.forge.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "PuzzlesLib-v8.1.33-1.20.1-Forge.jar :: mixinextras-forge-0.4.1.jar",
+   "mods": [
+    {
+     "modId": "mixinextras",
+     "version": "0.4.1",
+     "displayName": "MixinExtras",
+     "description": "'",
+     "authors": "LlamaLad7",
+     "displayURL": "https://github.com/LlamaLad7/MixinExtras",
+     "displayTest": "IGNORE_SERVER_VERSION"
+    }
+   ],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "PuzzlesLib-v8.1.33-1.20.1-Forge.jar :: puzzlesaccessapi-forge-20.1.1.jar",
+   "mods": [
+    {
+     "modId": "puzzlesaccessapi",
+     "displayName": "Puzzles Access Api",
+     "description": "A small collection of a few vanilla classes made extensible via access wideners.",
+     "version": "20.1.1",
+     "authors": "Fuzs",
+     "logoFile": "mod_banner.png",
+     "logoBlur": false,
+     "displayURL": "https://github.com/Fuzss/puzzlesaccessapi",
+     "updateJSONURL": "https://raw.githubusercontent.com/Fuzss/modresources/main/update/puzzlesaccessapi.json",
+     "displayTest": "MATCH_VERSION"
+    }
+   ],
+   "deps": {
+    "puzzlesaccessapi": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "type": "required",
+      "versionRange": "[47.1.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "type": "required",
+      "versionRange": "[1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "recipeessentials-1.20.1-4.0.jar",
+   "mods": [
+    {
+     "modId": "recipeessentials",
+     "version": "1.20.1-4.0",
+     "displayName": "recipeessentials mod",
+     "logoFile": "examplemod.png",
+     "credits": "Thanks for this example mod goes to Java",
+     "authors": "Someaddon",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "recipeessentials": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[30,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.30)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "cupboard",
+      "mandatory": true,
+      "versionRange": "[1.20.1-1.4,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "recipeessentials.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "recruits-1.20.1-1.15.2.jar",
+   "mods": [
+    {
+     "modId": "recruits",
+     "version": "1.15.2",
+     "displayName": "Villager Recruits Mod",
+     "updateJSONURL": "https://raw.githubusercontent.com/talhanation/recruits/main/update.json",
+     "displayURL": "https://modrinth.com/mod/villager-recruits/versions",
+     "logoFile": "logo.png",
+     "credits": "talhanation, messire, kaiserroman",
+     "authors": "talhanation, messire, kaiserroman",
+     "description": "'"
+    }
+   ],
+   "deps": {},
+   "mixins": [
+    "mixins.recruits.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "refurbished_furniture-forge-1.20.1-1.0.20.jar",
+   "mods": [
+    {
+     "modId": "refurbished_furniture",
+     "version": "1.0.20",
+     "displayName": "MrCrayfish's Furniture Mod: Refurbished",
+     "displayURL": "https://mrcrayfish.com/mods/furniture_refurbished",
+     "logoFile": "refurbished_furniture_banner.png",
+     "logoBlur": false,
+     "authors": "MrCrayfish",
+     "description": "The next generation of MrCrayfish's Furniture Mod, built from the ground up with brand-new blocks, models, original sounds, and gameplay mechanics. Experience the new yet familiar charm of the original mod, and furnish your house with the hundreds of new and original decorations and functional blocks. Jump into new gameplay mechanics with the introduction of the electricity system to power all your appliances and electronics."
+    }
+   ],
+   "deps": {
+    "refurbished_furniture": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1.47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "framework",
+      "mandatory": true,
+      "versionRange": "[0.7.15,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "refurbished_furniture.common.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "resourcefullib-forge-1.20.1-2.1.29.jar",
+   "mods": [
+    {
+     "modId": "resourcefullib",
+     "version": "2.1.29",
+     "displayName": "Resourceful Lib",
+     "authors": "ThatGravyBoat, Epic_Oreo",
+     "description": "Team Resourceful Library"
+    }
+   ],
+   "deps": {
+    "resourcefullib": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "rhino-forge-2001.2.3-build.10.jar",
+   "mods": [
+    {
+     "modId": "rhino",
+     "version": "2001.2.3-build.10",
+     "displayName": "Rhino",
+     "authors": "latvian.dev, Mozilla",
+     "description": "'",
+     "logoFile": "rhino_logo.png",
+     "displayTest": "NONE"
+    }
+   ],
+   "deps": {},
+   "mixins": [
+    "rhino-common.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "ritchiesprojectilelib-2.1.1+mc.1.20.1-forge.jar",
+   "mods": [
+    {
+     "modId": "ritchiesprojectilelib",
+     "version": "2.1.1",
+     "displayName": "Ritchie's Projectile Library",
+     "authors": "rbasamoyai",
+     "description": "''A Minecraft modding library for better projectiles.''",
+     "logoFile": "icon.png"
+    }
+   ],
+   "deps": {
+    "ritchiesprojectilelib": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "1.20.1",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "ritchiesprojectilelib-forge.mixins.json",
+    "ritchiesprojectile",
+    "ritchiesprojectilelib.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "sedparties-1.20.1-2.0-beta-p.7.1.jar",
+   "mods": [
+    {
+     "modId": "sedparties",
+     "version": "2.0-beta-p.7.1",
+     "displayName": "Parties",
+     "authors": "EtherealOnyx (Sedulity)",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "sedparties": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "sedparties.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "sophisticatedbackpacks-1.20.1-3.24.67.2109.jar",
+   "mods": [
+    {
+     "modId": "sophisticatedbackpacks",
+     "version": "3.24.67.2109",
+     "displayName": "Sophisticated Backpacks",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "sophisticatedbackpacks": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "sophisticatedcore",
+      "mandatory": true,
+      "versionRange": "[1.3.80.+,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "sophisticatedbackpacks.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "sophisticatedcore-1.20.1-1.3.84.2308.jar",
+   "mods": [
+    {
+     "modId": "sophisticatedcore",
+     "version": "1.3.84.2308",
+     "displayName": "Sophisticated Core",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "sophisticatedcore": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "jei",
+      "mandatory": false,
+      "versionRange": "[15.20.0.106,)",
+      "ordering": "NONE",
+      "side": "CLIENT"
+     }
+    ]
+   },
+   "mixins": [
+    "sophisticatedcore.mixins.json",
+    "sophisticatedcore.create.mix",
+    "sophisticatedcore.create.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "spark-1.10.53-forge.jar",
+   "mods": [
+    {
+     "modId": "spark",
+     "displayName": "spark",
+     "version": "1.10.53",
+     "description": "spark is a performance profiling plugin/mod for Minecraft clients, servers and proxies."
+    }
+   ],
+   "deps": {
+    "spark": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[34,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "superbwarfare-1.20.1-0.8.8-final-6a6b54795.jar",
+   "mods": [
+    {
+     "modId": "superbwarfare",
+     "version": "0.8.8",
+     "displayName": "Superb Warfare",
+     "authors": "Atsuishio, Roki27, Light_Quanta",
+     "logoFile": "logo.png",
+     "description": "A Warfare Mod"
+    }
+   ],
+   "deps": {
+    "superbwarfare": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "curios",
+      "mandatory": true,
+      "versionRange": "[5.4.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "geckolib",
+      "mandatory": true,
+      "versionRange": "[4.4.6,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "geckoanimfix",
+      "mandatory": false,
+      "versionRange": "[114.514.Remove Iris/Oculus & GeckoLib Compat as it is incompatible with Superb Warfare and does nothing along with the latest version of GeckoLib!,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "patchouli",
+      "mandatory": false,
+      "versionRange": "[1.20.1-84,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "realcamera",
+      "mandatory": false,
+      "versionRange": "[0.7.0-beta,)",
+      "ordering": "NONE",
+      "side": "CLIENT"
+     }
+    ]
+   },
+   "mixins": [
+    "mixins.superbwarfare.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "tacz-1.20.1-1.1.8-hotfix.jar",
+   "mods": [
+    {
+     "modId": "tacz",
+     "version": "1.1.8-hotfix",
+     "displayName": "Timeless & Classics Guns: Zero",
+     "logoFile": "logo.png",
+     "updateJSONURL": "",
+     "displayURL": "",
+     "authors": "Serene Wave Studio | Timeless Squad",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "tacz": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.20.2)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "shouldersurfing",
+      "mandatory": false,
+      "versionRange": "[1.20.1-4.0.0,)",
+      "ordering": "NONE",
+      "side": "CLIENT"
+     }
+    ]
+   },
+   "mixins": [
+    "tacz.mixins.json",
+    "tacz.compat.acceleratedrendering.mixins.j",
+    "tacz.compat.acceleratedrendering.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "tacz-1.20.1-1.1.8-hotfix.jar :: simplebedrockmodel-2.2.2-forge+mc1.20.1.jar",
+   "mods": [
+    {
+     "modId": "simplebedrockmodel",
+     "version": "2.2.2-forge+mc1.20.1",
+     "displayName": "SimpleBedrockModel",
+     "authors": "[TartaricAcid, MaydayMemory, MoePus, Hidomatn, xjqsh]",
+     "description": "''A library for loading Minecraft Bedrock Edition entity models and animation''"
+    }
+   ],
+   "deps": {
+    "simplebedrockmodel": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "tacz-1.20.1-1.1.8-hotfix.jar :: commons-math3-3.6.1.jar",
+   "mods": [],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "tacz-1.20.1-1.1.8-hotfix.jar :: mixinextras-forge-0.3.6.jar",
+   "mods": [
+    {
+     "modId": "mixinextras",
+     "version": "0.3.6",
+     "displayName": "MixinExtras",
+     "description": "'",
+     "authors": "LlamaLad7",
+     "displayURL": "https://github.com/LlamaLad7/MixinExtras",
+     "displayTest": "IGNORE_SERVER_VERSION"
+    }
+   ],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "tacz-1.20.1-1.1.8-hotfix.jar :: luaj-core-3.0.8-figura.jar",
+   "mods": [],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "tacz-1.20.1-1.1.8-hotfix.jar :: luaj-jse-3.0.8-figura.jar",
+   "mods": [],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "tacz-1.20.1-1.1.8-hotfix.jar :: bcel-6.6.1.jar",
+   "mods": [],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "tacz_fire_control_extension-1.1.3+mc1.20.1+tacz1.1.4.jar",
+   "mods": [
+    {
+     "modId": "tacz_fire_control_extension",
+     "version": "1.1.3+mc1.20.1+tacz1.1.4",
+     "displayName": "TaCZ Fire Control Extension",
+     "logoFile": "assets/tacz_fire_control_extension/logo.png",
+     "authors": "ChloePrime",
+     "description": "''\"Large-sized aim assist as a gunplay mechanic extension!\"''"
+    }
+   ],
+   "deps": {
+    "tacz_fire_control_extension": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "tacz",
+      "mandatory": true,
+      "versionRange": "[1.1.4,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "tacz_fire_control_extension.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "tacz_fire_control_extension-1.1.3+mc1.20.1+tacz1.1.4.jar :: gunsmithlib-2.0.0+mc1.20.1+tacz1.1.4.jar",
+   "mods": [
+    {
+     "modId": "gunsmithlib",
+     "version": "2.0.0+mc1.20.1+tacz1.1.4",
+     "displayName": "GunsmithLib",
+     "authors": "ChloePrime",
+     "description": "''Helper lib for tweaking TaCZ''"
+    }
+   ],
+   "deps": {
+    "gunsmithlib": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "tacz",
+      "mandatory": true,
+      "versionRange": "[1.0.3,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "tenshilib-1.20.1-1.7.6-forge.jar",
+   "mods": [
+    {
+     "modId": "tenshilib",
+     "version": "1.20.1-1.7.6",
+     "displayName": "TenshiLib",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/tenshilib",
+     "logoFile": "icon.png",
+     "authors": "Flemmli97",
+     "description": "''Core and library mod for most of my mods. Contains useful hooks and functions''"
+    }
+   ],
+   "deps": {
+    "tenshilib": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.1.3,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "tenshilib.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "The-Hordes-1.20.1-1.6.3g.jar",
+   "mods": [
+    {
+     "modId": "hordes",
+     "version": "1.6.3g",
+     "displayName": "The Hordes",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/the-hordes",
+     "updateJSONURL": "https://raw.githubusercontent.com/SmileycorpMC/The-Hordes/1.20/update.json",
+     "credits": "bstylia14, Ski_Z, ForgeLabs, TqLxQuanZ, mpustovoi, gisellevonbingen, AshnakAGQ",
+     "authors": "Smileycorp",
+     "description": "Adds mob horde invasions and zombie infections to the game."
+    }
+   ],
+   "deps": {
+    "hordes": [
+     {
+      "modId": "atlaslib",
+      "mandatory": true,
+      "versionRange": "[1.1.12,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "hordes.mixin.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "The-Hordes-1.20.1-1.6.3g.jar :: mixinextras-forge-0.3.5.jar",
+   "mods": [
+    {
+     "modId": "mixinextras",
+     "version": "0.3.5",
+     "displayName": "MixinExtras",
+     "description": "'",
+     "authors": "LlamaLad7",
+     "displayURL": "https://github.com/LlamaLad7/MixinExtras",
+     "displayTest": "IGNORE_SERVER_VERSION"
+    }
+   ],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "The-Man-From-The-Fog-1.4-1.20.1.jar",
+   "mods": [
+    {
+     "modId": "man",
+     "version": "1.4",
+     "displayName": "The Man From The Fog",
+     "displayURL": "https://discord.gg/mproductions",
+     "logoFile": "logo.png",
+     "credits": "Ma_Do_, Crii, Beph, kira-kira, BluSpring, Rozarke",
+     "authors": "M Productions",
+     "description": "Adds an entity which stalks you"
+    }
+   ],
+   "deps": {
+    "man": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1]",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     },
+     {
+      "modId": "geckolib",
+      "mandatory": false,
+      "versionRange": "[0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "the_knocker-1.5.2-forge-1.20.1.jar",
+   "mods": [
+    {
+     "modId": "the_knocker",
+     "version": "1.5.2",
+     "displayName": "The Knocker",
+     "displayURL": "https://discord.gg/EgVuaKJ76m",
+     "logoFile": "logo.png",
+     "credits": "Ma_Do",
+     "authors": "Ma_Do"
+    }
+   ],
+   "deps": {
+    "the_knocker": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1]",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "the_knocker-1.5.2-forge-1.20.1.jar :: mixinextras-forge-0.5.0.jar",
+   "mods": [],
+   "deps": {},
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "UndergroundBunkers-1.0.5-1.20.x-forge.jar",
+   "mods": [
+    {
+     "modId": "underground_bunkers",
+     "version": "1.0.5",
+     "displayName": "Underground Bunkers",
+     "authors": "Zephyrusjz, Aureljz",
+     "description": "''Randomly generated bunkers hidden within your worlds!''"
+    }
+   ],
+   "deps": {
+    "underground_bunkers": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "voicechat-forge-1.20.1-2.6.23.jar",
+   "mods": [
+    {
+     "modId": "voicechat",
+     "version": "1.20.1-2.6.23",
+     "displayName": "Simple Voice Chat",
+     "updateJSONURL": "https://update.maxhenkel.de/forge/voicechat",
+     "displayURL": "https://modrepo.de/minecraft/voicechat/overview",
+     "logoFile": "icon.png",
+     "authors": "Max Henkel",
+     "description": "''A working voice chat in Minecraft!''",
+     "displayTest": "NONE"
+    },
+    {
+     "modId": "voicechat_api",
+     "version": "2.6.20",
+     "displayName": "Simple Voice Chat API",
+     "displayURL": "https://voicechat.modrepo.de/",
+     "logoFile": "icon.png",
+     "authors": "Max Henkel",
+     "description": "''The Simple Voice Chat API''",
+     "displayTest": "NONE"
+    }
+   ],
+   "deps": {
+    "voicechat": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.0.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "cloth_config",
+      "mandatory": false,
+      "versionRange": "[11.0.99,)",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "vvp-alpha-1.20.1-0.2.0.jar",
+   "mods": [
+    {
+     "modId": "vvp",
+     "version": "0.2.0",
+     "displayName": "Vintage Vehicle Pack",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/sbw-vintage-vehicle-pack",
+     "logoFile": "vvp_logo.png",
+     "credits": "The mod adds a variety of vehicle.",
+     "authors": "Team VVP, ROIF, FL",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "vvp": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "superbwarfare",
+      "mandatory": true,
+      "versionRange": "[0.8.8]",
+      "ordering": "AFTER",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "vvp.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "waterframes-FORGE-mc1.20.1-v2.1.22.jar",
+   "mods": [
+    {
+     "modId": "waterframes",
+     "version": "2.1.22",
+     "displayName": "WaterFrames",
+     "displayTest": "MATCH_VERSION",
+     "displayURL": "https://www.curseforge.com/minecraft/mc-mods/waterframes",
+     "credits": "Models by FabiAcr and J-RAP. Textures by Kotyarendj",
+     "authors": "SrRapero720",
+     "logoFile": "pack.png",
+     "side": "BOTH",
+     "description": "''Display custom video and pictures in your world.''"
+    }
+   ],
+   "deps": {
+    "waterframes": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[47.4,48)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "creativecore",
+      "mandatory": true,
+      "ordering": "AFTER",
+      "side": "BOTH",
+      "versionRange": "[2.12.32,2.13)"
+     },
+     {
+      "modId": "watermedia",
+      "mandatory": true,
+      "ordering": "AFTER",
+      "side": "CLIENT",
+      "versionRange": "[2.1.34,2.2)"
+     }
+    ]
+   },
+   "mixins": [
+    "waterframes.mixin.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "worldedit-mod-7.2.15.jar",
+   "mods": [
+    {
+     "modId": "worldedit",
+     "version": "7.2.15+6463-5ca4dff",
+     "displayName": "WorldEdit",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "worldedit": [
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20,1.21)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46.0.1,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "worldedit-fabric.mixins.json",
+    "worldedit-forge.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "xaerominimap-forge-1.20.1-26.4.2.jar",
+   "mods": [
+    {
+     "modId": "xaerominimap",
+     "version": "26.4.2",
+     "displayName": "Xaero's Minimap",
+     "credits": "",
+     "authors": "xaero96",
+     "description": "''The most vanilla-looking minimap for Minecraft.''"
+    }
+   ],
+   "deps": {
+    "xaerominimap": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46, 48)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20, 1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "openpartiesandclaims",
+      "mandatory": false,
+      "versionRange": "[0.27.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "xaeroworldmap",
+      "mandatory": false,
+      "versionRange": "[1.44.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ],
+    "xaerobetterpvp": [
+     {
+      "modId": "xaerolib",
+      "mandatory": true,
+      "versionRange": "[1.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "xaerohud.mixins.json",
+    "xaerohud.forge.mixins.json",
+    "xaerominim",
+    "xaerominimap.forge.mixins.json",
+    "xaerominimap.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "xaerominimap-forge-1.20.1-26.4.2.jar :: xaerolib-forge-1.20.1-1.7.1.jar",
+   "mods": [
+    {
+     "modId": "xaerolib",
+     "version": "1.7.1",
+     "displayName": "XaeroLib",
+     "logoFile": "xaerolib.png",
+     "credits": "",
+     "authors": "xaero96",
+     "description": "''A library containing shared code for Xaero's Minimap and World Map.''"
+    }
+   ],
+   "deps": {
+    "xaerolib": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46, 48)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20, 1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "xaeroworldmap-forge-1.20.1-1.45.0.jar",
+   "mods": [
+    {
+     "modId": "xaeroworldmap",
+     "version": "1.45.0",
+     "displayName": "Xaero's World Map",
+     "logoFile": "xaeroworldmap.png",
+     "credits": "",
+     "authors": "xaero96",
+     "description": "''A self-writing fullscreen map which also works as an add-on to Xaero's Minimap.''"
+    }
+   ],
+   "deps": {
+    "xaeroworldmap": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46, 48)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20, 1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "openpartiesandclaims",
+      "mandatory": false,
+      "versionRange": "[0.30.3,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "xaerominimap",
+      "mandatory": false,
+      "versionRange": "[26.4.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "xaerobetterpvp",
+      "mandatory": false,
+      "versionRange": "[26.4.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "xaerolib",
+      "mandatory": true,
+      "versionRange": "[1.0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "xaeroworldmap.mixins.json",
+    "xaeroworldmap.forge.mixins.json"
+   ],
+   "nested": []
+  },
+  {
+   "jar": "xaeroworldmap-forge-1.20.1-1.45.0.jar :: xaerolib-forge-1.20.1-1.7.1.jar",
+   "mods": [
+    {
+     "modId": "xaerolib",
+     "version": "1.7.1",
+     "displayName": "XaeroLib",
+     "logoFile": "xaerolib.png",
+     "credits": "",
+     "authors": "xaero96",
+     "description": "''A library containing shared code for Xaero's Minimap and World Map.''"
+    }
+   ],
+   "deps": {
+    "xaerolib": [
+     {
+      "modId": "forge",
+      "mandatory": true,
+      "versionRange": "[46, 48)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     },
+     {
+      "modId": "minecraft",
+      "mandatory": true,
+      "versionRange": "[1.20, 1.20.1]",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [],
+   "nested": []
+  },
+  {
+   "jar": "zombieawareness-1.20.1-1.13.1.jar",
+   "mods": [
+    {
+     "modId": "zombieawareness",
+     "version": "1.20.1-1.13.1",
+     "displayName": "Zombie Awareness",
+     "authors": "Corosus",
+     "description": "'"
+    }
+   ],
+   "deps": {
+    "zombieawareness": [
+     {
+      "modId": "coroutil",
+      "mandatory": true,
+      "versionRange": "[0,)",
+      "ordering": "NONE",
+      "side": "BOTH"
+     }
+    ]
+   },
+   "mixins": [
+    "zombieawareness.mixins.json"
+   ],
+   "nested": []
+  }
+ ]
+}

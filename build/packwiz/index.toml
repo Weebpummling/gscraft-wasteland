@@ -34,7 +34,7 @@ hash = "557cc1b6ba1369f5d2459054cc2b9e9f91c58b9cdecb0a3023a911b435b1a9c8"
 
 [[files]]
 file = "config/apotheosis/enchantments.cfg"
-hash = "046d59da4529f0de290e11f027f361e6ce9b09e6bcd08338102e07c19b0401d2"
+hash = "36c5fabf8f9b0e81645b974ee9caecc875a06433c40261f54ee123eeaf4b0a2d"
 
 [[files]]
 file = "config/apotheosis/garden.cfg"
@@ -42,7 +42,7 @@ hash = "dea4d260e6eac868297c0f9cd80545fd6b54f7344c678b89edda980a3fc5e8cf"
 
 [[files]]
 file = "config/apotheosis/names.cfg"
-hash = "239cb7fac136a985ae3fb75136517d3222781c7ca82cc8c08696246c7629c22b"
+hash = "acadc9a9b74d6d3009d8696e0fce88c4b42b70b896b9e0c8849660f6d78ec369"
 
 [[files]]
 file = "config/apotheosis/potion.cfg"
@@ -89,6 +89,10 @@ file = "config/chunksending.json"
 hash = "e589c5988aa0f23e08400df47ef156a61eea1978f2161ba014da278c28a60ac7"
 
 [[files]]
+file = "config/create-common.toml"
+hash = "6c0f6254798808bce8079a1cfafe4d6c082cead42c51d1e3121f3580f8a44eca"
+
+[[files]]
 file = "config/cupboard.json"
 hash = "08bda8a4a20d302cb97d06bf11c4991e152a3a9e04c17302ea3b42aa77e6b028"
 
@@ -106,7 +110,7 @@ hash = "a9a960858e189900fd6f7ea674d87ba0d3e8cf0d4d677fdaad09c78c76ba1c68"
 
 [[files]]
 file = "config/farmersdelight-common.toml"
-hash = "76aecd29d065d018c440e93bb107cfbf9793ca73b55e12afab63b17bce25dfb2"
+hash = "044b716522105ab45b369c02df3917c6e19e79c50ece498d88962b3a7122b6f4"
 
 [[files]]
 file = "config/fastbench.cfg"
@@ -133,20 +137,64 @@ file = "config/gunsmithlib-common.toml"
 hash = "eb97692d745cd537783ce18f18e0db992346b3b83654f3a115c43333dac71d81"
 
 [[files]]
-file = "config/hordes-common.toml"
-hash = "835be7933722c2c0f3701ae3e6195fdf96c95c15f38b149b314186bf08d94e62"
-
-[[files]]
-file = "config/hordes/data/hordes/horde_data/immune_wearables.json"
+file = "config/hordes-backup/data/hordes/horde_data/immune_wearables.json"
 hash = "9c303e2b73efeb7a93c528e9bba40461d3915fd56bb62e5104fabf4585b5ba3d"
 
 [[files]]
-file = "config/hordes/data/hordes/horde_data/immunity_items.json"
+file = "config/hordes-backup/data/hordes/horde_data/immunity_items.json"
 hash = "a6df65cf17a3a14dae7132076cb3bea414bcc3b5479ec467087688c8da330b63"
 
 [[files]]
-file = "config/hordes/data/hordes/horde_data/infection_conversions.json"
+file = "config/hordes-backup/data/hordes/horde_data/infection_conversions.json"
 hash = "2f82a34b5b21a66941f0cea62798fcf9e1026946b4d9cdde06e69365d6899989"
+
+[[files]]
+file = "config/hordes-backup/data/hordes/horde_data/scripts/default.json"
+hash = "6d868f97dd5e9f5094033cb67888f30fa0651f75da8139f8f9df00d597b67c07"
+
+[[files]]
+file = "config/hordes-backup/data/hordes/horde_data/tables/default.json"
+hash = "6869537b0afd0819be1de90986a28b5a4c59b1c295645174571d6f430df27fec"
+
+[[files]]
+file = "config/hordes-backup/data/hordes/horde_data/tables/drowned.json"
+hash = "c1b7b8a9162bdcdf01238844090d28d205bca4dc48ada51972fb10bd81da9255"
+
+[[files]]
+file = "config/hordes-backup/data/hordes/horde_data/tables/illagers.json"
+hash = "10fc04c86f7d6906e581c6c7e029af1bdd9e5584c3cf62c996c53efdd17a2c53"
+
+[[files]]
+file = "config/hordes-backup/data/hordes/horde_data/tables/mixed_mobs.json"
+hash = "f0b57e63a1470618c4f5f3bcfda68b31de89faeb4786e2d68d126b5af9b970ca"
+
+[[files]]
+file = "config/hordes-backup/data/hordes/horde_data/tables/skeletons.json"
+hash = "5a6f04b5eeff08349a2318bc1fff4a15bab61a0960a52f969619e8aa28e0faa7"
+
+[[files]]
+file = "config/hordes-backup/data/hordes/tags/entity_types/infection_entities.json"
+hash = "06872a41c7200f496e8f5b88d67a92a36f9da3ab9c8fea03014efb867747b658"
+
+[[files]]
+file = "config/hordes-backup/data/hordes/tags/items/infection_cures.json"
+hash = "874de03788aedcad18f814c44d2ee8414e366727bfe884adc87f4d09f6ee0e50"
+
+[[files]]
+file = "config/hordes-backup/data/hordes/tags/worldgen/biome/husk_player_spawn_biomes.json"
+hash = "8c303ee7d3a2e3bd91dd32d6260026650d545da38131d64a3704fc3b78880d80"
+
+[[files]]
+file = "config/hordes-backup/hordes-info.json"
+hash = "b5279472df7b8f4f6554e30854a71ca9293251f4fbe700a5c9a60fc62da338c6"
+
+[[files]]
+file = "config/hordes-backup/pack.mcmeta"
+hash = "b57bbfc0803df3c1a10194ea423c593b61824c5f3dea865ac5b87cf1f5855966"
+
+[[files]]
+file = "config/hordes-common.toml"
+hash = "4be7cb3fdfbe213ff092c9d3945f0fb33232874f9db0fea8f454650b4857cd97"
 
 [[files]]
 file = "config/hordes/data/hordes/horde_data/scripts/default.json"
@@ -166,15 +214,27 @@ hash = "10fc04c86f7d6906e581c6c7e029af1bdd9e5584c3cf62c996c53efdd17a2c53"
 
 [[files]]
 file = "config/hordes/data/hordes/horde_data/tables/mixed_mobs.json"
-hash = "f0b57e63a1470618c4f5f3bcfda68b31de89faeb4786e2d68d126b5af9b970ca"
+hash = "a28583267b88ca6cfccc6858835da847b334b7e6c4879898115f078baa35a129"
 
 [[files]]
 file = "config/hordes/data/hordes/horde_data/tables/skeletons.json"
-hash = "5a6f04b5eeff08349a2318bc1fff4a15bab61a0960a52f969619e8aa28e0faa7"
+hash = "74b68d60c6144aff5a099585107479d1db494f8ee9046157b5f536069fbd5ff2"
 
 [[files]]
-file = "config/hordes/data/hordes/tags/entity_types/infection_entities.json"
-hash = "06872a41c7200f496e8f5b88d67a92a36f9da3ab9c8fea03014efb867747b658"
+file = "config/hordes/data/hordes/infection/immunity_items.json"
+hash = "a6df65cf17a3a14dae7132076cb3bea414bcc3b5479ec467087688c8da330b63"
+
+[[files]]
+file = "config/hordes/data/hordes/infection/infection_conversions.json"
+hash = "bcef569f2bb2b70c5bef0ff821951fc5be1020053b2e8ade9b5b552221a88adb"
+
+[[files]]
+file = "config/hordes/data/hordes/infection/infection_entities.json"
+hash = "d03134ef7ab8065e080116710ac6db552e1c3e93daa5358b2cf2453370cad1cd"
+
+[[files]]
+file = "config/hordes/data/hordes/infection/wearables_protection.json"
+hash = "08641020159ea9076eddc421120b6049dc4e3e491561c0ba1ed94d5fb4809aff"
 
 [[files]]
 file = "config/hordes/data/hordes/tags/items/infection_cures.json"
@@ -186,11 +246,11 @@ hash = "8c303ee7d3a2e3bd91dd32d6260026650d545da38131d64a3704fc3b78880d80"
 
 [[files]]
 file = "config/hordes/hordes-info.json"
-hash = "b5279472df7b8f4f6554e30854a71ca9293251f4fbe700a5c9a60fc62da338c6"
+hash = "90d9a4223d8e284e8cbc776c3c70de160ebeee56715afe2eaf5f81618cbeedef"
 
 [[files]]
 file = "config/hordes/pack.mcmeta"
-hash = "b57bbfc0803df3c1a10194ea423c593b61824c5f3dea865ac5b87cf1f5855966"
+hash = "801d74e10366d6c45c3aa6a4484b856d15aecb676abcf584a6c8609270d62996"
 
 [[files]]
 file = "config/hostilevillages.json"
@@ -302,71 +362,71 @@ hash = "d5b5424d69a8180936e288bbe4fe38bf3895abee19fc41196440e633e02c67fe"
 
 [[files]]
 file = "config/lostcities/profiles/ancient.json"
-hash = "fc0f528717beae05cec252973a49bb62e04d1a3b3c2edb1315e0096b4eb9b9c5"
+hash = "edd5cd5efc513bd16c1c7fee0c2e45da29d5e26a8d60e9755a82d662bee77709"
 
 [[files]]
 file = "config/lostcities/profiles/atlantis.json"
-hash = "db92cfb1fff4eda8e83f0ef6879909bccf332751a73e0da81b2eb818cb19b9c5"
+hash = "7fd3c4fdd0a5cda5f6c8291be33fb5c0a5f407a7a78ce68a3697e730c4c82048"
 
 [[files]]
 file = "config/lostcities/profiles/bio_wasteland.json"
-hash = "52ce41938d3b2ba9cdcc7e3ffb8f9a87b250d3ad3e16c4a7d0ebbdaf3c5008c6"
+hash = "20ac720e17f4f84be6cd8647c3a0aeace54154fd615af77c43089b5f5ebe0d9d"
 
 [[files]]
 file = "config/lostcities/profiles/biosphere.json"
-hash = "c132d12e027f73d462e68af8680d208eb1505f037aa25912c5ddf4f5dc64b49a"
+hash = "dc4b698736c0d2d6917a8257173ff2f783e2ed8132cfd900c315fd1af04d2243"
 
 [[files]]
 file = "config/lostcities/profiles/biosphere_caves.json"
-hash = "ef5d764a0fb9cd3112bffaf65493e6408b2f2483091b82605abc515ddef53c55"
+hash = "c6b8644485a43af5c8446124aa610af7cca1d51d29bdc39b44559d6c2aa8395b"
 
 [[files]]
 file = "config/lostcities/profiles/cavern.json"
-hash = "c0a37ac7d9df1ea449ea0f5af95eb8a84903c529b9b88315e56ab99bd7c6f342"
+hash = "b4b6d0aee0feba9a2971b6db30a5001be962bbb02a559cbf9fb61480289ec92f"
 
 [[files]]
 file = "config/lostcities/profiles/default.json"
-hash = "c23269bbf304eabc3c49ff82b5c8849031a6d67354e550bc22c2a3198788a0ad"
+hash = "785fefad09e549a5a4100cd01301bbbc432ed8e3139028e22cfaaf259bf4de17"
 
 [[files]]
 file = "config/lostcities/profiles/floating.json"
-hash = "16bfccfc821771c9c95d8337c748d15920bd14703c8b18a940dcdcf553a1fe49"
+hash = "757cd4ef2c772cbd94ec0580181dff0c5ce4138458c859755991f55cf8324307"
 
 [[files]]
 file = "config/lostcities/profiles/largecities.json"
-hash = "c72be31bfade0019ed3531cc3a712c9be7dbfc34831f16e02eae53d13fc40018"
+hash = "88ac80acdfd3d088b092e42a0122d42e825053268e12de6a1d6f0f745c134d5b"
 
 [[files]]
 file = "config/lostcities/profiles/nodamage.json"
-hash = "ad200da6289bd5c32b18baaee3ae39479889a4a0a21275750d2a67847120af01"
+hash = "c30fc70e86fa4038a44558124a1e771e2fa9efa5e964c6db1fd6fbdf44318c4b"
 
 [[files]]
 file = "config/lostcities/profiles/onlycities.json"
-hash = "17c74819b3b53c104e7fba8a91c517a8f8f9ebbb57300c07e3566bd4291b43e1"
+hash = "4eb1c8dca0a4cc870b75547660089bc7fdd467dcde6cb3649ef65a189664d8d5"
 
 [[files]]
 file = "config/lostcities/profiles/rarecities.json"
-hash = "5f9d7e8950c86d8561a0bba94bdc95151ced1a52ec80e6d5c866ccca2edbd57a"
+hash = "9fa1528370c12a94378c364c8192733e734a242b92e79e9dbc95eee7e3bcf230"
 
 [[files]]
 file = "config/lostcities/profiles/safe.json"
-hash = "da234360891ded4d896a8b17a0a237c20d92cfc290f3b7b06a61acf3ad7b765d"
+hash = "74daace41708960be3473fa69295b7917274787715e2ebeb8a77139c26dd204c"
 
 [[files]]
 file = "config/lostcities/profiles/space.json"
-hash = "b416e24ada9a6f35510e14e11f7795a3763f9f277ce380e7500f31bc2c813df0"
+hash = "5e15fb5a746f36de77ad52c35f64508bae859bcb884091537d29b05d0672153f"
 
 [[files]]
 file = "config/lostcities/profiles/tallbuildings.json"
-hash = "f15c82f72fb73d491ecac24fcb3ab47cde34d085445b5cd0c68ec32e33f7d40e"
+hash = "9d04df4d0fcd0d71d215ce446afa74a9cd6572e10b2b90ec09b3cff4e8ac1c41"
 
 [[files]]
 file = "config/lostcities/profiles/void_outside.json"
-hash = "ef672e735e3d1a81a15d1933485788b164b9a0dd91a516d039b44a9526c2d7cf"
+hash = "91571fe407d7f12b7b0acac1924a88e285023621396823e592cfce7fa49b8fea"
 
 [[files]]
 file = "config/lostcities/profiles/wasteland.json"
-hash = "207de1746a83c2184a53ed3a771858157193323b6bb3f2328c3d5b2930001a7a"
+hash = "a9b6e0cad0f2784c732e82ed2fdab71508f71c001bba6def186ac114027f2ae4"
 
 [[files]]
 file = "config/lostcities/profiles/woods.json"
@@ -386,11 +446,11 @@ hash = "d40a0510a5eaf56e3c48e881348d7d826c5a1f61aa29b69cf0fc33dd96d6fdcd"
 
 [[files]]
 file = "config/modernfix-mixins.properties"
-hash = "f359b229b0cb290b7bf05f901d6c704c0ca86dfff411c20b6c4a82c379283956"
+hash = "cc9db08ca3f44714cf14117fb1772eed88c9cc3272fea6d17e657292c8799fe0"
 
 [[files]]
 file = "config/moonlight-common.toml"
-hash = "f28173484cb81557cba16b36b87af8a4ca36592c7570f8e1a524cb453dd7d4fa"
+hash = "e7569c5ddefa5c8cbfa00502b339e872abdf6989acb73be93b58c44e84bb8096"
 
 [[files]]
 file = "config/mtsconfig.json"
@@ -405,12 +465,16 @@ file = "config/playerrevive.json"
 hash = "da973bc844adc65ae2b5d408f50d6f1e967a12b14e0df692826d69b4d0485ea4"
 
 [[files]]
+file = "config/pomkotsmechs.json"
+hash = "a16d98ddcf5f7ad6690c9ecaa3fd17be5cf970c73f3205db56f1717183121a7c"
+
+[[files]]
 file = "config/recipeessentials.json"
 hash = "d5e9999392e13549752157c6cb574c761cd323414d8eda96b31bfc6c42f98d25"
 
 [[files]]
 file = "config/recruits-client.toml"
-hash = "4ec4ff81192660949200061a4944a449a3d58fbba8c57b21ed583cf39d2c3e3a"
+hash = "144c2ec2643b74ca7895301f8b589e48dea3888bc41f266b6af1afdcc1f9092e"
 
 [[files]]
 file = "config/refurbished_furniture.server.toml"
@@ -426,7 +490,7 @@ hash = "b377e97ca3d8ae8560448b92ab820872d7c11bef0ca52dcf3f4901b44c6ddca7"
 
 [[files]]
 file = "config/sophisticatedcore-common.toml"
-hash = "3d37609cff9ec5cc7519af49972b25afe8fba58b08c0f7f27a65622db45746ae"
+hash = "6406f077d31a0fdb7cf93bd93c235b80085304fa285d04dcb43c615794ffd5e9"
 
 [[files]]
 file = "config/superbwarfare-common.toml"
@@ -454,7 +518,7 @@ hash = "b772095b2fcac9b6f36976aa01007ae233b23d2678de71db3f8499cdeeebe0d8"
 
 [[files]]
 file = "config/zombieawareness/MobLists.toml"
-hash = "758b082adc8b69ca6af7b6f112e396cd122b4e92b207fa1bd7ce5d41757f7430"
+hash = "89d9ce983e12467967fda3788c8db5028b008557ae94f07fdc2d31ed9f3df733"
 
 [[files]]
 file = "config/zombieawareness/PlayerRulesAndLists.toml"
@@ -550,8 +614,8 @@ hash = "8b69a50659bfc845244b1edec9b474b85154fb77d9010b5260178120421556c5"
 metafile = true
 
 [[files]]
-file = "mods/azurelib-neo-1-20-1-3-1-2.pw.toml"
-hash = "ecbce7ea1f0420c62bf48e59512c33879cddfb2ff92479cba46714067b9e450c"
+file = "mods/azurelib-neo-1-20-1-3-1-12.pw.toml"
+hash = "81370806119caeb5201a0508aae74fee0d5faf7a858c20e33589e5c707248170"
 metafile = true
 
 [[files]]
@@ -615,8 +679,8 @@ hash = "bc6c841342fc1aa03860cec61399707147e08c1f917cbec6623cfba3128e7527"
 metafile = true
 
 [[files]]
-file = "mods/creativecore-forge-v2-12-32-mc1-20-1.pw.toml"
-hash = "7275cff221cb2e9c19de40a3c433e15698eec78332fbf42dd0eccc3c09ff85e8"
+file = "mods/creativecore-forge-v2-12-39-mc1-20-1.pw.toml"
+hash = "06e06eb54e218922c5a4cf336469384c673c930d8c4680edd03dd33e82691988"
 metafile = true
 
 [[files]]
@@ -665,8 +729,8 @@ hash = "9428cdbaa884197e7e12c71e2bfa57f674ded8e487d57f32d1f7c60dbdca8513"
 metafile = true
 
 [[files]]
-file = "mods/farmersdelight-1-20-1-1-2-9.pw.toml"
-hash = "33aa5ad88761703cf33fc71f0012bea46d62d1ce5ed0ee7d0be6ef1e51fdab88"
+file = "mods/farmersdelight-1-20-1-1-3-4.pw.toml"
+hash = "4074fdd89fc90e35194b71892248a383cdf31e6df4ff35b768b92da0421d99a0"
 metafile = true
 
 [[files]]
@@ -720,8 +784,8 @@ hash = "8a3ebaf0141fcaf61e6b72a458a260ba64958fa0d203ac7be4de2a4be4f1e271"
 metafile = true
 
 [[files]]
-file = "mods/geckolib-forge-1-20-1-4-8-2.pw.toml"
-hash = "a463159e57525da3cc1c718c947d8661ff7aa8be85ed3a78409a2ae3cce7a1ed"
+file = "mods/geckolib-forge-1-20-1-4-8-4.pw.toml"
+hash = "5e1776824ee91a41e6c6c3170b37cb7d460532dd51bf6bcb50fdae4f605c819b"
 metafile = true
 
 [[files]]
@@ -730,8 +794,8 @@ hash = "823113b6d72c7fd89eb972baf9479bebee51c0f7b3e03d7ca3ffefe006693a98"
 metafile = true
 
 [[files]]
-file = "mods/guardvillagers-1-20-1-1-6-15.pw.toml"
-hash = "9aed875c0d1886bfeaa35ec7ee9f0cb4ae35f407cab61f36f55b6a777a7a97be"
+file = "mods/guardvillagers-1-20-1-1-6-19.pw.toml"
+hash = "a56047eb4bfb948d6e361547aacd94bf8f95824bd81289fa773fa37fb3f4b634"
 metafile = true
 
 [[files]]
@@ -760,8 +824,8 @@ hash = "2f36e180e24362831c8a8ddf209573dcb1a21486dba46f3a1459668913094d07"
 metafile = true
 
 [[files]]
-file = "mods/incontrol-1-20-9-3-3.pw.toml"
-hash = "24d06aebfdb926a1ff68c6f275eba59292abc8df226da66b1ae3c68a718460a6"
+file = "mods/incontrol-1-20-9-5-0.pw.toml"
+hash = "4d1dec5459fbf1eece2670755c705b0463c079d935e74f492e92039c2e6b7fb0"
 metafile = true
 
 [[files]]
@@ -805,8 +869,8 @@ hash = "9477f4d30664d03e2818e98ebe3fadf52d5276b4926fe2362c7ce4a7b653e453"
 metafile = true
 
 [[files]]
-file = "mods/lostcities-1-20-7-5-3.pw.toml"
-hash = "b8f78eef40082825d9f3a2bbdcaf40c653389e57d82542436d882f5a2d74f12f"
+file = "mods/lostcities-1-20-7-5-4.pw.toml"
+hash = "09a3c957af0b9244ed3f6bc011293f347c6fe189087893ea8ae03c59de229282"
 metafile = true
 
 [[files]]
@@ -830,13 +894,13 @@ hash = "85195d5476f8067c49a8210268d37dc005ac2bbe50136ae70d888206f58f6653"
 metafile = true
 
 [[files]]
-file = "mods/modernfix-forge-5-25-2-mc1-20-1.pw.toml"
-hash = "0a6f2f48409a4f8c94d1cc960772ca07a82361bdc938c4c2abc635ab903ba1f9"
+file = "mods/modernfix-forge-5-27-83-mc1-20-1.pw.toml"
+hash = "afd142eecdab3c473c857e33b8a0f833bbfff114402770a6380e5294fe77725e"
 metafile = true
 
 [[files]]
-file = "mods/moonlight-1-20-2-16-15-forge.pw.toml"
-hash = "6bcaf63a6290fc7f93201f4ee9e8b9ed328b44e4f684aeef3c63ff8b9838b24d"
+file = "mods/moonlight-1-20-2-16-34-forge.pw.toml"
+hash = "d710527dfff7ee6dc7672574875788bc5a364a606ca641f4dacdab5ccb0979d6"
 metafile = true
 
 [[files]]
@@ -860,8 +924,8 @@ hash = "50a82ad79cf1ce5f024a628ca707f157da5cc779e73806565c45c1652aaa37dc"
 metafile = true
 
 [[files]]
-file = "mods/patchouli-1-20-1-84-1-forge.pw.toml"
-hash = "09e5bffb3172d81f1a7cdb3d5c397adff2e7ace3d2e5d59decc9f18c30162743"
+file = "mods/patchouli-1-20-1-85-forge.pw.toml"
+hash = "ca343e7771c2953593edb530a008c587446f87a17c0eddd4b59c3facc56f8e45"
 metafile = true
 
 [[files]]
@@ -870,8 +934,8 @@ hash = "6e8482d65c58abf8e27b5257d262fb9bf267ceeba3d8801c00c738c014c0e18f"
 metafile = true
 
 [[files]]
-file = "mods/ping-wheel-1-12-0-forge-1-20-1.pw.toml"
-hash = "20210ad2b9ef704e6e61b414e867a9b912bacadf439b7ef3fd551908459940b9"
+file = "mods/ping-wheel-1-12-1-forge-1-20-1.pw.toml"
+hash = "57569ceb793413c38c73b3a15d8aa8485c2e494b78fbaaaeaa38780a39896de1"
 metafile = true
 
 [[files]]
@@ -905,8 +969,8 @@ hash = "dc3815751572ac44443d20e6d904c003939b998dd894d6016ef49799522aa7cf"
 metafile = true
 
 [[files]]
-file = "mods/recruits-1-20-1-1-14-0.pw.toml"
-hash = "4f69d07dc14e3963a5a7440ce911104ba884d6e99607ec72053921cef6bc647a"
+file = "mods/recruits-1-20-1-1-15-2.pw.toml"
+hash = "8852f7bdf6bdbd02d4747d275656ddd3881ee32e521bb20590f9a1a49e184a0c"
 metafile = true
 
 [[files]]
@@ -935,13 +999,13 @@ hash = "7aff9f5cda42379f52dc09130047b48cb343e3ffd772666109e9cb78af4e75d1"
 metafile = true
 
 [[files]]
-file = "mods/sophisticatedbackpacks-1-20-1-3-24-13-1433.pw.toml"
-hash = "5274a8d629236625da338790f6623d5956eb5e7f606b5cee3e717330f011928c"
+file = "mods/sophisticatedbackpacks-1-20-1-3-24-67-2109.pw.toml"
+hash = "14dc59569e1c16f5cc67bd025db487aa228dcfe63c08d712379916feb6e40f7c"
 metafile = true
 
 [[files]]
-file = "mods/sophisticatedcore-1-20-1-1-2-109-1271.pw.toml"
-hash = "48e2afb3f786a3826c4b8220ba20dcea02fa9de645b4e0ee543a702ecf611d0b"
+file = "mods/sophisticatedcore-1-20-1-1-3-84-2308.pw.toml"
+hash = "3b79b11608f347b91c9cdf1952dd658a4fbab5008db2600000bf504848430f86"
 metafile = true
 
 [[files]]
@@ -970,13 +1034,13 @@ hash = "7fc850584e11028e9df3613a865f2dd67cf9b2c3d349b08da7e6ad3c890412da"
 metafile = true
 
 [[files]]
-file = "mods/the-hordes-1-20-1-1-5-4c.pw.toml"
-hash = "fbdda741a922ece08466cf36b3a875a54ad1f72b7e5df5374cb2625b733b466b"
+file = "mods/the-hordes-1-20-1-1-6-3g.pw.toml"
+hash = "cedfda599318f60cb6c32447ac113e3c3e8cd0d41ca2d19ac13576ff6d935c41"
 metafile = true
 
 [[files]]
-file = "mods/the-knocker-1-5-0-forge-1-20-1.pw.toml"
-hash = "6af5a45a8b69012a412742af439cc4b81bbc98f275374afa632d755073255b7d"
+file = "mods/the-knocker-1-5-2-forge-1-20-1.pw.toml"
+hash = "4f136945a4d23006bf5f5fa9329bc7558b34df4e1246f6735a17221229140ab2"
 metafile = true
 
 [[files]]
@@ -990,8 +1054,8 @@ hash = "b89553f059a3e17b33cbbc330e4b9fe60066ade2328711926db466310c386bac"
 metafile = true
 
 [[files]]
-file = "mods/voicechat-forge-1-20-1-2-6-22.pw.toml"
-hash = "2f21b1bafef5ba8e8d3903bb7e3995275ac3ed3a1860a7314c8e6a1e631c9738"
+file = "mods/voicechat-forge-1-20-1-2-6-23.pw.toml"
+hash = "b9db6efd270e67bfd34b3d88bca36e7f5c7ec7fb02b0df7d46ed4cc42ff5a7d4"
 metafile = true
 
 [[files]]
@@ -1006,7 +1070,7 @@ metafile = true
 
 [[files]]
 file = "mods/watermedia-2-1-37.pw.toml"
-hash = "1ca9cbdbc8bc9eb7db132b61504876c19df37ecec5e18e96a79f20431e43d80a"
+hash = "097e37b28e24ad45e880bf1f3ac417ff9d28bf6cc7f5400e92fa8ac31a972040"
 metafile = true
 
 [[files]]
