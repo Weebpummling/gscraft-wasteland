@@ -152,5 +152,9 @@ Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700
   footprints were restored by re-running the transplants. (2) Chunks upgraded from 1.12 by the vanilla server keep the
   status `minecraft:spawn` / `minecraft:empty`; the terrain tools skipped them (plaza and settlement "had nothing built")
   and the game would treat them as unfinished - `runplan.py` now writes every transplanted chunk as `minecraft:full`.
-- Next: re-stage to the server, render, the owner's fly-through, then step 7 (roads hooked to the builds' own stubs).
+- Settle results (2026-09-05 01:30): hub 53,913 structure columns kept / 452,720 open re-grounded (its desert floor is now
+  the local grass), mega-base 133,680 / 69,072, industrial district 63,986 / 47,282, settlement 14,777 / 52,982, hempcrete
+  11,567 / 90,827, Novo 16,688 / 239, plaza 5,221 / 479, library 2,319 / 6,897, 29 farmsteads. Re-staged to
+  `server/wasteland-v8` and booted 01:39 for the owner's fly-through.
+- Next: the owner's fly-through, then step 7 (roads hooked to the builds' own stubs in the Skadowsky vocabulary).
 
