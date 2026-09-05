@@ -3,8 +3,8 @@
   -1490,
   -2230
  ],
- "basin_radius": 60,
- "lake_level": 63,
+ "basin_radius": 0,
+ "lake_level": null,
  "camp_box": [
   -1690,
   -2480,
@@ -12,24 +12,6 @@
   -2080
  ],
  "buildings": {
-  "island": {
-   "rect": [
-    -1506,
-    -2246,
-    -1475,
-    -2215
-   ],
-   "note": "Warium spawn structure (live world 0..31) on the crater-lake island; spawn",
-   "ground": [
-    88,
-    88,
-    88,
-    88,
-    88
-   ],
-   "fixed_in": 0,
-   "water_in": 0
-  },
   "tower_pad": {
    "rect": [
     -1560,
@@ -155,6 +137,25 @@
    ],
    "fixed_in": 0,
    "water_in": 0
+  },
+  "spawn_structure": {
+   "rect": [
+    -1506,
+    -2246,
+    -1475,
+    -2215
+   ],
+   "note": "Warium spawn structure (live world 0..31) on open ground at the camp centre; spawn. No crater lake (owner, 2026-09-05).",
+   "ground": [
+    88,
+    88,
+    88,
+    88,
+    88
+   ],
+   "fixed_in": 0,
+   "water_in": 0
   }
- }
+ },
+ "centre_lake": false
 }

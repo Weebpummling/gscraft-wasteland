@@ -181,15 +181,16 @@ east edge (200 m west) and the lake bend (north-east); the 400 x 400 camp box is
 z -2480..-2080. The first sketch centred on the heightplan's basin turned out to sit on the
 town's east strip; the basin there is abandoned and the crater lake is cut where the camp is.
 
-**The crater lake.** A bowl of radius 60 cut from the plateau down to water at y 63 (25
-below the rim), banks 1:2, the Warium spawn structure (32 x 32, from the live world at 0..31) transplanted onto the
-island at the centre; spawn on the island; one ramp down from the east.
+**The centre.** No crater lake (owner, 2026-09-05: the centre lake is dropped as a concept). The camp centre is open
+ground on the plateau at y 88 with the Warium spawn structure (32 x 32, from the live world at 0..31) standing on it as
+the spawn point; the ring of buildings looks inward onto that ground. The heightplan's basin at (-1750, -2380) is
+abandoned and is not cut where the camp is.
 
 **The ring** (the design's table 3.6 adapted to the terrain: the town lies west, so the ring occupies north, east and south):
 
 | Building | Position (blocks) | Footprint | Ground y | Note |
 |---|---|---|---|---|
-| island | x -1506..-1475, z -2246..-2215 | 32 x 32 | 88 | Warium spawn structure (live world 0..31) on the crater-lake island; spawn |
+| spawn_structure | x -1506..-1475, z -2246..-2215 | 32 x 32 | 88 | Warium spawn structure (live world 0..31) on the crater-lake island; spawn |
 | tower_pad | x -1560..-1433, z -2460..-2333 | 128 x 128 | 87 | radio tower compound 128x128 (tower.py PAD) north of the lake, between town edge and the lake bend |
 | tune | x -1590..-1575, z -2370..-2355 | 16 x 16 | 87 | radio shack 16x16 + 12 m mast, at the compound west gate |
 | tony | x -1640..-1621, z -2300..-2285 | 20 x 16 | 76 | clinic 20x16, west, by the town edge |
@@ -206,6 +207,6 @@ of the town around it are the reference. The gate road leaves Marshall's gatehou
 and the camp in view (the design's zipline to the crater rim keeps its length).
 
 **Still to decide before building:** the exact tower footprint against the lake edge (its north-east corner touches
-water by 17 columns; shift 16 south or keep the water as the moat), whether the Warium structure comes whole or only its
-platform, and the ramp side. Then `camp.py`.
+water by 17 columns; shift 16 south or keep the water as the moat), and whether the Warium structure comes whole or only its
+platform. Then `camp.py`.
 
