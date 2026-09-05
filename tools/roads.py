@@ -29,6 +29,27 @@ MARGIN = 512      # blocks of search room around each segment's bounding box
 ROAD = "minecraft:black_concrete"
 KERB = "minecraft:gray_concrete"
 LINE = "minecraft:white_concrete"
+# Skadowsky vocabulary (v8, owner 2026-09-04): a stone / andesite / gravel carriageway with andesite-wall kerbs and no centre
+# line; tracks are gravel and coarse dirt. Materials are picked per column from a hash so the mix is stable.
+STYLE = {"default": None,
+         "skadowsky": {"road": [("minecraft:stone", 45), ("minecraft:andesite", 35), ("minecraft:gravel", 20)],
+                       "kerb": [("minecraft:andesite_wall", 100)], "line": None, "fill": "minecraft:dirt"},
+         "track": {"road": [("minecraft:gravel", 60), ("minecraft:coarse_dirt", 40)], "kerb": None, "line": None, "fill": "minecraft:dirt"}}
+_style = None
+
+
+def styled(kind, x, z):
+    """Resolve ROAD / KERB / LINE for a column under the active style; None means 'do not place'."""
+    if _style is None: return kind
+    key = {ROAD: "road", KERB: "kerb", LINE: "line"}.get(kind)
+    if key is None: return kind
+    choices = _style[key]
+    if choices is None: return None
+    h = (x * 73856093 ^ z * 19349663) & 0xffff; total = sum(w for _, w in choices); pick = h % total
+    for name, wgt in choices:
+        pick -= wgt
+        if pick < 0: return name
+    return choices[-1][0]
 
 
 class Grid:
@@ -175,13 +196,16 @@ def lay_column(world, x, z, y, kind):
     for yy in range(min(g, y) + 1, y + 7):
         n = world.get(x, yy, z)
         if n is not None and n not in AIR and yy != y: world.set(x, yy, z, "minecraft:air")
+    fill = (_style or {}).get("fill") or FILL
     for yy in range(g + 1, y):
-        world.set(x, yy, z, FILL)
+        world.set(x, yy, z, fill)
     if g >= y:
         for yy in range(y + 1, g + 1): world.set(x, yy, z, "minecraft:air")
         for yy in range(y - 1, max(y - 3, -60), -1):
-            if world.get(x, yy, z) in AIR or world.get(x, yy, z) in LIQUID: world.set(x, yy, z, FILL)
-    world.set(x, y, z, kind)
+            if world.get(x, yy, z) in AIR or world.get(x, yy, z) in LIQUID: world.set(x, yy, z, fill)
+    mat = styled(kind, x, z)
+    if mat is None: mat = styled(ROAD, x, z) if kind == LINE else None
+    if mat is not None: world.set(x, y, z, mat)
     return True
 
 
@@ -244,7 +268,9 @@ def cmd_check(world, routes):
 
 
 def main(a):
+    global _style
     if len(a) < 4: sys.exit(__doc__)
+    if "--style" in a: _style = STYLE[a[a.index("--style") + 1]]
     cmd, world = a[1], World(a[2])
     if cmd == "route": cmd_route(world, json.load(open(a[3])), a[4])
     elif cmd == "build": cmd_build(world, json.load(open(a[3])), "--dry-run" in a)
