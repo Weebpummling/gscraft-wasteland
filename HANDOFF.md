@@ -9,6 +9,12 @@ how to rebuild the same state elsewhere.
 > adopted as a chapter; the player interface is `docs/gscraft-player-interface.md` (mockups: the "GSCraft Player
 > Interface" artifact). The eighteen decisions the rebase forced are `docs/gscraft-design-gaps.md` §E, each with its
 > default — read that table before any Phase C work.
+>
+> **Designer tools (owner, 2026-09-05):** WorldEdit stays and the players get it — `server.properties`
+> `op-permission-level=2` (done locally; **hand-run on the hosted panel**: the same key, then `/op <name>` for each
+> designer; the owner stays level 4 in `ops.json`); WorldEdit CUI `WorldEditCUI-1.20+01.jar` is client-only in the pack
+> (`CLIENT_EXTRA_JARS`, packwiz 2026.09.05). The researched kit (Lighty, IBE Editor, Jade, Freecam, FTB Ultimine by hand)
+> is `docs/notes/gscraft-designer-tools.md`, owner's pick pending.
 
 ## 1. Where things stand
 

@@ -1079,6 +1079,11 @@ hash = "b588d10142c0064b13e991d5db4f7eb08b2c29695ffa8d85bb7239cfd688a813"
 metafile = true
 
 [[files]]
+file = "mods/worldeditcui-1-20-01.pw.toml"
+hash = "5d63c2d11b9f1d8527dc50e6cb1badd871c243e5ca7e5a66b8813c7059c0c1a4"
+metafile = true
+
+[[files]]
 file = "mods/xaerominimap-forge-1-20-1-26-4-2.pw.toml"
 hash = "47bb452565587906dfe289cc1c978558dc9645a9b2447a2120db9b62ccaa72a8"
 metafile = true

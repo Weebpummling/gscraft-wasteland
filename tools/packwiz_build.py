@@ -40,8 +40,8 @@ BOOTSTRAP = G / "incoming" / "tools" / "packwiz-installer-bootstrap.jar"
 OUT = REPO / "build" / "packwiz"
 ASSETS = G / "release-installer"
 CLIENT_ONLY = {"xaerominimap", "xaeroworldmap"}           # jar-name prefixes that never run on the server
-CLIENT_EXTRA_JARS = [G / "client" / "instances" / "GSCraft" / ".minecraft" / "mods" / n for n in ("parties_xaerominimap_fix-1.0.0.jar", "watermedia-2.1.37.jar")]
-# client-only jars that are NOT in server/mods: the Parties/Xaero crash fix (one mixin; must never load on the server)
+CLIENT_EXTRA_JARS = [G / "client" / "instances" / "GSCraft" / ".minecraft" / "mods" / n for n in ("parties_xaerominimap_fix-1.0.0.jar", "watermedia-2.1.37.jar", "WorldEditCUI-1.20+01.jar")]
+# client-only jars that are NOT in server/mods: the Parties/Xaero crash fix (one mixin; must never load on the server), WaterMedia, WorldEdit CUI (selection outlines for the designers, 2026-09-05)
 CONFIG_SKIP = {"QuantifiedAPI", "spark", "chunky", "worldedit", "xaero", "FML.VersionCheck.txt", "voicechat"}
 CLIENT_CONFIG_EXTRA = ["appleskin-client.toml", "lootr-client.toml", "recruits-client.toml", "pingwheel.server.json"]
 TEXT_EXT = {".toml", ".json", ".json5", ".cfg", ".properties", ".txt", ".js", ".snbt", ".md"}

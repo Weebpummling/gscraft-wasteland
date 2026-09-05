@@ -260,6 +260,16 @@ friendly fire is off. Team invites happen here once, on the first evening, and n
 - **Ponder is the tutorial.** Casting, boring, building, welding, loading, mounting, firing, fuzing and the
   autocannon each have a Ponder scene in the mod; no quest, note or line repeats one.
 
+
+### 4.9 Designer tools (owner, 2026-09-05)
+The five players are also the map's designers and repair crew, so the convenience tools stay in the pack and in their
+hands: **WorldEdit 7.2.15** (both sides; op-gated, so every designer is opped at **level 2** — `op-permission-level=2`,
+the owner alone at 4 in `ops.json`), with **WorldEdit CUI** (client-only) so a selection is visible, and the vanilla
+`/tp`, `/gamemode` and `/give` that level 2 carries. WorldEdit sets blocks directly, so the tower and building locks
+do not stop it — that is the point of a hand repair. Nothing about play changes: a designer in creative or with a wand
+is a designer, and the counters, stations and quests behave as before. The rest of the kit (Lighty, IBE Editor, Jade
+hidden by default, Freecam unbound, FTB Ultimine by hand) is researched in `docs/notes/gscraft-designer-tools.md`.
+
 ## 5. Each system: state → interface → input
 
 | System | The player sees | The player does | Failure feedback | Where it is built |
@@ -284,7 +294,7 @@ friendly fire is off. Team invites happen here once, on the first evening, and n
 | **Finale** | the sculk ring and the shrieker as the telegraph; the beacon; title THE SLEEPER; the boss bar; Marshall's lines per wave | lights the beacon, holds | fail → `finale_failed`, X6b Relight in the book; no title for the failure, the dark beacon is the title | finale script |
 | **World border** | vanilla's red vignette from 200 blocks | turns around | none (no damage) | vanilla |
 | **The team / late joiner** | Tune's three lines; the notebook; a full board; James's waypoints re-sent on join; the book with the team's ticks and their own five introductions | plays | — | first-join script (per-player stage `joined`) |
-| **The operator** | `/gscraft` (KubeJS command): `state` (the board as text), `site <id> <state>`, `tower <n>`, `say <npc> <key> [player]`, `tour <player>` (replays the first-join sequence), `clock <minutes>` | fixes things from the console; the hosted panel needs no more than this | every command answers in one line on the console, nothing in the players' chat | server script |
+| **The operator and the designers** | `/gscraft` (KubeJS command): `state` (the board as text), `site <id> <state>`, `tower <n>`, `say <npc> <key> [player]`, `tour <player>` (replays the first-join sequence), `clock <minutes>`; WorldEdit with its CUI for hand repairs (§4.9) | fixes things from the console or in place; the hosted panel needs no more than this | every command answers in one line on the console, nothing in the players' chat | server script |
 
 ## 6. Copy rules (the voices)
 
