@@ -20,6 +20,7 @@ BANK = 3          # blocks of bank per block of height
 
 def carve(world, river, dry):
     pts = river["points"]; width = river.get("width", 12); level = river.get("level", 63); depth = river.get("depth", 3)
+    ground_ref = river.get("land")   # the surrounding land level the banks climb to (fills a previous over-cut)
     half = width / 2.0; reach = half + 1 + BANK * 12
     # sample the centre line densely, then work per column in the corridor
     line = densify([tuple(p) for p in pts])
@@ -47,12 +48,17 @@ def carve(world, river, dry):
             changed += 1
         else:                                               # bank: from the water's edge up to the ground over BANK blocks per block
             rise = (d - half) / BANK
-            want = min(g, int(round(level + rise)))
-            if want >= g: continue
-            world.clear_column(x, z, want + 1)
-            world.set(x, want, z, "minecraft:grass_block")
-            for yy in range(want - 2, want):
-                if world.get(x, yy, z) not in AIR: world.set(x, yy, z, "minecraft:dirt")
+            want = int(round(level + rise))
+            natural = ground_ref if ground_ref is not None else g
+            want = min(want, natural)                 # never rise above the land the bank meets
+            if want == g: continue
+            world.clear_column(x, z, min(g, want) + 1)
+            if want > g:
+                for yy in range(g + 1, want + 1): world.set(x, yy, z, "minecraft:dirt" if yy < want else "minecraft:grass_block")
+            else:
+                world.set(x, want, z, "minecraft:grass_block")
+                for yy in range(want - 2, want):
+                    if world.get(x, yy, z) not in AIR: world.set(x, yy, z, "minecraft:dirt")
             changed += 1
     files, chunks = world.save(dry)
     print(f"river {river['name']}: {len(line)} m, width {width}, level {level}: {changed} columns, {chunks} chunks, {len(files)} files{' (dry)' if dry else ''}")
