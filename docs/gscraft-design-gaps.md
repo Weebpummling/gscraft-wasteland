@@ -201,3 +201,17 @@ mismatches) were applied the same day. What changed and what stays open:
 | F10 | **Phase C config wins from the audit:** `mtsconfig.json` `generateOverrideConfigs: true`; `/hordes SpawnHordeWave` as the wave engine; In Control `areas.json` per site and `effects.json` (the sewers' Darkness); FTB Quests' Stage Barrier (hangar door, tower gate), Quest Chest (the rack) and Item Filters for the "any of" hand-ins; Antiblocks for the lit board, the Doomsday safe for the dossiers; Apotheosis' and IV's first-join books off (the kit is five slots); Recruits patrols off; Hostile Villages `vanillaVillageChance` 0; enemies §8's config rows 1–5 | open |
 | F11 | Gunpowder's v8 source (the stone complex is gone): the bus depot's role or the plant complex; the IE steel route for G6 named in crafting | open |
 | F12 | The "plant sector" is "the waterworks" in speech (N7) | done in design §2.3; other docs as they are touched |
+
+## G. Objectives on the v8 map (2026-09-05, `gscraft-objectives-v8.md`)
+
+| # | Decision | State |
+|---|---|---|
+| G1 | Acts by land: the doorstep / the town and the district / the far bank / the two far edges (O1) | applied: quests §1, §8; design §2.3 |
+| G2 | The town's east blocks are Act I's first ruins (O2) | applied: onboarding §2, loot §5 |
+| G3 | The reactor control module comes from the plant complex's control room, not FR-06 (O3, owner) | applied: design §3.6, §4.4; quests M11, R-B3; loot §4, §6; crafting §2 |
+| G4 | The waterworks (O4) | applied: design §2.3 |
+| G5 | Act III: the waterworks by truck first (R5), FR-06 by boat second (R5b) (O5, O8) | applied: quests §7.1 |
+| G6 | The farm role: **the collective farm** — the pack's fields south of the town with the farmstead at (−2112, −896) as its yard; the world scan (`farmscan`, 452 farm chunks, all composters in the town's blocks, one carrot plot inside the mega-base) found no farmland, so the fields are planted by the dressing pass (O6, owner) | applied: design §2.7, loot §5; **map session:** plant the fields |
+| G7 | The rail yard as a named loot site and the train's north terminus (O7) | applied: objectives §3; quests J-T (to write with the S-chains) |
+| G8 | Difficulty by land through In Control areas (O9) | applied: enemies §7 |
+| G9 | The crossings list (O10) | handed over: HANDOFF |

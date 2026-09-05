@@ -13,10 +13,10 @@ further; they run out of things to find where they are.
 
 | Act | Area | From the camp | What is there | How you get there | Sessions (est.) |
 |---|---|---|---|---|---|
-| **I — The Camp** | foot range | 0 – 1.5 km | camp ruins, the settlement (0.6 km SE), the runway (1.4 km N), the farmsteads around the camp, **Skadowsky — the residential block** (1.4 km SE, down the Line) | on foot | 1–2 |
-| **II — The town** | road range | 1.5 – 2.5 km | the town's ruins (1–2.5 km W), the library (1.7), the hempcrete compound (2.0), the radio tower compound (in the camp), **Novo** (2.0 km SW) and **Financial Plaza** (2.4 km SW) in the cyberpunk district; **the Woods** (2.9 km NNE, sixteen quests across the chapters from J-W1, seven of them Teddy's) | on foot, then the first car | 3–5 |
-| **III — Beyond Skadowsky** | far road range | 2 – 3 km | **FR-06** (the mega-base, 2.2 km E) and **the industrial plant** (the waterworks sector, 2.4 km ESE), reached by road over the viaduct past Skadowsky — the lake is the boat's shortcut; the sewers under the plaza | car, truck, boat | 6–9 |
-| **IV — The far edge** | the district's heart and beyond the river | 2.4 – 4.3 km | the hub (2.4 km SW, walled into the district, the Custodian), the pack's power-plant complex (2.9–4.3 km) | truck, aircraft over the lake | 10–12 |
+| **I — The doorstep** | the home bank, on foot | 0 – 1.5 km | camp ruins, the settlement (0.6 km SE), the runway (1.4 km N), the farmsteads around the camp, **Skadowsky — the residential block** (1.4 km SE, down the Line) | on foot | 1–2 |
+| **II — The town and the district** | the home bank, by car | 1.5 – 3.3 km by road | the town's ruins (1–2.5 km W), the library (1.7), the hempcrete compound (2.0), the radio tower compound (in the camp), **Novo** (2.0 km SW) and **Financial Plaza** (2.4 km SW) in the cyberpunk district; **the Woods** (2.9 km NNE, sixteen quests across the chapters from J-W1, seven of them Teddy's) | on foot, then the first car | 3–5 |
+| **III — The far bank** | the river line and beyond, truck and boat | 3.7 – 4.2 km by road, 2.2 km by boat | **FR-06** (the mega-base, 2.2 km E) and **the industrial plant** (the waterworks sector, 2.4 km ESE), reached by road over the viaduct past Skadowsky — the lake is the boat's shortcut; the sewers under the plaza | car, truck, boat | 6–9 |
+| **IV — The two far edges** | the district's heart and the plant complex; aircraft | 3.1 km and 3.5–4.3 km | the hub (2.4 km SW, walled into the district, the Custodian), the pack's power-plant complex (2.9–4.3 km) | truck, aircraft over the lake | 10–12 |
 
 Rules that hold across every chapter:
 
@@ -45,7 +45,7 @@ Rules that hold across every chapter:
 - **Every NPC's building climbs three tiers** (design §3.6): three `*-B` quests per chapter, each
   hand-in rebuilds their site on the same footprint and re-summons them in it. Tier 1 after the
   introduction, tier 2 after their strongpoint's counterattack has been beaten at the base (one more of its
-  component), tier 3 with a hub item (the gatehouse: FR-06's reactor control module).
+  component), tier 3 with a hub item (the gatehouse: the plant complex's reactor control module).
 - **Attacks only where the players are fighting.** A site is contested from its marker to the end
   of its counterattack at the base, and that is the only attack running; there is no random cycle, defended
   sites are safe for good, and only one site can be contested at a time. Holding all five is
@@ -140,7 +140,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | M8 | The reactor plaza | III | **FR-06**, 2.5 km E | hand in 2 relays, 2 electric motors, 1 car battery — FR-06's drops | M6, W7, J-S4 | stage `fr06_looted`; Marshall R5 opens |
 | M9 | Hold FR-06 | III | the camp gate | stage `fr06_held`; stage `fr06_defended` (FR-06's counterattack, at the base) | M8, Marshall R5 | **Generator 2**; transformer cores start spawning |
 | M10 | Core | III | FR-06 | hand in 1 transformer core | M9 | generator-kit blueprint |
-| M11 | The hangar | III→IV | FR-06 hangar | hand in 1 avionics module; hand in 1 reactor control module | M10 | hangar unlocked; Walker W13 opens |
+| M11 | The hangar | III→IV | FR-06 hangar, the plant complex | hand in 1 avionics module (FR-06); hand in 1 reactor control module (the plant complex's control room — the first far-edge trip, by truck through the west gate) | M10 | hangar unlocked; Walker W13 opens |
 | M12 | Purification | III | industrial plant | hand in 1 purification membrane | M6 | **Water 3** |
 | M13 | Full grid | IV | the hub | hand in 1 military power filter, 2 wiring harnesses | M11, J7 | **Generator 3** |
 | M-B1 | Under a roof | I | camp | hand in 8 metal scrap, 2 wiring harnesses, 1 filter cartridge | M2 | **plant tier 1**: generator shed, water collector |
@@ -226,7 +226,8 @@ is still contested — one fight at a time, in this order.
 | R2 | The block | I | Skadowsky — the residential block | place the marker; win the assault (stage `residential_held`) | R1, `residential_looted`, L6 | the block's site guard and its keeper (Vera) appear; the fortify clock starts; Tony T4 opens; the first counterattack is the lightest (enemies §5's Matron leads it) |
 | R3 | Novo | II | Novo | place the marker; win the assault (stage `novo_held`) | R2, `residential_defended`, `novo_looted` | Novo's site guard and Kessler appear; Walker W6 opens |
 | R4 | The plaza | II | Financial Plaza | place the marker; win the assault (stage `financial_held`) | R3, `financial_looted` | Ilya appears; Tune U5 opens |
-| R5 | Across the lake | III | FR-06, the industrial plant | place the marker and win the assault at each (stages `fr06_held` and `plant_held`), one after the other | R4, `novo_defended`, `car_built`, `fr06_looted`, `plant_looted` | Rook and Oksana appear; Michael M5 and M9 open |
+| R5 | The waterworks | III | the waterworks, over the viaduct | place the marker; win the assault (stage `plant_held`) | R4, `novo_defended`, `truck_built`, `plant_looted` | Oksana appears; Michael M5 opens |
+| R5b | The far shore | III | FR-06, across the lake | place the marker; win the assault (stage `fr06_held`) | R5, `boat_built`, `fr06_looted` | Rook appears; Michael M9 opens; the boat has done its job |
 | R6 | Every site | III | all five | all five held and defended at once (stage `all_held`) | R5 | component respawn rate doubled |
 
 ### 7.2 Walls, defences, farm, the field
@@ -266,7 +267,7 @@ is still contested — one fight at a time, in this order.
 |---|---|---|---|---|---|---|
 | R-B1 | A gate | I–II | camp | hand in 32 concrete, 4 steel frames, 2 fastener kits | R2 | **gatehouse tier 1**: the gate, wall stubs (the parts rack stands from tier 0) |
 | R-B2 | Watchtowers | II–III | camp, Novo | hand in 64 concrete, 8 steel frames, 1 heavy anchor cable | R-B1, R3, R4 | **gatehouse tier 2**: walled gate, two watchtowers, barricades; guard villagers at the gate |
-| R-B3 | Blast doors | IV | camp, FR-06 | hand in 128 concrete, 8 steel frames, 1 reactor control module | R-B2, X4 | **gatehouse tier 3**: blast doors, floodlights, the board as a lit wall map; the finale's first wave breaks on the gate |
+| R-B3 | Blast doors | IV | camp, the plant complex | hand in 128 concrete, 8 steel frames, 1 reactor control module (the plant complex) | R-B2, X4 | **gatehouse tier 3**: blast doors, floodlights, the board as a lit wall map; the finale's first wave breaks on the gate |
 
 ## 7A. Teddy the Hermit — explosives (the Woods outpost)
 
@@ -343,7 +344,7 @@ boring mill). Full rows in the Create chapter §3.
 ## 8. How the acts feel in play
 
 **Act I (sessions 1–2).** Five introductions in the camp's own ruins; the personal station, the first
-backpack, lights. James sends them to the settlement and the runway to learn the ground. Then the Line: down the pylons
+backpack, lights. James sends them to the settlement and the runway to learn the ground. The town's east blocks are the first ruins, 200 m from the gate (O2). Then the Line: down the pylons
 south-east to Skadowsky, the one strongpoint in walking range — its dossier, two or three loot runs for Tony, the
 switching station, then Marshall's marker and the assault. Skadowsky is held by its site guard and Vera, its fortify
 clock runs, and its counterattack — the lightest in the game — arrives at the camp gate on schedule. The depot on the
@@ -353,14 +354,17 @@ Line hands out the motor-assembly blueprint, so the first car is built before an
 and held; Bio Gen and the library are looted; the first gun is cast, bored and fired in the camp (G1–G4). The tower
 chapter, open since the introductions, gets its first parts; stage 1 goes up. Three sites are held.
 
-**Act III (sessions 6–9).** Beyond Skadowsky, by road: FR-06 on the lake's east shore and the industrial plant beside
-the pack's own plant complex, over the viaduct; the lake is the boat's shortcut, not the only way. The truck appears;
-the secure pack arrives. Stages 2–4 go up: the tower has power and a dish; the gun gets steel, shells and the range
+**Act III (sessions 6–9).** The far bank. The truck first: over the viaduct and up the east bank to the waterworks
+(the industrial district beside the pack's plant complex) — its take needs a bulky item carried, which is what the
+truck is for. Then the boat: straight across the lake to FR-06 on the east shore, 2.2 km of water against 4.2 km of
+road, the boat's one real job. The rail yard on the lake's north-east shore and James's train (J-T1–3) tie the far bank
+together. The secure pack arrives. Stages 2–4 go up: the tower has power and a dish; the gun gets steel, shells and the range
 card. Five sites in the pool means five counterattacks fought and won at the gate, one at a time, and the map is theirs.
 
-**Act IV (sessions 10–12).** The hub inside the district (the Custodian), the runway and the plane over the lake to
-the plant complex for the last component; the phased array element comes home, the antenna array goes up, the beacon
-lights. Tony's ready room, Marshall's walls and the battery decide the finale; the waves come to the base; the
+**Act IV (sessions 10–12).** The two far edges, opposite corners of the map: the hub inside the district (the
+Custodian, the phased array element and the satellite receivers) and the plant complex (the reactor control module in
+the control room, the switchyard, U-D3's bunker), by truck through the plant's west gate or by air over the lake from
+the runway. The antenna array goes up, the beacon lights. Tony's ready room, Marshall's walls and the battery decide the finale; the waves come to the base; the
 Sleeper (`gscraft-finale.md`).
 
 ---

@@ -139,8 +139,13 @@ the same footprint, placed by the NPC's upgrade quests (§3.6).
 | 2 | **Novo Expograd Industrial Zone** | x −2880…−2737 × z −816…−657, in the cyberpunk district | 2.0 km SW | Heavy industry | Walker | **Kessler**, the foundryman |
 | 3 | **Financial Plaza Quarantine** (+ the sewers under it) | x −3456…−3297 × z −800…−657, in the district | 2.4 km SW | Electronics | Tune | **Ilya**, the clerk |
 | 4 | **FR-06 complex** (v8: the mega-base sector) | x 368…751 × z −2128…−1601, the lake's east shore | 2.2 km E | Power and hangar | Michael | **Rook**, the millwright |
-| 5 | **Industrial plant** (v8: the industrial district — "the waterworks" in speech, so it is not confused with Michael's plant or the pack's plant complex; review N7) | x 336…799 × z −1376…−1105 | 2.4 km ESE | Fuel and water | Michael | **Oksana**, the plant chief |
+| 5 | **The waterworks** — the industrial plant of the design (v8: the industrial district beside the pack's plant complex) | x 336…799 × z −1376…−1105 | 2.4 km ESE, 3.7 km by road over the viaduct | Fuel and water | Michael | **Oksana**, the plant chief |
 | — | **Radio tower** (custom) | in the camp, pad x −1560…−1433 × z −2460…−2333 | 0.1 km | Endgame | Marshall | — |
+
+**Where things live is `gscraft-objectives-v8.md`** (2026-09-05, from the map itself): three lands divided by water — the
+home bank (the camp, the town, the settlement, the runway and library, the Woods and the collective farm), the river
+line (Skadowsky, the viaducts) and the far bank (the rail yard, FR-06, the waterworks, the plant complex) — plus the
+district under the ridge. Acts follow the lands: the doorstep, the town and the district, the far bank, the two far edges.
 
 **The ruin field is the town.** There are no generated structures inside the v8 cell: the Pripyat pack's town
 (x −3750…−1800, z −3750…−1400, the camp's western neighbour) and its plant complex (x −1150…1200, z −400…700) are the
@@ -225,6 +230,7 @@ dressing pass at farmsteads, and the town's landmarks for the rest.
 | the air-ring bunker (4864, −336) | the plant complex's own bunker, Act IV, reached by air over the lake (`bunker_east_by_air`) | U-D3 |
 | the four kept capitals / the nearest capital | the town's four quarters / the town centre by car, 1.2 km W | J9 / J-C1 |
 | the nearest fog house (2288, −400) | a Man-From-The-Fog house placed at the Woods farmstead (−2192, −32) | J-C2 |
+| the mud village (the farm hamlet) | **the collective farm**: the pack's fields south of the town, x −2700…−1900, z −1350…−700, planted by the dressing pass (wheat gone wild, hay, a barn), the farmstead at (−2112, −896) as its yard — no farmland exists in the pack, the fields are the farm (owner, 2026-09-05) | D3, D5, L1 |
 | the pillager outpost (−1392, 1632) | an outpost template at the farmstead (−2720, −1072), 1.7 km SW | D-O1 |
 | the Woods' bandit outpost (720, −3440) | the Woods farmstead at (−2176, −576), 1.8 km S; Teddy's tower is its barn | R-W1, Teddy |
 | the Woods (x 400…2400, z −3500…−1500) | the named area x −2450…−1600, z −1350…100 on the existing forest (v8 §4; no relief, no regeneration) | all Woods quests, §6.3 |
@@ -272,7 +278,7 @@ therefore grows visibly with the players' progress, and each NPC's site is a rea
 chain has come. Tiers are separate from the hideout function levels of §5 — the functions are the
 players' claim, the tiers are the NPCs' own places — but their gates line up so neither runs ahead of
 the other: tier 1 after the introduction, tier 2 after that NPC's strongpoint is defended, tier 3 with a
-hub component (the gatehouse: FR-06's reactor control module).
+hub component (the gatehouse: the plant complex's reactor control module — objectives §4).
 
 | NPC | Tier 0 (as placed) | Tier 1 — Repair | Tier 2 — Expand | Tier 3 — Complete | What the tier adds |
 |---|---|---|---|---|---|
@@ -295,7 +301,7 @@ Hand-ins scale with the acts and reuse what the loop already produces: tier 1 is
 first intermediates; tier 2 needs bulk building material (concrete, steel frames) plus **one more**
 of the strongpoint's loot-only components — a second item of the same site (the engine, the membrane, the encrypted radio,
 the analyzer), respawning while the site is held, so each upgrade is another trip to a site the players already own; tier 3 needs
-one hub item (the gatehouse's R-B3 takes FR-06's reactor control module instead). `camp.py` generates the 24 templates (six buildings × four tiers) and their placement
+one hub item (the gatehouse's R-B3 takes the plant complex's reactor control module instead). `camp.py` generates the 24 templates (six buildings × four tiers) and their placement
 functions `gscraft:camp_<npc>_<tier>`; tier 0 is placed first, by `camp.py` after the visual pass (Phase C).
 
 **Every building is locked the way the tower is.** The tower lock (`gscraft_tower_lock.js` and its
@@ -401,7 +407,7 @@ beside the small items (`gscraft-loot-tables.md`) and feed hunger; they count fo
 | 5 | Antenna array | 4 antenna element + 1 circuit assembly | Phased array element | the hub only | Radio 3 |
 
 Other loot-only components, first cut: heavy diesel engine (Novo); purification membrane (the
-plant); reactor control module, avionics module (FR-06); encrypted radio (Financial Plaza); medical
+plant); avionics module (FR-06); **reactor control module (the plant complex's control room, Act IV — objectives §4)**; encrypted radio (Financial Plaza); medical
 analyzer, surgical kit (residential block, Bio Gen); satellite receiver, military power filter (the
 hub). They spawn in specific containers at their site, one or two per visit, and respawn on the
 respawn timer, so a held strongpoint keeps producing. Base upgrade kits have the same shape: a kit of
@@ -523,7 +529,7 @@ inside the site rectangle before the take (thin enough to loot through with care
 on the base at the end of the fortify clock (three waves at the camp gate). Counts are the baseline for five players and the script scales them to the actual number (×0.4 for one, ×0.6 for
 two, ×0.8 for three or four, ×1.2 for six or more) — for the assault the players inside the site rectangle, for a
 counterattack and the finale the players online. Assault waves enter from the site's edges, never inside its
-buildings; counterattack waves enter 48 blocks outside the camp outline, from the east gate road, the town edge to the west and the south-east fields (north is the tower pad and the lake — review N3). Mob ids, checked against the jars: neither the Bandits mod nor Pillagers Gun registers an entity —
+buildings; counterattack waves enter 48 blocks outside the camp outline, from the direction of the attacking site: the south-east fields (Skadowsky, the waterworks), the town's east avenue (Novo, the plaza), the lake road (FR-06); the wave's origin tells the players which site is attacking before the board does (objectives §6; north is the tower pad and the lake). Mob ids, checked against the jars: neither the Bandits mod nor Pillagers Gun registers an entity —
 "bandits" and "gun pillagers" are vanilla **pillagers and vindicators**, which Pillagers Gun arms;
 Hordes adds only the zombie-player variants, so zombies, husks and drowned are vanilla; IE's Fusilier /
 Commando / Bulwark (`immersiveengineering:*`), The Knocker (`the_knocker:knocker`), The Man From The

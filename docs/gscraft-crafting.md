@@ -93,7 +93,7 @@ vehicle in a second.
 | Truck | 8 steel frame, 1 **heavy diesel engine** (Novo), 6 wheel, 1 small battery pack, 1 cargo crate |
 | Light aircraft | 8 steel frame, 1 **avionics module** (FR-06), 2 motor assembly, 2 wheel, 2 fuel tank, 2 circuit assembly, 4 glass |
 | Light helicopter | 6 steel frame, 1 **avionics module**, 1 **transformer core**, 2 motor assembly, 2 fuel tank, 1 circuit assembly |
-| Armoured car | 12 steel frame, 4 plate (§5.1), 1 heavy diesel engine, 6 wheel, 1 medium battery pack, 1 **reactor control module** |
+| Armoured car | 12 steel frame, 4 plate (§5.1), 1 heavy diesel engine, 6 wheel, 1 medium battery pack, 1 **reactor control module** (the plant complex, Act IV) |
 
 Every vehicle from the truck up needs a loot-only component, so the upper garage tiers are trips
 to a held site — the same rule as the tower parts.

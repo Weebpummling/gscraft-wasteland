@@ -174,20 +174,18 @@ gun, armour piece, intermediate or complete part — the same rule the container
 
 ## 7. Difficulty
 
-Improved Mobs' `DISTANCESPAWN` scaling is centred on the world spawn, which v8 puts on the Warium plaza at (−1490, −2230): the design's rings
-and the mod's steps already agree, and the steps are tuned to them —
+Difficulty follows the land, not the distance (objectives §6, 2026-09-05): on the v8 map every strongpoint but
+Skadowsky is 2.0–2.4 km from the camp in a straight line, so Improved Mobs' distance rings cannot separate the acts.
+Improved Mobs keeps a two-step curve (level 0 inside 1.5 km of the spawn, level 6 beyond) and In Control's `areas.json`
+carries the rest, one area per land:
 
-| Distance | Improved Mobs level | Ring | What it means |
+| Land | In Control area | Level (Improved Mobs step + the area's gear tables §3) | What it means |
 |---|---|---|---|
-| 0–1,500 | 0 → 3 | foot | the camp's own ruins and Novo: no attribute bonus worth naming |
-| 1,500–2,500 | 3 → 6 | road (near) | the block, the plant: +health, occasional armour |
-| 2,500–4,000 | 6 → 10 | road (far) | FR-06, the Plaza: enemies that survive a magazine |
-| 4,000+ | 10 → 15 | air | the hub: everything is harder than anything on the ground |
-
-Act progression rides on top through the equipment tables (§3): the same pillager that met the
-players with a pistol outside Novo meets them with an assault rifle and iron armour at the Plaza.
-Improved Mobs' own caps stay as shipped (max +5 health, +3 damage, +0.1 speed) so the curve is
-*equipment*, not arithmetic.
+| the home bank inside 1.5 km | `home` | 0 | the camp's ruins, the town's east blocks, the settlement, the collective farm: no attribute bonus worth naming |
+| the river line | `river` | 3 | Skadowsky: +health, occasional armour; the first counterattack is the lightest |
+| the home bank beyond 1.5 km and the district | `town`, `district` | 6 | the town's west, the runway, Novo, the plaza, Bio Gen: enemies that survive a magazine |
+| the far bank | `farbank` | 10 | the rail yard, the waterworks, FR-06 |
+| the two edges | `hub`, `plant` | 15 | the hub and the plant complex: everything is harder than anything else on the map |
 
 ## 8. Config changes, and four defaults that are wrong
 

@@ -1,6 +1,6 @@
 # GSCraft Wasteland — Where things live on the v8 map
 
-Draft 1, 2026-09-05. A reassessment from the map itself (the current `scratch/worlds/v8-build`, sectors final, edges
+Draft 2, 2026-09-05 (draft 1 the same day; owner: O3 confirmed, O6 = the collective farm, the rest confirmed; applied to the parents). A reassessment from the map itself (the current `scratch/worlds/v8-build`, sectors final, edges
 still being cleaned in the other session): where the strongpoints and every other objective should live, given a map
 that is nothing like the one the design was written on. Render: `docs/renders/v8_geography.png` (roads cream, water
 blue, built magenta, sectors yellow, farmsteads orange, the camp red with 1 / 2 / 3 km rings). Distances "by road" were
@@ -77,7 +77,8 @@ the settlement as the first strongpoint (0.5 km is a loot walk, not a take); the
 | the settlement | I | the first walk's hardware, W3's scrap, J1's location | 0.5 km south, on the Line |
 | **the town** | I–II | the ruin field: every "generated structure" quest re-targeted here (design §2.7); the palace of culture (U-A1's cellar), the tallest block (W-A6's roof boss), the central square (J-C1), the four microdistricts (J9), the swimming pool (the prismarine hall's role), the hotel (the glass tower's), the bus depot (the stone complex's: W-A5, H3, gunpowder) | west, from the camp's doorstep to 2.5 km |
 | the runway, the library | II | the aircraft's home; the library's folders (J5) | north along the lake shore |
-| the hempcrete compound | II | the mud village's food role or Bio Gen's medical role — one of the two moves here (§7) | the district's north edge |
+| the hempcrete compound | II | a walled survivor holdout: medical, hardware, the first seeds (loot §5) | the district's north edge |
+| **the collective farm** | I–II | the pack's fields south of the town (x −2700…−1900, z −1350…−700) with the farmstead at (−2112, −896) as its yard: the farm role (D3's seeds and bowls, D5's crops) — the world scan found no farmland in the pack, only the town's composters, so the fields are the farm and the dressing pass plants them | between the town and the Woods, 1.5 km |
 | Bio Gen | II | T7's surgical kit, medical analyzers | the district's east strip |
 | the sewers | III | U6's kill task, the encrypted radio | under the plaza |
 | the rail yard | III | the train (Create track, the depot, the schedule block); a loot stop on the north road | the lake's north-east shore |
@@ -129,16 +130,16 @@ It gives Act IV a second edge and the plant complex a reason to exist beyond a b
 
 ## 7. What changes in the documents, and the owner's decisions
 
-Applied only after the owner reads this (nothing below is in the parents yet):
+Applied 2026-09-05 (owner's rulings: O3 and O6 as marked, the rest confirmed):
 
 | # | Change | Docs | Decision |
 |---|---|---|---|
 | O1 | Act structure as §1 (the doorstep / the town and the district / the far bank / the two far edges) | quests §1, §8; design §2.1, §3.5; onboarding §2 | confirm |
 | O2 | Act I's first ruins are the town's east blocks, not only the camp's 24 wrecks: the introductions' hand-ins list the avenue's chests | onboarding §2, loot §5 | confirm |
-| O3 | the reactor control module from the plant complex; FR-06 keeps the generator | design §2.3, §4.4, §7; quests X-series, R-B3; loot §6 | **owner** — it moves a hub item |
+| O3 | the reactor control module from the plant complex; FR-06 keeps the generator | design §2.3, §4.4, §7; quests M11, R-B3, W-M2; loot §4, §6 | **decided** |
 | O4 | the industrial district is "the waterworks" in every doc | all | confirm (N7) |
 | O5 | Act III's order: the waterworks first (the viaduct road), FR-06 second (the boat); R5 becomes two quests again | quests §7.1 | confirm |
-| O6 | the hempcrete compound takes the mud village's food role (D3's seeds, D5's crops) — it is a farm compound — and the four farmsteads south of the Woods keep only D3's bowls | loot §5, design §2.7 | **owner** (the review's N5 said the farmsteads) |
+| O6 | the farm role goes to **the collective farm**: the pack's fields south of the town with the farmstead at (−2112, −896) as its yard (owner, 2026-09-05: something pre-existing; the scan found no farmland, so the fields are it) | loot §5, design §2.7 | **decided** |
 | O7 | the rail yard is a named loot site and the train's north terminus | loot §5, create §2, quests J-T | confirm |
 | O8 | boat landings on both shores; the boat quest (W-B?) moves to the start of Act III | quests §2, camp spec | confirm |
 | O9 | difficulty by land (In Control areas) instead of distance rings | enemies §7, design §6.3 | confirm |
