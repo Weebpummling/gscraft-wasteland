@@ -109,6 +109,8 @@ def main(a):
     try_place("lib", "Library", 96, 96, "player", "live world x 2032..2127 z 1392..1487", (-3800, -3850, -1500, -1300),
               lambda cx, cz, *r: 0.5 * math.hypot(cx - (-2500), cz - (-3800)))
     try_place("runway", "Runway (pad)", 512, 192, "pad", "built pad", NORTH, lambda cx, cz, *r: 0)
+    try_place("settle", "Settlement", 272, 288, "player", "scratch/upgrade/world east site (1.12)", (-1300, -2200, 1100, -500),
+              lambda cx, cz, *r: 0.15 * abs(cx - (-300)) + 0.15 * abs(cz - (-1900)))
     for i in range(29):
         try_place(f"old{i + 1:02d}", f"farmstead {i + 1}", 64, 64, "farmstead", "live world, old site", ALL,
                   lambda cx, cz, *r: 0.5 * abs(at8(droad8, cx, cz) - 40), tries=3000, gap=150)
