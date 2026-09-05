@@ -96,3 +96,31 @@ reads as bare ground (coarse dirt) rather than rails and is traced separately. R
 
 Next: apply the heightmap to the world (column raise/cut with the grade tool's column writer; ground cover and trees
 follow with WorldPainter), then a fly-through render; then step 4, sector placement on the rolling fields.
+
+## 4. Sector placement (proposal 1, 2026-09-04; `tools/place_sectors.py`, `buildmap/plan_v8/sectors_v8.json`)
+
+Rule set: a sector sits on free ground (no water or rail under it; at most 2 % small sheds or field tracks, which the
+transplant replaces), 16 blocks clear of anything fixed, 48 blocks clear of other sectors, next to an existing road, on
+flat ground, at its distance ring from the camp (near 400-1100 m, mid 1100-2200 m, far 2200-3600 m), spread around the
+compass. Render: `incoming/census/sectors/sectors_v8.png`.
+
+| Sector | Position (blocks) | Footprint | m from camp | m to a road |
+|---|---|---|---|---|
+| Camp | x -1942..-1559, z -2572..-2189 | 384 x 384 | - | - |
+| Skadowsky sector | x -1232..-769, z -1280..-529 | 464 x 752 | 1672 | 0 |
+| Novo Expograd hub (desert city) | x -3488..-2657, z -592..47 | 832 x 640 | 2481 | 29 |
+| Mega-base | x 320..703, z -1584..-1057 | 384 x 528 | 2514 | 24 |
+| Industrial district | x -3536..-3073, z -1296..-1025 | 464 x 272 | 1977 | 0 |
+| Runway (pad) | x -3760..-3249, z -3664..-3473 | 512 x 192 | 2103 | 40 |
+| Hempcrete compound | x -2112..-1793, z -3792..-3473 | 320 x 320 | 1266 | 36 |
+| Settlement | x 416..687, z -2096..-1809 | 272 x 288 | 2353 | 16 |
+| 29 old sites cluster | x -1136..-801, z -1872..-1489 | 336 x 384 | 1059 | 0 |
+| Financial Plaza + sewers | x -1568..-1409, z -1568..-1425 | 160 x 144 | 936 | 0 |
+| Novo Expograd Industrial Zone | x -800..-657, z -2768..-2609 | 144 x 160 | 1074 | 8 |
+| Bio Gen offices | x -1264..-1201, z -3008..-2753 | 64 x 256 | 716 | 0 |
+| Library | x -1344..-1249, z -3168..-3073 | 96 x 96 | 863 | 11 |
+
+Notes for the owner's pass: the camp box overlaps the town's east strip and should move about 150 blocks east onto the
+plateau proper; the hub landed inside the Woods zone (the only free area of its size) - either the Woods gives up its
+east third or the hub goes to the south-centre fields; the Skadowsky sector sits against the rail embankment, which lets
+its own rail join the line; Library, Bio Gen and Novo took the rise inside the river bend.

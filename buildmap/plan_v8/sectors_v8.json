@@ -1,0 +1,217 @@
+{
+ "border": [
+  -3900,
+  -3900,
+  1200,
+  700
+ ],
+ "sectors": [
+  {
+   "id": "camp",
+   "name": "Camp",
+   "x0": -1942,
+   "z0": -2572,
+   "x1": -1559,
+   "z1": -2189,
+   "ring": [
+    0,
+    0
+   ],
+   "source": "camp on the plateau; crater lake = the basin"
+  },
+  {
+   "id": "skad",
+   "name": "Skadowsky sector",
+   "x0": -1232,
+   "z0": -1280,
+   "x1": -769,
+   "z1": -529,
+   "ring": [
+    1100,
+    2000
+   ],
+   "dist_m": 1672,
+   "road_m": 0,
+   "source": "incoming/skadowsky 1.2 x -480..-17 z -1232..-481"
+  },
+  {
+   "id": "hub",
+   "name": "Novo Expograd hub (desert city)",
+   "x0": -3488,
+   "z0": -592,
+   "x1": -2657,
+   "z1": 47,
+   "ring": [
+    2400,
+    3600
+   ],
+   "dist_m": 2481,
+   "road_m": 29,
+   "source": "scratch/upgrade/world hub (1.12), ships cut"
+  },
+  {
+   "id": "mega",
+   "name": "Mega-base",
+   "x0": 320,
+   "z0": -1584,
+   "x1": 703,
+   "z1": -1057,
+   "ring": [
+    2200,
+    3400
+   ],
+   "dist_m": 2514,
+   "road_m": 24,
+   "source": "live world x 2192..2575 z 400..927"
+  },
+  {
+   "id": "indu",
+   "name": "Industrial district",
+   "x0": -3536,
+   "z0": -1296,
+   "x1": -3073,
+   "z1": -1025,
+   "ring": [
+    1500,
+    2600
+   ],
+   "dist_m": 1977,
+   "road_m": 0,
+   "source": "live world x 1904..2367 z 864..1135"
+  },
+  {
+   "id": "runway",
+   "name": "Runway (pad)",
+   "x0": -3760,
+   "z0": -3664,
+   "x1": -3249,
+   "z1": -3473,
+   "ring": [
+    2000,
+    3400
+   ],
+   "dist_m": 2103,
+   "road_m": 40,
+   "source": "built pad"
+  },
+  {
+   "id": "hemp",
+   "name": "Hempcrete compound",
+   "x0": -2112,
+   "z0": -3792,
+   "x1": -1793,
+   "z1": -3473,
+   "ring": [
+    1200,
+    2200
+   ],
+   "dist_m": 1266,
+   "road_m": 36,
+   "source": "live world x 1568..1887 z 1152..1471"
+  },
+  {
+   "id": "settle",
+   "name": "Settlement",
+   "x0": 416,
+   "z0": -2096,
+   "x1": 687,
+   "z1": -1809,
+   "ring": [
+    1400,
+    2600
+   ],
+   "dist_m": 2353,
+   "road_m": 16,
+   "source": "scratch/upgrade/world east site (1.12)"
+  },
+  {
+   "id": "old",
+   "name": "29 old sites cluster",
+   "x0": -1136,
+   "z0": -1872,
+   "x1": -801,
+   "z1": -1489,
+   "ring": [
+    900,
+    2000
+   ],
+   "dist_m": 1059,
+   "road_m": 0,
+   "source": "live world, 29 rects"
+  },
+  {
+   "id": "plaza",
+   "name": "Financial Plaza + sewers",
+   "x0": -1568,
+   "z0": -1568,
+   "x1": -1409,
+   "z1": -1425,
+   "ring": [
+    500,
+    1200
+   ],
+   "dist_m": 936,
+   "road_m": 0,
+   "source": "scratch/upgrade/financial_plaza + sewers (1.12)"
+  },
+  {
+   "id": "novo",
+   "name": "Novo Expograd Industrial Zone",
+   "x0": -800,
+   "z0": -2768,
+   "x1": -657,
+   "z1": -2609,
+   "ring": [
+    700,
+    1500
+   ],
+   "dist_m": 1074,
+   "road_m": 8,
+   "source": "scratch/upgrade/novo_industrial (1.12)"
+  },
+  {
+   "id": "biogen",
+   "name": "Bio Gen offices",
+   "x0": -1264,
+   "z0": -3008,
+   "x1": -1201,
+   "z1": -2753,
+   "ring": [
+    600,
+    1400
+   ],
+   "dist_m": 716,
+   "road_m": 0,
+   "source": "scratch/upgrade/biogen_strip (1.12)"
+  },
+  {
+   "id": "lib",
+   "name": "Library",
+   "x0": -1344,
+   "z0": -3168,
+   "x1": -1249,
+   "z1": -3073,
+   "ring": [
+    400,
+    1100
+   ],
+   "dist_m": 863,
+   "road_m": 11,
+   "source": "live world x 2032..2127 z 1392..1487"
+  }
+ ],
+ "zones": {
+  "woods": [
+   -3400,
+   -1350,
+   -1600,
+   100
+  ],
+  "ridge": [
+   -3900,
+   -2600,
+   -3450,
+   700
+  ]
+ }
+}
