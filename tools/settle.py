@@ -23,47 +23,55 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from terrain import World, NATURAL, PLANT, LIQUID, AIR
 
-GROUND = {"minecraft:grass_block", "minecraft:dirt", "minecraft:coarse_dirt", "minecraft:podzol", "minecraft:sand", "minecraft:red_sand",
-          "minecraft:sandstone", "minecraft:smooth_sandstone", "minecraft:stone", "minecraft:gravel", "minecraft:andesite", "minecraft:granite",
-          "minecraft:diorite", "minecraft:terracotta", "minecraft:orange_terracotta", "minecraft:red_terracotta", "minecraft:brown_terracotta",
-          "minecraft:white_terracotta", "minecraft:light_gray_terracotta", "minecraft:yellow_terracotta", "minecraft:mud", "minecraft:clay",
-          "minecraft:moss_block", "minecraft:rooted_dirt", "minecraft:snow_block", "minecraft:mycelium", "minecraft:dirt_path", "minecraft:farmland"}
-SOFT = GROUND | PLANT | LIQUID | AIR | {"minecraft:snow", "minecraft:grass", "minecraft:tall_grass", "minecraft:fern", "minecraft:large_fern",
-                                        "minecraft:dead_bush", "minecraft:seagrass", "minecraft:kelp", "minecraft:lily_pad", "minecraft:vine",
-                                        "minecraft:dandelion", "minecraft:poppy", "minecraft:sweet_berry_bush", "minecraft:cobweb"}
-LEAF = ("_leaves", "_log", "_wood", "_sapling", "azalea", "mangrove_roots", "bamboo", "cactus", "mushroom")
+SOIL = {"minecraft:grass_block", "minecraft:dirt", "minecraft:coarse_dirt", "minecraft:podzol", "minecraft:sand", "minecraft:red_sand",
+        "minecraft:gravel", "minecraft:mud", "minecraft:clay", "minecraft:moss_block", "minecraft:rooted_dirt", "minecraft:snow_block",
+        "minecraft:mycelium", "minecraft:dirt_path", "minecraft:farmland"}
+WASTE = {"minecraft:terracotta", "minecraft:orange_terracotta", "minecraft:red_terracotta", "minecraft:brown_terracotta",
+         "minecraft:white_terracotta", "minecraft:light_gray_terracotta", "minecraft:yellow_terracotta", "minecraft:stone",
+         "minecraft:andesite", "minecraft:granite", "minecraft:diorite", "minecraft:sandstone", "minecraft:smooth_sandstone"}
+COVER = PLANT | LIQUID | AIR | {"minecraft:snow", "minecraft:grass", "minecraft:tall_grass", "minecraft:fern", "minecraft:large_fern",
+                                "minecraft:dead_bush", "minecraft:seagrass", "minecraft:kelp", "minecraft:lily_pad", "minecraft:vine",
+                                "minecraft:dandelion", "minecraft:poppy", "minecraft:sweet_berry_bush", "minecraft:cobweb", "minecraft:cactus"}
+LEAF = ("_leaves", "_log", "_wood", "_sapling", "azalea", "mangrove_roots", "bamboo", "mushroom")
+GROUND = SOIL           # reassigned per footprint (SOIL, or SOIL | WASTE for builds lifted from the wasteland world)
 
 
 def is_tree(n):
     return any(k in n for k in LEAF)
 
 
-def column_profile(w, x, z, ymax=200):
-    """-> (ground_y, built_y or None, tree_only) scanning the column top-down to bedrock: the highest block that is not
-    soft and not a tree marks a structure; the highest GROUND block below the top marks the ground."""
+def column_profile(w, x, z, ground_set, level, ymax=200):
+    """-> (ground_y, built, tree). Top-down: cover and trees are skipped; the first other block decides - a soil block is
+    the ground (open column); a hard block above level+1 is structure; a hard block at or below level+1 is pavement or
+    an imported floor and counts as structure too (kept). ground_y = the highest ground-set block."""
     top, _ = w.top(x, z)
-    if top is None: return None, None, False
-    built = None; tree = False; ground = None
+    if top is None: return None, False, False
+    built = False; tree = False; ground = None
     for y in range(min(top, ymax), -64, -1):
         n = w.get(x, y, z)
         if n is None or n in AIR: continue
-        if n in GROUND:
-            ground = y; break
-        if n in SOFT: continue
+        if n in COVER: continue
         if is_tree(n): tree = True; continue
-        if built is None: built = y
+        if n in ground_set:
+            ground = y; break
+        built = True
+        # find the ground under the structure for the foundation height
+        for yy in range(y - 1, -64, -1):
+            m = w.get(x, yy, z)
+            if m in ground_set: ground = yy; break
+        break
     return ground, built, tree
 
 
-def settle(w, rect, level, dry, label):
+def settle(w, rect, level, dry, label, ground_set):
     x0, z0, x1, z1 = rect
     W_, H_ = x1 - x0 + 1, z1 - z0 + 1
     ground = np.full((H_, W_), -999, np.int32); built = np.zeros((H_, W_), bool); tree = np.zeros((H_, W_), bool)
     for z in range(z0, z1 + 1):
         for x in range(x0, x1 + 1):
-            g, b, t = column_profile(w, x, z)
+            g, b, t = column_profile(w, x, z, ground_set, level)
             if g is None: continue
-            ground[z - z0, x - x0] = g; built[z - z0, x - x0] = b is not None; tree[z - z0, x - x0] = t
+            ground[z - z0, x - x0] = g; built[z - z0, x - x0] = b; tree[z - z0, x - x0] = t
     valid = ground > -900
     if not built.any():
         print(f"  {label}: nothing built inside, skipped"); return 0
@@ -88,7 +96,7 @@ def settle(w, rect, level, dry, label):
             # ground material swap: the top 4 natural blocks become dirt, the surface grass
             if t == g:
                 for yy in range(g - 3, g):
-                    if w.get(x, yy, z) in GROUND: w.set(x, yy, z, "minecraft:dirt")
+                    if w.get(x, yy, z) in ground_set: w.set(x, yy, z, "minecraft:dirt")
                 if w.get(x, g, z) != "minecraft:grass_block": w.set(x, g, z, "minecraft:grass_block")
                 # imported ground cover that is not grass-world cover (dead bushes on sand) -> removed
                 n = w.get(x, g + 1, z)
@@ -101,7 +109,7 @@ def settle(w, rect, level, dry, label):
             else:
                 w.set(x, t, z, "minecraft:grass_block")
                 for yy in range(t - 3, t):
-                    if w.get(x, yy, z) in GROUND: w.set(x, yy, z, "minecraft:dirt")
+                    if w.get(x, yy, z) in ground_set: w.set(x, yy, z, "minecraft:dirt")
             changed += 1
     files, chunks = w.save(dry)
     print(f"  {label}: {int(built.sum()):,} built columns kept, {changed:,} open columns re-grounded, {chunks} chunks, {len(files)} files{' (dry)' if dry else ''}")
@@ -117,7 +125,8 @@ def main(a):
     for p in sectors:
         if only and p["id"] not in only: continue
         if p["id"] in skip: continue
-        settle(w, (p["x0"], p["z0"], p["x1"], p["z1"]), level, dry, p["name"])
+        waste = p["id"] in ("mega", "indu", "hemp", "lib") or p["id"].startswith("old")   # lifted from the wasteland world: terracotta ground
+        settle(w, (p["x0"], p["z0"], p["x1"], p["z1"]), level, dry, p["name"], SOIL | WASTE if waste else SOIL)
 
 
 if __name__ == "__main__":
