@@ -16,6 +16,11 @@ how to rebuild the same state elsewhere.
 > (`CLIENT_EXTRA_JARS`, packwiz 2026.09.05). The researched kit (Lighty, IBE Editor, Jade, Freecam, FTB Ultimine by hand)
 > is `docs/notes/gscraft-designer-tools.md`, owner's pick pending.
 >
+> **Objectives on the v8 map (proposal, 2026-09-05):** `docs/gscraft-objectives-v8.md` — the map read as three lands
+> (home bank, the river line, the far bank) plus the district; acts and strongpoints re-placed from real road distances
+> (`docs/renders/v8_geography.png`); its §5 lists the crossings and roads the objectives need (for the map session) and
+> §7 the ten changes waiting on the owner. Not applied to the parents yet.
+>
 > **For the map session (from the design review, 2026-09-05; `docs/gscraft-design-gaps.md` §F9):** the camp ring of
 > plan §9 straddles the §4 rectangle's east edge (Marshall x −1350, James −1370, the gun pit −1340…−1329, Walker's east
 > half are beyond x −1409) — re-cut it inside; fix the world spawn's y; add the Line's ford at the pump house and the
