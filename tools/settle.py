@@ -63,7 +63,7 @@ def column_profile(w, x, z, ground_set, level, ymax=200):
     return ground, built, tree
 
 
-def settle(w, rect, level, dry, label, ground_set):
+def settle(w, rect, level, dry, label, ground_set, edge_only=False):
     x0, z0, x1, z1 = rect
     W_, H_ = x1 - x0 + 1, z1 - z0 + 1
     ground = np.full((H_, W_), -999, np.int32); built = np.zeros((H_, W_), bool); tree = np.zeros((H_, W_), bool)
@@ -84,7 +84,11 @@ def settle(w, rect, level, dry, label, ground_set):
     # edge blend to the outside level over the last 32 blocks
     zz, xx = np.mgrid[0:H_, 0:W_]; edge = np.minimum(np.minimum(xx, W_ - 1 - xx), np.minimum(zz, H_ - 1 - zz))
     w_e = np.clip(edge / 32.0, 0, 1)
-    target = (foundation * w_f + level * (1 - w_f)) * w_e + level * (1 - w_e)
+    if edge_only:
+        w_e = np.clip(edge / 40.0, 0, 1)
+        target = ground.astype(np.float32) * w_e + level * (1 - w_e)          # interior untouched, edge meets the land
+    else:
+        target = (foundation * w_f + level * (1 - w_f)) * w_e + level * (1 - w_e)
     target = np.round(target).astype(np.int32)
     changed = 0
     for z in range(z0, z1 + 1):
@@ -92,12 +96,17 @@ def settle(w, rect, level, dry, label, ground_set):
             iz, ix = z - z0, x - x0
             if not valid[iz, ix] or built[iz, ix]: continue
             g = int(ground[iz, ix]); t = int(target[iz, ix])
+            if edge_only and t == g: continue
             top, _ = w.top(x, z)
             # ground material swap: the top 4 natural blocks become dirt, the surface grass
             if t == g:
                 for yy in range(g - 3, g):
                     if w.get(x, yy, z) in ground_set: w.set(x, yy, z, "minecraft:dirt")
                 if w.get(x, g, z) != "minecraft:grass_block": w.set(x, g, z, "minecraft:grass_block")
+                # imported water standing on this column (a pond that came with the build) goes; trees and plants stay
+                yy = g + 1
+                while yy < top + 2 and w.get(x, yy, z) in LIQUID:
+                    w.set(x, yy, z, "minecraft:air"); yy += 1
                 # imported ground cover that is not grass-world cover (dead bushes on sand) -> removed
                 n = w.get(x, g + 1, z)
                 if n in ("minecraft:dead_bush", "minecraft:cactus", "minecraft:sweet_berry_bush"): w.set(x, g + 1, z, "minecraft:air")
@@ -126,7 +135,9 @@ def main(a):
         if only and p["id"] not in only: continue
         if p["id"] in skip: continue
         waste = p["id"] in ("mega", "indu", "hemp", "lib") or p["id"].startswith("old")   # lifted from the wasteland world: terracotta ground
-        settle(w, (p["x0"], p["z0"], p["x1"], p["z1"]), level, dry, p["name"], SOIL | WASTE if waste else SOIL)
+        gs = SOIL | WASTE if waste else SOIL
+        if p["id"] == "hub": gs = SOIL - {"minecraft:sand", "minecraft:red_sand"}          # owner: pave the ground - the desert floor stays as pavement
+        settle(w, (p["x0"], p["z0"], p["x1"], p["z1"]), level, dry, p["name"], gs, edge_only=(p["id"] == "skad"))
 
 
 if __name__ == "__main__":

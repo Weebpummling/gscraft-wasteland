@@ -1,0 +1,160 @@
+{
+ "centre": [
+  -1490,
+  -2230
+ ],
+ "basin_radius": 60,
+ "lake_level": 63,
+ "camp_box": [
+  -1690,
+  -2480,
+  -1290,
+  -2080
+ ],
+ "buildings": {
+  "island": {
+   "rect": [
+    -1506,
+    -2246,
+    -1475,
+    -2215
+   ],
+   "note": "Warium spawn structure (live world 0..31) on the crater-lake island; spawn",
+   "ground": [
+    88,
+    88,
+    88,
+    88,
+    88
+   ],
+   "fixed_in": 0,
+   "water_in": 0
+  },
+  "tower_pad": {
+   "rect": [
+    -1560,
+    -2460,
+    -1433,
+    -2333
+   ],
+   "note": "radio tower compound 128x128 (tower.py PAD) north of the lake, between town edge and the lake bend",
+   "ground": [
+    77,
+    57,
+    88,
+    87,
+    87
+   ],
+   "fixed_in": 17,
+   "water_in": 17
+  },
+  "tune": {
+   "rect": [
+    -1590,
+    -2370,
+    -1575,
+    -2355
+   ],
+   "note": "radio shack 16x16 + 12 m mast, at the compound west gate",
+   "ground": [
+    85,
+    87,
+    85,
+    87,
+    87
+   ],
+   "fixed_in": 0,
+   "water_in": 0
+  },
+  "tony": {
+   "rect": [
+    -1640,
+    -2300,
+    -1621,
+    -2285
+   ],
+   "note": "clinic 20x16, west, by the town edge",
+   "ground": [
+    73,
+    82,
+    70,
+    80,
+    76
+   ],
+   "fixed_in": 0,
+   "water_in": 0
+  },
+  "michael": {
+   "rect": [
+    -1530,
+    -2135,
+    -1499,
+    -2112
+   ],
+   "note": "the plant 32x24, south, at the basin edge",
+   "ground": [
+    85,
+    88,
+    87,
+    88,
+    88
+   ],
+   "fixed_in": 0,
+   "water_in": 0
+  },
+  "walker": {
+   "rect": [
+    -1420,
+    -2170,
+    -1381,
+    -2139
+   ],
+   "note": "the yard 40x32, south-east, bays toward the gate road",
+   "ground": [
+    88,
+    87,
+    88,
+    87,
+    88
+   ],
+   "fixed_in": 0,
+   "water_in": 0
+  },
+  "marshall": {
+   "rect": [
+    -1350,
+    -2238,
+    -1327,
+    -2223
+   ],
+   "note": "gatehouse 24x16, east gate to the lake-shore road",
+   "ground": [
+    87,
+    87,
+    87,
+    87,
+    87
+   ],
+   "fixed_in": 0,
+   "water_in": 0
+  },
+  "james": {
+   "rect": [
+    -1370,
+    -2100,
+    -1363,
+    -2093
+   ],
+   "note": "lookout 8x8, 20 tall, south-east corner",
+   "ground": [
+    85,
+    84,
+    85,
+    83,
+    85
+   ],
+   "fixed_in": 0,
+   "water_in": 0
+  }
+ }
+}

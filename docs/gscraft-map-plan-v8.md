@@ -170,3 +170,42 @@ network is already within 40 m; `roads.py route` routed them on the built terrai
 `roads.py build --style skadowsky` (stone / andesite / gravel carriageway, andesite-wall kerbs, dirt fill, 9 wide) or
 `--style track` (gravel and coarse dirt, 5 wide) once the owner is happy with the sectors (step 6).
 
+## 9. The camp - design (started 2026-09-05, owner: design first, build later)
+
+The camp is the one sector that is not a transplant: it is generated (`tools/tower.py` for the tower, a `camp.py` to
+write for the six NPC buildings, `camp_ruins.py` / `camp_torches.py` for the dressing) on the plateau the relief made.
+Sketch `incoming/census/camp_v8_sketch.png`; coordinates `buildmap/plan_v8/camp_v8.json`.
+
+**Where.** Centre (-1490, -2230) on the plateau at y 85-88, in the free ground between the town's
+east edge (200 m west) and the lake bend (north-east); the 400 x 400 camp box is x -1690..-1290,
+z -2480..-2080. The first sketch centred on the heightplan's basin turned out to sit on the
+town's east strip; the basin there is abandoned and the crater lake is cut where the camp is.
+
+**The crater lake.** A bowl of radius 60 cut from the plateau down to water at y 63 (25
+below the rim), banks 1:2, the Warium spawn structure (32 x 32, from the live world at 0..31) transplanted onto the
+island at the centre; spawn on the island; one ramp down from the east.
+
+**The ring** (the design's table 3.6 adapted to the terrain: the town lies west, so the ring occupies north, east and south):
+
+| Building | Position (blocks) | Footprint | Ground y | Note |
+|---|---|---|---|---|
+| island | x -1506..-1475, z -2246..-2215 | 32 x 32 | 88 | Warium spawn structure (live world 0..31) on the crater-lake island; spawn |
+| tower_pad | x -1560..-1433, z -2460..-2333 | 128 x 128 | 87 | radio tower compound 128x128 (tower.py PAD) north of the lake, between town edge and the lake bend |
+| tune | x -1590..-1575, z -2370..-2355 | 16 x 16 | 87 | radio shack 16x16 + 12 m mast, at the compound west gate |
+| tony | x -1640..-1621, z -2300..-2285 | 20 x 16 | 76 | clinic 20x16, west, by the town edge |
+| michael | x -1530..-1499, z -2135..-2112 | 32 x 24 | 88 | the plant 32x24, south, at the basin edge |
+| walker | x -1420..-1381, z -2170..-2139 | 40 x 32 | 88 | the yard 40x32, south-east, bays toward the gate road |
+| marshall | x -1350..-1327, z -2238..-2223 | 24 x 16 | 87 | gatehouse 24x16, east gate to the lake-shore road |
+| james | x -1370..-1363, z -2100..-2093 | 8 x 8 | 85 | lookout 8x8, 20 tall, south-east corner |
+
+**Vocabulary.** Tier-0 palettes from `gscraft-camp-spec.md` section 6 (wreck segments, oak planks, cobblestone, tarps,
+sandbags and barbed wire, torches and campfires, barrels), aged with Immersive Weathering variants; the camp reads as a
+survivor camp on a Soviet town's edge, not as a base - concrete panels, stone brick and the Doomsday Decoration props
+of the town around it are the reference. The gate road leaves Marshall's gatehouse east and meets the lake-shore road
+(a Skadowsky-vocabulary connector, step 8); the tower's 64 m platform stands north of the lake with the town, the lake
+and the camp in view (the design's zipline to the crater rim keeps its length).
+
+**Still to decide before building:** the exact tower footprint against the lake edge (its north-east corner touches
+water by 17 columns; shift 16 south or keep the water as the moat), whether the Warium structure comes whole or only its
+platform, and the ramp side. Then `camp.py`.
+

@@ -1,0 +1,25 @@
+[
+ {
+  "source": "hub",
+  "source_dir": "G:/GSCraft/scratch/upgrade/world/world",
+  "chunks": [
+   -91,
+   96,
+   -40,
+   135
+  ],
+  "offset": [
+   -120,
+   -135
+  ],
+  "dy": -1,
+  "what": "Novo Expograd hub -> cyberpunk district at the ridge foot",
+  "dest_blocks": [
+   -3376,
+   -624,
+   -2545,
+   15
+  ],
+  "chunk_count": 2080
+ }
+]
