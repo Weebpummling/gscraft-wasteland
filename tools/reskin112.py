@@ -70,9 +70,79 @@ IMPROVED.update({
     "srparasites:infestremain": "minecraft:sculk",
 })
 
+# ---- 2026-09-06: the mods added for the desert city (owner: Simply Light yes, TorchMaster yes, an HBM
+# cosmetic substitute, MrCrayfish mapped 1:1; Scape and Run: Parasites declined)
+SIMPLY = ["illuminant_block_on", "illuminant_block", "illuminant_panel", "illuminant_slab",
+          "edge_light", "edge_light_top", "wall_lamp", "rodlamp", "lightbulb"]
+IMPROVED.update({f"simplylight:{b}": f"simplylight:{b}" for b in SIMPLY})   # 1.20.1 keeps the 1.12 names
+IMPROVED.update({
+    "torchmaster:mega_torch": "torchmaster:megatorch",
+    "torchmaster:dread_lamp": "torchmaster:dreadlamp",
+    "torchmaster:feral_flare_lantern": "torchmaster:feral_flare_lantern",
+    "torchmaster:invisible_light": "torchmaster:invisible_light",
+    "torchmaster:terrain_lighter": "torchmaster:invisible_light",
+})
+# HBM has no 1.20.1 port; Industrial Decorations and IndustrialDeco carry the cosmetic side
+HBM = {
+    "deco_steel": "industrial_deco:industrial_steel",
+    "concrete_smooth": "minecraft:smooth_stone",
+    "brick_concrete": "industrial_deco:lab_wall",
+    "brick_concrete_cracked": "minecraft:cracked_stone_bricks",
+    "brick_concrete_mossy": "minecraft:mossy_stone_bricks",
+    "brick_concrete_broken": "minecraft:cracked_stone_bricks",
+    "brick_light": "chisel:array/white_concrete",
+    "machine_tower_small": "industrial_deco:industrial_pipe",
+    "steel_grate": "immersiveengineering:alu_scaffolding_grate_top",
+    "fence_metal": "industrialdeco:metal_fence_block",
+    "railing_normal": "industrialdeco:metal_fence_block",
+    "reinforced_glass": "industrial_deco:reinforced_glass",
+    "blast_door": "industrial_deco:blast_door",
+}
+IMPROVED.update({f"hbm:{k}": v for k, v in HBM.items()})
+HBM_PREFIX = [("deco_pipe", "industrial_deco:industrial_pipe"), ("hazard", "industrial_deco:hazard_lab_wall"),
+              ("deco_", "industrial_deco:industrial_steel"), ("brick_", "industrial_deco:lab_wall"),
+              ("concrete", "minecraft:smooth_stone"), ("steel_", "industrial_deco:industrial_steel"),
+              ("fence", "industrialdeco:metal_fence_block"), ("railing", "industrialdeco:metal_fence_block")]
+# MrCrayfish's Furniture -> Refurbished Furniture, matched on the object rather than the wood or colour
+CFM = {
+    "electric_fence": "industrialdeco:metal_fence_block", "bar_stool": "refurbished_furniture:light_gray_stool",
+    "inflatable_castle": "refurbished_furniture:light_gray_trampoline", "cabinet_kitchen": "refurbished_furniture:oak_kitchen_cabinetry",
+    "counter_sink": "refurbished_furniture:oak_kitchen_sink", "tv": "refurbished_furniture:television",
+}
+CFM_PREFIX = [("desk", "refurbished_furniture:oak_desk"), ("table", "refurbished_furniture:oak_table"),
+              ("chair", "refurbished_furniture:oak_chair"), ("sofa", "refurbished_furniture:light_gray_sofa"),
+              ("stool", "refurbished_furniture:light_gray_stool"), ("bedside_cabinet", "refurbished_furniture:oak_drawer"),
+              ("cabinet", "refurbished_furniture:oak_storage_cabinet"), ("crate", "refurbished_furniture:oak_crate"),
+              ("hedge", "refurbished_furniture:oak_hedge"), ("toilet", "refurbished_furniture:oak_toilet"),
+              ("bath", "refurbished_furniture:oak_bath"), ("basin", "refurbished_furniture:oak_basin"),
+              ("fridge", "refurbished_furniture:dark_fridge"), ("freezer", "refurbished_furniture:dark_freezer"),
+              ("microwave", "refurbished_furniture:dark_microwave"), ("toaster", "refurbished_furniture:dark_toaster"),
+              ("stove", "refurbished_furniture:dark_stove"), ("oven", "refurbished_furniture:dark_stove"),
+              ("cooler", "refurbished_furniture:light_gray_cooler"), ("grill", "refurbished_furniture:light_gray_grill"),
+              ("mail_box", "refurbished_furniture:oak_mail_box"), ("post_box", "refurbished_furniture:oak_mail_box"),
+              ("lamp", "refurbished_furniture:light_gray_lamp"), ("ceiling_fan", "refurbished_furniture:oak_light_ceiling_fan"),
+              ("bin", "refurbished_furniture:recycle_bin"), ("computer", "refurbished_furniture:computer"),
+              ("printer", "refurbished_furniture:computer"), ("plate", "refurbished_furniture:plate"),
+              ("cutting_board", "refurbished_furniture:oak_cutting_board"), ("workbench", "refurbished_furniture:workbench"),
+              ("storage_jar", "refurbished_furniture:oak_storage_jar"), ("mirror", "refurbished_furniture:oak_basin"),
+              ("door_bell", "refurbished_furniture:doorbell"), ("light_switch", "refurbished_furniture:dark_lightswitch"),
+              ("trampoline", "refurbished_furniture:light_gray_trampoline"), ("stepping_stone", "refurbished_furniture:andesite_stepping_stones")]
+IMPROVED.update({f"cfm:{k}": v for k, v in CFM.items()})
+# Refurbished Furniture names every piece with its material, so each object above resolves to a concrete block
+
+
+def prefix_target(name):
+    """Family rules for the mods with hundreds of 1.12 variants (HBM decoration, MrCrayfish furniture)."""
+    ns, _, base = name.partition(":")
+    table = HBM_PREFIX if ns == "hbm" else (CFM_PREFIX if ns == "cfm" else None)
+    if table is None: return None
+    for key, tgt in table:
+        if key in base: return tgt
+    return None
+
 
 def new_resolve(name, meta):
-    return IMPROVED.get(f"{name}[{meta}]") or IMPROVED.get(name)
+    return IMPROVED.get(f"{name}[{meta}]") or IMPROVED.get(name) or prefix_target(name)
 
 
 def plain(n):
