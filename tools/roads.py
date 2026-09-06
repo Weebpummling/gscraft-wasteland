@@ -1,13 +1,20 @@
 """Roads for the wasteland: route between waypoints avoiding water and buildings, then build them.
 
-usage: roads.py route <world dir> <roads.json> <out routes.json>     find least-cost paths (32-block cells)
-       roads.py build <world dir> <routes.json> [--dry-run]            lay the roads into the world
+usage: roads.py route <world dir> <roads.json> <out routes.json> [--meander A] [--wavelength N]
+       roads.py build <world dir> <routes.json> [--style S] [--dry-run]
        roads.py check <world dir> <routes.json>                        water / built / slope along each built road
 
-roads.json: [{"name": "...", "points": [[x, z], ...], "width": 7}, ...]  - waypoints in blocks; the router
-finds the path between consecutive waypoints. Cell cost: 1 + 40*water + 80*built + 3*|slope|; the path
-stays on land wherever land exists and crosses water only where the detour would be longer than the
-crossing is worth. routes.json carries the block-level polyline per road.
+roads.json: [{"name": "...", "points": [[x, z], ...], "width": 7, "style": "trunk"}, ...]  - waypoints in
+blocks; the router finds the path between consecutive waypoints. Cell cost:
+1 + 40*water + 80*built + 3*|slope| + meander; the path stays on land wherever land exists and crosses
+water only where the detour would be longer than the crossing is worth. `--meander A` (0.4 is a good
+value) adds a smooth noise field of amplitude A so a long road on flat ground wanders instead of running
+dead straight; it is far below the water and building costs, so it never re-routes a road, only bends it.
+routes.json carries the block-level polyline, the width and the class per road.
+
+Classes (--style, or "style" per route, which wins): trunk / skadowsky 9 wide with andesite-wall kerbs,
+road 7 wide with cobble kerbs, track 5 wide gravel and coarse dirt. Every built road writes
+`road_<name>_mask.npz` next to the bridge masks so the terrain tools can protect it.
 
 build: for each road, a target height per step = the ground under the centre line, median-smoothed
 over +-24 blocks and slope-limited to 1 block per 3; each column within width/2 of the line is set to
@@ -31,11 +38,40 @@ KERB = "minecraft:gray_concrete"
 LINE = "minecraft:white_concrete"
 # Skadowsky vocabulary (v8, owner 2026-09-04): a stone / andesite / gravel carriageway with andesite-wall kerbs and no centre
 # line; tracks are gravel and coarse dirt. Materials are picked per column from a hash so the mix is stable.
+# Three classes (v8 road review, step 4): a trunk between named places, a road to a sector's gate, a farm track.
+# "skadowsky" is kept as the trunk's old name so the existing plan files still build.
 STYLE = {"default": None,
          "skadowsky": {"road": [("minecraft:stone", 45), ("minecraft:andesite", 35), ("minecraft:gravel", 20)],
                        "kerb": [("minecraft:andesite_wall", 100)], "line": None, "fill": "minecraft:dirt"},
+         "trunk": {"road": [("minecraft:stone", 45), ("minecraft:andesite", 35), ("minecraft:gravel", 20)],
+                   "kerb": [("minecraft:andesite_wall", 100)], "line": None, "fill": "minecraft:dirt"},
+         "road": {"road": [("minecraft:andesite", 40), ("minecraft:gravel", 35), ("minecraft:cobblestone", 25)],
+                  "kerb": [("minecraft:cobblestone", 60), ("minecraft:gravel", 40)], "line": None, "fill": "minecraft:dirt"},
          "track": {"road": [("minecraft:gravel", 60), ("minecraft:coarse_dirt", 40)], "kerb": None, "line": None, "fill": "minecraft:dirt"}}
+DEFAULT_WIDTH = {"skadowsky": 9, "trunk": 9, "road": 7, "track": 5}
 _style = None
+_meander = 0.0     # amplitude of the wander cost in step-cost units (--meander); 0 keeps the old ruler-straight router
+_wavelength = 224  # blocks per noise cell of the wander field
+FLARE = 4          # a junction opens by this many blocks over FLARE_LEN at each end of a route
+FLARE_LEN = 14
+
+
+def _hash2(i, j, seed=1013):
+    h = (i * 374761393 + j * 668265263 + seed * 2147483647) & 0xffffffff
+    h = (h ^ (h >> 13)) * 1274126177 & 0xffffffff
+    return ((h ^ (h >> 16)) & 0xffff) / 65535.0
+
+
+def wander(x, z):
+    """Smooth value noise in [-1, 1] over `_wavelength` blocks: the term that makes a long road meander
+    instead of running dead straight over flat ground (v8 road review, finding 2.4)."""
+    c = _wavelength
+    fi, fj = x / c, z / c
+    i0, j0 = int(fi // 1), int(fj // 1); tx, tz = fi - i0, fj - j0
+    sx, sz = tx * tx * (3 - 2 * tx), tz * tz * (3 - 2 * tz)
+    a = _hash2(i0, j0) * (1 - sx) + _hash2(i0 + 1, j0) * sx
+    b = _hash2(i0, j0 + 1) * (1 - sx) + _hash2(i0 + 1, j0 + 1) * sx
+    return (a * (1 - sz) + b * sz) * 2 - 1
 
 
 def styled(kind, x, z):
@@ -95,6 +131,10 @@ def route(world, a, b):
                 step = 1.414 if di and dj else 1.0
                 slope = abs(cm[0] - cn[0]) if cn else 0
                 cost = step * (1 + 40 * cm[1] + 80 * cm[2] + 3 * min(slope, 12) / 4)
+                if _meander:
+                    # a low-frequency field the path prefers to follow; too small to beat water (40) or a
+                    # building (80), big enough to bend a kilometre of flat ground by a few tens of metres
+                    cost += step * _meander * (wander(m[0] * CELL, m[1] * CELL) + 1) * 0.5
                 ng = g + cost
                 if ng < best.get(m, 1e18):
                     best[m] = ng; heapq.heappush(openq, (ng + h(m), ng, m, n))
@@ -117,7 +157,8 @@ def cmd_route(world, roads, out):
             if seg is None: print(f"  {r['name']}: no route {a} -> {b}"); continue
             poly += seg if not poly else seg[1:]
             for k in stats: stats[k] += st[k]
-        routes.append({"name": r["name"], "width": r.get("width", 7), "polyline": poly, **stats})
+        st = r.get("style")
+        routes.append({"name": r["name"], "width": r.get("width", DEFAULT_WIDTH.get(st, 7)), "style": st, "polyline": poly, **stats})
         print(f"  {r['name']}: {stats['metres']} m, water cells {stats['water_cells']} (~{stats['water_cells'] * CELL} m), built cells {stats['built_cells']}")
     json.dump(routes, open(out, "w"), indent=1)
     print("->", out)
@@ -222,26 +263,51 @@ def shoulder_column(world, x, z, want, g):
         if n in PLANT or (n and (n.endswith("_leaves") or n in CLEARABLE) and n not in (ROAD, KERB, LINE)): world.set(x, yy, z, "minecraft:air")
 
 
+def save_road_mask(name, cols):
+    """The road's columns as a protect mask, the way bridge.py writes one, so river.py / shoreline.py /
+    lakefill.py / smoothcliffs.py can be told to leave the carriageway and its kerbs alone."""
+    import numpy as np
+    if not cols: return
+    xs = [c[0] for c in cols]; zs = [c[1] for c in cols]; ox, oz = min(xs) - 2, min(zs) - 2
+    m = np.zeros((max(zs) - oz + 3, max(xs) - ox + 3), bool)
+    for x, z in cols: m[z - oz - 1:z - oz + 2, x - ox - 1:x - ox + 2] = True
+    out = Path(r"G:/GSCraft/incoming/census") / f"road_{name}_mask.npz"
+    np.savez_compressed(out, mask=m, origin=np.array([ox, oz]))
+    return out
+
+
+def half_at(k, n, half):
+    """Half-width at step k of n: the carriageway opens by FLARE over the last FLARE_LEN blocks at each
+    end, so a connector meets the network as a junction instead of butting into it."""
+    d = min(k, n - 1 - k)
+    if d >= FLARE_LEN: return half
+    return half + int(round(FLARE * (1 - d / FLARE_LEN)))
+
+
 def cmd_build(world, routes, dry):
-    total = 0
+    global _style
+    outer = _style; total = 0
     for r in routes:
+        _style = STYLE[r["style"]] if r.get("style") in STYLE else outer      # a route may carry its own class
         pts = densify(r["polyline"]); hs = target_heights(world, pts); half = r.get("width", 7) // 2
         road_cols = {}; n = 0
-        for (x, z), y in zip(pts, hs):                       # pass 1: every road column, centre wins over kerb
-            for dx in range(-half, half + 1):
-                for dz in range(-half, half + 1):
-                    if dx * dx + dz * dz > half * half + half: continue
+        for k, ((x, z), y) in enumerate(zip(pts, hs)):       # pass 1: every road column, centre wins over kerb
+            h = half_at(k, len(pts), half)
+            for dx in range(-h, h + 1):
+                for dz in range(-h, h + 1):
+                    if dx * dx + dz * dz > h * h + h: continue
                     px, pz = x + dx, z + dz
-                    edge = max(abs(dx), abs(dz)) == half
+                    edge = max(abs(dx), abs(dz)) == h
                     kind = KERB if edge else (LINE if (dx == 0 and dz == 0 and (x + z) % 6 < 3) else ROAD)
                     prev = road_cols.get((px, pz))
                     if prev is None or (prev[1] == KERB and kind != KERB): road_cols[(px, pz)] = (y, kind)
         for (px, pz), (y, kind) in road_cols.items():
             if lay_column(world, px, pz, y, kind): n += 1
         shoulders = {}
-        for (x, z), y in zip(pts, hs):                       # pass 2: shoulders, never over a road column
+        for i, ((x, z), y) in enumerate(zip(pts, hs)):        # pass 2: shoulders, never over a road column
+            h = half_at(i, len(pts), half)
             for k in range(1, 9):
-                for dx, dz in ((half + k, 0), (-half - k, 0), (0, half + k), (0, -half - k)):
+                for dx, dz in ((h + k, 0), (-h - k, 0), (0, h + k), (0, -h - k)):
                     px, pz = x + dx, z + dz
                     if (px, pz) in road_cols or (px, pz) in shoulders: continue
                     shoulders[(px, pz)] = (y, k)
@@ -250,7 +316,9 @@ def cmd_build(world, routes, dry):
             if g is None or surface_built(world, px, pz): continue
             shoulder_column(world, px, pz, y + (g - y) * k // 9, g)
         total += n
-        print(f"  road {r['name']}: {len(pts)} steps, {n} road columns laid")
+        if not dry: save_road_mask(r["name"], list(road_cols))
+        print(f"  road {r['name']}: {len(pts)} steps, {n} road columns laid ({r.get('style') or 'default'}, {r.get('width', 7)} wide)")
+    _style = outer
     files, chunks = world.save(dry)
     print(f"roads: {total} columns, chunks {chunks}, files {len(files)}; {'DRY RUN' if dry else 'written'}")
 
@@ -268,9 +336,11 @@ def cmd_check(world, routes):
 
 
 def main(a):
-    global _style
+    global _style, _meander, _wavelength
     if len(a) < 4: sys.exit(__doc__)
     if "--style" in a: _style = STYLE[a[a.index("--style") + 1]]
+    if "--meander" in a: _meander = float(a[a.index("--meander") + 1])
+    if "--wavelength" in a: _wavelength = int(a[a.index("--wavelength") + 1])
     cmd, world = a[1], World(a[2])
     if cmd == "route": cmd_route(world, json.load(open(a[3])), a[4])
     elif cmd == "build": cmd_build(world, json.load(open(a[3])), "--dry-run" in a)

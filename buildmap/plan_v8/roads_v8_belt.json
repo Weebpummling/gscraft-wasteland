@@ -1,0 +1,38 @@
+[
+ {
+  "name": "farm_belt",
+  "points": [
+   [
+    -925,
+    -2366
+   ],
+   [
+    -720,
+    -2363
+   ],
+   [
+    -528,
+    -2603
+   ],
+   [
+    -272,
+    -2827
+   ],
+   [
+    -118,
+    -2576
+   ],
+   [
+    -102,
+    -2336
+   ],
+   [
+    154,
+    -2400
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "one track along the north-east farm belt from the lake viaduct's south end through every farm gate, replacing the six separate tracks (v8 road review, step 3)"
+ }
+]

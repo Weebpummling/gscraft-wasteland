@@ -1,0 +1,16 @@
+[
+ {
+  "name": "belt_ring_W",
+  "points": [[154, -2400], [466, -2450]],
+  "width": 5,
+  "style": "track",
+  "note": "the ring, west half: from the farm belt's east end past farmstead 23 to the channel crossing (v8 road review, step 5)"
+ },
+ {
+  "name": "belt_ring_E",
+  "points": [[514, -2450], [671, -2315]],
+  "width": 5,
+  "style": "track",
+  "note": "the ring, east half: from the channel crossing to farmstead 29 on the east trunk"
+ }
+]

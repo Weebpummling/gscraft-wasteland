@@ -1,6 +1,6 @@
 """Shoreline shaping for the v8 cell (owner: no straight or chunk-stepped shores).
 
-usage: shoreline.py <world dir> <jobs.json> <inspect.npz> [--dry-run]
+usage: shoreline.py <world dir> <jobs.json> <inspect.npz> [--protect-roads N] [--dry-run]
 jobs:
   {"organic": name, "box": [x0, z0, x1, z1], "level": 57, "depth": 6, "keep_water_from": "pass5.npz",
    "erode": 24, "amp": 14, "wavelength": 60}
@@ -28,11 +28,15 @@ sys.path.insert(0, str(HERE))
 from terrain import World, LIQUID, AIR
 from river import Land, column_op, Protect, column_built
 from integrate import value_noise, smoothstep
+from roadmask import RoadMask
+
+ROADS = None
 
 CENSUS = Path(r"G:/GSCraft/incoming/census"); X0, Z0 = -3900, -3900
 
 
 def to_water(world, x, z, level, depth):
+    if ROADS and ROADS(x, z): return 0
     ty, tb = world.top(x, z)
     if tb is None: return 0
     if tb in LIQUID and ty <= level: return 0
@@ -47,6 +51,7 @@ def to_water(world, x, z, level, depth):
 
 
 def to_land(world, land, x, z):
+    if ROADS and ROADS(x, z): return 0
     nat = land.at(x, z)
     if nat is None: return 0
     return column_op(world, x, z, nat, "minecraft:grass_block", None)
@@ -127,7 +132,9 @@ def naturalize(world, land, job, npz, dry):
 
 
 def main(a):
+    global ROADS
     if len(a) < 4: sys.exit(__doc__)
+    ROADS = RoadMask.from_args(a)
     world = World(Path(a[1])); jobs = json.load(open(a[2])); npz = np.load(a[3], allow_pickle=True); dry = "--dry-run" in a; land = Land()
     for j in jobs:
         if "organic" in j: organic(world, land, j, dry)

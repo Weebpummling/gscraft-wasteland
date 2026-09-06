@@ -1,0 +1,11 @@
+[
+ {
+  "viaduct": "belt_ring",
+  "a": [466, -2450],
+  "b": [514, -2450],
+  "width": 5,
+  "deck_y": 65,
+  "pier_every": 10,
+  "note": "the ring's crossing of the eastern channel at its narrowest point (17 m of water at y 57, both banks at y 65); the belt road meets the deck at grade on either side"
+ }
+]

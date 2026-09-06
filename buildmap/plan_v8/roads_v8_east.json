@@ -1,0 +1,26 @@
+[
+ {
+  "name": "east_trunk",
+  "points": [
+   [
+    724,
+    -648
+   ],
+   [
+    803,
+    -1116
+   ],
+   [
+    800,
+    -1896
+   ],
+   [
+    671,
+    -2315
+   ]
+  ],
+  "width": 9,
+  "style": "trunk",
+  "note": "one trunk up the eastern side serving the industrial district's east gate, the mega-base's east gate and farmstead 29, replacing mega_S, indu_N, indu_E and old29_S (v8 road review, step 3)"
+ }
+]

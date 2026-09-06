@@ -56,6 +56,9 @@ class Land:
         return None
 
 
+ROADS = None            # roadmask.RoadMask when --protect-roads is given
+
+
 class Protect:
     def __init__(self, spec):
         self.m = None
@@ -170,6 +173,8 @@ def carve(world, job, land, dry):
             if built and job.get("cut_roads") and not protect(x, z):
                 ty, tb = world.top(x, z)
                 if is_road(tb) or is_road(world.get(x, (ty or 0) - 1, z)): built = False   # a road on the line is cut (bridge site for step 8)
+            if ROADS is not None and ROADS(x, z) and not job.get("cut_roads"):
+                stats["skipped"] += 1; continue          # a carriageway laid by roads.py: only a cut_roads job may cut it
             if (protect(x, z) and not mouth) or (built and not job.get("cut_roads_over_built", False)): stats["skipped"] += 1; continue
             if lake and lake[0] <= x <= lake[2] and lake[1] <= z <= lake[3] and dist > half:
                 ty, tb = world.top(x, z); wtp = water_top(world, x, z)                  # existing water (kelp or lilies on top included) is left alone
@@ -209,7 +214,7 @@ def shore(world, job, land, dry):
     for z in range(z0, z1 + 1):
         for x in range(x0, x1 + 1):
             dist = {"E": x1 - x, "W": x - x0, "S": z1 - z, "N": z - z0}[job["water"]]
-            if protect(x, z) or column_is_built(world, x, z): continue
+            if protect(x, z) or column_is_built(world, x, z) or (ROADS is not None and ROADS(x, z)): continue
             ty, tb = world.top(x, z)
             if tb in LIQUID and ty is not None and ty <= level: continue
             nat = land.at(x, z)
@@ -248,7 +253,10 @@ def mouths(world, x0, z0, x1, z1):
 
 
 def main(a):
+    global ROADS
     if len(a) < 3: sys.exit(__doc__)
+    from roadmask import RoadMask
+    ROADS = RoadMask.from_args(a)
     if a[1] == "mouths":
         mouths(World(Path(a[2])), *map(int, a[3:7])); return
     world = World(Path(a[2])); jobs = json.load(open(a[3])); dry = "--dry-run" in a; land = Land()

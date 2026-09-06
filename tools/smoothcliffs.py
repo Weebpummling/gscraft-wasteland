@@ -9,7 +9,7 @@ Two treatments, terrain only (built columns, roads, water and the Skadowsky map'
 Heights come from a render_inspect.py npz of the cell; changed columns are rewritten chunk by chunk (dirt below, grass or
 sand on top, everything above the old ground cleared - trees on a reshaped column go, the others stay).
 
-usage: smoothcliffs.py <world dir> <inspect.npz> [--protect integrate_skad_mask.npz,...] [--dry-run]
+usage: smoothcliffs.py <world dir> <inspect.npz> [--protect integrate_skad_mask.npz,...] [--protect-roads N] [--dry-run]
 """
 import sys, time, json
 from pathlib import Path
@@ -21,6 +21,7 @@ sys.path.insert(0, str(HERE))
 from transplant import read_region_raw, write_region, R, W as NbtW, slot_of, region_of
 from applyheight import decode_chunk, encode_chunk, key_of, T_STRING, T_LIST, T_COMPOUND
 from integrate import smoothstep, value_noise
+from roadmask import RoadMask
 
 CENSUS = Path(r"G:/GSCraft/incoming/census"); X0, Z0 = -3900, -3900
 AIRS = {"minecraft:air", "minecraft:cave_air", "minecraft:void_air"}
@@ -38,6 +39,8 @@ def main(a):
         for f in a[a.index("--protect") + 1].split(","):
             m = np.load(CENSUS / f); ox, oz = map(int, m["origin"]); mk = m["mask"]
             protect[oz - Z0:oz - Z0 + mk.shape[0], ox - X0:ox - X0 + mk.shape[1]] |= mk
+    rm = RoadMask.from_args(a)
+    if rm is not None: protect |= rm.array()[:H, :W]
     water = wt > -999
     open_ = (~built) & (~water) & (gy > -999) & (~protect) & (~roadish)
     # keep roads and their shoulders as they are (8 blocks)

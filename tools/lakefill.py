@@ -1,6 +1,6 @@
 """Water fixes for the v8 cell: turn artificial land inside a lake or river into water, and clear tree canopies over water.
 
-usage: lakefill.py <world dir> <jobs.json> [--dry-run]
+usage: lakefill.py <world dir> <jobs.json> [--protect-roads N] [--dry-run]
 jobs: [{"fill": name, "box": [x0, z0, x1, z1], "level": 57, "depth": 6, "round": 12, "clear_built": true},
        {"clear_over_water": name, "box": [x0, z0, x1, z1]}]
 fill: every column in the box that is not water becomes water at `level` over a gravel/sand bed at level - depth (the old
@@ -19,6 +19,9 @@ sys.path.insert(0, str(HERE))
 from terrain import World, LIQUID, AIR
 from river import Protect
 from integrate import value_noise
+from roadmask import RoadMask
+
+ROADS = None
 
 
 def fill(world, job, dry):
@@ -35,7 +38,7 @@ def fill(world, job, dry):
         for ix in range(W):
             if not m[iz, ix]: continue
             x, z = x0 + ix, z0 + iz
-            if protect(x, z): continue
+            if protect(x, z) or (ROADS and ROADS(x, z)): continue
             ty, tb = world.top(x, z)
             if tb is None: continue
             if tb in LIQUID and ty <= level: continue
@@ -55,6 +58,7 @@ def clear_over_water(world, job, dry):
     x0, z0, x1, z1 = job["box"]; n = 0
     for z in range(z0, z1 + 1):
         for x in range(x0, x1 + 1):
+            if ROADS and ROADS(x, z): continue
             ty, tb = world.top(x, z)
             if tb is None or tb in LIQUID: continue
             # a water column with something above it: find the water surface under the top
@@ -73,7 +77,9 @@ def clear_over_water(world, job, dry):
 
 
 def main(a):
+    global ROADS
     if len(a) < 3: sys.exit(__doc__)
+    ROADS = RoadMask.from_args(a)
     world = World(Path(a[1])); jobs = json.load(open(a[2])); dry = "--dry-run" in a
     for j in jobs:
         if "fill" in j: fill(world, j, dry)

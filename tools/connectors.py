@@ -4,9 +4,11 @@ a fallback gate on the footprint edge facing the nearest existing road - to the 
 `roads.py route` on it and `roads.py build --style skadowsky|track` afterwards. Nothing is written to the world here.
 
 usage: connectors.py <census dir> <sectors_v8.json> <stubs_v8.json> <out roads.json>
-Rules: at most two gates per build (the widest stub per side, sides facing the network first); farmsteads and the small
-builds (library, hempcrete compound, runway) get tracks (width 5); sectors get the Skadowsky carriageway (width 9);
-a gate whose nearest road is under 40 blocks away needs no connector (the build already touches the network).
+Rules: at most two gates per build (the widest stub per side, sides facing the network first); a gate whose nearest road
+is under 40 blocks away needs no connector. Builds are planned nearest-first and every planned connector becomes a target
+for the next one, so neighbouring builds share a corridor instead of each running its own line to the census network
+(v8 road review, finding 2.3). Class by the road's job (finding 2.5): farmsteads and the small builds are tracks (5), a
+link of 600 m or more is a trunk (9), everything else is a road (7).
 """
 import sys, json, math
 from pathlib import Path
@@ -15,6 +17,7 @@ from scipy import ndimage
 
 X0, Z0 = -3900, -3900
 TRACK = {"lib", "hemp", "runway"}
+DEFAULT_WIDTH = {"trunk": 9, "road": 7, "track": 5}
 
 
 def main(a):
@@ -32,15 +35,30 @@ def main(a):
     net &= np.isin(lab, np.nonzero(sizes >= 3000)[0] + 1)          # the network proper: fragments (a 40-px farm track) are not a target
     # distance to the network and the index of the nearest network pixel, on a 4-block grid
     net4 = ndimage.zoom(net.astype(np.float32), 0.25, order=1) > 0.15
-    dist4, idx4 = ndimage.distance_transform_edt(~net4, return_indices=True)
+    state = {}
+    def refresh():
+        d, i = ndimage.distance_transform_edt(~net4, return_indices=True); state["d"], state["i"] = d, i
+    refresh()
     def nearest(x, z):
         i, j = min(max(int((z - Z0) / 4), 0), net4.shape[0] - 1), min(max(int((x - X0) / 4), 0), net4.shape[1] - 1)
+        dist4, idx4 = state["d"], state["i"]
         d = dist4[i, j] * 4; ti, tj = idx4[0, i, j], idx4[1, i, j]
         return d, (int(tj * 4 + X0), int(ti * 4 + Z0))
+    def add_planned(a, b):
+        """A connector already planned is a target for the next one, so builds near each other share a corridor
+        instead of each running its own line to the census network (v8 road review, finding 2.3)."""
+        n = max(int(math.hypot(b[0] - a[0], b[1] - a[1])) // 4, 1)
+        for k in range(n + 1):
+            x = a[0] + (b[0] - a[0]) * k / n; z = a[1] + (b[1] - a[1]) * k / n
+            i, j = int((z - Z0) / 4), int((x - X0) / 4)
+            if 0 <= i < net4.shape[0] and 0 <= j < net4.shape[1]: net4[i, j] = True
+        refresh()
     roads = []
-    for p in sectors:
-        if p["id"] == "camp": continue
-        if p.get("group") == "removed": continue
+    # nearest first: a build that already touches the network is planned before one that has to reach for it,
+    # so the far build can join the near one's connector
+    todo = [p for p in sectors if p["id"] != "camp" and p.get("group") != "removed"]
+    todo.sort(key=lambda p: nearest((p["x0"] + p["x1"]) / 2, (p["z0"] + p["z1"]) / 2)[0])
+    for p in todo:
         s = stubs.get(p["id"], {}).get("stubs", [])
         gates = []
         best_per_side = {}
@@ -59,9 +77,13 @@ def main(a):
         for k, (g, side, width, mat) in enumerate(gates[:2]):
             d, t = nearest(*g)
             if d < 40: continue
-            style = "track" if (p["id"] in TRACK or p["id"].startswith("old")) else "skadowsky"
-            roads.append({"name": f"{p['id']}_{side}", "points": [list(g), list(t)], "width": 5 if style == "track" else 9, "style": style,
-                          "note": f"{p['name']} {side} gate ({mat}, stub width {width}) -> nearest existing road, {round(d)} m"})
+            # class by the road's job, not by the owner's group (v8 road review, finding 2.5)
+            if p["id"] in TRACK or p["id"].startswith("old"): style = "track"
+            elif d >= 600: style = "trunk"
+            else: style = "road"
+            roads.append({"name": f"{p['id']}_{side}", "points": [list(g), list(t)], "width": DEFAULT_WIDTH[style], "style": style,
+                          "note": f"{p['name']} {side} gate ({mat}, stub width {width}) -> nearest road, {round(d)} m"})
+            add_planned(g, t)
     json.dump(roads, open(out, "w"), indent=1)
     print(f"{len(roads)} connectors planned ->", out)
     for r in roads: print(f"  {r['name']:12s} {r['points'][0]} -> {r['points'][1]}  {r['style']}  {r['note'].split('->')[-1].strip()}")
