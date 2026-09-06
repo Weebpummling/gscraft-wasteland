@@ -370,3 +370,63 @@ channel. Undoing it with the pre-patch height arrays also stripped the road viad
 `bridge.py`. `roadpatch.py` now refuses a link whose routed path crosses water and says it needs a bridge instead.
 
 One road component across the cell again, and all 38 builds are on it.
+
+
+---
+
+# Part five - the crash after the expansion, and what caused it (2026-09-06)
+
+The expanded desert city crashed the server every time anyone flew into it. The watchdog reported a single tick of
+60 seconds, then of 180 when the limit was raised, always with the same shape: the server thread parked inside
+`getChunkBlocking`.
+
+## What it actually was
+
+`industrialdeco:metal_fence_block`. A thread dump of the local server, stuck 18 minutes on "Preparing spawn area: 0%"
+with every worker idle, caught the chain:
+
+    LightEngine.getOpacity -> BlockStateBase.getShape
+      -> industrialdeco MetalFenceBlock.getShape (line 108)
+        -> Level.getBlockState -> ServerChunkCache.getChunkOffThread -> CompletableFuture.join   [parked]
+
+That block decides its shape by asking the level for its neighbours. The sky-light engine calls `getShape` while it is
+lighting a chunk. When a neighbour lies in a chunk that is not loaded yet, the light worker blocks on that chunk while
+the main thread is already blocked waiting for the chunk being lit. Nothing runs; the watchdog kills whatever the
+limit is.
+
+The re-skin put 838 of them in the city, mapping HBM's `fence_metal` and `railing_normal` and MrCrayfish's
+`electric_fence` onto it. `tools/replaceblock.py` swapped every one for vanilla `iron_bars`, which takes its shape
+from its own blockstate and never touches the level. The spawn area that hung for 18 minutes then loaded in 29
+seconds. `reskin112.py` can no longer emit that block.
+
+## Two things ruled out on the way, both worth keeping
+
+- **`below_zero_retrogen`.** The 1.12 upgrade left this marker on 5,569 of the city's chunks and on none of the chunks
+  in the areas that had always worked. It tells a modern server to re-run generation below y 0 on load.
+  `tools/stripretrogen.py` clears it. It was not the cause, but it is real and was worth removing.
+- **Canary's collision optimisation.** Every crash named Canary, and its `ChunkAwareBlockCollisionSweeper` does force a
+  blocking chunk load where vanilla treats an unloaded chunk as empty. Disabling `mixin.entity.collisions` removed
+  that path from the stack but not the deadlock, which then surfaced through the chunk pump instead. It has been
+  re-enabled now the real cause is gone.
+
+## The bake
+
+Fresh chunks come out of these tools with no heightmaps and no light, because the game recomputes both. For a few
+hundred chunks that is invisible; for 6,098 in one block it is not. `tools/bakespawn.py` pre-computes them offline by
+walking the world spawn across the area: the server's own startup loader is asynchronous and does not deadlock, unlike
+`/forceload`, and unlike Chunky it does not skip chunks that are already `full`. 35 passes, 1,089 seconds, every pass
+clean; 7,918 chunks lit, which is the whole rect. Uploaded, and the watchdog is back to its normal 60 seconds.
+
+## Client side, same day
+
+- **Fusion.** Every Industrial Decorations model declares `loader: fusion:model`, and Fusion is only an optional
+  dependency, so Forge loaded the mod and then failed to bake all of its models: the city rendered as the magenta and
+  black missing-model checkerboard. Fusion 1.3.15a ships as a client-only jar.
+- **The installer leaked this machine's Java path.** `packwiz_build.py` copied Prism's live `instance.cfg` wholesale,
+  so the shipped zip carried `JavaPath=C:/Users/aal78/...`. On another PC that path cannot exist, `$INST_JAVA` is
+  invalid, and the packwiz pre-launch never runs. It is built from a whitelist now.
+- **Stale mods survive an install.** packwiz never deletes jars it did not install, so an old `mods` folder keeps its
+  own Create and Moonlight and the server refuses the join with "Missing required datapack registries". The guide now
+  leads with deleting the old instance, and gives the check: 110 jars, `create-1.20.1-6.0.8`, `moonlight-1.20-2.16.34`.
+- **HUD.** Xaero's minimap, Improved Mobs' "Difficulty" text and Sed's Parties' player frame were all drawn in the
+  top-left corner on top of each other. The difficulty text is off and the party frame now appears only in a party.
