@@ -1,6 +1,6 @@
 # GSCraft — how to join
 
-Minecraft **1.20.1**, Forge **47.4.23**, about 100 mods. Everything you need is in one zip (`GSCraft-Client-Install.zip` on the release page).
+Minecraft **1.20.1**, Forge **47.4.23**, about 110 mods. Everything you need is in one zip (`GSCraft-Client-Install.zip` on the release page).
 Two ways in. The first is one file; the second is for people who insist on the official launcher.
 
 Server address: **199.115.76.82:9150** (also `gamesla308.bisecthosting.com:9150`). It is already in your server list after either install.
@@ -10,7 +10,7 @@ Server address: **199.115.76.82:9150** (also `gamesla308.bisecthosting.com:9150`
 ## Way 1 — one file (Windows, ~2 minutes of clicking)
 
 1. Download the zip from the release page
-   https://github.com/Weebpummling/gscraft-wasteland/releases/tag/client-installer-2026-09-05, unzip it, and double-click **`GSCraft-Setup.cmd`**.
+   https://github.com/Weebpummling/gscraft-wasteland/releases/tag/client-installer-2026-09-06, unzip it, and double-click **`GSCraft-Setup.cmd`**.
    Windows may show "unknown publisher" — choose *Run anyway*. It installs Prism Launcher (portable, into
    `%LOCALAPPDATA%\GSCraft`) and imports the GSCraft instance.
 2. Prism opens and asks you to **sign in** with your Microsoft account (your normal Minecraft account). Java 17 is
@@ -49,7 +49,7 @@ Third person (Leawind's Third Person, needed by the mechs in the city): F5 now g
 
 | Symptom | Fix |
 |---|---|
-| “Incompatible FML modded server” / missing or extra mods listed | Your `mods` folder is not exactly the one in the zip. Delete it and copy it again from the zip. |
+| “Incompatible FML modded server”, or a join that fails with *Internal Exception* and then a timeout | Your mod list does not match the server's. On Prism, **quit the game and launch it again** — the pack only updates at launch, so a client left open since before an update will be refused. On the official launcher, run `GSCraft-VanillaLauncher.cmd` again. The server log names the mods that were missing. |
 | Game closes at once with a Java error | Wrong Java. It must be Java **17** (Prism: Settings → Java; official launcher: the Forge profile's Java executable). |
 | Very low FPS or out-of-memory crash | Raise memory to 6 GB if the PC has 16 GB; lower render distance to 8 in Video Settings. |
 | Cannot hear anyone | Voice chat key is **V** (push to talk). Settings → Controls → Simple Voice Chat lets you switch to voice activation. |

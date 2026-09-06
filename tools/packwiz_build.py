@@ -269,7 +269,7 @@ def main():
     (staging / "INSTALL.md").write_bytes(guide.encode("utf-8"))
     start = "\r\n".join([
         "GSCraft - install and launch", "=" * 28, "",
-        f"Minecraft 1.20.1, Forge {FORGE}, about 100 mods. Server: 199.115.76.82:9150 (already in your list).",
+        f"Minecraft 1.20.1, Forge {FORGE}, about 110 mods. Server: 199.115.76.82:9150 (already in your list).",
         "", "WINDOWS, THE SHORT WAY", "-" * 22,
         "  1. Unzip this folder somewhere you can find it (Downloads is fine).",
         "  2. Double-click  GSCraft-Setup.cmd", "     Windows may say 'unknown publisher' - choose 'Run anyway'.",
