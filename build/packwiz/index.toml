@@ -457,6 +457,11 @@ file = "config/mtsconfig.json"
 hash = "9319597242228d4a564d4140d4f5fdb3b9035ff0d9b7ca0563d53645d29573a9"
 
 [[files]]
+file = "config/parcool-client.toml"
+hash = "24a1b68cff09b332005c6aef8ca4950d4884234f50b205c5a2d7077546def060"
+preserve = true
+
+[[files]]
 file = "config/pingwheel.server.json"
 hash = "821d5d12d0c096996c82d1a65349ac803adffcc25b89420a146c727fb92b381a"
 
@@ -505,6 +510,21 @@ file = "config/tacz-common.toml"
 hash = "3e4bd40eacba8df674a92b8b1cce1d71728da4a4909a468fcd5275d11cd3d1a6"
 
 [[files]]
+file = "config/xaero/minimap/default_radar_categories_client.json"
+hash = "11510453ae371381e1b6d17a96759cbfcf6a4148b166e3fb8a1d1da4a06bba5a"
+preserve = true
+
+[[files]]
+file = "config/xaero/minimap/profiles/default.cfg"
+hash = "c085f817443130d626526e149ab7f50e9ec26d33b3447c2b98344b7a2ca955bf"
+preserve = true
+
+[[files]]
+file = "config/xaerohud.txt"
+hash = "cece60604b8de5e978141c981c1ed85227c8f30697a513869012b06dd15fcf02"
+preserve = true
+
+[[files]]
 file = "config/zombieawareness/ClientConfig.toml"
 hash = "97ffa3854e27b7fac0de477bb55553676eb7fe1123bfcd89c0df7218f1de1dae"
 
@@ -526,7 +546,8 @@ hash = "0c9cb7ce493414f2a4b846417db297b8c24ec9950e5e2630d1cfff387568f5ae"
 
 [[files]]
 file = "defaultconfigs/ftbchunks/client-config.snbt"
-hash = "b170593af4096fcf59a09cfc547045351d3aa65d307983eae0a593a57987c277"
+hash = "72b1bf13133969f4284afc2d50bc1947b92065e55793ff90a3560994234d7e66"
+preserve = true
 
 [[files]]
 file = "defaultconfigs/ftbchunks/ftbchunks-world.snbt"
@@ -1117,6 +1138,11 @@ metafile = true
 file = "mods/zombieawareness-1-20-1-1-13-1.pw.toml"
 hash = "945ed30da6ab3a6178eb7b6db83ea712f1179684ea439d3bddf3bc54872c1272"
 metafile = true
+
+[[files]]
+file = "options.txt"
+hash = "708a4f17ea902ad99e5a637195145b44016c7590dac047fa14c4c271392b11ec"
+preserve = true
 
 [[files]]
 file = "servers.dat"

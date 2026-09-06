@@ -47,6 +47,17 @@ CLIENT_EXTRA_JARS = [G / "client" / "instances" / "GSCraft" / ".minecraft" / "mo
 # client-only jars that are NOT in server/mods: the Parties/Xaero crash fix (one mixin; must never load on the server), WaterMedia, WorldEdit CUI (selection outlines for the designers, 2026-09-05)
 CONFIG_SKIP = {"QuantifiedAPI", "spark", "chunky", "worldedit", "xaero", "FML.VersionCheck.txt", "voicechat"}
 CLIENT_CONFIG_EXTRA = ["appleskin-client.toml", "lootr-client.toml", "recruits-client.toml", "pingwheel.server.json"]
+# The player's interface (docs/gscraft-player-interface.md §1-§2), taken from the Prism instance and shipped
+# **preserve**: a fresh install gets the pack's key map and HUD, and nothing a player later changes is overwritten.
+CLIENT_UI = [
+    ("options.txt", "options.txt"),                                                     # the key map, §2
+    ("config/xaerohud.txt", "config/xaerohud.txt"),                                     # minimap top-left, §1
+    ("config/xaero/minimap/profiles/default.cfg", "config/xaero/minimap/profiles/default.cfg"),          # north-locked
+    ("config/xaero/minimap/default_radar_categories_client.json",
+     "config/xaero/minimap/default_radar_categories_client.json"),                      # no hostile dots
+    ("config/parcool-client.toml", "config/parcool-client.toml"),                       # the toy moves off
+    ("local/ftbchunks/client-config.snbt", "defaultconfigs/ftbchunks/client-config.snbt"),               # second minimap off
+]
 TEXT_EXT = {".toml", ".json", ".json5", ".cfg", ".properties", ".txt", ".js", ".snbt", ".md"}
 CRLF = b"\r\n"
 LF = b"\n"
@@ -133,12 +144,23 @@ def main():
     plain += ["defaultconfigs/" + p for p in copy_tree(MC / "defaultconfigs", OUT / "defaultconfigs")]
     for rel in ("servers.dat", "tacz/tacz-pre.toml"):
         src = MC / rel; (OUT / rel).parent.mkdir(parents=True, exist_ok=True); copy_norm(src, OUT / rel); plain.append(rel)
+    # the interface files, last so they win over anything of the same path, and marked preserve
+    ui = []
+    for src_rel, pack_rel in CLIENT_UI:
+        src = MC / src_rel
+        if not src.exists(): print("  interface file missing, skipped:", src_rel); continue
+        (OUT / pack_rel).parent.mkdir(parents=True, exist_ok=True); copy_norm(src, OUT / pack_rel)
+        if pack_rel in plain: plain.remove(pack_rel)
+        ui.append(pack_rel)
     for rel in plain:
         index_files.append((rel, sha(OUT / rel, "sha256"), False))
+    for rel in ui:
+        index_files.append((rel, sha(OUT / rel, "sha256"), "preserve"))
     # index.toml and pack.toml
     lines = ['hash-format = "sha256"', ""]
     for rel, h, meta in sorted(index_files):
-        extra = ["metafile = true"] if meta else (["preserve = true"] if rel == "servers.dat" else [])   # never clobber a player's server list
+        # metafile: a mod's .pw.toml. preserve: written once, never overwritten (the server list and the interface files)
+        extra = ["metafile = true"] if meta is True else (["preserve = true"] if (meta == "preserve" or rel == "servers.dat") else [])
         lines += ["[[files]]", f"file = {toml_str(rel)}", f'hash = "{h}"'] + extra + [""]
     (OUT / "index.toml").write_bytes("\n".join(lines).encode("utf-8"))
     (OUT / "pack.toml").write_bytes((
@@ -296,7 +318,8 @@ def main():
         for p in sorted(staging.iterdir()): z.write(p, p.name)
     shutil.rmtree(staging)
     pack_total = sum(p.stat().st_size for p in ASSETS_PACK.iterdir())
-    print(f"packwiz pack: {hosted} Modrinth-hosted jars, {missing} release-hosted jars, {len(plain)} plain files -> {OUT}")
+    print(f"packwiz pack: {hosted} Modrinth-hosted jars, {missing} release-hosted jars, {len(plain)} plain files, "
+          f"{len(ui)} interface files (preserve) -> {OUT}")
     print(f"client release  [{TAG}]: 1 file, {bundle.stat().st_size/1e6:.2f} MB -> {ASSETS_CLIENT}")
     print(f"pack files      [{FILES_TAG}]: {len(list(ASSETS_PACK.iterdir()))} files, {pack_total/1e6:.1f} MB -> {ASSETS_PACK}")
 
