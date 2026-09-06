@@ -39,6 +39,9 @@ BOOTSTRAP = G / "incoming" / "tools" / "packwiz-installer-bootstrap.jar"
 
 OUT = REPO / "build" / "packwiz"
 ASSETS = G / "release-installer"
+ASSETS_PACK = ASSETS / "pack-files"        # the maintenance release: what packwiz and the .cmd files fetch by URL
+ASSETS_CLIENT = ASSETS / "client"          # the player-facing release: one zip
+GUIDE = REPO / "client" / "GSCraft Install Guide.md"
 CLIENT_ONLY = {"xaerominimap", "xaeroworldmap"}           # jar-name prefixes that never run on the server
 CLIENT_EXTRA_JARS = [G / "client" / "instances" / "GSCraft" / ".minecraft" / "mods" / n for n in ("parties_xaerominimap_fix-1.0.0.jar", "watermedia-2.1.37.jar", "WorldEditCUI-1.20+01.jar")]
 # client-only jars that are NOT in server/mods: the Parties/Xaero crash fix (one mixin; must never load on the server), WaterMedia, WorldEdit CUI (selection outlines for the designers, 2026-09-05)
@@ -86,6 +89,7 @@ def copy_tree(src: Path, dst: Path, skip=()):
 
 def main():
     reset(OUT); reset(ASSETS)
+    ASSETS_PACK.mkdir(parents=True); ASSETS_CLIENT.mkdir(parents=True); staging = ASSETS_CLIENT / "files"; staging.mkdir()
     (OUT / "mods").mkdir(); (OUT / "tacz").mkdir()
     (OUT / ".gitattributes").write_bytes(b"* -text\n")
     index_files = []          # (path, hash, metafile)
@@ -100,7 +104,7 @@ def main():
             m = MODRINTH[name]; url = m["url"]; hosted += 1
             update = f'\n[update]\n[update.modrinth]\nmod-id = {toml_str(m["project_id"])}\nversion = {toml_str(m["version_id"])}\n'
         else:
-            an = asset_name(name); shutil.copy2(jar, ASSETS / an); url = REL + an; update = ""; missing += 1
+            an = asset_name(name); shutil.copy2(jar, ASSETS_PACK / an); url = REL + an; update = ""; missing += 1
         stem = re.sub(r"[^a-z0-9]+", "-", name[:-4].lower()).strip("-")
         meta = OUT / "mods" / f"{stem}.pw.toml"
         meta.write_bytes((f"name = {toml_str(name[:-4])}\nfilename = {toml_str(name)}\nside = \"{side}\"\n\n[download]\n"
@@ -111,7 +115,7 @@ def main():
                          "downloads": [url], "fileSize": jar.stat().st_size})
     # TaCZ gun packs beside the default one (TaCZ re-extracts its own default pack on every client start)
     for z in sorted((MC / "tacz").glob("*.zip")):
-        an = asset_name(z.name); shutil.copy2(z, ASSETS / an); url = REL + an
+        an = asset_name(z.name); shutil.copy2(z, ASSETS_PACK / an); url = REL + an
         stem = re.sub(r"[^a-z0-9]+", "-", z.stem.lower()).strip("-")
         meta = OUT / "tacz" / f"{stem}.pw.toml"
         meta.write_bytes((f"name = {toml_str(z.stem)}\nfilename = {toml_str(z.name)}\nside = \"both\"\n\n[download]\n"
@@ -145,7 +149,7 @@ def main():
     mr = {"formatVersion": 1, "game": "minecraft", "versionId": VERSION, "name": "GSCraft",
           "summary": f"GSCraft wasteland - Minecraft 1.20.1 Forge {FORGE}", "files": mr_files,
           "dependencies": {"minecraft": "1.20.1", "forge": FORGE}}
-    with zipfile.ZipFile(ASSETS / "GSCraft.mrpack", "w", zipfile.ZIP_DEFLATED) as z:
+    with zipfile.ZipFile(staging / "GSCraft.mrpack", "w", zipfile.ZIP_DEFLATED) as z:
         z.writestr("modrinth.index.json", json.dumps(mr, indent=1))
         for rel in plain:
             z.write(OUT / rel, "overrides/" + rel)
@@ -155,7 +159,7 @@ def main():
     pre = '\\"$INST_JAVA\\" -jar packwiz-installer-bootstrap.jar ' + RAW + "pack.toml"
     cfg += ["OverrideCommands=true", "PreLaunchCommand=" + pre,
             f"notes=GSCraft {VERSION} - the pack installs and updates itself on every launch (packwiz)"]
-    with zipfile.ZipFile(ASSETS / "GSCraft-Instance.zip", "w", zipfile.ZIP_DEFLATED) as z:
+    with zipfile.ZipFile(staging / "GSCraft-Instance.zip", "w", zipfile.ZIP_DEFLATED) as z:
         z.writestr("instance.cfg", "\n".join(cfg) + "\n")
         z.write(INST / "mmc-pack.json", "mmc-pack.json")
         z.write(BOOTSTRAP, ".minecraft/packwiz-installer-bootstrap.jar")
@@ -188,7 +192,7 @@ def main():
         "echo  Something failed to download. Check your connection and run this file again.",
         "pause",
         "exit /b 1", ""])
-    (ASSETS / "GSCraft-Setup.cmd").write_bytes(cmd.encode("ascii"))
+    (staging / "GSCraft-Setup.cmd").write_bytes(cmd.encode("ascii"))
     # the official-launcher route: portable Java 17, Forge --installClient, packwiz into .minecraft, 6 GB on the forge profile
     ps = "powershell -NoProfile -ExecutionPolicy Bypass -Command "
     tls = "[Net.ServicePointManager]::SecurityProtocol='Tls12'; "
@@ -252,11 +256,49 @@ def main():
         'set "JAVA="',
         'for /f "delims=" %%J in (\'dir /b /s "%JDIR%\\java.exe" 2^>nul\') do set "JAVA=%%J"',
         "goto :eof", ""])
-    (ASSETS / "GSCraft-VanillaLauncher.cmd").write_bytes(vcmd.encode("ascii"))
-    shutil.copy2(BOOTSTRAP, ASSETS / "packwiz-installer-bootstrap.jar")
-    total = sum(p.stat().st_size for p in ASSETS.iterdir())
+    (staging / "GSCraft-VanillaLauncher.cmd").write_bytes(vcmd.encode("ascii"))
+    # the two artefacts the .cmd files fetch by URL live on the maintenance release as well
+    shutil.copy2(BOOTSTRAP, ASSETS_PACK / "packwiz-installer-bootstrap.jar")
+    shutil.copy2(staging / "GSCraft-Instance.zip", ASSETS_PACK / "GSCraft-Instance.zip")
+
+    # ---- the guide, always current: the repo's copy with this build's Forge version and release tags substituted
+    guide = GUIDE.read_text(encoding="utf-8")
+    guide = re.sub(r"47\.4\.\d+", FORGE, guide)
+    guide = re.sub(r"client-installer-\d{4}-\d{2}-\d{2}", TAG, guide)
+    guide = re.sub(r"pack-files-\d{4}-\d{2}-\d{2}", FILES_TAG, guide)
+    (staging / "INSTALL.md").write_bytes(guide.encode("utf-8"))
+    start = "\r\n".join([
+        "GSCraft - install and launch", "=" * 28, "",
+        f"Minecraft 1.20.1, Forge {FORGE}, about 100 mods. Server: 199.115.76.82:9150 (already in your list).",
+        "", "WINDOWS, THE SHORT WAY", "-" * 22,
+        "  1. Unzip this folder somewhere you can find it (Downloads is fine).",
+        "  2. Double-click  GSCraft-Setup.cmd", "     Windows may say 'unknown publisher' - choose 'Run anyway'.",
+        "     It installs Prism Launcher for you and adds the GSCraft instance.",
+        "  3. Prism opens. Sign in with your Microsoft (Minecraft) account when it asks.",
+        "  4. Click the GSCraft tile, then Play.",
+        "     The first launch downloads about 450 MB and takes a few minutes. Later launches take seconds.",
+        "  5. In the game: Multiplayer -> GSCraft -> Join Server.", "",
+        "ALREADY HAVE PRISM, OR ON MAC / LINUX", "-" * 37,
+        "  1. Open Prism, sign in.", "  2. Add Instance -> Import -> Browse -> pick  GSCraft-Instance.zip  from this folder.",
+        "  3. Play. (This instance updates itself every launch.)", "",
+        "OFFICIAL MINECRAFT LAUNCHER INSTEAD", "-" * 35,
+        "  1. Run the official launcher once on plain 1.20.1, then close it.",
+        "  2. Double-click  GSCraft-VanillaLauncher.cmd",
+        f"  3. Play with the 'GSCraft (forge)' profile.  Updates: run that file again when we say the pack changed.", "",
+        "MODRINTH APP / ATLAUNCHER", "-" * 25, "  Import  GSCraft.mrpack", "",
+        "IF SOMETHING GOES WRONG", "-" * 23,
+        "  Read INSTALL.md in this folder - it has the memory setting, the voice-chat key and the fixes.", ""])
+    (staging / "START HERE.txt").write_bytes(start.encode("utf-8"))
+
+    # ---- one zip is the whole player-facing release
+    bundle = ASSETS_CLIENT / "GSCraft-Client-Install.zip"
+    with zipfile.ZipFile(bundle, "w", zipfile.ZIP_DEFLATED) as z:
+        for p in sorted(staging.iterdir()): z.write(p, p.name)
+    shutil.rmtree(staging)
+    pack_total = sum(p.stat().st_size for p in ASSETS_PACK.iterdir())
     print(f"packwiz pack: {hosted} Modrinth-hosted jars, {missing} release-hosted jars, {len(plain)} plain files -> {OUT}")
-    print(f"assets: {len(list(ASSETS.iterdir()))} files, {total/1e6:.1f} MB -> {ASSETS}")
+    print(f"client release  [{TAG}]: 1 file, {bundle.stat().st_size/1e6:.2f} MB -> {ASSETS_CLIENT}")
+    print(f"pack files      [{FILES_TAG}]: {len(list(ASSETS_PACK.iterdir()))} files, {pack_total/1e6:.1f} MB -> {ASSETS_PACK}")
 
 
 if __name__ == "__main__":
