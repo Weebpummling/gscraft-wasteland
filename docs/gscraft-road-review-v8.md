@@ -230,3 +230,39 @@ narrowest at z -2450: 17 m of water at y 57 with both banks at y 65. A 48 m trac
 (`viaduct_ring_v8.json`, deck y 65, piers every 10) and two track halves join it to the farm belt's east end and to
 farmstead 29 on the east trunk (`roads_v8_ring.json`, 320 m and 248 m). The cell now has a loop: west network - lake
 bridge - farm belt - ring - east trunk - z -204 trunk - west network.
+
+
+## 6. Result, measured on `v8_cell_pass8_inspect.npz`
+
+| | before | after |
+|---|---|---|
+| road components of 3,000 columns or more | 21 | **1** |
+| builds on the network (34 of them) | not measurable, the network was in pieces | **34 of 34** |
+| connector length | 16,416 m (45 roads) | 12,168 m (39 roads) |
+| duplicated corridor (within 48 m of another connector) | 48% | **30%** |
+| connector centre line no longer a road surface | 4.1% | **1.1%** |
+| builds outside the world border | 3 wholly, 5 partly | **none** |
+
+The 1.1% that is still not a road surface is where a route ends at a bank or a bridge abutment, which is where a road
+should end.
+
+## 7. Maps
+
+`docs/maps/` carries the current set, all rendered from the pass-8 arrays:
+
+- `gscraft-wasteland-v8.png` (2550 x 2300, 2 blocks per pixel) and `-small.png`: the labelled world map, from
+  `tools/worldmap.py`. Surface colouring, hillshade, coordinate grid, the road network, and every named place.
+- `gscraft-roads-v8-before.png`: the network before the work, every break marked.
+- `gscraft-roads-v8-after.png`: the network after it, with the patches, the two spines and the ring picked out.
+
+Re-render after any map change with:
+
+    python tools/render_inspect.py <world> v8_cell_passN -3900 -3900 1200 700 1
+    python tools/worldmap.py G:/GSCraft/incoming/census/v8_cell_passN_inspect.npz docs/maps/gscraft-wasteland-v8.png --scale 2
+
+## 8. Deployed
+
+`scratch/worlds/v8-build` staged to `server/wasteland-v8` (30 region files and level.dat), then uploaded to the hosted
+server with the server stopped, and started again: "Preparing level wasteland-v8", Done in 1.6 s, the known benign error
+set (pointblank loot tables, the chipped recipe, In Control's spawn.json keywords), `worldborder get` reports 5200
+blocks, and the ping answers with 0/10 players on the enemies-off MOTD.
