@@ -266,3 +266,67 @@ Re-render after any map change with:
 server with the server stopped, and started again: "Preparing level wasteland-v8", Done in 1.6 s, the known benign error
 set (pointblank loot tables, the chipped recipe, In Control's spawn.json keywords), `worldborder get` reports 5200
 blocks, and the ping answers with 0/10 players on the enemies-off MOTD.
+
+---
+
+# Part three - the underground and the 1.12 re-skin (2026-09-06)
+
+Owner: "none of the underground sections of any of the map builds and player builds from previous maps had their
+underground section copied over, check to see if we can move it over still", then "what mod packs can we add to save the
+desert city blocks so it resembles the 1.12 version", then "go ahead and do both".
+
+## 1. What had gone, and what had not
+
+`transplant.py` copies whole chunks, so nothing was clipped on the way in. `integrate.py` is what removed it: it rebuilt
+every column it did not classify as build, top to bottom, and only the Financial Plaza carried `keep_underground=True`.
+Measured against the clean transplants, built blocks more than four below each column's own surface:
+
+| | before | after |
+|---|---|---|
+| Financial Plaza and its sewers | 99.0% | 99.7% |
+| Skadowsky | 93.8% | 99.6% |
+| mega-base | 93.2% | 99.5% |
+| industrial district | 89.3% | 99.0% |
+| desert-city hub | 77.2% | 98.4% |
+| hempcrete compound | 34.2% | 99.4% |
+| the farmsteads | 2% to 99% | 88% to 100% |
+| **all sectors** | **88.5%** | **98.7%** |
+
+The sewers were never lost. The hempcrete compound was the worst case of the large builds and had lost about 87,000
+blocks of its facility.
+
+## 2. The restore (`tools/underground.py`)
+
+`scratch/worlds/fresh_sectors` still holds the clean transplants at their final coordinates, so the plaza's own rule was
+applied retroactively: below the shallower of the two ground levels minus six, the source column comes back. Block
+entities below the cut come with it, so a restored chest is still a chest with its contents. Water carved after the
+transplant and a road's embankment push the cut further down instead of skipping the column, which is why the remaining
+1.3% is exactly where it should be. 53.6 M blocks restored across 31 sectors, 35 region files.
+
+## 3. The 1.12 re-skin (`tools/reskin112.py`)
+
+Of the 665,417 modded blocks in the desert city, only 18,244 (2.7%) fell through to the grey concrete placeholder. The
+rest were mapped, but to flat vanilla lookalikes because the upgrade predated a 1.20.1 Chisel in the pack: every Chisel
+factory panel became one `factory_blocks:factory`, every Fureniku road block became black concrete, every antiblock
+became vanilla concrete.
+
+All six original 1.12.2 saves are still in `incoming/Maps` at DataVersion 1343, so no re-transplant was needed. For each
+position the tool reads the original 1.12 block, works out what the old table made of it, and replaces it only where the
+destination still holds exactly that. Anything integrate, the roads or the rivers changed is left alone.
+
+Targets are the mods already installed, so nothing was added to the pack: Chisel 2.0.0 (which names blocks
+`<pattern>/<base>`, giving `chisel:road/black_concrete`, `chisel:plates/iron_block`, `chisel:vents/iron_block` and so
+on), Antiblocks Rechiseled for the nine flat "bright" colours, and Immersive Engineering. All 43 target blocks were
+verified present in the installed jars before anything was written.
+
+| site | blocks re-skinned |
+|---|---|
+| desert-city hub | 132,719 |
+| Financial Plaza | 130,127 |
+| sewers | 12,841 |
+| Bio Gen and Novo | ~700 |
+
+Two mods have no 1.20.1 answer and their blocks were re-pointed rather than left flat: **Fureniku's Roads** (103,001
+blocks in the city, the mod has no 1.20.1 build) now uses Chisel's `road` pattern, and **HBM's Nuclear Tech** (54,306
+blocks, 1.12 only, no port) uses Chisel's iron plating and vents. Simply Light (25,089) and Scape and Run: Parasites
+(14,330) are CurseForge-only and were left on their vanilla stand-ins; adding them is still open if the look matters.
