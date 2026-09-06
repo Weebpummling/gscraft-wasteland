@@ -89,3 +89,22 @@ Sources: [Prism Launcher — Import](https://prismlauncher.org/wiki/help-pages/z
 [Prism issue #591 (built-in packwiz support)](https://github.com/PrismLauncher/PrismLauncher/issues/591),
 [Prism Launcher — custom commands](https://prismlauncher.org/wiki/help-pages/custom-commands/),
 [ps2exe false positives (Microsoft Q&A)](https://learn.microsoft.com/en-us/answers/questions/674093/powershell-script-to-exe).
+
+## 5. The two releases (2026-09-06)
+
+The build staged both sets of assets into one folder, which read as "the client release ships 150 MB of jars". It does
+not, and never did after 2026-09-04; `packwiz_build.py` now writes them apart:
+
+| Folder | Release tag | Contents | Size | Who fetches it |
+|---|---|---|---|---|
+| `G:/GSCraft/release-installer/client` | `client-installer-<date>` | **one file**, `GSCraft-Client-Install.zip`: `START HERE.txt` (the numbered install-and-launch sequence), `INSTALL.md` (the full guide), `GSCraft-Setup.cmd`, `GSCraft-VanillaLauncher.cmd`, `GSCraft-Instance.zip`, `GSCraft.mrpack` | 0.26 MB | the player, once |
+| `G:/GSCraft/release-installer/pack-files` | `pack-files-<date>` | the 26 jars and 2 gun packs that are not on Modrinth, plus `GSCraft-Instance.zip` and `packwiz-installer-bootstrap.jar` (the two the `.cmd` files fetch by URL) | 158.5 MB | packwiz and the setup scripts, per file, never as a whole |
+
+§4's rule stands: the non-Modrinth jars must live on a release we control, because the mrpack format forbids
+CurseForge's CDN and packwiz's CurseForge route needs an API key. Removing them breaks auto-update for every client.
+
+`START HERE.txt` and `INSTALL.md` are generated from `client/GSCraft Install Guide.md` on every build with the Forge
+version and both release tags substituted, so a stale version number cannot ship.
+
+**Re-upload rule:** `pack-files` only needs re-uploading when a non-Modrinth jar changes **or when Forge changes**
+(`GSCraft-Instance.zip` carries the Forge version); the client zip goes up on every release.
