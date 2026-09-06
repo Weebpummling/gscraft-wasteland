@@ -48,6 +48,17 @@ how to rebuild the same state elsewhere.
 > in it, so **plan §4's camp row is the one to correct**. No mod is missing; the only jars still queued are the
 > designer tools (`notes/gscraft-designer-tools.md`, owner's pick).
 >
+> **The local Prism instance is packwiz-managed from 2026-09-06.** It never was: it had no pre-launch command and no
+> `packwiz.json`, so every jar in it was hand-copied and it sat 17 jars behind (including both Sophisticated mods) on
+> Forge 47.4.10. Now: the bootstrap jar is in `.minecraft`, `instance.cfg` carries
+> `OverrideCommands=true` + the packwiz pre-launch command against the raw GitHub pack, the Forge component is 47.4.23,
+> and one manual run brought it to 106 jars (103 server + the three client-only). The superseded jars are in
+> `scratch/instance_backup_2026-09-06/retired_mods` with the old `instance.cfg` and `mmc-pack.json`.
+> **Consequences:** never hand-copy a jar into that instance again — add it to the pack and rebuild; and remember
+> `packwiz_build.py` reads its client-only jars and configs *from* this instance, so the pack now feeds itself (fine
+> while the three client-only jars stay in the pack). Prism's Forge component is not managed by packwiz: a future Forge
+> bump is still a hand edit in Edit, Version, Forge.
+>
 > **For the map session (from the design review, 2026-09-05; `docs/gscraft-design-gaps.md` §F9):** the camp ring of
 > plan §9 straddles the §4 rectangle's east edge (Marshall x −1350, James −1370, the gun pit −1340…−1329, Walker's east
 > half are beyond x −1409) — re-cut it inside; fix the world spawn's y; add the Line's ford at the pump house and the
