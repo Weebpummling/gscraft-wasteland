@@ -98,7 +98,7 @@ not, and never did after 2026-09-04; `packwiz_build.py` now writes them apart:
 | Folder | Release tag | Contents | Size | Who fetches it |
 |---|---|---|---|---|
 | `G:/GSCraft/release-installer/client` | `client-installer-<date>` | **one file**, `GSCraft-Client-Install.zip`: `START HERE.txt` (the numbered install-and-launch sequence), `INSTALL.md` (the full guide), `GSCraft-Setup.cmd`, `GSCraft-VanillaLauncher.cmd`, `GSCraft-Instance.zip`, `GSCraft.mrpack` | 0.26 MB | the player, once |
-| `G:/GSCraft/release-installer/pack-files` | `pack-files-<date>` | the 26 jars and 2 gun packs that are not on Modrinth, plus `GSCraft-Instance.zip` and `packwiz-installer-bootstrap.jar` (the two the `.cmd` files fetch by URL) | 158.5 MB | packwiz and the setup scripts, per file, never as a whole |
+| `G:/GSCraft/release-installer/pack-files` | **`pack-files`** (stable, never re-dated) | the 26 jars and 2 gun packs that are not on Modrinth, plus `GSCraft-Instance.zip` and `packwiz-installer-bootstrap.jar` (the two the `.cmd` files fetch by URL) | 158.5 MB | packwiz and the setup scripts, per file, never as a whole |
 
 §4's rule stands: the non-Modrinth jars must live on a release we control, because the mrpack format forbids
 CurseForge's CDN and packwiz's CurseForge route needs an API key. Removing them breaks auto-update for every client.
@@ -106,5 +106,13 @@ CurseForge's CDN and packwiz's CurseForge route needs an API key. Removing them 
 `START HERE.txt` and `INSTALL.md` are generated from `client/GSCraft Install Guide.md` on every build with the Forge
 version and both release tags substituted, so a stale version number cannot ship.
 
-**Re-upload rule:** `pack-files` only needs re-uploading when a non-Modrinth jar changes **or when Forge changes**
-(`GSCraft-Instance.zip` carries the Forge version); the client zip goes up on every release.
+**Re-upload rule:** `pack-files` is a **stable tag, updated in place** — `release_upload.py` clobbers only what
+changed, so the 26 asset URLs baked into the pack never move again. It needs a run when a non-Modrinth jar changes
+**or when Forge changes** (`GSCraft-Instance.zip` carries the Forge version). The client zip gets a fresh dated tag
+each release and the previous one is deleted.
+
+**Releases on the repo (2026-09-06 clean-up):** `client-installer-<date>` (one zip, marked Latest), `pack-files`
+(maintenance, pre-release), `build-v7-2026-09-04` (the last published world; its superseded 432 MB `GSCraft-Client.zip`
+was removed). `client-installer-2026-09-04`, `client-installer-2026-09-05`, `pack-files-2026-09-04` and
+`build-v6-2026-09-03` were deleted — the 09-05 client release had the whole 150 MB jar set attached to it, which is
+what made it look like the client download shipped the jars.

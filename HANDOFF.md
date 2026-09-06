@@ -59,6 +59,13 @@ how to rebuild the same state elsewhere.
 > while the three client-only jars stay in the pack). Prism's Forge component is not managed by packwiz: a future Forge
 > bump is still a hand edit in Edit, Version, Forge.
 >
+> **Releases cleaned 2026-09-06.** Three live: **`client-installer-<date>`** — one 0.26 MB
+> `GSCraft-Client-Install.zip` (START HERE.txt, INSTALL.md, Setup.cmd, VanillaLauncher.cmd, Instance.zip, mrpack),
+> marked Latest; **`pack-files`** — a **stable tag** carrying the 26 non-Modrinth jars, the 2 gun packs, the instance
+> zip and the bootstrap, updated in place so the URLs baked into the pack never move; **`build-v7-2026-09-04`** — the
+> last published world. Deleted: both old client installers (the 09-05 one had all 150 MB of jars attached to it),
+> `pack-files-2026-09-04`, `build-v6-2026-09-03`, and v7's superseded `GSCraft-Client.zip`.
+>
 > **For the map session (from the design review, 2026-09-05; `docs/gscraft-design-gaps.md` §F9):** the camp ring of
 > plan §9 straddles the §4 rectangle's east edge (Marshall x −1350, James −1370, the gun pit −1340…−1329, Walker's east
 > half are beyond x −1409) — re-cut it inside; fix the world spawn's y; add the Line's ford at the pump house and the
