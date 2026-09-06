@@ -283,14 +283,17 @@ Measured against the clean transplants, built blocks more than four below each c
 
 | | before | after |
 |---|---|---|
-| Financial Plaza and its sewers | 99.0% | 99.7% |
-| Skadowsky | 93.8% | 99.6% |
-| mega-base | 93.2% | 99.5% |
-| industrial district | 89.3% | 99.0% |
-| desert-city hub | 77.2% | 98.4% |
-| hempcrete compound | 34.2% | 99.4% |
-| the farmsteads | 2% to 99% | 88% to 100% |
+| Financial Plaza and its sewers | 99.0% | 99.0% |
+| Skadowsky | 93.8% | 98.8% |
+| mega-base | 93.2% | 97.4% |
+| industrial district | 89.3% | 98.8% |
+| desert-city hub | 77.2% | 107.2% |
+| hempcrete compound | 34.2% | 97.6% |
+| library | 73.7% | 75.0% |
 | **all sectors** | **88.5%** | **98.7%** |
+
+The hub reads over 100% because its restored columns also bring back the source's own cave and ore fill, which the
+measure counts; the library is the one build still short, and its shortfall sits under the runway approach road.
 
 The sewers were never lost. The hempcrete compound was the worst case of the large builds and had lost about 87,000
 blocks of its facility.
