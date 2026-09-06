@@ -7,6 +7,24 @@ Server address: **199.115.76.82:9150** (also `gamesla308.bisecthosting.com:9150`
 
 ---
 
+## Upgrading from an older GSCraft install — read this first
+
+**Delete the old instance before installing the new one.** The updater adds and replaces the files it manages; it
+never deletes mods it did not put there. So a `mods` folder left over from an older GSCraft install keeps its old
+jars, you end up with two versions of the same mod, and the server refuses you with:
+
+> Failed to connect to the server
+> Missing required datapack registries: create:potato_projectile/type, moonlight:map_markers, moonlight:soft_fluids
+
+That message means your client's Create and Moonlight are not the server's. In Prism, right-click the old GSCraft
+tile → **Delete**, then install fresh. Or, if you want to keep the instance, open its folder (right-click →
+**Folder**), delete everything in `.minecraft/mods`, and launch again so the pack re-downloads.
+
+**How to check you are on the right pack:** the `mods` folder should hold **110** jars, including
+`create-1.20.1-6.0.8.jar` and `moonlight-1.20-2.16.34-forge.jar`. Any other count means the update did not take.
+
+---
+
 ## Way 1 — one file (Windows, ~2 minutes of clicking)
 
 1. Download the zip from the release page

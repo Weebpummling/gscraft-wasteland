@@ -514,6 +514,10 @@ file = "config/tacz-common.toml"
 hash = "3e4bd40eacba8df674a92b8b1cce1d71728da4a4909a468fcd5275d11cd3d1a6"
 
 [[files]]
+file = "config/torchmaster.toml"
+hash = "968522483c909cd663b133543c10aae4c5b5d7dca693ef2bf611c8a55278a51c"
+
+[[files]]
 file = "config/xaero/minimap/default_radar_categories_client.json"
 hash = "11510453ae371381e1b6d17a96759cbfcf6a4148b166e3fb8a1d1da4a06bba5a"
 preserve = true
