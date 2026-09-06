@@ -4,7 +4,7 @@ import numpy as np
 from scipy import ndimage
 from PIL import Image, ImageDraw
 CEN = Path(r"G:/GSCraft/incoming/census"); PLAN = Path(r"G:/GSCraft/repo/buildmap/plan_v8"); X0, Z0 = -3900, -3900
-d = np.load(CEN / "v8_cell_pass8_inspect.npz", allow_pickle=True)
+d = np.load(CEN / "v8_cell_pass10_inspect.npz", allow_pickle=True)
 gy = d["gy"].astype(np.float32); wt = d["wtop"].astype(np.int32); built = d["built"]
 water = wt > -999; H, W = gy.shape
 corr = np.load("corr.npy"); z = np.load("roadnet.npz"); net = z["net"]

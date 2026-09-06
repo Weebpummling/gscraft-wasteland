@@ -1,0 +1,445 @@
+{
+ "hub": {
+  "name": "Novo Expograd (expanded)",
+  "rect": [
+   -3568,
+   -1008,
+   -2385,
+   700
+  ],
+  "stubs": [
+   {
+    "side": "N",
+    "x": -2635,
+    "z": -1006,
+    "y": 65,
+    "width": 15,
+    "material": "minecraft:cobblestone",
+    "rail": false
+   },
+   {
+    "side": "N",
+    "x": -2562,
+    "z": -1006,
+    "y": 36,
+    "width": 4,
+    "material": "minecraft:stone",
+    "rail": false
+   },
+   {
+    "side": "W",
+    "x": -3568,
+    "z": 227,
+    "y": 65,
+    "width": 15,
+    "material": "minecraft:cobblestone",
+    "rail": false
+   }
+  ]
+ },
+ "skad": {
+  "name": "Skadowsky sector",
+  "rect": [
+   -1088,
+   -1488,
+   -625,
+   -737
+  ],
+  "stubs": [
+   {
+    "side": "E",
+    "x": -627,
+    "z": -961,
+    "y": 72,
+    "width": 5,
+    "material": "minecraft:stone",
+    "rail": false
+   },
+   {
+    "side": "E",
+    "x": -625,
+    "z": -944,
+    "y": 67,
+    "width": 21,
+    "material": "minecraft:andesite",
+    "rail": false
+   }
+  ]
+ },
+ "mega": {
+  "name": "Mega-base",
+  "rect": [
+   368,
+   -2128,
+   751,
+   -1601
+  ],
+  "stubs": [
+   {
+    "side": "S",
+    "x": 642,
+    "z": -1602,
+    "y": 86,
+    "width": 8,
+    "material": "minecraft:stone",
+    "rail": false
+   },
+   {
+    "side": "W",
+    "x": 368,
+    "z": -1653,
+    "y": 66,
+    "width": 6,
+    "material": "immersiveengineering:hempcrete",
+    "rail": false
+   },
+   {
+    "side": "W",
+    "x": 368,
+    "z": -1606,
+    "y": 65,
+    "width": 12,
+    "material": "minecraft:stone",
+    "rail": false
+   }
+  ]
+ },
+ "indu": {
+  "name": "Industrial district",
+  "rect": [
+   336,
+   -1376,
+   799,
+   -1105
+  ],
+  "stubs": [
+   {
+    "side": "W",
+    "x": 338,
+    "z": -1370,
+    "y": 64,
+    "width": 5,
+    "material": "immersiveengineering:hempcrete_pillar",
+    "rail": false
+   },
+   {
+    "side": "W",
+    "x": 336,
+    "z": -1271,
+    "y": 84,
+    "width": 13,
+    "material": "immersiveengineering:hempcrete_pillar",
+    "rail": false
+   }
+  ]
+ },
+ "hemp": {
+  "name": "Hempcrete compound",
+  "rect": [
+   -3392,
+   -1344,
+   -3073,
+   -1025
+  ],
+  "stubs": [
+   {
+    "side": "S",
+    "x": -3169,
+    "z": -1026,
+    "y": 62,
+    "width": 3,
+    "material": "minecraft:dirt_path",
+    "rail": false
+   }
+  ]
+ },
+ "lib": {
+  "name": "Library",
+  "rect": [
+   -2480,
+   -3808,
+   -2385,
+   -3713
+  ],
+  "stubs": [
+   {
+    "side": "N",
+    "x": -2435,
+    "z": -3806,
+    "y": 65,
+    "width": 9,
+    "material": "minecraft:andesite",
+    "rail": false
+   }
+  ]
+ },
+ "runway": {
+  "name": "Runway (pad)",
+  "rect": [
+   -2064,
+   -3792,
+   -1553,
+   -3601
+  ],
+  "stubs": []
+ },
+ "old01": {
+  "name": "farmstead 1",
+  "rect": [
+   -2208,
+   -608,
+   -2145,
+   -545
+  ],
+  "stubs": []
+ },
+ "old02": {
+  "name": "farmstead 2",
+  "rect": [
+   -1744,
+   -1776,
+   -1681,
+   -1713
+  ],
+  "stubs": []
+ },
+ "old04": {
+  "name": "farmstead 4",
+  "rect": [
+   -1312,
+   -848,
+   -1249,
+   -785
+  ],
+  "stubs": []
+ },
+ "old05": {
+  "name": "farmstead 5",
+  "rect": [
+   -2144,
+   -928,
+   -2081,
+   -865
+  ],
+  "stubs": []
+ },
+ "old06": {
+  "name": "farmstead 6",
+  "rect": [
+   -1504,
+   -288,
+   -1441,
+   -225
+  ],
+  "stubs": []
+ },
+ "old08": {
+  "name": "farmstead 8",
+  "rect": [
+   -2224,
+   288,
+   -2161,
+   351
+  ],
+  "stubs": []
+ },
+ "old09": {
+  "name": "farmstead 9",
+  "rect": [
+   -2352,
+   0,
+   -2289,
+   63
+  ],
+  "stubs": []
+ },
+ "old10": {
+  "name": "farmstead 10",
+  "rect": [
+   -1584,
+   -1520,
+   -1521,
+   -1457
+  ],
+  "stubs": []
+ },
+ "old11": {
+  "name": "farmstead 11",
+  "rect": [
+   -2272,
+   -1376,
+   -2209,
+   -1313
+  ],
+  "stubs": []
+ },
+ "old12": {
+  "name": "farmstead 12",
+  "rect": [
+   -304,
+   -2896,
+   -241,
+   -2833
+  ],
+  "stubs": []
+ },
+ "old13": {
+  "name": "farmstead 13",
+  "rect": [
+   -2784,
+   -1088,
+   -2721,
+   -1025
+  ],
+  "stubs": []
+ },
+ "old14": {
+  "name": "farmstead 14",
+  "rect": [
+   -3824,
+   -2880,
+   -3761,
+   -2817
+  ],
+  "stubs": []
+ },
+ "old15": {
+  "name": "farmstead 15",
+  "rect": [
+   -1856,
+   -304,
+   -1793,
+   -241
+  ],
+  "stubs": []
+ },
+ "old16": {
+  "name": "farmstead 16",
+  "rect": [
+   -560,
+   -2672,
+   -497,
+   -2609
+  ],
+  "stubs": [
+   {
+    "side": "N",
+    "x": -508,
+    "z": -2672,
+    "y": 65,
+    "width": 3,
+    "material": "minecraft:gravel",
+    "rail": false
+   }
+  ]
+ },
+ "old19": {
+  "name": "farmstead 19",
+  "rect": [
+   -1216,
+   -3776,
+   -1153,
+   -3713
+  ],
+  "stubs": []
+ },
+ "old20": {
+  "name": "farmstead 20",
+  "rect": [
+   -96,
+   -2368,
+   -33,
+   -2305
+  ],
+  "stubs": []
+ },
+ "old22": {
+  "name": "farmstead 22",
+  "rect": [
+   -2112,
+   560,
+   -2049,
+   623
+  ],
+  "stubs": []
+ },
+ "old23": {
+  "name": "farmstead 23",
+  "rect": [
+   160,
+   -2432,
+   223,
+   -2369
+  ],
+  "stubs": []
+ },
+ "old24": {
+  "name": "farmstead 24",
+  "rect": [
+   -752,
+   -2432,
+   -689,
+   -2369
+  ],
+  "stubs": [
+   {
+    "side": "S",
+    "x": -717,
+    "z": -2370,
+    "y": 65,
+    "width": 5,
+    "material": "minecraft:gravel",
+    "rail": false
+   },
+   {
+    "side": "W",
+    "x": -751,
+    "z": -2402,
+    "y": 65,
+    "width": 4,
+    "material": "minecraft:stone",
+    "rail": false
+   }
+  ]
+ },
+ "old25": {
+  "name": "farmstead 25",
+  "rect": [
+   -2512,
+   -1184,
+   -2449,
+   -1121
+  ],
+  "stubs": []
+ },
+ "old26": {
+  "name": "farmstead 26",
+  "rect": [
+   -3808,
+   -3744,
+   -3745,
+   -3681
+  ],
+  "stubs": []
+ },
+ "old27": {
+  "name": "farmstead 27",
+  "rect": [
+   -112,
+   -2608,
+   -49,
+   -2545
+  ],
+  "stubs": []
+ },
+ "old29": {
+  "name": "farmstead 29",
+  "rect": [
+   640,
+   -2384,
+   703,
+   -2321
+  ],
+  "stubs": []
+ }
+}

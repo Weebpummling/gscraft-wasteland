@@ -154,6 +154,12 @@ def main(a):
             seg, st = roads.route(world, (ax, az), (bx, bz))
             if seg is None: print(f"  {name}: no route, skipped"); continue
             pts = densify(seg)
+            wet_route = sum(1 for (x, z) in pts if world.top(x, z)[1] in LIQUID)
+            if wet_route:
+                # the only path crosses water: that is a bridge site, not a patch. A causeway here would dam
+                # the river (2026-09-06: one did, at the road viaduct, and had to be dug out again).
+                print(f"  {name}: the only route crosses {wet_route} m of water - needs a bridge, skipped")
+                continue
             hs = roads.target_heights(world, pts)
             how = f"routed {st['metres']} m"
         wet = sum(1 for (x, z) in pts if world.top(x, z)[1] in LIQUID)

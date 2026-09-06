@@ -333,3 +333,40 @@ Two mods have no 1.20.1 answer and their blocks were re-pointed rather than left
 blocks in the city, the mod has no 1.20.1 build) now uses Chisel's `road` pattern, and **HBM's Nuclear Tech** (54,306
 blocks, 1.12 only, no port) uses Chisel's iron plating and vents. Simply Light (25,089) and Scape and Run: Parasites
 (14,330) are CurseForge-only and were left on their vanilla stand-ins; adding them is still open if the look matters.
+
+
+---
+
+# Part four - the desert city expanded (2026-09-06)
+
+Owner: "did the top part of the desert city got cut off", then "go ahead and do this we have space, feel free to integrate
+Novo, the plaza and Bio Gen into desert city", then "let it overwrite".
+
+## 1. It was cut on three sides, not one
+
+The Novo Expograd 1.12 save holds one continuous built area of 128 x 189 chunks. The original transplant took a 52 x 40
+window out of its west-centre: 3.84 M of 21.23 M modded blocks, 18%. Measuring build density row by row across each edge
+of that window, the rows just outside carry the same density as the rows just inside to the north, the south and the
+east. Only the west edge of the window is a real edge of the city. `docs/maps/gscraft-1.12-source-extent.png`.
+
+## 2. The expansion
+
+The window is now 74 x 107 source chunks (x -103..-30, z 72..178) at the same chunk offset and y shift, which is as far
+as the cell allows before it reaches the hempcrete compound to the north and the farmsteads to the east. 6,098 chunks
+transplanted into the build world and into the clean reference world; the remap resolved every block.
+
+The hub footprint is x -3568..-2385, z -1008..700, 1,184 x 1,709 blocks, four times the old one. The Novo Industrial,
+Financial Plaza and Bio Gen entries are gone from the sector list, absorbed on the owner's instruction. `integrate` ran
+on the enlarged rect with `keep_underground` on this time, so the sewers and cellars under the open streets survive:
+8,874 chunks read, 182,942 columns kept, 8,822 written. The keep ratio is 9%, the same as the original window, so the
+city came through as it did before. `reskin112` then re-ran over the whole rect from the original 1.12 save.
+
+## 3. Putting the roads back
+
+Overwriting that much ground cut the network into six pieces. Three rounds of the same measure-and-patch loop closed it:
+five links (639 m), then two more, then the highway viaduct's west approach. One patch went wrong and is worth recording:
+the only route between the two halves crossed the river, the router took it, and the result was a causeway damming the
+channel. Undoing it with the pre-patch height arrays also stripped the road viaduct's deck, which had to be rebuilt with
+`bridge.py`. `roadpatch.py` now refuses a link whose routed path crosses water and says it needs a bridge instead.
+
+One road component across the cell again, and all 38 builds are on it.

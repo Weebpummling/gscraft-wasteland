@@ -7,7 +7,7 @@ sys.path.insert(0, r"G:/GSCraft/repo/tools")
 from roadmask import RoadMask
 
 CEN = Path(r"G:/GSCraft/incoming/census"); X0, Z0 = -3900, -3900
-d = np.load(CEN / "v8_cell_pass8_inspect.npz", allow_pickle=True)
+d = np.load(CEN / "v8_cell_pass13_inspect.npz", allow_pickle=True)
 sn = d["sname"]; names = list(d["names"]); wt = d["wtop"].astype(np.int32)
 H, W = sn.shape
 cls = np.load(CEN / "classes.npy")
