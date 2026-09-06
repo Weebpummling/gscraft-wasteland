@@ -1,0 +1,13 @@
+name = "industrial_deco-1.0.0"
+filename = "industrial_deco-1.0.0.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/moyNTfeV/versions/bx9lF9Tq/industrial_deco-1.0.0.jar"
+hash-format = "sha512"
+hash = "787704ba9c702f1693ce0c8965162c8bed665d02b8ab20a8fc8db9ba367eaa42d2baf23a11d4d6f7449974d74c87ec2b60256342ecb41e2bc078a5cefa1b43ae"
+
+[update]
+[update.modrinth]
+mod-id = "moyNTfeV"
+version = "bx9lF9Tq"

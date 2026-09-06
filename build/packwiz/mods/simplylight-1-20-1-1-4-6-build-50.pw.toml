@@ -1,0 +1,8 @@
+name = "simplylight-1.20.1-1.4.6-build.50"
+filename = "simplylight-1.20.1-1.4.6-build.50.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files/simplylight-1.20.1-1.4.6-build.50.jar"
+hash-format = "sha512"
+hash = "88ded2ae3e27851790c74c441df8e4a62b70edb50c6e4a11ab8770cff6eb7831b1c31bb007b87c96c67df1e9e134aa34701b62d5a1d6bd68512f374e805621e6"

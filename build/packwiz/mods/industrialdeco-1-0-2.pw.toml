@@ -1,0 +1,13 @@
+name = "industrialdeco-1.0.2"
+filename = "industrialdeco-1.0.2.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/yP3WOSCW/versions/Ttm575OB/industrialdeco-1.0.2.jar"
+hash-format = "sha512"
+hash = "41df034993917d5c214680735636ff8f106a8917c6862be50c8f9dcffd2606579226b6ec067cddf48dd520c19738b630f92a826380f869582b1b5c4e19ff10c3"
+
+[update]
+[update.modrinth]
+mod-id = "yP3WOSCW"
+version = "Ttm575OB"
