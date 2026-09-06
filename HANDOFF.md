@@ -67,11 +67,28 @@ how to rebuild the same state elsewhere.
 
 ## 1. Where things stand
 
-**Hosted server (2026-09-05 16:04): running the v8 world** (`/wasteland-v8`), the 2026-09-05 mod set on Forge 47.4.10,
+**Hosted server (2026-09-06 02:25): running the v8 world with the road rework** (`/wasteland-v8`), the 2026-09-05 mod set on Forge 47.4.10,
 `difficulty=peaceful` + `spawn-monsters=false` (owner: enemies off while gameplay is worked on locally), KubeJS scripts moved
 aside (`/kubejs_off_20260905`), MOTD "test build v8 (map review, enemies off)". Deployed with `tools/deploy_v8.py`; old
 folders kept as `*_old_20260905`. Client pack: release `client-installer-2026-09-05` (Forge 47.4.23 client, 17 mod updates).
 The local server (`G:/GSCraft/server`) keeps the scripts and runs 47.4.23 for the gameplay work.
+
+> **Road rework, 2026-09-06** (`docs/gscraft-road-review-v8.md`; tools `roadpatch.py`, `roadrelay.py`, `roadmask.py`,
+> `worldborder.py`, `worldmap.py`; review scripts in `tools/roadreview/`). The cell's roads were in 21 disconnected
+> pieces and are now one network with all 34 builds on it: 19 breaks closed, 32 wiped spans re-laid, the six north-east
+> farm spokes and the four eastern ones replaced by a farm belt and an east trunk, and a ring closed with a new 48 m
+> viaduct at (466..514, -2450). `roads.py` gained three classes (trunk 9 / road 7 / track 5), a `--meander` term and
+> flared junctions, and now writes a protect mask per road which `river.py`, `shoreline.py`, `lakefill.py` and
+> `smoothcliffs.py` honour with `--protect-roads`.
+>
+> **The world border was wrong.** level.dat still carried Pripyat's border (west edge x -3099.5, north edge z -3749.5) -
+> the wall the owner hit near (-3100, 583). It left the Financial Plaza and farmsteads 14 and 26 outside the playable
+> area and cut five more builds. `tools/worldborder.py` set it to centre (-1350.5, -1600.5) size 5200, which contains
+> the cell with a 50-block margin.
+>
+> Current maps are in `docs/maps/` (`gscraft-wasteland-v8.png` is the labelled world map from `tools/worldmap.py`).
+> 30 region files and level.dat were uploaded with the server stopped; it restarted clean, Done in 1.6 s, and
+> `worldborder get` reports 5200 blocks.
 
 **The hosted server (Bisect, 199.115.76.82:9150, panel id 493d6256) RUNS v6** since 2026-09-03 evening:
 world `wasteland-v6`, MOTD "GSCraft Wasteland - test build v6", the rebuild pack with EMI added, the KubeJS
