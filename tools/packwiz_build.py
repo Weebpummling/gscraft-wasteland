@@ -61,7 +61,13 @@ CLIENT_UI = [
      "config/xaero/minimap/default_radar_categories_client.json"),                      # no hostile dots
     ("config/parcool-client.toml", "config/parcool-client.toml"),                       # the toy moves off
     ("local/ftbchunks/client-config.snbt", "defaultconfigs/ftbchunks/client-config.snbt"),               # second minimap off
+    ("config/improvedmobs/client.toml", "config/improvedmobs/client.toml"),              # "Difficulty" text off
+    ("config/sedparties-client.toml", "config/sedparties-client.toml"),                  # party frame only in a party
 ]
+# The last two were added 2026-09-06 after a screenshot showed three things drawn on top of each other in the
+# top-left corner: Xaero's minimap, Improved Mobs' magenta "Difficulty" readout at (5,5), and Sed's Parties'
+# player frame anchored to the same corner. The minimap is the one that belongs there, so the difficulty text
+# is off and the party frame only appears when the player is actually in a party.
 TEXT_EXT = {".toml", ".json", ".json5", ".cfg", ".properties", ".txt", ".js", ".snbt", ".md"}
 CRLF = b"\r\n"
 LF = b"\n"

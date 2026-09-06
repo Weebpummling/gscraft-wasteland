@@ -269,6 +269,11 @@ file = "config/immersiveengineering-common.toml"
 hash = "68550b1b9f85bb8b055e602c6178a9a7ff8ec90d226c739f8d8c5ca66e089e47"
 
 [[files]]
+file = "config/improvedmobs/client.toml"
+hash = "13004d42c782ccc343b18d3840042344e741007b54b627a6eae095f1a2c53e8e"
+preserve = true
+
+[[files]]
 file = "config/improvedmobs/common.toml"
 hash = "12c58088d21d5e0c0a84e2dea195ec5a72db79a16973dbd73314cc3cd2d92d90"
 
@@ -488,6 +493,11 @@ hash = "144c2ec2643b74ca7895301f8b589e48dea3888bc41f266b6af1afdcc1f9092e"
 [[files]]
 file = "config/refurbished_furniture.server.toml"
 hash = "c63ece52fc835bfa12ea6fa29f53fc88478fb0745b3e16865f896b8e2c50c531"
+
+[[files]]
+file = "config/sedparties-client.toml"
+hash = "9bd9ccf2cc5580605228a8e1f79a293ed3f77041475da159eb449b43f1835039"
+preserve = true
 
 [[files]]
 file = "config/sedparties-common.toml"
