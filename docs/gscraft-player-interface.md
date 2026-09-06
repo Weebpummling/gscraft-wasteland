@@ -79,6 +79,37 @@ far right of the letter rows; nothing a player needs in a fight is more than one
 Conflicts this resolves (all found in the jars): M (Xaero map vs FTB Chunks map), B (backpack vs TaCZ fire mode
 vs Xaero new waypoint), V (voice menu vs the doc's "voice V"), two minimaps, two crawls (TaCZ, ParCool).
 
+### 2a. Built and shipped (2026-09-06)
+
+The map above is now the pack's `options.txt`, written against the key ids in a real client rather than the jars'
+defaults, and **shipped `preserve`** so a fresh install gets it and nothing a player later rebinds is overwritten.
+77 binds changed. What the real file showed that the table above had guessed wrong:
+
+| The doc said | The client actually shipped |
+|---|---|
+| fire mode on B, inspect on I | TaCZ fire mode on **G**, inspect on **H**, melee **and** zoom both on V |
+| minimap zoom on `-` / `=` | Xaero's zoom keys were **unbound**; FTB Chunks owned `-` and `=` |
+| voice push-to-talk on CapsLock | push-to-talk was **unbound**; the voice menu sat on V, mute on **M** against the map, group on **G** against the backpack |
+| ping on middle mouse | Ping Wheel shipped on **mouse 5**; middle mouse carried vanilla pick-block, Sophisticated's sort, IE's railgun zoom and Superb Warfare's mark |
+| — | Immersive Engineering's magnet glove was on **S**, which is walking backwards |
+| — | Immersive Vehicles registers **unprefixed** keys (`jump` on B, `ext2` on M, `lock` on U, the weapon arms on J and K) |
+| party screen on P | sedparties has no party-screen key: it has *Show Mouse* (was left-alt, now **P**) and party glow (F8) |
+| — | ParCool's cling, zipline, vault, wall-slide and hang-down were all on **right mouse**, the aim key |
+
+Vanilla pick-block moved to **mouse 4** so the ping owns the middle button, and the creative toolbar activators,
+social interactions and Placebo's cosmetics were unbound where they fought a key in the table.
+
+**Three things in §1 cannot be configured** and are struck from the build list: the minimap's **coordinate line**
+(Xaero's HUD file carries only the minimap module; there is no coordinate module or key), the **voice icon position**
+(Simple Voice Chat has show/hide flags, no position), and **FTB Quests' completion toasts** (no setting in its client
+config). The first is the only real loss: there is no coordinate readout on screen, which suits rule 3.
+
+**Shipped in the pack** (`packwiz_build.py` `CLIENT_UI`, every one `preserve = true`): `options.txt`;
+`config/xaerohud.txt` (the minimap top-left); `config/xaero/minimap/profiles/default.cfg` (north-locked);
+`config/xaero/minimap/default_radar_categories_client.json` (the hostile category's dots off, players and vehicles
+kept); `config/parcool-client.toml` (dodge, flip, hide-in-block, wall-run, quick-turn and crawl disabled);
+`defaultconfigs/ftbchunks/client-config.snbt` (its minimap off).
+
 ## 3. The channels, lowest to highest
 
 ### 3.1 Tooltip — the noun
