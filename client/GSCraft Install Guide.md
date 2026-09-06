@@ -18,9 +18,35 @@ Server address: **199.115.76.82:9150** (also `gamesla308.bisecthosting.com:9150`
 3. Press **Play** on the GSCraft tile. The first launch downloads the pack (about 450 MB) and then starts the game;
    every later launch checks for pack updates in a few seconds and starts. **Multiplayer → GSCraft → Join Server.**
 
-Already have Prism, or on macOS / Linux: install Prism, sign in, **Add Instance → Import → Browse**, and pick
-`GSCraft-Instance.zip` from the unzipped download (self-updating) — or `GSCraft.mrpack` for a one-shot import (also
-works in Modrinth App / ATLauncher).
+### Already have Prism Launcher (or you are on macOS / Linux)
+
+Skip the setup script and import the instance yourself.
+
+1. **Add Instance → Import → Browse**, and pick **`GSCraft-Instance.zip`** from the unzipped download. That one keeps
+   itself up to date. `GSCraft.mrpack` also imports (Prism, Modrinth App, ATLauncher) but it is a one-shot copy: it will
+   not update, and you will be refused by the server the next time the pack changes.
+2. Sign in with your Microsoft account if you have not already.
+3. Right-click the tile → **Edit** and check three things. These are what the import sets up, and they are worth a look
+   because an instance that is missing the first one will silently never update.
+
+   | Where | What it should say |
+   |---|---|
+   | **Settings → Custom commands** | *Custom commands* ticked, and the **Pre-launch command** filled in (below) |
+   | **Settings → Memory** | Maximum **6144 MB** on a 16 GB PC, **4096 MB** on an 8 GB one |
+   | **Version** | Minecraft **1.20.1** with Forge **47.4.23** |
+
+   The pre-launch command is the whole updater. It must read exactly:
+
+   ```
+   "$INST_JAVA" -jar packwiz-installer-bootstrap.jar https://raw.githubusercontent.com/Weebpummling/gscraft-wasteland/main/build/packwiz/pack.toml
+   ```
+
+   If you are re-importing over a GSCraft instance you already had, make sure there is only **one** pre-launch command.
+   A leftover blank one above it stops the update from running, and the first sign of that is the server refusing you
+   with a mod-list mismatch.
+4. Press **Play**. The first launch downloads about 450 MB. Every later launch checks for pack changes in a few seconds,
+   so when we announce an update, **quit the game and start it again** — a client left running across an update will be
+   refused.
 
 **Memory:** the instance is preset to 6 GB. On an 8 GB PC: right-click the tile → **Edit → Settings → Java → Maximum
 memory allocation** and set **4096 MB**.
