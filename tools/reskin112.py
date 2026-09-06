@@ -93,19 +93,24 @@ HBM = {
     "brick_light": "chisel:array/white_concrete",
     "machine_tower_small": "industrial_deco:industrial_pipe",
     "steel_grate": "immersiveengineering:alu_scaffolding_grate_top",
-    "fence_metal": "industrialdeco:metal_fence_block",
-    "railing_normal": "industrialdeco:metal_fence_block",
+    "fence_metal": "minecraft:iron_bars",
+    "railing_normal": "minecraft:iron_bars",
     "reinforced_glass": "industrial_deco:reinforced_glass",
     "blast_door": "industrial_deco:blast_door",
 }
 IMPROVED.update({f"hbm:{k}": v for k, v in HBM.items()})
+# NEVER map to industrialdeco:metal_fence_block. Its getShape asks the level for its neighbours, which the
+# sky-light engine calls while lighting a chunk; if a neighbour is in an unloaded chunk the light worker
+# blocks on it while the main thread waits for the chunk being lit, and the server deadlocks until the
+# watchdog kills the tick. 838 of them in the expanded desert city cost a whole evening (2026-09-06).
+# Vanilla iron_bars takes its shape from its own blockstate and never touches the level.
 HBM_PREFIX = [("deco_pipe", "industrial_deco:industrial_pipe"), ("hazard", "industrial_deco:hazard_lab_wall"),
               ("deco_", "industrial_deco:industrial_steel"), ("brick_", "industrial_deco:lab_wall"),
               ("concrete", "minecraft:smooth_stone"), ("steel_", "industrial_deco:industrial_steel"),
-              ("fence", "industrialdeco:metal_fence_block"), ("railing", "industrialdeco:metal_fence_block")]
+              ("fence", "minecraft:iron_bars"), ("railing", "minecraft:iron_bars")]
 # MrCrayfish's Furniture -> Refurbished Furniture, matched on the object rather than the wood or colour
 CFM = {
-    "electric_fence": "industrialdeco:metal_fence_block", "bar_stool": "refurbished_furniture:light_gray_stool",
+    "electric_fence": "minecraft:iron_bars", "bar_stool": "refurbished_furniture:light_gray_stool",
     "inflatable_castle": "refurbished_furniture:light_gray_trampoline", "cabinet_kitchen": "refurbished_furniture:oak_kitchen_cabinetry",
     "counter_sink": "refurbished_furniture:oak_kitchen_sink", "tv": "refurbished_furniture:television",
 }
