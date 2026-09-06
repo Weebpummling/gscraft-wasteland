@@ -176,8 +176,14 @@ def main():
         for rel in plain:
             z.write(OUT / rel, "overrides/" + rel)
     # the Prism instance zip: instance.cfg with the packwiz pre-launch command (Prism's own escaped form), bootstrap jar, servers.dat
-    cfg = (INST / "instance.cfg").read_text(encoding="utf-8").rstrip("\n").splitlines()
-    cfg = [l for l in cfg if not l.startswith(("OverrideCommands", "PreLaunchCommand", "notes"))]
+    # Built from a whitelist, never copied wholesale. Prism's live instance.cfg carries an absolute JavaPath under
+    # this machine's user profile, plus a JavaSignature, an account id, a uuid, play times and the UI column layout.
+    # Shipping those pointed another player's $INST_JAVA at a path that cannot exist on their PC, so the packwiz
+    # pre-launch command failed and the pack never installed or updated (found 2026-09-06).
+    KEEP = ("ConfigVersion", "InstanceType", "name", "iconKey", "OverrideMemory", "MinMemAlloc", "MaxMemAlloc",
+            "OverrideJavaArgs", "JvmArgs", "ShowConsoleOnError", "LogPrePostOutput", "LowMemWarning")
+    live = {l.split("=", 1)[0]: l for l in (INST / "instance.cfg").read_text(encoding="utf-8").splitlines() if "=" in l}
+    cfg = ["[General]"] + [live[k] for k in KEEP if k in live] + ["AutomaticJava=true", "OverrideJavaLocation=false"]
     pre = '\\"$INST_JAVA\\" -jar packwiz-installer-bootstrap.jar ' + RAW + "pack.toml"
     cfg += ["OverrideCommands=true", "PreLaunchCommand=" + pre,
             f"notes=GSCraft {VERSION} - the pack installs and updates itself on every launch (packwiz)"]
