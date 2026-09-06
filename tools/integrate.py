@@ -45,7 +45,9 @@ DESERT_NATURAL = {"minecraft:sand", "minecraft:red_sand", "minecraft:sandstone",
                   "minecraft:mycelium", "minecraft:packed_ice", "minecraft:dripstone_block", "minecraft:mud"} | AIRS
 ROAD_TOPS = {"minecraft:stone", "minecraft:andesite", "minecraft:gravel", "minecraft:smooth_stone", "minecraft:stone_bricks", "minecraft:cobblestone"}
 SECTORS = {
-    "hub": dict(rect=(-3376, -624, -2545, 15), mode="manmade", natural="desert", close=10, apron=3, min_comp=60, band=32, edge_drop=20, lift=True),
+    # 2026-09-06: the expanded city, absorbing the Novo Industrial, Financial Plaza and Bio Gen plots.
+    # keep_underground is on now, so the sewers and cellars under the open streets survive the pass.
+    "hub": dict(rect=(-3568, -1008, -2385, 700), mode="manmade", natural="desert", close=10, apron=3, min_comp=60, band=32, edge_drop=20, lift=True, keep_underground=True),
     "skad": dict(rect=(-1088, -1488, -625, -737), mode="plate", close=4, apron=2, min_comp=0, band=40),
 }
 GROUP_DEFAULTS = {                          # every other sector in sectors_v8.json
@@ -165,7 +167,9 @@ def main(a):
     H, Wd = az1 - az0 + 1, ax1 - ax0 + 1
     cls = np.load(CENSUS / "classes.npy"); gnd = np.load(CENSUS / "ground_y.npy").astype(np.int32); tgt = np.load(HEIGHT).astype(np.int32)
     delta_all = tgt - gnd; delta_all[np.isin(cls, (1, 2, 3, 4, 7))] = 0
-    def census(arr, x, z): return arr[z - CZ0, x - CX0]
+    def census(arr, x, z):
+        # a footprint reaching the cell edge has a last chunk row hanging past the census grid; clamp it
+        return arr[min(max(z - CZ0, 0), arr.shape[0] - 1), min(max(x - CX0, 0), arr.shape[1] - 1)]
     others = np.zeros((H, Wd), bool)
     for p in json.load(open(SECTORS_JSON))["sectors"]:
         if p["id"] == sid: continue

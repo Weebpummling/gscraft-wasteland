@@ -18,47 +18,15 @@
   },
   {
    "id": "hub",
-   "name": "Novo Expograd hub (desert city)",
-   "x0": -3376,
-   "z0": -624,
-   "x1": -2545,
-   "z1": 15,
+   "name": "Novo Expograd (expanded)",
+   "x0": -3568,
+   "z0": -1008,
+   "x1": -2385,
+   "z1": 700,
    "group": "cyber",
    "road_m": 40,
-   "source": "scratch/upgrade/world hub (1.12), ships cut"
-  },
-  {
-   "id": "novo",
-   "name": "Novo Expograd Industrial Zone",
-   "x0": -2880,
-   "z0": -816,
-   "x1": -2737,
-   "z1": -657,
-   "group": "cyber",
-   "road_m": 86,
-   "source": "scratch/upgrade/novo_industrial (1.12)"
-  },
-  {
-   "id": "plaza",
-   "name": "Financial Plaza + sewers",
-   "x0": -3456,
-   "z0": -800,
-   "x1": -3297,
-   "z1": -657,
-   "group": "cyber",
-   "road_m": 91,
-   "source": "scratch/upgrade/financial_plaza + sewers (1.12)"
-  },
-  {
-   "id": "biogen",
-   "name": "Bio Gen offices",
-   "x0": -2512,
-   "z0": -704,
-   "x1": -2449,
-   "z1": -449,
-   "group": "cyber",
-   "road_m": 99,
-   "source": "scratch/upgrade/biogen_strip (1.12)"
+   "source": "scratch/upgrade/world hub (1.12), ships cut",
+   "note": "2026-09-06: expanded to the whole western half of the 1.12 city; the Novo Industrial, Financial Plaza and Bio Gen plots are absorbed into it (owner: let it overwrite)"
   },
   {
    "id": "skad",

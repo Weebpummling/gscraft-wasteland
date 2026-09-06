@@ -1,0 +1,25 @@
+[
+ {
+  "source": "hub",
+  "source_dir": "G:/GSCraft/scratch/upgrade/world/world",
+  "chunks": [
+   -103,
+   72,
+   -30,
+   178
+  ],
+  "offset": [
+   -120,
+   -135
+  ],
+  "dy": -1,
+  "what": "Novo Expograd, expanded: the whole western city, absorbing the Novo Industrial, Financial Plaza and Bio Gen plots (owner 2026-09-06: let it overwrite)",
+  "dest_blocks": [
+   -3568,
+   -1008,
+   -2385,
+   703
+  ],
+  "chunk_count": 7918
+ }
+]

@@ -1,0 +1,354 @@
+[
+ {
+  "name": "lib_N",
+  "points": [
+   [
+    -2435,
+    -3812
+   ],
+   [
+    -2436,
+    -3664
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Library N gate (minecraft:andesite, stub width 9) -> nearest road, 148 m"
+ },
+ {
+  "name": "old13_E",
+  "points": [
+   [
+    -2715,
+    -1056
+   ],
+   [
+    -2640,
+    -1056
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 13 E gate (fallback, stub width 0) -> nearest road, 76 m"
+ },
+ {
+  "name": "old25_W",
+  "points": [
+   [
+    -2518,
+    -1152
+   ],
+   [
+    -2632,
+    -1152
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 25 W gate (fallback, stub width 0) -> nearest road, 112 m"
+ },
+ {
+  "name": "old10_N",
+  "points": [
+   [
+    -1552,
+    -1526
+   ],
+   [
+    -1616,
+    -1704
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 10 N gate (fallback, stub width 0) -> nearest road, 187 m"
+ },
+ {
+  "name": "hemp_S",
+  "points": [
+   [
+    -3169,
+    -1020
+   ],
+   [
+    -3016,
+    -1300
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Hempcrete compound S gate (minecraft:dirt_path, stub width 3) -> nearest road, 321 m"
+ },
+ {
+  "name": "old26_S",
+  "points": [
+   [
+    -3776,
+    -3675
+   ],
+   [
+    -3776,
+    -3456
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 26 S gate (fallback, stub width 0) -> nearest road, 220 m"
+ },
+ {
+  "name": "runway_W",
+  "points": [
+   [
+    -2070,
+    -3696
+   ],
+   [
+    -2216,
+    -3552
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "Runway (pad) W gate (fallback, stub width 0) -> nearest road, 204 m"
+ },
+ {
+  "name": "indu_W",
+  "points": [
+   [
+    330,
+    -1271
+   ],
+   [
+    564,
+    -644
+   ]
+  ],
+  "width": 9,
+  "style": "trunk",
+  "note": "Industrial district W gate (immersiveengineering:hempcrete_pillar, stub width 13) -> nearest road, 671 m"
+ },
+ {
+  "name": "old04_S",
+  "points": [
+   [
+    -1280,
+    -779
+   ],
+   [
+    -1304,
+    -212
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 4 S gate (fallback, stub width 0) -> nearest road, 569 m"
+ },
+ {
+  "name": "hub_W",
+  "points": [
+   [
+    -3574,
+    227
+   ],
+   [
+    -2384,
+    108
+   ]
+  ],
+  "width": 9,
+  "style": "trunk",
+  "note": "Novo Expograd (expanded) W gate (minecraft:cobblestone, stub width 15) -> nearest road, 1198 m"
+ },
+ {
+  "name": "old24_S",
+  "points": [
+   [
+    -717,
+    -2364
+   ],
+   [
+    -1284,
+    -1832
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 24 S gate (minecraft:gravel, stub width 5) -> nearest road, 775 m"
+ },
+ {
+  "name": "old24_W",
+  "points": [
+   [
+    -757,
+    -2402
+   ],
+   [
+    -732,
+    -2356
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 24 W gate (minecraft:stone, stub width 4) -> nearest road, 56 m"
+ },
+ {
+  "name": "skad_E",
+  "points": [
+   [
+    -619,
+    -944
+   ],
+   [
+    -1280,
+    -780
+   ]
+  ],
+  "width": 9,
+  "style": "trunk",
+  "note": "Skadowsky sector E gate (minecraft:andesite, stub width 21) -> nearest road, 680 m"
+ },
+ {
+  "name": "old19_W",
+  "points": [
+   [
+    -1222,
+    -3744
+   ],
+   [
+    -2072,
+    -3696
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 19 W gate (fallback, stub width 0) -> nearest road, 849 m"
+ },
+ {
+  "name": "old16_N",
+  "points": [
+   [
+    -508,
+    -2678
+   ],
+   [
+    -760,
+    -2404
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 16 N gate (minecraft:gravel, stub width 3) -> nearest road, 374 m"
+ },
+ {
+  "name": "mega_W",
+  "points": [
+   [
+    362,
+    -1606
+   ],
+   [
+    328,
+    -1272
+   ]
+  ],
+  "width": 7,
+  "style": "road",
+  "note": "Mega-base W gate (minecraft:stone, stub width 12) -> nearest road, 338 m"
+ },
+ {
+  "name": "mega_S",
+  "points": [
+   [
+    642,
+    -1596
+   ],
+   [
+    360,
+    -1596
+   ]
+  ],
+  "width": 7,
+  "style": "road",
+  "note": "Mega-base S gate (minecraft:stone, stub width 8) -> nearest road, 280 m"
+ },
+ {
+  "name": "old20_W",
+  "points": [
+   [
+    -102,
+    -2336
+   ],
+   [
+    -508,
+    -2680
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 20 W gate (fallback, stub width 0) -> nearest road, 531 m"
+ },
+ {
+  "name": "old27_S",
+  "points": [
+   [
+    -80,
+    -2539
+   ],
+   [
+    -188,
+    -2412
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 27 S gate (fallback, stub width 0) -> nearest road, 167 m"
+ },
+ {
+  "name": "old12_S",
+  "points": [
+   [
+    -272,
+    -2827
+   ],
+   [
+    -448,
+    -2632
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 12 S gate (fallback, stub width 0) -> nearest road, 263 m"
+ },
+ {
+  "name": "old23_W",
+  "points": [
+   [
+    154,
+    -2400
+   ],
+   [
+    -104,
+    -2336
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 23 W gate (fallback, stub width 0) -> nearest road, 264 m"
+ },
+ {
+  "name": "old29_W",
+  "points": [
+   [
+    634,
+    -2352
+   ],
+   [
+    152,
+    -2400
+   ]
+  ],
+  "width": 5,
+  "style": "track",
+  "note": "farmstead 29 W gate (fallback, stub width 0) -> nearest road, 482 m"
+ }
+]
