@@ -42,6 +42,7 @@ ASSETS = G / "release-installer"
 ASSETS_PACK = ASSETS / "pack-files"        # the maintenance release: what packwiz and the .cmd files fetch by URL
 ASSETS_CLIENT = ASSETS / "client"          # the player-facing release: one zip
 GUIDE = REPO / "client" / "GSCraft Install Guide.md"
+UIGUIDE = REPO / "client" / "GSCraft Interface Guide.md"   # shipped beside it as INTERFACE.md
 CLIENT_ONLY = {"xaerominimap", "xaeroworldmap"}           # jar-name prefixes that never run on the server
 CLIENT_EXTRA_JARS = [G / "client" / "instances" / "GSCraft" / ".minecraft" / "mods" / n for n in ("parties_xaerominimap_fix-1.0.0.jar", "watermedia-2.1.37.jar", "WorldEditCUI-1.20+01.jar", "fusion-1.3.15a-forge-mc1.20.1.jar")]
 # client-only jars that are NOT in server/mods: the Parties/Xaero crash fix (one mixin; must never load on the server), WaterMedia,
@@ -305,6 +306,7 @@ def main():
     guide = re.sub(r"client-installer-\d{4}-\d{2}-\d{2}", TAG, guide)
     guide = re.sub(r"pack-files-\d{4}-\d{2}-\d{2}", FILES_TAG, guide)
     (staging / "INSTALL.md").write_bytes(guide.encode("utf-8"))
+    (staging / "INTERFACE.md").write_bytes(UIGUIDE.read_text(encoding="utf-8").encode("utf-8"))
     start = "\r\n".join([
         "GSCraft - install and launch", "=" * 28, "",
         f"Minecraft 1.20.1, Forge {FORGE}, about 110 mods. Server: 199.115.76.82:9150 (already in your list).",
@@ -325,7 +327,8 @@ def main():
         f"  3. Play with the 'GSCraft (forge)' profile.  Updates: run that file again when we say the pack changed.", "",
         "MODRINTH APP / ATLAUNCHER", "-" * 25, "  Import  GSCraft.mrpack", "",
         "IF SOMETHING GOES WRONG", "-" * 23,
-        "  Read INSTALL.md in this folder - it has the memory setting, the voice-chat key and the fixes.", ""])
+        "  Read INSTALL.md in this folder - it has the memory setting, the voice-chat key and the fixes.",
+        "  INTERFACE.md is next to it: what is on your screen, how to move it and how to put it back.", ""])
     (staging / "START HERE.txt").write_bytes(start.encode("utf-8"))
 
     # ---- one zip is the whole player-facing release

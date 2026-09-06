@@ -82,7 +82,7 @@ hash = "cdf806c0ace89872a439f44f383132ed75003ae3445d55faa02a5f5b29aad4ef"
 
 [[files]]
 file = "config/canary.properties"
-hash = "cf8d94771dc04bb9183235eab2dc8958deca55a1ef822ca24d159fbf0328c107"
+hash = "72c437a06d52c8749fe9f21be747f32227032b4c9b7c12f4328b1e2829d6f747"
 
 [[files]]
 file = "config/canary.properties.bak"
