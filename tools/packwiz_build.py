@@ -43,8 +43,12 @@ ASSETS_PACK = ASSETS / "pack-files"        # the maintenance release: what packw
 ASSETS_CLIENT = ASSETS / "client"          # the player-facing release: one zip
 GUIDE = REPO / "client" / "GSCraft Install Guide.md"
 CLIENT_ONLY = {"xaerominimap", "xaeroworldmap"}           # jar-name prefixes that never run on the server
-CLIENT_EXTRA_JARS = [G / "client" / "instances" / "GSCraft" / ".minecraft" / "mods" / n for n in ("parties_xaerominimap_fix-1.0.0.jar", "watermedia-2.1.37.jar", "WorldEditCUI-1.20+01.jar")]
-# client-only jars that are NOT in server/mods: the Parties/Xaero crash fix (one mixin; must never load on the server), WaterMedia, WorldEdit CUI (selection outlines for the designers, 2026-09-05)
+CLIENT_EXTRA_JARS = [G / "client" / "instances" / "GSCraft" / ".minecraft" / "mods" / n for n in ("parties_xaerominimap_fix-1.0.0.jar", "watermedia-2.1.37.jar", "WorldEditCUI-1.20+01.jar", "fusion-1.3.15a-forge-mc1.20.1.jar")]
+# client-only jars that are NOT in server/mods: the Parties/Xaero crash fix (one mixin; must never load on the server), WaterMedia,
+# WorldEdit CUI (selection outlines for the designers, 2026-09-05), and Fusion (2026-09-06). Fusion is purely client-side
+# rendering, no data/ in the jar, but Industrial Decorations' block models declare loader "fusion:model" and type
+# "fusion:connecting"; without it every one of its models fails to bake and the blocks render as the magenta and black
+# missing-model checkerboard, which is what the desert city showed after the re-skin used lab_wall and industrial_steel.
 CONFIG_SKIP = {"QuantifiedAPI", "spark", "chunky", "worldedit", "xaero", "FML.VersionCheck.txt", "voicechat"}
 CLIENT_CONFIG_EXTRA = ["appleskin-client.toml", "lootr-client.toml", "recruits-client.toml", "pingwheel.server.json"]
 # The player's interface (docs/gscraft-player-interface.md §1-§2), taken from the Prism instance and shipped

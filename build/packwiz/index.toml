@@ -809,6 +809,11 @@ hash = "edc2f94fdb87faa5d8086348581ce34e18e5bbfc0650469601002f77bfd3bccd"
 metafile = true
 
 [[files]]
+file = "mods/fusion-1-3-15a-forge-mc1-20-1.pw.toml"
+hash = "365182bacd7991ba9275f9dd8f5f57f28532cccb6d42379dd79499e4239dc3ab"
+metafile = true
+
+[[files]]
 file = "mods/geckolib-forge-1-20-1-4-8-4.pw.toml"
 hash = "5e1776824ee91a41e6c6c3170b37cb7d460532dd51bf6bcb50fdae4f605c819b"
 metafile = true
