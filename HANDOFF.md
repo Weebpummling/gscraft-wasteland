@@ -40,6 +40,14 @@ how to rebuild the same state elsewhere.
 > Phase C tasks with file paths (§7), Bandits / Lukis / Waterframes as background jars (§8), every new task, order,
 > loot row and config line it adds (§9), and the rulings (§10).
 >
+> **Gap sweep 2026-09-06 (`docs/gscraft-design-gaps.md` §H):** eight gaps found and closed the same day — the fifteen
+> keeper quests, the three rail quests, Teddy's H8, the eighteen counter pages, what a keeper's counter does when a
+> site falls back, the boat's act (J5 hands out the boat, W-V1 the speedboat, W12 crosses to FR-06), the Militia's
+> home. **One is the map session's:** the map plan carries two camp rectangles — §4's sector row (x −1792…−1409) and
+> §9's camp design (x −1690…−1290); the design has adopted §9's box because all eight buildings and the gun pit sit
+> in it, so **plan §4's camp row is the one to correct**. No mod is missing; the only jars still queued are the
+> designer tools (`notes/gscraft-designer-tools.md`, owner's pick).
+>
 > **For the map session (from the design review, 2026-09-05; `docs/gscraft-design-gaps.md` §F9):** the camp ring of
 > plan §9 straddles the §4 rectangle's east edge (Marshall x −1350, James −1370, the gun pit −1340…−1329, Walker's east
 > half are beyond x −1409) — re-cut it inside; fix the world spawn's y; add the Line's ford at the pump house and the

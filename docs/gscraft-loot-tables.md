@@ -97,11 +97,11 @@ The hub is never held, so its component containers are shared and refilled by th
 | Container table | Count in the hub | Yield per refresh | Needed by the game |
 |---|---|---|---|
 | `hub/phased_array` | 1 | 1 phased array element | 3 (X6 antenna array, U9, J8) |
-| `hub/satellite_receiver` | 2 | 1 each | 6 (J8, W-B3, U-B3, J-B3, Storage 4, the Black Hawk) |
+| `hub/satellite_receiver` | 2 | 1 each | 9 (J8, W-B3, U-B3, J-B3, Storage 4, the Black Hawk, and S-residential-3 / S-financial-3 / S-fr06-3) |
 | `hub/power_filter` | — | moved to the plant complex (review fix 10) | — |
 | `hub/rare` (ordinary chests) | many | office + military, computer parts 12, hard drive 8, emerald 8 | J9's four microdistricts share it |
 | `plant/reactor_control` (the plant complex's control room) | 1 | 1 reactor control module | 3 (M11, R-B3, W-M2) — objectives §4 |
-| `plant/power_filter` (moved here from the hub) | 2 | 1 each | 4 (T9, M13, T-B3, M-B3) |
+| `plant/power_filter` (moved here from the hub) | 2 | 1 each | 6 (T9, M13, T-B3, M-B3, and S-novo-3 / S-plant-3) |
 
 Five components a visit, eighteen needed (thirteen for the tower and the tiers, five for the site chains' tier 3 — Create chapter §3): **four hub runs** across Act IV's three sessions, one a
 session, each about a 20-minute round trip by air with looting (crafting §3). U-D3's satellite receiver (the bunker

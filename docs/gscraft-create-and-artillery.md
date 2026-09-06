@@ -66,6 +66,7 @@ gate the artillery chain of section 4. The keepers' names and looks are first cu
 | **Financial Plaza Quarantine** (electronics) | **Ilya**, the clerk | ground floor cleared, the lifts (rope pulleys) running | the **fuze lab**: mechanical crafters for shells, the fuze bench (the mod's four: impact, timed, inertia, proximity) | shutters, a guard post in the lobby, the sewers sealed behind a bar | shells and fuzes (4.5) |
 | **Skadowsky sector — the residential block** (medical; v8 rebase, design §2.3) | **Vera**, the nurse | the hospital's school wing cleared as the field hospital; the level crossing freed | the **hospital**: a second revive point (the script's camp-revive rule applied to the hospital rectangle) and the cure, free, as at Tony's | the **rail yard**: the train's depot, the schedule block, the fuel bunker; the highway viaduct's checkpoint | the **gunner's manual** (tier 1, a book item: the range card of G5); the train (tier 3; section 2, James) |
 
+The fifteen quests are written out in `gscraft-quests.md` §7B (ids, tasks, gates, rewards, tier by tier).
 Hand-ins follow §3.6's rule: tier 1 = camp junk and first intermediates (planks, metal scrap, fastener kits); tier 2 =
 bulk material (concrete, steel frames) plus one more of the site's own loot-only component; tier 3 = one hub item. The
 keeper also sells the site's product at a counter (vendors doc): Kessler sells casting sand and cast-iron nuggets,

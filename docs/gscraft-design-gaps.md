@@ -215,3 +215,28 @@ mismatches) were applied the same day. What changed and what stays open:
 | G7 | The rail yard as a named loot site and the train's north terminus (O7) | applied: objectives §3; quests J-T (to write with the S-chains) |
 | G8 | Difficulty by land through In Control areas (O9) | applied: enemies §7 |
 | G9 | The crossings list (O10) | handed over: HANDOFF |
+
+## H. The 2026-09-06 gap sweep, and what closed it
+
+A read of the docs against the installed jars found six things the design named but no document wrote, and two
+contradictions. All eight are closed the same day; the mod side found nothing missing (every jar the design calls for
+is installed, and the only mods still queued are the designer tools of `notes/gscraft-designer-tools.md`, owner's pick).
+
+| # | Gap | Closed by |
+|---|---|---|
+| H1 | The fifteen keeper quests existed as a summary paragraph only | quests §7B: all fifteen written with tasks, gates and rewards; the Create chapter §3 points at them |
+| H2 | The train (J-T1–3) was named in four docs and written in none | quests §6: J-T1 the line, J-T2 the locomotive, J-T3 the schedule; stages `train_1…3` |
+| H3 | Teddy's H8 had a recipe and a vendor input but no quest | quests §7A: H8 "The better powder", counter LL4 |
+| H4 | The eighteen counter pages were specified but unwritten | quests §7C: `C-<npc>-1…3`, completed by trading once, not counted in the 173 |
+| H5 | Nothing said what a keeper's counter does when a site falls back to *looted* | design §6.1 and vendors §3: the keeper stays, the tiers and completed quests hold, the counter closes until the re-take |
+| H6 | The boat was built in Act II for an errand the rebase deleted | quests: J5 (Act II, the settlement's slipway) hands out the **boat**; W-V1 (Act III) becomes the **speedboat**; W12 crosses the lake to FR-06 (`fr06_by_boat`); crafting §2 follows |
+| H7 | The map plan carries two camp rectangles and three buildings plus the gun pit fall outside one of them | design §2.2 adopts plan §9's box (x −1690…−1290, z −2480…−2080, centre (−1490, −2280)); **plan §4's camp row is the one to correct — map session** |
+| H8 | The Militia held "the hub's approaches" in the enemies doc and the far bank in the entities doc | enemies §1 and §3.3: the far bank and the plant complex's gates; the hub is the Machines' |
+
+Counts after the sweep: **173** = 148 in the seven chapters (144 + H8 + the three rail quests) + 10 The Gun + 15 keeper
+quests; the 18 counter pages are not counted. Hub items spent: 18 (3 phased array, 9 satellite receivers, 6 power
+filters), four hub runs, unchanged.
+
+Still open and unchanged by this sweep: the seven entity decisions (`gscraft-entities-v8.md` §9), the four enemy
+questions (enemies §9), gunpowder's v8 source, the designer-tool tiers, and §F9–F11 (the map-session handoffs and the
+Phase C config wins).

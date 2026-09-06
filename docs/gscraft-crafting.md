@@ -31,7 +31,7 @@ them the way to make it. Five holes and one loop, all fixed in quests draft 2; t
 | A car | J4 (by car), M8 and U4 (gate W7), R5 (`car_built`) | W7, Garage 1 | fine; W7's reward now includes a full tank and 2 fuel cans so the first car moves before the fuel chain (W8/M5) exists |
 | Fuel | every vehicle | M5 → W8 (biodiesel chain, fuel cans) | fine; fuel cans also drop at the plant as before |
 | A truck | W10 (truck cargo), the bulky hauls | W9, Garage 2 | fine |
-| A boat | W12 ("reach the settlement by water"), J5 | **J5 handed out a boat as a gift; no recipe anywhere** | **fixed:** new W-V1 "Something that floats" (boat blueprint, Garage 1); J5's reward is now the speedboat blueprint |
+| A boat | W12 ("reach the settlement by water"), J5 | **J5 handed out a boat as a gift; no recipe anywhere** | **fixed:** J5 hands out the boat blueprint and W-V1 "Put a motor on it" the speedboat (Garage 1); J5's reward is now the speedboat blueprint |
 | Aircraft | J7 (reach the hub **by air**), W13 (aircraft recipe) | **W13 was gated on J7 and J7 on W13 — a loop nobody could enter** | **fixed:** W13 gates on W9, M11, **J6** (the runway); J7 stays gated on J6 and W13 |
 | Firearms, ammunition, attachments | from the first night; the assaults and defences | **nothing taught them; the pack's own gun-smith and reforge tables were the implied route** | **fixed:** Walker's armoury line W-A1…W-A4 (§5), plus a starting sidearm and 30 rounds from Custom Starting Gear |
 | Body armour | the assaults | nothing | **fixed:** W-A2 |
@@ -53,7 +53,7 @@ jars. The game uses eleven (eight civilian below, three military in §2.1); the 
 |---|---|---|---|---|---|
 | Garage 1 (W7) | **Quad** | `mts:mtsofficialpack.quad` | 1 / small | the first wheels: fast over rubble, no cargo | W7 |
 | Garage 1 (W7) | **Runabout** (2CV-class) | `mts:oamp.cagouille` | 2 / a crate | the first car: the spine, the west edge | W7 |
-| Garage 1 (W-V1) | **Boat** | `minecraft:oak_boat` → `superbwarfare:speedboat` (J5) | 2 / — | the settlement by water; the lakes between the district and the runway | W-V1, J5 |
+| Garage 1 (J5) | **Boat** | `minecraft:oak_boat` → `superbwarfare:speedboat` (J5) | 2 / — | the settlement by water; the lakes between the district and the runway | W-V1, J5 |
 | Garage 2 (W9) | **Van** | `mts:oamp.ecoline` | 3 / 27 slots | the loot hauler | W9 |
 | Garage 2 (W9) | **Truck** | `superbwarfare:truck` | 2 / bulky bay | complete parts and components home | W9 |
 | Garage 3 (W13) | **Light aircraft** (Cessna-class) | `mts:mtsofficialpack.mc172` | 4 / 27 slots | the runway to the hub | W13 |
@@ -363,7 +363,7 @@ materialises, the fallback is that the station order for an IV vehicle yields th
 ## 6. What this adds to the quest book
 
 Six quests and seven reward/gate edits, all in quests draft 2 (Teddy's seven explosives quests followed in draft 3, §5.8): W-A1…W-A4, W-V1, W-M1; W13's gate, W7's
-reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and seventy-three quests (144 in the seven chapters plus The Gun 10, the site chains 18 and H8 — quests §1; the Woods chain, the bunker side quests, Farm 2/3, X6b, the placed-structure quests, Teddy's chapter and the two mech quests added 2026-09-04).
+reward, R1's reward, J5's reward, W1's reward, W-B3's and X6's rewards (the military blueprints). One hundred and seventy-three quests (148 in the seven chapters plus The Gun 10 and the keeper quests 15 — quests §1; the Woods chain, the bunker side quests, Farm 2/3, X6b, the placed-structure quests, Teddy's chapter and the two mech quests added 2026-09-04).
 
 Related: `gscraft-map-design.md` §3.6 (Walker's yard tiers), §4 (the item ladder),
 `gscraft-quests.md` §2 (Walker), `build/kubejs/` (the station script, Phase C).

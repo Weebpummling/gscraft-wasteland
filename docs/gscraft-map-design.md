@@ -90,7 +90,12 @@ the plant's exclusion zone, not for reaching a site nothing else can.
 
 ### 2.2 The camp (starting area)
 
-The 384×384 camp on the plateau, **x −1792…−1409, z −2492…−2109, centre (−1600, −2300)** (v8 §4; the camp's own
+The 400×400 camp on the plateau, **x −1690…−1290, z −2480…−2080, centre (−1490, −2280)** (map plan §9's camp
+design, which is the later and terrain-fitted one and holds all eight buildings; **plan §4's sector row still reads
+x −1792…−1409 and is the one to correct** — every building position below, the lock rectangles, the torch ring, the lit
+outline and the counterattack entry points key off this box, and three buildings and the gun pit fall outside §4's.
+The shift is 110 blocks east: no distance in `gscraft-objectives-v8.md` moves by more than 0.11 km and no act boundary
+changes. The camp's own
 design is v8 §9: no centre lake, the tower on its own pad), with the Warium structure at x −1506…−1475, z −2246…−2215 on
 the plateau's core (v8 §9: no crater lake, no basin) and the world spawn on its plaza (−1490, −2230; the y is fixed when the camp core
 is levelled in Phase C — every distance-based rule, Improved Mobs included, measures from this spawn). The camp is
@@ -246,7 +251,7 @@ toolsmith, Michael an armorer, Tune a librarian, James a fletcher, Marshall a ni
 the joke, or a cartographer if not). The Recruits mod supplies the hireable guards of D2 (Walls 2, at the gatehouse);
 it is not used for these six. No gameplay mod is added (EMI, a client-side recipe viewer, was added on 2026-09-03).
 
-**Who unlocks what.** The full chains, 173 quests across the seven chapters and the Create chapter (144 + The Gun 10 + the site chains 18 + H8; the 18 Counter pages are not counted), scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
+**Who unlocks what.** The full chains, 173 quests across the seven chapters and the Create chapter (148 + The Gun 10 + the keeper quests 15; the 18 counter pages are not counted), scaled by act and distance, are in `gscraft-quests.md`; the trip table in §3.5 shows which of them one outing clears.
 
 | NPC | Owns | Starting tasks (the introduction) | Unlocks when done | Their chain |
 |---|---|---|---|---|
@@ -254,7 +259,7 @@ it is not used for these six. No gameplay mod is added (EMI, a client-side recip
 | Tony the Medic | Medical | bring 4 bandages, 2 painkillers | med-kit blueprint | hold the residential block; revive a teammate; medical analyzer; finale readiness |
 | Michael the Engineer | Generator, Water | bring 3 wire spools, a power cord, a water filter | wiring-harness and filter blueprints | hold the plant; coolant; hold FR-06; the cooling loop, then the generator kit |
 | Tune the Technician | Radio / intel | bring a circuit board, 2 capacitors, a broken radio | circuit-assembly blueprint | hold Financial Plaza; antenna elements; the transmitter, then the antenna array |
-| James the Scout | expeditions | visit the glass tower and the acacia hall | waypoints; the expedition board | the settlement by car; the hub by air; the phased array element |
+| James the Scout | expeditions | visit the settlement and the runway | waypoints; the expedition board | the settlement by car; the hub by air; the phased array element |
 | Teddy the Hermit (the Woods outpost, not the camp) | explosives | **none: he appears when R-W1 clears the outpost** (owner, 2026-09-04) | hand-grenade blueprint; his counter | grenades, the M79, the RPG-7 and their ammunition; high-energy explosives for Marshall's orders (quests §7A) |
 | Marshall | the strongpoint loop and the tower | **none: he talks once all five introductions are done, and the tower chapter opens with him (owner, 2026-09-04)** | the tower chapter and the strongpoint board | take → hold → defend; five parts in order; the beacon; the finale |
 
@@ -487,7 +492,10 @@ stop on `held`: the In Control! rules are static, so the script cancels hostile 
 except to collect components. Recruits hired at the gatehouse (D2) can be walked to a site and ordered to stay, on
 top of the script's own. **If a player breaks the marker** the guard is removed (`gscraft:siteguard_<site>_clear`),
 the component container disarms, the ambient rule returns, a pending counterattack is cancelled, and the site drops
-to *looted* — re-take it from the marker step. The hostile mobs of §6.3 are the site's **occupiers**; "garrison" in
+to *looted* — re-take it from the marker step. **The keeper stays** (2026-09-06): the buildings the site chain paid
+for are not unbuilt, the `site_<site>_<n>` stages hold, and the completed S-quests stay completed — but the keeper's
+counter closes while the site is not held (he has nothing to sell from a works he cannot reach) and reopens on the
+re-take. A counterattack lost at the gate (`<site>_lost`) touches none of this: the site is still held. The hostile mobs of §6.3 are the site's **occupiers**; "garrison" in
 the tables below means them.
 
 ### 6.2 Timers

@@ -31,7 +31,7 @@ that are actively wrong for this design.
 |---|---|---|---|---|---|
 | **The Dead** | the infected: what the city became. No leadership, no equipment, endless | `minecraft:zombie`, `zombie_villager`, `husk` (dry ground), `drowned` (the plant, the lake), `minecraft:spider` / `cave_spider` (sewers, bunkers) | everywhere; the residential block is theirs | mass, no ranged, break glass and wooden doors, hear gunfire at 10 blocks per Zombie Awareness | infection (Hordes): every hit rolls 75 % on a player, curable at Tony's clinic |
 | **Scavengers** | living raiders in dead men's clothes — the faction the players could have become | `minecraft:pillager` (guns, via Pillagers Gun), `minecraft:vindicator` (axes, breachers), `minecraft:evoker` (rare, a captain's escort) | Novo, Financial Plaza, the road outposts, the Woods outpost | fire from cover, flank, break doors; a captain rallies them | the only faction that uses guns from the first act |
-| **The Militia** | a surviving military unit that never stood down; they hold FR-06 and answer to nobody | `immersiveengineering:fusilier` (railgun), `immersiveengineering:commando` (revolver), `immersiveengineering:bulwark` (shield, armour) | FR-06, the reactor plaza, the hub's approaches | disciplined ranks: Bulwarks forward, Commandos behind, a Fusilier holding the long line | armour that shrugs off pistols; the only faction with a shield wall |
+| **The Militia** | a surviving military unit that never stood down; they hold the far bank and answer to nobody | `immersiveengineering:fusilier` (railgun), `immersiveengineering:commando` (revolver), `immersiveengineering:bulwark` (shield, armour) | FR-06, the reactor plaza, the hub's approaches | disciplined ranks: Bulwarks forward, Commandos behind, a Fusilier holding the long line | armour that shrugs off pistols; the only faction with a shield wall |
 | **The Horrors** | whatever the end of the world left behind. Not a faction that holds ground — they hunt | `the_knocker:knocker` (+ `knockerstalk`, `knockerstalklooked`, `knockerdeadanimal`, `knockerswim`), `man:manfromthefog` (+ `managgresive`, `manfromthefogback`, `mftfhang`), `eyesinthedarkness:eyes` | the block after dark, the sewers, the Woods, any site's elite slot | alone, at night, from behind; they do not join waves | no drops, no reason, no negotiating |
 | **The Camp** (the players') | the six survivors, their guards and hired soldiers | `guardvillagers:guard`, the ten `recruits:` ids (recruit, recruit_shieldman, bowman, crossbowman, captain, commander, horseman, nomad, scout, messenger), `minecraft:villager`, `iron_golem` | the camp, and every held site's guard | Pillagers Gun arms guards and Recruits too (`Villager Spawn With Gun` = true) | the only faction that respawns for free |
 
@@ -103,7 +103,8 @@ only source of IE revolver parts in the world.
 | Shield | `bulwark` | 30 % | walks in front, blocks projectiles | ×1.5, knockback resistance 0.6 |
 | Gunner | `fusilier` | 10 % | railgun; the longest reach any enemy has | ×1.2 |
 
-The Militia never spawns ambient outside FR-06 and the hub's approaches: they are a *place*, not a
+The Militia never spawns ambient outside **the far bank** — FR-06, the rail yard, the waterworks' approaches — and
+the plant complex's gates (2026-09-06: the hub is the Machines', `gscraft-entities-v8.md` §2). They are a *place*, not a
 weather. Act IV adds a fourth rank, **Sergeant** (`commando`, health ×2.5, `customname`, an Apotheosis
 rare affix), one per FR-06 wave.
 

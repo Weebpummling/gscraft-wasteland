@@ -54,7 +54,9 @@ what Tarkov shows: a trader whose stock grows as the relationship does, and a fe
 | **Marshall** — the gatehouse | defences, recruits | gunpowder, powder, plates | sandbags, barbed wire (after D1); recruits (after D2, the mod's own hire) | claymores, drones (after D2) | drones, C4 (after D4); rifle and MG ammunition at double the daily cap from X6 onward (the finale's stockpile) |
 
 **The site keepers (Create chapter §3, adopted 2026-09-05).** Each held strongpoint's keeper is a counter too; their
-loyalty level is the **site's tier** (S-<site>-1…3), and they sell what the site makes:
+loyalty level is the **site's tier** (S-<site>-1…3, quests §7B), and they sell what the site makes. A keeper's
+counter **closes while his site is not held** and reopens on the re-take (design §6.1); his stock list is his chain's
+quest page, not a separate counter quest (quests §7C):
 
 | Keeper | Site | Buys | Tier 1 sells | Tier 2 adds | Tier 3 adds |
 |---|---|---|---|---|---|
