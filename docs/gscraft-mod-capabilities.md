@@ -50,7 +50,7 @@ ordered by how much it would add for how little it costs, with a recommendation 
 
 | Mod | Use |
 |---|---|
-| **vvp, MCSP** (81 military vehicles) | a **military tier** above the civilian garage, crafting §2.1: the MCSP Humvee RWS as Walker's W-M1 blueprint (2026-09-04 addendum), beside Marshall's LAV-150, the vvp UH-60 Black Hawk as the Act IV heavy helicopter (six seats, cargo — the hub run for the whole team), and one armoured vehicle (M3A3 Bradley) as the beacon's reward for the base defence. The rest become **static wrecks at the strongpoints**: dead vehicles (no battery, no fuel) parked as scenery whose inventories are the component containers where the site has one (FR-06, the plant, the hub) — FR-06's plaza gets a BMPT and two Strykers, the plant a Typhoon-K convoy, the runway an abandoned Mi-24, the hub a Pantsir — placed by the site dressing pass (Phase C, alongside camp.py), immobile until the players learn to build their own |
+| **Frontline Combat Pack, DragonRise: Reforge** (204 military vehicles; replaced vvp and MCSP on 2026-09-06) | a **military tier** above the civilian garage, crafting §2.1: `fcp:hmmwv_armored_m2` as Walker's W-M1 blueprint beside Marshall's LAV-150, `dragonrise_reforge:uh60` as the Act IV heavy helicopter (six seats, cargo — the hub run for the whole team), and `dragonrise_reforge:m3a3` as the beacon's reward for the base defence. The rest become **static wrecks at the strongpoints**: dead vehicles (no battery, no fuel) parked as scenery whose inventories are the component containers where the site has one — a Stryker pair and a BMP where the design called for a BMPT, an `fcp:ural_kung` convoy at the plant, an `fcp:mi17` on the runway apron, an `fcp:pantsir` at the hub — placed by the site dressing pass (Phase C, alongside camp.py), immobile until the players learn to build their own |
 | **Immersive Weathering** | its **aging** is the camp's tier readout: tier-0 buildings are placed pre-aged (mossy, cracked, rusted), each rebuild is placed clean and left to weather again; its **tallow** (rendered from animal fat) is the camp's candle and torch recipe before Michael's power arrives; frost and icicles are the winter dressing of the north ring; leaf decay keeps the roads clear |
 | **AI Improvements, spark, BHStats, WorldEdit** | server tooling, stays; WorldEdit is the designers' repair tool in play as well as the op's fix for visual-pass findings — every designer is opped at level 2 and the client carries WorldEdit CUI (interface doc §4.9; the kit: `notes/gscraft-designer-tools.md`, 2026-09-05) |
 | **TaCZ fire control extension** | the aim assist is the difference between five players who hit and five who miss at range; kept on, tuned in Phase C with the guns |
@@ -73,7 +73,7 @@ ordered by how much it would add for how little it costs, with a recommendation 
 - **Station-only rule, the recipe half:** `build/kubejs/server_scripts/gscraft_recipes.js` removes every bench recipe (the
   vanilla crafting table, IE's crafting table and Engineer's Workbench, the Refurbished Furniture workbench, Superb
   Warfare's assembling and reforging tables, all eleven Immersive Vehicles benches and the fuel pump), the Superb Warfare
-  defence items (Walls 1-3 station orders later), the Superb Warfare explosives and side-arms (Teddy's station orders or gone for good, section 2b, 2026-09-04), every vvp / MCSP vehicle assembling recipe and the seventeen Superb Warfare
+  defence items (Walls 1-3 station orders later), the Superb Warfare explosives and side-arms (Teddy's station orders or gone for good, section 2b, 2026-09-04), every Frontline Combat Pack / DragonRise vehicle assembling recipe and the seventeen Superb Warfare
   vehicles outside the roster, plus TaCZ's gun smith table, Apotheosis' five tables and every Sophisticated Backpacks
   recipe (packs and upgrades are Storage 1-4 orders). The inert crafting table (block interaction) and the station block are Phase C.
 - **Improved Mobs by distance:** `Difficulty type = DISTANCESPAWN`, difficulty 0 inside 1.5 km of the camp, 3 from 1.5 km,
@@ -98,7 +98,9 @@ each is now written (§5c).
 
 - **Mod set reviewed against the design** (`gscraft-modpack-review.md`): two updates required, nothing removed.
 - **Vendors** on vanilla merchant offers (no trade mod, KubeJS has no villager-trade events): `gscraft-vendors.md`.
-- **Flashlight / NVG / thermal** audit: nothing for players in the pack; vvp has vehicle NVG/thermal keybinds; a mod is
+- **Flashlight / NVG / thermal** audit: nothing for players in the pack. The vehicle NVG and thermal keybinds
+  were the Vintage Vehicle Pack's and went with it on 2026-09-06; the Frontline Combat Pack has three keybinds
+  and no night-vision or thermal entries, DragonRise has none. A mod is
   recommended for the flashlight (`notes/gscraft-flashlight-and-nvg.md`).
 
 - **Superb Warfare defences** as Walls 1–3 station orders with verified ids (`gscraft-crafting.md` §5.7).

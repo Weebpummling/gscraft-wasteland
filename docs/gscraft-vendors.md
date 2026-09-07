@@ -110,10 +110,10 @@ A few offers take items instead of coin — the vanilla trade UI supports two in
 
 ## 6. Night vision, thermal, the flashlight
 
-Checked in the jars: **no player night-vision or thermal item exists in the pack.** The only such
-features are vvp's vehicle-view keybinds (`key.vvp.toggle_nvg`, `key.vvp.thermal_vision`;
-`ThermalVisionHandler`, `ThermalEntityGlowHandler`) — inside vvp vehicles only, which vehicles is a
-Phase E check. TaCZ's default pack has laser sights and "white light" (illuminated-reticle) sights, no
+Checked in the jars: **no player night-vision or thermal item exists in the pack, and since 2026-09-06 no
+vehicle one either.** The vehicle-view keybinds (`key.vvp.toggle_nvg`, `key.vvp.thermal_vision`,
+`ThermalVisionHandler`, `ThermalEntityGlowHandler`) belonged to the Vintage Vehicle Pack and went with it;
+the Frontline Combat Pack declares three keybinds and no night-vision or thermal entries, DragonRise none. TaCZ's default pack has laser sights and "white light" (illuminated-reticle) sights, no
 weapon light, no thermal scope.
 
 - **Flashlight:** a real dynamic-light flashlight needs a mod (`notes/gscraft-flashlight-and-nvg.md`

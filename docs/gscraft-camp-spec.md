@@ -1,5 +1,10 @@
 # GSCraft wasteland — the camp's functions, blocks and readouts
 
+> **Superseded 2026-09-07 — the whole spec: `pads_camp.json`, the 24 NPC templates, the board wall, the parts rack and `camp_ruins`.** The camp moved into Skadowsky, just east of the
+> south-west bridge, and the sector's own mast replaced the built radio tower. Read
+> `gscraft-skadowsky-camp.md` first; the coordinates below are the plateau camp and are dead.
+
+
 *Spec 1, 2026-09-04, for `tools/camp.py` (Phase C, after the visual pass; the runway lights are Phase B). Closes gap audit C5 (function names and what
 blocks they are), C9 (flashlight, notebook, runway lights) and the guard/recruit rows of C15.
 Rectangles are `tools/pads_camp.json`; the NPC table is design §2.2 and the tiers design §3.6; what

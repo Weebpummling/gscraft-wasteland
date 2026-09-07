@@ -14,7 +14,8 @@
    "x1": -1409,
    "z1": -2109,
    "group": "camp",
-   "source": "camp on the plateau; the basin is its crater lake"
+   "source": "camp on the plateau; the basin is its crater lake",
+   "note": "2026-09-07: SUPERSEDED. The camp moved into Skadowsky, east of the south-west bridge (x -978..-770, z -1040..-900). This plateau rectangle is dead; see docs/gscraft-skadowsky-camp.md. Nothing was ever built here."
   },
   {
    "id": "hub",

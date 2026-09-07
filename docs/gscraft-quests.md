@@ -1,5 +1,12 @@
 # GSCraft Wasteland — Quests and Tasks
 
+> **Routing rule, 2026-09-07.** Questing routes only to the Pripyat base map, the Skadowsky sector and the
+> hempcrete compound. Every quest below that points at Novo Industrial, the Financial Plaza, Bio Gen, the
+> desert city hub, the mega-base FR-06 or the waterworks belongs to a **deferred** path that will be
+> re-cut as its own quest line. The camp is also no longer on the plateau. Read
+> `gscraft-skadowsky-camp.md` before treating any area name here as current.
+
+
 Draft 3, 2026-09-04 (draft 2 on 2026-09-03). Companion to `gscraft-map-design.md` (draft 6). Every quest here is buildable
 in FTB Quests with the pack as it is; task types used are item hand-in, location, kill, stage flag
 (set by KubeJS), advancement and checkmark; rewards are blueprints, KubeJS stages, items and
@@ -249,6 +256,10 @@ is still contested — one fight at a time, in this order.
 
 ### 7.3 The tower
 
+> **Superseded 2026-09-07 — X1 walks to the mast, and X2 repairs its cut lattice section.** The camp moved into Skadowsky, just east of the
+> south-west bridge, and the sector's own mast replaced the built radio tower. Read
+> `gscraft-skadowsky-camp.md` first; the coordinates below are the plateau camp and are dead.
+
 **Gate:** the five introductions (R1). X1 opens with Marshall; the stages stay part-gated (owner, 2026-09-04).
 
 | # | Quest | Act | Area | Tasks | Gate | Reward |
@@ -300,6 +311,10 @@ powder (vendors doc §4).
 
 
 ### 7.5 The Line
+
+> **Superseded 2026-09-07 — L1 to L6 pointed at the plateau-to-Skadowsky corridor.** The camp moved into Skadowsky, just east of the
+> south-west bridge, and the sector's own mast replaced the built radio tower. Read
+> `gscraft-skadowsky-camp.md` first; the coordinates below are the plateau camp and are dead.
 
 Marshall's chapter carries the corridor's spine; each stop's own quest sits with its NPC (the L-ids
 below are the stops; the NPC's task is in the row). The stops are walked in order because each

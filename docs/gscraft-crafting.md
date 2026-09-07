@@ -60,8 +60,9 @@ jars. The game uses eleven (eight civilian below, three military in §2.1); the 
 | Garage 3 (W-B3) | **Light helicopter** | `mts:mtsofficialpack.bell47g` | 2 / small | the hub and the cities without a runway | W-B3 (the shed) |
 | Walls 3 (D4) | **Armoured car** | `superbwarfare:lav_150` | 4 / — | the finale's gate defence; optional | D4 |
 
-Two further Superb Warfare add-on packs are in the jar set — **vvp** (56 entities: Mi-24, Black Hawk,
-Strykers, Bradleys, Pantsir) and **MCSP** (25: Humvees, BMD-4, Bradleys) — 44 more
+Two further Superb Warfare add-on packs are in the jar set — the **Frontline Combat Pack** (96 entities:
+HMMWVs, Strykers, BMPs, Hueys, Urals, the M109 Paladin, the Pantsir) and **DragonRise: Reforge** (108: the
+M3A3 Bradley, the UH-60 Black Hawk, the M1A2 SEPv2, uniforms) — many more
 `vehicle_assembling` recipes between them. Three of them are the military tier of §2.1 (blueprint-gated);
 every other one is stripped.
 
@@ -98,7 +99,7 @@ vehicle in a second.
 Every vehicle from the truck up needs a loot-only component, so the upper garage tiers are trips
 to a held site — the same rule as the tower parts.
 
-### 2.1 The military tier (vvp, MCSP — kept, owner 2026-09-03)
+### 2.1 The military tier (Frontline Combat Pack, DragonRise: Reforge — owner 2026-09-06, replacing vvp and MCSP)
 
 **Create and Create Big Cannons (adopted 2026-09-05, `gscraft-create-and-artillery.md`).** Create's machines are a
 fourth locus beside the three stations below: kinetic blocks placed by the yard's and the sites' tier templates, never
@@ -110,12 +111,14 @@ orders. Propellants (nitropowder, guncotton) are Teddy's H8 (§5.8).
 
 Three vehicles from the two Superb Warfare add-on packs sit above the civilian garage; everything
 else in those packs is a static wreck at a strongpoint (design §2.3), placed dead and never craftable.
+The three ids were re-pointed on 2026-09-06 when MCSP and the Vintage Vehicle Pack were dropped; the
+replacements are exact rather than approximate, so the design's Black Hawk and M3A3 are now the real ones.
 
 | Blueprint from (owner, 2026-09-04: quest rewards, mid/late game) | Vehicle | Id | Role | Bench |
 |---|---|---|---|---|
-| **W-M1 Motor pool** (Act III, after FR-06 and the plaza are both defended) | **Humvee** | MCSP `humvee_standart_camo` (green; the jar has no `humvee_rws` — its RWS is a variant of the standard hull; `humvee_carc` and `humvee_sand` are the other liveries) | the gate's armed car, turret on the roof; beside the LAV-150 | SW assembling table, yard tier 2 |
-| **W-B3 The shed** (Act IV) | **UH-60 Black Hawk** | vvp `uh60` | the heavy helicopter: six seats and cargo, the whole team to the hub | SW assembling table, yard tier 3; the Bell 47 stays as the two-seat scout |
-| **X6 Antenna array** (Act IV, the beacon) | **M3A3 Bradley** | MCSP `m3a3_bradley` (the BUSK and sand variants are wrecks) | the armoured vehicle for the finale's base defence - built, not given | SW assembling table, yard tier 2 (the table exists from tier 2; the blueprint is the gate) |
+| **W-M1 Motor pool** (Act III, after FR-06 and the plaza are both defended) | **HMMWV** | `fcp:hmmwv_armored_m2` (the armed hull; `hmmwv_armored_mk19`, `hmmwv_avenger` and `hmmwv_ambulance` are the other variants) | the gate's armed car, turret on the roof; beside the LAV-150 | SW assembling table, yard tier 2 |
+| **W-B3 The shed** (Act IV) | **UH-60 Black Hawk** | `dragonrise_reforge:uh60` | the heavy helicopter: six seats and cargo, the whole team to the hub | SW assembling table, yard tier 3; the Bell 47 stays as the two-seat scout |
+| **X6 Antenna array** (Act IV, the beacon) | **M3A3 Bradley** | `dragonrise_reforge:m3a3` | the armoured vehicle for the finale's base defence - built, not given | SW assembling table, yard tier 2 (the table exists from tier 2; the blueprint is the gate) |
 
 The military tier is **blueprint-gated, never tier-unlocked**: the three vehicles have recipes (below), but each
 recipe is locked behind a blueprint item that only a quest hands out, in the same way the IE workbench
@@ -129,7 +132,7 @@ bench can do and the quest book says when. Reaching a yard tier never unlocks a 
 | M3A3 Bradley | 16 steel frame, 8 plate, 1 heavy diesel engine, 1 large battery pack, 1 **reactor control module**, 1 **military circuit board**, 1 gun frame + barrel (the 25 mm), 2 wiring harness |
 
 All three are electric under Superb Warfare and draw from the battery packs of §5.4 - so their recipes carry battery packs, not fuel tanks (owner default, 2026-09-04); the exact registry ids are
-read off the jars at Phase D (`vvp:` and `mcsp:` namespaces, 81 entities between them).
+read off the jars at Phase D (`fcp:` and `dragonrise_reforge:` namespaces, 204 entities between them).
 
 ---
 

@@ -5,6 +5,24 @@ the working machine's paths are given so a session on it can continue directly, 
 how to rebuild the same state elsewhere.
 
 
+> **2026-09-07 — the camp moved into Skadowsky. READ THIS FIRST.** The camp, its NPCs, the world spawn and the
+> radio tower are no longer on the plateau. They are in Skadowsky, east of the south-west bridge, and the tower is
+> the sector's own standing mast. Skadowsky is the starting zone and becomes the camp by being cleared; medical
+> moves to the sector's hospital at x -865..-698, z -1312..-1242. Nothing had been built, so this cost documents
+> and no world work. The doc is `docs/gscraft-skadowsky-camp.md`; every superseded section now carries a banner
+> pointing at it. **Do not trust any plateau coordinate you find elsewhere.**
+>
+> **2026-09-07 — the routing rule.** Questing and gameplay route only to the Pripyat base map, the Skadowsky
+> sector and the hempcrete compound. Novo Industrial, the Financial Plaza, Bio Gen, the desert city hub, the
+> mega-base FR-06 and the waterworks are **deferred to a later quest line** and no quest in the current design may
+> point at them.
+>
+> **2026-09-06 — MCSP and the Vintage Vehicle Pack were dropped** for the Frontline Combat Pack and
+> DragonRise: Reforge. The three military-tier ids re-point to `fcp:hmmwv_armored_m2`,
+> `dragonrise_reforge:uh60` and `dragonrise_reforge:m3a3`. The jar swap itself is **not applied to
+> `server/mods` or the pack yet** — it needs Superb Warfare 0.8.9-final and Kotlin for Forge, and it forces every
+> player to update. Test results and the exact version trap: `docs/gscraft-sbw-addon-test-2026-09-06.md`.
+>
 > **2026-09-05 — design integration.** The design documents were rebased on the v8 geography and the Create fork was
 > adopted as a chapter; the player interface is `docs/gscraft-player-interface.md` (mockups: the "GSCraft Player
 > Interface" artifact). The eighteen decisions the rebase forced are `docs/gscraft-design-gaps.md` §E, each with its
@@ -152,8 +170,9 @@ infection runs). Until that restart the gamerule alone is what stops spawns. To 
 `docs/gscraft-structure-plan.md` and `buildmap/structure_plan_v7.json` keep 67 and prune 897. Route: datapack override
 disabling the pruned structure sets, re-run the 10 km pre-generation on the build machine (20 GB heap), place the 67 back
 at their census coordinates, then the v6 pipeline unchanged (pads, transplants, roads, camp ruins, torches, dossiers,
-furnishing). Spawns stay off until the owner's Phase A pass on v7 is done — that also keeps the boss spawners quiet. Owner also ruled: vvp, MCSP,
-Immersive Weathering, the server tools and the TaCZ fire-control extension all STAY (uses in `gscraft-mod-capabilities.md`
+furnishing). Spawns stay off until the owner's Phase A pass on v7 is done — that also keeps the boss spawners quiet. Owner also ruled: Immersive Weathering, the server tools and the TaCZ fire-control extension all STAY
+(vvp and MCSP were dropped on 2026-09-06 for the Frontline Combat Pack and DragonRise: Reforge —
+`gscraft-sbw-addon-test-2026-09-06.md`) (uses in `gscraft-mod-capabilities.md`
 §4 and `gscraft-crafting.md` §2.1: the military vehicle tier and the dead-vehicle site dressing).
 
 **The Line (this workstation, 2026-09-04):** a rural power-line corridor from the camp's south edge to the residential

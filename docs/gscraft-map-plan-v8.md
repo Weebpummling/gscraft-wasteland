@@ -1,5 +1,10 @@
 # GSCraft Wasteland — map v8 plan (roads and terrain first)
 
+> **Superseded 2026-09-07 — the camp.** The camp, the tower pad and the world spawn moved into Skadowsky,
+> east of the south-west bridge. Every plateau rectangle in this document is dead; nothing was ever built on
+> them. Read `gscraft-skadowsky-camp.md`.
+
+
 Owner's order of work (2026-09-04), after v7's flight: the map is redesigned from the ground up, denser and smaller
 (a 4 km square), with the road network and the terrain as its spine. Nothing is generated until each step is signed off.
 

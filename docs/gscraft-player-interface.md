@@ -73,7 +73,7 @@ far right of the letter rows; nothing a player needs in a fight is more than one
 | Third person | F5 | vanilla | Leawind's camera is client-side and keeps its own defaults; its "toggle mod" key is unbound so nobody switches it by accident |
 | Recipe viewer (in screens) | R view recipes, U view uses, A favourite | EMI | screen-only keys, no clash with reload |
 | Curios screen | unbound | Curios | the back slot is visible in the inventory; the extra screen adds nothing |
-| Vehicle controls | mod defaults | Immersive Vehicles, Superb Warfare, vvp | documented on the notebook's **Driving** page, which appears with Garage 1 (a seventh page, added by this pass) |
+| Vehicle controls | mod defaults | Immersive Vehicles, Superb Warfare, the Frontline Combat Pack | documented on the notebook's **Driving** page, which appears with Garage 1 (a seventh page, added by this pass) |
 | Everything else | unbound | Apotheosis radial mining, IE glove, Create big cannons, ModernFix, backpack upgrade toggles 1–5, backpack tool swap, FTB Teams GUI, FTB Chunks claim/waypoint keys | the mods keep working; the keys are noise |
 
 Conflicts this resolves (all found in the jars): M (Xaero map vs FTB Chunks map), B (backpack vs TaCZ fire mode
@@ -321,7 +321,7 @@ hidden by default, Freecam unbound, FTB Ultimine by hand) is researched in `docs
 | **Noise** (Zombie Awareness) | the garrison converges; nothing on screen | uses a suppressor | one loud run | config as shipped |
 | **Loot** | Lootr glow on unopened chests; shared containers do not glow | opens | an emptied shared container stays open-lidded (a block state) until it refreshes | Lootr + loop script |
 | **Carrying** | §4.4 | | | KubeJS |
-| **Vehicles** | Walker's dead quad (tier 0); the bay; the vehicle's own HUD when driven | builds from a kit at the bench | a crash | Immersive Vehicles / SBW / vvp, the notebook's Driving page |
+| **Vehicles** | Walker's dead quad (tier 0); the bay; the vehicle's own HUD when driven | builds from a kit at the bench | a crash | Immersive Vehicles / SBW / the Frontline Combat Pack, the notebook's Driving page |
 | **Recruits / guards** | §4.6; guards at doors by tier | hires | — | Recruits, Guard Villagers |
 | **Vendors** | §4.5 | trades | sold out (vanilla) | script-written offers |
 | **Artillery** (Create fork) | the mod's own: pitch and yaw on goggles and on the pit's display board, the loader, the lever; ours: the range card, the map wall's rings (G5), the keeper's sign; Ponder as the tutorial (§4.8) | lays by crank and yaw controller, loads, fires by lever; builds G1–G4 in the camp, then the site chains | the mod's own messages (an unsafe load bursts the gun; a misassembled cannon refuses with its reason) | Create Big Cannons |

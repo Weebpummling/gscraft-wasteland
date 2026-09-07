@@ -1,5 +1,10 @@
 # GSCraft Wasteland — Where things live on the v8 map
 
+> **Superseded 2026-09-07 — every distance, the three lands, the act table and the five strongpoints.** The camp moved into Skadowsky, just east of the
+> south-west bridge, and the sector's own mast replaced the built radio tower. Read
+> `gscraft-skadowsky-camp.md` first; the coordinates below are the plateau camp and are dead.
+
+
 Draft 2, 2026-09-05 (draft 1 the same day; owner: O3 confirmed, O6 = the collective farm, the rest confirmed; applied to the parents). A reassessment from the map itself (the current `scratch/worlds/v8-build`, sectors final, edges
 still being cleaned in the other session): where the strongpoints and every other objective should live, given a map
 that is nothing like the one the design was written on. Render: `docs/renders/v8_geography.png` (roads cream, water

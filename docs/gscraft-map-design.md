@@ -90,6 +90,10 @@ the plant's exclusion zone, not for reaching a site nothing else can.
 
 ### 2.2 The camp (starting area)
 
+> **Superseded 2026-09-07 — the camp's position, its buildings, the crater, the torches and the world spawn.** The camp moved into Skadowsky, just east of the
+> south-west bridge, and the sector's own mast replaced the built radio tower. Read
+> `gscraft-skadowsky-camp.md` first; the coordinates below are the plateau camp and are dead.
+
 The 400×400 camp on the plateau, **x −1690…−1290, z −2480…−2080, centre (−1490, −2280)** (map plan §9's camp
 design, which is the later and terrain-fitted one and holds all eight buildings; **plan §4's sector row still reads
 x −1792…−1409 and is the one to correct** — every building position below, the lock rectangles, the torch ring, the lit
@@ -167,8 +171,8 @@ z −1344…−1025, 2.0 km WSW under the ridge); **the library** (x −2480…�
 40 m off the roads, 150 m apart, the Woods included) — the old sites of the live world, each a small loot stop; and the
 town's own landmarks, given loot roles in `gscraft-loot-tables.md` §5 as the dressing pass names them.
 
-**Dead military vehicles dress the strongpoints** (vvp and MCSP, kept): a BMPT and two Strykers on FR-06's (the mega-base's) reactor
-plaza, a Typhoon-K convoy at the plant sector, an Mi-8 AMTSh on the runway apron (vvp has no Mi-24), a Pantsir at the hub, and Pomkot's Mechs' dormant units (a PMS04 beside FR-06's
+**Dead military vehicles dress the strongpoints** (the Frontline Combat Pack and DragonRise: Reforge, which replaced vvp and MCSP on 2026-09-06): `fcp:stryker_m2` pairs and an `fcp:bmp2` on FR-06's (the mega-base's) reactor
+plaza, an `fcp:ural_kung` convoy at the plant sector (no Typhoon-K in either pack), an `fcp:mi17` on the runway apron, an `fcp:pantsir` at the hub, and Pomkot's Mechs' dormant units (a PMS04 beside FR-06's
 BMPT, a PMS02 and a PMS05 on the hub's rail spine: `gscraft:furnish_fr06`, `gscraft:furnish_hub`) — placed by the site
 dressing pass (Phase C, alongside `camp.py`), battery-less so they never move, their inventories the component containers where the site has one (FR-06, the plant, the hub). Immersive Weathering
 ages them and every tier-0 building on placement; a rebuilt tier is placed clean.
@@ -198,6 +202,10 @@ Minutes one way; a Minecraft day is 20 real minutes.
 
 
 ### 2.6 The Line — the rural approach to the residential block
+
+> **Superseded 2026-09-07 — the Line ran from the plateau to Skadowsky and that route no longer exists.** The camp moved into Skadowsky, just east of the
+> south-west bridge, and the sector's own mast replaced the built radio tower. Read
+> `gscraft-skadowsky-camp.md` first; the coordinates below are the plateau camp and are dead.
 
 A sparsely populated corridor, the one part of the map that was countryside before the end: an old power line running
 about 1.2 km from the camp's south-east gate down the fields to Skadowsky's north edge, with six small buildings a few
@@ -575,6 +583,10 @@ below y 40 (the bunkers), the fog man and the eyes at night as their mods spawn 
 ---
 
 ## 7. The radio tower
+
+> **Superseded 2026-09-07 — the tower is now Skadowsky's standing mast, and stage 1 repairs it instead of erecting it.** The camp moved into Skadowsky, just east of the
+> south-west bridge, and the sector's own mast replaced the built radio tower. Read
+> `gscraft-skadowsky-camp.md` first; the coordinates below are the plateau camp and are dead.
 
 Six sparse structure templates in the datapack (`gscraft:tower_stage_0…5`, `tools/tower.py`, render
 `docs/renders/radio_tower_stages.png`), origin (−1517, pad y, −2417) on the tower pad x −1560…−1433 × z −2460…−2333 (v8 §9; the v6 origin (107, 100, −101) is history). Stage 0 is placed at world build;

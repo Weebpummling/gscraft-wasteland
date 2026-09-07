@@ -1,5 +1,10 @@
 # GSCraft mod pack - update status (2026-09-05)
 
+> **Superseded in part, 2026-09-06.** MCSP and the Vintage Vehicle Pack were dropped for the Frontline
+> Combat Pack and DragonRise: Reforge. Rows below that name either mod are a record of what was true when
+> this was written, not current guidance. See `gscraft-sbw-addon-test-2026-09-06.md`.
+
+
 Audit of every jar in `server/mods` (103) against the newest **1.20.1 Forge** builds: 75 Modrinth-hosted jars through the
 Modrinth API (`buildmap/audit/modpack_update_audit_2026-09-05.json`, changelogs included), Forge through its promotions
 file, and the CurseForge-only mods that matter through their files pages. Owner's question: what is out of date, and

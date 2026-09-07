@@ -1,5 +1,10 @@
 # GSCraft Wasteland — mod utilization audit (2026-09-05)
 
+> **Superseded in part, 2026-09-06.** MCSP and the Vintage Vehicle Pack were dropped for the Frontline
+> Combat Pack and DragonRise: Reforge. Rows below that name either mod are a record of what was true when
+> this was written, not current guidance. See `gscraft-sbw-addon-test-2026-09-06.md`.
+
+
 *All 103 jars in `G:\GSCraft\server\mods` (manifest 116; the two absent are the client-only Parties fix and
 WaterMedia) were opened and `assets/<modid>/lang/en_us.json` counted for blocks (B), items (I) and entities (E), then
 read against the design as it stands today (design draft 6 + v8 rebase, quests draft 3, crafting, vendors, enemies,

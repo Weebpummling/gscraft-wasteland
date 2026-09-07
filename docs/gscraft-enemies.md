@@ -193,7 +193,7 @@ carries the rest, one area per land:
 | # | File | Change | Why |
 |---|---|---|---|
 | 1 | `improvedmobs/common.toml` | `Stealer Chance` 0.3 → **0.0** | **Wrong today.** Verified in the jar: `StealGoal` holds `blackListedContainerBlocks` and `lootRandomItem` — mobs open containers and take an item. Every loot container, every dossier chest, the players' own base storage and the component containers are open to them; the loot design assumes a chest still holds what it rolled |
-| 2 | `improvedmobs/common.toml` | `Item Blacklist` = every TaCZ, Superb Warfare, vvp and MCSP weapon tag; `Item Whitelist` false | **Wrong today.** A mob can pick up and use anything dropped in a fight, including a player's rocket launcher on death |
+| 2 | `improvedmobs/common.toml` | `Item Blacklist` = every TaCZ, Superb Warfare, Frontline Combat Pack and DragonRise weapon tag; `Item Whitelist` false | **Wrong today.** A mob can pick up and use anything dropped in a fight, including a player's rocket launcher on death |
 | 3 | `improvedmobs/common.toml` | `Equipment Chance` 0.1 → **0.0**, `Weapon Chance` 0.5 → **0.0**, `Enchanting Chance` → 0.0 | equipment is In Control!'s job (§0.1); leaving both on means two systems dressing the same mob |
 | 4 | `PillagersGun-common.toml` | `Bazooka Chance` 0.05 → **0.0** | an explosion at the camp gate outside a locked rectangle; §3.2 |
 | 5 | `MobFactions.toml` | replace the `piglin` faction with `militia` (the three IE ids); add the ten `recruits:` ids to `civilian` | §2 — hired soldiers are currently not in any faction |

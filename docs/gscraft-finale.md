@@ -38,6 +38,10 @@ any size. So the boss must
 
 ## 3. The design: "what the beacon woke"
 
+> **Superseded 2026-09-07 — the tower compound rectangle and the sculk ring move to the mast's field.** The camp moved into Skadowsky, just east of the
+> south-west bridge, and the sector's own mast replaced the built radio tower. Read
+> `gscraft-skadowsky-camp.md` first; the coordinates below are the plateau camp and are dead.
+
 **Story.** The plateau is an impact site; the beacon's pulse is a vibration the whole map can feel. Something
 under the plateau feels it first. Wave 5 is that thing walking up out of the ground at the gate — the
 **Sleeper** (a Warden, named) — with four **Captains** (Apotheosis bosses of the pack's own zombie types)

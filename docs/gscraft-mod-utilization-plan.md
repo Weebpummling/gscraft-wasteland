@@ -41,8 +41,8 @@ Columns: mod · idle content · hook (act · site · carrier) · player · chann
 | # | Mod | Idle content | Hook | Player meets | Channel | Cost | Ph |
 |---|---|---|---|---|---|---|---|
 | H1 | Immersive Vehicles (MTS Official Pack `jsondefs/`, *corr.*: no lang keys) | 30 poles (`pole_streetlight`, `pole_trafficsignal`, `sign_stop`, `sign_route`…), 16 decors (`crashbarrier`, `trafficcone`, `telephonebooth`, `fuelpump`) | Act I–II · the connectors C2, C4, C5 and the town's avenues (objectives §5) · the road-furniture pass | a dead traffic light on the avenue, a barrier on the lake road | block (§3.2 road signs) | a list in `furnish.json` after `connectors.py` | B |
-| H2 | vvp | `mi_8_amtsh` (the design's "Mi-24", audit §4) | Act II · the runway apron (objectives §3; design §2.3) | a dead helicopter the first flight taxis past | entity | one furnish entry | C |
-| H3 | vvp | `toyota` | Act III · the Woods outpost, R-W1 (quests §7.2) · the Scavengers' wreck | a truck with a gun on it that will never move | entity | one furnish entry | C |
+| H2 | fcp | `mi17` (the design's "Mi-24"; vvp's `mi_8_amtsh` went with the pack, 2026-09-06) | Act II · the runway apron (objectives §3; design §2.3) | a dead helicopter the first flight taxis past | entity | one furnish entry | C |
+| H3 | fcp | `toyota_hilux_spg9` | Act III · the Woods outpost, R-W1 (quests §7.2) · the Scavengers' wreck | a truck with a gun on it that will never move | entity | one furnish entry | C |
 | H4 | The Man From The Fog | `cassette_recorder_block`, `cassette_1safetyinstructions` | Act II–III · J-C2 (quests §6) · a hand-in task | a recorder on the table; the cassette is what James wanted | tooltip ("Cassette — James wants to hear it"); the book | one task; the recorder is the fog house's own block | C |
 | H5 | Underground Bunkers | `underground_bunker_normal / supply / treasure` | Act I–IV · the 14 kept bunkers (loot §5): U-D1, U-D2, J-W2, R-W2, U-D3 | the bunkers' chests roll the military table with the mod's own on top | Lootr glow | one loot row: the three tables alias `building/military` (loot §3) | C |
 | H6 | In Control | `areas.json` | Act II–IV · the Woods rule (design §6.3) as one `area` | fewer, quieter dead under the trees | — | one area entry | D |
@@ -60,14 +60,14 @@ Columns: mod · idle content · hook (act · site · carrier) · player · chann
 | # | Mod | Idle content | Hook | Player meets | Channel | Cost | Ph |
 |---|---|---|---|---|---|---|---|
 | F1 | Create | `packager`, `package`, `package_frogport`, the postboxes | Act III–IV · the train J-T1–3 (Create chapter §2; objectives §6): a packager at the rail-yard depot (S-residential-3), a frogport at Skadowsky's station; the keepers' steel and boiler parts ride as packages, bulky components stay in hand (design §4.5) | the train pulls in and a package drops out of the frogport | block; the mod's own | two blocks in `site.py`; J-T2's task | E |
-| F2 | MCSP | `ural_green` | Act III · the waterworks, Oksana's site (objectives §2) · `components/plant` in the lorry's bed | the site's parts are in the back of a dead Ural | block (the lid state, interface §5) | one furnish entry, the container block at bed height | C |
+| F2 | fcp | `ural_kung` | Act III · the waterworks, Oksana's site (objectives §2) · `components/plant` in the lorry's bed | the site's parts are in the back of a dead Ural | block (the lid state, interface §5) | one furnish entry, the container block at bed height | C |
 | F3 | FTB Quests | `stage_barrier` | Act III→IV · FR-06's hangar door on `hangar_unlocked`, M11 (quests §4) | the hangar is shut until Michael has the module | block | one block in `furnish_fr06.mcfunction` | C |
 
 ## 5. The district (Novo, the plaza and the sewers, Bio Gen)
 
 | # | Mod | Idle content | Hook | Player meets | Channel | Cost | Ph |
 |---|---|---|---|---|---|---|---|
-| D1 | vvp | `toyota` | Act II · Novo's yard (enemies §1: the Scavengers') | the same wreck as the outpost: the faction's mark | entity | one furnish entry | C |
+| D1 | fcp | `toyota_hilux_spg9` | Act II · Novo's yard (enemies §1: the Scavengers') | the same wreck as the outpost: the faction's mark | entity | one furnish entry | C |
 | D2 | The Knocker | `knocker_disc` | Act III · `components/sewers` (loot §5) | the one thing down there that is not a part; plays on a jukebox | tooltip | one loot row | C |
 | D3 | In Control | `effects.json` (`[]`) | Act III · `minecraft:darkness` inside the sewers' area (design §6.3 "the dark"; U6) | the basement goes black past the first turn | the effect itself | one rule (win 3) | D |
 | D4 | Farmer's Delight | `rope`, `safety_net` | Act II–III · the sewers' descent and the plaza's lift shafts before S-financial-1's pulleys (Create chapter §3) | a rope down the shaft, a net at the bottom | block | lines in `furnish_financial.mcfunction` | C |
