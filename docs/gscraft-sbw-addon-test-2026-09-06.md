@@ -126,3 +126,80 @@ line, plus the 4 MCSP parse failures).
 The tested set is in `scratch/modtest/mods` and the jars in `scratch/modtest_jars`, with one log per
 stage in `scratch/modtest`. `boot.py` boots the isolated server once, waits for `Done`, samples memory
 and stops it.
+
+---
+
+# Second pass: MCSP and the Vintage Vehicle Pack dropped
+
+Owner's call, 2026-09-06: MCSP and the Vintage Vehicle Pack duplicate too many vehicles and can go. That
+removes two of the three `[0.8.9]` pins and most of the mess above. Retested from a clean boot.
+
+## The set that works
+
+Six jar changes, and the server ends up with one more mod than it has today, not five.
+
+| Change | Detail |
+|---|---|
+| Superb Warfare | 0.8.8-final -> 0.8.9-final |
+| Kotlin for Forge | added, 4.12.0 (0.8.9 uses it as its mod loader) |
+| Frontline Combat Pack | added, 1.2.1 |
+| DragonRise:Reforge | added, 1.4.1.01-hotfix1 |
+| MCSP | removed |
+| Vintage Vehicle Pack | removed |
+
+SnAssets Particles is no longer needed; only the Vintage Vehicle Pack wanted it. The M1A2 parse failure
+is gone with MCSP. Server mod jars go from 107 to 108, 415 MB to 487 MB.
+
+The Frontline Combat Pack still pins `[0.8.9]`, so DragonRise stays at 1.4.1.01 and Superb Warfare cannot
+go to 0.8.9.1. Dropping the two duplicating packs does not change that.
+
+## Nothing was lost from the world
+
+A scan of all 46 entity region files in `server/wasteland-v8` found no `mcsp:` or `vvp:` entity anywhere.
+Every Superb Warfare entity present is core content (`hpj_11` turrets, `laser_tower`, ammo boxes,
+blueprints), none of it among the eleven items removed in 0.8.9. The first boot after the swap logs the
+registry migration for the retired ids and does not repeat it.
+
+For the record, the rosters overlapped less by name than by type: only 1 of MCSP's 37 vehicle names and
+12 of the Vintage Vehicle Pack's 52 appear in the Frontline Combat Pack or DragonRise. What actually goes
+is the main-battle-tank line those two carried and the new packs do not: T-80, T-90A, Challenger 2,
+Leopard 2A7V, M1A2 Abrams, TOS-1A, HIMARS.
+
+## Two config edits this needs
+
+Both were applied to the test copy and verified.
+
+- `config/improvedmobs/equipment.json` referenced seven MCSP armour pieces and logged
+  `No items with following names exist` on boot. Swapped for DragonRise equivalents at the same weights:
+  the three CHEST entries to `msv_chest`, `kevlar` and `kr06_chest`, the four HEAD entries to
+  `fast_helmet`, `kr06_helmet`, `t21_helmet` and `un_helmet`.
+- `kubejs/server_scripts/gscraft_recipes.js` stripped the vehicle-assembling recipes for `vvp` and
+  `mcsp`. Repointed at `fcp` and `dragonrise_reforge` so the station-only rule still covers every
+  military vehicle. The script reports 121 rules stripped.
+
+After both edits: zero ImprovedMobs errors, zero mentions of the removed mods.
+
+## What still logs errors
+
+Nothing fatal, but the new mods are noisy, and all of it traces to the same cause as the M1A2: parts of
+both packs are written against Superb Warfare 0.8.9.1.
+
+| Symptom | Count per boot | Effect |
+|---|---|---|
+| `Entity dragonrise_reforge:nukerbomb has no attributes` | 153 | none, log noise |
+| `Failed to load wreckage loot data for dragonrise_reforge:<vehicle>` | about 70 | destroyed DragonRise vehicles drop nothing |
+| `dragonrise_reforge:sd905` and `test_ship`: `EngineType does not contain element with name 'Airship'` | 2 | one airship unavailable; `test_ship` is a dev leftover |
+| `[FCP] Failed to load trailer_driver config fcp:trailer_driver/kamaz.json` and `trailer_towed/seeder.json` | 2 | malformed JSON inside the mod; those two trailers will not tow |
+
+## Boot and memory, final set
+
+Same harness, same copy of the real world.
+
+| Configuration | Server jars | Boot | Peak RSS |
+|---|---|---|---|
+| Current pack | 107 | 2.0 s | 2912 MB |
+| Final set, before the config edits | 108 | 1.9 s | 2900 MB |
+| Final set, after the config edits | 108 | 1.8 s | 3076 MB |
+
+Dropping two mods to add two leaves memory where it was, within the noise of GC timing. The 310 MB the
+first pass measured came from keeping MCSP and the Vintage Vehicle Pack alongside the new packs.
