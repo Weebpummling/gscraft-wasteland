@@ -8,7 +8,7 @@
 //    bench and its fuel pump (Walker's yard and Michael's plant place them).
 // 2. Superb Warfare defences: Marshall's Walls 1-3 hand these out as station orders.
 // 3. Vehicles: only the designed roster keeps a recipe (speedboat, truck, LAV-150, the battery packs and
-//    the reset kit on the SW side); every vvp / MCSP military vehicle and every SW vehicle outside the
+//    the reset kit on the SW side); every Frontline Combat Pack / DragonRise military vehicle and every SW vehicle outside the
 //    roster loses its assembling recipe. The Humvee RWS, Black Hawk and Bradley return blueprint-gated
 //    (quests W-M1, W-B3, X6). Immersive Vehicles' civilian roster is handled by its own craftingoverrides
 //    file in Phase C, not here.
@@ -63,8 +63,8 @@ ServerEvents.recipes(event => {
   rm({ mod: 'parcool' }, 'all ParCool recipes');
 
   // --- 3. vehicles outside the roster
-  rm({ type: 'superbwarfare:vehicle_assembling', mod: 'vvp' }, 'all vvp vehicles');
-  rm({ type: 'superbwarfare:vehicle_assembling', mod: 'mcsp' }, 'all MCSP vehicles');
+  rm({ type: 'superbwarfare:vehicle_assembling', mod: 'fcp' }, 'all Frontline Combat Pack vehicles');
+  rm({ type: 'superbwarfare:vehicle_assembling', mod: 'dragonrise_reforge' }, 'all DragonRise vehicles');
   ['a_10a', 'ah_6', 'annihilator', 'bl_132', 'bmp_2', 'mi_28', 'mk_42', 'mle_1934', 'plz_05', 'prism_tank', 'tom_6',
    'type_63', 'wheel_chair', 'yx_100'].forEach(v => rm({ id: 'superbwarfare:' + v }, 'SW vehicle ' + v));
 

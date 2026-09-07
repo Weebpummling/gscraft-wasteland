@@ -242,6 +242,18 @@
     ]
   },
   "CHEST": {
+    "dragonrise_reforge:kevlar": [
+      1790,
+      0.034199998
+    ],
+    "dragonrise_reforge:kr06_chest": [
+      309,
+      2.1498325
+    ],
+    "dragonrise_reforge:msv_chest": [
+      309,
+      2.1498325
+    ],
     "immersiveengineering:armor_faraday_chestplate": [
       1929,
       0.020299999
@@ -249,18 +261,6 @@
     "immersiveengineering:armor_steel_chestplate": [
       779,
       1.5361866
-    ],
-    "mcsp:vest_avs": [
-      309,
-      2.1498325
-    ],
-    "mcsp:vest_cpc": [
-      1790,
-      0.034199998
-    ],
-    "mcsp:vest_cpc2": [
-      309,
-      2.1498325
     ],
     "minecraft:chainmail_chestplate": [
       1540,
@@ -296,6 +296,22 @@
     ]
   },
   "HEAD": {
+    "dragonrise_reforge:fast_helmet": [
+      1789,
+      0.034299996
+    ],
+    "dragonrise_reforge:kr06_helmet": [
+      249,
+      2.228941
+    ],
+    "dragonrise_reforge:t21_helmet": [
+      249,
+      2.228941
+    ],
+    "dragonrise_reforge:un_helmet": [
+      249,
+      2.228941
+    ],
     "immersive_weathering:flower_crown": [
       1772,
       0.036
@@ -307,22 +323,6 @@
     "immersiveengineering:armor_steel_helmet": [
       779,
       1.5361866
-    ],
-    "mcsp:airframe_helmet": [
-      1789,
-      0.034299996
-    ],
-    "mcsp:helmettor_helmet": [
-      249,
-      2.228941
-    ],
-    "mcsp:opscore2_helmet": [
-      249,
-      2.228941
-    ],
-    "mcsp:opscore_helmet": [
-      249,
-      2.228941
     ],
     "minecraft:chainmail_helmet": [
       1540,

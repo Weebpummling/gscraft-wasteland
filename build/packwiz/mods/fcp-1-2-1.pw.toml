@@ -1,0 +1,13 @@
+name = "fcp-1.2.1"
+filename = "fcp-1.2.1.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/TnzHcrvV/versions/ZGosl7dP/fcp-1.2.1.jar"
+hash-format = "sha512"
+hash = "87d1a8f69c6c4c28fb41dfb2291db6386d037cee2363a3722d49a1a1f32d61f258eed008be588a2803cadee56355618f7fed2af3808711099108b736efac7cdf"
+
+[update]
+[update.modrinth]
+mod-id = "TnzHcrvV"
+version = "ZGosl7dP"

@@ -1,0 +1,8 @@
+name = "dragonrise_reforge-1.4.1.01-hotfix1"
+filename = "dragonrise_reforge-1.4.1.01-hotfix1.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files/dragonrise_reforge-1.4.1.01-hotfix1.jar"
+hash-format = "sha512"
+hash = "56e371688db21a0c9643e136df1b0c5cd7ca024d1650b65b307d4b2e3fc36fd5b63ec1b81eea0223847a6859cd94de532f85347efe0d237d41fa21efdf60c15a"

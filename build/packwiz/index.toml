@@ -279,7 +279,7 @@ hash = "12c58088d21d5e0c0a84e2dea195ec5a72db79a16973dbd73314cc3cd2d92d90"
 
 [[files]]
 file = "config/improvedmobs/equipment.json"
-hash = "0c2752701fa3cce199ebe4c42c8ee5d1640bc61db44a51e10e89fcbf976553e3"
+hash = "a3326565f5f84442646146ed6d390f9e201b92f0501fa568471f8b511a0fa83a"
 
 [[files]]
 file = "config/incontrol/areas.json"
@@ -593,7 +593,7 @@ hash = "9453804b20918bba96cc44330af292831997fa6d1573428ce2dbe564e27ad116"
 
 [[files]]
 file = "kubejs/server_scripts/gscraft_recipes.js"
-hash = "1022585c0e3b48cc128737cbf597e316c346f9e7725f000b272847cde129e30e"
+hash = "19e5e9f81e5469fe816b47a612af0fe1be2bedd430a5047541953b2097da24eb"
 
 [[files]]
 file = "kubejs/server_scripts/gscraft_tower_lock.js"
@@ -748,6 +748,11 @@ hash = "f4e5e2064dd304832936a7950d25a49eeb2c6e0c8a76a0f1b2f4912bed098bbc"
 metafile = true
 
 [[files]]
+file = "mods/dragonrise-reforge-1-4-1-01-hotfix1.pw.toml"
+hash = "aad5e802c72bcdabf58db1bbdb180bbb99c72e24f9c100b9b5e586adb45ab7db"
+metafile = true
+
+[[files]]
 file = "mods/dynview-1-20-1-4-0.pw.toml"
 hash = "e35b7a0967d531521d5805c68ee706e4e02545a80bfb49719ccda4d30fc9e160"
 metafile = true
@@ -785,6 +790,11 @@ metafile = true
 [[files]]
 file = "mods/fastworkbench-1-20-1-8-0-4.pw.toml"
 hash = "0755e7e21f2412a2511e66536aca82afd9f6f2a240bd31bb8352a9331cdcc54f"
+metafile = true
+
+[[files]]
+file = "mods/fcp-1-2-1.pw.toml"
+hash = "c7cc61c9deaa0bd8a2784a77f356c02211c1db71438c5c423e44f4191bdd45d8"
 metafile = true
 
 [[files]]
@@ -893,6 +903,11 @@ hash = "47baf0c243419b992c4bd78369f2bf12fc3e00620ff6fa6ce5152cddf099ffbc"
 metafile = true
 
 [[files]]
+file = "mods/kotlinforforge-4-12-0-all.pw.toml"
+hash = "afaa9aa53a64e0eee95e2d3d7aa6c3a44b9fb9531c9eea6a6b2de273cb7d040e"
+metafile = true
+
+[[files]]
 file = "mods/kubejs-forge-2001-6-5-build-26.pw.toml"
 hash = "373b49e7947b371ff5e3dd86e19e11571884132c31aa52553584e1b0b9c23dff"
 metafile = true
@@ -935,11 +950,6 @@ metafile = true
 [[files]]
 file = "mods/magnumtorch-v8-0-2-1-20-1-forge.pw.toml"
 hash = "67369319acccfed9d7ef9df9167ab8386de388e7b68fccf94e1bda54f00556ee"
-metafile = true
-
-[[files]]
-file = "mods/mcsp-1-20-1-v1-0-8.pw.toml"
-hash = "8dc188f91ff7ab00e5b414a7c88dee33eb8cbf99a2ef601a1f1676c25ee0d0b1"
 metafile = true
 
 [[files]]
@@ -1073,8 +1083,8 @@ hash = "cfc35fbc579ee28336e7ab7271c9ee0ae623d74443f587a2e2694923250e3080"
 metafile = true
 
 [[files]]
-file = "mods/superbwarfare-1-20-1-0-8-8-final-6a6b54795.pw.toml"
-hash = "536d4b28a729e0f545c9eb7479523c4616a0ff0d80f693746aebfcb5ff7a5b0d"
+file = "mods/superbwarfare-0-8-9-final-mc1-20-1-6effe4385-all.pw.toml"
+hash = "3e8700cfc16efcf3ae230ed82fb27a4b25180d1723f655378d0f2ff22e04d8f8"
 metafile = true
 
 [[files]]
@@ -1120,11 +1130,6 @@ metafile = true
 [[files]]
 file = "mods/voicechat-forge-1-20-1-2-6-23.pw.toml"
 hash = "b9db6efd270e67bfd34b3d88bca36e7f5c7ec7fb02b0df7d46ed4cc42ff5a7d4"
-metafile = true
-
-[[files]]
-file = "mods/vvp-alpha-1-20-1-0-2-0.pw.toml"
-hash = "f6e403832f8f8a68728eb4323b3589f1966cc4dee5b0b51d39cb8d153f76e23c"
 metafile = true
 
 [[files]]
