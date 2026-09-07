@@ -22,17 +22,22 @@ that are actively wrong for this design.
    marches in line and reflects light, the Horrors are alone and quiet.
 4. **Factions fight each other.** Mob Factions is configured so an unclaimed site is a three-way
    war the players can watch, wait out, or start.
-5. **Difficulty is distance, then act.** Improved Mobs scales attributes by distance from the world spawn — and on the v8 map four strongpoints and the hub all sit 2.0–2.4 km out, so the distance rings alone no longer separate the acts: the take order (Skadowsky first, then Novo and the plaza, then the lake's far side) and each site's own table carry the curve (review fix 6);
-   the equipment tables step up per act. A zombie at the hub is not the zombie outside the gate.
+5. **Difficulty is distance, then act.** Improved Mobs scales attributes by distance from the world spawn — and on the
+   v8 map the five strongpoints do spread from it, 0.34 km to the Skadowsky hospital out to 2.30 km to the hempcrete
+   compound, but three of them sit inside the one plant complex and the act gates are vehicles and water rather than
+   radius, so the distance rings alone still do not separate the acts: the take order (the Skadowsky sector and its
+   hospital first, then west over the bridge to the farm and the hempcrete compound, then the plant complex) and each
+   site's own table carry the curve (review fix 6);
+   the equipment tables step up per act. A zombie at the plant complex is not the zombie outside the bridge.
 
 ## 1. The five factions
 
 | Faction | Who they are | Entity ids | Where | How they fight | Signature |
 |---|---|---|---|---|---|
-| **The Dead** | the infected: what the city became. No leadership, no equipment, endless | `minecraft:zombie`, `zombie_villager`, `husk` (dry ground), `drowned` (the plant, the lake), `minecraft:spider` / `cave_spider` (sewers, bunkers) | everywhere; the residential block is theirs | mass, no ranged, break glass and wooden doors, hear gunfire at 10 blocks per Zombie Awareness | infection (Hordes): every hit rolls 75 % on a player, curable at Tony's clinic |
-| **Scavengers** | living raiders in dead men's clothes — the faction the players could have become | `minecraft:pillager` (guns, via Pillagers Gun), `minecraft:vindicator` (axes, breachers), `minecraft:evoker` (rare, a captain's escort) | Novo, Financial Plaza, the road outposts, the Woods outpost | fire from cover, flank, break doors; a captain rallies them | the only faction that uses guns from the first act |
-| **The Militia** | a surviving military unit that never stood down; they hold the far bank and answer to nobody | `immersiveengineering:fusilier` (railgun), `immersiveengineering:commando` (revolver), `immersiveengineering:bulwark` (shield, armour) | FR-06, the reactor plaza, the hub's approaches | disciplined ranks: Bulwarks forward, Commandos behind, a Fusilier holding the long line | armour that shrugs off pistols; the only faction with a shield wall |
-| **The Horrors** | whatever the end of the world left behind. Not a faction that holds ground — they hunt | `the_knocker:knocker` (+ `knockerstalk`, `knockerstalklooked`, `knockerdeadanimal`, `knockerswim`), `man:manfromthefog` (+ `managgresive`, `manfromthefogback`, `mftfhang`), `eyesinthedarkness:eyes` | the block after dark, the sewers, the Woods, any site's elite slot | alone, at night, from behind; they do not join waves | no drops, no reason, no negotiating |
+| **The Dead** | the infected: what the city became. No leadership, no equipment, endless | `minecraft:zombie`, `zombie_villager`, `husk` (dry ground), `drowned` (the plant, the lake), `minecraft:spider` / `cave_spider` (the bunkers; the sewers are deferred to a later quest line) | everywhere; the Skadowsky sector outside the camp pocket is theirs, the hospital most of all | mass, no ranged, break glass and wooden doors, hear gunfire at 10 blocks per Zombie Awareness | infection (Hordes): every hit rolls 75 % on a player, curable at Tony's clinic |
+| **Scavengers** | living raiders in dead men's clothes — the faction the players could have become | `minecraft:pillager` (guns, via Pillagers Gun), `minecraft:vindicator` (axes, breachers), `minecraft:evoker` (rare, a captain's escort) | the road outposts and the Woods outpost; Novo and Financial Plaza are deferred to a later quest line | fire from cover, flank, break doors; a captain rallies them | the only faction that uses guns from the first act |
+| **The Militia** | a surviving military unit that never stood down; they hold the east-bank works and answer to nobody | `immersiveengineering:fusilier` (railgun), `immersiveengineering:commando` (revolver), `immersiveengineering:bulwark` (shield, armour) | the rail yard, the road south, the plant complex's gates and its inside; FR-06 and the hub's approaches are deferred to a later quest line | disciplined ranks: Bulwarks forward, Commandos behind, a Fusilier holding the long line | armour that shrugs off pistols; the only faction with a shield wall |
+| **The Horrors** | whatever the end of the world left behind. Not a faction that holds ground — they hunt | `the_knocker:knocker` (+ `knockerstalk`, `knockerstalklooked`, `knockerdeadanimal`, `knockerswim`), `man:manfromthefog` (+ `managgresive`, `manfromthefogback`, `mftfhang`), `eyesinthedarkness:eyes` | the hospital after dark, the Woods, any site's elite slot (the sewers are deferred to a later quest line) | alone, at night, from behind; they do not join waves | no drops, no reason, no negotiating |
 | **The Camp** (the players') | the six survivors, their guards and hired soldiers | `guardvillagers:guard`, the ten `recruits:` ids (recruit, recruit_shieldman, bowman, crossbowman, captain, commander, horseman, nomad, scout, messenger), `minecraft:villager`, `iron_golem` | the camp, and every held site's guard | Pillagers Gun arms guards and Recruits too (`Villager Spawn With Gun` = true) | the only faction that respawns for free |
 
 **Wildlife** is not a faction: the pack's passive mobs are food and Tony's tallow, and Improved Mobs'
@@ -50,8 +55,9 @@ that are actively wrong for this design.
 | **militia** (new; replaces `piglin`) | `immersiveengineering:fusilier`, `commando`, `bulwark` | zombie, skeleton, illager, civilian | the piglin faction's only member that appears here is the zombified piglin at a ruined portal, and it is already listed with the Dead |
 | civilian | villager, iron_golem, `guardvillagers:guard`, **all ten `recruits:` soldiers** | zombie, skeleton, illager, militia | Recruits are missing from the shipped list, so hired soldiers are currently invisible to every hostile faction — the fix that matters most in this file |
 
-What it buys: an unclaimed site thins itself. A team that scouts Financial Plaza at dusk and waits
-sees Scavengers and the Dead fight over it; the assault is easier for the patience. It also means a
+What it buys: an unclaimed site thins itself. A team that scouts the hempcrete compound at dusk and
+waits sees Scavengers and the Dead fight over it; the assault is easier for the patience. (The
+Financial Plaza version of the same picture is deferred with the plaza.) It also means a
 site's ambient population is never a fixed number, which is the texture In Control! caps alone cannot
 give.
 
@@ -86,11 +92,11 @@ the mod's: pistol 50 %, shotgun 20 %, assault rifle 20 %, sniper 5 %, bazooka 5 
 | Shooter | pillager | 30 % | assault rifle, leather chest/legs | AR + iron chest, Speed I | fires from cover; the reason to bring a suppressor |
 | Breacher | vindicator | 20 % | held `iron_axe`, leather helmet | `diamond_axe`, iron helmet/chest | doors, gates and fences; the wall's actual test |
 | Marksman | pillager | 4 % | — | sniper (mod), leather chest, Invisibility off, `customname` "Marksman" | one per wave at most; laser sight renders, so it is fair |
-| Captain | pillager | 1 % | shotgun, iron helmet, `customname` "Scavenger Captain", health ×2 | + Apotheosis affixes (§5) | the elite slot at Novo and the Plaza |
+| Captain | pillager | 1 % | shotgun, iron helmet, `customname` "Scavenger Captain", health ×2 | + Apotheosis affixes (§5) | the elite slot at the hempcrete compound (Novo and the Plaza are deferred with the district) |
 
-**Bazooka rank is cut.** `Bazooka Chance` goes to 0: an explosion level 5 at the camp gate would take
-out Marshall's gatehouse, which the grief lock cannot stop because mob explosions are cancelled only
-inside the locked rectangles (design §3.6). Pillagers Gun 3.1.0 registers no flamethrower (mod audit §4), so its config key is dead; `Break Block` false.
+**Bazooka rank is cut.** `Bazooka Chance` goes to 0: an explosion level 5 at the camp's gate — the
+bridge's east end — would take out Marshall's gatehouse at x −978…−955 × z −955…−940, which the grief
+lock cannot stop because mob explosions are cancelled only inside the locked rectangles (design §3.6). Pillagers Gun 3.1.0 registers no flamethrower (mod audit §4), so its config key is dead; `Break Block` false.
 
 ### 3.3 The Militia
 
@@ -103,10 +109,11 @@ only source of IE revolver parts in the world.
 | Shield | `bulwark` | 30 % | walks in front, blocks projectiles | ×1.5, knockback resistance 0.6 |
 | Gunner | `fusilier` | 10 % | railgun; the longest reach any enemy has | ×1.2 |
 
-The Militia never spawns ambient outside **the far bank** — FR-06, the rail yard, the waterworks' approaches — and
-the plant complex's gates (2026-09-06: the hub is the Machines', `gscraft-entities-v8.md` §2). They are a *place*, not a
+The Militia never spawns ambient outside **the east-bank spine** — the rail yard and the road south to the plant's
+outer works — and the plant complex's gates and inside (2026-09-06: the hub is the Machines', `gscraft-entities-v8.md`
+§2; FR-06 and the waterworks' approaches are deferred to a later quest line). They are a *place*, not a
 weather. Act IV adds a fourth rank, **Sergeant** (`commando`, health ×2.5, `customname`, an Apotheosis
-rare affix), one per FR-06 wave.
+rare affix), one per wave at the plant complex; his FR-06 wave is deferred with FR-06.
 
 ### 3.4 The Horrors
 
@@ -137,10 +144,12 @@ Composition by wave, as a share of that wave's count:
 | 5 | 45 % | 15 % | 30 % | 10 % |
 | 6 (and counterattack 3) | 35 % | 15 % | 35 % | 15 % + the elite |
 
-The counterattack's three waves use waves 2, 4 and 6 of the site's own table, at the camp gate. A
-site's faction decides which entity fills each role; a site with no Shooter faction (the residential
-block) fills the Shooter share with more Body and its elite arrives a wave earlier — the block is
-meant to feel like drowning, not like a firefight.
+The counterattack's three waves use waves 2, 4 and 6 of the site's own table, at the camp's gate —
+which is now the south-west bridge, x −1104…−981, deck z −957…−936, deck y 89, the only crossing on
+Skadowsky's west side and an 8-block deck. The counterattack's other approaches are the main road
+east and the rail corridor north and south. A site's faction decides which entity fills each role; a
+site with no Shooter faction (the Skadowsky hospital) fills the Shooter share with more Body and its
+elite arrives a wave earlier — the hospital is meant to feel like drowning, not like a firefight.
 
 ## 5. Elites and named enemies
 
@@ -149,12 +158,16 @@ summoned by the loop script at the named wave. Definitions to write in Phase D:
 
 | Site | Elite | Base | Rarity | Gear set | Affix flavour |
 |---|---|---|---|---|---|
-| Novo | **The Foreman** | pillager | rare | shotgun, iron helmet | knockback, thorns — a brawler |
-| Residential block | **The Matron** | husk | rare | — , size ×1.5 | summons Bodies, slowness aura |
-| Industrial plant | **Rust** | drowned | rare | trident, chainmail | wet ground, ranged, retreats to water |
-| FR-06 | **Sergeant Kell** | commando | epic | revolver, iron chest | armour piercing, escorted by two Bulwarks |
-| Financial Plaza | **The Broker** | pillager | epic | sniper, leather | invisibility on hit, calls one wave early |
+| Novo *(deferred to a later quest line)* | **The Foreman** | pillager | rare | shotgun, iron helmet | knockback, thorns — a brawler |
+| The Skadowsky hospital | **The Matron** | husk | rare | — , size ×1.5 | summons Bodies, slowness aura |
+| The industrial district, "the waterworks" *(deferred to a later quest line)* | **Rust** | drowned | rare | trident, chainmail | wet ground, ranged, retreats to water |
+| FR-06 *(deferred to a later quest line)* | **Sergeant Kell** | commando | epic | revolver, iron chest | armour piercing, escorted by two Bulwarks |
+| Financial Plaza *(deferred to a later quest line)* | **The Broker** | pillager | epic | sniper, leather | invisibility on hit, calls one wave early |
 | The Woods outpost | **the outpost captain** | pillager | rare | AR | plain — the Woods is Teddy's introduction, not a boss fight |
+
+The four live strongpoints that are not in the table — the plant's switchyard, turbine hall and
+cooling intake works, and the hempcrete compound — still need elite definitions of their own
+`[needs measurement]`.
 
 Rules: **natural Apotheosis bosses stay off** (`Boss Spawn Cooldown` at maximum), so an affixed mob is
 always a designed moment; an elite never spawns twice on the same site; killing one drops its
@@ -175,18 +188,20 @@ gun, armour piece, intermediate or complete part — the same rule the container
 
 ## 7. Difficulty
 
-Difficulty follows the land, not the distance (objectives §6, 2026-09-05): on the v8 map every strongpoint but
-Skadowsky is 2.0–2.4 km from the camp in a straight line, so Improved Mobs' distance rings cannot separate the acts.
-Improved Mobs keeps a two-step curve (level 0 inside 1.5 km of the spawn, level 6 beyond) and In Control's `areas.json`
-carries the rest, one area per land:
+Difficulty follows the land, not the distance (objectives §6, 2026-09-05). Measured from the camp square at
+(−940, −979) the five strongpoints spread — 0.34 km to the Skadowsky hospital, 1.09 to the plant's switchyard, 2.06 to
+its turbine hall, 2.16 to its intake works, 2.30 to the hempcrete compound — but three of them sit inside one
+industrial landscape and the act gates are vehicles and water rather than radius, so Improved Mobs' distance rings
+still cannot separate the acts. Improved Mobs keeps a two-step curve (level 0 inside 1.5 km of the world spawn at the
+paved junction, level 6 beyond) and In Control's `areas.json` carries the rest, one area per land:
 
 | Land | In Control area | Level (Improved Mobs step + the area's gear tables §3) | What it means |
 |---|---|---|---|
-| the home bank inside 1.5 km | `home` | 0 | the camp's ruins, the town's east blocks, the settlement, the collective farm: no attribute bonus worth naming |
-| the river line | `river` | 3 | Skadowsky: +health, occasional armour; the first counterattack is the lightest |
-| the home bank beyond 1.5 km and the district | `town`, `district` | 6 | the town's west, the runway, Novo, the plaza, Bio Gen: enemies that survive a magazine |
-| the far bank | `farbank` | 10 | the rail yard, the waterworks, FR-06 |
-| the two edges | `hub`, `plant` | 15 | the hub and the plant complex: everything is harder than anything else on the map |
+| the home sector | `home` | 0 | the Skadowsky sector: the camp pocket, the hospital, the station, the rail yard, the level crossing. Nothing at all inside the camp outline, where the five torches suppress; and because the hospital is only 0.34 km out, Act I's one strongpoint sits inside the ring at level 0 and the area's own gear tables carry it |
+| the crossing and the corridor west | `river` | 3 | the south-west bridge and the Line's corridor to the collective farm: +health, occasional armour; the first counterattack is fought at the bridge and is the lightest |
+| the town over the bridge, and the district | `town`, `district` | 6 | the town's ruin field and the hempcrete compound: enemies that survive a magazine. Novo, the plaza, Bio Gen, the library and the runway are deferred to a later quest line and take their share of this ring with them |
+| the east-bank spine | `farbank` | 10 | the rail line and yard, and the road south to the plant's outer works (the waterworks and FR-06 are deferred to a later quest line) |
+| the plant complex | `plant` | 15 | the switchyard, the turbine hall, the intake works and the confinement hall: everything is harder than anything else on the map. The `hub` area holds the same level but is deferred with the desert city |
 
 ## 8. Config changes, and four defaults that are wrong
 
@@ -195,10 +210,10 @@ carries the rest, one area per land:
 | 1 | `improvedmobs/common.toml` | `Stealer Chance` 0.3 → **0.0** | **Wrong today.** Verified in the jar: `StealGoal` holds `blackListedContainerBlocks` and `lootRandomItem` — mobs open containers and take an item. Every loot container, every dossier chest, the players' own base storage and the component containers are open to them; the loot design assumes a chest still holds what it rolled |
 | 2 | `improvedmobs/common.toml` | `Item Blacklist` = every TaCZ, Superb Warfare, Frontline Combat Pack and DragonRise weapon tag; `Item Whitelist` false | **Wrong today.** A mob can pick up and use anything dropped in a fight, including a player's rocket launcher on death |
 | 3 | `improvedmobs/common.toml` | `Equipment Chance` 0.1 → **0.0**, `Weapon Chance` 0.5 → **0.0**, `Enchanting Chance` → 0.0 | equipment is In Control!'s job (§0.1); leaving both on means two systems dressing the same mob |
-| 4 | `PillagersGun-common.toml` | `Bazooka Chance` 0.05 → **0.0** | an explosion at the camp gate outside a locked rectangle; §3.2 |
+| 4 | `PillagersGun-common.toml` | `Bazooka Chance` 0.05 → **0.0** | an explosion at the camp's gate, the bridge's east end, outside a locked rectangle; §3.2 |
 | 5 | `MobFactions.toml` | replace the `piglin` faction with `militia` (the three IE ids); add the ten `recruits:` ids to `civilian` | §2 — hired soldiers are currently not in any faction |
-| 6 | `incontrol/spawn.json` | the per-site, per-rank rules of §3 (each with `mob`, the site rectangle, `maxcount`, and the equipment fields) | the tables above are only real when the rules exist |
-| 7 | `improvedmobs/common.toml` | `Difficulty Increase` steps → `["0-0","1500-3","2500-6","4000-10","4500-15"]` | already correct; recorded here so a later edit does not undo the ring alignment |
+| 6 | `incontrol/spawn.json` | the per-site, per-rank rules of §3 (each with `mob`, the site rectangle, `maxcount`, and the equipment fields), on the site set of `docs/gscraft-skadowsky-camp.md` §11.4 | the tables above are only real when the rules exist |
+| 7 | `improvedmobs/common.toml` | `Difficulty Increase` steps → the two-step curve `["0-0","1500-6"]`, re-cut from the world spawn at the paved junction (−940, −979) | the old five-step ladder was measured from the plateau world spawn, which is dead; §7 puts the rest of the curve on In Control's areas |
 | 8 | `apotheosis/adventure.cfg` | boss spawn cooldown at maximum; the six `gscraft:elite_*` definitions | §5, gap C14 |
 
 Rows 1, 2, 4 and 5 are the four wrong defaults. Rows 1 and 2 are also the two that can quietly ruin a

@@ -27,7 +27,7 @@ any size. So the boss must
 
 | Candidate | Source | What was found | Verdict |
 |---|---|---|---|
-| **Ender Dragon** | vanilla | Outside the End it flies to (0, 0) — the crater — and dives at the ground, "does not perch" and "continues to fly around forever" (Minecraft Wiki, Ender Dragon). Damage to every part but the head is cut by ~75 %, and a Java bug gives the head the same reduction, so **every gun does a quarter of its damage**. Block breaking follows `mobGriefing` (Forge routes it through a per-entity event, so a startup-script handler like the tower lock's could deny it for the dragon alone — **(E)**). No portal, no egg outside the End. Whether TaCZ's own bullet raycast registers hits on the dragon's multipart hitboxes at all is **unknown (E)** — some gun mods shoot straight through it. | **No.** Fails 1 and 2: guns feel broken against it, and nothing about the base matters to a boss that never lands. Keep only as the story of the crater (it is the impact site; nothing needs to come back to it). |
+| **Ender Dragon** | vanilla | Outside the End it flies to (0, 0) — which on the v8 map is nowhere the players live; the camp square is (−940, −979) — and dives at the ground, "does not perch" and "continues to fly around forever" (Minecraft Wiki, Ender Dragon). Damage to every part but the head is cut by ~75 %, and a Java bug gives the head the same reduction, so **every gun does a quarter of its damage**. Block breaking follows `mobGriefing` (Forge routes it through a per-entity event, so a startup-script handler like the tower lock's could deny it for the dragon alone — **(E)**). No portal, no egg outside the End. Whether TaCZ's own bullet raycast registers hits on the dragon's multipart hitboxes at all is **unknown (E)** — some gun mods shoot straight through it. | **No.** Fails 1 and 2: guns feel broken against it, and nothing about the base matters to a boss that never lands. Nor is there a crater on the v8 map to fly back to: the camp is a river pocket in Skadowsky, not an impact site. |
 | **Wither** | vanilla | 300 HP; below half health it gains "wither armor" and is immune to arrows and other projectiles. TaCZ damage types are tagged `is_projectile` (that is what the pack's armour balance relies on), so **the guns stop working at 150 HP**. A CurseForge mod exists only to rebalance this pairing. Skulls explode with `mobGriefing` on. | **No.** Fails 1 outright and 3. |
 | **Warden** | vanilla | 500 HP, one hitbox, ground-bound, 2.9 tall. Melee 30 (kills an unarmoured player in one hit — Tony's chapter matters), **sonic boom 10 that ignores armour and enchantments** with a 15–20 block reach — the answer to players shooting from the wall. Applies Darkness. Hunts by vibration and smell, so **gunfire draws it**: the shooters are the targets. Digs down and despawns after 60 s without a disturbance unless it has a custom name / persistence — a named summon stays **(E: confirm a named warden does not dig)**. | **Yes** — the boss of wave 5. Fits 1–5. |
 | **Apotheosis boss** | Apotheosis 7.4.8 | Boss definitions are JSON (`data/<ns>/bosses/*.json`: entity, gear sets, rarity range, per-rarity attribute modifiers, effects, enchant levels); the pack ships 24 for zombie/husk/skeleton/witch/… Summoned by `/apoth spawn_boss <boss> [rarity]` (`BossCommand`), by the **Boss Spawner** block or the **Boss Summoner** item. Random surface bosses are already off (`Boss Spawn Cooldown` = 2147483647 in `config/apotheosis/adventure.cfg`). Human-sized, armoured, affixed mobs. | **Yes, as the escort** — four named Captains, one with each of waves 2–5, and the elite of every design §6.3 table (B21 unchanged). Not the boss: nothing here is bigger than a man. |
@@ -38,18 +38,20 @@ any size. So the boss must
 
 ## 3. The design: "what the beacon woke"
 
-> **Superseded 2026-09-07 — the tower compound rectangle and the sculk ring move to the mast's field.** The camp moved into Skadowsky, just east of the
-> south-west bridge, and the sector's own mast replaced the built radio tower. Read
-> `gscraft-skadowsky-camp.md` first; the coordinates below are the plateau camp and are dead.
+> **Realigned 2026-09-07** to the camp in Skadowsky and the sector's own mast: the tower compound
+> rectangle and the sculk ring are the mast's field, x −840…−770 × z −1040…−960. See
+> `docs/gscraft-skadowsky-camp.md` §3 and §4.
 
-**Story.** The plateau is an impact site; the beacon's pulse is a vibration the whole map can feel. Something
-under the plateau feels it first. Wave 5 is that thing walking up out of the ground at the gate — the
+**Story.** There is no crater: the camp is a river pocket in Skadowsky with the sector's own dead mast
+standing over it, and the mast is the only thing on this bank tall enough to carry a beacon. The
+beacon's pulse is a vibration the whole map can feel, and something under the mast's field feels it
+first. Wave 5 is that thing walking up out of the ground at the gate — the
 **Sleeper** (a Warden, named) — with four **Captains** (Apotheosis bosses of the pack's own zombie types)
 who came for the same signal. The Warden's whole kit reads as this story: it hunts by vibration, the
 guns are what it hears, it does not stop for walls, and its boom goes through armour.
 
-**Telegraph.** When stage 5 is placed, the tower function also lays a ring of sculk around the tower's plinth (the
-compound, v8: x −1560…−1433 × z −2460…−2333 — one place, one function) and one sculk shrieker (inert — `can_summon` false) at the gate. Players who know the
+**Telegraph.** When stage 5 is placed, the tower function also lays a ring of sculk around the mast's foot at
+(−808, −1008), inside the mast's field, x −840…−770 × z −1040…−960 — one place, one function — and one sculk shrieker (inert — `can_summon` false) at the gate, the bridge's east end. Players who know the
 game read it at once; players who do not get Tune's line: *"Whatever's under us heard that."* Radio 3
 shows wave 5 as "unknown, one, large" for the whole countdown. The very first sign comes much earlier: the prismarine
 hall's sculk floor (Michael's M-P1, Act II), where Tune says once, *"That stuff wasn't there last year."*
@@ -58,10 +60,10 @@ hall's sculk floor (Michael's M-P1, Act II), where Tune says once, *"That stuff 
 
 | Wave | Content | Where | Notes |
 |---|---|---|---|
-| 1 | Novo's defence table ×1.5 | breaks on the gate (R-B3) | the gate's tier-3 doors hold; players shoot from the walls |
-| 2 | the plant's table ×1.5 | gate + the west edge (the town side) | first Captain |
-| 3 | FR-06's table ×1.5 | both approaches | second Captain; Tony's between-wave med kits (X7) |
-| 4 | the plaza's table ×1.5 | the whole rim | third Captain; 90 s pause after it, the sculk shrieker screams |
+| 1 | the hempcrete compound's defence table ×1.5 (was Novo's) | breaks on the gate, the bridge's east end (R-B3) | the gate's tier-3 doors hold; players shoot from the walls |
+| 2 | the intake works' table ×1.5 (was the plant's) | gate + the west edge (the bridge and the river) | first Captain |
+| 3 | the turbine hall's table ×1.5 (was FR-06's) | both approaches | second Captain; Tony's between-wave med kits (X7) |
+| 4 | the switchyard's table ×1.5 (was the plaza's) | the whole perimeter, x −978…−770 × z −1060…−845 | third Captain; 90 s pause after it, the sculk shrieker screams |
 | 5 | **the Sleeper** + the fourth Captain | rises at the gate (summoned 8 blocks outside the doors) | the boss; the doors are what it hits first |
 
 **The Sleeper's numbers (E decides the final values):**
@@ -87,9 +89,9 @@ seeing the Captains; Marshall's line should not promise more than that.
 ## 4. Win, fail, retry, afterwards
 
 - **Win:** the Sleeper dies → stage `finale_won`; X8 completes (kill task on `minecraft:warden` with tag
-  `gscraft_boss`, or a stage set by the script's death hook); the finale chest appears at the plinth:
-  the season flag item, a **Warium** decoration set. X9 opens (free play; the board stays live).
-- **Fail** (B30): a wave **overruns the tower compound** (five or more attackers inside its rectangle for 30 s, the script's check — the base has no claim marker, its claim is FTB Chunks'), or every player online is
+  `gscraft_boss`, or a stage set by the script's death hook); the finale chest appears at the mast's
+  foot, (−808, −1008): the season flag item, a **Warium** decoration set. X9 opens (free play; the board stays live).
+- **Fail** (B30): a wave **overruns the tower compound — the mast's field, x −840…−770 × z −1040…−960** (five or more attackers inside that rectangle for 30 s, the script's check — the base has no claim marker, its claim is FTB Chunks'), or every player online is
   dead at once → the script kills every `gscraft_boss`-tagged entity and the remaining wave, the beacon
   beam goes dark (stage 5's beacon block swapped for the unlit variant), stage `finale_failed`.
 - **Retry:** one in-game day later Marshall's **X6b Relight** (a repeatable, no hand-in) restarts the
@@ -102,17 +104,19 @@ seeing the Captains; Marshall's line should not promise more than that.
 
 1. `gscraft_finale.js` (server script): countdown from `beacon_lit`; five wave timers; `summon` calls
    for tables and Captains (`/apoth spawn_boss gscraft:captain_<n> rare`); the Sleeper's summon +
-   `/attribute` scaling; boss bar; death hook → stages, chest; fail hook (compound overrun / all dead);
-   the relight repeat.
+   `/attribute` scaling; boss bar; death hook → stages, chest at the mast's foot; fail hook (the mast's
+   field, x −840…−770 × z −1040…−960, overrun / all dead); the relight repeat.
 2. Four boss definitions `build/datapacks/gscraft/data/gscraft/bosses/captain_1..4.json` (husk, zombie,
    drowned, zombie_villager bases; TaCZ gear sets from Keerdm's items via `valid_gear_sets`; rarity
    rare–epic; +40..+80 HP; knockback resistance 0.5).
-3. `tower_stage_5` gains the sculk ring and the inert shrieker; a `tower_beacon_dark` function for the fail state.
+3. `tower_stage_5` gains the sculk ring around the mast's foot (−808, −1008) and the inert shrieker at the bridge's east end; a `tower_beacon_dark` function for the fail state. `tools/tower.py` keeps its six templates but its origin moves from the dead plateau pad to the mast's foot.
 4. Quests: X7 unchanged; **X8 "The Sleeper"**: kill task; **X6b Relight**: repeatable, visible after
    `finale_failed`; Tune and Marshall first-time lines for the telegraph and the fail.
 5. Tests **(E)**: named warden does not dig down; `/attribute` health holds after summon; TaCZ damage
    registers on it (single hitbox — expected fine); sonic boom vs Bradley occupant; boss bar; the fail
-   hook fires when the compound is overrun; the retry countdown; run time with the whole team (target 12–18 minutes for
+   hook fires when the mast's field (x −840…−770 × z −1040…−960) is overrun; that the perimeter of
+   `gscraft-skadowsky-camp.md` §3 takes the mast in, so the team defends one box and is not split
+   between a gate and a distant mast; the retry countdown; run time with the whole team (target 12–18 minutes for
    the whole finale at any team size — the Sleeper's health scales per player online).
 
 ## 6. What changed elsewhere because of this doc

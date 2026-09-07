@@ -8,14 +8,14 @@
  "sectors": [
   {
    "id": "camp",
-   "name": "Camp",
-   "x0": -1792,
-   "z0": -2492,
-   "x1": -1409,
-   "z1": -2109,
+   "name": "Camp (in Skadowsky)",
+   "x0": -978,
+   "z0": -1060,
+   "x1": -770,
+   "z1": -845,
    "group": "camp",
-   "source": "camp on the plateau; the basin is its crater lake",
-   "note": "2026-09-07: SUPERSEDED. The camp moved into Skadowsky, east of the south-west bridge (x -978..-770, z -1040..-900). This plateau rectangle is dead; see docs/gscraft-skadowsky-camp.md. Nothing was ever built here."
+   "source": "the pocket east of Skadowsky's south-west bridge, with the mast and its field",
+   "note": "2026-09-07: moved off the plateau into Skadowsky. The old rectangle x -1792..-1409, z -2492..-2109 is dead and nothing was ever built there. This rectangle sits inside the skad sector on purpose: the camp is part of the town. See docs/gscraft-skadowsky-camp.md."
   },
   {
    "id": "hub",

@@ -1,20 +1,27 @@
-#!/usr/bin/env python3
-"""The camp's own ruins: small wrecks and containers scattered inside the starting area so Act I's
+"""RETIRED 2026-09-07 — the camp's 24 wrecks are not built, and this generator must not be run.
+
+The camp moved off the plateau into Skadowsky (docs/gscraft-skadowsky-camp.md). This tool existed only
+because the plateau had nothing to loot inside 300 m of spawn. Skadowsky is a 464 x 752 town with a
+hospital, a station and a level crossing, so Act I has plenty to loot without inventing wrecks. The 24
+ruin pieces, the `gscraft:camp_ruins` and `gscraft:camp_ruins_clear` functions and the four `ruins/*`
+loot tables are all retired with it.
+
+The FILE survives, against that design note's "delete the tool", because `camp_torches.py` and
+`theline.py` import `Ground`, `write_template` and this module's block-name constants from it. Deleting
+it would break two tools that are still wanted. The generator below is disabled instead: `main` refuses
+to run. If the shared helpers are ever moved into their own module, this file can go.
+
+Original description follows.
+---------------------------------------------------------------------------------------------------
+The camp's own ruins: small wrecks and containers scattered inside the starting area so Act I's
 introductions have something to loot within 300 m of spawn (the v6 build cleared the area to natural
 ground). Eight ruin pieces as sparse structure templates, placed by one datapack function at ground
 level, each with one or two chests bound to a gscraft loot table.
 
-    python camp_ruins.py <world dir>     write templates, loot tables, the placement function and
-                                          tools/camp_ruins.json; ground heights are read from <world dir>
-
 Outputs (all under build/datapacks/gscraft/data/gscraft/):
   structures/ruin_<piece>.nbt        the eight pieces
   functions/camp_ruins.mcfunction    24 `place template` lines at the scattered positions
-  loot_tables/ruins/<table>.json     hardware / electrical / medical / mixed (gscraft items; live in Phase C)
-Keep-out: every NPC pad (tools/pads_camp.json + 8), the tower compound, the crater, the spawn
-plaza, and 12 blocks either side of the spine's line to the gate. v2 (2026-09-03) builds the wrecks from
-Doomsday Decoration's car segments, sandbags, oil drums, wire mesh and cones; `camp_ruins_clear`
-removes the v1 blocks at the recorded placements first.
+  loot_tables/ruins/<table>.json     hardware / electrical / medical / mixed
 """
 import gzip
 import json
@@ -313,6 +320,12 @@ def inside(x, z, r):
 
 
 def main(argv):
+    sys.exit("camp_ruins is retired (2026-09-07): the camp moved into Skadowsky and needs no scattered "
+             "wrecks. This module is kept only for the Ground / write_template helpers that camp_torches "
+             "and theline import. See docs/gscraft-skadowsky-camp.md.")
+
+
+def _generate_retired(argv):
     if len(argv) < 2:
         sys.exit(__doc__)
     ground = Ground(Path(argv[1]))

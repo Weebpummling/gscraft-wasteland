@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
-"""The Line — a sparsely populated rural corridor that walks the players into the residential block.
+"""The Line - a sparsely populated rural corridor that walks the players out to the collective farm.
 
-Six small buildings a few hundred metres apart along an old power line, from the camp's south edge
-past the freed substation pad to the block's west gate: a farmstead, a pump house on the water, two
-fenced substations, the line workers' depot, and the switching station at the block's edge. Lattice
-pylons every 48 m between them mark the way; each building has a chest on a site loot table and one
-quest object. Written as sparse structure templates and one placement function, like the ruins.
+Re-cut 2026-09-07. The old corridor ran from the plateau camp's south edge to the residential block's
+west gate; both ends are gone. The camp is now in Skadowsky and the settlement it used to end at has
+been turned back into landscape. The Line now runs WEST over the south-west bridge to the collective
+farm at (-2112, -896), 1.17 km, and the pylons lead away from home instead of toward it, which is the
+right shape for Act II. The six stops and quests L1 to L6 keep their owners and their shapes; only the
+direction reverses, and L6's switching station becomes the farm's own substation at the west end, so
+clearing it opens the farm. See docs/gscraft-skadowsky-camp.md section 11.2.
+
+Six small buildings a few hundred metres apart along an old power line: a farmstead, a pump house on
+the water, two fenced substations, the line workers' depot, and the switching station at the farm's
+edge. Lattice pylons every 48 m between them mark the way; each building has a chest on a site loot
+table and one quest object. Written as sparse structure templates and one placement function.
 
     python theline.py <world dir>     -> structures/line_*.nbt, functions/theline.mcfunction,
                                          buildmap/theline_v7.json (every placement with its ground height)
@@ -33,14 +40,16 @@ CITY_MARKS = {"immersiveengineering:hempcrete", "immersiveengineering:hempcrete_
 
 # the corridor: camp south gate -> farmstead -> pump house -> substation A (the freed pad) -> depot -> substation B -> switching station -> the block
 WAYPOINTS = [
-    ("start", 40, 210),
-    ("farmstead", 140, 430),
-    ("pumphouse", 260, 720),
-    ("substation_a", 300, 1480),
-    ("depot", 640, 1330),
-    ("substation_b", 960, 1410),
-    ("switching", 1250, 1420),
-    ("block_gate", 1328, 1430),
+    # west from the bridge's landing to the collective farm; every point measured dry on the
+    # pass16 census, and the whole run is flat grass at y 65 apart from the two ends
+    ("start", -1160, -944),           # the bridge's west landing
+    ("pumphouse", -1162, -895),       # on the creek that runs south from the crossing; water within 10 m
+    ("farmstead", -1360, -934),
+    ("substation_a", -1560, -924),
+    ("depot", -1760, -913),
+    ("substation_b", -1930, -905),
+    ("switching", -2060, -898),       # the farm's own substation, L6
+    ("farm_gate", -2112, -896),
 ]
 PYLON_STEP = 48
 

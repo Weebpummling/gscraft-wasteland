@@ -32,7 +32,7 @@ them the way to make it. Five holes and one loop, all fixed in quests draft 2; t
 | Fuel | every vehicle | M5 → W8 (biodiesel chain, fuel cans) | fine; fuel cans also drop at the plant as before |
 | A truck | W10 (truck cargo), the bulky hauls | W9, Garage 2 | fine |
 | A boat | W12 ("reach the settlement by water"), J5 | **J5 handed out a boat as a gift; no recipe anywhere** | **fixed:** J5 hands out the boat blueprint and W-V1 "Put a motor on it" the speedboat (Garage 1); J5's reward is now the speedboat blueprint |
-| Aircraft | J7 (reach the hub **by air**), W13 (aircraft recipe) | **W13 was gated on J7 and J7 on W13 — a loop nobody could enter** | **fixed:** W13 gates on W9, M11, **J6** (the runway); J7 stays gated on J6 and W13 |
+| Aircraft | J7 (reach the hub **by air**), W13 (aircraft recipe) | **W13 was gated on J7 and J7 on W13 — a loop nobody could enter** | **fixed:** W13 gates on W9 and M11. **J6's runway is deferred to a later quest line and is no longer a gate** (2026-09-07): the aircraft is rotary and lifts from the mast field inside the camp perimeter, so no airfield is needed. J7 ("reach the hub by air") is deferred with the hub |
 | Firearms, ammunition, attachments | from the first night; the assaults and defences | **nothing taught them; the pack's own gun-smith and reforge tables were the implied route** | **fixed:** Walker's armoury line W-A1…W-A4 (§5), plus a starting sidearm and 30 rounds from Custom Starting Gear |
 | Body armour | the assaults | nothing | **fixed:** W-A2 |
 | The claim marker | R2 and every re-take after a failed assault or a broken marker | R1 handed out one item | **fixed:** R1 gives the marker *blueprint*; a marker lost in a failed assault is re-crafted, not begged from Marshall |
@@ -53,11 +53,11 @@ jars. The game uses eleven (eight civilian below, three military in §2.1); the 
 |---|---|---|---|---|---|
 | Garage 1 (W7) | **Quad** | `mts:mtsofficialpack.quad` | 1 / small | the first wheels: fast over rubble, no cargo | W7 |
 | Garage 1 (W7) | **Runabout** (2CV-class) | `mts:oamp.cagouille` | 2 / a crate | the first car: the spine, the west edge | W7 |
-| Garage 1 (J5) | **Boat** | `minecraft:oak_boat` → `superbwarfare:speedboat` (J5) | 2 / — | the settlement by water; the lakes between the district and the runway | W-V1, J5 |
+| Garage 1 (J5) | **Boat** | `minecraft:oak_boat` → `superbwarfare:speedboat` (J5) | 2 / — | the river crossing, and the plant's marsh channels in Act III (the settlement is gone and the lakes between the district and the runway are deferred with them) | W-V1, J5 |
 | Garage 2 (W9) | **Van** | `mts:oamp.ecoline` | 3 / 27 slots | the loot hauler | W9 |
 | Garage 2 (W9) | **Truck** | `superbwarfare:truck` | 2 / bulky bay | complete parts and components home | W9 |
-| Garage 3 (W13) | **Light aircraft** (Cessna-class) | `mts:mtsofficialpack.mc172` | 4 / 27 slots | the runway to the hub | W13 |
-| Garage 3 (W-B3) | **Light helicopter** | `mts:mtsofficialpack.bell47g` | 2 / small | the hub and the cities without a runway | W-B3 (the shed) |
+| Garage 3 (W13) | **Light aircraft** — **rotary since 2026-09-07**; the fixed-wing Cessna is retired with the runway | was `mts:mtsofficialpack.mc172`; the replacement rotary id is not settled `[needs measurement]` — the verified rotary stock is `dragonrise_reforge:uh60`, `fcp:huey` (+ `huey_rockets`, `huey_door_gunner_m60`, `huey_door_gunner_m134`), `fcp:mi17`, `fcp:venom`, `fcp:viper` | 4 / 27 slots | the team's own lift, from the mast field inside the camp perimeter — no airfield needed | W13 |
+| Garage 3 (W-B3) | **Light helicopter** | `mts:mtsofficialpack.bell47g` | 2 / small | the two-seat scout; it lifts from the mast field like everything else now (the hub it used to serve is deferred to a later quest line) | W-B3 (the shed) |
 | Walls 3 (D4) | **Armoured car** | `superbwarfare:lav_150` | 4 / — | the finale's gate defence; optional | D4 |
 
 Two further Superb Warfare add-on packs are in the jar set — the **Frontline Combat Pack** (96 entities:
@@ -91,10 +91,10 @@ vehicle in a second.
 | Runabout | 4 steel frame, 1 motor assembly, 4 wheel, 1 fuel tank, 1 wiring harness, 2 glass |
 | Boat | 12 planks, 1 fastener kit (speedboat: + 1 motor assembly, 1 small battery pack, 2 steel frame) |
 | Van | 6 steel frame, 1 motor assembly, 4 wheel, 1 fuel tank, 1 wiring harness, 1 cargo crate |
-| Truck | 8 steel frame, 1 **heavy diesel engine** (Novo), 6 wheel, 1 small battery pack, 1 cargo crate |
-| Light aircraft | 8 steel frame, 1 **avionics module** (FR-06), 2 motor assembly, 2 wheel, 2 fuel tank, 2 circuit assembly, 4 glass |
+| Truck | 8 steel frame, 1 **heavy diesel engine** (the hempcrete compound), 6 wheel, 1 small battery pack, 1 cargo crate |
+| Light aircraft | 8 steel frame, 1 **avionics module** (the plant's turbine hall), 2 motor assembly, 2 wheel, 2 fuel tank, 2 circuit assembly, 4 glass |
 | Light helicopter | 6 steel frame, 1 **avionics module**, 1 **transformer core**, 2 motor assembly, 2 fuel tank, 1 circuit assembly |
-| Armoured car | 12 steel frame, 4 plate (§5.1), 1 heavy diesel engine, 6 wheel, 1 medium battery pack, 1 **reactor control module** (the plant complex, Act IV) |
+| Armoured car | 12 steel frame, 4 plate (§5.1), 1 heavy diesel engine, 6 wheel, 1 medium battery pack, 1 **reactor control module** (the confinement hall, Act IV) |
 
 Every vehicle from the truck up needs a loot-only component, so the upper garage tiers are trips
 to a held site — the same rule as the tower parts.
@@ -116,7 +116,7 @@ replacements are exact rather than approximate, so the design's Black Hawk and M
 
 | Blueprint from (owner, 2026-09-04: quest rewards, mid/late game) | Vehicle | Id | Role | Bench |
 |---|---|---|---|---|
-| **W-M1 Motor pool** (Act III, after FR-06 and the plaza are both defended) | **HMMWV** | `fcp:hmmwv_armored_m2` (the armed hull; `hmmwv_armored_mk19`, `hmmwv_avenger` and `hmmwv_ambulance` are the other variants) | the gate's armed car, turret on the roof; beside the LAV-150 | SW assembling table, yard tier 2 |
+| **W-M1 Motor pool** (Act III, after the plant's turbine hall and its switchyard are both defended — `turbine_defended` and `switchyard_defended`, the stages `fr06_defended` and `financial_defended` became when FR-06 and the plaza were deferred) | **HMMWV** | `fcp:hmmwv_armored_m2` (the armed hull; `hmmwv_armored_mk19`, `hmmwv_avenger` and `hmmwv_ambulance` are the other variants) | the gate's armed car, turret on the roof; beside the LAV-150 | SW assembling table, yard tier 2 |
 | **W-B3 The shed** (Act IV) | **UH-60 Black Hawk** | `dragonrise_reforge:uh60` | the heavy helicopter: six seats and cargo, the whole team to the hub | SW assembling table, yard tier 3; the Bell 47 stays as the two-seat scout |
 | **X6 Antenna array** (Act IV, the beacon) | **M3A3 Bradley** | `dragonrise_reforge:m3a3` | the armoured vehicle for the finale's base defence - built, not given | SW assembling table, yard tier 2 (the table exists from tier 2; the blueprint is the gate) |
 
@@ -252,16 +252,16 @@ pack's and are pinned in the recipe file at Phase C.
 |---|---|---|---|
 | 1 | **W-A1 Sidearm** (Act I, after W1) | pistol, pump shotgun; pistol and shotgun ammunition; the salvage rule | gun frame + barrel + trigger group + 4 planks (stock); ammo: 8 casings + 1 powder + 2 metal scrap → 30 rounds (Quick; casings and powder §5.6) |
 | 2 | **W-A2 Plates** (Act I–II, after W3) | scrap vest and helmet (§5.3); rifle ammunition | plate ×4 + duct tape → vest |
-| 2 | **W-A3 Long guns** (Act II, after `novo_defended`) | assault rifle, SMG; iron sights, extended magazine | 2 gun frame + barrel + trigger group + 1 steel frame; attachments: circuit-free, metal scrap and tape |
-| 3 | **W-A4 Precision** (Act III, after W9) | sniper rifle, machine gun; optics, suppressor | + 1 circuit assembly (optics), + 1 **military circuit board** (the machine gun's feed, from Financial Plaza) |
+| 2 | **W-A3 Long guns** (Act II, after `hempcrete_defended` — the stage `novo_defended` became when Novo was deferred and Kessler's foundry moved to the hempcrete compound) | assault rifle, SMG; iron sights, extended magazine | 2 gun frame + barrel + trigger group + 1 steel frame; attachments: circuit-free, metal scrap and tape |
+| 3 | **W-A4 Precision** (Act III, after W9) | sniper rifle, machine gun; optics, suppressor | + 1 circuit assembly (optics), + 1 **military circuit board** (the machine gun's feed, from the plant's switchyard; Financial Plaza is deferred) |
 
 ### 5.3 Armour, tools, packs
 
 | Item | Tier | Recipe | Notes |
 |---|---|---|---|
 | Scrap vest / scrap helmet | 1 (W-A2) | 4 plate + 1 duct tape / 2 plate + 1 cloth | KubeJS armour items, leather-to-chain protection |
-| Plated vest / plated helmet | 2 (after `plant_defended`) | 6 plate + 1 steel frame / 3 plate + 1 steel frame | iron-class |
-| Composite vest / composite helmet | 3 (after `fr06_defended`) | 8 plate + 2 steel frame + 1 **transformer core** / 4 plate + 1 circuit assembly | diamond-class; the core is the FR-06 trip |
+| Plated vest / plated helmet | 2 (after `intake_defended` — the stage `plant_defended` became when the plant's three sites were separated and Oksana's power house moved to the cooling intake works) | 6 plate + 1 steel frame / 3 plate + 1 steel frame | iron-class |
+| Composite vest / composite helmet | 3 (after `turbine_defended` — the stage `fr06_defended` became when FR-06 was deferred and Rook's steel works moved to the turbine hall) | 8 plate + 2 steel frame + 1 **transformer core** / 4 plate + 1 circuit assembly | diamond-class; the core is the turbine-hall trip |
 | Hand tools | 0 (W1) | wrench 3 metal scrap; pliers 2; screwdriver set 2 + 1 planks; hand drill 4 metal scrap + 1 wire spool + 1 duct tape (hand-cranked); welding torch 4 metal scrap + 2 silicone tube (gas torch) — all from the camp's ruins (C2 fix, 2026-09-04) | tools stay in loot as rare finds |
 | Backpacks | Storage 1–4 (W2, W6, W10, W13) | basic: 6 cloth + 2 duct tape; iron: + 4 plate; gold: + 1 steel frame + 1 **heavy anchor cable**; diamond: + 1 **satellite receiver** | Sophisticated Backpacks' own recipes are replaced |
 | Cloth | Quick | 2 wool or 4 string → 1 cloth | the one new Quick item |

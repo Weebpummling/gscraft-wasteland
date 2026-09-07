@@ -274,7 +274,7 @@ friendly fire is off. Team invites happen here once, on the first evening, and n
 
 
 ### 4.8 The gun and the site keepers (the Create fork)
-- **The first gun is the camp's.** G1–G4 happen at Walker's yard and the gun pit on the crater rim (create doc §4,
+- **The first gun is the camp's.** G1–G4 happen at Walker's yard and the gun pit on the mast field's west edge (create doc §4,
   owner 2026-09-05); the sites make it bigger, faster and mobile from G5 on.
 - **Nothing about operating the gun is ours** (owner, 2026-09-05: no direct control, that is not how artillery
   works; the mod's own mechanics, read from Create Big Cannons 5.11.4). A big cannon sits on a **Cannon Mount** that
@@ -288,7 +288,7 @@ friendly fire is off. Team invites happen here once, on the first evening, and n
   Fall of shot is watched by eye and by the players at the lookout on voice; nobody in the game calls corrections.
 - **What we add:** the quest gates; the **gunner's manual** (G5, Vera): a Patchouli range card per gun — pitch and
   charges to range — because the mod ships none; the range rings on the map wall (G5); the keeper's counters.
-- **The site keeper is a survivor** (five of them: Vera at Skadowsky — the residential block in v8 — Kessler, Ilya, Rook, Oksana): same door sign, same right-click for the journal (chapter `S-<site>`), same
+- **The site keeper is a survivor** (five of them: Vera at the Skadowsky hospital, Kessler at the hempcrete compound, Ilya at the plant's switchyard, Rook at its turbine hall, Oksana at its cooling intake works — realigned 2026-09-07): same door sign, same right-click for the journal (chapter `S-<site>`), same
   sneak-click for the counter. The site's core building carries the readout sign: name, tier, what the keeper sells,
   rebuilt with the tier like the camp's door signs.
 - **Ponder is the tutorial.** Casting, boring, building, welding, loading, mounting, firing, fuzing and the

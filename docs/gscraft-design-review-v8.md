@@ -1,5 +1,10 @@
 # GSCraft Wasteland — design review on the final v8 sectors
 
+> **Snapshot, superseded 2026-09-07.** This is what the design looked like on 2026-09-05, when the camp was still on
+> the plateau and the strongpoints were Novo, the Financial Plaza, FR-06 and the industrial district. The camp has
+> since moved into Skadowsky and those four sites are deferred to a later quest line. Read it as a record of that
+> day's review, not as current design; `docs/gscraft-skadowsky-camp.md` is the live document.
+
 2026-09-05. Sources: `gscraft-map-plan-v8.md` (plan), `gscraft-map-design.md` (design), quests, crafting, vendors, camp spec, enemies, finale, loot, onboarding, the Create chapter (create), interface, gaps §E. Distances are straight-line from the camp centre (−1600, −2300); minutes from design §2.5.
 
 ## 1. Verdict

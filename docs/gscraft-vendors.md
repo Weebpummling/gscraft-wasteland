@@ -28,8 +28,9 @@ barters of §5 are the one exception, and each returns a component the team has 
 
 **Emeralds.** They are already the Recruits' hire currency (camp spec §4) and a Valuables small item
 in the loot tables (loot sheet §1); no villager in this world trades (Hostile Villages), so emeralds
-have no other exit. Sources: the Valuables rows (offices, Financial Plaza, the hub, the mud village,
-military chests), the valuables bag (J3), the outpost's cache (R-W1), and selling to vendors.
+have no other exit. Sources: the Valuables rows (the town's offices, the plant's switchyard and admin
+block, the collective farm, military chests — Financial Plaza and the hub are deferred to a later
+quest line), the valuables bag (J3), the outpost's cache (R-W1), and selling to vendors.
 Sinks: buying (Teddy's rockets are the dearest ammunition), hiring recruits. A loot trip's sellable surplus is worth about 10–20 emeralds; a
 rifle costs 40 (§4), so the shortcut is two or three trips of junk — a real choice, not a freebie.
 
@@ -45,7 +46,7 @@ what Tarkov shows: a trader whose stock grows as the relationship does, and a fe
 
 | Vendor | Category | Buys (sink) | LL1 sells | LL2 adds | LL3 adds |
 |---|---|---|---|---|---|
-| **Walker** — the yard | guns, ammunition, tools, armour | hardware, mechanical items, salvage weapons | pistol & shotgun ammunition (daily cap), casings, powder, basic tools, scrap vest/helmet; **pistol, pump shotgun** (after W-A1) | rifle ammunition; **assault rifle, SMG** (after W-A3); plated vest/helmet (after `plant_defended`); basic backpack (after Storage 1) | **sniper, MG** (after W-A4); composite armour (after `fr06_defended`); the Foreman's odd lots: 1 random tool a day |
+| **Walker** — the yard | guns, ammunition, tools, armour | hardware, mechanical items, salvage weapons | pistol & shotgun ammunition (daily cap), casings, powder, basic tools, scrap vest/helmet; **pistol, pump shotgun** (after W-A1) | rifle ammunition; **assault rifle, SMG** (after W-A3); plated vest/helmet (after `intake_defended`, the stage `plant_defended` became when the plant's three sites were separated); basic backpack (after Storage 1) | **sniper, MG** (after W-A4); composite armour (after `turbine_defended`, the stage `fr06_defended` became when FR-06 was deferred and Rook's steel works moved to the turbine hall); the Foreman's odd lots: 1 random tool a day |
 | **Tony** — the clinic | medical | medical items, blood bags | bandages, painkillers, poultice (after T-W1) | med kits (daily cap 4), antiseptic, syringes (the infection cure is free from T1 and never a trade) | blood bags, ration packs, the surgical-kit barter (§5) |
 | **Michael** — the plant | fuel, power, water | filters and chemicals, car batteries | empty fuel cans, coolant | fuel cans (full, daily cap 6), small battery packs, flashlight batteries | medium battery packs, the transformer-core barter (§5) |
 | **Tune** — the shack | electronics, attachments, optics | electrical items, valuables | iron sights, extended magazines, wire spools | optics, suppressor (after W-A4), **night-vision goggles** (§6), flashlight batteries | thermal? **no** — thermal stays vehicle-only (§6); laser sights, the encrypted-radio *decrypt* barter |
@@ -60,11 +61,16 @@ quest page, not a separate counter quest (quests §7C):
 
 | Keeper | Site | Buys | Tier 1 sells | Tier 2 adds | Tier 3 adds |
 |---|---|---|---|---|---|
-| **Vera** — the hospital | Skadowsky (the residential block) | blood bags, medical items | the gunner's manual pages, poultice | bandages, painkillers (a second clinic; the cure is free here too) | train tickets: nothing — the train is a hauler, not fast travel (owner default E12) |
-| **Kessler** — the foundry | Novo | scrap, cast iron | casting sand, cast-iron nuggets | cast-iron ingots (4 a day), blaze cakes | bronze ingots |
-| **Ilya** — the fuze lab | Financial Plaza | valuables, redstone | redstone dust, quartz | impact and timed fuzes | proximity fuzes (2 a day) |
-| **Rook** — the steel works | FR-06 | steel scrap, plates | steel plates | big cartridges (empty) | autocannon barrels (1 a day) |
-| **Oksana** — the power house | the plant | filters, chemicals | boiler water, packed gunpowder | nitrate (H8's input), drill bits | coolant, boiler parts |
+| **Vera** — the hospital | the Skadowsky hospital, x −865…−698 × z −1312…−1242, 0.34 km north of the camp square (Act I) | blood bags, medical items | the gunner's manual pages, poultice | bandages, painkillers (a second clinic; the cure is free here too) | train tickets: nothing — the train is a hauler, not fast travel (owner default E12) |
+| **Kessler** — the foundry | the hempcrete compound, x −3392…−3073 × z −1344…−1025, 2.30 km west over the bridge (Act II) | scrap, cast iron | casting sand, cast-iron nuggets | cast-iron ingots (4 a day), blaze cakes | bronze ingots |
+| **Ilya** — the fuze lab | the plant's switchyard and admin block, centre (−815, 105), 1.09 km (Act III) | valuables, redstone | redstone dust, quartz | impact and timed fuzes | proximity fuzes (2 a day) |
+| **Rook** — the steel works | the plant's turbine hall, centre (400, 590), 2.06 km (Act III) | steel scrap, plates | steel plates | big cartridges (empty) | autocannon barrels (1 a day) |
+| **Oksana** — the power house | the plant's cooling intake works, centre (895, 155), 2.16 km (Act III) | filters, chemicals | boiler water, packed gunpowder | nitrate (H8's input), drill bits | coolant, boiler parts |
+
+Skadowsky itself is **not** a strongpoint and Vera does not keep it: it is the home sector, cleared in
+Act I on the `skadowsky_scouted` → `_looted` → `_held` → `_defended` ladder, which pays out perimeter
+rather than a keeper. The hospital is a different thing in the same sector. The `residential_*` stages
+are renamed `hospital_*` so the two never share a name.
 
 ## 4. Prices (first cut; Phase C tunes against the loot value table)
 
@@ -103,8 +109,8 @@ A few offers take items instead of coin — the vanilla trade UI supports two in
 | Vendor | Give | Get | Why |
 |---|---|---|---|
 | Walker | 4 salvage rifles | 1 assault rifle | the salvage rule in reverse; four broken guns are one working one |
-| Michael | 1 medium battery pack + 2 circuit assemblies + 4 relays | 1 transformer core | a slow second source of FR-06's component between its respawns |
-| Tune | 1 encrypted radio + 1 hard drive | 1 military circuit board | a second route to the transmitter's component between the plaza's respawns |
+| Michael | 1 medium battery pack + 2 circuit assemblies + 4 relays | 1 transformer core | a slow second source of the turbine hall's component between its respawns (it was FR-06's, now deferred) |
+| Tune | 1 encrypted radio + 1 hard drive | 1 military circuit board | a second route to the transmitter's component between the switchyard's respawns (it was the plaza's, now deferred) |
 | Tony | 2 blood bags + 1 med kit | 1 surgical kit | the far-ring item from near-ring loot, once T7 is done |
 | James | 2 folders of documents | 1 site dossier copy | the copy marks the site on the board but completes no quest |
 

@@ -1,8 +1,6 @@
 # GSCraft Wasteland — Where things live on the v8 map
 
-> **Superseded 2026-09-07 — every distance, the three lands, the act table and the five strongpoints.** The camp moved into Skadowsky, just east of the
-> south-west bridge, and the sector's own mast replaced the built radio tower. Read
-> `gscraft-skadowsky-camp.md` first; the coordinates below are the plateau camp and are dead.
+> **Realigned 2026-09-07 — §0 to §6 were rewritten onto the Skadowsky camp.** Authority: `docs/gscraft-skadowsky-camp.md`.
 
 
 Draft 2, 2026-09-05 (draft 1 the same day; owner: O3 confirmed, O6 = the collective farm, the rest confirmed; applied to the parents). A reassessment from the map itself (the current `scratch/worlds/v8-build`, sectors final, edges
@@ -11,7 +9,9 @@ that is nothing like the one the design was written on. Render: `docs/renders/v8
 blue, built magenta, sectors yellow, farmsteads orange, the camp red with 1 / 2 / 3 km rings). Distances "by road" were
 measured on the road network as it stands today (`incoming/census/v8_routes.json`): the pack's roads plus the
 transplants' own, **without** the thirteen step-8 connectors or the camp's gate road, so they are the ceiling, not the
-floor. This was a proposal; §7's decisions were all taken, and the camp move of 2026-09-07 replaced its geography wholesale - see the banner above.
+floor. This was a proposal; §7's decisions were all taken, and the camp move of 2026-09-07 replaced its geography
+wholesale, so §0 to §6 were realigned onto the Skadowsky camp on that date - see the banner above. The render itself
+still draws the plateau camp and its rings and has not been redrawn.
 
 ## 0. The map in three lands
 
@@ -19,123 +19,160 @@ The v8 cell is 5.1 × 4.6 km with the Pripyat pack as its spine, and it reads as
 
 | Land | What is there | How it is reached |
 |---|---|---|
-| **The home bank** (west of the river, north of the plant highway) | the camp on the plateau between the town's east edge and the lake; the **town** (1.85 × 2.25 km of nine-storey blocks, avenues, the stadium, the palace of culture) whose east avenue is 200 m from the camp; the **settlement** 0.5 km south; the **runway** and **library** north along the lake's west shore; the **Woods** (fields and forest with the farmsteads) south of the town | on foot from minute one |
-| **The river line** (north to south, from the lake's outlet to the plant complex) | **Skadowsky** on the east bank right across the river from the settlement; the plant highway's **viaduct** over the river south of Skadowsky; the marsh and the second viaduct further south | one ford (the Line's) and the viaducts |
-| **The far bank** (east of the river and the lake) | the **rail yard** on the lake's north-east shore; the **mega-base** (FR-06) on the lake's east shore; the **industrial district** south of it beside the pack's **plant complex** (the reactor block, turbine hall, cooling towers, switchyard, cooling pond) at the cell's south-east; the rail line running down the east bank from the yard past the district into the plant | by road round the lake's north (4.2 km to the mega-base) or over the viaduct and up the east bank; by boat straight across the lake (2.2 km to the mega-base); by air |
-| **The district** (a fourth pocket, south-west under the ridge) | the cyberpunk district: **Novo**, **Financial Plaza**, **Bio Gen**, the **hub** city walled inside it; the **hempcrete compound** on its north edge | the town's south road, 3 km by road, 2 km straight |
+| **The home bank** (east of the river: the Skadowsky sector, and the bank running south from it) | **Skadowsky** itself — the camp in the pocket east of the south-west bridge, the **hospital** 0.34 km due north, the station, the rail yard and the level crossing; then south down the bank the rail line and road to the pack's **plant complex** (the switchyard and admin block, the turbine hall, the cooling intake works, the confinement hall) | on foot from minute one; the plant's outer works by the road and rail south, its inner works across the marsh channels |
+| **The river line** (the home bank's west edge) | the **south-west bridge**, x −1104…−981, deck z −957…−936 at y 89 over water at y 53 — the camp's west gate and the only crossing on Skadowsky's west side | the bridge, and nothing else on this side |
+| **The far bank** (west of the river) | the **town** (1.85 × 2.25 km of nine-storey blocks, avenues, the stadium, the palace of culture); the **collective farm** at (−2112, −896) and the **Woods** (fields and forest with the farmsteads) south of the town; the **hempcrete compound** further west | over the bridge, with a vehicle: the farm 1.17 km, the town's east avenue 1.52 km, the compound 2.30 km |
+| **The district** (a fourth pocket, south-west under the ridge) | the cyberpunk district: **Novo**, **Financial Plaza**, **Bio Gen**, the **hub** city walled inside it; the **hempcrete compound** on its north edge | **deferred to a later quest line** — no quest points into the district; the hempcrete compound on its north edge is the one piece still in scope |
 
-The camp itself: the town on its doorstep to the west (the first ruins are the town's east blocks, not scattered
-wrecks), the lake to the north and east (the tower pad on its shore), open plateau to the south and the Line's fields
-beyond. Every counterattack therefore comes from the south-east fields, the town's edge or the lake road — never the
-north, which is water.
+The camp itself: the river and its single bridge to the west, the rail embankment and its level crossing to the east,
+the mast and its field inside the perimeter, and the rest of Skadowsky — the town the players are squatting in — north.
+The first ruins are the sector's own buildings, not scattered wrecks. Every counterattack therefore comes over the
+bridge from the west, up the main road east, or along the rail corridor north and south.
 
-### Distances from the camp gate
+### Distances from the camp square (−940, −979)
+
+Straight-line figures are measured from the world spawn at the paved junction. The road network was never re-measured
+from this camp — every "by road" and travel-time figure in draft 2 was taken from the dead plateau, so they are open.
 
 | Objective | Straight | By road today | Walk / car (design §2.5) | Note |
 |---|---|---|---|---|
-| the settlement | 0.62 km | 0.5 km | 2 min / — | the first walk |
-| the town's east avenue | 0.2 km | 0.2 km | 1 min | the first ruins |
-| Skadowsky | 1.40 km | 1.1 km | 4.5 min / 1 min | across the river: the Line's ford |
-| the runway | 1.41 km | 2.2 km | 9 min / 2 min | north along the lake shore |
-| the library | 1.68 km | 4.1 km (a loop) | — / 3 min | needs its connector to be near |
-| the hempcrete compound | 1.98 km | 2.9 km | 11 min / 2.5 min | the district's north edge |
-| Novo | 1.98 km | 3.1 km | 12 min / 2.5 min | the district |
-| Financial Plaza | 2.37 km | (no road yet) ≈ 3.3 km | — / 3 min | the district's west end |
-| Bio Gen | 1.94 km | 3.3 km | — / 3 min | the district's east strip |
-| the hub | 2.42 km | 3.1 km | — / 2.5 min | walled inside the district |
-| the industrial district (the waterworks) | 2.41 km | 3.7 km | — / 3 min | over the viaduct, up the east bank |
-| the mega-base (FR-06) | 2.20 km | 4.2 km | — / 3.5 min by road, **2.2 km by boat** | round the lake, or across it |
-| the plant complex (nearest gate) | 2.9 km | 2.3 km to its west gate, 3.5–4.3 km inside | — / 2–3.5 min | the map's largest ruin |
-| the Woods (nearest point) | 0.9 km | 2.1 km by road, 0.9 km on foot | 4 min | due south |
+| the hospital | 0.34 km | [needs measurement] | [needs measurement] | the first walk, due north inside the sector |
+| the plant switchyard | 1.09 km | [needs measurement] | [needs measurement] | same bank, no water crossed |
+| the collective farm | 1.17 km | [needs measurement] | [needs measurement] | the Line's west end, over the bridge |
+| the town's east avenue | 1.52 km | [needs measurement] | [needs measurement] | over the bridge |
+| the confinement hall | 1.53 km | [needs measurement] | [needs measurement] | Act IV's prize; same bank |
+| the plant turbine hall | 2.06 km | [needs measurement] | [needs measurement] | inside the plant complex |
+| the plant intake works | 2.16 km | [needs measurement] | [needs measurement] | inside the plant complex |
+| the hempcrete compound | 2.30 km | [needs measurement] | [needs measurement] | over the bridge, the district's north edge |
+| the town centre (the central square, −2380, −2975) | 2.46 km | [needs measurement] | [needs measurement] | over the bridge |
+| the runway | 2.85 km | [needs measurement] | [needs measurement] | deferred to a later quest line |
+| the library | 3.16 km | [needs measurement] | [needs measurement] | deferred to a later quest line |
+| Novo | [needs measurement] | [needs measurement] | [needs measurement] | deferred to a later quest line |
+| Financial Plaza | [needs measurement] | [needs measurement] | [needs measurement] | deferred to a later quest line |
+| Bio Gen | [needs measurement] | [needs measurement] | [needs measurement] | deferred to a later quest line |
+| the hub | [needs measurement] | [needs measurement] | [needs measurement] | deferred to a later quest line |
+| the industrial district (the waterworks) | [needs measurement] | [needs measurement] | [needs measurement] | deferred to a later quest line |
+| the mega-base (FR-06) | [needs measurement] | [needs measurement] | [needs measurement] | deferred to a later quest line |
+| the plant complex (nearest gate) | [needs measurement] | [needs measurement] | [needs measurement] | its three sites are listed above; the map's largest ruin |
+| the Woods (nearest point) | [needs measurement] | [needs measurement] | [needs measurement] | over the bridge, south of the town |
+| Skadowsky | — | — | — | home: the camp is inside it |
+| the settlement | — | — | — | gone: its sector is group `removed` and the ground there is 91 % grass |
+
+Within the plant complex: switchyard → turbine hall 1.31 km, turbine hall → intake works 0.66 km, switchyard → intake
+works 1.71 km.
 
 ## 1. Objectives by act
 
 | Act | Land | Objectives | Strongpoint taken | What the act is about |
 |---|---|---|---|---|
-| **I — The doorstep** | the home bank, foot | the camp's ruins and the town's east blocks (introductions), the settlement (J1's first walk, W3's scrap), **the Line** south past the settlement to the river, **Skadowsky** (scout, loot, take, hold) | **Skadowsky** | learning the loop within a five-minute walk; the first counterattack, the lightest |
-| **II — The town and the district** | the home bank, car | the town's landmarks (the re-targeted structure quests: the palace of culture, the tallest block, the central square, the stadium), the runway and the library (north), the hempcrete compound, then the district: **Novo** and **Financial Plaza** with Bio Gen between them, the hub seen through its wall (the Custodian) | **Novo**, then **the plaza** | the first car; two takes in one district; the first gun (G1–G4) cast, bored and fired in the camp |
-| **III — The far bank** | the river line and beyond, truck and boat | the viaduct; **the waterworks** (the industrial district) and **FR-06** (the mega-base); the rail yard and the train (James's J-T1–3: the east-bank spine from the yard past the district into the plant); the lake crossing by boat | **the waterworks**, then **FR-06** | the truck and the boat both earn their keep: the boat is the short way to FR-06, the truck is the only way to the waterworks with a bulky item |
-| **IV — The two far edges** | the district's heart and the plant complex; aircraft | **the hub** (the walled city: the phased array element, the satellite receiver, the Custodian) and **the plant complex** (the reactor block: the reactor control module, the switchyard's transformer core; U-D3's bunker; the cooling towers as the landmark), reached by truck through the plant's west gate or by air over the lake from the runway | — | the tower's last parts; the beacon; the finale at the camp |
+| **I — The town you woke in** | the pocket, then the sector; foot | the buildings around the camp square (the introductions), **Skadowsky** itself scouted, looted, held and defended — the rungs pay perimeter, not a keeper — and north 0.34 km to the **hospital** (J1's first walk, W3's scrap) | **the Skadowsky hospital** | learning the loop inside your own town; the first counterattack, the lightest, fought at the bridge |
+| **II — Over the bridge, and down the bank** | west over the bridge; the east bank south; car | **the Line** west over the bridge to the collective farm (1.17 km), the town's landmarks (the re-targeted structure quests: the palace of culture, the tallest block, the central square, the stadium), the **hempcrete compound**; south down the east bank, the rail line and road to the plant's outer works. The runway and the library, which draft 2 put here, are deferred to a later quest line | **the hempcrete compound** | the first car (the town at 1.52–2.46 km is a car's range, not a walk); the first gun (G1–G4) cast, bored and fired in the camp |
+| **III — The plant complex** | the home bank south, truck and the marsh channels | the plant proper: the **switchyard and admin block** (1.09 km), the **turbine hall** (2.06 km), the **cooling intake works** (2.16 km); the plant's four storage halls at (−888, 167), (−743, 167), (−890, 54) and (−775, 54); the rail line as the bank's spine (James's J-T1–3). The waterworks and FR-06, which draft 2 put here, are deferred to a later quest line | **the switchyard**, then **the turbine hall**, then **the intake works** | one industrial landscape, its three sites 0.66 to 1.71 km apart from each other; the truck and the marsh channels are the gate |
+| **IV — The reactor, and the far bank** | the confinement hall; the bridge west; air | **the confinement hall** (−642, 518, roof y 198): the reactor control module for the gatehouse tier 3 and the antenna array for tower stage 5, 1.53 km away on the camp's own bank, reached by road or by helicopter from the mast field inside the perimeter; then the bridge road west. The hub, with the rest of the district, is deferred to a later quest line | — | the tower's last parts; the beacon; the finale on the mast's field |
 
-The order inside the acts follows the roads: Act II's first stop is the runway (the north road, 2.2 km) or the town
-(on foot), its far stop the plaza; Act III's first take is the waterworks (the viaduct road), its second FR-06 (the
-boat); Act IV's two edges are opposite corners of the map, which is the point.
+The order inside the acts follows the land: Act I is a walk north inside the sector; Act II crosses the one bridge west
+and runs south down the east bank; Act III works the plant complex outward from the switchyard; Act IV's prize sits on
+the home bank, so the bridge road serves it and the helicopter is a shortcut rather than the only way in.
 
 ## 2. The five strongpoints
 
-| Role (design §2.3) | Camp NPC | Sector | Keeper | Why this sector |
-|---|---|---|---|---|
-| Medical — the residential block | Tony | **Skadowsky** (464 × 752, a town with a hospital, a station and a level crossing) | Vera | the only strongpoint in walking range; a town across a river is the right first fight; its hospital is the second revive point; its station and the river make it the Line's end and the train's south terminus later |
-| Heavy industry | Walker | **Novo Expograd Industrial Zone** (144 × 160) | Kessler | the foundry; small, so its assault is fast; the district's east gate |
-| Electronics | Tune | **Financial Plaza + the sewers** (160 × 144) | Ilya | the fuze lab; the district's west end, so the two district takes bracket the hub |
-| Fuel and water | Michael | **The industrial district — "the waterworks"** (464 × 272), beside the plant complex | Oksana | the power house and boring mill next to the real power plant; the first far-bank take, on the viaduct road; the train's yard is a road away |
-| Power and hangar | Michael | **The mega-base — FR-06** (384 × 528), the lake's east shore | Rook | the steel works; reached by boat across the lake or by the rail-yard road; its hangar faces the runway across the water, which is why the aircraft's first flight is the lake |
+| Role (design §2.3) | Camp NPC | Site | Keeper | Centre | From camp | Act | Why this site |
+|---|---|---|---|---|---|---|---|
+| Medical — the hospital | Tony | **the Skadowsky hospital** (x −865…−698 × z −1312…−1242, roof y 115, ground y 64) | Vera | −782, −1277 | 0.34 km | I | inside the home sector but not the camp: it holds 372 of the sector's 425 white stained glass blocks and 935 of its 1,785 bone blocks — the morgue and the mass grave of a quarantine that failed. Act I is a walk north through your own town to the building at the end of it; it is the second revive point |
+| Electronics | Tune | **the plant's switchyard and admin block** | Ilya | −815, 105 | 1.09 km | III | relays and transformers, so the transmitter comes off the site that is thematically exact; the nearest of the three plant sites |
+| Power | Michael | **the plant's turbine hall** | Rook | 400, 590 | 2.06 km | III | the generators themselves; 1.31 km deeper into the plant than the switchyard |
+| Fuel and water | Michael | **the plant's cooling intake works** | Oksana | 895, 155 | 2.16 km | III | cooling water; the marsh channels are its gate, and the truck is the only way in with a bulky item |
+| Heavy industry | Walker | **the hempcrete compound** (x −3392…−3073 × z −1344…−1025) | Kessler | −3233, −1185 | 2.30 km | II | the one walled holdout across the river; the far end of Act II's drive west, and the only strongpoint that crosses the bridge |
 
-Rejected alternatives, for the record: the hub as a strongpoint (too large to hold, and it is the Act IV prize);
-the settlement as the first strongpoint (0.5 km is a loot walk, not a take); the mega-base as the fuel-and-water site
-(it is on the wrong side of the lake from the waterworks' road, and its hangar is what the runway needs).
+**Skadowsky is the home sector, not a strongpoint.** It is the starting zone and becomes the camp by being cleared, so
+it is never "the residential block", never a distant objective across a river; the `residential_*` stages are renamed
+`hospital_*` to stop the sector and the strongpoint sharing a name. The **confinement hall** (−642, 518, roof y 198) is
+not a strongpoint either: it is Act IV's prize, the reactor control module and the antenna array, which keeps the map's
+largest ruin as the finale's source rather than one more take.
+
+Draft 2's other four sites are deferred, not rejected: **Novo Expograd Industrial Zone** (heavy industry), **Financial
+Plaza and the sewers** (electronics), **the industrial district, "the waterworks"** (fuel and water) and **the mega-base,
+FR-06** (power) all sit outside the routing rule and wait with the rest of the district for a later quest line, along
+with the hub, the runway and the library. The settlement, once floated as a first strongpoint, is gone from the map.
 
 ## 3. The loot sites and the ruin field
 
 | Site | Act | Role (loot doc §5) | Where it sits |
 |---|---|---|---|
-| the settlement | I | the first walk's hardware, W3's scrap, J1's location | 0.5 km south, on the Line |
-| **the town** | I–II | the ruin field: every "generated structure" quest re-targeted here (design §2.7); the palace of culture (U-A1's cellar), the tallest block (W-A6's roof boss), the central square (J-C1), the four microdistricts (J9), the swimming pool (the prismarine hall's role), the hotel (the glass tower's), the bus depot (the stone complex's: W-A5, H3, gunpowder) | west, from the camp's doorstep to 2.5 km |
-| the runway, the library | II | the aircraft's home; the library's folders (J5) | north along the lake shore |
-| the hempcrete compound | II | a walled survivor holdout: medical, hardware, the first seeds (loot §5) | the district's north edge |
-| **the collective farm** | I–II | the pack's fields south of the town (x −2700…−1900, z −1350…−700) with the farmstead at (−2112, −896) as its yard: the farm role (D3's seeds and bowls, D5's crops) — the world scan found no farmland in the pack, only the town's composters, so the fields are the farm and the dressing pass plants them | between the town and the Woods, 1.5 km |
-| Bio Gen | II | T7's surgical kit, medical analyzers | the district's east strip |
-| the sewers | III | U6's kill task, the encrypted radio | under the plaza |
-| the rail yard | III | the train (Create track, the depot, the schedule block); a loot stop on the north road | the lake's north-east shore |
-| the Woods and the 29 farmsteads | I–IV | Teddy, the bunkers, the fog house, the outpost (design §2.7); a farmstead every 150 m on every road | south of the town, and everywhere |
-| **the hub** | IV | the hub items (phased array element, satellite receiver), the Custodian, the mechs | walled in the district |
-| **the plant complex** | IV | the reactor control module (moved here from FR-06 — §7), the transformer core's second source, U-D3's bunker, the power filters (loot §6), the switchyard, the cooling pond | the south-east corner, the map's largest ruin |
+| **the Skadowsky sector** | I | the first loot field: the buildings around the camp square, the streets north, the station, the rail yard and the level crossing. The introductions' hand-ins come out of them — `camp_ruins.py`, its 24 wrecks and the four `ruins/*` tables are retired, because a 464 × 752 town with a hospital, a station and a level crossing has plenty to loot without inventing wrecks | around the camp, from the square outward |
+| the hospital | I | the medical strongpoint's own loot: the morgue and the mass grave (372 white stained glass blocks, 935 bone blocks) | 0.34 km due north of the camp square |
+| the settlement | — | W3's scrap and J1's first walk move to the sector and the hospital | **gone**: its sector is group `removed` and the ground there is 91 % grass |
+| **the town** | II | the ruin field: every "generated structure" quest re-targeted here (design §2.7); the palace of culture (U-A1's cellar, the broad civic block at (−2650, −2889)), the tallest block (W-A6's roof boss — any of the 4,044 columns at y 118 or above), the central square (J-C1, the park with the radiating avenues at (−2380, −2975)), the four microdistricts (J9) at (−2088, −1967), (−1937, −2184), (−2337, −1791) and (−2350, −2289), the stadium (−2395, −3482), the swimming pool (the prismarine hall's role), the hotel (the glass tower's), the bus depot (the stone complex's: W-A5, H3). The stone complex that held the gunpowder is gone from the v8 map: gunpowder now comes from the town's military chests and the plant complex's four storage halls | west over the bridge, 1.52 km to the east avenue, 2.46 km to the centre |
+| the runway, the library | — | the library's folders (J5) wait with it. The aircraft no longer needs the runway: it is rotary and lifts from the mast field inside the camp perimeter, and `runway_lights` and the pad are retired with `camp_ruins` | **deferred to a later quest line**; 2.85 km and 3.16 km from the camp square |
+| the hempcrete compound | II | a walled survivor holdout: medical, hardware, the first seeds (loot §5); Walker's heavy-industry strongpoint | west over the bridge, 2.30 km, the district's north edge |
+| **the collective farm** | II | the pack's fields south of the town (x −2700…−1900, z −1350…−700) with the farmstead at (−2112, −896) as its yard: the farm role (D3's seeds and bowls, D5's crops) — the world scan found no farmland in the pack, only the town's composters, so the fields are the farm and the dressing pass plants them. It is now the Line's destination, L6's switching station becoming its own substation | west over the bridge, 1.17 km: the Line's west end |
+| Bio Gen | — | T7's surgical kit and the medical analyzers wait with it | **deferred to a later quest line**, the district's east strip |
+| the sewers | — | U6's kill task and the encrypted radio wait with Financial Plaza | **deferred to a later quest line**, under the plaza |
+| the rail yard | I–II | the train (Create track, the depot, the schedule block); a loot stop inside the home sector, and the head of the east-bank spine south | in the Skadowsky sector, on the rail corridor east of the camp; the level crossing is the camp's east gate |
+| the Woods and the 29 farmsteads | II–IV | Teddy, the bunkers, the fog house, the outpost (design §2.7); a farmstead every 150 m on every road | west over the bridge, south of the town, and everywhere |
+| **the hub** | — | the hub items (phased array element, satellite receiver), the Custodian and the mechs wait with it; tower stage 5's array now comes from the confinement hall | **deferred to a later quest line**, walled in the district |
+| **the plant complex** | III–IV | the switchyard, the turbine hall, the intake works, the four storage halls at (−888, 167), (−743, 167), (−890, 54) and (−775, 54) (gunpowder), the transformer core's second source, U-D3's bunker, the power filters (loot §6), the cooling pond; and the confinement hall, Act IV's prize: the reactor control module and the antenna array | the south-east, on Skadowsky's own bank — no water crossed: the switchyard 1.09 km, the confinement hall 1.53 km, the turbine hall 2.06 km, the intake works 2.16 km |
 
 ## 4. The tower's parts, by site
 
 | Stage | Part | Component | From |
 |---|---|---|---|
-| 1 | Mast | heavy diesel engine | Novo |
-| 2 | Cooling | purification membrane | the waterworks |
-| 3 | Generator | (FR-06's) | FR-06 |
-| 4 | Transmitter | military circuit board | Financial Plaza |
-| 5 | Array | phased array element, satellite receiver | the hub |
-| the gatehouse tier 3 | reactor control module | **the plant complex's control room** (was FR-06) |
+| 1 | Mast | the Mast section kit (quest X2 unchanged) | **Skadowsky** — the mast at (−808, −1008) already stands; stage 1 repairs the cut lattice section so it can be climbed, rather than erecting a mast to 64 |
+| 2 | Cooling | purification membrane | the plant's cooling intake works |
+| 3 | Generator | the generator kit | the plant's turbine hall |
+| 4 | Transmitter | military circuit board | the plant's switchyard and admin block |
+| 5 | Array | phased array element, satellite receiver | the confinement hall |
+| — | the gatehouse tier 3 (not a tower stage) | reactor control module | **the confinement hall** (−642, 518, roof y 198) |
 
-One change: the reactor control module comes from the reactor building of the real plant, not from a base on the lake.
-It gives Act IV a second edge and the plant complex a reason to exist beyond a bunker.
+The parts follow the strongpoint order: the mast repair from Skadowsky, the transmitter from the switchyard, the
+generator from the turbine hall, the cooling loop from the intake works, the array from the confinement hall. Stages 2
+to 5 are unchanged in count, gating and reward — only stage 1's fiction changes, because a dead mast still needs
+everything the other four stages add. The stage numbers and that site order do not run in step, which costs nothing:
+the three plant sites are all Act III and can be taken in any order.
+
+Both of Act IV's inputs, the array and the reactor control module, come out of the confinement hall rather than a base
+on the lake. That keeps the map's largest ruin as the finale's source and gives the plant complex a reason to exist
+beyond a bunker.
 
 ## 5. The crossings and roads the objectives need (for the map session)
 
 | # | What | Where | Serves |
 |---|---|---|---|
-| C1 | **The Line's ford** — the carved river's rapids are the natural place | between the settlement and Skadowsky's north-west corner, on the channel from the lake's outlet | Act I |
-| C2 | the camp's gate road to the lake-shore road (step 8) | Marshall's gate, east | everything |
-| C3 | the Skadowsky connectors (`skad_W`, `skad_E` in the step-8 list) and the viaduct road | the plant highway | Acts I and III |
-| C4 | the north road: camp → lake's west shore → the runway and the library (their connectors, `lib`'s loop is 4.1 km today) | north | Act II |
-| C5 | the district road: the town's south road → the hempcrete compound → Novo → Bio Gen → the plaza (`plaza_E`, `biogen_S`, `hemp_E`, `hub_N/S`); the plaza has **no road at all** today | south-west | Acts II and IV |
-| C6 | the east-bank road: the viaduct → the waterworks → FR-06 → the rail yard (`indu_N/E`, `mega_N`), and the rail-yard road round the lake's north-east | east | Act III |
-| C7 | a boat landing on each side of the lake (the camp's shore, FR-06's shore) | the lake | Act III |
-| C8 | the plant complex's west gate road from the highway | south-east | Act IV |
+| C1 | **The Line's crossing is the south-west bridge.** The Line runs west over it to the collective farm at (−2112, −896), 1.17 km; its old ford between the settlement and Skadowsky is dead at both ends and its old destination is gone | the bridge: x −1104…−981, deck z −957…−936 at y 89, water at y 53 | Act II |
+| C2 | the camp's gates: the bridge is the west gate, with Marshall's gatehouse at its east end (x −978…−955 × z −955…−940); the rail embankment's level crossing is the east gate; the paved junction at (−940, −979) is the road they meet on | the pocket | everything |
+| C3 | the road and rail south down the east bank to the plant's outer works | the home bank, south | Acts II and III |
+| C4 | the north road: the camp square → the hospital, 0.34 km, the first walk out and entirely inside the sector. (This was the road to the runway and the library; both are deferred to a later quest line and their connectors wait with them) | north, inside Skadowsky | Act I |
+| C5 | the district road: the bridge → the town's south road → the hempcrete compound. Novo, Bio Gen, the plaza and the hub are deferred to a later quest line, so only the compound's leg is needed now; the plaza still has **no road at all** | west over the bridge, then south-west | Act II |
+| C6 | the east-bank spine: the sector's rail yard south down the bank into the plant complex. The viaduct road to the waterworks, FR-06 and the lake road are deferred with the district | the home bank, south | Acts II and III |
+| C7 | boat landings wait with FR-06 in the deferred quest line. Nothing on the critical path needs a boat: a straight line from the camp to the confinement hall crosses no water, and Act III's water is the plant's marsh channels | the plant's marsh | Act III |
+| C8 | the plant complex's west gate road from the highway | south-east | Acts III and IV |
 
 ## 6. What this does to the systems
 
-- **Difficulty by land, not by ring.** Every site but Skadowsky is 2.0–2.4 km straight from the camp, so Improved
-  Mobs' distance rings cannot separate the acts. Difficulty follows the land: home bank light, the district and the
-  north medium, the far bank hard, the two edges hardest — In Control `areas.json` per land (mod audit win 3), with
-  Improved Mobs' distance curve flattened to two steps (inside 1.5 km, beyond).
-- **The counterattacks' entry points** are the south-east fields (from Skadowsky and the waterworks), the town's
-  east avenue (from the district) and the lake road (from FR-06 and the plant); the wave's origin tells the players
-  which site is attacking before the board does.
-- **Vehicles earn their place:** the car for the district (Act II), the truck for the viaduct and the waterworks
-  (Act III, a bulky item), the boat for FR-06 across the lake (Act III), the aircraft for the plant complex over the
-  lake and for the hub's roof (Act IV). Design §2.5's travel table stands; the routes above are what it prices.
-- **The train** is the far bank's spine, not fast travel: the rail yard to the waterworks to the plant complex, hauling
-  the far bank's bulk (steel, boiler parts, the reactor module) to the boat landing.
+- **Difficulty by land, not by ring.** The sites now run from 0.34 km (the hospital) to 2.30 km (the hempcrete
+  compound), but that spread still cannot carry four acts: three of the five strongpoints sit inside the plant complex
+  between 1.09 and 2.16 km, and Act IV's confinement hall at 1.53 km is nearer than two Act III sites. So Improved
+  Mobs' distance rings cannot separate the acts. Difficulty follows the land: the home sector light, the east bank
+  south and the far bank over the bridge medium, the plant complex hard, the confinement hall hardest — In Control
+  `areas.json` per land (mod audit win 3), with Improved Mobs' distance curve flattened to two steps (inside 1.5 km,
+  beyond).
+- **The counterattacks' entry points** are the bridge from the west, the main road east, and the rail corridor north
+  and south; the wave's origin tells the players which approach is live before the board does. All three are inside
+  the camp perimeter's own ground, so the fight is at the gate rather than out in the fields.
+- **Vehicles earn their place:** the car for Act II (the bridge, the farm at 1.17 km, the town at 1.52–2.46 km — a
+  car's range, not a walk), the truck for Act III (the plant's outer works and the marsh channels, and the only way
+  home with a bulky item), the helicopter for Act IV. The aircraft is rotary and lifts from the mast field inside the
+  camp perimeter, so no airfield is needed and `runway_lights` and the runway pad are retired; the boat waits with
+  FR-06 in the deferred quest line. Design §2.5's travel table stands; the routes above are what it prices.
+- **The train** is the home bank's spine, not fast travel: the sector's rail yard south down the east bank into the
+  plant complex, hauling the bulk (steel, boiler parts, the reactor module) back to the camp.
 
 ## 7. What changes in the documents, and the owner's decisions
 
-Applied 2026-09-05 (owner's rulings: O3 and O6 as marked, the rest confirmed):
+Applied 2026-09-05 (owner's rulings: O3 and O6 as marked, the rest confirmed). This table is the record of what was
+decided that day and is left as it was written; where a row disagrees with §0 to §6 above, the realigned section is the
+live text. O1's act names, O2's camp wrecks, O3's FR-06 generator, O5's Act III order and O8's boat landings were all
+overtaken by the camp move of 2026-09-07.
 
 | # | Change | Docs | Decision |
 |---|---|---|---|

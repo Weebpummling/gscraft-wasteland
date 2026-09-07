@@ -1,8 +1,21 @@
 """Radio tower model as progressive repair stages.
 
+**Needs rework, 2026-09-07.** The camp moved into Skadowsky and the radio tower is no longer a thing
+this tool builds: the sector already has a standing mast at (-808, -1008), 71 blocks from the ground to
+the end rod at its tip, on a building whose roof is y 104. It is dead, not absent. So stage 0 is no
+longer "a ruined plinth, leg stubs and a wrecked hall" and stage 1 is no longer "erect a lattice mast
+to 64" - it is "repair the cut lattice section so the mast can be climbed", the same Mast section kit
+behind the same quest X2. Stages 2 to 5 (cooling, generator, transmitter, array) are unchanged in
+count, gating and reward. See docs/gscraft-skadowsky-camp.md section 4.
+
+The pad constants below have been moved off the dead plateau onto the mast's field so nothing here
+points at coordinates that no longer mean anything, but the stage 0 and stage 1 GEOMETRY is still the
+old free-standing mast and has to be re-modelled against the mast that is actually there. Until that is
+done, do not run `tower.py build` against the world.
+
 Builds the radio-tower compound block by block and writes it as vanilla structure templates, one per
 repair stage, so the quest reward for installing a part is a single `/place template` and the tower
-visibly grows in the world. Stage 0 is the ruin the players find; stages 1-5 each add one part.
+visibly grows in the world.
 
 usage:
   tower.py build                 write the templates + functions into build/datapacks/gscraft and render
@@ -29,8 +42,9 @@ DATAPACK = ROOT / "build" / "datapacks" / "gscraft" / "data" / "gscraft"
 DATA_VERSION = 3465                                   # 1.20.1
 
 # ------------------------------------------------------------------ placement in the world
-PAD = (64, -144, 191, -17)                             # radio tower pad IN THE CAMP (north-east corner), blocks (x0 z0 x1 z1), pad level y 99
-GROUND_Y = 99
+PAD = (-840, -1040, -770, -960)                        # the mast's field, the tower compound in the Skadowsky camp
+MAST = (-808, -1008)                                   # the standing mast; its building's roof is y 104, tip y 137
+GROUND_Y = 63                                          # the field's ground; the mast itself starts on the roof at 104
 SIZE = (41, 90, 41)                                   # template box W H D; local (20, *, 20) is the mast centre
 ORIGIN = ((PAD[0] + PAD[2]) // 2 - SIZE[0] // 2, GROUND_Y + 1, (PAD[1] + PAD[3]) // 2 - SIZE[2] // 2)
 CX, CZ = 20, 20

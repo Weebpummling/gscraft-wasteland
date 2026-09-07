@@ -10,6 +10,11 @@ deferred to a later quest line.*
 earlier document. This doc supersedes design §2.2 (the camp), §7 (the radio tower), §2.6 (the Line) and the
 strongpoint table of `gscraft-objectives-v8.md` §2. Section 10 lists every correction other documents need.*
 
+*Re-verified 2026-09-07 against the region files themselves. Four figures in the first draft were wrong and have
+been corrected in place: the bridge deck height and its clearance, the north complex's bed count, the shape of
+the south complex, and the hospital's glass and bone counts. Everything else re-measured as written, including
+the mast's whole column and the hospital roof at y 115.*
+
 ---
 
 ## 1. Why now, and what it costs
@@ -25,10 +30,10 @@ structure templates and 24 datapack functions.
 
 | Feature | Extent | Ground | Notes |
 |---|---|---|---|
-| The south-west bridge | x −1085…−970, deck z ≈ −947 | y 94 deck | railed truss, 38 blocks above the water; the only crossing on Skadowsky's west side |
-| North complex | x −966…−898, z −1090…−1000 (69 × 91) | y 63 | stone and iron railings; **holds 44 beds already** |
+| The south-west bridge | x −1104…−981, deck z −957…−936 | y 89 deck | stone-brick masonry, iron railings, truss sides to y 94; water at y 53, so the deck stands 36 blocks above it; the only crossing on Skadowsky's west side |
+| North complex | x −966…−898, z −1090…−1000 (69 × 91) | y 63 | stone and iron railings; **holds 24 beds already** (48 bed blocks, x −956…−933 × z −1033…−1006, y 63–71) |
 | Paved junction | x −962…−918, z −996…−962 (45 × 35) | y 65 | stone, andesite and gravel; already hard surface |
-| South complex | x −978…−922, z −900…−822 (57 × 79) | y 66 | polished deepslate hall, 52 × 24, the largest single room |
+| South complex | x −978…−922, z −900…−822 (57 × 79) | y 66 | two buildings, not one hall: a brick block 15 × 39 at x −938…−924 × z −869…−831, roof y 85, and a deepslate-trimmed structure west of it at x −971…−937 × z −893…−822 whose polished deepslate sits on the upper floors, y 74–84 |
 | The pocket | x −978…−902, z −1000…−900 (77 × 101) | y 66 | river west, rail embankment east |
 | The mast | −808, −1008 | y 66 | 71 blocks tall, tip y 137, aviation light on top |
 | The mast's field | x −840…−770, z −1040…−960 (71 × 81) | y 62 | 78 % open grass, easy ground to wall |
@@ -42,18 +47,23 @@ as a one-ramp pit; this is a one-bridge isthmus.
 
 ## 3. The camp
 
-**Perimeter:** x −978…−770, z −1040…−900 (209 × 141). That takes in the pocket, the mast and its field, and
-crosses the rail embankment, whose level crossing becomes the east gate. It is about a third of the plateau
-camp's 400 × 400, because the buildings already exist and do not need spacing out.
+**Perimeter:** x −978…−770, z −1060…−845 (209 × 216). That takes in the pocket, both building complexes, the
+mast and its field, and crosses the rail embankment, whose level crossing becomes the east gate. It is about
+half the plateau camp's 400 × 400, because the buildings already exist and do not need spacing out.
+
+*(Corrected 2026-09-07. The first draft read z −1040…−900, which left Tony's clinic outside to the north and
+Walker's yard and Michael's plant outside to the south — three of the eight rectangles below fell outside
+their own perimeter. The box above is the bounding box of all eight, and it is 99.3 % dry: 308 water columns
+of 45,144, all of them the river edge on the west.)*
 
 **World spawn:** the paved junction, (−940, −979). It is already hard surface and it faces the bridge.
 
 | Function | Where | Why there |
 |---|---|---|
 | Marshall — the gatehouse | the bridge's east end, x −978…−955 × z −955…−940 | every trip west crosses him, which is the role design §2.2 gives him |
-| Tony — the clinic | the north complex, x −966…−930 × z −1060…−1020 | 44 beds are already in this building |
+| Tony — the clinic | the north complex, x −966…−930 × z −1060…−1020 | 24 beds are already in this building |
 | Tune — the radio shack | the north complex's east end, x −925…−905 × z −1040…−1020 | nearest the mast, with line of sight to it |
-| Walker — the yard | the south complex, x −975…−940 × z −880…−845 | the deepslate hall is already a workshop shape |
+| Walker — the yard | the south complex, x −975…−940 × z −880…−845 | the deepslate-trimmed structure gives a walled yard with standing floors |
 | Michael — the plant | the south complex's east side, x −938…−910 × z −900…−870 | beside the yard, off the square |
 | James — the lookout | the rail embankment's signal box, x −905…−897 × z −975…−967 | it already overlooks both approaches |
 | The gun pit | the mast field's west edge, x −846…−835 × z −1000…−989 | fires east over 70 blocks of open grass |
@@ -118,9 +128,10 @@ north and south. Three, the same count the plateau had, but the west approach is
 The sector is 464 × 752, which is room enough for the camp and a strongpoint that is not the camp.
 
 **The medical strongpoint is the hospital at x −865…−698 × z −1312…−1242** (168 × 71, roof y 115, ground y 64).
-It was identified from the world, not guessed: it is the only building in the sector with white stained glass
-(144 blocks, concentrated at −824, −1272 and −808, −1272) and it holds **1,785 bone blocks**, which read as the
-morgue and the mass grave of a quarantine that failed.
+It was identified from the world, not guessed: it holds **372 of the sector's 425 white stained glass blocks**
+and **935 of its 1,785 bone blocks**, which read as the morgue and the mass grave of a quarantine that failed.
+(An earlier draft of this table read 144 and 1,785 for the building; the second figure was the whole sector's
+count, and the sector has white stained glass in one other place, so "the only building with it" was wrong.)
 
 It is 363 m due north of the camp square, so Act I is a walk north through your own town to the building at the
 end of it. Tony's chain and keeper Vera move here unchanged. `residential_*` stages should be renamed
@@ -165,19 +176,24 @@ served. The bridge is the way out to everything else. That is the Pripyat story 
 
 **The distance ordering inverts against the old camp.**
 
-| Objective | From the plateau | From Skadowsky |
+| Objective | From the plateau | From the camp square |
 |---|---|---|
-| the hospital (medical) | — | 0.36 km |
-| the settlement | 0.41 km | 0.95 km |
-| the plant switchyard | — | 1.06 km |
+| the hospital (medical) | — | 0.34 km |
+| the collective farm | — | 1.17 km |
+| the plant switchyard | — | 1.09 km |
 | the town's east avenue | 0.47 km | 1.52 km |
-| the plant confinement hall | — | 1.50 km |
-| the plant turbine hall | — | 2.04 km |
-| the plant intake works | 2.15 km | 2.14 km |
-| the hempcrete compound | 2.16 km | 2.31 km |
-| the town centre | 1.36 km | 2.38 km |
-| the runway | 1.54 km | 2.88 km |
-| the library | 1.88 km | 3.18 km |
+| the plant confinement hall | — | 1.53 km |
+| the plant turbine hall | — | 2.06 km |
+| the plant intake works | 2.15 km | 2.16 km |
+| the hempcrete compound | 2.16 km | 2.30 km |
+| the town centre (the central square, −2380, −2975) | 1.36 km | 2.46 km |
+| the runway (deferred) | 1.54 km | 2.85 km |
+| the library (deferred) | 1.88 km | 3.16 km |
+
+*(Re-measured 2026-09-07 from the world spawn at the paved junction, (−940, −979). The first draft's
+right-hand column was a few tens of metres out because it never named its anchor, and its settlement row
+has been replaced by the collective farm: the settlement sector is group `removed` and the ground there is
+bare grass.)*
 
 This matters less than it looks. `gscraft-objectives-v8.md` §6 already abandoned distance as the act gate:
 every site but Skadowsky sat 2.0 to 2.4 km from the plateau, the Improved Mobs rings could not separate the
@@ -188,9 +204,9 @@ acts, and difficulty was moved onto the land. Under land gating the shape holds.
 | Act | Where | Gate |
 |---|---|---|
 | I — the town you woke in | the pocket, then north to the hospital | on foot, inside the sector |
-| II — the line south | the rail line and road down the east bank to the plant's outer works | the first vehicle |
+| II — the line south, and the first crossing | the rail line and road down the east bank to the plant's outer works; west over the bridge to the collective farm and the hempcrete compound | the first vehicle |
 | III — the station | the plant complex proper: turbine hall, intake works | the truck, the marsh channels |
-| IV — the reactor, and across the river | the confinement hall; the bridge west to the town and the hempcrete compound | air, or the bridge road |
+| IV — the reactor | the confinement hall, and the town across the river | air, or the bridge road |
 
 **The five strongpoints, re-homed inside the scope:**
 
@@ -284,7 +300,7 @@ away from home instead of toward it, which is the right shape for Act II.
 ### 11.3 The car stays in Act II
 
 Act II runs west over the bridge to the farm and the town, and south down the east bank to the plant's
-outer works. The town centre is 2.38 km and the town's east avenue 1.52 km. That is a car's range and
+outer works. The town centre is 2.46 km and the town's east avenue 1.52 km. That is a car's range and
 not a walk, so Walker's garage chain keeps its act. No change.
 
 ### 11.4 Three strongpoints in the plant complex is correct
@@ -316,9 +332,14 @@ The confinement hall at (−642, 518), roof y 198, is **not** a strongpoint. It 
 reactor control module for the gatehouse tier 3 and the antenna array for tower stage 5. That keeps the
 map's largest ruin as the finale's source rather than one more take.
 
-The tower's five parts follow the same order: the mast repair from Skadowsky, the transmitter from the
-switchyard, the generator kit from the turbine hall, the cooling loop from the intake works, and the
-array from the confinement hall.
+The tower's five parts come from the sites in this order: the mast repair from Skadowsky, the transmitter
+from the switchyard, the generator kit from the turbine hall, the cooling loop from the intake works, and
+the array from the confinement hall.
+
+Note that this is the order the parts are *found* in, not the order the stages are *installed* in: section
+4 keeps stages 2 to 5 as cooling, generator, transmitter, array. The two do not run in step, and they do
+not need to, because all three plant sites belong to Act III and a part can sit in the rack until its
+stage comes up.
 
 ### 11.5 Gunpowder's source (gaps ledger F11)
 

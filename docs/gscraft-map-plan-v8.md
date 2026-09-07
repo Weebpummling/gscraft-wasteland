@@ -1,8 +1,7 @@
 # GSCraft Wasteland — map v8 plan (roads and terrain first)
 
-> **Superseded 2026-09-07 — the camp.** The camp, the tower pad and the world spawn moved into Skadowsky,
-> east of the south-west bridge. Every plateau rectangle in this document is dead; nothing was ever built on
-> them. Read `gscraft-skadowsky-camp.md`.
+> **Realigned 2026-09-07 — the camp.** Sections 2, 3, 4, 5 and 9 were corrected in place to the camp's site in
+> Skadowsky, east of the south-west bridge. See `docs/gscraft-skadowsky-camp.md`.
 
 
 Owner's order of work (2026-09-04), after v7's flight: the map is redesigned from the ground up, denser and smaller
@@ -64,7 +63,7 @@ steeper than 1:8 and the town and plant edges never see a wall.
 
 | Zone | Where (blocks) | Heights | Purpose |
 |---|---|---|---|
-| A  Camp plateau | the open land between the town's east edge and the lake, about x -2150..-1250, z -2700..-2000 | 84-90, a basin cut down to the lake level (63) at its centre for the crater lake and the Warium island; slopes 1:6 to the town side, a bluff to the lake | the camp overlooks both the town and the water; the only high ground in the middle of the map |
+| A  The east plateau | the open land between the town's east edge and the lake, about x -2150..-1250, z -2700..-2000 | 84-90, a basin cut down to the lake level (63) at its centre; slopes 1:6 to the town side, a bluff to the lake | the only high ground in the middle of the map. It was built and it still stands as terrain, but nothing was ever built on it: there is no crater lake and no Warium island, and the camp is in Skadowsky (section 9) |
 | B  West ridge | the western strip x -4000..-3450, from z -2600 south to the border | 95-105, a continuous wall with two saddles at 88 where roads cross | the map's western edge reads as a wall, not a fence |
 | C  The Woods | the forest and fields south of the town, x -3400..-1600, z -1400..100 | 66-74 rolling, dense trees, a stream at 63 running north to the river | the wilderness zone of the design |
 | D  Rolling fields | the open land east of the town and around the lake's south shore, and the strip north of the town (D2) | 65-72, folds of 2-4 blocks over 100 m | ground for the placed sectors (Skadowsky, Novo, plaza, settlement, runway) |
@@ -88,9 +87,10 @@ water, building, tree, bare) and `tools/heightplan.py`, which authors the relief
 
 Results (seed 7): 18.3 % of the cell's columns are fixed (roads, rail, water, buildings, with a 24-block apron); 8.6 M
 columns move, 53 M blocks of fill and 8.9 M of cut, almost all of it the west ridge (mean 94.6, top 103). Existing
-hills - the pack has a low rise of 70-77 inside the river bend - are kept and the relief adds to them. The camp plateau
-zone comes out low (mean 72, top 88) because scattered sheds inside it pin their surroundings; the camp sector's own
-grade shapes that ground when it is placed, so this is accepted. Woods 65-77 (mean 68), fields 61-74. Renders:
+hills - the pack has a low rise of 70-77 inside the river bend - are kept and the relief adds to them. The east plateau
+zone (A) comes out low (mean 72, top 88) because scattered sheds inside it pin their surroundings; no camp sector is
+placed there to grade that ground, so the relief stands as it was built, and stands empty (section 9).
+Woods 65-77 (mean 68), fields 61-74. Renders:
 `incoming/census/heightplan/height_preview.png`, statistics in `height_stats.txt`.
 
 Road network (`tools/roadnet.py`): 158 km of road centre line extracted from the blocks - the town's grid and ring road,
@@ -127,7 +127,7 @@ north-south trunk, a spine along the builds' east flank, and a mid-district link
 
 | Build | Group | Position (blocks) | Footprint | m to a road |
 |---|---|---|---|---|
-| Camp | camp | x -1792..-1409, z -2492..-2109 | 384 x 384 | - |
+| Camp | camp | x -978..-770, z -1060..-845 | 209 x 216 | - |
 | Novo Expograd hub (desert city) | cyber | x -3568..-2385, z -1008..700 | 1184 x 1709 | 40 |
 | Financial Plaza + sewers | cyber | x -2352..-2193, z -1008..-865 | 160 x 144 | 72 |
 | Novo Expograd Industrial Zone | cyber | x -2352..-2209, z -832..-673 | 144 x 160 | 82 |
@@ -138,6 +138,18 @@ north-south trunk, a spine along the builds' east flank, and a mid-district link
 | Hempcrete compound | player | x -3392..-3073, z -1344..-1025 | 320 x 320 | 68 |
 | Library | player | x -2480..-2385, z -3808..-3713 | 96 x 96 | 96 |
 | Runway (pad) | pad | x -2064..-1553, z -3792..-3601 | 512 x 192 | 58 |
+
+**2026-09-07, the camp row.** The camp moved off the east plateau into Skadowsky - the pocket east of the south-west
+bridge - and the row above is that rectangle, matching `buildmap/plan_v8/sectors_v8.json`. It sits inside the Skadowsky
+sector's own rectangle on purpose: the camp is part of the town.
+The old plateau rectangle x -1792..-1409, z -2492..-2109 is dead and nothing was ever built on it.
+Section 9 and `docs/gscraft-skadowsky-camp.md` carry the camp itself.
+
+**2026-09-07, deferred builds.** These builds are placed and stay placed, but no quest points at any of them; they are
+deferred to a later quest line, which can pick them up as they stand: the Novo Expograd Industrial Zone, the Financial
+Plaza and its sewers, the Bio Gen offices, the Novo Expograd hub (the desert city), the mega-base (FR-06), the
+industrial district ("the waterworks"), the library and the runway pad. Questing routes only to the Pripyat base map,
+the Skadowsky sector and the hempcrete compound.
 
 Farmstead centres: (-2192,224), (-1472,-256), (-2176,-576), (-2192,-32), (-1712,-1744), (-2720,-1072), (-2112,-896), (-1696,-272), (-1568,-1472), (432,-2448), (-2432,-1168), (-304,-2848), (128,-2368), (-1312,-864), (-1920,-272), (-2080,576), (-3792,-2848), (-1344,-3152), (-528,-2640), (672,-2320), (-208,-2432), (-2320,512), (144,-3456), (-1200,-3792), (-3760,-3712), (-720,-2400), (-2208,-304), (-3008,416), (-2416,240).
 
@@ -155,7 +167,9 @@ Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700
 - Edge grading: `grade_v8.py` blends the land around every build into y 65 over 48 blocks. First run used the wasteland
   terracotta fill (brown rings in `incoming/census/v8_cell_topdown.png`); re-run with dirt/grass and a repaint of the rings.
 - Server: `server/wasteland-v8` booted clean on the local server 2026-09-05 00:27 (visual profile) for the owner's fly-through;
-  spawn is still the pack's (in the town), the camp sector itself is not built yet (its plateau and basin are).
+  spawn was still the pack's (in the town) at that boot. (2026-09-07: the world spawn is the paved junction at
+  (-940, -979), ground y 65, in Skadowsky. The east plateau and its basin were built and are still there as terrain,
+  but nothing was ever built on them and the camp is not there - section 9.)
 - Step 6 started (owner: the sectors themselves may change to unify with the terrain): `settle.py` keeps every structure
   inside a footprint and re-grounds the open columns - imported desert sand, superflat plates and hillsides become the local
   dirt/grass at a height that meets the neighbouring foundations and the outside level, so footprint edges disappear.
@@ -255,41 +269,68 @@ network is already within 40 m; `roads.py route` routed them on the built terrai
 
 ## 9. The camp - design (started 2026-09-05, owner: design first, build later)
 
-The camp is the one sector that is not a transplant: it is generated (`tools/tower.py` for the tower, a `camp.py` to
-write for the six NPC buildings, `camp_ruins.py` / `camp_torches.py` for the dressing) on the plateau the relief made.
-Sketch `incoming/census/camp_v8_sketch.png`; coordinates `buildmap/plan_v8/camp_v8.json`.
+**Realigned 2026-09-07.** The camp is in Skadowsky, not on the plateau. What follows replaces the plateau spec that
+stood in this section (its eight rectangles, the tower pad, the Warium spawn structure and the crater lake); the
+authority document is `docs/gscraft-skadowsky-camp.md`. The east plateau of section 2 and its basin were built and are
+still in the world as terrain, but nothing was ever built on them, there is no crater and no crater lake there, and
+they are not the camp. The plateau sketch `incoming/census/camp_v8_sketch.png` and `buildmap/plan_v8/camp_v8.json`
+hold that dead spec's coordinates and go with it; `tools/camp_torches.py`, `tower.py`, `theline.py` and
+`pads_camp.json` are keyed to the plateau too, and `camp_ruins.py` is retired outright (below). None of them has ever
+been run against the world, so re-keying them is a text change and not a rebuild.
 
-**Where.** Centre (-1490, -2230) on the plateau at y 85-88, in the free ground between the town's
-east edge (200 m west) and the lake bend (north-east); the 400 x 400 camp box is x -1690..-1290,
-z -2480..-2080. The first sketch centred on the heightplan's basin turned out to sit on the
-town's east strip; the basin there is abandoned and the crater lake is cut where the camp is.
+**Where.** The pocket east of Skadowsky's south-west bridge. The camp box is x -978..-770, z -1060..-845 (209 x 216),
+which takes in the pocket, the mast and the mast's field and crosses the rail embankment, whose level crossing becomes
+the east gate. It sits inside the Skadowsky sector's rectangle on purpose: the camp is part of the town, and clearing
+the town is Act I. The west gate is the south-west bridge, x -1104..-981, deck z -957..-936, deck level y 89,
+stone-brick masonry with iron railings and truss sides reaching y 94; water sits at y 53, so the deck stands 36 blocks
+above it, and it is the only crossing on Skadowsky's west side.
 
-**The centre.** No crater lake (owner, 2026-09-05: the centre lake is dropped as a concept). The camp centre is open
-ground on the plateau at y 88 with the Warium spawn structure (32 x 32, from the live world at 0..31) standing on it as
-the spawn point; the ring of buildings looks inward onto that ground. The heightplan's basin at (-1750, -2380) is
-abandoned and is not cut where the camp is.
+**The centre.** No crater lake and no Warium spawn structure. The world spawn is the paved junction at (-940, -979),
+ground y 65 - stone, andesite and gravel, already hard surface, and facing the bridge.
 
-**The ring** (the design's table 3.6 adapted to the terrain: the town lies west, so the ring occupies north, east and south):
+**The buildings already exist**, so this is not a sector to generate onto empty ground the way the plateau spec assumed.
+Inside the perimeter:
 
-| Building | Position (blocks) | Footprint | Ground y | Note |
+| Feature | Position (blocks) | Footprint | Ground y | Note |
 |---|---|---|---|---|
-| spawn_structure | x -1506..-1475, z -2246..-2215 | 32 x 32 | 88 | Warium spawn structure (live world 0..31) on the crater-lake island; spawn |
-| tower_pad | x -1560..-1433, z -2460..-2333 | 128 x 128 | 87 | radio tower compound 128x128 (tower.py PAD) north of the lake, between town edge and the lake bend |
-| tune | x -1590..-1575, z -2370..-2355 | 16 x 16 | 87 | radio shack 16x16 + 12 m mast, at the compound west gate |
-| tony | x -1640..-1621, z -2300..-2285 | 20 x 16 | 76 | clinic 20x16, west, by the town edge |
-| michael | x -1530..-1499, z -2135..-2112 | 32 x 24 | 88 | the plant 32x24, south, at the basin edge |
-| walker | x -1420..-1381, z -2170..-2139 | 40 x 32 | 88 | the yard 40x32, south-east, bays toward the gate road |
-| marshall | x -1350..-1327, z -2238..-2223 | 24 x 16 | 87 | gatehouse 24x16, east gate to the lake-shore road |
-| james | x -1370..-1363, z -2100..-2093 | 8 x 8 | 85 | lookout 8x8, 20 tall, south-east corner |
+| north complex | x -966..-898, z -1090..-1000 | 69 x 91 | 63 | stone and iron railings; holds 24 beds already (48 bed blocks at x -956..-933, z -1033..-1006, y 63-71) |
+| paved junction | x -962..-918, z -996..-962 | 45 x 35 | 65 | stone, andesite and gravel; the world spawn |
+| south complex | x -978..-922, z -900..-822 | 57 x 79 | [needs measurement] | two buildings, not one hall: a brick block 15 x 39 at x -938..-924, z -869..-831, roof y 85, and a deepslate-trimmed structure west of it at x -971..-937, z -893..-822 whose polished deepslate sits on the upper floors, y 74-84 |
+
+**The ring** (the design's table 3.6 adapted to the standing buildings; first cut, for the visual pass to adjust,
+exactly as the plateau table was):
+
+| Building | Position (blocks) | Footprint | Note |
+|---|---|---|---|
+| marshall | x -978..-955, z -955..-940 | 24 x 16 | gatehouse at the bridge's east end; every trip west crosses him |
+| tony | x -966..-930, z -1060..-1020 | 37 x 41 | clinic in the north complex, where the 24 beds already are |
+| tune | x -925..-905, z -1040..-1020 | 21 x 21 | radio shack at the north complex's east end, nearest the mast and in sight of it |
+| walker | x -975..-940, z -880..-845 | 36 x 36 | the yard in the south complex's deepslate-trimmed structure, walled with standing floors |
+| michael | x -938..-910, z -900..-870 | 29 x 31 | the plant on the south complex's east side, beside the yard and off the square |
+| james | x -905..-897, z -975..-967 | 9 x 9 | lookout in the rail embankment's signal box; it already overlooks both approaches |
+| gun_pit | x -846..-835, z -1000..-989 | 12 x 12 | the mast field's west edge, firing east over open grass |
+| tower_compound | x -840..-770, z -1040..-960 | 71 x 81 | the mast's field; the finale's fail rectangle and the sculk ring |
+
+**The tower is the sector's own mast**, at (-808, -1008), standing on a building whose roof is y 104. It is dead: no
+power, no feed, no array, and its lattice is cut where it was salvaged. Its column, read from the world: yellow
+concrete y 104-120, cobblestone wall 121-124, spruce fence 125-131, iron bars 132-136, an end rod at 137. There is no
+tower pad to build. `tools/tower.py` moves its origin to the mast's foot and stage 1 becomes "repair the cut lattice
+section so the mast can be climbed" rather than erecting a mast to 64 - same Mast section kit, same quest X2, same
+gate; stages 2 to 5 (cooling, generator, transmitter, array) are unchanged in count, gating and reward. The aircraft is
+rotary and lifts from the mast's field inside the perimeter, so no airfield is needed: the runway pad and
+`runway_lights` are retired, and the runway itself is deferred to a later quest line.
+
+**Suppression.** Five Magnum Torches cover the pocket at 64-block radius. They do not cover the sector, which is
+deliberate: extending suppression to the whole sector is the reward for `skadowsky_held`.
 
 **Vocabulary.** Tier-0 palettes from `gscraft-camp-spec.md` section 6 (wreck segments, oak planks, cobblestone, tarps,
 sandbags and barbed wire, torches and campfires, barrels), aged with Immersive Weathering variants; the camp reads as a
-survivor camp on a Soviet town's edge, not as a base - concrete panels, stone brick and the Doomsday Decoration props
-of the town around it are the reference. The gate road leaves Marshall's gatehouse east and meets the lake-shore road
-(a Skadowsky-vocabulary connector, step 8); the tower's 64 m platform stands north of the lake with the town, the lake
-and the camp in view (the design's zipline to the crater rim keeps its length).
+survivor camp squatting in a Soviet town it has not cleared yet, not as a base - the concrete panels, stone brick and
+Doomsday Decoration props of Skadowsky around it are the reference. The west gate road is the bridge itself; the east
+gate is the rail embankment's level crossing.
 
-**Still to decide before building:** the exact tower footprint against the lake edge (its north-east corner touches
-water by 17 columns; shift 16 south or keep the water as the moat), and whether the Warium structure comes whole or only its
-platform. Then `camp.py`.
+**Still to decide before building:** nothing about the site. What is left is the visual pass - the ring rectangles
+above walked and adjusted against the buildings that are already standing - and then `camp.py` for whatever those
+buildings do not already provide. `camp_ruins.py` and its 24 wrecks are retired: Skadowsky is a 464 x 752 town with a
+hospital, a station and a level crossing, so Act I has plenty to loot without inventing wrecks.
 

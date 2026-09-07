@@ -17,19 +17,31 @@ they are vanilla.*
    own table, which is the building table plus that site's signature items.
 3. **Loot-only components never sit in ordinary chests.** They spawn in named component containers
    (`gscraft:components/<site>`) that the loop arms on `held` and refills on the component timer
-   (design §6.2). At the never-held sites — the hub (§6), Bio Gen, the sewers, the Woods and the bunkers (§5) — the component containers are **shared, not Lootr-instanced** (B29), and the loop script refills them every 5 in-game days, the same rhythm as Lootr's ordinary refresh.
+   (design §6.2). At the never-held sites — the Woods and the bunkers (§5), and the confinement hall (§6) — the component containers are **shared, not Lootr-instanced** (B29), and the loop script refills them every 5 in-game days, the same rhythm as Lootr's ordinary refresh. The hub, Bio Gen and the sewers were on this list and are deferred to a later quest line with their sites (§5, §6).
 4. **Refresh:** Lootr `refresh_modids = ["gscraft"]`, `refresh_value = 120000` (5 in-game days), so
    every `gscraft:` table refreshes per player on that rhythm; Lost Cities' own tables stay one-shot
    per player. Component containers are never Lootr containers: the loop script refills them (2 in-game days while a site is held, 5 at the never-held sites — rule 3, design §6.2).
-5. Two vanilla items join the small-item list (design §4.2): **gunpowder** (Filters and chemicals;
-   the stone complex is where it is plentiful) and **emerald** (Valuables; the Recruits' hire currency).
+5. Two vanilla items join the small-item list (design §4.2): **gunpowder** (Filters and chemicals; the
+   stone complex that held it is gone from the v8 map, so gunpowder comes from the town's military
+   chests and the plant complex's four storage halls at (−888, 167), (−743, 167), (−890, 54) and
+   (−775, 54)) and **emerald** (Valuables; the Recruits' hire currency).
 
 ## 2. The camp's ruins (Act I) — `gscraft:ruins/*`
 
-The 24 ruin pieces' chests (`tools/camp_ruins.json`) carry these four tables. Every introduction's
-hand-in list is covered here on purpose, at odds that make Trip 1 about 20 minutes for a team of five (fewer players, fewer chests opened per minute, the same 20 minutes each).
+> **Retired 2026-09-07 with `camp_ruins`, and kept here only as the coverage list.** The camp is in
+> Skadowsky now, and Skadowsky is a 464 × 752 town with a hospital, a station and a level crossing, so
+> Act I has plenty to loot without inventing wrecks. `tools/camp_ruins.py`, its 24 wrecks, the
+> `gscraft:camp_ruins` function and all four `ruins/*` tables below are retired. What survives is the
+> **Covers** column: every introduction's hand-in list still has to be covered in Act I, and it is now
+> covered by the §3 building tables rolled inside the Skadowsky sector — `building/apartment` and
+> `building/hospital` on the walk north to the hospital, `building/garage` and `building/workshop` at
+> the station and the level crossing, `building/office` for the electrical run. See
+> `docs/gscraft-skadowsky-camp.md` §3.
 
-| Table | Rolls | Pool (weight) | Covers |
+The four tables as they stood, with the hand-ins each was carrying. Every introduction's
+hand-in list was covered here on purpose, at odds that make Trip 1 about 20 minutes for a team of five (fewer players, fewer chests opened per minute, the same 20 minutes each).
+
+| Table *(all retired)* | Rolls | Pool (weight) | Covers |
 |---|---|---|---|
 | `ruins/hardware` (wrecks, the shed) | 3–5 | bolt 20, nut 20, screw 15, nail 15, metal scrap 20, duct tape 8, silicone tube 6, **wrench 2**, pliers 2, screwdriver set 2 | W1 (8 bolts, 8 nuts; the wrench is W1's reward and a rare find here), W-A1's screws, the hand-tool ingredients (crafting §5.3, C2 fix) |
 | `ruins/electrical` (the shed, the checkpoints) | 2–4 | wire spool 20, power cord 10, light bulb 10, capacitor 15, circuit board 8, **broken radio 4**, relay 4 | M1 (3 wire spools, a power cord), U1 (a circuit board, 2 capacitors, a broken radio), M2's light bulb |
@@ -58,13 +70,23 @@ from the jars at Phase C; the `_vics` override already exists in the datapack).
 Each is the matching building table **plus** the site's signature items (the owning NPC's loot quest
 asks for exactly these, design §6.1). Rolls 3–5.
 
-| Site | Base table | Signature items added (weight) | Component container `gscraft:components/<site>` |
-|---|---|---|---|
-| `novo` | garage + factory | spark plug 15, motor oil 12, bolt/nut 10 each, car battery 4 | heavy anchor cable 1, heavy diesel engine 1 (one each per refresh) |
-| `residential` | apartment + hospital | blood bag 12, syringe 12, antiseptic 10 | medical analyzer 1 |
-| `plant` | factory + workshop | corrugated hose 15, radiator fin 15, fuel can 8, antifreeze 6 | industrial pump 1, purification membrane 1 |
-| `fr06` | military + office | relay 12, electric motor 8, car battery 6, circuit board 8 | transformer core 1, avionics module 1 (the reactor control module moved to the plant complex, objectives §4) |
-| `financial` | office + military | circuit board 15, computer parts 12, hard drive 8, emerald 6 | military circuit board 1, encrypted radio 1 |
+The five strongpoints are the settled set of `docs/gscraft-skadowsky-camp.md` §11.4. Each table keeps
+its base, its signature items and its component container; only the site it sits on changed, and each
+moved to the site that carries the same role — medical to medical, heavy industry to heavy industry,
+and so on. The old table id is given so the datapack rename is traceable.
+
+| Site (role, keeper, act) | Was | Base table | Signature items added (weight) | Component container `gscraft:components/<site>` |
+|---|---|---|---|---|
+| `hospital` — the Skadowsky hospital (medical, Vera, I) | `residential` | apartment + hospital | blood bag 12, syringe 12, antiseptic 10 | medical analyzer 1 |
+| `hempcrete` — the hempcrete compound (heavy industry, Kessler, II) | `novo` | garage + factory | spark plug 15, motor oil 12, bolt/nut 10 each, car battery 4 | heavy anchor cable 1, heavy diesel engine 1 (one each per refresh) |
+| `switchyard` — the plant's switchyard and admin block (electronics, Ilya, III) | `financial` | office + military | circuit board 15, computer parts 12, hard drive 8, emerald 6 | military circuit board 1, encrypted radio 1 |
+| `turbine` — the plant's turbine hall (power, Rook, III) | `fr06` | military + office | relay 12, electric motor 8, car battery 6, circuit board 8 | transformer core 1, avionics module 1 (the reactor control module is the confinement hall's, §6) |
+| `intake` — the plant's cooling intake works (fuel and water, Oksana, III) | `plant` | factory + workshop | corrugated hose 15, radiator fin 15, fuel can 8, antifreeze 6 | industrial pump 1, purification membrane 1 |
+
+Novo, Financial Plaza and FR-06 are deferred to a later quest line and carry no strongpoint table in
+this design; the tables above are their content re-homed, not new work. The site stages follow the
+same rename — `residential_*` becomes `hospital_*`, and `novo_*`, `financial_*`, `fr06_*` and
+`plant_*` become `hempcrete_*`, `switchyard_*`, `turbine_*` and `intake_*`.
 
 Dossier chests (`gscraft:dossier/<site>`) hold exactly the dossier item and nothing else, at the
 coordinates in `tools/dossiers.json`.
@@ -75,37 +97,48 @@ Positions are `gscraft-map-layout-v6.md` §3.1. Rolls 2–4 unless noted.
 
 | Site | Kind | Role now | Table (building base + additions) |
 |---|---|---|---|
-| **The hotel** (the town, 1.2 km; the glass tower's role — design §2.7) | office tower | Act I's electrical run: U2's circuit assemblies, M2's bulb | office + light bulb 12, wire spool 12, computer parts 4 |
-| **The town's east avenue** (200 m; the acacia hall's role) | the blocks on the doorstep | Act I's hardware and the first mechanical items | workshop + spark plug 6, silicone tube 8 |
+| **The hotel** (the town, west over the bridge `[needs measurement]`; the glass tower's role — design §2.7) | office tower | the electrical run: U2's circuit assemblies, M2's bulb — Act II now the town is over the bridge | office + light bulb 12, wire spool 12, computer parts 4 |
+| **The town's east avenue** (1.52 km, west over the bridge; the acacia hall's role) | the first blocks past the crossing | Act II's hardware and the first mechanical items | workshop + spark plug 6, silicone tube 8 |
 | **The telephone exchange** (the town; the copper tower's role) | the wired building | **electrical**: Act II's wire and relays for the harnesses; Tune's U-C1 | office + wire spool 20, relay 12, capacitor 10, electric motor 3 |
 | **The swimming pool** (the town; the prismarine hall's role) | the wet hall; sculk on its floor | **filters and chemicals** (Michael's M-P1); and the story's first sign of the Sleeper (finale §3) | store + water filter 12, bleach 10, antifreeze 8, solvent 8, computer parts 4 |
-| **Hempcrete compound** (2.0 km) | a walled survivor holdout | **medical, hardware and the first seeds** (D3); the fallback transplant site | apartment + hospital, canned goods 15, duct tape 10, Farmer's Delight seeds 6 each, bowl 6, rare tools (wrench, pliers 2 each) |
-| **Library** (1.7 km N, 4.1 km by road today) | the reading room | **valuables**: J3's folders, U3's hard drive | library table as is |
+| **Hempcrete compound** (2.30 km, west over the bridge; x −3392…−3073 × z −1344…−1025) | a walled survivor holdout | **medical, hardware and the first seeds** (D3); and, since 2026-09-07, Walker's heavy-industry strongpoint — see §4's `hempcrete` | apartment + hospital, canned goods 15, duct tape 10, Farmer's Delight seeds 6 each, bowl 6, rare tools (wrench, pliers 2 each) |
+| **Library** (3.16 km) — **deferred to a later quest line** | the reading room | **valuables**: J3's folders, U3's hard drive — held with the site, so J3 and U3 take their valuables from the town's offices and the bunkers instead | library table as is |
 | **The bus depot** (the town's south edge; the stone complex's role) | the spawner dungeon | **the ammunition dump**: gunpowder and salvage (Walker's W-A5) | military + gunpowder 15, rifle ammo 12, salvage rifle 4, salvage shotgun 3, welding torch 1; rolls 3–5 |
-| **The collective farm** (the fields south of the town with the farmstead at (−2112, −896); the mud village's role, design §2.7, owner 2026-09-05) | farm hamlet | **food and the farm**: D3's seeds and bowls, D5's crops; emeralds | canned goods 20, Farmer's Delight rice, tomato seeds, cabbage seeds and onions 10 each, bowl 10, bandage 8, emerald 5 |
-| **Bio Gen offices** (1.9 km SW, the cyberpunk district's east strip) | the laboratory | T7's surgical kit; medical analyzers (design §4.4) | hospital + office; component container `components/biogen`: surgical kit 1, medical analyzer 1 per refresh |
-| **The settlement** (0.5 km S, the first walk) | lakeside town | W12's pressure gauge, J5's valuables, J-B2's valuables | apartment + store + garage, pressure gauge 12, valuables (broken radio, computer parts, folder) 6 each, emerald 6 |
-| **The sewers** (under the plaza) | dungeon | U6's encrypted radio, dark work | military + cave-spider drops; component container `components/sewers`: encrypted radio 1 per refresh; rolls 2–3 |
-| **The Woods** (due south of the camp, 1–2 km; the named area of map plan §4) | wilderness | sixteen quests across the chapters (J-W1 opens it; Teddy's seven at the cleared outpost) | sawmill: planks 20, **saw blade** 1 (only here), motor oil 6; ranger cabin: **portable generator** 1 (only here), canned goods 12, map 4; hunters' hide: rabbit hide 10, sweet berries 15, arrows→ 6 pistol ammo, salvage shotgun 2; downed aircraft: **flight recorder** 1 (only here); component container `components/wreck`: avionics module 1, surgical kit 1 (its medkit); the outpost's cache (R-W1 reward, not a chest): 2 salvage rifles, 90 rounds, 4 emeralds; Teddy's early hand-ins are gunpowder, powder and canned goods (H1–H3); the later ones are parts (quests §7A) |
+| **The collective farm** (1.17 km, west over the bridge; the fields south of the town with the farmstead at (−2112, −896); the mud village's role, design §2.7, owner 2026-09-05; the Line's west end) | farm hamlet | **food and the farm**: D3's seeds and bowls, D5's crops; emeralds | canned goods 20, Farmer's Delight rice, tomato seeds, cabbage seeds and onions 10 each, bowl 10, bandage 8, emerald 5 |
+| **Bio Gen offices** (the cyberpunk district's east strip) — **deferred to a later quest line** | the laboratory | T7's surgical kit; medical analyzers (design §4.4) — held with the site; the surgical kit's live route is Tony's barter (vendors §5) and the medical analyzer is the `hospital` container's (§4) | hospital + office; component container `components/biogen`: surgical kit 1, medical analyzer 1 per refresh |
+| **The settlement** — **gone.** Its sector is group `removed` and the ground there is 91 % grass | lakeside town | W12's pressure gauge, J5's valuables, J-B2's valuables all need a new home `[needs measurement]` | apartment + store + garage, pressure gauge 12, valuables (broken radio, computer parts, folder) 6 each, emerald 6 |
+| **The sewers** (under the plaza) — **deferred to a later quest line** | dungeon | U6's encrypted radio, dark work — held with the site; the live encrypted radio is the `switchyard` container's (§4) and the bunkers' | military + cave-spider drops; component container `components/sewers`: encrypted radio 1 per refresh; rolls 2–3 |
+| **The Woods** (west over the bridge, in the fields south of the town, with Teddy's outpost at the farmstead (−2176, −576) `[needs measurement]`; the named area of map plan §4) | wilderness | sixteen quests across the chapters (J-W1 opens it; Teddy's seven at the cleared outpost) | sawmill: planks 20, **saw blade** 1 (only here), motor oil 6; ranger cabin: **portable generator** 1 (only here), canned goods 12, map 4; hunters' hide: rabbit hide 10, sweet berries 15, arrows→ 6 pistol ammo, salvage shotgun 2; downed aircraft: **flight recorder** 1 (only here); component container `components/wreck`: avionics module 1, surgical kit 1 (its medkit); the outpost's cache (R-W1 reward, not a chest): 2 salvage rifles, 90 rounds, 4 emeralds; Teddy's early hand-ins are gunpowder, powder and canned goods (H1–H3); the later ones are parts (quests §7A) |
 | **The placed bunkers** (Underground Bunkers templates under the farmsteads of design §2.7) | dungeons | five in Tune's side chain (U-D1…U-D3), the rest expedition finds | military + hard drive 8; below y 40 a component container `components/bunker` per bunker: encrypted radio 1 per refresh |
 | **The town's landmarks and the placed templates** (the palace of culture, the tallest block, the central square, the four microdistricts, the fog house, the outpost — design §2.7; no generated structures in v8) | the ruin field | J-C1, J9, D-O1, W-A6, U-A1, J-C2 | military + office; emerald 8 |
 
 ## 6. The hub — `gscraft:hub/*` (C17)
 
-The hub is never held, so its component containers are shared and refilled by the loop script every 5 in-game days (rule 3), not on the held-site timer.
+> **The desert city hub is deferred to a later quest line** (routing rule,
+> `docs/gscraft-skadowsky-camp.md` §7): no quest in this design points at it, so the three `hub/*`
+> tables below are held with it. Act IV's component run is to **the confinement hall at (−642, 518),
+> roof y 198**, which is Act IV's prize rather than a strongpoint and which carries the reactor
+> control module for the gatehouse tier 3 and the antenna array for tower stage 5. Where the hub's own
+> two yields — the phased array element and the satellite receiver — come from instead is not settled
+> `[needs measurement]`.
 
-| Container table | Count in the hub | Yield per refresh | Needed by the game |
+The confinement hall is never held either, so its component containers are shared and refilled by the loop script every 5 in-game days (rule 3), not on the held-site timer.
+
+| Container table | Count | Yield per refresh | Needed by the game |
 |---|---|---|---|
-| `hub/phased_array` | 1 | 1 phased array element | 3 (X6 antenna array, U9, J8) |
-| `hub/satellite_receiver` | 2 | 1 each | 9 (J8, W-B3, U-B3, J-B3, Storage 4, the Black Hawk, and S-residential-3 / S-financial-3 / S-fr06-3) |
+| `hub/phased_array` — **deferred with the hub** | 1 | 1 phased array element | 3 (X6 antenna array, U9, J8) |
+| `hub/satellite_receiver` — **deferred with the hub** | 2 | 1 each | 9 (J8, W-B3, U-B3, J-B3, Storage 4, the Black Hawk, and S-hospital-3 / S-switchyard-3 / S-turbine-3) |
 | `hub/power_filter` | — | moved to the plant complex (review fix 10) | — |
-| `hub/rare` (ordinary chests) | many | office + military, computer parts 12, hard drive 8, emerald 8 | J9's four microdistricts share it |
-| `plant/reactor_control` (the plant complex's control room) | 1 | 1 reactor control module | 3 (M11, R-B3, W-M2) — objectives §4 |
-| `plant/power_filter` (moved here from the hub) | 2 | 1 each | 6 (T9, M13, T-B3, M-B3, and S-novo-3 / S-plant-3) |
+| `hub/rare` (ordinary chests) — **deferred with the hub** | many | office + military, computer parts 12, hard drive 8, emerald 8 | J9's four microdistricts share it |
+| `plant/reactor_control` (the confinement hall) | 1 | 1 reactor control module | 3 (M11, R-B3, W-M2) — objectives §4 |
+| `plant/antenna_array` (the confinement hall) | 1 | 1 antenna array | tower stage 5 (X6) |
+| `plant/power_filter` (moved here from the hub) | 2 | 1 each | 6 (T9, M13, T-B3, M-B3, and S-hempcrete-3 / S-intake-3) |
 
-Five components a visit, eighteen needed (thirteen for the tower and the tiers, five for the site chains' tier 3 — Create chapter §3): **four hub runs** across Act IV's three sessions, one a
-session, each about a 20-minute round trip by air with looting (crafting §3). U-D3's satellite receiver (the bunker
-chain) saves one of the six. Nothing else in the game asks for a hub item.
+The Act IV component run is now the confinement hall rather than the hub: 1.53 km from the camp
+square, reached by air from the mast field inside the camp perimeter or by the bridge road, and about
+a 20-minute round trip with looting (crafting §3). How many runs that is, and how the eighteen
+components the game asks for are re-split once the hub's two yields have a new home, is not settled
+`[needs measurement]`. U-D3's satellite receiver (the bunker chain) still saves one.
 
 ## 7. Reward containers (C10)
 
@@ -121,6 +154,8 @@ chain) saves one of the six. Nothing else in the game asks for a hub item.
 - The `gscraft:` items above exist (design §4.2 plus saw blade, portable generator, flight recorder,
   salvage weapons, the poultice, the ration pack, canned goods as a food item, the two containers).
 - The Lost Cities and Keerdm table ids to override, read from the jars, listed in `build/datapacks/gscraft/README`.
-- `tools/camp_ruins.json` chests bound to §2; the site rectangles to §4 by a KubeJS `LootEvents`
-  hook (chest inside rect → site table) or by placing the chests' `LootTable` NBT at world build.
+- `tools/camp_ruins.json` and the §2 binding are **retired with `camp_ruins`** (2026-09-07): Act I's
+  chests are Skadowsky's own and roll the §3 building tables. The site rectangles still bind to §4 by
+  a KubeJS `LootEvents` hook (chest inside rect → site table) or by placing the chests' `LootTable`
+  NBT at world build, on the five rectangles of `docs/gscraft-skadowsky-camp.md` §11.4.
 - Lootr config as in mod-capabilities §5b (already set).

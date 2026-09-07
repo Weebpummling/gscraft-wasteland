@@ -39,10 +39,11 @@ how to rebuild the same state elsewhere.
 > (home bank, the river line, the far bank) plus the district; acts and strongpoints re-placed from real road distances
 > (`docs/renders/v8_geography.png`); its §5 lists the crossings and roads the objectives need (for the map session) and
 > §7 the ten changes, all ruled on and applied 2026-09-05 (the reactor module moves to the plant complex; the farm role is
-> the collective farm in the fields south of the town). **For the map session:** the eight crossings and roads of its §5
-> (the Line's ford at the river's rapids, the camp gate road, the plaza's missing road, the district road, the east-bank
-> road, boat landings on both shores, the plant's west gate) and the collective farm's fields to plant (wheat gone wild,
-> hay, a barn at the farmstead (−2112, −896)).
+> the collective farm in the fields south of the town). **Realigned 2026-09-07** onto the Skadowsky camp, so §0 to §6 now
+> read from the camp square at (−940, −979). **For the map session:** the camp's two gates (the south-west bridge and
+> the rail embankment's level crossing), the east-bank road south to the plant's outer works, the plant's west gate, and
+> the collective farm's fields to plant (wheat gone wild, hay, a barn at the farmstead (−2112, −896)), which is now the
+> Line's west end rather than a side trip. The Line's ford is gone: the corridor crosses on the bridge.
 >
 > **Everyone and everything that moves (v8), 2026-09-05:** `docs/gscraft-entities-v8.md` — the survivors and keepers
 > as seated villagers, guards, the Recruits ranks and where each is hired, the site guard, placed animals, six factions
@@ -62,10 +63,10 @@ how to rebuild the same state elsewhere.
 > **Gap sweep 2026-09-06 (`docs/gscraft-design-gaps.md` §H):** eight gaps found and closed the same day — the fifteen
 > keeper quests, the three rail quests, Teddy's H8, the eighteen counter pages, what a keeper's counter does when a
 > site falls back, the boat's act (J5 hands out the boat, W-V1 the speedboat, W12 crosses to FR-06), the Militia's
-> home. **One is the map session's:** the map plan carries two camp rectangles — §4's sector row (x −1792…−1409) and
-> §9's camp design (x −1690…−1290); the design has adopted §9's box because all eight buildings and the gun pit sit
-> in it, so **plan §4's camp row is the one to correct**. No mod is missing; the only jars still queued are the
-> designer tools (`notes/gscraft-designer-tools.md`, owner's pick).
+> home. **The two-camp-rectangle question is closed (2026-09-07):** the map plan used to carry two plateau rectangles
+> and an argument about which was right. Neither is live. Nothing was ever built on either, and the camp is now in
+> Skadowsky at x −978…−770 × z −1060…−845, matching `buildmap/plan_v8/sectors_v8.json`. No mod is missing; the only
+> jars still queued are the designer tools (`notes/gscraft-designer-tools.md`, owner's pick).
 >
 > **The local Prism instance is packwiz-managed from 2026-09-06.** It never was: it had no pre-launch command and no
 > `packwiz.json`, so every jar in it was hand-copied and it sat 17 jars behind (including both Sophisticated mods) on
@@ -85,11 +86,13 @@ how to rebuild the same state elsewhere.
 > last published world. Deleted: both old client installers (the 09-05 one had all 150 MB of jars attached to it),
 > `pack-files-2026-09-04`, `build-v6-2026-09-03`, and v7's superseded `GSCraft-Client.zip`.
 >
-> **For the map session (from the design review, 2026-09-05; `docs/gscraft-design-gaps.md` §F9):** the camp ring of
-> plan §9 straddles the §4 rectangle's east edge (Marshall x −1350, James −1370, the gun pit −1340…−1329, Walker's east
-> half are beyond x −1409) — re-cut it inside; fix the world spawn's y; add the Line's ford at the pump house and the
-> east-bank road to the step-8 connector list; name the town's landmarks for design §2.7 (defaults in review §7 N5);
-> put an electric motor in the depot's chest; replace the v6 junction road-sign text.
+> **For the map session (from the design review, 2026-09-05, rewritten 2026-09-07; `docs/gscraft-design-gaps.md` §F9):**
+> the plateau camp ring that used to straddle its own rectangle is gone with the plateau, and so is the world-spawn-y
+> question — the spawn is the paved junction at (−940, −979), ground y 65. What is left for the walk: pace the eight
+> Skadowsky lock rectangles (`tools/pads_camp.json`, first cut, measured but not walked) and adjust them; add the
+> east-bank road south to the step-8 connector list; pick the town's landmark buildings from the measured candidates in
+> `docs/gscraft-skadowsky-camp.md` §12; put an electric motor in the depot's chest; replace the v6 junction road-sign
+> text. The Line's ford is retired with the old corridor.
 
 ## 1. Where things stand
 
@@ -143,7 +146,7 @@ frozen-projectile complaint fixed (KubeJS sweep + simulation distance 10).
 **Design revised 2026-09-03 (draft 6, quests draft 3 on 2026-09-04, crafting draft 1):** the site ladder and contested-site attacks (since 2026-09-04 every attack comes to the base), NPC building tiers with the grief lock, timed crafting at server-placed stations, the vehicle
 roster, equipment crafting, garrison tables, the finale (now the Sleeper, `docs/gscraft-finale.md`), batteries for the electric vehicles.
 New tools: `dossiers.py` (dossier chests, `tools/dossiers.json`, `gscraft:dossiers`), `camp_ruins.py` (24
-ruin pieces in the camp, `gscraft:camp_ruins`, loot tables under `ruins/`). **EMI 1.1.24 added** to the
+ruin pieces in the camp, `gscraft:camp_ruins`, loot tables under `ruins/`; **retired 2026-09-07** — the camp moved into a standing town and needs no scattered wrecks, and the generator now refuses to run; the file survives only because `camp_torches.py` and `theline.py` import its helpers). **EMI 1.1.24 added** to the
 server's `/mods` (client-side mod; the dedicated server skips it) and to `additions.json` / `manifest.json`;
 **Dynamic Flashlight 2.1.0 added 2026-09-04** (owner-approved; hash-verified; in `server/mods`, the Prism instance, `build/manifest.json`, and appended to `G:/GSCraft/release-v7/GSCraft-Client.zip` — the previous zip is kept as `GSCraft-Client-2026-09-03-emi.zip`; uploaded to the hosted `/mods` by the owner on 2026-09-04, live at the next restart; no Drive re-issue — owner 2026-09-04: the client zip goes up as a GitHub release asset with the full install). Before that, the client pack was rebuilt with EMI on 2026-09-03 (`G:/GSCraft/release-v7/GSCraft-Client.zip`, 453 MB, EMI 1.1.24
 sha512-verified; goes up with the v7 release and replaces the Drive copy). `camp_ruins` has been run on the hosted world (24 pieces, read back from the region files). `tools/furnish.py`

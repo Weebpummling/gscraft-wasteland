@@ -12,7 +12,7 @@ World border: centre **-1350.5, -1600.5**, size **5200** - playable x -3950..124
 
 | Place | Centre (x, z) | Footprint | Highest point |
 |---|---|---|---|
-| Camp (moved 2026-09-07; see `gscraft-skadowsky-camp.md`) | -940, -979 | x -978..-770, z -1040..-900 (209x141) | y 66 |
+| Camp (moved 2026-09-07; see `gscraft-skadowsky-camp.md`) | -940, -979 | x -978..-770, z -1060..-845 (209x216) | y 137 |
 | Bio Gen offices | -2321, -585 | x -2352..-2289, z -640..-529 (64x112) | y 109 |
 | Financial Plaza + sewers | -2273, -937 | x -2352..-2193, z -1008..-865 (160x144) | y 204 |
 | Novo Expograd (expanded) | -2977, -154 | x -3568..-2385, z -1008..700 (1184x1709) | y 178 |

@@ -1,12 +1,17 @@
 #!/usr/bin/env python3
 """Magnum torches for the camp: one diamond magnum torch (hostile-spawn suppression, 64-block
-ellipsoid on the hosted config) at each NPC pad, at the gate, and on a ring around the crater, so
-the camp's neutral ground is a thing the players can see. Heights are read from the built world.
+ellipsoid on the hosted config) at the gate, the square and each building complex, so the camp's
+neutral ground is a thing the players can see. Heights are read from the built world.
 
     python camp_torches.py <world dir>     -> functions/camp_torches.mcfunction, tools/camp_torches.json
 
-Each torch stands on a 3x3 cobblestone plinth one block above ground. Coverage: the camp outline
-is 384x384 and the torch radius 64, so the nine positions below leave no gap wider than the radius.
+Each torch stands on a 3x3 cobblestone plinth one block above ground.
+
+Coverage is deliberately partial. Five torches cover the pocket and the two building complexes at
+64-block radius; they do NOT cover the Skadowsky sector, and they do not reach the mast's field.
+Extending suppression to the whole sector is the reward for `skadowsky_held`, and the mast's field
+becoming camp ground is part of the same payout (docs/gscraft-skadowsky-camp.md sections 3 and 5).
+The count was ten on the plateau, where the camp was a 400 x 400 box with a ring around a crater.
 """
 import json
 import sys
@@ -19,11 +24,13 @@ ROOT = Path(__file__).resolve().parents[1]
 FN = ROOT / "build" / "datapacks" / "gscraft" / "data" / "gscraft" / "functions" / "camp_torches.mcfunction"
 TORCH = "magnumtorch:diamond_magnum_torch"
 
-# name -> (x, z); pads from tools/pads_camp.json centres, the gate, and four ring points
+# name -> (x, z), world coordinates in the Skadowsky camp (docs/gscraft-skadowsky-camp.md section 3)
 SPOTS = {
-    "walker": (80, 95), "michael": (-24, 111), "marshall": (162, 8), "tony": (-90, -92),
-    "tune": (48, -112), "james": (-146, -146),
-    "ring_west": (-120, 20), "ring_south": (20, 150), "ring_north": (-40, -40), "ring_east": (110, -70),
+    "gatehouse": (-966, -947),      # the bridge's east end, Marshall
+    "square": (-940, -979),         # the paved junction, the world spawn
+    "clinic": (-948, -1026),        # the north complex, Tony (on its own paving, not the trees north of it)
+    "yard": (-957, -862),           # the south complex, Walker and Michael
+    "crossing": (-890, -975),       # the rail embankment's level crossing, the east gate, James
 }
 
 

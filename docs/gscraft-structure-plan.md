@@ -117,7 +117,8 @@ emptied. `tools/wilderness_plan.py` is the complement for the rest of the box �
 grid and proposes open-ground spots off the roads (trig points, a spring, herb patches, dead convoys,
 relay masts, fuel caches; `buildmap/wilderness_v7.json`) — kept as a planner, not as quests, until the
 Woods has been played. The Line (design §2.6) is the other answer already built: six small buildings
-along a power line through 94 %-wild ground into the residential block.
+along a power line through 94 %-wild ground. Re-cut 2026-09-07: it now runs west over the south-west bridge to the
+collective farm at (−2112, −896), 1.17 km, instead of into the residential block.
 
 ## 4. What Phase A should still look at
 

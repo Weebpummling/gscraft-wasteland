@@ -14,20 +14,22 @@ size, from one player to a full server; nothing below depends on how many people
 result, and only then read a short line that names it. Nothing is explained before it is needed,
 nothing is explained twice, and nothing takes more than two sentences. The quest book is a journal:
 what was done and the one thing to do next. It is never a rulebook. The six survivors in the camp do
-the teaching (a seventh, Teddy, waits in the Woods for a later act), the camp is where it happens, and the first strongpoint is where it is tested.
+the teaching (a seventh, Teddy, waits in the Woods for a later act), the camp is where it happens, and the town it sits
+inside — Skadowsky, which Act I clears — is where it is tested.
 
 Three consequences for everything below:
 
 - **One new action at a time.** The first hour teaches *find*, then *hand in*, then *order* (craft),
   then *carry*, then *travel*. Taking a site, holding the camp against its counterattack, building and flying each get
   their own hour later.
-- **Ask, do not instruct.** A quest asks for eight bolts; it never says "loot the ruins". The player
-  looks around, sees a wrecked car with a chest in it, and has learned looting without a sentence
-  about it.
+- **Ask, do not instruct.** A quest asks for eight bolts; it never says "loot the town". The player
+  looks around, sees a chest glowing through a broken door across the street, and has learned looting
+  without a sentence about it.
 - **Show the object before the system.** Whatever a system is about is already standing in the world
-  before the system is introduced: the tower ruin is visible from the first minute, Walker's lot has a
-  dead quad on it, the parts rack at the gate has five empty hooks, the strongpoint board has six dark
-  columns. Players ask about what they can see.
+  before the system is introduced: the mast stands dead on the skyline from the first minute, its tip
+  at y 137 over the rooftops east of the square, Walker's lot has a dead quad on it, the parts rack at
+  the gate has five empty hooks, the strongpoint board has seven dark columns. Players ask about what
+  they can see.
 
 ## 2. The first session, minute by minute
 
@@ -36,21 +38,21 @@ quests bring things up. Times are approximate and assume a player who wanders a 
 
 | When | What happens | What it teaches | What is said (all of it) |
 |---|---|---|---|
-| 0:00 | Spawn on the plaza of the Warium structure at the camp's core. **Custom Starting Gear** puts the personal work station, a pistol with one magazine, a flashlight with one battery, a bandage and the survivor's notebook (§6) in the inventory. Night is ten minutes away. | the inventory; that this is a game with guns | Title card: *WASTELAND*. Then the first of Tune's three radio lines, twenty seconds apart: "You're up. Six of us out here — the gate's east." |
-| 0:02 | Off the plaza, the camp: six lit buildings, ten Magnum Torches, 24 ruin pieces (wrecks, sandbag checkpoints, a shed, tents). The gate and the radio tower ruin stand against the sky. | the camp is the safe place; the ruin on the rim matters | Nothing spoken. A **sign** on every NPC building: name, role, one line ("WALKER — the yard. Bring me anything with a thread on it."). |
+| 0:00 | Spawn on the paved junction at (−940, −979), the camp square, in the pocket the team holds inside Skadowsky. **Custom Starting Gear** puts the personal work station, a pistol with one magazine, a flashlight with one battery, a bandage and the survivor's notebook (§6) in the inventory. Night is ten minutes away. | the inventory; that this is a game with guns | Title card: *WASTELAND*. Then the first of Tune's three radio lines, twenty seconds apart: "You're up. Six of us out here — the gate's west, on the bridge." |
+| 0:02 | Off the square, the pocket: six lit buildings — the north complex, the south complex, Marshall's gatehouse at the bridge's east end and James's signal box on the rail embankment — five Magnum Torches, the river and its one bridge west, the embankment east. The mast stands dead over the rooftops to the east, and the town runs away north past the wire. | the camp is the safe place; the mast on the skyline matters; the town is not ours yet | Nothing spoken. A **sign** on every NPC building: name, role, one line ("WALKER — the yard. Bring me anything with a thread on it."). |
 | 0:05 | Right-click any survivor: the quest book opens on that survivor's first quest. It asks for things (8 bolts, 8 nuts). | hand-ins; that the survivors want junk; where the book is | The NPC's one line, in their own voice, then the task in one line. |
-| 0:06–0:25 | The camp's own ruins and the town's east blocks across the avenue, 200 m from the gate (objectives O2). **Lootr** chests glow for a player who has not opened them yet; the wrecks hold hardware, the tents bandages, the shed wire. | looting; instanced loot (each player has their own chest contents); the item names | Item tooltips carry one line each ("Bolt — Walker wants these"). No quest text. |
-| 0:10 | Dusk. Nothing spawns inside the torches; the Man From The Fog is heard once, far off. | the camp is safe **because of the torches**; the horror is outside | — |
+| 0:06–0:25 | The town's own buildings, starting with the streets off the square. **Lootr** chests glow for a player who has not opened them yet; the rooms hold hardware, the clinic beds bandages, the sheds wire. There are no camp wrecks to loot: Skadowsky is a 464 × 752 town with a hospital, a station and a level crossing, and it is the ruin field. | looting; instanced loot (each player has their own chest contents); the item names | Item tooltips carry one line each ("Bolt — Walker wants these"). No quest text. |
+| 0:10 | Dusk. Nothing spawns inside the five torches, which cover the pocket at 64 blocks and no further; the Man From The Fog is heard once, out in the town. | the camp is safe **because of the torches**; the horror starts at the end of the street | — |
 | 0:25 | First hand-in to Walker. Reward: a wrench and two blueprints; the station from the kit binds itself to its owner. | the reward loop; **stations** exist | Walker: "Good. Set your station down somewhere inside the wire. It'll only ever answer to you." |
 | 0:27 | Placing the personal station. The fastener-kit card from W1 goes in its card slot, the parts in the nine below; an order takes two minutes (the Intermediate class). The player waits, or walks off and comes back. | **timed orders** (the tool slot comes up at W3, when the steel frame needs the torch) | The action bar while looking at the block: "FASTENER KIT — 1:58". Nothing else (interface doc §3.3, §4.3). |
 | 0:30 | W2 asks for two fastener kits; the second order runs while the player loots for Tony. | orders run while you do other things | — |
-| 0:35–1:00 | Three more introductions from the same ruins (Tony's bandages, Michael's wire and filter, Tune's circuit board and broken radio). James's two locations (J1) wait for the first walk out. | each survivor owns one thing; rewards are visible in the world | Each NPC: one line. Michael: "There. Now we can see what's coming." |
-| 1:05 | James's J1: the settlement (0.6 km) and the runway (1.4 km) (v8; the glass tower and the acacia hall are gone). The first walk out along the spine. **Xaero** shows the road; **Ping Wheel** is explained by Tune's line. | the map, waypoints, pings; roads lead somewhere; distance costs time | Tune: "Press M for the map. Middle-mouse pings a spot for everyone." (the only control ever explained in chat) |
-| 1:30 | Back at camp with a backpack from W2 (Storage 1). The fifth introduction is done, so Marshall **speaks** for the first time: the camp outline lights up and the map wall is revealed (R1, a datapack function); the strongpoint board lights one column — Skadowsky, the town across the fields 1.4 km south-east down the Line, state *unknown* (v8, design §2.7); the tower chapter appears in the book, and X1's briefing names its five hooks. | the loop exists; there is one target; the tower is the long game | Marshall: "A whole town's worth of ruins out there. Start with the block down the line, south-east. Ask James what's in it first." |
-| Session 2 | Down the Line. James J-S2: reach Skadowsky, find the dossier (the board turns *scouted* and shows the garrison). Tony T3: two or three loot runs (*looted*). Marshall R2: the marker, the five-minute assault, the site guard that appears when it is won, the fortify clock. Tony T5: the counterattack that arrives at the camp gate when the clock ends (*held*, then *defended*). | the whole **site ladder**, one state per trip, each state a colour on the board (the watchtower banners come later, with gatehouse tier 2) | Each state change is one radio line from Tune and a board column changing colour. |
+| 0:35–1:00 | Three more introductions from the same streets (Tony's bandages, Michael's wire and filter, Tune's circuit board and broken radio). James's two locations (J1) wait for the first walk out. | each survivor owns one thing; rewards are visible in the world | Each NPC: one line. Michael: "There. Now we can see what's coming." |
+| 1:05 | James's J1: the hospital, 0.34 km due north (v8; the glass tower and the acacia hall are gone, and so is the settlement), and the level crossing at the camp's east gate [needs measurement]. The first walk out, north up your own street. **Xaero** shows the road; **Ping Wheel** is explained by Tune's line. | the map, waypoints, pings; roads lead somewhere; distance costs time | Tune: "Press M for the map. Middle-mouse pings a spot for everyone." (the only control ever explained in chat) |
+| 1:30 | Back at camp with a backpack from W2 (Storage 1). The fifth introduction is done, so Marshall **speaks** for the first time: the camp outline lights up and the map wall is revealed (R1, a datapack function); the strongpoint board lights its Skadowsky column — the sector the camp is standing in, state *unknown* — and beside it the hospital, 0.34 km north (v8, design §2.7); the tower chapter appears in the book, and X1's briefing names its five hooks. | the loop exists; the target is the town they are already in; the tower is the long game | Marshall: "We're squatting in someone's town. Clear it and it's ours. Start north — there's a hospital up that road. Ask James what's in it first." |
+| Session 2 | North through the town. James J-S2: work up to the hospital, find the dossier (the board turns *scouted* and shows the garrison). Tony T3: two or three loot runs (*looted*). Marshall R2: the marker at the hospital, the five-minute assault, the site guard that appears when it is won, the fortify clock. Tony T5: the counterattack that arrives at the bridge when the clock ends (*held*, then *defended*). Clearing the sector pays perimeter rather than a keeper: at *held* the torches' suppression extends to the whole of Skadowsky, the mast's field becomes camp ground, and the NPC buildings unlock tier 2. | the whole **site ladder**, one state per trip, each state a colour on the board (the watchtower banners come later, with gatehouse tier 2); that clearing grows the perimeter while quests improve the interior | Each state change is one radio line from Tune and a board column changing colour. |
 
 By the end of session two the team has looted, ordered, carried, walked, scouted, taken, held and
-defended (at their own gate) — every action the game has — without one paragraph of instructions. A player who joins
+defended (at the bridge, their own west gate) — every action the game has — without one paragraph of instructions. A player who joins
 later gets the same introductions as a tour: the team's progress stages are shared, but the first-time
 lines and the introductions are per player.
 
@@ -58,20 +60,20 @@ lines and the introductions are per player.
 
 | System | First met | How it is shown | What names it (two sentences at most) | The failure that teaches |
 |---|---|---|---|---|
-| Looting / Lootr | camp ruins, minute 6 | glowing chests; wrecks with visible props | tooltip on the first item picked up | opening a chest a friend already opened still has loot in it: instanced loot is learned, not read |
+| Looting / Lootr | the streets off the camp square, minute 6 | glowing chests; rooms and yards with visible props | tooltip on the first item picked up | opening a chest a friend already opened still has loot in it: instanced loot is learned, not read |
 | Stations and timed orders | W1 reward | the station block the player placed; a countdown in its UI | Walker's one line | ordering a steel frame without the torch in the tool slot (W3): the UI says "needs: welding torch" |
 | Blueprints as stages | W1, W3 | recipes appear in the station only after the quest | the quest reward line "blueprint: steel frame" | trying to order something not yet unlocked: the recipe is simply not listed |
 | Backpack, bulky items | W2 (Storage 1), W11 (the kit) | the pack in the Curios slot; the first bulky item gives Slowness and no sprint | one chat line, the first time only: "Too heavy to run with. Cars carry these." | walking home slowly once |
-| Map, waypoints, pings | J1 | the Xaero map with the road drawn on it; Radio 1 (U2) shares waypoints | Tune's control line | getting lost does not last: the spine is visible from any hill |
-| Roads and distance | J1, W5 | the spine to Novo; the walk takes four minutes | nothing; the clock does it | the walk back at dusk |
-| Safety, torches, the horror | first dusk | ten torches; the fog man's sound | nothing | a player who sleeps outside the wire meets the fog man |
-| The site ladder | J-S1 → R2 | the strongpoint board (six columns, six colours); later the watchtower banners | one radio line per state change | the marker refused before scouting: Marshall says "James hasn't been. Neither have you." |
-| The assault and the fortify clock | R2 at Novo | a boss bar for the five minutes; the board shows the ten-minute warning (the whole clock once Radio 2 is in); the counterattack arrives at the camp gate exactly when it ends | Marshall: "Hold it five minutes and my people keep it. Then dig in here — they'll come for the camp when the clock runs out." | losing the counterattack: the column turns red and the wave comes again after the next clock; the site stays ours |
+| Map, waypoints, pings | J1 | the Xaero map with the road drawn on it; Radio 1 (U2) shares waypoints | Tune's control line | getting lost does not last: the mast is visible from anywhere in the sector |
+| Roads and distance | J1, W5 | the road north through the town to the hospital, 0.34 km; the walk takes four minutes [needs measurement] | nothing; the clock does it | the walk back at dusk |
+| Safety, torches, the horror | first dusk | five torches covering the pocket and no further; the fog man's sound | nothing | a player who sleeps outside the wire meets the fog man |
+| The site ladder | J-S1 → R2 | the strongpoint board (seven columns — Skadowsky itself, the five strongpoints and the Woods' outpost — in six colours); later the watchtower banners | one radio line per state change | the marker refused before scouting: Marshall says "James hasn't been. Neither have you." |
+| The assault and the fortify clock | R2 at the hospital | a boss bar for the five minutes; the board shows the ten-minute warning (the whole clock once Radio 2 is in); the counterattack arrives at the bridge exactly when it ends | Marshall: "Hold it five minutes and my people keep it. Then dig in here — they'll come for the bridge when the clock runs out." | losing the counterattack: the column turns red and the wave comes again after the next clock; the site stays ours |
 | Infection | first zombie hit | the Hordes infection icon; Tony's clinic cures it | Tony's T1 line: "If one bites you, come to me before it spreads." | dying of it once, near the clinic |
-| Noise (Zombie Awareness) | first shot fired at a site | the site's garrison converges | Walker W-A4: "A suppressor is the difference between a quiet run and a fight." | one loud run |
-| Vehicles | W7 (Garage 1) | a dead quad on Walker's lot from minute 2 (tier 0 dressing); the first bay arrives with W-B1 | Walker: "The bench builds it from a kit. The kit takes a trip." | the first drive out of the crater ramp |
-| The tower | minute 2 (the ruin), X1 (the briefing), X2 (stage 1) | the ruin on the rim; each stage visibly grows; the parts rack fills hook by hook | Marshall, per stage: one line naming the part | none needed |
-| Flying | W13, the runway | the runway lights at night, visible from the settlement road | Walker: "Take off into the wind. Land the same way." | a crash: PlayerRevive and a second airframe |
+| Noise (Zombie Awareness) | first shot fired in the town | the street's garrison converges | Walker W-A4: "A suppressor is the difference between a quiet run and a fight." | one loud run |
+| Vehicles | W7 (Garage 1) | a dead quad on Walker's lot from minute 2 (tier 0 dressing); the first bay arrives with W-B1 | Walker: "The bench builds it from a kit. The kit takes a trip." | the first drive west over the bridge |
+| The tower | minute 2 (the mast), X1 (the briefing), X2 (stage 1) | the dead mast standing over the camp; stage 1 is the cut lattice section repaired so it can be climbed, and each stage after it visibly grows; the parts rack fills hook by hook | Marshall, per stage: one line naming the part | none needed |
+| Flying | W13, the mast field | the helicopter on the mast field inside the perimeter, lifting from camp ground | Walker: "Take off into the wind. Land the same way." | a crash: PlayerRevive and a second airframe |
 | Revive | first time someone goes down | PlayerRevive's downed state; a teammate holds right-click | a Field note the first time anyone goes down: "Hold right-click on a downed friend." | nobody nearby: the five-minute bleed-out. Inside the camp outline the camp revives a downed player after ten seconds (Medical 1); a player alone elsewhere respawns at the camp. |
 
 ## 4. What the book is, and is not
@@ -95,16 +97,18 @@ The quest book (FTB Quests) is the **journal**. Rules for every quest in `gscraf
 ## 5. The world does the telling
 
 - **Signs** at every NPC building: name, role, one line. Placed by `camp.py` with the tier templates.
-- **The strongpoint board** at Marshall's gatehouse: six columns (the five strongpoints and the Woods'
-  outpost), six states, six colours (dark / scouted / looted / held / defended / lost), rebuilt by
-  function on each state change. It is the loop's whole UI.
+- **The strongpoint board** at Marshall's gatehouse, at the bridge's east end: seven columns (Skadowsky
+  itself, whose rungs pay the camp's perimeter; the five strongpoints — the hospital, the switchyard,
+  the turbine hall, the intake works, the hempcrete compound; and the Woods' outpost), six states, six
+  colours (dark / scouted / looted / held / defended / lost), rebuilt by function on each state change.
+  It is the loop's whole UI.
 - **The map wall** at Tune's: the box, the roads, the sites as they are scouted (banner blocks placed
   by function). Tune's radio lines announce state changes and attack warnings.
 - **The parts rack** at the gate: five hooks, empty until the kits arrive. The tower is "what is missing".
 - **Banners on the gatehouse watchtowers** (tier 2+): one per held site, lime once defended, red while a counterattack is lost (the site stays ours).
 - **The tower stages**: the only progress bar the endgame needs.
 - **Dead vehicles at the strongpoints** (crafting §2.1): the military tier is seen long before it can be built.
-- **Road signs** at the three junctions (Doomsday Decoration props): "NOVO 1 km →", "PLAZA ←".
+- **Road signs** at the three junctions (Doomsday Decoration props): "HOSPITAL 0.34 km ↑", "THE BRIDGE ←".
 - **Ping Wheel** for the team; **Xaero** waypoints from James.
 
 ## 6. The one piece of paper: the survivor's notebook
@@ -122,23 +126,26 @@ Early failures are cheap and close to the clinic. The design keeps them that way
 
 | Failure | Cost | What it teaches | Where it can first happen |
 |---|---|---|---|
-| Dying in the camp ruins | nothing (keepInventory is off, but the ruins are 100 m from spawn; PlayerRevive) | revive, the clinic | Act I |
+| Dying in the streets off the camp square | nothing (keepInventory is off, but the first buildings are a short walk from spawn [needs measurement], and Tony's clinic is in the north complex; PlayerRevive) | revive, the clinic | Act I |
 | Infection | a walk to Tony | the medical function's purpose | Act I |
 | Carrying a bulky item on foot | a slow walk | why the garage exists | W11, the first kit |
-| A loud run at Novo | a fight | noise, suppressors | W5 |
-| Losing Novo's counterattack at the gate | the wave comes again after the next clock; nothing is lost | the walls matter; defended sites are safe for good | R2 |
+| A loud run north of the square | a fight | noise, suppressors | W5 |
+| Losing the hospital's counterattack at the bridge | the wave comes again after the next clock; nothing is lost | the walls matter; defended sites are safe for good | R2 |
 | A crash | the airframe | flying is late-game for a reason | Act IV |
 
 ## 8. What this asks of the build (Phase C)
 
 - **First-join script** (KubeJS): the title card, Tune's three lines twenty seconds apart, the notebook
   and the starting kit (Custom Starting Gear config: personal station, pistol + magazine, flashlight +
-  battery, bandage, notebook). It runs for every new player, whenever they join.
+  battery, bandage, notebook). It runs for every new player, whenever they join, at the world spawn on
+  the paved junction (−940, −979).
 - **Signs and the board** in `camp.py` tier templates; board and banner colour functions
-  `gscraft:board_<site>_<state>`; Tune's radio lines as `tellraw` from the loop script.
+  `gscraft:board_<site>_<state>` for the seven columns (`skadowsky` and the `hospital_*` stages, which
+  were `residential_*`, among them); Tune's radio lines as `tellraw` from the loop script. Nothing here
+  needs `camp_ruins` or `runway_lights`: both are retired.
 - **Quest text pass** over `gscraft-quests.md`: every body to the two-sentence rule; the Field notes
   chapter with its advancement triggers; chapter visibility gates as written.
-- **The notebook**: `build/patchouli_books/survivors_notebook/`, six pages.
+- **The notebook**: `build/patchouli_books/survivors_notebook/`, seven pages (§6).
 - **Item tooltips**: one line per small item (KubeJS item builder `tooltip`).
 - **The first-time lines**: bulky, infection, first warning, once per player, via a player stage.
 

@@ -1,68 +1,90 @@
 [
  {
-  "name": "walker_yard",
-  "blocks": [
-   56,
-   76,
-   103,
-   115
-  ],
-  "y": 99,
-  "note": "Walker's yard 40x32 + 4 apron; ground 87..110, median 94, cut 49% fill 45% | on the graded camp surface (y 99) since v7b"
- },
- {
-  "name": "michael_plant",
-  "blocks": [
-   -44,
-   96,
-   -5,
-   127
-  ],
-  "y": 99,
-  "note": "Michael's plant 32x24 + 4 apron at the crater edge; ground 79..114 (bimodal), pad at 108 = a terrace above the lake; crater rect protected | on the graded camp surface (y 99) since v7b"
- },
- {
   "name": "marshall_gate",
   "blocks": [
-   146,
-   -4,
-   177,
-   19
+   -978,
+   -955,
+   -955,
+   -940
   ],
-  "y": 99,
-  "note": "gatehouse 24x16 + apron; ground 109..117 | on the graded camp surface (y 99) since v7b"
+  "y": 70,
+  "note": "the bridge's east end; every trip west crosses him (skadowsky-camp section 3)"
  },
  {
   "name": "tony_clinic",
   "blocks": [
-   -104,
-   -104,
-   -77,
-   -81
+   -966,
+   -1060,
+   -930,
+   -1020
   ],
-  "y": 99,
-  "note": "clinic 20x16 + apron; ground 84..90 | on the graded camp surface (y 99) since v7b"
+  "y": 61,
+  "note": "the north complex; 24 beds already stand in this building"
  },
  {
   "name": "tune_shack",
   "blocks": [
-   36,
-   -124,
-   59,
-   -101
+   -925,
+   -1040,
+   -905,
+   -1020
   ],
-  "y": 99,
-  "note": "radio shack 16x16 + apron; ground 83..92 | on the graded camp surface (y 99) since v7b"
+  "y": 64,
+  "note": "the north complex's east end, nearest the mast with line of sight to it"
+ },
+ {
+  "name": "walker_yard",
+  "blocks": [
+   -975,
+   -880,
+   -940,
+   -845
+  ],
+  "y": 66,
+  "note": "the south complex; the deepslate-trimmed structure gives a walled yard"
+ },
+ {
+  "name": "michael_plant",
+  "blocks": [
+   -938,
+   -900,
+   -910,
+   -870
+  ],
+  "y": 66,
+  "note": "the south complex's east side, beside the yard and off the square"
  },
  {
   "name": "james_lookout",
   "blocks": [
-   -154,
-   -154,
-   -139,
-   -139
+   -905,
+   -975,
+   -897,
+   -967
   ],
-  "y": 99,
-  "note": "lookout 8x8 + apron; ground 87..90 | on the graded camp surface (y 99) since v7b"
+  "y": 62,
+  "note": "the rail embankment's signal box; it already overlooks both approaches"
+ },
+ {
+  "name": "gun_pit",
+  "blocks": [
+   -846,
+   -1000,
+   -835,
+   -989
+  ],
+  "y": 60,
+  "note": "the mast field's west edge; fires east over 70 blocks of open grass"
+ },
+ {
+  "name": "tower_compound",
+  "blocks": [
+   -840,
+   -1040,
+   -770,
+   -960
+  ],
+  "y": 60,
+  "note": "the mast's field; the finale's fail rectangle. The mast stands at (-808,-1008)"
  }
 ]
