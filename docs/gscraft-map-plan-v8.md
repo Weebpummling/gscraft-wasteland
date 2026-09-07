@@ -111,13 +111,22 @@ beside the plant; the hempcrete compound under the ridge south-west of the town;
 the town by the lake; the 29 old sites scatter as farmsteads 40 m off roads, 150 m apart, the Woods included. Render:
 `incoming/census/sectors/sectors_v8.png`.
 
+**2026-09-06, east district.** The hub was expanded to the whole western half of the 1.12 city (x -3568..-2385,
+z -1008..700), and that expansion overwrote the plots the Financial Plaza, Novo Industrial and Bio Gen stood on, because
+the hub's own source map holds open desert at those three spots. The three builds have been transplanted again from
+their original 1.12 saves and set down as an east district, 32 blocks off the city's east edge, on flat ground at y 65:
+the plaza and its sewers at the north end, the industrial zone in the middle, the Bio Gen offices at the south. Plan:
+`buildmap/plan_v8/transplant_plan_v8_district.json`. Three streets tie the district into the network
+(`buildmap/plan_v8/roads_v8_district.json`): a through avenue from the desert city across the district to the
+north-south trunk, a spine along the builds' east flank, and a mid-district link east to the trunk.
+
 | Build | Group | Position (blocks) | Footprint | m to a road |
 |---|---|---|---|---|
 | Camp | camp | x -1792..-1409, z -2492..-2109 | 384 x 384 | - |
-| Novo Expograd hub (desert city) | cyber | x -3376..-2545, z -624..15 | 832 x 640 | 40 |
-| Novo Expograd Industrial Zone | cyber | x -2880..-2737, z -816..-657 | 144 x 160 | 86 |
-| Financial Plaza + sewers | cyber | x -3456..-3297, z -800..-657 | 160 x 144 | 91 |
-| Bio Gen offices | cyber | x -2512..-2449, z -704..-449 | 64 x 256 | 99 |
+| Novo Expograd hub (desert city) | cyber | x -3568..-2385, z -1008..700 | 1184 x 1709 | 40 |
+| Financial Plaza + sewers | cyber | x -2352..-2193, z -1008..-865 | 160 x 144 | 72 |
+| Novo Expograd Industrial Zone | cyber | x -2352..-2209, z -832..-673 | 144 x 160 | 82 |
+| Bio Gen offices | cyber | x -2352..-2289, z -640..-529 | 64 x 112 | 160 |
 | Skadowsky sector | sector | x -1088..-625, z -1488..-737 | 464 x 752 | 89 |
 | Mega-base | player | x 368..751, z -2128..-1601 | 384 x 528 | 40 |
 | Industrial district | player | x 336..799, z -1376..-1105 | 464 x 272 | 86 |

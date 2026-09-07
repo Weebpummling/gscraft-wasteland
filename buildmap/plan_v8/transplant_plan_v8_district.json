@@ -1,0 +1,118 @@
+[
+ {
+  "source": "plaza",
+  "source_dir": "G:/GSCraft/scratch/upgrade/financial_plaza/world",
+  "chunks": [
+   -27,
+   -73,
+   -18,
+   -65
+  ],
+  "offset": [
+   -120,
+   10
+  ],
+  "dy": 11,
+  "what": "Financial Plaza -> east district, beside the desert city",
+  "dest_blocks": [
+   -2352,
+   -1008,
+   -2193,
+   -865
+  ],
+  "chunk_count": 90
+ },
+ {
+  "source": "sewers",
+  "source_dir": "G:/GSCraft/scratch/upgrade/sewers/world",
+  "chunks": [
+   -59,
+   -20,
+   -54,
+   -15
+  ],
+  "offset": [
+   -86,
+   -41
+  ],
+  "dy": -21,
+  "what": "sewers under the plaza (east district), sections below y 43 only",
+  "dest_blocks": [
+   -2320,
+   -976,
+   -2225,
+   -881
+  ],
+  "chunk_count": 36,
+  "sections_below_y": 43
+ },
+ {
+  "source": "novo",
+  "source_dir": "G:/GSCraft/scratch/upgrade/novo_industrial/world",
+  "chunks": [
+   39,
+   9,
+   47,
+   18
+  ],
+  "offset": [
+   -186,
+   -61
+  ],
+  "dy": -165,
+  "what": "Novo Expograd Industrial Zone -> east district",
+  "dest_blocks": [
+   -2352,
+   -832,
+   -2209,
+   -673
+  ],
+  "chunk_count": 90
+ },
+ {
+  "source": "biogen_s",
+  "source_dir": "G:/GSCraft/scratch/upgrade/biogen_strip/world",
+  "chunks": [
+   29,
+   -63,
+   32,
+   -60
+  ],
+  "offset": [
+   -176,
+   23
+  ],
+  "dy": 62,
+  "what": "Bio Gen south group -> east district",
+  "dest_blocks": [
+   -2352,
+   -640,
+   -2289,
+   -577
+  ],
+  "chunk_count": 16
+ },
+ {
+  "source": "biogen_n",
+  "source_dir": "G:/GSCraft/scratch/upgrade/biogen_strip/world",
+  "chunks": [
+   30,
+   -75,
+   30,
+   -74
+  ],
+  "offset": [
+   -177,
+   40
+  ],
+  "dy": 62,
+  "what": "Bio Gen north group -> east district",
+  "dest_blocks": [
+   -2352,
+   -560,
+   -2337,
+   -529
+  ],
+  "chunk_count": 2
+ }
+]

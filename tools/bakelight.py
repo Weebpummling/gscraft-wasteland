@@ -10,7 +10,7 @@ Chunky does not help here: it skips chunks that already have status `full`, so i
 and relit none of them. What does work is force-loading the area in blocks with no player online, which takes the chunks
 through a real load, computes the heightmaps and the light, and saves them.
 
-usage: bakelight.py <x0> <z0> <x1> <z1> [--step 256] [--dwell 30] [--dry-run]
+usage: bakelight.py <x0> <z0> <x1> <z1> [--step 256] [--dwell 30] [--start N] [--dry-run]
        bakelight.py -3568 -1008 -2385 700
 
 Run it with the server up and nobody online. 256 blocks is the forceload limit of 16 x 16 chunks per command; `--dwell`
@@ -36,6 +36,7 @@ def main(a):
     step = int(a[a.index("--step") + 1]) if "--step" in a else 256
     dwell = int(a[a.index("--dwell") + 1]) if "--dwell" in a else 30
     dry = "--dry-run" in a
+    start = int(a[a.index("--start") + 1]) if "--start" in a else 1
     blocks = [(x, z, min(x + step - 1, x1), min(z + step - 1, z1))
               for x in range(x0, x1 + 1, step) for z in range(z0, z1 + 1, step)]
     chunks = ((x1 - x0) // 16 + 1) * ((z1 - z0) // 16 + 1)
@@ -43,6 +44,7 @@ def main(a):
           f"{len(blocks) * (dwell + 8) / 60:.0f} minutes at {dwell}s dwell")
     t0 = time.time()
     for k, (a0, b0, a1, b1) in enumerate(blocks, 1):
+        if k < start: continue
         cmd(f"forceload add {a0} {b0} {a1} {b1}", dry)
         if not dry: time.sleep(dwell)
         cmd("save-all", dry)

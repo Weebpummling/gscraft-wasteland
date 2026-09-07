@@ -29,6 +29,42 @@
    "note": "2026-09-06: expanded to the whole western half of the 1.12 city; the Novo Industrial, Financial Plaza and Bio Gen plots are absorbed into it (owner: let it overwrite)"
   },
   {
+   "id": "plaza",
+   "name": "Financial Plaza + sewers",
+   "x0": -2352,
+   "z0": -1008,
+   "x1": -2193,
+   "z1": -865,
+   "group": "cyber",
+   "road_m": 91,
+   "source": "scratch/upgrade/financial_plaza + sewers (1.12)",
+   "note": "2026-09-06: re-placed as the desert city's east district, 32 blocks off the city's east edge (owner: closer to the city as part of the complex)"
+  },
+  {
+   "id": "novo",
+   "name": "Novo Expograd Industrial Zone",
+   "x0": -2352,
+   "z0": -832,
+   "x1": -2209,
+   "z1": -673,
+   "group": "cyber",
+   "road_m": 86,
+   "source": "scratch/upgrade/novo_industrial (1.12)",
+   "note": "2026-09-06: re-placed in the east district"
+  },
+  {
+   "id": "biogen",
+   "name": "Bio Gen offices",
+   "x0": -2352,
+   "z0": -640,
+   "x1": -2289,
+   "z1": -529,
+   "group": "cyber",
+   "road_m": 99,
+   "source": "scratch/upgrade/biogen_strip (1.12)",
+   "note": "2026-09-06: re-placed in the east district"
+  },
+  {
    "id": "skad",
    "name": "Skadowsky sector",
    "x0": -1088,

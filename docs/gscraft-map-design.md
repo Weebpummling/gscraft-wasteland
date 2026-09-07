@@ -85,7 +85,7 @@ the plant's exclusion zone, not for reaching a site nothing else can.
 | Range | From the camp | Owned by | What lives there | Attackable? |
 |---|---|---|---|---|
 | **Foot** | 0 – 1.5 km | walking | the camp, the settlement (0.6 km SE), the runway (1.4 km N), the library (1.7 km NNW), **Skadowsky** (1.4 km SE), the town's near edge | the camp: every counterattack and the finale; Skadowsky: its take only |
-| **Road** | 1.5 – 3 km | cars, boats | the town, **Novo** (2.0 km SW), the hempcrete compound (2.0 km WSW), **the mega-base / FR-06** (2.2 km E, across the lake), **the industrial district / the plant sector** (2.4 km ESE), **Financial Plaza** (2.4 km SW), **the hub** (2.4 km SW, inside the cyberpunk district) | the strongpoints' takes only; their counterattacks come to the camp |
+| **Road** | 1.5 – 3 km | cars, boats | the town, **Novo** (2.0 km SW), the hempcrete compound (2.0 km WSW), **the mega-base / FR-06** (2.2 km E, across the lake), **the industrial district / the plant sector** (2.4 km ESE), **Financial Plaza** (1.5 km SW), **the hub** (2.4 km SW, inside the cyberpunk district) | the strongpoints' takes only; their counterattacks come to the camp |
 | **Far** | 3 – 4.3 km | truck, boat, aircraft | the pack's power-plant complex and the rail yard's far end; the only source of the last component | never |
 
 ### 2.2 The camp (starting area)
@@ -141,8 +141,8 @@ the same footprint, placed by the NPC's upgrade quests (§3.6).
 | # | Strongpoint (holdable) | Where (v8 §4) | From the camp | Role | Camp NPC | Site keeper (Create chapter §3) |
 |---|---|---|---|---|---|---|
 | 1 | **Skadowsky sector** — the residential block (owner default E2: it takes the block's role; the v6 block has no v8 placement) | x −1088…−625 × z −1488…−737 | 1.4 km SE, by road | Medical; the hospital, then the rail yard | Tony | **Vera**, the nurse |
-| 2 | **Novo Expograd Industrial Zone** | x −2880…−2737 × z −816…−657, in the cyberpunk district | 2.0 km SW | Heavy industry | Walker | **Kessler**, the foundryman |
-| 3 | **Financial Plaza Quarantine** (+ the sewers under it) | x −3456…−3297 × z −800…−657, in the district | 2.4 km SW | Electronics | Tune | **Ilya**, the clerk |
+| 2 | **Novo Expograd Industrial Zone** | x −2352…−2209 × z −832…−673, the city's east district | 1.7 km SW | Heavy industry | Walker | **Kessler**, the foundryman |
+| 3 | **Financial Plaza Quarantine** (+ the sewers under it) | x −2352…−2193 × z −1008…−865, the city's east district | 1.5 km SW | Electronics | Tune | **Ilya**, the clerk |
 | 4 | **FR-06 complex** (v8: the mega-base sector) | x 368…751 × z −2128…−1601, the lake's east shore | 2.2 km E | Power and hangar | Michael | **Rook**, the millwright |
 | 5 | **The waterworks** — the industrial plant of the design (v8: the industrial district beside the pack's plant complex) | x 336…799 × z −1376…−1105 | 2.4 km ESE, 3.7 km by road over the viaduct | Fuel and water | Michael | **Oksana**, the plant chief |
 | — | **Radio tower** (custom) | in the camp, pad x −1560…−1433 × z −2460…−2333 | 0.1 km | Endgame | Marshall | — |
@@ -158,10 +158,10 @@ wasteland, dressed with Lost Cities modules and props in the v8 plan's last step
 the border. The v7 structure census (964 starts, 67 kept) is history, and every quest that named a kept structure is
 re-targeted in §2.7.
 
-Loot sites, never attacked: **the hub** (the Novo Expograd city, 832×640 at x −3376…−2545 × z −624…15, 2.4 km SW,
+Loot sites, never attacked: **the hub** (the Novo Expograd city, 1184×1709 at x −3568…−2385 × z −1008…700, 2.4 km SW,
 walled into the cyberpunk district, the Custodian at its heart — Act IV, by truck or by air over the lake; owner
 default E3); **the settlement** (272×288 at x −1280…−1009 × z −2016…−1729, 0.6 km SE, Act I's first walk); **Bio Gen
-offices** (x −2512…−2449 × z −704…−449, the district's east strip); **the hempcrete compound** (x −3392…−3073 ×
+offices** (x −2352…−2289 × z −640…−529, the city's east district); **the hempcrete compound** (x −3392…−3073 ×
 z −1344…−1025, 2.0 km WSW under the ridge); **the library** (x −2480…−2385 × z −3808…−3713, 1.7 km NNW by the lake);
 **the runway** (x −2064…−1553 × z −3792…−3601, 1.4 km N); **the sewers** under the plaza; the **29 farmsteads** (v8 §4,
 40 m off the roads, 150 m apart, the Woods included) — the old sites of the live world, each a small loot stop; and the
@@ -332,11 +332,11 @@ site's component containers respawn every two in-game days, so nothing is lost b
 |---|---|---|---|---|---|---|
 | 1 | I | the camp's own ruins (0–300 m) | W1, T1, M1, U1 hand-ins; X1's briefing once the five are done; D1 concrete later | 11 | — | foot |
 | 2 | I | the settlement and the runway (0.6–1.4 km; v8) | J1 locations; W3 metal scrap; M2 light bulb; T2 med items | 6 | — | foot |
-| 3 | II | Novo (2.0 km SW, in the cyberpunk district; v8) | J-S1 dossier; W5 loot (spark plugs, scrap, oil) over two or three runs; R2 marker and assault; hardware and spark plugs for W7; after the hold: W11 heavy anchor cable, W9 heavy diesel engine | 8 | 2 (after the hold) | foot; the bulky parts one per carrier, or the first car |
+| 3 | II | Novo (1.7 km SW, in the city's east district; v8) | J-S1 dossier; W5 loot (spark plugs, scrap, oil) over two or three runs; R2 marker and assault; hardware and spark plugs for W7; after the hold: W11 heavy anchor cable, W9 heavy diesel engine | 8 | 2 (after the hold) | foot; the bulky parts one per carrier, or the first car |
 | 4 | I | Skadowsky — the residential block, down the Line (1.4 km SE; v8) | J2 locations, J-S2 dossier; T3 loot (blood bags, syringes, antiseptic); R3 marker and assault; U3 hard drive, J3 folders; electrical items for U2 and U8; D3's seeds and bowls at the hempcrete compound | 14 | — | foot, then the first car |
 | 5 | III | the industrial plant — the plant sector across the lake (2.4 km ESE; v8) | J-S3 dossier; M4 loot (hoses, fins, fuel cans); R4 marker and assault; hoses, tubes and fins for M3 and M6; fuel cans for M7 and W8; after the hold: M6 industrial pump | 9 | 1 | car |
 | 6 | III | FR-06 — the mega-base on the lake's east shore (2.2 km E; v8), by boat or the lake road | J-S4 dossier; M8 loot (relays, motors, a battery); R5 marker and assault; electrical items; after the hold: M10 transformer core, M11 avionics module and reactor control module | 10 | 3 | car |
-| 7 | II | Financial Plaza and the sewers under it (2.4 km SW, in the cyberpunk district; v8) | J-S5 dossier; U4 loot (circuit boards, computer parts, a hard drive); R5 marker and assault; U6 sewers and encrypted radio; electrical and valuables; after the hold: U7 military circuit board; D4 concrete | 12 | 1 | car |
+| 7 | II | Financial Plaza and the sewers under it (1.5 km SW, in the city's east district; v8) | J-S5 dossier; U4 loot (circuit boards, computer parts, a hard drive); R5 marker and assault; U6 sewers and encrypted radio; electrical and valuables; after the hold: U7 military circuit board; D4 concrete | 12 | 1 | car |
 | 8 | II–III | the town and the ruin field by road: the library, the hempcrete compound, Bio Gen's strip (1.7–2.4 km; v8) | J4 locations, J5 valuables, W12 pressure gauge, T7 surgical kit, J6 hard drive; W10 second anchor cable on the way back past Novo; M12 membrane at the plant | 9 | 3 | truck, or boat to the settlement |
 | 9 | IV | the hub (2.4 km SW, the district's heart) and the plant complex beyond the river (2.9–4.3 km; v8) | J7, J9 locations; J8 phased array element and satellite receiver; T9 and M13 military power filters | 6 | 4 | aircraft |
 | 10 | II–IV | home: the gatehouse and the claim | X2–X6 hand-ins, T10 ready room, D1–D6, R6; the eighteen `*-B` building upgrades as their hand-ins come together | — | the five complete parts, one at a time | — |

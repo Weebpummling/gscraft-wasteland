@@ -1,0 +1,23 @@
+[
+ {
+  "name": "district_ave",
+  "points": [[-2567, -531], [-2400, -512], [-2200, -512], [-2124, -545]],
+  "width": 7,
+  "style": "road",
+  "note": "east district through street: desert city -> district -> north-south trunk"
+ },
+ {
+  "name": "district_spine",
+  "points": [[-2185, -520], [-2180, -700], [-2180, -940]],
+  "width": 7,
+  "style": "road",
+  "note": "east district avenue along the flank of Bio Gen, Novo Industrial and the Financial Plaza"
+ },
+ {
+  "name": "district_link_e",
+  "points": [[-2180, -760], [-2124, -760]],
+  "width": 7,
+  "style": "road",
+  "note": "district spine -> north-south trunk, mid-district tie"
+ }
+]
