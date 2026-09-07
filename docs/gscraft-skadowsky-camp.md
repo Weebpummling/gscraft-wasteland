@@ -150,7 +150,7 @@ deferred to a later quest line and no quest in this design may point at it.
 | The mega-base, FR-06 | Michael's power strongpoint |
 | The industrial district, "the waterworks" | Michael's fuel-and-water strongpoint |
 
-The library (a transplant) and the runway (an unbuilt project pad) are **not decided** here. See §9.
+The library (a transplant) and the runway (an unbuilt project pad) are deferred with the district; §11.1.
 
 ## 8. What this does to the act structure
 
@@ -206,7 +206,7 @@ The tower's five parts follow the same order: mast repair from Skadowsky, transm
 generator from the turbine hall, cooling loop from the intake works, array from the confinement hall, with the
 reactor control module still the gatehouse tier 3's input from the reactor block.
 
-## 9. Open decisions
+## 9. The decisions this raised (all closed in §11)
 
 1. **The runway and the library.** Both are outside the Pripyat base map — the library is a transplant, the
    runway an unbuilt pad. From Skadowsky they are the two furthest things on the map at 2.88 and 3.18 km. Keep
@@ -245,7 +245,108 @@ z −2480…−2080 and that plan §4's sector row, x −1792…−1409 × z −
 obsolete, but any future session reading either will find two different plateau camps and no note that neither
 is live. That is what §10 exists to prevent.
 
+## 11. Decisions settled, 2026-09-07
+
+Section 9 listed four calls and the gaps ledger carried one more. All five are closed here. Nothing in
+this design is now waiting on a decision; what remains is build work, and §12 says which is which.
+
+### 11.1 The runway and the library are deferred with the district
+
+Both fall outside the routing rule: the library is a transplanted compound and the runway is a project
+pad that was never built. From Skadowsky they are also the two furthest things on the map, at 2.88 and
+3.18 km.
+
+**The aircraft becomes rotary and the runway is not needed.** Three things make this the cheap answer
+rather than a loss. The plant complex sits on Skadowsky's own bank, so the lake crossing the fixed-wing
+plan existed to serve is gone. The pack's vehicle stock after the 2026-09-06 swap is overwhelmingly
+helicopters, all verified present in the shipped jars: `dragonrise_reforge:uh60`, `fcp:huey` with its
+three gunship variants (`huey_rockets`, `huey_door_gunner_m60`, `huey_door_gunner_m134`), `fcp:mi17`,
+`fcp:venom` and `fcp:viper`. And a helicopter lifts from the mast field inside the camp perimeter, so
+Act IV needs no airfield at all.
+
+`runway_lights` and the runway pad are retired with `camp_ruins`. W-B3 keeps the UH-60 as written.
+
+### 11.2 The Line is re-cut west to the collective farm
+
+Its old route, the plateau to Skadowsky, no longer exists at either end, and its old destination is gone
+twice over: the settlement sector is group `removed` and the ground there is 91 % grass.
+
+**The Line now runs west over the bridge to the collective farm** at (−2112, −896), 1.17 km. The six
+stops and quests L1 to L6 keep their owners and their shapes; only the direction reverses. The fit is
+better than the original: L1 is already Tony's seeds and herbs, and D3 and D5 are already the farm's
+kit, seeds and crops, so three of the corridor's quests were pointing at this destination anyway. L6's
+switching station becomes the farm's own substation at the west end, and clearing it opens the farm
+rather than the block.
+
+The corridor stays deliberately empty between stops, as design §2.6 requires, and the pylons now lead
+away from home instead of toward it, which is the right shape for Act II.
+
+### 11.3 The car stays in Act II
+
+Act II runs west over the bridge to the farm and the town, and south down the east bank to the plant's
+outer works. The town centre is 2.38 km and the town's east avenue 1.52 km. That is a car's range and
+not a walk, so Walker's garage chain keeps its act. No change.
+
+### 11.4 Three strongpoints in the plant complex is correct
+
+The concern was that three of the five sit in one place. Measured, they do not: the plant complex is a
+2.3 by 1.1 km industrial landscape and its three sites are as far apart as the old district's were.
+
+| From | To | Distance |
+|---|---|---|
+| switchyard | turbine hall | 1.31 km |
+| turbine hall | intake works | 0.66 km |
+| switchyard | intake works | 1.71 km |
+
+Each is also thematically exact rather than assigned by convenience, which the old district placements
+were not: the switchyard is relays and transformers, the turbine hall is generators, the intake works is
+cooling water.
+
+**The five strongpoints are settled as:**
+
+| Role | NPC | Keeper | Site | Centre | Straight from camp | Act |
+|---|---|---|---|---|---|---|
+| Medical | Tony | Vera | the Skadowsky hospital | −782, −1277 | 0.36 km | I |
+| Electronics | Tune | Ilya | the plant's switchyard and admin block | −815, 105 | 1.06 km | III |
+| Power | Michael | Rook | the plant's turbine hall | 400, 590 | 2.04 km | III |
+| Fuel and water | Michael | Oksana | the plant's cooling intake works | 895, 155 | 2.14 km | III |
+| Heavy industry | Walker | Kessler | the hempcrete compound | −3233, −1185 | 2.31 km | II |
+
+The confinement hall at (−642, 518), roof y 198, is **not** a strongpoint. It is Act IV's prize: the
+reactor control module for the gatehouse tier 3 and the antenna array for tower stage 5. That keeps the
+map's largest ruin as the finale's source rather than one more take.
+
+The tower's five parts follow the same order: the mast repair from Skadowsky, the transmitter from the
+switchyard, the generator kit from the turbine hall, the cooling loop from the intake works, and the
+array from the confinement hall.
+
+### 11.5 Gunpowder's source (gaps ledger F11)
+
+The stone complex that held it is gone from the v8 map. Gunpowder now comes from **the town's military
+chests and the plant complex's four storage halls** at (−888, 167), (−743, 167), (−890, 54) and
+(−775, 54). Both are in scope under §7, both are already loot-table locations, and neither needs a
+building invented for it. Teddy's H8 propellants are unaffected.
+
+## 12. What is left, and it is not design
+
+| Item | Kind |
+|---|---|
+| Gaps ledger F9 — the map and dressing session: NPC rectangles walked and adjusted, the town's landmark buildings picked from the measured candidates, the road signs | build task |
+| Gaps ledger F10 — the Phase C config wins from the mod audit | build task |
+| Design §10's small list — the claim-marker anchor points, the base-upgrade recipe sheet, the camp templates | build task |
+| The client designer-tool kit (HANDOFF) | owner preference, no design depends on it |
+
+The town's landmark roles have a selection rule rather than a pending decision: pick from the measured
+building stock by shape. The palace of culture is the broad civic block at (−2650, −2889), 131 × 114 in
+grey concrete rather than the blackstone of the housing. The tallest block is any of the 4,044 columns
+standing at y 118 or above; the town has no single tallest building and does not need one. The central
+square is the park with the radiating avenues at (−2380, −2975). The four microdistricts are the
+repeated 89 × 124 and 107 × 108 blocks at (−2088, −1967), (−1937, −2184), (−2337, −1791) and
+(−2350, −2289). The stadium is at (−2395, −3482).
+
 **A check that runs.** `tools/checkdocs.py` fails if a live design document asserts a plateau camp
-coordinate, or names MCSP or the Vintage Vehicle Pack, without a pointer to what replaced it. Dated
-audit snapshots and the v6 documents are exempt and carry a banner instead. Run it after any doc edit:
-it checks 25 live documents and currently reports 24 references, all cleared.
+coordinate, names MCSP or the Vintage Vehicle Pack without saying what replaced it, or quotes a
+`fcp:`, `dragonrise_reforge:` or `superbwarfare:` id that is not in the jar the server actually ships.
+That last check exists because this document asserted two helicopter ids that did not exist until it
+caught them. Dated audit snapshots and the v6 documents are exempt and carry a banner instead. Run it
+after any doc edit: it reads 25 live documents and currently clears 70 assertions.

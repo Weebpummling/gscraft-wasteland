@@ -11,7 +11,7 @@ that is nothing like the one the design was written on. Render: `docs/renders/v8
 blue, built magenta, sectors yellow, farmsteads orange, the camp red with 1 / 2 / 3 km rings). Distances "by road" were
 measured on the road network as it stands today (`incoming/census/v8_routes.json`): the pack's roads plus the
 transplants' own, **without** the thirteen step-8 connectors or the camp's gate road, so they are the ceiling, not the
-floor. This is a proposal; §7 lists what it changes and what the owner decides.
+floor. This was a proposal; §7's decisions were all taken, and the camp move of 2026-09-07 replaced its geography wholesale - see the banner above.
 
 ## 0. The map in three lands
 

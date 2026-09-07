@@ -32,7 +32,8 @@ how to rebuild the same state elsewhere.
 > `op-permission-level=2` (done locally; **hand-run on the hosted panel**: the same key, then `/op <name>` for each
 > designer; the owner stays level 4 in `ops.json`); WorldEdit CUI `WorldEditCUI-1.20+01.jar` is client-only in the pack
 > (`CLIENT_EXTRA_JARS`, packwiz 2026.09.05). The researched kit (Lighty, IBE Editor, Jade, Freecam, FTB Ultimine by hand)
-> is `docs/notes/gscraft-designer-tools.md`, owner's pick pending.
+> is `docs/notes/gscraft-designer-tools.md`. Owner preference, not a design dependency: nothing in the
+> design waits on it, and the default is to add none (2026-09-07).
 >
 > **Objectives on the v8 map (proposal, 2026-09-05):** `docs/gscraft-objectives-v8.md` — the map read as three lands
 > (home bank, the river line, the far bank) plus the district; acts and strongpoints re-placed from real road distances

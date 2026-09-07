@@ -39,6 +39,59 @@ BANNER = "Superseded 2026-09-07"
 ROUTING = "Routing rule, 2026-09-07"
 
 
+# ---- registry ids the docs assert must exist in the shipped jars -------------------------------
+MODS = Path("G:/GSCraft/server/mods")
+NS_JAR = {"fcp": "fcp-", "dragonrise_reforge": "dragonrise_reforge-", "superbwarfare": "superbwarfare-"}
+ID_RE = re.compile(r"`(fcp|dragonrise_reforge|superbwarfare):([a-z0-9_/]+)`")
+# Namespaced things that are not entities, items or blocks, so they never appear in a language
+# file: recipe types and item tags. Named here so they are not reported as missing ids.
+NOT_REGISTRY = {"superbwarfare:vehicle_assembling", "superbwarfare:military_armor",
+                "superbwarfare:military_armor_heavy"}
+
+
+def registry(ns):
+    """Every entity/item/block name the namespace's jar registers, from its language file."""
+    import json
+    import zipfile
+    jars = sorted(MODS.glob(NS_JAR[ns] + "*.jar"))
+    if not jars:
+        return None
+    z = zipfile.ZipFile(jars[-1])
+    try:
+        d = json.loads(z.read(f"assets/{ns}/lang/en_us.json").decode("utf-8"))
+    except KeyError:
+        return None
+    out = set()
+    for k in d:
+        parts = k.split(".", 2)
+        if len(parts) == 3 and parts[0] in ("entity", "item", "block") and parts[1] == ns:
+            out.add(parts[2])
+    return out
+
+
+def check_ids(show_all):
+    """Docs name mod ids as fact. Fail if one is not in the jar we actually ship."""
+    cache = {}
+    problems = []
+    for p in sorted(list(DOCS.glob("*.md")) + [REPO / "HANDOFF.md"]):
+        if not p.exists() or p.name in HISTORY:
+            continue
+        for i, line in enumerate(p.read_text(encoding="utf-8").splitlines()):
+            for ns, name in ID_RE.findall(line):
+                if ns not in cache:
+                    cache[ns] = registry(ns)
+                reg = cache[ns]
+                if reg is None:
+                    continue
+                if f"{ns}:{name}" in NOT_REGISTRY:
+                    continue
+                base = name.split("/")[0]
+                ok = base in reg
+                if show_all or not ok:
+                    problems.append((p.name, i + 1, f"id {ns}:{name}", ok, line.strip()[:110]))
+    return problems
+
+
 def head_bannered(lines):
     """A banner in the first 30 lines is the document saying it is superseded as a whole."""
     return any(BANNER in l or ROUTING in l for l in lines[:30])
@@ -72,6 +125,7 @@ def main(argv):
                     ok = bool(REPLACED.search(ctx)) or near_banner(lines, i, 8)
                     if show_all or not ok:
                         problems.append((p.name, i + 1, "removed mod named", ok, line.strip()[:110]))
+    problems += check_ids(show_all)
     stale = [x for x in problems if not x[3]]
     for name, ln, kind, ok, text in problems:
         print(f"{'ok  ' if ok else 'STALE'} {name}:{ln}  {kind}\n        {text}")
