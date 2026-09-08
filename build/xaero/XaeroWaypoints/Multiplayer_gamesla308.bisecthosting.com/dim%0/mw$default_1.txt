@@ -1,0 +1,48 @@
+sets:gui.xaero_default
+#gui.xaero_default
+waypoint:Camp:CP:-940:65:-979:10:false:0:gui.xaero_default:false:0:0:false
+waypoint:Bridge (west gate):BR:-1043:89:-946:10:false:0:gui.xaero_default:false:0:0:false
+waypoint:The mast:MA:-808:137:-1008:10:false:0:gui.xaero_default:false:0:0:false
+waypoint:Hospital:HO:-782:64:-1277:14:false:0:gui.xaero_default:false:0:0:false
+waypoint:Switchyard:SW:-815:63:105:14:false:0:gui.xaero_default:false:0:0:false
+waypoint:Turbine hall:TH:400:64:590:14:false:0:gui.xaero_default:false:0:0:false
+waypoint:Intake works:IW:895:63:155:14:false:0:gui.xaero_default:false:0:0:false
+waypoint:Confinement hall:CH:-642:64:518:4:false:0:gui.xaero_default:false:0:0:false
+waypoint:Storage halls:SH:-888:65:167:4:false:0:gui.xaero_default:false:0:0:false
+waypoint:Stadium:ST:-2395:65:-3482:6:false:0:gui.xaero_default:false:0:0:false
+waypoint:Central square:CS:-2380:65:-2975:6:false:0:gui.xaero_default:false:0:0:false
+waypoint:Palace of culture:PC:-2650:65:-2889:6:false:0:gui.xaero_default:false:0:0:false
+waypoint:Collective farm:CF:-2112:62:-896:6:false:0:gui.xaero_default:false:0:0:false
+waypoint:Novo Expograd (expanded):NE:-2977:65:-154:3:false:0:gui.xaero_default:false:0:0:false
+waypoint:Financial Plaza + sewers:FP:-2273:65:-937:3:false:0:gui.xaero_default:false:0:0:false
+waypoint:Novo Expograd Industrial Zone:NE:-2281:65:-753:3:false:0:gui.xaero_default:false:0:0:false
+waypoint:Bio Gen offices:BG:-2321:65:-585:3:false:0:gui.xaero_default:false:0:0:false
+waypoint:Skadowsky sector:SS:-857:65:-1113:3:false:0:gui.xaero_default:false:0:0:false
+waypoint:Mega-base:MB:559:65:-1865:3:false:0:gui.xaero_default:false:0:0:false
+waypoint:Industrial district:ID:567:65:-1241:3:false:0:gui.xaero_default:false:0:0:false
+waypoint:Hempcrete compound:HC:-3233:65:-1185:3:false:0:gui.xaero_default:false:0:0:false
+waypoint:Library:LI:-2433:65:-3761:3:false:0:gui.xaero_default:false:0:0:false
+waypoint:Runway (pad):RU:-1809:65:-3697:3:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 1:F1:-2177:65:-577:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 2:F2:-1713:65:-1745:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 4:F4:-1281:65:-817:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 5:F5:-2113:65:-897:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 6:F6:-1473:65:-257:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 8:F8:-2193:65:319:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 9:F9:-2321:65:31:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 10:F1:-1553:65:-1489:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 11:F1:-2241:65:-1345:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 12:F1:-273:65:-2865:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 13:F1:-2753:65:-1057:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 14:F1:-3793:65:-2849:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 15:F1:-1825:65:-273:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 16:F1:-529:65:-2641:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 19:F1:-1185:65:-3745:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 20:F2:-65:65:-2337:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 22:F2:-2081:65:591:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 23:F2:191:65:-2401:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 24:F2:-721:65:-2401:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 25:F2:-2481:65:-1153:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 26:F2:-3777:65:-3713:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 27:F2:-81:65:-2577:8:false:0:gui.xaero_default:false:0:0:false
+waypoint:farmstead 29:F2:671:65:-2353:8:false:0:gui.xaero_default:false:0:0:false

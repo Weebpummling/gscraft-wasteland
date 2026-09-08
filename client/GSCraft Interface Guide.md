@@ -78,6 +78,26 @@ A file you edit yourself is never overwritten by a pack update. The pack only wr
 
 ---
 
+## 4b. The map: waypoints, and why the map itself starts blank
+
+The release carries **GSCraft-Map-Waypoints.zip**: 46 waypoints covering every build, landmark and
+strongpoint, so you never have to hunt for a place you have not been to yet.
+
+**Where it goes.** Close the game. In Prism, right-click the GSCraft tile and choose **Folder**, open
+`.minecraft`, and drop the zip's `XaeroWaypoints` folder in, so you end up with a path like
+`.minecraft/XaeroWaypoints/Multiplayer_199.115.76.82/dim%0/mw$default_1.txt`. Both server addresses
+are in the zip because Xaero files waypoints under whichever one you actually connected with, and the
+pack ships both. If you already have waypoints of your own, rename your `mw$default_1.txt` first and
+merge the lines by hand afterwards - it is plain text, one waypoint per line.
+
+**The world map still fills in as you travel**, and that part cannot be shipped. Xaero stores an
+explored region as a palette of block states with packed heights and biome ids behind a save version
+it refuses to read if it does not recognise it, so a hand-made map file is as likely to fail to load
+as to work. If you want a filled-in map to look at outside the game, the rendered one lives in the
+repository at `docs/maps/gscraft-wasteland-v8.png`.
+
+---
+
 ## 5. Putting it back the way the pack ships it
 
 Delete the file you changed and launch the game. The updater notices it is missing and downloads the pack's copy
