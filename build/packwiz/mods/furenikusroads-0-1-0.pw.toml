@@ -1,0 +1,8 @@
+name = "furenikusroads-0.1.0"
+filename = "furenikusroads-0.1.0.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files/furenikusroads-0.1.0.jar"
+hash-format = "sha512"
+hash = "f90e1533501d625c2d3cdaa1684ca6e99076c935dc44c765bc2a6ce39d5e91c7c2759e7898ca3ce2013d7aca69296a8d52b107eb2fd3d972e5b62a07484b50ba"

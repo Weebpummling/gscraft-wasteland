@@ -1,0 +1,8 @@
+name = "metropolis-0.1.0"
+filename = "metropolis-0.1.0.jar"
+side = "both"
+
+[download]
+url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files/metropolis-0.1.0.jar"
+hash-format = "sha512"
+hash = "e59893a658b16a7f17b59f6be14f70fdec05f0ed81c5cd885508b5e7e85523144294bec51f62d4d596171bfa968bfdcc636393b8b4f2a1383d3bf9dd34c97539"
