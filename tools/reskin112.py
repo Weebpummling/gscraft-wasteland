@@ -50,10 +50,27 @@ IMPROVED.update({f"chisel:factory1[{i}]": FACTORY[(i + 8) % 16] for i in range(1
 IMPROVED.update({f"chisel:technical[{i}]": TECHNICAL[i % len(TECHNICAL)] for i in range(16)})
 IMPROVED.update({f"chisel:technical1[{i}]": TECHNICAL[(i + 2) % len(TECHNICAL)] for i in range(16)})
 IMPROVED.update({f"chisel:technicalnew[{i}]": TECHNICAL[(i + 4) % len(TECHNICAL)] for i in range(16)})
-IMPROVED.update({f"furenikusroads:generic_blocks[{m}]": t for m, t in ROADS.items()})
-IMPROVED.update({f"furenikusroads:road_block_standard[{m}]": "chisel:road/black_concrete" for m in range(16)})
-IMPROVED.update({f"furenikusroads:street_block_b[{m}]": "chisel:road/gray_concrete" for m in range(16)})
-IMPROVED.update({f"furenikusroads:street_block_a[{m}]": "chisel:road/light_gray_concrete" for m in range(16)})
+# 2026-09-08: Fureniku's Roads is back. The city's streets were laid with it in 1.12, and the author's
+# ground-up 1.20.1 rewrite (0.1.0, alpha) carries the same surface textures under the same names, so
+# these stop being an approximation and become the originals. `_16` is the full cube; the 4/8/12 heights
+# are slabs we do not want here. The rewrite has no markings, kerbs, bollards or drain covers yet, so
+# the ~2,100 blocks of road paint and furniture keep their old mapping below.
+FR = "furenikusroads:"
+# Matched on texture brightness against the vanilla concrete the old table used: road_block_dark
+# averages rgb 34 against black concrete's 10, standard 64 against gray's 57, light 116 against light
+# gray's 122. Metas 0 and 3 were both black concrete in ROADS, so both stay one surface.
+ROADS_120 = {0: FR + "road_block_dark_16",
+             1: FR + "road_block_standard_16",
+             2: FR + "road_block_light_16",
+             3: FR + "road_block_dark_16"}
+IMPROVED.update({f"furenikusroads:generic_blocks[{m}]": t for m, t in ROADS_120.items()})
+IMPROVED.update({f"furenikusroads:road_block_standard[{m}]": FR + "road_block_standard_16" for m in range(16)})
+IMPROVED.update({f"furenikusroads:road_block_concrete_2[{m}]": FR + "road_block_concrete_2_16" for m in range(16)})
+IMPROVED.update({f"furenikusroads:road_block_yellow[{m}]": FR + "road_block_pale_16" for m in range(16)})
+IMPROVED.update({f"furenikusroads:road_block_gravel[{m}]": FR + "stone_road_16" for m in range(16)})
+IMPROVED.update({f"furenikusroads:road_block_muddy[{m}]": FR + "stone_road_16" for m in range(16)})
+IMPROVED.update({f"furenikusroads:street_block_b[{m}]": FR + "sidewalk_16" for m in range(16)})
+IMPROVED.update({f"furenikusroads:street_block_a[{m}]": FR + "sidewalk_clean_16" for m in range(16)})
 IMPROVED.update({
     "chisel:laboratory": "chisel:tiles_small/white_concrete",
     "chisel:concrete_lightgray1": "chisel:array/light_gray_concrete",
@@ -146,6 +163,47 @@ def prefix_target(name):
     return None
 
 
+# ---- 2026-09-08: the last of the vanilla stand-ins, onto mods the pack already ships.
+# An audit against the 1.12 save found 4,437 blocks still standing in the city as plain vanilla
+# lookalikes. Three families account for 3,962 of them, and every target below is already in the pack,
+# so this costs no new mod, no memory and no registry risk.
+#
+# NEVER map anything to industrialdeco:metal_fence_block. Its getShape asks the level for its
+# neighbours' states, the sky-light engine calls it mid-lighting, and the server deadlocks. That block
+# cost six crashes on 2026-09-06 and 838 of them were swept out with replaceblock.py.
+DECOR = {
+    # ruined concrete brickwork: three damage states that all collapsed onto two vanilla blocks
+    "hbm:brick_concrete": "chipped:massive_stone_bricks",
+    "hbm:brick_concrete_cracked": "chipped:cracked_disordered_stone_bricks",
+    "hbm:brick_concrete_broken": "chipped:vertical_disordered_stone_bricks",
+    "hbm:brick_concrete_mossy": "chipped:eroded_mossy_stone_bricks",
+    # railings and fences: iron bars is the right shape, but a dead city's steel is not shiny, and the
+    # three kinds should not read as one. Immersive Weathering's bars carry their own rust.
+    "hbm:railing_normal": "immersive_weathering:rusted_iron_bars",
+    "hbm:railing_bend": "immersive_weathering:rusted_iron_bars",
+    "hbm:railing_end_self": "immersive_weathering:rusted_iron_bars",
+    "hbm:railing_end_flipped_self": "immersive_weathering:rusted_iron_bars",
+    "hbm:railing_end_floor": "immersive_weathering:rusted_iron_bars",
+    "hbm:railing_end_flipped_floor": "immersive_weathering:rusted_iron_bars",
+    "hbm:fence_metal": "immersiveengineering:steel_fence",
+    "cfm:electric_fence": "immersiveengineering:alu_fence",   # a wire fence, not a window grille
+    # the three concretes that all became smooth stone
+    "hbm:concrete_smooth": "chipped:smooth_light_gray_concrete",
+    "hbm:concrete_pillar": "chipped:stacked_light_gray_concrete",
+    "hbm:concrete_asbestos": "chipped:sanded_smooth_stone",
+}
+# The 475 antiblock positions that fall to vanilla purple and light grey concrete are left alone on
+# purpose: an antiblock IS a flat single-colour block, and vanilla concrete is exactly that. Antiblocks
+# Rechiseled only ships nine "bright" colours and these two are not among them.
+
+DECOR_PREV = {}
+for _k, _v in DECOR.items():
+    _prev = IMPROVED.get(_k) or prefix_target(_k)
+    if _prev and _prev != _v:
+        DECOR_PREV[_k] = _prev          # what the last pass wrote, so this pass can recognise it
+    IMPROVED[_k] = _v
+
+
 def new_resolve(name, meta):
     return IMPROVED.get(f"{name}[{meta}]") or IMPROVED.get(name) or prefix_target(name)
 
@@ -157,6 +215,18 @@ def plain(n):
 def props_of(n):
     if "[" not in n: return {}
     return dict(kv.split("=") for kv in n[n.index("[") + 1:-1].split(","))
+
+
+# What an earlier re-skin already wrote. A destination holding one of these has still not been touched
+# by anything else, so it is safe to improve again. Add to this whenever a mapping is superseded.
+SUPERSEDED = {}
+SUPERSEDED.update({f"furenikusroads:generic_blocks[{m}]": t for m, t in ROADS.items()})
+SUPERSEDED.update({f"furenikusroads:road_block_standard[{m}]": "chisel:road/black_concrete" for m in range(16)})
+SUPERSEDED.update({f"furenikusroads:street_block_b[{m}]": "chisel:road/gray_concrete" for m in range(16)})
+SUPERSEDED.update({f"furenikusroads:street_block_a[{m}]": "chisel:road/light_gray_concrete" for m in range(16)})
+# Every block the decoration pass re-targets: DECOR_PREV holds what the pass before it wrote, which is
+# what is standing in the world now.
+SUPERSEDED.update(DECOR_PREV)
 
 
 def main(a):
@@ -175,8 +245,15 @@ def main(a):
         for m in range(16):
             o = old_resolve(n, m); o = o[0] if isinstance(o, tuple) else o
             nw = new_resolve(n, m)
-            if nw and o and plain(nw) != plain(o):
-                lut_old[(i, m)] = plain(o); lut_new[(i, m)] = nw
+            accept = set()
+            if o:
+                accept.add(plain(o))
+            sup = SUPERSEDED.get(f"{n}[{m}]") or SUPERSEDED.get(n)
+            if sup:
+                accept.add(plain(sup))
+            accept.discard(plain(nw) if nw else None)
+            if nw and accept:
+                lut_old[(i, m)] = accept; lut_new[(i, m)] = nw
     print(f"{len(lut_new)} (block, meta) pairs have a better target; "
           f"{len({v for v in lut_new.values()})} distinct 1.20 blocks")
     src_regions = {}
@@ -241,12 +318,12 @@ def main(a):
             nchanged = 0
             for k, groups in want_old.items():
                 bid, m = int(k) // 16, int(k) % 16
-                old_n, new_n = lut_old[(bid, m)], lut_new[(bid, m)]
+                old_set, new_n = lut_old[(bid, m)], lut_new[(bid, m)]
                 tgt = pid(new_n)
                 for ys, zs, xs in groups:
                     cur = dids[ys, zs, xs]
                     if cur.size == 0: continue
-                    ok = (cur >= 0) & np.array([dnames[c] == old_n if c >= 0 else False for c in cur], dtype=bool)
+                    ok = (cur >= 0) & np.array([dnames[c] in old_set if c >= 0 else False for c in cur], dtype=bool)
                     if not ok.any(): continue
                     dids[ys[ok], zs[ok], xs[ok]] = tgt
                     n = int(ok.sum()); nchanged += n; hits[new_n] += n
