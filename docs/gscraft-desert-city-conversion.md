@@ -80,4 +80,20 @@ position that still holds what the previous pass wrote: guess that value wrong a
 
 ## Status
 
-Verified by dry run against the sandbox world, not deployed. Nothing has been written to the live server.
+**Deployed 2026-09-08 02:37.** The world was pulled with the server stopped (511 files, 921 MB), the
+transplant applied to that fresh copy, and the nine region files it changed uploaded after each was
+re-checked against live. `r.-5..-7` x `-2..0` is the whole footprint; nothing outside the desert city
+moved. The server came back in 19.5 s and loads 119 mods including `furenikusroads 0.1.0` and
+`metropolis 0.1.0`.
+
+The client pack went out as `2026.09.08.1` in the same window. Both jars are `side = both` and the
+server now holds 64,173 road blocks that only resolve with them, so a client on the old pack cannot
+join; packwiz pulls the change on next launch.
+
+Two harmless things in the boot log, neither caused by this deploy:
+
+- KubeJS falls back to vanilla on four `furenikusroads:road_block_concrete_*` crafting recipes
+  ("result can't be empty"). Those recipes do not work. It costs nothing here because the roads are
+  placed in the world, not crafted.
+- `keerdm_zombie_essentials` has a chest loot table naming `pointblank:glock17`, and PointBlank is not
+  in the pack, so that one table fails to parse. Pre-existing, unrelated, still worth fixing.
