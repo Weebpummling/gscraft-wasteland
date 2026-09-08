@@ -20,10 +20,16 @@ skip it. If the live file moved under us, the push stops and says which regions 
 `run` does, in order:
   1. refuse to start if the queue is empty
   2. take a backup through the panel and wait for it to finish; if the panel refuses (the plan's
-     backup limit is zero) the run stops here unless --allow-no-backup is given
+     backup limit is zero) the run stops here unless --allow-no-backup is given. That flag means "no
+     *panel* backup": step 4b below still keeps a full local copy of the live world before anything
+     is changed, so there is always something to roll back to.
   3. stop the server
+  3b. apply the staged mod-list change, if there is one: every jar in tools/deploy_mods goes up to
+     /mods and every name in tools/deploy_mods_remove.txt comes off. Mods move before the world does,
+     because a world that references a mod's blocks must not load before that mod is present.
   4. pull every region, entity and poi file of the live world into the staging directory, recording
      the sha256 of each as pulled
+  4b. copy the pulled world aside to backups/world-snapshots/<date> before any tool runs
   5. run each queued tool against the staging world
   6. upload only the files the tools changed, checking first that the live copy still hashes to what
      step 4 pulled
@@ -52,7 +58,10 @@ sys.path.insert(0, str(HERE))
 import bisectpanel as bp  # noqa: E402
 
 STAGE = Path(r"G:/GSCraft/scratch/deploy_stage")
+MODS_ADD = Path(__file__).resolve().parent / "deploy_mods"        # jars to upload to /mods
+MODS_REMOVE = Path(__file__).resolve().parent / "deploy_mods_remove.txt"   # one filename per line
 QUEUE = HERE / "deploy_queue.json"
+SNAPSHOTS = Path(r"G:/GSCraft/backups/world-snapshots")
 HISTORY = HERE / "deploy_history"
 REMOTE_WORLD = "/wasteland-v8"
 LOCAL_WORLD_NAME = "wasteland-v8"
@@ -241,6 +250,48 @@ def push(cfg, manifest, dry):
 
 # ---------------------------------------------------------------- run
 
+def apply_mods(cfg, dry):
+    """Add and remove server jars while it is stopped. Mods first, then the world, because a world that
+    references a mod's blocks must not load before that mod is there."""
+    assert_offline(cfg, "changing the mod list")
+    jars = sorted(MODS_ADD.glob("*.jar")) if MODS_ADD.exists() else []
+    drop = [l.strip() for l in MODS_REMOVE.read_text(encoding="utf-8").splitlines()
+            if l.strip() and not l.startswith("#")] if MODS_REMOVE.exists() else []
+    if not jars and not drop:
+        return
+    log(f"mod list: {len(jars)} to add, {len(drop)} to remove")
+    if dry:
+        for j in jars: log(f"  would add {j.name}")
+        for d in drop: log(f"  would remove {d}")
+        return
+    if drop:
+        paths = [f"/mods/{d}" for d in drop]
+        bp.request(cfg, "POST", f"/api/client/servers/{cfg['server']}/files/delete",
+                   body={"root": "/", "files": paths})
+        log(f"  removed {len(drop)}")
+    for j in jars:
+        bp.cmd_put(str(j), "/mods")
+    if jars:
+        log(f"  added {len(jars)}")
+
+
+def snapshot_pull(dry):
+    """The pulled world, copied aside before any tool touches it. This is the rollback point: it is the
+    live world at stop time, every file hashed as it came off the server. The panel's own backups are
+    capped at zero on this plan, so without this a deploy has nothing to go back to."""
+    stamp = datetime.now().strftime("%Y-%m-%d-%H%M")
+    dest = SNAPSHOTS / stamp
+    if dry:
+        log(f"would snapshot the pulled world to {dest}")
+        return dest
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(STAGE, dest)
+    n = sum(1 for _ in dest.rglob("*.mca"))
+    mb = sum(f.stat().st_size for f in dest.rglob("*") if f.is_file()) / 1e6
+    log(f"snapshot: {n} region files, {mb:,.0f} MB -> {dest}")
+    return dest
+
+
 def cmd_run(argv):
     dry = "--dry-run" in argv
     allow_none = "--allow-no-backup" in argv
@@ -261,16 +312,32 @@ def cmd_run(argv):
         take_backup(cfg, allow_none)
 
     if server_state(cfg) != "offline":
+        try:
+            bp.request(cfg, "POST", f"/api/client/servers/{cfg['server']}/command", body={"command": "list"})
+            time.sleep(2)
+            bp.request(cfg, "POST", f"/api/client/servers/{cfg['server']}/command",
+                       body={"command": "save-all flush"})
+            log("save-all flush sent; waiting for the write to land")
+            time.sleep(15)
+        except Exception as e:
+            log(f"could not send the save command ({e}); the stop below still flushes the world")
         log("stopping the server")
         bp.request(cfg, "POST", f"/api/client/servers/{cfg['server']}/power", body={"signal": "stop"})
         if not wait_state(cfg, "offline"):
             sys.exit("stopping: the server would not go offline")
     log("server is offline")
 
+    apply_mods(cfg, dry)
     manifest = pull_world(cfg)
+    snap = snapshot_pull(dry)
 
     for e in q:
-        cmd = [sys.executable, str(HERE / e["tool"]), str(STAGE / LOCAL_WORLD_NAME)] + e["args"]
+        w = str(STAGE / LOCAL_WORLD_NAME)
+        # most tools take the world first; a tool that wants it elsewhere puts {world} in its arguments
+        if any("{world}" in a for a in e["args"]):
+            cmd = [sys.executable, str(HERE / e["tool"])] + [a.replace("{world}", w) for a in e["args"]]
+        else:
+            cmd = [sys.executable, str(HERE / e["tool"]), w] + e["args"]
         log(f"applying {e['tool']} {' '.join(e['args'])}")
         r = subprocess.run(cmd, cwd=str(HERE))
         if r.returncode != 0:
