@@ -121,8 +121,9 @@ reloads and honours RPM.
    30 has mobs closing to about 5.5 blocks before firing, with a `// TODO` on it upstream. A gunner that
    walks into melee to shoot is worse than no gunner.
 3. The goal attaches only on `EntityJoinLevelEvent` with `!loadedFromDisk()` — spawn-time only.
-4. The shipped example is inert: `skeleton.json` sits under `data/superbwarfare/`, keying as
-   `superbwarfare:skeleton`, while lookup uses `EntityType.getKey()` = `minecraft:skeleton`.
+4. The shipped example is inert: `skeleton.json` sits under `data/superbwarfare/`, so it keys under
+   the **superbwarfare** namespace while lookup uses `EntityType.getKey()` = `minecraft:skeleton`. The
+   two never match. A working file has to live under the mob's own namespace.
 
 **Config-path warning:** `G:/GSCraft/server/config/superbwarfare-server.toml` is a **stale leftover** from
 a pre-0.8.9 build — its `[spawn]` section has only `spawn_senpai`. The live file is

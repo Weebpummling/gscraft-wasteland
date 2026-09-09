@@ -69,7 +69,8 @@ NOT_REGISTRY = {"superbwarfare:vehicle_assembling", "superbwarfare:military_armo
 
 
 def registry(ns):
-    """Every entity/item/block name the namespace's jar registers, from its language file."""
+    """Every entity/item/block name the namespace's jar registers: its language file, plus the
+    spawn-egg and geometry files that evidence an entity the mod never translated."""
     import json
     import zipfile
     jars = sorted(MODS.glob(NS_JAR[ns] + "*.jar"))
@@ -85,6 +86,13 @@ def registry(ns):
         parts = k.split(".", 2)
         if len(parts) == 3 and parts[0] in ("entity", "item", "block") and parts[1] == ns:
             out.add(parts[2])
+    # An entity whose mod forgot its translation still exists. A spawn egg model or a GeckoLib
+    # geometry file is the jar saying so, and both are cheap to read from the name list.
+    for n in z.namelist():
+        if n.startswith(f"assets/{ns}/models/item/") and n.endswith("_spawn_egg.json"):
+            out.add(n.rsplit("/", 1)[1][: -len("_spawn_egg.json")])
+        elif n.startswith(f"assets/{ns}/geo/") and n.endswith(".geo.json"):
+            out.add(n.rsplit("/", 1)[1][: -len(".geo.json")])
     return out
 
 
