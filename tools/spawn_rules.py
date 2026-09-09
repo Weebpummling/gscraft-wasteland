@@ -1,39 +1,44 @@
 """The whole In Control faction rule block, generated in one place and in one order.
 
-This replaces `militia_rules.py` and `faction_dress.py`, which each owned a slice of `spawn.json` and
-inserted into it independently. In Control takes the **first matching rule**, so a rule block assembled
-by several tools that each choose their own insertion point is a bug waiting to happen - and was one
-twice: rules appended past a generic pillager rule never ran, and a deny anchored on the wrong rule put
-the hold behind the factions it was meant to suppress. One tool, one order, rebuilt from scratch each
-run.
-
-Order, and every line of it is load-bearing:
+In Control takes the **first matching rule**, so the order below is the design. Areas come from
+`tools/incontrol_areas.py`; this file only decides who stands in them and what they are wearing.
 
     1  builds        every hostile denied inside anything the designers built or transplanted
     2  hold          every hostile denied, unconditionally - the switch that keeps all of this off
-    3  Machines      pomkotsmechs at the plant; denied everywhere else
+    3  Machines      pomkotsmechs at the reactor hall and the plant; denied everywhere else
     4  Militia       the east-bank spine and the plant; denied everywhere else
-    5  the Dead      Skadowsky, the town, the farm; spiders share it and the Woods' bunkers
+    5  the Dead      by site: the hospital, the streets, the yard, the plant's halls, the town
     6  Scavengers    the Woods, and the roads between - the fallback for anything left
-    each rule gates and dresses at once - see dressed()
 
-**Builds are no-spawn ground (owner, 2026-09-09).** KROT is a work in progress and the same applies to
-every other player-built and transplanted site; the places enemies belong are the base map's own - the
-Pripyat town, the plant, the Woods, Skadowsky's streets and the fields. So rule 1 denies hostiles inside
-the camp, KROT, the mega-base, the industrial district, the library, the runway pad and the whole desert
-city complex, and it sits ahead of the hold so it holds whatever else changes.
+**Builds are no-spawn ground (owner, 2026-09-09).** KROT is a work in progress and the same goes for
+every other player-built and transplanted site; enemies belong in the base map's own places.
 
-Dressing runs at `onjoin`, never `finalize`: `finalize` does not fire for a `/summon` or for a mob a
-horde wave adds, and this design places most of its enemies that way.
+**Kit is by rank and by site, not one uniform for everyone.** §2.1 lists a wardrobe of about forty
+pieces, and an earlier pass put a PASGT helmet and an IOTV vest on everything that could hold one -
+which wastes the wardrobe and flattens the read at fifty metres. So:
+
+  - the **Militia** match, because they are an army that never stood down, but the ranks do not. The
+    Bulwark carries IE steel on the chest because he is the shield; the Fusilier wears a marksman's
+    helmet because he holds the longest line; the Trooper and the Rifleman are the line, in US kit.
+  - the **Dead wear what they died in**, which is the whole of §3.3: plant workers in insulated rubber
+    with a crowbar, the hospital's dead in a medic's vest, the yard's labourers in a Gorka jacket with a
+    shovel, and the town's residents in nothing at all, because they were civilians.
+  - the **drowned** at the intake works and under the rail bridge get the sealed kit, a copper diving
+    helmet and a backtank. They are the only enemy in the pack that reads as equipped for the water.
+  - the **Scavengers do not match, and that is the point** (§3.2). Four looks across the illager ranks:
+    a face wrap, a looted WW2 shell over a Gorka jacket, a bandana, and nothing. None of it issued.
+
+Two traps from §2.1 respected: Dragon Rising ships no boots, so nobody is given any, and `cn21`/`cnfast`
+give zero armour on the head, so they are not used as protection.
 
 Not included, deliberately:
 
-  - the Torch and the Chemist (§3.5) need Improved Mobs' item use, which is switched off while mob block
+  - the Torch and the Chemist (§3.5) need Improved Mobs' item use, which is off while mob block
     destruction is held off (`griefing_off.py`). Burning a palisade is the block destruction the hold
     exists to prevent. They come back with it.
   - the Horrors have no rules here: the Knocker, the Eyes and the fog man are governed by their own
-    configs, as `gscraft-enemies.md` §3.4 says.
-  - the hub's Machines and every deferred site stay denied with their site.
+    configs (`gscraft-enemies.md` §3.4).
+  - skeletons are "background" (`entities-v8` §2) and keep their existing rules.
 
     spawn_rules.py [--dry-run]
 """
@@ -46,22 +51,68 @@ OVERWORLD = "minecraft:overworld"
 
 IE = "immersiveengineering:"
 SBW = "superbwarfare:"
+DR = "dragonrise_reforge:"
 PK = "pomkotsmechs:"
+CR = "create:"
 
 MECHS = [PK + "pms01", PK + "pms03"]
-MILITIA = [IE + "commando", IE + "fusilier", IE + "bulwark"]
-DEAD = ["minecraft:zombie", "minecraft:zombie_villager", "minecraft:husk", "minecraft:drowned"]
-SCAV_ILLAGER = ["minecraft:vindicator", "minecraft:evoker", "minecraft:illusioner",
-                "minecraft:witch", "minecraft:ravager"]
-# spiders are the Dead's too - "the bunkers; the sewers are deferred" (enemies §3.1). They hold no
-# equipment, so they are gated with the Dead but never dressed.
+COMMANDO, FUSILIER, BULWARK = IE + "commando", IE + "fusilier", IE + "bulwark"
+MILITIA = [COMMANDO, FUSILIER, BULWARK]
+PILL = ["minecraft:pillager"]
+DEAD = ["minecraft:zombie", "minecraft:zombie_villager", "minecraft:husk"]
+DROWNED = ["minecraft:drowned"]
 SPIDERS = ["minecraft:spider", "minecraft:cave_spider"]
+SCAV_AXE = ["minecraft:vindicator"]
+SCAV_CASTER = ["minecraft:evoker", "minecraft:illusioner"]
+SCAV_REST = ["minecraft:witch", "minecraft:ravager"]
 
-# every build: nothing hostile spawns inside one
 BUILDS = ["camp", "krot", "mega", "indu", "lib", "runway", "hub", "plaza", "novo", "biogen"]
+NO_DROPS = "ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],HandDropChances:[0.0f,0.0f]"
 
-# nothing an enemy carries ever drops (E7a)
-NO_DROPS = "{ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],HandDropChances:[0.0f,0.0f]}"
+# ---- the wardrobe actually used, by what it reads as (§2.1)
+PASGT, IOTV = SBW + "us_helmet_pasgt", SBW + "us_chest_iotv"
+MARKSMAN = DR + "sniper21_helmet"
+STEEL_CHEST = IE + "armor_steel_chestplate"
+FARADAY_H, FARADAY_C = IE + "armor_faraday_helmet", IE + "armor_faraday_chestplate"
+MEDIC = DR + "med21_chest"
+GORKA = DR + "gorka3"
+WRAP, JACKET = PK + "wandererarmorhelmet", PK + "wandererarmorchestplate"
+BANDANA, RAGS = PK + "pomkotsarmorhelmet", PK + "pomkotsarmorchestplate"
+WW2 = SBW + "ge_helmet_m_35"
+DIVE_H, BACKTANK = CR + "copper_diving_helmet", CR + "copper_backtank"
+
+
+def item(i):
+    return '{id:"' + i + '",Count:1b}'
+
+
+RIFLE = '{id:"tacz:modern_kinetic_gun",Count:1b,tag:{GunId:"tacz:type_81"}}'
+CROWBAR, PIPE, SHOVEL = item(SBW + "crowbar"), item(SBW + "steel_pipe"), item(SBW + "military_shovel")
+
+# mobs, areas, rank name, head, chest, main hand, cap per area.
+# an area of None means "anywhere not already claimed by a rule above".
+KITS = [
+    # ---- the Militia. One army; the ranks are not interchangeable.
+    ([BULWARK],  ["farbank", "plant"], "Militia Shield",   PASGT,    STEEL_CHEST, None,    3),
+    ([FUSILIER], ["farbank", "plant"], "Militia Gunner",   MARKSMAN, IOTV,        None,    3),
+    ([COMMANDO], ["farbank", "plant"], "Militia Trooper",  PASGT,    IOTV,        None,    6),
+    (PILL,       ["farbank", "plant"], "Militia Rifleman", PASGT,    IOTV,        RIFLE,   4),
+
+    # ---- the Dead, wearing what they died in
+    (DEAD, ["pl_switch", "pl_admin", "pl_turb", "pl_react"],
+     "Plant Worker", FARADAY_H, FARADAY_C, CROWBAR, 10),
+    (DEAD, ["sk_hosp"], "The Infected", None, MEDIC, None, 12),
+    (DEAD, ["sk_south"], "Yard Hand", None, GORKA, SHOVEL, 8),
+    (DEAD, ["sk_town", "tw_stad", "tw_centre", "tw_slabs", "tw_blocks", "town", "skad", "farm"],
+     "The Dead", None, None, None, 14),
+    (DROWNED, ["pl_intake", "tw_bridge", "plant"], "The Drowned", DIVE_H, BACKTANK, None, 8),
+
+    # ---- the Scavengers: looted, never issued, and never twice the same (§3.2)
+    (PILL,        ["woods", None], "Scavenger",        WRAP,    JACKET, PIPE,    10),
+    (SCAV_AXE,    ["woods", None], "Scavenger Raider", WW2,     GORKA,  CROWBAR, 6),
+    (SCAV_CASTER, ["woods", None], "Scavenger Elder",  BANDANA, RAGS,   None,    3),
+    (SCAV_REST,   ["woods", None], "Scavenger",        None,    None,   None,    4),
+]
 
 
 def rule(mob=None, area=None, result="deny", when="onjoin", **extra):
@@ -79,46 +130,30 @@ def cap(n, mob):
     return {"amount": n, "mob": mob, "perplayer": False}
 
 
-def hands(main=None):
-    """Both hands, written through the nbt action.
-
-    The `helditem` action sets the main hand and leaves the off hand to Improved Mobs, which kept putting
-    something in it - a diamond pickaxe, flint and steel, an ender pearl, a lava bucket, across
-    successive runs. Neither the ARMOR/HELDITEMS exemption nor USEITEM in the Flag Blacklist nor the Item
-    Use Blacklist stopped it. Writing HandItems as NBT sets both slots at once and leaves nothing for
-    anything else to fill.
-    """
-    off = "{}"
-    return f"HandItems:[{main or '{}'},{off}]"
-
-
 def dressed(mob, area, name, helm, chest, hand, n):
-    """Gate and dress in one rule.
+    """Gate and dress, as two rules.
 
-    These have to be the same rule. In Control stops at the first match, so a gating rule that only says
-    "default" for a faction in its area consumes the match and every dressing rule after it never runs -
-    which is what a first attempt at this did. Actions apply whenever a rule matches, whatever the
-    result, so `default` keeps vanilla's own spawn logic and still dresses what it lets through.
+    They have to be two. A `maxcount` on the dressing rule means that past the cap the rule stops
+    matching and the mob falls through to whatever is next, which turned three of six pillagers at the
+    Militia's own centre into Scavengers. The cap denies; the dressing is unconditional.
+
+    They also have to be in this order. A gating rule that only says "default" consumes the match and
+    every dressing rule after it never runs. Actions apply whenever a rule matches, whatever the result,
+    so `default` keeps vanilla's own spawn logic and still dresses what it lets through.
+
+    Hands go through the nbt action, not `helditem`: `helditem` sets the main hand and leaves the off
+    hand to Improved Mobs, which filled it with a diamond pickaxe, then flint and steel, then an ender
+    pearl, then a lava bucket across successive runs. Writing HandItems sets both slots at once.
     """
-    # Two rules, not one. A maxcount on the dressing rule means that past the cap the rule stops
-    # matching and the mob falls through to whatever is next - which made three of six pillagers at the
-    # Militia's own centre come out as Scavengers. The cap has to deny, and the dressing has to be
-    # unconditional, so the surplus is refused rather than re-factioned.
-    over = rule(mob=mob, area=area, result="deny", mincount=cap(n, mob))
-    r = rule(mob=mob, area=area, result="default",
-             customname=name, nbt="{" + hands(hand) + "," + NO_DROPS.strip("{}") + "}")
+    nbt = "{HandItems:[" + (hand or "{}") + ",{}]," + NO_DROPS + "}"
+    out = [rule(mob=mob, area=area, result="deny", mincount=cap(n, mob))]
+    r = rule(mob=mob, area=area, result="default", customname=name, nbt=nbt)
     if helm:
         r["armorhelmet"] = {"item": helm}
     if chest:
         r["armorchest"] = {"item": chest}
-    return [over, r]
-
-
-PASGT, IOTV = SBW + "us_helmet_pasgt", SBW + "us_chest_iotv"
-RIFLE = '{id:"tacz:modern_kinetic_gun",Count:1b,tag:{GunId:"tacz:type_81"}}'
-FARADAY_H, FARADAY_C = IE + "armor_faraday_helmet", IE + "armor_faraday_chestplate"
-WRAP, JACKET = PK + "wandererarmorhelmet", PK + "wandererarmorchestplate"
-PILL = ["minecraft:pillager"]
+    out.append(r)
+    return out
 
 
 def build():
@@ -128,66 +163,62 @@ def build():
     for a in BUILDS:
         out.append(rule(area=a, result="deny", hostile=True))
 
-    # ---- 2. the hold: every hostile denied until this rule is removed
+    # ---- 2. the hold
     out.append(rule(result="deny", hostile=True))
 
     # ---- 3. the Machines. The hub is theirs in the design but is a build and deferred, so the plant is
-    # the only ground they hold today.
+    # the only ground they hold today, and the reactor hall is where the Overseer stands.
+    out.append(rule(mob=MECHS, area="pl_react", result="default", maxcount=cap(2, MECHS)))
     out.append(rule(mob=MECHS, area="plant", result="default", maxcount=cap(4, MECHS)))
     out.append(rule(mob=MECHS, result="deny"))
 
-    # ---- 4. the Militia: "a place, not a weather" (enemies §3.3). The three IE ranks and the Rifleman.
-    for a in ("farbank", "plant"):
-        out.extend(dressed(MILITIA, a, "Militia", PASGT, IOTV, None, 6))
-    for a in ("farbank", "plant"):
-        out.extend(dressed(PILL, a, "Militia Rifleman", PASGT, IOTV, RIFLE, 4))
-    out.append(rule(mob=MILITIA, result="deny"))
+    # ---- 4 to 6, by site
+    for mobs, areas, name, helm, chest, hand, n in KITS:
+        for a in areas:
+            out.extend(dressed(mobs, a, name, helm, chest, hand, n))
 
-    # ---- 5. the Dead. Workers where people worked; the town's own carry nothing (§3.3).
-    for a in ("plant", "skad"):
-        out.extend(dressed(DEAD, a, "Worker", FARADAY_H, FARADAY_C,
-                           '{id:"' + SBW + 'crowbar",Count:1b}', 14))
-    for a in ("town", "farm"):
-        out.extend(dressed(DEAD, a, "The Dead", None, None, None, 14))
-    out.append(rule(mob=DEAD, result="deny"))
+    # ---- "a place, not a weather": each faction denied outside the ground claimed above
+    out.append(rule(mob=MILITIA, result="deny"))
+    out.append(rule(mob=DEAD + DROWNED, result="deny"))
 
     # spiders share the Dead's ground and the Woods' bunkers, and wear nothing
     for a in ("skad", "town", "woods"):
         out.append(rule(mob=SPIDERS, area=a, result="default", maxcount=cap(8, SPIDERS)))
     out.append(rule(mob=SPIDERS, result="deny"))
-
-    # ---- 6. the Scavengers hold the Woods and the roads between things, so the Woods is explicit and
-    # everything not already claimed falls to them rather than being denied. Looted, never issued (§3.2).
-    out.extend(dressed(PILL + SCAV_ILLAGER, "woods", "Scavenger", WRAP, JACKET,
-                       '{id:"' + SBW + 'steel_pipe",Count:1b}', 10))
-    out.extend(dressed(PILL + SCAV_ILLAGER, None, "Scavenger", WRAP, JACKET,
-                       '{id:"' + SBW + 'steel_pipe",Count:1b}', 8))
     return out
+
+
+OWNED_NAMES = {k[2] for k in KITS}
+OWNED_MOBS = set(MECHS + MILITIA + DEAD + DROWNED + SPIDERS + PILL +
+                 SCAV_AXE + SCAV_CASTER + SCAV_REST)
 
 
 def main(argv):
     dry = "--dry-run" in argv
     spawn = json.loads((IC / "spawn.json").read_text(encoding="utf-8"))
 
-    # keep only rules this tool does not own, so a re-run rebuilds the block cleanly
     def ours(r):
-        if r.get("customname") in ("Militia Rifleman", "Scavenger", "Worker", "The Dead"):
+        if r.get("customname") in OWNED_NAMES:
             return True
         if r.get("hostile") and r.get("result") == "deny" and "mob" not in r \
                 and "mincount" not in r and "spawner" not in r:
             return True
         mob = r.get("mob") or []
-        return bool(mob) and all(m in MECHS + MILITIA + DEAD + SPIDERS + SCAV_ILLAGER + ["minecraft:pillager"]
-                                 for m in mob)
+        return bool(mob) and all(m in OWNED_MOBS for m in mob)
 
     keep = [r for r in spawn if not ours(r)]
     block = build()
     out = block + keep
     print(f"{len(block)} faction rules + {len(keep)} kept = {len(out)}")
-    for i, r in enumerate(block):
-        mob = r.get("mob")
-        mob = ",".join(m.split(":")[-1] for m in mob)[:30] if mob else "(any hostile)"
-        print(f"  {i:2d} {mob:32s} {r.get('area', '-'):8s} {r['result']:8s} {r.get('customname', '')}")
+    seen = set()
+    for r in block:
+        nm = r.get("customname")
+        key = (nm, r.get("area"))
+        if nm and key not in seen:
+            seen.add(key)
+            print(f"   {nm:17s} {r.get('area', '(anywhere)'):10s} "
+                  f"{r.get('armorhelmet', {}).get('item', '-').split(':')[-1]:20s} "
+                  f"{r.get('armorchest', {}).get('item', '-').split(':')[-1]}")
     if dry:
         print("DRY RUN, nothing written")
         return 0

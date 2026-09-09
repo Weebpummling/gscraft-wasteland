@@ -45,13 +45,34 @@ BOXES = {
     "novo":    (-2352, -2209, -832, -673, "Novo Industrial Zone - deferred"),
     "biogen":  (-2352, -2289, -640, -529, "Bio Gen offices - deferred"),
 
-    # ---- the base map: where enemies belong
+    # ---- the base map: where enemies belong. The broad areas first, then the sub-zones inside them,
+    # because a spawn pass that puts the Dead "in the buildings" needs to know which ground is buildings.
     "town":    (-3750, -1800, -3750, -1400, "Pripyat, the ruin field (poi-coordinates §2)"),
     "woods":   (-2450, -1600, -1350, 100, "standing forest (poi-coordinates §2)"),
     "plant":   (-1150, 1200, -400, 700, "the power station complex (poi-coordinates §2)"),
     "skad":    (-1088, -625, -1488, -737, "the Skadowsky sector (sectors_v8); the camp inside is denied"),
     "farbank": (-1050, -600, -1000, -380, "the east-bank spine, derived in the design review §4c"),
-    "farm":    (-2200, -2020, -990, -800, "the collective farm's fields, around the farmstead at -2112,-896"),
+    "farm":    (-2200, -2020, -990, -800, "the collective farm's fields, around the farmstead"),
+
+    # Skadowsky, from a built-block density scan of the sector (2026-09-09): three clusters, north to
+    # south, with the camp sitting inside the southern one and denied separately.
+    "sk_hosp":  (-960, -690, -1344, -1240, "the hospital cluster; design gives x -865..-698, z -1312..-1242"),
+    "sk_town":  (-980, -660, -1240, -1000, "the central streets between the hospital and the camp"),
+    "sk_south": (-980, -660, -1000, -760, "the southern cluster: the station, the yard and the rail"),
+
+    # the power station, boxes from the measured centres and sizes in poi-coordinates §3
+    "pl_react": (-743, -541, 337, 699, "the confinement hall over the reactor, 202 x 362"),
+    "pl_turb":  (-13, 824, 546, 634, "the turbine hall, 837 x 88"),
+    "pl_admin": (-199, 375, 36, 372, "administration and workshop block, 574 x 336"),
+    "pl_switch": (-957, -708, 37, 184, "the four low halls: switchyard and storage bays"),
+    "pl_intake": (606, 1180, -101, 413, "cooling-water intake works, 573 x 514"),
+
+    # the town, likewise
+    "tw_stad":  (-2503, -2287, -3584, -3381, "the stadium, running track and grandstand"),
+    "tw_centre": (-2540, -2220, -3105, -2845, "the park, the radiating avenues and the roundabout"),
+    "tw_slabs": (-3650, -2900, -3255, -2710, "the long slab blocks of the west and north-west quarters"),
+    "tw_blocks": (-2400, -1890, -2350, -1730, "the microdistrict and courtyard blocks, south-east"),
+    "tw_bridge": (-926, -882, -2353, -2051, "the rail bridge over the water, south approach"),
 }
 
 BUILDS = ("camp", "krot", "mega", "indu", "lib", "runway", "hub", "plaza", "novo", "biogen")
