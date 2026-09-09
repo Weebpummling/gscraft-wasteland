@@ -451,7 +451,7 @@ Layered on entities-v8 §8 (C1–C12), which stands.
 | **E2** | `data_version` → `-1`. It is `12` today, and the next mod update **deletes `config/hordes/` wholesale** — it has already happened once, `hordes-backup/` is at version 6 | `config/hordes/hordes-info.json` | config |
 | **E3** | Add the §2.1 helmets and vests to the infection ladder above vanilla iron (§3.4) | `.../infection/wearables_protection.json` | datapack |
 | **E4** | Militia Rifleman's weapon: In Control `held` NBT, or `"Spawn With TACZ" = true` + `"TACZ Gun Type"` (§3.1) | `config/PillagersGun-common.toml` | config |
-| **E5** | `"Gun Model Switch" = true` — SBW models on Scavenger guns, no ballistics change (§3.2) | `config/PillagersGun-common.toml` | config |
+| **E5** | `"Gun Model Switch" = true` — SBW models on Scavenger guns, no ballistics change (§3.2). **Applied 2026-09-09, local only.** Server boots clean with it | `config/PillagersGun-common.toml` | config |
 | **E6** | Decide `"Gunner Needs Ammo In TACZ"`. `false` today = infinite NPC ammo, set by a default rather than the design (§1.2) | `config/PillagersGun-common.toml` | config |
 | **E7** | Add chosen hostile ids to `forge:pillager_gunner` — only one of the shipped eight is hostile (§1.1) | `data/forge/tags/entity_types/pillager_gunner.json` | datapack |
 | **E7a** | Every dressing rule sets `ArmorDropChances`/`HandDropChances` to 0 via the `nbt` action — without it all of §3 breaks "nothing an enemy carries ever drops" (§2.6) | `config/incontrol/spawn.json` | config |
@@ -478,8 +478,8 @@ written with.
 
 | # | Question | Recommendation |
 |---|---|---|
-| F1 | Does the Militia get TACZ rifles, or stay purely IE? | TACZ. A faction with no line infantry does not read as an army, and the Rifleman is the cheapest fix |
-| F2 | Is `dragonrise_reforge:terrorist` a Scavenger rank or its own faction? | a Scavenger rank. One entity does not earn a seventh faction, and the Scavengers need a human silhouette more than the map needs another flag |
+| F1 | Does the Militia get TACZ rifles, or stay purely IE? | **RULED 2026-09-09 (owner): TACZ.** `tacz:type_81` and `tacz:ak47` both verified present in `tacz-1.20.1-1.1.8-hotfix.jar`. Delivered per rank through an In Control `helditem` carrying the `GunId` NBT, **not** through `"Spawn With TACZ" = true`, which stays `false`: the global flag rolls from a weight table and would arm every gunner in the pack, where the design wants the weapon to be a per-rank decision |
+| F2 | Is `dragonrise_reforge:terrorist` a Scavenger rank or its own faction? | **RULED 2026-09-09 (owner): a Scavenger rank.** Its cure drop is fixed (`kubejs/startup_scripts/gscraft_terrorist_drops.js`, §2.3 item 2), so the rank is safe to place. Item 1 of §2.3 stands: it still has no lang entry and shows as `entity.dragonrise_reforge.terrorist`. Item 3 stands too - its skin is fixed, so it cannot be dressed from §2.1 and reads the same wherever it appears |
 | F3 | Do enemy **armour** pieces drop, given §3.4 makes them worth wanting? | yes, at low rates, armour only — the one thing that can drop without touching "no working guns from corpses" |
 | F4 | Infinite NPC ammunition (E6)? | make it finite. A scavenging world where only the enemy never runs dry is the wrong way round |
 | F5 | The Torch and the Chemist (§3.5) — flavour, or a real answer to walls? | real. They are the only enemies in the pack that punish a wooden wall specifically |

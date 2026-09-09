@@ -265,6 +265,12 @@ helmet), IE faraday 0.12, the nineteen SBW and Dragon Rising helmets and vests 0
 diamond), copper backtank 0.20, diving helmet 0.25, gas mask 0.30. A full sealed suit is 0.50, which is
 the answer §3.4 wants to exist. Loads with zero errors.
 
+**F1 and F2 ruled (owner, 2026-09-09):** the Militia gets TACZ rifles, and the terrorist is a Scavenger
+rank. `tacz:type_81` and `tacz:ak47` are both present in the shipped jar. The rifle is delivered per rank
+through an In Control `helditem` with `GunId` NBT rather than `"Spawn With TACZ" = true`, which stays
+`false` — the global flag rolls from a weight table and would arm every gunner in the pack. E5 applied:
+`"Gun Model Switch" = true`, so Scavengers keep Pillager's Gun ballistics behind Superb Warfare models.
+
 **E7a is not yet actionable, and D4 was overstated.** No In Control rule dresses a mob today, so there is
 nothing to add drop chances to. And Improved Mobs — which *does* equip mobs today — already ships
 `"Should drop equipment" = false`. So the gear that currently exists in the world does not drop. D4's
@@ -302,9 +308,24 @@ call, so `const` and `let` declared *inside* an event handler throw "redeclarati
 the second invocation onwards — the name is irrelevant. Behind `catch (x) {}` that produces a handler
 which looks armed, logs its arming message, and does nothing from the second call on.
 `gscraft_mech_griefing.js` (the mech block-destruction denial) and `gscraft_tower_lock_native.js` were
-both written that way. Both now use `var` inside their handlers and log their exceptions. Neither has
-been verified end-to-end yet — only that they load — but the failure mode is proven, because it is how
-the terrorist filter failed through four rounds of looking in the wrong place.
+both written that way. Both now use `var` inside their handlers and log their exceptions.
+
+**Tested 2026-09-09, and it is worse than "broken from the second call".** Two handlers were registered
+on the same event, one written the old way and one the new, and five deaths were driven through them:
+
+```
+CONST ok: 0    CONST threw: 5    (InternalError: TypeError: redeclaration of var who)
+VAR   ok: 5    VAR   threw: 0
+```
+
+`const` inside a handler throws on **every** invocation, including the first. So neither script ever did
+anything at all: mechs were never denied block destruction, and the tower lock never locked. Both arm,
+log their arming message, and were dead behind a silent catch — which is exactly why they went unnoticed.
+
+What is verified is the language fault and the repair. What is **not** verified is delivery: I could not
+get `EntityMobGriefingEvent` to fire headlessly — an ignited creeper summoned by command does not
+detonate without a player — so whether the repaired handler actually receives mech griefing events still
+needs one in-game check. Put a `pomkotsmechs` mech next to breakable ground on Hard and watch it.
 
 Two more Rhino limits worth having on record: the drops collection cannot be walked from a script
 (`size()` reads 1 while the iterator's `hasNext()` is falsy and `toArray().length` is 0, so removal is
