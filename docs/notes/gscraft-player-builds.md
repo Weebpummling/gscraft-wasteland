@@ -13,7 +13,7 @@ rollback — **this Bisect plan has 0 panel backup slots** (`TooManyBackupsExcep
 x −84…53, z −64…40 into the live world at **chunk offset (+140, +89)** (blocks +2240, +1424) →
 live chunks x 56…193, z 25…129; 479 chunks identical, 891 edited since. Live sites: mega-base
 (2192…2575, 400…927; 432 k `factory_blocks:factory` platform, 964 bookshelves, 885 sculk sensors),
-industrial district (1904…2367, 864…1135), hempcrete compound (1568…1887, 1152…1471), acacia hall,
+industrial district (1904…2367, 864…1135), KROT (1568…1887, 1152…1471), acacia hall,
 library (2032…2127, 1392…1487), Warium spawn structure (0…31, 0…31), ~20 small vanilla sites.
 Old sites never moved: the beacon/hopper array at old blocks (336…367, −1056…−1025) — 253
 beacons, 325 hoppers — plus ~28 small ones.
@@ -73,5 +73,5 @@ moved by the admin into the live world and is inside the transplanted district; 
 new world it is identical. The live world (an ocean map, the LC one) also has generated LC towns
 and two long player rail causeways WEST of the district (x chunks 40-135, z ~36/44) - not carried.
 "Placed" in worldscan counts trees (leaves/logs are not NATURAL) - do not read it as built.
-Location pool for the endgame = the custom structures (FR-06, plant, hempcrete compound, stone
+Location pool for the endgame = the custom structures (FR-06, plant, KROT, stone
 complex, residential block, library) + the five compound pads.

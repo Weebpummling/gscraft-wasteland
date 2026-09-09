@@ -1,7 +1,7 @@
 # GSCraft Wasteland — Quests and Tasks
 
 > **Realigned 2026-09-07** against `docs/gscraft-skadowsky-camp.md`. Questing routes only to the Pripyat
-> base map, the Skadowsky sector and the hempcrete compound. The camp is in Skadowsky, in the pocket east
+> base map, the Skadowsky sector and KROT. The camp is in Skadowsky, in the pocket east
 > of the south-west bridge; Skadowsky is the home sector, and the medical strongpoint is the **Skadowsky
 > hospital**, which is a different place 0.34 km north of the square. Quests that point at Novo Industrial,
 > the Financial Plaza and its sewers, Bio Gen, the desert city hub, the mega-base FR-06, the waterworks,
@@ -23,7 +23,7 @@ further; they run out of things to find where they are.
 | Act | Area | From the camp | What is there | How you get there | Sessions (est.) |
 |---|---|---|---|---|---|
 | **I — The town you woke in** | the pocket, then north through Skadowsky | 0 – 0.4 km | Skadowsky's own ruins, its station and its level crossing, **the Skadowsky hospital** (0.34 km N) | on foot, inside the sector | 1–2 |
-| **II — West over the bridge, and south down the bank** | the home (east) bank by car, and the far bank over the bridge | 1.2 – 2.5 km by road | the collective farm (1.17 km W, the Line's far end), the town's ruins (its east avenue 1.52 km W, the central square 2.46 km W), **the hempcrete compound** (2.30 km W, Walker's strongpoint), the mast's field (in the camp); **the Woods** (sixteen quests across the chapters from J-W1, seven of them Teddy's) [needs measurement] | on foot, then the first car | 3–5 |
+| **II — West over the bridge, and south down the bank** | the home (east) bank by car, and the far bank over the bridge | 1.2 – 2.5 km by road | the collective farm (1.17 km W, the Line's far end), the town's ruins (its east avenue 1.52 km W, the central square 2.46 km W), **KROT** (2.30 km W, Walker's strongpoint), the mast's field (in the camp); **the Woods** (sixteen quests across the chapters from J-W1, seven of them Teddy's) [needs measurement] | on foot, then the first car | 3–5 |
 | **III — The plant complex** | south down the east bank, no river crossing | 1.1 – 2.2 km by road | **the switchyard and admin block** (1.09 km, Tune's), **the turbine hall** (2.06 km, Michael's), **the cooling intake works** (2.16 km, Michael's), the plant's four storage halls | the truck, the marsh channels | 6–9 |
 | **IV — The reactor** | the confinement hall, and the bridge road west | 1.53 km | **the confinement hall** (1.53 km, roof y 198) — Act IV's prize and not a strongpoint: the reactor control module for the gatehouse tier 3 and the antenna array for tower stage 5 | air from the mast field, or the bridge road | 10–12 |
 
@@ -33,7 +33,7 @@ Rules that hold across every chapter:
   the sector is a 464 × 752 town and needs no wrecks invented for it (`camp_ruins` is retired).
   Marshall does not speak until all five introductions are done.
 - **One strongpoint per act boundary (v8 distances, owner default E1).** The Skadowsky hospital closes
-  Act I; the hempcrete compound is Act II; the plant's switchyard, turbine hall and intake works are Act III; the confinement hall — Act IV's prize, not a strongpoint — closes the game. The tower's parts follow the strongpoint order: the mast repair from Skadowsky, the transmitter from the switchyard, the generator from the turbine hall, the cooling loop from the intake works, the array from the confinement hall; the hospital feeds the clinic.
+  Act I; KROT is Act II; the plant's switchyard, turbine hall and intake works are Act III; the confinement hall — Act IV's prize, not a strongpoint — closes the game. The tower's parts follow the strongpoint order: the mast repair from Skadowsky, the transmitter from the switchyard, the generator from the turbine hall, the cooling loop from the intake works, the array from the confinement hall; the hospital feeds the clinic.
 - **Every strongpoint is three quests in three chapters before it is held** (design §6.1): James's
   scout quest (reach it, bring back its dossier), the owning NPC's loot quest (hand-ins that drop
   only there, two or three trips), then Marshall's take (place the marker, win the 5-minute
@@ -91,12 +91,12 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | W2 | A place for everything | I | camp | craft and hand in 2 fastener kits | W1 | **Storage 1**: basic backpack recipe, stash crates at the claim |
 | W3 | Frame of mind | I | camp, glass tower | hand in 12 metal scrap; show a welding torch | W2 | steel-frame blueprint, **Workshop 1** (IE machine recipes) |
 | W4 | The toolbox | I | camp | show a toolbox (crafted) | W3 | Workshop 1 effects; 16 iron ingots |
-| W5 | Two miles west | II | **the hempcrete compound**, 2.30 km W over the bridge | hand in 6 spark plugs, 12 metal scrap, 4 motor oil — the compound's drops | W4, J-S1 | stage `novo_looted` (the compound's rung, §9); Marshall R3 opens |
+| W5 | Two miles west | II | **KROT**, 2.30 km W over the bridge | hand in 6 spark plugs, 12 metal scrap, 4 motor oil — the compound's drops | W4, J-S1 | stage `novo_looted` (the compound's rung, §9); Marshall R3 opens |
 | W6 | Hold the yard | II | the camp gate | stage `novo_held`; stage `novo_defended` (the compound's counterattack beaten at the camp gate, at the end of its fortify clock) | W5, Marshall R3 | **Workshop 2** (motor-assembly and mast-section-kit blueprints); **Storage 2**: iron backpack, stack upgrade ×2, magnet upgrade |
 | W7 | Wheels | I–II | camp, the Line's depot | hand in 1 motor assembly, 4 steel frames, 1 car battery | L4 (the depot hands out the motor-assembly blueprint and its chest holds an electric motor), T5, M3 | **Garage 1**: quad and runabout recipes, wheel, fuel-tank, empty-fuel-can and cargo-crate blueprints; a full tank and 2 fuel cans; stage `car_built` when one is crafted |
 | W8 | Fuel run | II | camp | hand in 2 fuel cans | W7, M7 | fuel-can refill recipe (at Michael's plant pump, M-B2; Walker's drum rack stores them) |
-| W9 | Heavy metal | II–III | the hempcrete compound | hand in 1 heavy diesel engine, 2 motor assemblies | W8, M-B2, `novo_held` | **Garage 2**: van and truck recipes |
-| W10 | The big pack | III | the hempcrete compound | hand in a second heavy anchor cable (the compound respawns them while held), 2 fastener kits | W9 | **Storage 3**: gold backpack, **everlasting upgrade** (the secure pack), feeding and pickup upgrades, truck cargo |
+| W9 | Heavy metal | II–III | KROT | hand in 1 heavy diesel engine, 2 motor assemblies | W8, M-B2, `novo_held` | **Garage 2**: van and truck recipes |
+| W10 | The big pack | III | KROT | hand in a second heavy anchor cable (the compound respawns them while held), 2 fastener kits | W9 | **Storage 3**: gold backpack, **everlasting upgrade** (the secure pack), feeding and pickup upgrades, truck cargo |
 | W11 | Mast section kit | II | camp | show 1 mast section kit (6 steel frames + 2 fastener kits + heavy anchor cable) | W6, `skadowsky_held` | the kit is Marshall's X2 hand-in — it patches the mast's cut lattice section so the mast can be climbed |
 | W12 | Boats | III | **deferred** — the lake, FR-06 | cross the lake to FR-06 by water (`fr06_by_boat`, §9.1); hand in 1 pressure gauge | W-V1, J-S4 | boat-cargo recipe. FR-06 is deferred, and the plant complex is on Skadowsky's own bank, so the crossing this quest exists for has no live route; kept for the later quest line |
 | W13 | Hangar rights | III→IV | camp, the turbine hall — **the runway is retired**: the aircraft is rotary and lifts from the mast field inside the perimeter | hand in 1 avionics module, 2 circuit assemblies | W9, M11 | **Garage 3**: light-helicopter recipe; **Storage 4** opens on J8 (diamond backpack needs the satellite receiver), tank and void upgrades, aircraft cargo |
@@ -108,7 +108,7 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | W-M1 | Motor pool | III | camp, the turbine hall, the switchyard | hand in 1 military circuit board, 4 plates, 1 heavy diesel engine; stages `fr06_defended` and `financial_defended` | W-A2, W-A4, D4, R5 | **Humvee RWS blueprint** (crafting §2.1; the SW assembling table at yard tier 2 builds it from the kit) |
 | W-V1 | Put a motor on it | III | camp, the lake | hand in 1 motor assembly, 1 small battery pack, 2 steel frames | J5, W9, M-B2 | **speedboat** blueprint; boat cargo opens with W12, which is deferred with FR-06 |
 | W-B1 | The yard, roofed | I | camp | hand in 8 metal scrap, 4 fastener kits, 16 planks | W2 | **yard tier 1**: roofed workshop, one bay, the lot fenced |
-| W-B2 | Second bay | II–III | camp, the hempcrete compound | hand in 4 steel frames, 32 concrete, 1 heavy diesel engine (the compound respawns them while held) | W-B1, `novo_defended` | **yard tier 2**: two bays, gantry crane, fuel rack, lights; vehicle repair at the bay |
+| W-B2 | Second bay | II–III | camp, KROT | hand in 4 steel frames, 32 concrete, 1 heavy diesel engine (the compound respawns them while held) | W-B1, `novo_defended` | **yard tier 2**: two bays, gantry crane, fuel rack, lights; vehicle repair at the bay |
 | W-M2 | The pilot | IV | camp, the confinement hall | hand in 8 steel frames, 1 large battery pack, 1 reactor control module (the Custodian's wreck is the story) | J-H1, W-B3 | the **PMV01B Core Stone**: the team's one mech (right-click summons it, left-click with the Stone heals it — the mod's rules); no second one exists |
 | W-B3 | The shed | IV | camp, the confinement hall | hand in 8 steel frames, 64 concrete, 1 satellite receiver | W-B2, J7, M13 | **yard tier 3**: steel shed, vehicle lift, floodlit lot, truck and helicopter bays (the helicopter lifts from the mast field); light-helicopter blueprint; **UH-60 Black Hawk blueprint** (crafting §2.1) |
 | W-A5 | The dump | III | the plant complex's four storage halls, (−888, 167), (−743, 167), (−890, 54), (−775, 54) — the stone complex is gone from the v8 map | reach them (location); kill 15 there; hand in 16 gunpowder | W-A3, J4 | 2 salvage rifles; the powder order yields ×8 instead of ×4 |
@@ -194,8 +194,8 @@ of them the `*-B` building tiers. Which of them one outing clears is the trip ta
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
 | J1 | Get your bearings | I | Skadowsky's station and its level crossing | reach both (location) | — | waypoints; a compass and a map |
-| J-S1 | Scout: the compound | II | the hempcrete compound, 2.30 km W over the bridge | reach the compound (location); hand in the **compound dossier** (its gatehouse office [needs measurement]) | J1 | stage `novo_scouted`; the board shows the compound's garrison and its component container; Walker W5 opens |
-| J2 | The town | II | the town's central square (−2380, −2975), 2.46 km W, and the hempcrete compound (the library is **deferred**) | reach both (location) | J1 | waypoints; the expedition board |
+| J-S1 | Scout: the compound | II | KROT, 2.30 km W over the bridge | reach the compound (location); hand in the **compound dossier** (its gatehouse office [needs measurement]) | J1 | stage `novo_scouted`; the board shows the compound's garrison and its component container; Walker W5 opens |
+| J2 | The town | II | the town's central square (−2380, −2975), 2.46 km W, and KROT (the library is **deferred**) | reach both (location) | J1 | waypoints; the expedition board |
 | J-S2 | Scout: the hospital | I | the Skadowsky hospital, 0.34 km due N of the square | hand in the **hospital dossier** (the caretaker's flat in the hospital, placed with the sector's dressing) | J1 | stage `hospital_scouted`; Tony T3 opens |
 | J-S3 | Scout: the intake works | III | the plant's cooling intake works, 2.16 km S down the east bank | reach it (location); hand in the **intake-works dossier** (its control room [needs measurement]) | J2 | stage `plant_scouted`; Michael M4 opens |
 | J-S4 | Scout: the turbine hall | III | the plant's turbine hall, 2.06 km S | reach the turbine hall (location); hand in the **turbine-hall dossier** (its hall office [needs measurement]) | J-S3, W7 | stage `fr06_scouted`; Michael M8 opens |
@@ -236,7 +236,7 @@ for 5 minutes, the marker must survive and a player must be inside the rectangle
 is still contested — one fight at a time, in this order.
 
 The five sites are the settled ones (`gscraft-skadowsky-camp.md` §11.4): the Skadowsky hospital (Vera),
-the hempcrete compound (Kessler), the plant's switchyard (Ilya), its cooling intake works (Oksana) and its
+KROT (Kessler), the plant's switchyard (Ilya), its cooling intake works (Oksana) and its
 turbine hall (Rook). The ladder stage ids are unchanged — `novo_*` is the compound's rung, `financial_*` the
 switchyard's, `plant_*` the intake works', `fr06_*` the turbine hall's — and `residential_*` is renamed
 `hospital_*` so the sector and the strongpoint do not share a name (§9).
@@ -245,7 +245,7 @@ switchyard's, `plant_*` the intake works', `fr06_*` the turbine hall's — and `
 |---|---|---|---|---|---|---|
 | R1 | Muster | I | camp | checkmark; read the strongpoint board | the five introductions | the board and the map wall revealed, the camp's outline lit (B9); the claim-marker blueprint (trip-length order; re-crafted after a failed assault) |
 | R2 | The hospital | I | the Skadowsky hospital, 0.34 km due N of the square | place the marker; win the assault (stage `hospital_held`) | R1, `hospital_looted` | the hospital's site guard and its keeper (Vera) appear; the fortify clock starts; Tony T4 opens; the first counterattack is the lightest and is fought at the bridge (enemies §5's Matron leads it) |
-| R3 | The compound | II | the hempcrete compound, 2.30 km W over the bridge | place the marker; win the assault (stage `novo_held`) | R2, `hospital_defended`, `novo_looted` | the compound's site guard and Kessler appear; Walker W6 opens |
+| R3 | The compound | II | KROT, 2.30 km W over the bridge | place the marker; win the assault (stage `novo_held`) | R2, `hospital_defended`, `novo_looted` | the compound's site guard and Kessler appear; Walker W6 opens |
 | R4 | The switchyard | III | the plant's switchyard and admin block, 1.09 km S | place the marker; win the assault (stage `financial_held`) | R3, `financial_looted` | Ilya appears; Tune U5 opens |
 | R5 | The intake works | III | the plant's cooling intake works, 2.16 km S | place the marker; win the assault (stage `plant_held`) | R4, `novo_defended`, `truck_built`, `plant_looted` | Oksana appears; Michael M5 opens |
 | R5b | The turbine hall | III | the plant's turbine hall, 2.06 km S | place the marker; win the assault (stage `fr06_held`) | R5, `fr06_looted` | Rook appears; Michael M9 opens |
@@ -291,7 +291,7 @@ switchyard's, `plant_*` the intake works', `fr06_*` the turbine hall's — and `
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
 | R-B1 | A gate | I–II | camp | hand in 32 concrete, 4 steel frames, 2 fastener kits | R2 | **gatehouse tier 1**: the gate at the bridge's east end (x −978…−955 × z −955…−940), wall stubs (the parts rack stands from tier 0) |
-| R-B2 | Watchtowers | II–III | camp, the hempcrete compound | hand in 64 concrete, 8 steel frames, 1 heavy anchor cable | R-B1, R3, R4 | **gatehouse tier 2**: walled gate, two watchtowers, barricades; guard villagers at the gate |
+| R-B2 | Watchtowers | II–III | camp, KROT | hand in 64 concrete, 8 steel frames, 1 heavy anchor cable | R-B1, R3, R4 | **gatehouse tier 2**: walled gate, two watchtowers, barricades; guard villagers at the gate |
 | R-B3 | Blast doors | IV | camp, the confinement hall | hand in 128 concrete, 8 steel frames, 1 reactor control module (the confinement hall) | R-B2, X4 | **gatehouse tier 3**: blast doors, floodlights, the board as a lit wall map; the finale's first wave breaks on the gate |
 
 ## 7A. Teddy the Hermit — explosives (the Woods outpost)
@@ -350,7 +350,7 @@ ours: laid by rotation, fired by redstone, read on goggles or the pit's display 
 
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
-| G1 | Sand and iron | II | camp — Walker's yard | hand in 16 casting sand, 8 cast-iron ingots (the hempcrete compound's loot), 4 logs | W-B2, `novo_looted` | the cannon cast and the moulds; the yard's basins pour cast iron |
+| G1 | Sand and iron | II | camp — Walker's yard | hand in 16 casting sand, 8 cast-iron ingots (KROT's loot), 4 logs | W-B2, `novo_looted` | the cannon cast and the moulds; the yard's basins pour cast iron |
 | G2 | The first pour | II | camp — the yard | pour a cast: one unbored barrel and a cannon end | G1 | stage `gun_cast`; the cast pit's hoist |
 | G3 | The bore | II | camp — the yard | bore two barrels and a chamber on the hand-cranked frame (four minutes each) | G2 | stage `gun_bored` |
 | G4 | Mount and charge | II–III | camp — the gun pit, the mast field's west edge (x −846…−835 × z −1000…−989) | the cannon mount, hand crank, yaw controller, loader, lever; 8 powder charges, 4 solid shot; **fire it** (CBC's advancement) | G3, Walls 1 | the first gun; stage `gun_fired`; it fires east over 70 blocks of open grass |
@@ -374,7 +374,7 @@ with the tier (vendors §3).
 > **S-novo-1…3** (Novo Expograd Industrial Zone), **S-financial-1…3** (Financial Plaza and its sewers),
 > **S-plant-1…3** (the industrial district, "the waterworks") and **S-fr06-1…3** (the mega-base FR-06). They
 > are kept whole for the later quest line and are **not live act targets**. Their keepers have been re-homed
-> inside the routing rule — Kessler to the hempcrete compound, Ilya to the plant's switchyard, Oksana to its
+> inside the routing rule — Kessler to KROT, Ilya to the plant's switchyard, Oksana to its
 > cooling intake works, Rook to its turbine hall (`gscraft-skadowsky-camp.md` §11.4) — so each chain has still
 > to be re-cut against its keeper's new site, and everything that gates on one of them (G6, G7, G8, H8, J-T2)
 > is pending that re-cut. **S-residential-1…3 is the one live chain**: it is the Skadowsky hospital's, Vera's,
@@ -424,7 +424,7 @@ makes the mast's field camp ground.
 
 **Act II (sessions 3–5).** West over the bridge and south down the bank. The Line is walked out along the pylons to
 the collective farm at (−2112, −896), 1.17 km, and its depot hands out the motor-assembly blueprint, so the first car
-is built early. Then the hempcrete compound, 2.30 km west — Walker's strongpoint, scouted, looted, taken and held —
+is built early. Then KROT, 2.30 km west — Walker's strongpoint, scouted, looted, taken and held —
 and the town's ruins, its east avenue at 1.52 km and its central square at 2.46 km. The first gun is cast, bored and
 fired in the pit at the mast field's west edge (G1–G4). The tower chapter, open since the introductions, gets its
 first part: W11's mast section kit patches the cut lattice and the mast can be climbed.
@@ -440,7 +440,7 @@ map is theirs.
 **Act IV (sessions 10–12).** The confinement hall at 1.53 km, roof y 198, the largest ruin on the map: the Custodian,
 the phased array element, the satellite receivers and the reactor control module all come out of it, and U-D3's
 bunker sits on the same bank. It is reached by the east-bank road, or by helicopter lifting from the mast field
-inside the perimeter — there is no airfield and none is needed. The bridge road west to the hempcrete compound is the
+inside the perimeter — there is no airfield and none is needed. The bridge road west to KROT is the
 other half of the act. The antenna array goes up, the beacon lights. Tony's ready room, Marshall's walls and the
 battery decide the finale; the waves come to the base, at the bridge, the east road and the rail corridor; the
 Sleeper (`gscraft-finale.md`).
@@ -454,7 +454,7 @@ reward and read by stage tasks (C3, 2026-09-04):
 
 | Group | Stages |
 |---|---|
-| Site ladder | `<site>_scouted`, `<site>_looted`, `<site>_held`, `<site>_defended`, `<site>_lost` (the counterattack at the base was lost; the site stays held and the wave returns after the next clock) for `hospital` (the Skadowsky hospital — renamed from `residential_*`, 2026-09-07, so the sector and the strongpoint do not share a name), `novo` (the hempcrete compound), `financial` (the plant's switchyard), `plant` (its cooling intake works), `fr06` (its turbine hall); `all_held`. The home sector runs the same ladder on its own axis — `skadowsky_scouted`, `skadowsky_looted`, `skadowsky_held`, `skadowsky_defended` — and pays out perimeter rather than a keeper: `skadowsky_held` extends spawn suppression from the pocket to the whole sector, makes the mast's field camp ground and unlocks NPC building tier 2; `skadowsky_defended` is the first counterattack, fought at the bridge |
+| Site ladder | `<site>_scouted`, `<site>_looted`, `<site>_held`, `<site>_defended`, `<site>_lost` (the counterattack at the base was lost; the site stays held and the wave returns after the next clock) for `hospital` (the Skadowsky hospital — renamed from `residential_*`, 2026-09-07, so the sector and the strongpoint do not share a name), `novo` (KROT), `financial` (the plant's switchyard), `plant` (its cooling intake works), `fr06` (its turbine hall); `all_held`. The home sector runs the same ladder on its own axis — `skadowsky_scouted`, `skadowsky_looted`, `skadowsky_held`, `skadowsky_defended` — and pays out perimeter rather than a keeper: `skadowsky_held` extends spawn suppression from the pocket to the whole sector, makes the mast's field camp ground and unlocks NPC building tier 2; `skadowsky_defended` is the first counterattack, fought at the bridge |
 | The Woods and the kept structures | `woods_scouted`, `woods_bunkers`, `woods_outpost_cleared`, `woods_relay`, `bunker_1`, `road_outpost_cleared`, `boss_tower_1`, `ancient_city_1`, `capital_1` |
 | Vehicles | `car_built`, `boat_built`, `truck_built`, `aircraft_built` (the aircraft is rotary); the vehicle-qualified location flags `hub_by_air` (the confinement hall), `bunker_east_by_air`, `capital_1` (§9.1). `settlement_by_car` and `settlement_by_boat` are dead with the settlement, and `fr06_by_boat` and `biogen_by_car` are deferred with FR-06 and Bio Gen |
 | Function levels | `workshop_1…3`, `garage_1…3`, `storage_1…4`, `medical_1…3`, `generator_1…3`, `water_1…3`, `radio_1…3`, `walls_1…3`, `farm_1…3` |

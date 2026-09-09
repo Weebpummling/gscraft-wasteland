@@ -20,7 +20,7 @@ NAMES = {
     (2192, 400): ("FR-06 complex", "the custom cyberpunk cityscape: starship hangar FR-06 on its island, walled reactor plaza with the stadium, factory-block decks; 964 bookshelves, 885 sculk sensors, 728 dispensers"),
     (2528, 1344): ("Stone complex", "smooth stone and terracotta, sculk traps and 99 spawners"),
     (1904, 864): ("Industrial plant", "west wing of the cityscape: cyan and magenta refinery, 1,209 fluid pipes, tanks, razor wire"),
-    (1568, 1152): ("Hempcrete compound", "walled compound, 405 ceiling lights, razor wire, IE wiring"),
+    (1568, 1152): ("KROT", "walled compound, 405 ceiling lights, razor wire, IE wiring"),
     (1328, 1376): ("Residential block", "stone brick and white concrete housing, 168 chests, 92 beds"),
     (1488, 432): ("Acacia hall", "43k acacia wood, redstone connectors"),
     (2576, 368): ("Hopper array", "old world: 325 hoppers under terracotta; moved with the +140/+89 offset"),
@@ -178,7 +178,7 @@ page = f"""<title>Wasteland District Map</title>
 <div class="tablewrap"><table><tr><th>Location</th><th>Kind</th><th>Blocks</th><th>Why it works as a location</th></tr>
 <tr><td><b>FR-06 complex</b></td><td>custom, transplanted</td><td class="mono">x 2192..2575<br>z 400..927</td><td>Hangar, plaza and stadium: the natural airfield and the showpiece</td></tr>
 <tr><td><b>Industrial plant</b></td><td>custom, transplanted</td><td class="mono">x 1904..2367<br>z 864..1135</td><td>Refinery and tank farm: water and fuel</td></tr>
-<tr><td><b>Hempcrete compound</b></td><td>custom, transplanted</td><td class="mono">x 1568..1887<br>z 1152..1471</td><td>Walled, lit, wired: a ready garrison</td></tr>
+<tr><td><b>KROT</b></td><td>custom, transplanted</td><td class="mono">x 1568..1887<br>z 1152..1471</td><td>Walled, lit, wired: a ready garrison</td></tr>
 <tr><td><b>Stone complex</b></td><td>custom, transplanted</td><td class="mono">x 2528..2751<br>z 1344..1631</td><td>Trapped interior, 99 spawners: a clear-and-hold dungeon</td></tr>
 <tr><td><b>Residential block</b></td><td>custom, transplanted</td><td class="mono">x 1328..1551<br>z 1376..1775</td><td>Housing to defend street by street</td></tr>
 <tr><td><b>Library</b></td><td>custom, transplanted</td><td class="mono">x 2032..2127<br>z 1392..1487</td><td>Dense interior, the intel site</td></tr>

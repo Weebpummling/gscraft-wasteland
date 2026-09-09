@@ -91,7 +91,7 @@ vehicle in a second.
 | Runabout | 4 steel frame, 1 motor assembly, 4 wheel, 1 fuel tank, 1 wiring harness, 2 glass |
 | Boat | 12 planks, 1 fastener kit (speedboat: + 1 motor assembly, 1 small battery pack, 2 steel frame) |
 | Van | 6 steel frame, 1 motor assembly, 4 wheel, 1 fuel tank, 1 wiring harness, 1 cargo crate |
-| Truck | 8 steel frame, 1 **heavy diesel engine** (the hempcrete compound), 6 wheel, 1 small battery pack, 1 cargo crate |
+| Truck | 8 steel frame, 1 **heavy diesel engine** (KROT), 6 wheel, 1 small battery pack, 1 cargo crate |
 | Light aircraft | 8 steel frame, 1 **avionics module** (the plant's turbine hall), 2 motor assembly, 2 wheel, 2 fuel tank, 2 circuit assembly, 4 glass |
 | Light helicopter | 6 steel frame, 1 **avionics module**, 1 **transformer core**, 2 motor assembly, 2 fuel tank, 1 circuit assembly |
 | Armoured car | 12 steel frame, 4 plate (§5.1), 1 heavy diesel engine, 6 wheel, 1 medium battery pack, 1 **reactor control module** (the confinement hall, Act IV) |
@@ -252,7 +252,7 @@ pack's and are pinned in the recipe file at Phase C.
 |---|---|---|---|
 | 1 | **W-A1 Sidearm** (Act I, after W1) | pistol, pump shotgun; pistol and shotgun ammunition; the salvage rule | gun frame + barrel + trigger group + 4 planks (stock); ammo: 8 casings + 1 powder + 2 metal scrap → 30 rounds (Quick; casings and powder §5.6) |
 | 2 | **W-A2 Plates** (Act I–II, after W3) | scrap vest and helmet (§5.3); rifle ammunition | plate ×4 + duct tape → vest |
-| 2 | **W-A3 Long guns** (Act II, after `hempcrete_defended` — the stage `novo_defended` became when Novo was deferred and Kessler's foundry moved to the hempcrete compound) | assault rifle, SMG; iron sights, extended magazine | 2 gun frame + barrel + trigger group + 1 steel frame; attachments: circuit-free, metal scrap and tape |
+| 2 | **W-A3 Long guns** (Act II, after `hempcrete_defended` — the stage `novo_defended` became when Novo was deferred and Kessler's foundry moved to KROT) | assault rifle, SMG; iron sights, extended magazine | 2 gun frame + barrel + trigger group + 1 steel frame; attachments: circuit-free, metal scrap and tape |
 | 3 | **W-A4 Precision** (Act III, after W9) | sniper rifle, machine gun; optics, suppressor | + 1 circuit assembly (optics), + 1 **military circuit board** (the machine gun's feed, from the plant's switchyard; Financial Plaza is deferred) |
 
 ### 5.3 Armour, tools, packs

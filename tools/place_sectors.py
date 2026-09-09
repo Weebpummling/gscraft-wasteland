@@ -7,7 +7,7 @@ is a named area on the existing forest (no relief, nothing placed inside except 
 rail, on the town or the plant; every build stands 12-90 blocks from an existing road (never on it), on flat ground,
 16 blocks clear of anything built and 48 clear of other placed builds. Preferences are visual: the mega-base on the
 lake shore, the runway on a flat strip near the north edge, the cyberpunk district against the west ridge at the end of
-the south-west road, Skadowsky against the rail embankment, the library and hempcrete compound in clearings near the
+the south-west road, Skadowsky against the rail embankment, the library and KROT in clearings near the
 town. Writes sectors_v8.json and sectors_v8.png over the height preview.
 """
 import sys, json, math
@@ -104,7 +104,7 @@ def main(a):
               lambda cx, cz, x0, z0, x1, z1: 0.6 * min(at8(dwater8, x0 - 30, cz), at8(dwater8, x1 + 30, cz), at8(dwater8, cx, z0 - 30), at8(dwater8, cx, z1 + 30)))
     try_place("indu", "Industrial district", 464, 272, "player", "live world x 1904..2367 z 864..1135", (-1300, -1500, 1100, -450),
               lambda cx, cz, *r: 0.2 * abs(cz - (-700)) + 0.1 * abs(cx - 600))
-    try_place("hemp", "Hempcrete compound", 320, 320, "player", "live world x 1568..1887 z 1152..1471", ALL,
+    try_place("hemp", "KROT", 320, 320, "player", "live world x 1568..1887 z 1152..1471", ALL,
               lambda cx, cz, *r: 60 * (1 - at8(tree8, cx, cz)) + 0.1 * math.hypot(cx - (-2600), cz - (-1200)))
     try_place("lib", "Library", 96, 96, "player", "live world x 2032..2127 z 1392..1487", (-3800, -3850, -1500, -1300),
               lambda cx, cz, *r: 0.5 * math.hypot(cx - (-2500), cz - (-3800)))

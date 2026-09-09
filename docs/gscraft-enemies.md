@@ -26,7 +26,7 @@ that are actively wrong for this design.
    v8 map the five strongpoints do spread from it, 0.34 km to the Skadowsky hospital out to 2.30 km to the hempcrete
    compound, but three of them sit inside the one plant complex and the act gates are vehicles and water rather than
    radius, so the distance rings alone still do not separate the acts: the take order (the Skadowsky sector and its
-   hospital first, then west over the bridge to the farm and the hempcrete compound, then the plant complex) and each
+   hospital first, then west over the bridge to the farm and KROT, then the plant complex) and each
    site's own table carry the curve (review fix 6);
    the equipment tables step up per act. A zombie at the plant complex is not the zombie outside the bridge.
 
@@ -55,7 +55,7 @@ that are actively wrong for this design.
 | **militia** (new; replaces `piglin`) | `immersiveengineering:fusilier`, `commando`, `bulwark` | zombie, skeleton, illager, civilian | the piglin faction's only member that appears here is the zombified piglin at a ruined portal, and it is already listed with the Dead |
 | civilian | villager, iron_golem, `guardvillagers:guard`, **all ten `recruits:` soldiers** | zombie, skeleton, illager, militia | Recruits are missing from the shipped list, so hired soldiers are currently invisible to every hostile faction — the fix that matters most in this file |
 
-What it buys: an unclaimed site thins itself. A team that scouts the hempcrete compound at dusk and
+What it buys: an unclaimed site thins itself. A team that scouts KROT at dusk and
 waits sees Scavengers and the Dead fight over it; the assault is easier for the patience. (The
 Financial Plaza version of the same picture is deferred with the plaza.) It also means a
 site's ambient population is never a fixed number, which is the texture In Control! caps alone cannot
@@ -92,7 +92,7 @@ the mod's: pistol 50 %, shotgun 20 %, assault rifle 20 %, sniper 5 %, bazooka 5 
 | Shooter | pillager | 30 % | assault rifle, leather chest/legs | AR + iron chest, Speed I | fires from cover; the reason to bring a suppressor |
 | Breacher | vindicator | 20 % | held `iron_axe`, leather helmet | `diamond_axe`, iron helmet/chest | doors, gates and fences; the wall's actual test |
 | Marksman | pillager | 4 % | — | sniper (mod), leather chest, Invisibility off, `customname` "Marksman" | one per wave at most; laser sight renders, so it is fair |
-| Captain | pillager | 1 % | shotgun, iron helmet, `customname` "Scavenger Captain", health ×2 | + Apotheosis affixes (§5) | the elite slot at the hempcrete compound (Novo and the Plaza are deferred with the district) |
+| Captain | pillager | 1 % | shotgun, iron helmet, `customname` "Scavenger Captain", health ×2 | + Apotheosis affixes (§5) | the elite slot at KROT (Novo and the Plaza are deferred with the district) |
 
 **Bazooka rank is cut.** `Bazooka Chance` goes to 0: an explosion level 5 at the camp's gate — the
 bridge's east end — would take out Marshall's gatehouse at x −978…−955 × z −955…−940, which the grief
@@ -166,7 +166,7 @@ summoned by the loop script at the named wave. Definitions to write in Phase D:
 | The Woods outpost | **the outpost captain** | pillager | rare | AR | plain — the Woods is Teddy's introduction, not a boss fight |
 
 The four live strongpoints that are not in the table — the plant's switchyard, turbine hall and
-cooling intake works, and the hempcrete compound — still need elite definitions of their own
+cooling intake works, and KROT — still need elite definitions of their own
 `[needs measurement]`.
 
 Rules: **natural Apotheosis bosses stay off** (`Boss Spawn Cooldown` at maximum), so an affixed mob is
@@ -190,7 +190,7 @@ gun, armour piece, intermediate or complete part — the same rule the container
 
 Difficulty follows the land, not the distance (objectives §6, 2026-09-05). Measured from the camp square at
 (−940, −979) the five strongpoints spread — 0.34 km to the Skadowsky hospital, 1.09 to the plant's switchyard, 2.06 to
-its turbine hall, 2.16 to its intake works, 2.30 to the hempcrete compound — but three of them sit inside one
+its turbine hall, 2.16 to its intake works, 2.30 to KROT — but three of them sit inside one
 industrial landscape and the act gates are vehicles and water rather than radius, so Improved Mobs' distance rings
 still cannot separate the acts. Improved Mobs keeps a two-step curve (level 0 inside 1.5 km of the world spawn at the
 paved junction, level 6 beyond) and In Control's `areas.json` carries the rest, one area per land:
@@ -199,7 +199,7 @@ paved junction, level 6 beyond) and In Control's `areas.json` carries the rest, 
 |---|---|---|---|
 | the home sector | `home` | 0 | the Skadowsky sector: the camp pocket, the hospital, the station, the rail yard, the level crossing. Nothing at all inside the camp outline, where the five torches suppress; and because the hospital is only 0.34 km out, Act I's one strongpoint sits inside the ring at level 0 and the area's own gear tables carry it |
 | the crossing and the corridor west | `river` | 3 | the south-west bridge and the Line's corridor to the collective farm: +health, occasional armour; the first counterattack is fought at the bridge and is the lightest |
-| the town over the bridge, and the district | `town`, `district` | 6 | the town's ruin field and the hempcrete compound: enemies that survive a magazine. Novo, the plaza, Bio Gen, the library and the runway are deferred to a later quest line and take their share of this ring with them |
+| the town over the bridge, and the district | `town`, `district` | 6 | the town's ruin field and KROT: enemies that survive a magazine. Novo, the plaza, Bio Gen, the library and the runway are deferred to a later quest line and take their share of this ring with them |
 | the east-bank spine | `farbank` | 10 | the rail line and yard, and the road south to the plant's outer works (the waterworks and FR-06 are deferred to a later quest line) |
 | the plant complex | `plant` | 15 | the switchyard, the turbine hall, the intake works and the confinement hall: everything is harder than anything else on the map. The `hub` area holds the same level but is deferred with the desert city |
 

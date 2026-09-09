@@ -5,6 +5,21 @@ the working machine's paths are given so a session on it can continue directly, 
 how to rebuild the same state elsewhere.
 
 
+> **2026-09-09 — KROT, and mob griefing is off.** The hempcrete compound is now **KROT** (owner). The name
+> is renamed everywhere in `docs/`, `buildmap/` and `tools/` (119 places); the three v6/v7 HTML snapshots keep
+> the old name because they describe the superseded district at x 1568..1887, not this site. The IE block ids
+> `immersiveengineering:hempcrete*` are the building material and are untouched.
+>
+> **KROT's extent is now wrong and nothing can safely use it.** `sectors_v8.json` still carries the old
+> 320 x 320 box (x -3392..-3073, z -1344..-1025) and the owner says the site is massively expanded by hand.
+> Until someone measures the new footprint, that box under-states it: any In Control area, loot route, waypoint
+> or quest anchored on it points at a fraction of the place. **Needs new bounds before it is used for anything.**
+>
+> **Mob block destruction is off** until the designers finish building (`tools/griefing_off.py`, `--on` reverses
+> it). Four levers, because the vanilla gamerule is not the only one: `mobGriefing=false` in the world's
+> level.dat, Improved Mobs `Flag Blacklist = [BLOCKBREAK, LADDER]`, and the fog man's `break_blocks=false` in
+> `man_config.toml`. `gscraft_mech_griefing.js` is a separate per-entity denial and is unaffected.
+
 > **2026-09-07 — the camp moved into Skadowsky. READ THIS FIRST.** The camp, its NPCs, the world spawn and the
 > radio tower are no longer on the plateau. They are in Skadowsky, east of the south-west bridge, and the tower is
 > the sector's own standing mast. Skadowsky is the starting zone and becomes the camp by being cleared; medical
@@ -13,7 +28,7 @@ how to rebuild the same state elsewhere.
 > pointing at it. **Do not trust any plateau coordinate you find elsewhere.**
 >
 > **2026-09-07 — the routing rule.** Questing and gameplay route only to the Pripyat base map, the Skadowsky
-> sector and the hempcrete compound. Novo Industrial, the Financial Plaza, Bio Gen, the desert city hub, the
+> sector and KROT. Novo Industrial, the Financial Plaza, Bio Gen, the desert city hub, the
 > mega-base FR-06 and the waterworks are **deferred to a later quest line** and no quest in the current design may
 > point at them.
 >

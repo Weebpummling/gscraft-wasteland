@@ -288,7 +288,7 @@ friendly fire is off. Team invites happen here once, on the first evening, and n
   Fall of shot is watched by eye and by the players at the lookout on voice; nobody in the game calls corrections.
 - **What we add:** the quest gates; the **gunner's manual** (G5, Vera): a Patchouli range card per gun — pitch and
   charges to range — because the mod ships none; the range rings on the map wall (G5); the keeper's counters.
-- **The site keeper is a survivor** (five of them: Vera at the Skadowsky hospital, Kessler at the hempcrete compound, Ilya at the plant's switchyard, Rook at its turbine hall, Oksana at its cooling intake works — realigned 2026-09-07): same door sign, same right-click for the journal (chapter `S-<site>`), same
+- **The site keeper is a survivor** (five of them: Vera at the Skadowsky hospital, Kessler at KROT, Ilya at the plant's switchyard, Rook at its turbine hall, Oksana at its cooling intake works — realigned 2026-09-07): same door sign, same right-click for the journal (chapter `S-<site>`), same
   sneak-click for the counter. The site's core building carries the readout sign: name, tier, what the keeper sells,
   rebuilt with the tier like the camp's door signs.
 - **Ponder is the tutorial.** Casting, boring, building, welding, loading, mounting, firing, fuzing and the

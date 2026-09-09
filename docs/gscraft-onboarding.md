@@ -99,7 +99,7 @@ The quest book (FTB Quests) is the **journal**. Rules for every quest in `gscraf
 - **Signs** at every NPC building: name, role, one line. Placed by `camp.py` with the tier templates.
 - **The strongpoint board** at Marshall's gatehouse, at the bridge's east end: seven columns (Skadowsky
   itself, whose rungs pay the camp's perimeter; the five strongpoints — the hospital, the switchyard,
-  the turbine hall, the intake works, the hempcrete compound; and the Woods' outpost), six states, six
+  the turbine hall, the intake works, KROT; and the Woods' outpost), six states, six
   colours (dark / scouted / looted / held / defended / lost), rebuilt by function on each state change.
   It is the loop's whole UI.
 - **The map wall** at Tune's: the box, the roads, the sites as they are scouted (banner blocks placed

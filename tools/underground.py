@@ -2,7 +2,7 @@
 
 `integrate.py` rebuilt every column it did not classify as build, top to bottom, so the sewers, basements, bunkers and
 mine workings that sat under open ground inside a footprint were replaced by the relief plan. Only the Financial Plaza
-had `keep_underground=True`, and it kept 99% of its subsurface build; the hempcrete compound kept 34% and most
+had `keep_underground=True`, and it kept 99% of its subsurface build; KROT kept 34% and most
 farmsteads under 20%.
 
 This applies that same rule retroactively, from the clean transplants that are still on disk: below the shallower of the

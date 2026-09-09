@@ -288,14 +288,14 @@ Measured against the clean transplants, built blocks more than four below each c
 | mega-base | 93.2% | 97.4% |
 | industrial district | 89.3% | 98.8% |
 | desert-city hub | 77.2% | 107.2% |
-| hempcrete compound | 34.2% | 97.6% |
+| KROT | 34.2% | 97.6% |
 | library | 73.7% | 75.0% |
 | **all sectors** | **88.5%** | **98.7%** |
 
 The hub reads over 100% because its restored columns also bring back the source's own cave and ore fill, which the
 measure counts; the library is the one build still short, and its shortfall sits under the runway approach road.
 
-The sewers were never lost. The hempcrete compound was the worst case of the large builds and had lost about 87,000
+The sewers were never lost. KROT was the worst case of the large builds and had lost about 87,000
 blocks of its facility.
 
 ## 2. The restore (`tools/underground.py`)
@@ -352,7 +352,7 @@ east. Only the west edge of the window is a real edge of the city. `docs/maps/gs
 ## 2. The expansion
 
 The window is now 74 x 107 source chunks (x -103..-30, z 72..178) at the same chunk offset and y shift, which is as far
-as the cell allows before it reaches the hempcrete compound to the north and the farmsteads to the east. 6,098 chunks
+as the cell allows before it reaches KROT to the north and the farmsteads to the east. 6,098 chunks
 transplanted into the build world and into the clean reference world; the remap resolved every block.
 
 The hub footprint is x -3568..-2385, z -1008..700, 1,184 x 1,709 blocks, four times the old one. The Novo Industrial,

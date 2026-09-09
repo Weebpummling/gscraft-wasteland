@@ -33,6 +33,12 @@ Key names, checked against the jar rather than assumed:
   - a TACZ gun is the item `tacz:modern_kinetic_gun` carrying `GunId` NBT. `tacz:type_81` is a gun
     definition, not an item.
 
+Dressing runs at `onjoin`, not `finalize`. `finalize` never fires for a `/summon`, and it does not fire
+for a mob a horde wave adds either - both add the entity directly - so a design that places most of its
+enemies by wave and by script would never see a `finalize` rule at all. `onjoin` covers natural spawns,
+summons and waves alike. The cost is that Improved Mobs still equips at finalize, afterwards, which is
+what E7b's exemption is for.
+
 The rules are inserted *after* the unconditional hostile deny that currently holds hostiles off, so they
 change nothing until that hold is lifted, and sit ahead of the other faction rules when it is.
 
@@ -47,20 +53,14 @@ IE = "immersiveengineering:"
 MILITIA = [IE + "commando", IE + "fusilier", IE + "bulwark"]
 RIFLE = "tacz:type_81"          # the design's first choice; tacz:ak47 is the alternate
 
-# Area.class reads flat x/y/z plus dimx/dimy/dimz. A `center` object parses as JSON and then fails at
-# bind time with "Area '<name>' has no x!", which is easy to miss because it is not a parse error.
-AREAS = [
-    {"name": "farbank", "dimension": "minecraft:overworld", "type": "box",
-     "x": -825, "y": 128, "z": -690, "dimx": 450, "dimy": 384, "dimz": 620},
-    {"name": "camp", "dimension": "minecraft:overworld", "type": "box",
-     "x": -874, "y": 128, "z": -952, "dimx": 208, "dimy": 384, "dimz": 215},
-]
+# Areas are written by tools/incontrol_areas.py, which owns the half-extent arithmetic. Defining them
+# here as well would give two sources for the same boxes.
 
 
 def rifleman(area):
     """A pillager dressed as the Militia's line infantry, with a real rifle."""
     return {
-        "dimension": "minecraft:overworld", "when": "finalize", "area": area,
+        "dimension": "minecraft:overworld", "when": "onjoin", "area": area,
         "mob": ["minecraft:pillager"], "result": "allow",
         "armorhelmet": {"item": "superbwarfare:us_helmet_pasgt"},
         "armorchest": {"item": "superbwarfare:us_chest_iotv"},
@@ -77,11 +77,10 @@ def main(argv):
     dry = "--dry-run" in argv
 
     areas = json.loads((IC / "areas.json").read_text(encoding="utf-8"))
-    have = {a["name"] for a in areas}
-    for a in AREAS:
-        if a["name"] not in have:
-            areas.append(a)
-    print(f"areas: {[a['name'] for a in areas]}")
+    need = {"farbank", "camp", "plant"}
+    missing = need - {a["name"] for a in areas}
+    assert not missing, f"run tools/incontrol_areas.py first; missing {missing}"
+    print(f"areas present: {sorted(a['name'] for a in areas)}")
 
     spawn = json.loads((IC / "spawn.json").read_text(encoding="utf-8"))
     spawn = [r for r in spawn if "Militia" not in json.dumps(r) and
@@ -103,9 +102,16 @@ def main(argv):
         rifleman("plant"),
     ]
 
-    # after the unconditional hostile deny that holds hostiles off, ahead of the other faction rules
-    at = next((i for i, r in enumerate(spawn)
-               if r.get("hostile") and r.get("result") == "deny" and "mob" not in r), len(spawn)) + 1
+    # Immediately after the unconditional hostile deny that holds hostiles off - so nothing changes while
+    # the hold stands - and at the very top when that hold is not present, because these rules must be
+    # reached before the generic pillager rule further down. First match wins, so appending them at the
+    # end puts them behind a rule that already matches a pillager and they never run.
+    # the hold is the *unconditional* one: hostile + deny and nothing else qualifying it. spawn.json also
+    # carries a conditional hostile deny (spawner + mincount 12) which is not it.
+    hold = next((i for i, r in enumerate(spawn)
+                 if r.get("hostile") and r.get("result") == "deny" and "mob" not in r
+                 and "mincount" not in r and "spawner" not in r), None)
+    at = 0 if hold is None else hold + 1
     spawn[at:at] = new
     print(f"spawn.json: {len(new)} rules inserted at index {at}, {len(spawn)} total")
     for r in new:
@@ -115,7 +121,6 @@ def main(argv):
     if dry:
         print("DRY RUN, nothing written")
         return 0
-    (IC / "areas.json").write_text(json.dumps(areas, indent=1), encoding="utf-8", newline="")
     (IC / "spawn.json").write_text(json.dumps(spawn, indent=1), encoding="utf-8", newline="")
     print("written")
     return 0

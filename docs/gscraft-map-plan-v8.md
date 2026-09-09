@@ -112,7 +112,7 @@ no pads). Placement is by visual fit: free ground (no water or rail under it, at
 transplant replaces), 12-90 m from an existing road and never on one, flat, 16 blocks clear of anything built, 48 of
 other placed builds. The cyberpunk district stands against the west ridge at the end of the south-west road; Skadowsky
 in the centre fields north of the rail embankment; the mega-base on the lake's east shore; the industrial district
-beside the plant; the hempcrete compound under the ridge south-west of the town; the library and the runway north of
+beside the plant; KROT under the ridge south-west of the town; the library and the runway north of
 the town by the lake; the 29 old sites scatter as farmsteads 40 m off roads, 150 m apart, the Woods included. Render:
 `incoming/census/sectors/sectors_v8.png`.
 
@@ -135,7 +135,7 @@ north-south trunk, a spine along the builds' east flank, and a mid-district link
 | Skadowsky sector | sector | x -1088..-625, z -1488..-737 | 464 x 752 | 89 |
 | Mega-base | player | x 368..751, z -2128..-1601 | 384 x 528 | 40 |
 | Industrial district | player | x 336..799, z -1376..-1105 | 464 x 272 | 86 |
-| Hempcrete compound | player | x -3392..-3073, z -1344..-1025 | 320 x 320 | 68 |
+| KROT | player | x -3392..-3073, z -1344..-1025 | 320 x 320 | 68 |
 | Library | player | x -2480..-2385, z -3808..-3713 | 96 x 96 | 96 |
 | Runway (pad) | pad | x -2064..-1553, z -3792..-3601 | 512 x 192 | 58 |
 
@@ -149,7 +149,7 @@ Section 9 and `docs/gscraft-skadowsky-camp.md` carry the camp itself.
 deferred to a later quest line, which can pick them up as they stand: the Novo Expograd Industrial Zone, the Financial
 Plaza and its sewers, the Bio Gen offices, the Novo Expograd hub (the desert city), the mega-base (FR-06), the
 industrial district ("the waterworks"), the library and the runway pad. Questing routes only to the Pripyat base map,
-the Skadowsky sector and the hempcrete compound.
+the Skadowsky sector and KROT.
 
 Farmstead centres: (-2192,224), (-1472,-256), (-2176,-576), (-2192,-32), (-1712,-1744), (-2720,-1072), (-2112,-896), (-1696,-272), (-1568,-1472), (432,-2448), (-2432,-1168), (-304,-2848), (128,-2368), (-1312,-864), (-1920,-272), (-2080,576), (-3792,-2848), (-1344,-3152), (-528,-2640), (672,-2320), (-208,-2432), (-2320,512), (144,-3456), (-1200,-3792), (-3760,-3712), (-720,-2400), (-2208,-304), (-3008,416), (-2416,240).
 
@@ -163,7 +163,7 @@ Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700
 - Transplants: `runplan.py` with `buildmap/plan_v8/transplant_plan_v8.json` - 40 entries, 5,678 chunks, block-exact
   vertical shifts (section shift + residual column shift), every block resolving in the pack (Custom NPCs waypoint
   markers -> air). The hub, Novo, plaza + sewers, Bio Gen, Skadowsky (+35), settlement, mega-base, industrial district,
-  hempcrete compound, library and 29 farmsteads are in.
+  KROT, library and 29 farmsteads are in.
 - Edge grading: `grade_v8.py` blends the land around every build into y 65 over 48 blocks. First run used the wasteland
   terracotta fill (brown rings in `incoming/census/v8_cell_topdown.png`); re-run with dirt/grass and a repaint of the rings.
 - Server: `server/wasteland-v8` booted clean on the local server 2026-09-05 00:27 (visual profile) for the owner's fly-through;
@@ -240,7 +240,7 @@ Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700
     open land there was already at plan height). All chunks are `full` now.
   - `tools/edgeaudit.py` (new): every footprint edge scanned for water, elevated (deck) and road/rail features running
     off the source map -> `buildmap/plan_v8/edge_features_v8.json`: 158 features (85 road, 47 water, 26 elevated). The
-    water ones are the industrial district's north edge (its own canal system cut at the edge), the hempcrete compound's
+    water ones are the industrial district's north edge (its own canal system cut at the edge), KROT's
     west edge, the mega-base's west edge, the settlement's east edge; the elevated ones are pipes/decks at the mega-base,
     industrial district and settlement edges. Each is a step-7/8 item: continue it or end it.
   - `tools/connectors.py`: connector targets are now the road network proper (components of 3000+ pixels); the earlier
@@ -259,7 +259,7 @@ Named areas: town x -3750..-1800 z -3750..-1400; plant x -1150..1200 z -400..700
 
 `tools/stubs.py` scans each footprint's outer 3-block ring for road materials that lead inward (a plate edge or a wall
 base fails the test) and records the builds' own stubs (`buildmap/plan_v8/stubs_v8.json`: the hub 5, Skadowsky 4, the
-settlement 4, the industrial district 3, Bio Gen 3, the hempcrete compound 5 tracks, the library 2 slab paths; the plate-
+settlement 4, the industrial district 3, Bio Gen 3, KROT 5 tracks, the library 2 slab paths; the plate-
 edged 1.12 builds and the runway have none). `tools/connectors.py` turns the stubs (or a fallback gate on the edge facing
 the nearest road) into connector roads to the nearest point of the existing network, at most two per build, none when the
 network is already within 40 m; `roads.py route` routed them on the built terrain: 13 connectors, 3.4 km

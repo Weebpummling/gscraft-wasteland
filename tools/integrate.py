@@ -82,7 +82,7 @@ def is_plant(n):
 
 def is_natural(n):
     """Landscape blocks of the grass/wasteland worlds. Hempcrete is a build material here (Lost Cities city ground and the
-    hempcrete compound's walls alike are kept as the build); Immersive Weathering soils are ground."""
+    KROT's walls alike are kept as the build); Immersive Weathering soils are ground."""
     if "hempcrete" in n: return False
     if n.startswith("immersive_weathering:"): return True
     return n in NATURAL or is_plant(n) or n in LIQUID or n in AIRS or n.endswith("_leaves") or n.endswith("_log") or "ore" in n.split(":")[-1] or n in DESERT_NATURAL or n.endswith("terracotta")

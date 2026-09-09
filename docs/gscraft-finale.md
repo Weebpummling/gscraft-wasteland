@@ -60,7 +60,7 @@ hall's sculk floor (Michael's M-P1, Act II), where Tune says once, *"That stuff 
 
 | Wave | Content | Where | Notes |
 |---|---|---|---|
-| 1 | the hempcrete compound's defence table ×1.5 (was Novo's) | breaks on the gate, the bridge's east end (R-B3) | the gate's tier-3 doors hold; players shoot from the walls |
+| 1 | KROT's defence table ×1.5 (was Novo's) | breaks on the gate, the bridge's east end (R-B3) | the gate's tier-3 doors hold; players shoot from the walls |
 | 2 | the intake works' table ×1.5 (was the plant's) | gate + the west edge (the bridge and the river) | first Captain |
 | 3 | the turbine hall's table ×1.5 (was FR-06's) | both approaches | second Captain; Tony's between-wave med kits (X7) |
 | 4 | the switchyard's table ×1.5 (was the plaza's) | the whole perimeter, x −978…−770 × z −1060…−845 | third Captain; 90 s pause after it, the sculk shrieker screams |

@@ -386,6 +386,78 @@ Four key names, each read out of the jar after the previous guess failed:
 
 Written by `tools/militia_rules.py`, which is re-runnable and idempotent.
 
+## 4d. Spawn rules verified by probe (2026-09-09)
+
+The goal was enemies appearing in the right place wearing the right things, so every claim below was
+measured by summoning a pillager at a coordinate and reading its NBT back, not by reading the config.
+
+**`dim*` is a half-extent, not a width — every area was twice its intended size.** This is the finding
+that mattered most, and nothing errors when you get it wrong. Written as centre x 25 / dimx 2350, the
+`plant` box swallowed a probe at x -2000, two thousand blocks from a box meant to end at -1150. Because
+areas overlap and the first matching rule wins, an oversized area quietly steals mobs from every rule
+after it. `tools/incontrol_areas.py` now owns the arithmetic and halves the design's real extents in one
+place.
+
+With that corrected, five probes:
+
+| probe | at | expected | result |
+|---|---|---|---|
+| farbank centre | -825, -690 | Militia Rifleman | dressed |
+| west of farbank | -1200, -690 | not Militia | plain |
+| east of farbank | -550, -690 | not Militia | plain |
+| inside the camp | -825, -950 | denied outright | no entity at all |
+| the turbine hall | 400, 590 | Militia Rifleman | dressed |
+
+**Dressing runs at `onjoin`, not `finalize`.** `finalize` never fires for a `/summon`, and it does not
+fire for a mob a horde wave adds either — both add the entity directly. A design that places most of its
+enemies by wave and by script would never have seen a `finalize` rule at all. This is worth knowing
+before the wave tables of §4a are populated.
+
+**E7b was necessary and is now proven.** A correctly dressed Rifleman was still handed a **diamond
+pickaxe** in the offhand by Improved Mobs. With `minecraft:pillager` and the three IE ids exempted as
+`id|REVERSE|ARMOR|HELDITEMS` the offhand is empty. Two notes: the angle brackets in the config's own
+examples are documentation delimiters — the file says "Examples (without <>)" — and writing them makes
+the mod's config load throw during `ConfigTracker.loadConfigs`, failing the whole boot with no message
+naming the file. And `USEITEM` is a separate slot writer: after the ARMOR/HELDITEMS exemption took, a
+Rifleman was still given **flint and steel** and a Scavenger an **ender pearl**.
+
+Because Improved Mobs is configured per entity type and In Control per area, "pillagers in farbank only"
+cannot be expressed there — exempting `minecraft:pillager` exempts every pillager. That is why the
+Scavenger rule exists: without it, exempted pillagers outside the Militia's ground would be bare. It also
+gives §3.2 its contrast for free — the Militia matches, the Scavengers do not:
+
+| | head | chest | hand |
+|---|---|---|---|
+| Militia Rifleman (farbank, plant) | `us_helmet_pasgt` | `us_chest_iotv` | `tacz:modern_kinetic_gun` + `GunId: tacz:type_81` |
+| Scavenger (everywhere else) | `wandererarmorhelmet` | `wandererarmorchestplate` | `superbwarfare:steel_pipe` |
+
+Both carry `ArmorDropChances` and `HandDropChances` at zero — E7a, verified as `[0.0f, 0.0f, 0.0f, 0.0f]`
+on a spawned mob.
+
+Final rule order, and it matters because first match wins:
+
+```
+0-2   pomkotsmechs      plant, hub, then denied everywhere else
+3     the hold          every hostile denied, unconditionally
+4-7   Militia gating    camp deny; farbank and plant allow; denied elsewhere
+8-10  dressing          Rifleman in farbank, Rifleman in plant, Scavenger anywhere
+11+   the rest
+```
+
+The hold sits ahead of every faction rule, so **none of this is live**: a pillager summoned at farbank
+centre with the hold in place produces no entity at all. Lift rule 3 to switch the factions on.
+
+## 4e. Mob block destruction is off (owner, 2026-09-09)
+
+Off until the designers finish building by hand. Four levers, because the vanilla gamerule is not the
+only one: `mobGriefing=false` in the world's `level.dat`; Improved Mobs `Flag Blacklist =
+[BLOCKBREAK, LADDER, USEITEM]`; and the fog man's `break_blocks=false` in `man_config.toml`.
+`gscraft_mech_griefing.js` is a separate per-entity denial and is unaffected either way.
+`tools/griefing_off.py --on` reverses all of it.
+
+`USEITEM` is in that list for both reasons at once: it is what put flint and steel in an enemy's hand,
+which is arson as much as it is wrong equipment.
+
 ## 5. Decisions worth taking now
 
 The enemy pass leaves six open (F1 to F6) and recommends a default for each. Five can be taken as

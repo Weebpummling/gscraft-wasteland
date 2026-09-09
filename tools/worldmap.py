@@ -21,7 +21,7 @@ C = {"water": (58, 96, 140), "shallow": (78, 122, 165), "forest": (58, 82, 48), 
      "track": (122, 108, 84), "build": (96, 92, 88), "concrete": (140, 138, 132), "none": (40, 40, 40),
      "netroad": (196, 188, 170), "nettrack": (170, 150, 116)}
 LABELS = {"hub": "Novo Expograd", "novo": "Novo Industrial", "plaza": "Financial Plaza", "biogen": "Bio Gen",
-          "skad": "Skadowsky", "mega": "Mega-base", "indu": "Industrial District", "hemp": "Hempcrete Compound",
+          "skad": "Skadowsky", "mega": "Mega-base", "indu": "Industrial District", "hemp": "KROT",
           "lib": "Library", "runway": "Runway", "camp": "Camp"}
 
 

@@ -39,7 +39,7 @@ if "settle" in sec:
 add("skad", SKAD, [-30, -77, -2, -31], "skad", 35, "Region Skadowsky 1.2 sector; highway level 30 -> 65, its river stays low")
 for sid, rect, dy, what in (("mega", (137, 25, 160, 57), -25, "Mega-base (live world), ground median 90"),
                             ("indu", (119, 54, 147, 70), -5, "Industrial district (live), ground 70"),
-                            ("hemp", (98, 72, 117, 91), 0, "Hempcrete compound (live), ground 65"),
+                            ("hemp", (98, 72, 117, 91), 0, "KROT (live), ground 65"),
                             ("lib", (127, 87, 132, 92), -52, "Library (live), hill top 117")):
     if sid in sec: add(sid, LIVE, rect, sid, dy, what)
 for i, o in enumerate(old):

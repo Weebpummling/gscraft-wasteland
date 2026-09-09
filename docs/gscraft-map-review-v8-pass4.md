@@ -12,7 +12,7 @@ every chunk `full`.
 
 | # | Issue | Where | Cause | Fix |
 |---|---|---|---|---|
-| 1 | **Imported ground slabs** - a footprint still shows as a square: the source map's own terrain (hills, geodes, a lake, a lawn) ends in a straight line at the footprint edge; the settle pass had only flattened the open columns to y 65 | mega-base, industrial district, settlement, hempcrete compound, library, Novo, plaza, Bio Gen, 29 farmsteads | the transplant copies the whole rectangle | `integrate.py` on every sector (§2.1) |
+| 1 | **Imported ground slabs** - a footprint still shows as a square: the source map's own terrain (hills, geodes, a lake, a lawn) ends in a straight line at the footprint edge; the settle pass had only flattened the open columns to y 65 | mega-base, industrial district, settlement, KROT, library, Novo, plaza, Bio Gen, 29 farmsteads | the transplant copies the whole rectangle | `integrate.py` on every sector (§2.1) |
 | 2 | **Linear features running off a footprint edge** - roads, canals, pipes, decks that continue on the source map and stop dead at our edge | 158 features before this pass: 85 road, 47 water, 26 elevated | the source map is bigger than the footprint | roads: step 8 connectors, the short ones built (§2.3); water: closed by the landscape restore or given a rounded end (§2.2); elevated: broken ends, wasteland-plausible, left |
 | 3 | **Skadowsky's off-map river and bridge** | west side | the map's main river cut at the boundary | pass 3b |
 | 4 | **Terraced contour rings and radial facets** on graded slopes | around every graded build | 1-block contours on gentle slopes; the band's edge height taken from the *nearest* build column gave Voronoi facets (radial ridges, first pass-4 run) | noise on every band; the edge height is now a smooth field of the build's edge heights that is exact at the edge and smooth further out |
@@ -36,7 +36,7 @@ then one integrate run per sector. Three modes, chosen per sector group (`sector
   dropped, courtyards closed, apron 3), each kept component is shifted vertically so its floor meets the land, the rest is
   landscape. The plaza keeps the source's blocks 6+ under the surface (`keep_underground`) so the sewers survive under open
   ground.
-- **hull** (mega-base, industrial district, hempcrete compound): player bases built into real terrain - hills, a lake,
+- **hull** (mega-base, industrial district, KROT): player bases built into real terrain - hills, a lake,
   tunnels. The build *and the ground inside its hull* (closing r 24, holes filled, apron 4) stay as one landform, blended to
   the landscape over 80 blocks; a lake at the hull edge meets the land at its surface. Only the imported terrain outside the
   hull goes (the mega-base's geode hills, the lawn squares).
@@ -97,7 +97,7 @@ server is untouched (HANDOFF §6).
 terrain related only, not buildings")
 
 `tools/smoothcliffs.py` over the whole cell from the pass-4 height arrays: (1) every step of 3+ blocks between two open-land
-columns (23,745 cliff columns - the west border rim's slope, the mega-base hull's edges, the hempcrete compound's terrain,
+columns (23,745 cliff columns - the west border rim's slope, the mega-base hull's edges, KROT's terrain,
 odd steps at the cell's north and south edges) gets the ground within 12 blocks replaced by a smoothed height field, so a
 step becomes a slope; (2) every open-land column within 14 blocks of a lake or river and more than 1 block above its
 surface (140,332 columns - the big lake's steep Pripyat banks above all) is graded to water + 1 with a sand/gravel beach on

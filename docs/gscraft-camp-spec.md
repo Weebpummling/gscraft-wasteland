@@ -53,7 +53,7 @@ text changes every minute.
 ## 2. The strongpoint board (Marshall's gatehouse)
 
 A wall map 13 wide × 4 high on the gatehouse's inside wall (from tier 0 — R1 reads it before any gatehouse tier; tier 3 lights it), facing the
-door. Six columns, one per site in loop order — **the hospital, the hempcrete compound, the
+door. Six columns, one per site in loop order — **the hospital, KROT, the
 switchyard, the turbine hall, the intake works, the Woods' outpost**, which is take order as well as
 loop order (Act I, II, III, III, III) — each a 2×3 patch of concrete under a hanging sign with the
 site's name. Skadowsky itself gets no column: it is the home sector, not a strongpoint, and its

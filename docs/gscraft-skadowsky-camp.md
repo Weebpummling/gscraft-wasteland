@@ -3,7 +3,7 @@
 *Design doc, 2026-09-07. Owner's decision: the camp and its systems move into Skadowsky just past the
 south-west bridge; the sector's own mast replaces the built radio tower; Skadowsky is the starting zone and
 becomes the camp by being cleared. Medical stays inside the Skadowsky sector. Questing routes only to the
-Pripyat base map, Skadowsky and the hempcrete compound; the transplanted district and the far-bank builds are
+Pripyat base map, Skadowsky and KROT; the transplanted district and the far-bank builds are
 deferred to a later quest line.*
 
 *Every coordinate here was measured from the deployed world (census render `v8_cell_pass16`), not taken from an
@@ -139,8 +139,8 @@ end of it. Tony's chain and keeper Vera move here unchanged. `residential_*` sta
 
 ## 7. The routing rule
 
-**Quests and gameplay route only to the Pripyat base map, the Skadowsky sector, and the hempcrete compound.**
-The hempcrete compound is included for theming and is work in progress. Everything else transplanted is
+**Quests and gameplay route only to the Pripyat base map, the Skadowsky sector, and KROT.**
+KROT is included for theming and is work in progress. Everything else transplanted is
 deferred to a later quest line and no quest in this design may point at it.
 
 | In scope | Why |
@@ -150,7 +150,7 @@ deferred to a later quest line and no quest in this design may point at it.
 | The plant complex (Pripyat) | the confinement hall (−642, 518, roof y 198), the turbine hall (405, 590, 837 long), the switchyard halls (−888/−743/−890/−775 at z 167 and 54), the intake works (893, 156) |
 | The rail line and yard | the east-bank spine |
 | The collective farm and the Woods | the fields south of the town, the forest |
-| The hempcrete compound | x −3392…−3073 × z −1344…−1025, the one walled holdout across the river |
+| KROT | x −3392…−3073 × z −1344…−1025, the one walled holdout across the river |
 
 | Deferred to a later quest line | Was |
 |---|---|
@@ -169,7 +169,7 @@ Two measured facts drive this section.
 
 **The plant complex is on Skadowsky's own bank.** A straight line from the camp to the confinement hall crosses
 no water at all; the switchyard, turbine hall and intake works cross only narrow marsh channels. Everything
-west — the settlement, the town, the collective farm, the hempcrete compound — crosses the river.
+west — the settlement, the town, the collective farm, KROT — crosses the river.
 
 So the banks swap. The home bank is now the **east** bank, running from your town south to the power station it
 served. The bridge is the way out to everything else. That is the Pripyat story told the right way round.
@@ -185,7 +185,7 @@ served. The bridge is the way out to everything else. That is the Pripyat story 
 | the plant confinement hall | — | 1.53 km |
 | the plant turbine hall | — | 2.06 km |
 | the plant intake works | 2.15 km | 2.16 km |
-| the hempcrete compound | 2.16 km | 2.30 km |
+| KROT | 2.16 km | 2.30 km |
 | the town centre (the central square, −2380, −2975) | 1.36 km | 2.46 km |
 | the runway (deferred) | 1.54 km | 2.85 km |
 | the library (deferred) | 1.88 km | 3.16 km |
@@ -204,7 +204,7 @@ acts, and difficulty was moved onto the land. Under land gating the shape holds.
 | Act | Where | Gate |
 |---|---|---|
 | I — the town you woke in | the pocket, then north to the hospital | on foot, inside the sector |
-| II — the line south, and the first crossing | the rail line and road down the east bank to the plant's outer works; west over the bridge to the collective farm and the hempcrete compound | the first vehicle |
+| II — the line south, and the first crossing | the rail line and road down the east bank to the plant's outer works; west over the bridge to the collective farm and KROT | the first vehicle |
 | III — the station | the plant complex proper: turbine hall, intake works | the truck, the marsh channels |
 | IV — the reactor | the confinement hall, and the town across the river | air, or the bridge road |
 
@@ -216,7 +216,7 @@ acts, and difficulty was moved onto the land. Under land gating the shape holds.
 | Electronics | Tune | the plant's switchyard and admin block | 1.06 km |
 | Power | Michael | the plant's turbine hall | 2.04 km |
 | Fuel and water | Michael | the plant's cooling intake works | 2.14 km |
-| Heavy industry | Walker | the hempcrete compound | 2.31 km |
+| Heavy industry | Walker | KROT | 2.31 km |
 
 The tower's five parts follow the same order: mast repair from Skadowsky, transmitter from the switchyard,
 generator from the turbine hall, cooling loop from the intake works, array from the confinement hall, with the
@@ -326,7 +326,7 @@ cooling water.
 | Electronics | Tune | Ilya | the plant's switchyard and admin block | −815, 105 | 1.06 km | III |
 | Power | Michael | Rook | the plant's turbine hall | 400, 590 | 2.04 km | III |
 | Fuel and water | Michael | Oksana | the plant's cooling intake works | 895, 155 | 2.14 km | III |
-| Heavy industry | Walker | Kessler | the hempcrete compound | −3233, −1185 | 2.31 km | II |
+| Heavy industry | Walker | Kessler | KROT | −3233, −1185 | 2.31 km | II |
 
 The confinement hall at (−642, 518), roof y 198, is **not** a strongpoint. It is Act IV's prize: the
 reactor control module for the gatehouse tier 3 and the antenna array for tower stage 5. That keeps the

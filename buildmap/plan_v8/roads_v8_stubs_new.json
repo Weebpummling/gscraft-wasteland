@@ -221,7 +221,7 @@
   ],
   "width": 5,
   "style": "track",
-  "note": "Hempcrete compound E stub (width 5) -> network, 48 m"
+  "note": "KROT E stub (width 5) -> network, 48 m"
  },
  {
   "name": "hemp_S3",
@@ -237,7 +237,7 @@
   ],
   "width": 5,
   "style": "track",
-  "note": "Hempcrete compound S stub (width 5) -> network, 44 m"
+  "note": "KROT S stub (width 5) -> network, 44 m"
  },
  {
   "name": "hub_S8",

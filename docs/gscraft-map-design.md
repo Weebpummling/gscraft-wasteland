@@ -91,7 +91,7 @@ aircraft is a helicopter lifting from the mast field inside the perimeter, not a
 | Range | From the camp | Owned by | What lives there | Attackable? |
 |---|---|---|---|---|
 | **Foot** | 0 – 1.5 km | walking | the camp, **the Skadowsky hospital** (0.34 km N), the sector's station, rail yard and level crossing, the **collective farm** (1.17 km W over the bridge, Act II), **the plant's switchyard** (1.09 km S, but Act III behind the truck and the marsh channels) | the camp: every counterattack and the finale; the hospital and the switchyard: their takes only |
-| **Road** | 1.5 – 3 km | cars, boats | the town (the east avenue 1.52 km W, the centre 2.46 km W), **the confinement hall** (1.53 km S, Act IV's prize), **the plant's turbine hall** (2.06 km S), **the plant's intake works** (2.16 km S), **the hempcrete compound** (2.30 km W) | the strongpoints' takes only; their counterattacks come to the camp |
+| **Road** | 1.5 – 3 km | cars, boats | the town (the east avenue 1.52 km W, the centre 2.46 km W), **the confinement hall** (1.53 km S, Act IV's prize), **the plant's turbine hall** (2.06 km S), **the plant's intake works** (2.16 km S), **KROT** (2.30 km W) | the strongpoints' takes only; their counterattacks come to the camp |
 | **Far** | 3 – 4.3 km | truck, boat, aircraft | nothing designed: the runway (2.85 km) and the library (3.16 km) are the only things out this way and both are deferred to a later quest line (2026-09-07) | never |
 
 ### 2.2 The camp (starting area)
@@ -157,7 +157,7 @@ the same footprint, placed by the NPC's upgrade quests (§3.6).
 | 2 | **The plant's switchyard and admin block** | centre (−815, 105) | 1.09 km S, Act III | Electronics | Tune | **Ilya**, the clerk |
 | 3 | **The plant's turbine hall** | centre (400, 590) | 2.06 km S, Act III | Power | Michael | **Rook**, the millwright |
 | 4 | **The plant's cooling intake works** | centre (895, 155) | 2.16 km S, Act III | Fuel and water | Michael | **Oksana**, the plant chief |
-| 5 | **The hempcrete compound** | x −3392…−3073 × z −1344…−1025 | 2.30 km W over the bridge, Act II | Heavy industry | Walker | **Kessler**, the foundryman |
+| 5 | **KROT** | x −3392…−3073 × z −1344…−1025 | 2.30 km W over the bridge, Act II | Heavy industry | Walker | **Kessler**, the foundryman |
 | — | **Radio tower** — the sector's own mast, not a build | in the camp: the mast at (−808, −1008), its field x −840…−770 × z −1040…−960 | 0.1 km | Endgame | Marshall | — |
 
 **Skadowsky is the home sector, not a strongpoint.** It is the starting zone and becomes the camp by being cleared
@@ -179,10 +179,10 @@ the in-scope site that replaced it in the table above.
 2026-09-07**: the **home bank is the east bank**, running from your town — Skadowsky, with the camp in it — south
 past the rail line and yard to the power station it served. A straight line from the camp to the confinement hall
 crosses no water at all, and the plant's three sites cross only narrow marsh channels; everything west of the
-bridge — the town, the collective farm, the hempcrete compound — crosses the river, and the bridge is the way out.
+bridge — the town, the collective farm, KROT — crosses the river, and the bridge is the way out.
 Acts follow that shape: the pocket, then north to the hospital on foot; west over the bridge to the farm and the
 town and south down the east bank to the plant's outer works on the first vehicle; the plant complex proper on the
-truck; then the confinement hall, and the bridge road west to the hempcrete compound.
+truck; then the confinement hall, and the bridge road west to KROT.
 
 **The ruin field is the town.** There are no generated structures inside the v8 cell: the Pripyat pack's town
 (x −3750…−1800, z −3750…−1400, the camp's western neighbour) and its plant complex (x −1150…1200, z −400…700) are the
@@ -196,7 +196,7 @@ complex's four storage halls** at (−888, 167), (−743, 167), (−890, 54) and
 40 m off the roads, 150 m apart, the Woods included) — the old sites of the live world, each a small loot stop; and the
 town's own landmarks, given loot roles in `gscraft-loot-tables.md` §5 as the dressing pass names them. **The
 settlement is gone** — its sector is group `removed` and the ground there is 91 % grass — so Act I's first walk is
-north through your own town to the hospital instead. **The hempcrete compound** (x −3392…−3073 × z −1344…−1025) is
+north through your own town to the hospital instead. **KROT** (x −3392…−3073 × z −1344…−1025) is
 now Walker's heavy-industry strongpoint, above, not a loot site.
 
 **Deferred to a later quest line (2026-09-07), designs kept for it:** **the hub** (the Novo Expograd city, 1184×1709
@@ -208,7 +208,7 @@ No quest in this design points at any of them.
 
 **Dead military vehicles dress the strongpoints** (the Frontline Combat Pack and DragonRise: Reforge, which replaced vvp and MCSP on 2026-09-06): the stock is unchanged — `fcp:stryker_m2` pairs, an `fcp:bmp2`, an
 `fcp:ural_kung` convoy (no Typhoon-K in either pack) and an `fcp:mi17` — but the placements move to the in-scope
-sites with the strongpoints, and which vehicle dresses which of the plant's three sites and the hempcrete compound
+sites with the strongpoints, and which vehicle dresses which of the plant's three sites and KROT
 is the dressing pass's to fix [needs measurement]. The FR-06 reactor plaza, the runway apron and the hub's
 `fcp:pantsir`, with Pomkot's Mechs' dormant units (a PMS04 beside FR-06's
 BMPT, a PMS02 and a PMS05 on the hub's rail spine: `gscraft:furnish_fr06`, `gscraft:furnish_hub`), are deferred to
@@ -306,7 +306,7 @@ it is not used for these six. No gameplay mod is added (EMI, a client-side recip
 
 | NPC | Owns | Starting tasks (the introduction) | Unlocks when done | Their chain |
 |---|---|---|---|---|
-| Walker the Foreman | Workshop, Garage, Storage | bring 8 bolts, 8 nuts | a wrench, the fastener-kit and hand-tool blueprints, the personal station | take and hold the hempcrete compound; motor assembly; vehicles; the mast section kit |
+| Walker the Foreman | Workshop, Garage, Storage | bring 8 bolts, 8 nuts | a wrench, the fastener-kit and hand-tool blueprints, the personal station | take and hold KROT; motor assembly; vehicles; the mast section kit |
 | Tony the Medic | Medical | bring 4 bandages, 2 painkillers | med-kit blueprint | hold the Skadowsky hospital; revive a teammate; medical analyzer; finale readiness |
 | Michael the Engineer | Generator, Water | bring 3 wire spools, a power cord, a water filter | wiring-harness and filter blueprints | hold the plant's turbine hall; coolant; hold its intake works; the generator kit, then the cooling loop |
 | Tune the Technician | Radio / intel | bring a circuit board, 2 capacitors, a broken radio | circuit-assembly blueprint | hold the plant's switchyard; antenna elements; the transmitter, then the antenna array |
@@ -383,12 +383,12 @@ site's component containers respawn every two in-game days, so nothing is lost b
 |---|---|---|---|---|---|---|
 | 1 | I | Skadowsky's own streets around the pocket (0–300 m) | W1, T1, M1, U1 hand-ins; X1's briefing once the five are done; D1 concrete later | 11 | — | foot |
 | 2 | I | the Skadowsky station, the rail yard and the level crossing (0–0.4 km; the settlement is gone and the runway deferred, 2026-09-07) | J1 locations; W3 metal scrap; M2 light bulb; T2 med items | 6 | — | foot |
-| 3 | II | the hempcrete compound (2.30 km W over the bridge; v8) | J-S1 dossier; W5 loot (spark plugs, scrap, oil) over two or three runs; R2 marker and assault; hardware and spark plugs for W7; after the hold: W11 second anchor cable, W9 heavy diesel engine | 8 | 2 (after the hold) | the first car over the bridge; the bulky parts one per carrier |
+| 3 | II | KROT (2.30 km W over the bridge; v8) | J-S1 dossier; W5 loot (spark plugs, scrap, oil) over two or three runs; R2 marker and assault; hardware and spark plugs for W7; after the hold: W11 second anchor cable, W9 heavy diesel engine | 8 | 2 (after the hold) | the first car over the bridge; the bulky parts one per carrier |
 | 4 | I | the Skadowsky hospital, 0.34 km north through your own town | J2 locations, J-S2 dossier; T3 loot (blood bags, syringes, antiseptic); R3 marker and assault; U3 hard drive, J3 folders; electrical items for U2 and U8 | 14 | — | foot |
 | 5 | III | the plant's cooling intake works (2.16 km S down the east bank; v8) | J-S3 dossier; M4 loot (hoses, fins, fuel cans); R4 marker and assault; hoses, tubes and fins for M3 and M6; fuel cans for M7 and W8; after the hold: M6 industrial pump, M12 purification membrane | 9 | 1 | truck |
 | 6 | III | the plant's turbine hall (2.06 km S down the east bank; v8) | J-S4 dossier; M8 loot (relays, motors, a battery); R5 marker and assault; electrical items; after the hold: M10 transformer core, M11 avionics module | 10 | 3 | truck |
 | 7 | III | the plant's switchyard and admin block (1.09 km S; v8) | J-S5 dossier; U4 loot (circuit boards, computer parts, a hard drive); R5 marker and assault; the encrypted radio; electrical and valuables; after the hold: U7 military circuit board; D4 concrete — U6's sewer kill count is deferred with the sewers (2026-09-07) | 12 | 1 | truck |
-| 8 | II–III | west over the bridge: the collective farm (1.17 km), the town's east avenue (1.52 km) and the town centre (2.46 km); the library and Bio Gen's strip are deferred (2026-09-07) | J4 locations, J5 valuables, W12 pressure gauge, T7 surgical kit, J6 hard drive; W10 on the way back past the hempcrete compound; D3 and D5's seeds, kit and crops at the farm | 9 | 3 | car, then the truck |
+| 8 | II–III | west over the bridge: the collective farm (1.17 km), the town's east avenue (1.52 km) and the town centre (2.46 km); the library and Bio Gen's strip are deferred (2026-09-07) | J4 locations, J5 valuables, W12 pressure gauge, T7 surgical kit, J6 hard drive; W10 on the way back past KROT; D3 and D5's seeds, kit and crops at the farm | 9 | 3 | car, then the truck |
 | 9 | IV | the confinement hall (1.53 km S, the plant complex's heart); the hub is deferred with the district (2026-09-07) | J7, J9 locations; J8 phased array element and satellite receiver; T9 and M13 military power filters; the reactor control module | 6 | 4 | the helicopter from the mast field, or the road south |
 | 10 | II–IV | home: the gatehouse and the claim | X2–X6 hand-ins, T10 ready room, D1–D6, R6; the eighteen `*-B` building upgrades as their hand-ins come together | — | the five complete parts, one at a time | — |
 | 11 | II–III | the placed templates and the town's landmarks of design §2.7, most of them west over the bridge (1–2.2 km [needs measurement]; v8): the boss block, the sculk cellar, the bunkers, the fog house, the outpost | U-C1, M-P1, W-A5, W-A6, U-A1, J-C1, J-C2, D-O1, U-D1, U-D2 — one or two per outing, folded into trips 4–8 | 6 | — | foot, then car |
@@ -425,12 +425,12 @@ crafting chain and a trip.
 
 | Category | Items | Drop mostly in | Stack |
 |---|---|---|---|
-| Hardware | bolts, nuts, screws, nails, metal scrap, duct tape, insulating tape | garages, workshops, factories, the hempcrete compound, the plant complex | 8 |
+| Hardware | bolts, nuts, screws, nails, metal scrap, duct tape, insulating tape | garages, workshops, factories, KROT, the plant complex | 8 |
 | Electrical | wire spool, power cord, light bulb, capacitor, relay, circuit board, electric motor, car battery | offices, the plant's switchyard and admin block, the turbine hall's decks | 4 (motor, battery 1) |
-| Mechanical | corrugated hose, silicone tube, radiator fin, pressure gauge, spark plug | the plant complex, garages, the hempcrete compound, the rail yard | 4 |
+| Mechanical | corrugated hose, silicone tube, radiator fin, pressure gauge, spark plug | the plant complex, garages, KROT, the rail yard | 4 |
 | Filters and chemicals | water filter, gas-mask filter, bleach, antifreeze, motor oil, solvent, gunpowder (vanilla) | stores, the plant complex, apartments, the hospital; gunpowder at the town's military chests and the plant complex's four storage halls at (−888, 167), (−743, 167), (−890, 54) and (−775, 54) — the stone complex that held it is gone from the v8 map | 4 |
 | Medical | bandage, painkillers, syringe, antiseptic, blood bag | apartments, the Skadowsky hospital | 4 |
-| Tools | wrench, pliers, screwdriver set, hand drill, welding torch | garages, the hempcrete compound, the turbine hall | 1 |
+| Tools | wrench, pliers, screwdriver set, hand drill, welding torch | garages, KROT, the turbine hall | 1 |
 | Valuables | broken radio, computer parts, hard drive, folder of documents, emerald (vanilla; the Recruits' hire currency) | offices, the plant's switchyard and admin block, the confinement hall | 1 |
 
 The sites in the "drop mostly in" column are the in-scope replacements of §2.3: Novo, Financial Plaza and the
@@ -470,7 +470,7 @@ The tower's five parts follow the strongpoint order: the mast repair from Skadow
 switchyard, the generator kit from the turbine hall, the cooling loop from the intake works, the array from the
 confinement hall. The stage numbering above is unchanged, so stages 2 and 4 are collected out of stage order.
 
-Other loot-only components, first cut: heavy diesel engine (the hempcrete compound); purification membrane (the
+Other loot-only components, first cut: heavy diesel engine (KROT); purification membrane (the
 intake works); avionics module (the turbine hall); **reactor control module (the confinement hall, Act IV — objectives §4)**; encrypted radio (the switchyard); medical
 analyzer, surgical kit (the Skadowsky hospital); satellite receiver, military power filter (the
 confinement hall). They spawn in specific containers at their site, one or two per visit, and respawn on the
@@ -539,7 +539,7 @@ player action instead of being handed over.
 | State | Stage | What the players do | Trips | Quest |
 |---|---|---|---|---|
 | **Scouted** | `<site>_scouted` | reach the site; find its **dossier** (a valuables item that only spawns in one container there) and hand it to James; the strongpoint board then shows the site's garrison type (its strength from U3), its component container, and — once held — its timer | 1 | James, `J-S*` |
-| **Looted** | `<site>_looted` | the owning NPC's hand-ins of items that drop **only at that site's building types** (the hempcrete compound: hardware, spark plugs; the intake works: hoses, fins, fuel cans; the hospital: blood bags; the turbine hall: electrical; the switchyard: valuables and circuit boards). Two or three trips with the loot budget of §4.5; Lootr refreshes the containers between visits | 2–3 | owning NPC |
+| **Looted** | `<site>_looted` | the owning NPC's hand-ins of items that drop **only at that site's building types** (KROT: hardware, spark plugs; the intake works: hoses, fins, fuel cans; the hospital: blood bags; the turbine hall: electrical; the switchyard: valuables and circuit boards). Two or three trips with the loot budget of §4.5; Lootr refreshes the containers between visits | 2–3 | owning NPC |
 | **Cleared → Held** | `<site>_held` | Marshall's take. The team places the **claim marker** at the site's anchor point. That starts the **assault**: the garrison spawns in waves from the site's edges for 5 minutes; the marker must survive and at least one player must be inside the site rectangle when the 5 minutes end. Win → held, the fortify clock starts, the component container arms. Fail → the marker breaks, the garrison respawns, try again | 1, repeatable | Marshall, `R*` |
 | **Defended** | `<site>_defended` | the site's counterattack (§6.2) — fought **at the base**, not at the site: when the fortify clock ends the site's defence table marches on the camp gate. Win → the site is safe for good, its site guard doubles, and its components keep respawning | 0 (nobody travels) | owning NPC |
 | **Attack lost** | `<site>_lost` set (the site stays `held`) | the base was overrun during that site's counterattack: five or more attackers inside the **camp square** (the paved junction, x −962…−918 × z −996…−962, the claim's last line; the plateau plaza rectangle x −1522…−1459 × z −2262…−2199 is dead, as is the v6 crater) for 30 s. (The finale's own check is the mast's field, x −840…−770 × z −1040…−960 — finale §4.) Nothing is taken away: the wave withdraws and returns after another fortify clock; the board column turns red until it is won. A site leaves `held` only if a player breaks its marker | — | — |
@@ -604,7 +604,7 @@ inside the site rectangle before the take (thin enough to loot through with care
 on the base at the end of the fortify clock (three waves at the camp gate). Counts are the baseline for five players and the script scales them to the actual number (×0.4 for one, ×0.6 for
 two, ×0.8 for three or four, ×1.2 for six or more) — for the assault the players inside the site rectangle, for a
 counterattack and the finale the players online. Assault waves enter from the site's edges, never inside its
-buildings; counterattack waves enter 48 blocks outside the camp perimeter, on the four approaches, from the direction of the attacking site: **the bridge from the west** (the hempcrete compound and everything over the river), **the main road east**, and **the rail corridor north and south** (the hospital from the north, the plant complex from the south); the wave's origin tells the players which site is attacking before the board does (objectives §6). Mob ids, checked against the jars: neither the Bandits mod nor Pillagers Gun registers an entity —
+buildings; counterattack waves enter 48 blocks outside the camp perimeter, on the four approaches, from the direction of the attacking site: **the bridge from the west** (KROT and everything over the river), **the main road east**, and **the rail corridor north and south** (the hospital from the north, the plant complex from the south); the wave's origin tells the players which site is attacking before the board does (objectives §6). Mob ids, checked against the jars: neither the Bandits mod nor Pillagers Gun registers an entity —
 "bandits" and "gun pillagers" are vanilla **pillagers and vindicators**, which Pillagers Gun arms;
 Hordes adds only the zombie-player variants, so zombies, husks and drowned are vanilla; IE's Fusilier /
 Commando / Bulwark (`immersiveengineering:*`), The Knocker (`the_knocker:knocker`), The Man From The
@@ -619,7 +619,7 @@ and the suppressor of W-A4 is worth its price.
 
 | Site | Theme | Ambient (In Control! rule inside the rect) | Assault, six waves (at the site) | Counterattack, three waves (at the base; "defence" below) | Elite |
 |---|---|---|---|---|---|
-| **The hempcrete compound** (Act II) | industrial squatters | zombies 6, bandits 2 at a time | zombies 8 → 10 → 12, bandits 2 per wave from wave 3 | zombies 15, then bandits 4 + zombies 10, then bandits 6 | a bandit captain with a shotgun (wave 6, defence 3) |
+| **KROT** (Act II) | industrial squatters | zombies 6, bandits 2 at a time | zombies 8 → 10 → 12, bandits 2 per wave from wave 3 | zombies 15, then bandits 4 + zombies 10, then bandits 6 | a bandit captain with a shotgun (wave 6, defence 3) |
 | **The Skadowsky hospital** (Act I) | the dense dead | zombies 10, husks 4, Eyes at night | zombies 12 per wave, husks 4 from wave 2, spiders 6 on waves 4–6 | zombies 20, then 25, then 30 with 8 spiders | The Man From The Fog stalks the hospital from the take onward |
 | **The plant's intake works** (Act III) | wet ground, armed | zombies 6, drowned 6, bandits 3 | drowned 8 + zombies 6, bandits 3 from wave 2, a Fusilier on 4 and 6 | drowned 12 + zombies 10, then bandits 6 + Fusiliers 2, then Commandos 3 | a Bulwark on defence 3 |
 | **The plant's turbine hall** (Act III) | the militia | gun pillagers 6, Commandos 2 | gun pillagers 8 per wave, Commandos 2 from wave 2, Bulwark on 5 | gun pillagers 12 + Commandos 4, then Bulwarks 3, then everything plus 2 Bulwarks | The Knocker inside the hall from the take onward |
@@ -670,7 +670,7 @@ each hand-in to Marshall runs the next stage's function.
 ### 7.1 The finale and the boss
 
 The countdown ends in five waves at the players' claim: waves 1–4 are the defence tables of §6.3
-stacked (the hempcrete compound's, then the intake works', then the turbine hall's, then the switchyard's, each ×1.5), waves 2–5 each bringing a named
+stacked (KROT's, then the intake works', then the turbine hall's, then the switchyard's, each ×1.5), waves 2–5 each bringing a named
 Apotheosis-boss **Captain** (the fourth beside the Sleeper), and **wave 5 is the boss: the Sleeper, a named Warden** that rises at the
 gate — the thing the beacon's pulse woke. It was chosen over the Ender Dragon
 after research (`gscraft-finale.md` §2): outside the End the dragon never lands and cuts gun damage to a
@@ -724,7 +724,7 @@ Workshop 1, scout the Skadowsky hospital and hand its dossier to James, and get 
 
 **Phase D — The loop and vehicles.** The site ladder as stages, the marker and the assault, the
 per-site fortify clock and counterattack at the base, the one-contested-site rule, warnings, the site guard, occupier and component
-respawn, the loss condition; the garage tier and fuel chain. *Test 3:* loot the hempcrete compound twice, take it
+respawn, the loss condition; the garage tier and fuel chain. *Test 3:* loot KROT twice, take it
 by assault, watch its site guard appear, beat its counterattack at the bridge when the fortify clock ends, bring its heavy diesel engine
 home in a car, and build the mast section kit from Skadowsky's own anchor cable.
 
@@ -743,7 +743,7 @@ the finale runs to the boss (`gscraft-finale.md` §5 is the build and test list)
 - The five anchor points for the claim markers, one per strongpoint: chosen on the visual pass.
 - The dossier chests are placed: `tools/dossiers.json` and `gscraft:dossiers`. The hospital's goes in with the
   sector's dressing; the four re-homed sites — the plant's switchyard, turbine hall and intake works, and the
-  hempcrete compound — need new spots found by `tools/dossiers.py` [needs measurement]. The old spots (Novo
+  KROT — need new spots found by `tools/dossiers.py` [needs measurement]. The old spots (Novo
   (−2844, −754), the plant sector (558, −1277), FR-06 (601, −1690), the plaza (−3345, −677)) are deferred with
   their sites (2026-09-07). Each is an enclosed upper-floor spot; confirm the rooms read as their
   names on the visual pass.

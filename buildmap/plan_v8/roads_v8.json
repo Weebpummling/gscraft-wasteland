@@ -173,7 +173,7 @@
   ],
   "width": 5,
   "style": "track",
-  "note": "Hempcrete compound E gate (fallback, stub width 0) -> nearest existing road, 127 m"
+  "note": "KROT E gate (fallback, stub width 0) -> nearest existing road, 127 m"
  },
  {
   "name": "lib_S",

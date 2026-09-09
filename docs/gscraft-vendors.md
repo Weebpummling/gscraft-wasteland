@@ -62,7 +62,7 @@ quest page, not a separate counter quest (quests §7C):
 | Keeper | Site | Buys | Tier 1 sells | Tier 2 adds | Tier 3 adds |
 |---|---|---|---|---|---|
 | **Vera** — the hospital | the Skadowsky hospital, x −865…−698 × z −1312…−1242, 0.34 km north of the camp square (Act I) | blood bags, medical items | the gunner's manual pages, poultice | bandages, painkillers (a second clinic; the cure is free here too) | train tickets: nothing — the train is a hauler, not fast travel (owner default E12) |
-| **Kessler** — the foundry | the hempcrete compound, x −3392…−3073 × z −1344…−1025, 2.30 km west over the bridge (Act II) | scrap, cast iron | casting sand, cast-iron nuggets | cast-iron ingots (4 a day), blaze cakes | bronze ingots |
+| **Kessler** — the foundry | KROT, x −3392…−3073 × z −1344…−1025, 2.30 km west over the bridge (Act II) | scrap, cast iron | casting sand, cast-iron nuggets | cast-iron ingots (4 a day), blaze cakes | bronze ingots |
 | **Ilya** — the fuze lab | the plant's switchyard and admin block, centre (−815, 105), 1.09 km (Act III) | valuables, redstone | redstone dust, quartz | impact and timed fuzes | proximity fuzes (2 a day) |
 | **Rook** — the steel works | the plant's turbine hall, centre (400, 590), 2.06 km (Act III) | steel scrap, plates | steel plates | big cartridges (empty) | autocannon barrels (1 a day) |
 | **Oksana** — the power house | the plant's cooling intake works, centre (895, 155), 2.16 km (Act III) | filters, chemicals | boiler water, packed gunpowder | nitrate (H8's input), drill bits | coolant, boiler parts |
