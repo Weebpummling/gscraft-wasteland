@@ -79,7 +79,15 @@ GORKA = DR + "gorka3"
 WRAP, JACKET = PK + "wandererarmorhelmet", PK + "wandererarmorchestplate"
 BANDANA, RAGS = PK + "pomkotsarmorhelmet", PK + "pomkotsarmorchestplate"
 WW2 = SBW + "ge_helmet_m_35"
-DIVE_H, BACKTANK = CR + "copper_diving_helmet", CR + "copper_backtank"
+DIVE_H, BACKTANK, DIVE_B = CR + "copper_diving_helmet", CR + "copper_backtank", CR + "copper_diving_boots"
+# legs and feet, from the registry dump: Superb Warfare has no legs at all and Dragon Rising no boots,
+# but DR does ship six leggings and Pomkots ships complete four-slot sets. Nobody wears bare legs now.
+TAC_LEGS = DR + "kr06_pants"
+GORKA_LEGS = DR + "gorka3_leggings"
+FARADAY_L, FARADAY_B = IE + "armor_faraday_leggings", IE + "armor_faraday_boots"
+STEEL_L, STEEL_B = IE + "armor_steel_leggings", IE + "armor_steel_boots"
+WAND_L, WAND_B = PK + "wandererarmorleggings", PK + "wandererarmorboots"
+RAGS_L, RAGS_B = PK + "pomkotsarmorleggings", PK + "pomkotsarmorboots"
 
 
 def item(i):
@@ -89,29 +97,29 @@ def item(i):
 RIFLE = '{id:"tacz:modern_kinetic_gun",Count:1b,tag:{GunId:"tacz:type_81"}}'
 CROWBAR, PIPE, SHOVEL = item(SBW + "crowbar"), item(SBW + "steel_pipe"), item(SBW + "military_shovel")
 
-# mobs, areas, rank name, head, chest, main hand, cap per area.
+# mobs, areas, rank name, head, chest, legs, feet, main hand, cap per area.
 # an area of None means "anywhere not already claimed by a rule above".
 KITS = [
     # ---- the Militia. One army; the ranks are not interchangeable.
-    ([BULWARK],  ["farbank", "plant"], "Militia Shield",   PASGT,    STEEL_CHEST, None,    3),
-    ([FUSILIER], ["farbank", "plant"], "Militia Gunner",   MARKSMAN, IOTV,        None,    3),
-    ([COMMANDO], ["farbank", "plant"], "Militia Trooper",  PASGT,    IOTV,        None,    6),
-    (PILL,       ["farbank", "plant"], "Militia Rifleman", PASGT,    IOTV,        RIFLE,   4),
+    ([BULWARK],  ["farbank", "plant"], "Militia Shield",   PASGT,    STEEL_CHEST, STEEL_L,   STEEL_B,   None,    3),
+    ([FUSILIER], ["farbank", "plant"], "Militia Gunner",   MARKSMAN, IOTV,        TAC_LEGS,  None,      None,    3),
+    ([COMMANDO], ["farbank", "plant"], "Militia Trooper",  PASGT,    IOTV,        TAC_LEGS,  None,      None,    6),
+    (PILL,       ["farbank", "plant"], "Militia Rifleman", PASGT,    IOTV,        TAC_LEGS,  None,      RIFLE,   4),
 
     # ---- the Dead, wearing what they died in
     (DEAD, ["pl_switch", "pl_admin", "pl_turb", "pl_react"],
-     "Plant Worker", FARADAY_H, FARADAY_C, CROWBAR, 10),
-    (DEAD, ["sk_hosp"], "The Infected", None, MEDIC, None, 12),
-    (DEAD, ["sk_south"], "Yard Hand", None, GORKA, SHOVEL, 8),
+     "Plant Worker", FARADAY_H, FARADAY_C, FARADAY_L, FARADAY_B, CROWBAR, 10),
+    (DEAD, ["sk_hosp"], "The Infected", None, MEDIC, None, None, None, 12),
+    (DEAD, ["sk_south"], "Yard Hand", None, GORKA, GORKA_LEGS, None, SHOVEL, 8),
     (DEAD, ["sk_town", "tw_stad", "tw_centre", "tw_slabs", "tw_blocks", "town", "skad", "farm"],
-     "The Dead", None, None, None, 14),
-    (DROWNED, ["pl_intake", "tw_bridge", "plant"], "The Drowned", DIVE_H, BACKTANK, None, 8),
+     "The Dead", None, None, None, None, None, 14),
+    (DROWNED, ["pl_intake", "tw_bridge", "plant"], "The Drowned", DIVE_H, BACKTANK, None, DIVE_B, None, 8),
 
     # ---- the Scavengers: looted, never issued, and never twice the same (§3.2)
-    (PILL,        ["woods", None], "Scavenger",        WRAP,    JACKET, PIPE,    10),
-    (SCAV_AXE,    ["woods", None], "Scavenger Raider", WW2,     GORKA,  CROWBAR, 6),
-    (SCAV_CASTER, ["woods", None], "Scavenger Elder",  BANDANA, RAGS,   None,    3),
-    (SCAV_REST,   ["woods", None], "Scavenger",        None,    None,   None,    4),
+    (PILL,        ["woods", None], "Scavenger",        WRAP,    JACKET, WAND_L,    WAND_B,    PIPE,    10),
+    (SCAV_AXE,    ["woods", None], "Scavenger Raider", WW2,     GORKA,  GORKA_LEGS, WAND_B,   CROWBAR, 6),
+    (SCAV_CASTER, ["woods", None], "Scavenger Elder",  BANDANA, RAGS,   RAGS_L,    RAGS_B,    None,    3),
+    (SCAV_REST,   ["woods", None], "Scavenger",        None,    None,   None,      None,      None,    4),
 ]
 
 
@@ -130,7 +138,7 @@ def cap(n, mob):
     return {"amount": n, "mob": mob, "perplayer": False}
 
 
-def dressed(mob, area, name, helm, chest, hand, n):
+def dressed(mob, area, name, helm, chest, legs, feet, hand, n):
     """Gate and dress, as two rules.
 
     They have to be two. A `maxcount` on the dressing rule means that past the cap the rule stops
@@ -152,6 +160,10 @@ def dressed(mob, area, name, helm, chest, hand, n):
         r["armorhelmet"] = {"item": helm}
     if chest:
         r["armorchest"] = {"item": chest}
+    if legs:
+        r["armorlegs"] = {"item": legs}
+    if feet:
+        r["armorboots"] = {"item": feet}
     out.append(r)
     return out
 
@@ -173,9 +185,9 @@ def build():
     out.append(rule(mob=MECHS, result="deny"))
 
     # ---- 4 to 6, by site
-    for mobs, areas, name, helm, chest, hand, n in KITS:
+    for mobs, areas, name, helm, chest, legs, feet, hand, n in KITS:
         for a in areas:
-            out.extend(dressed(mobs, a, name, helm, chest, hand, n))
+            out.extend(dressed(mobs, a, name, helm, chest, legs, feet, hand, n))
 
     # ---- "a place, not a weather": each faction denied outside the ground claimed above
     out.append(rule(mob=MILITIA, result="deny"))
