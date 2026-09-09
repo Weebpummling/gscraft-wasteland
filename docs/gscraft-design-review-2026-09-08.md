@@ -256,6 +256,68 @@ table loaded, script loaded, geofence parsed, NBT accepted. What still needs one
 the wave actually draws from `gscraft_skad` inside the box and from `hordes:default` outside it, and
 that the dressed Scavenger drops nothing. Stand in Skadowsky and run `/hordes spawnWave 1`.
 
+## 4b. Phase 4 groundwork (2026-09-09), and three corrections it forced
+
+**E3 done.** The infection ladder knew only leather, chainmail, iron, gold, diamond and netherite while
+a full military wardrobe sat unused. 28 rungs added by `tools/infection_ladder.py`, all 28 ids checked
+against the shipped jars first: scavenger soft kit 0.08 (below iron — rags should not beat a steel
+helmet), IE faraday 0.12, the nineteen SBW and Dragon Rising helmets and vests 0.15 (level with
+diamond), copper backtank 0.20, diving helmet 0.25, gas mask 0.30. A full sealed suit is 0.50, which is
+the answer §3.4 wants to exist. Loads with zero errors.
+
+**E7a is not yet actionable, and D4 was overstated.** No In Control rule dresses a mob today, so there is
+nothing to add drop chances to. And Improved Mobs — which *does* equip mobs today — already ships
+`"Should drop equipment" = false`. So the gear that currently exists in the world does not drop. D4's
+concern is real but applies only to gear a future In Control rule or wave table adds.
+
+**E7b had its flags inverted, and the inverted form causes the bug the row exists to prevent.** Improved
+Mobs' `Entity Configs` entries are blacklist entries and the flag list after an id is the set *not*
+applied — its own example reads "<minecraft:sheep|ATTRIBUTES> will add sheep to everything except
+attributes", and `EntityModifyFlagConfig` XORs set membership with `REVERSE`, with "Having no flags is
+equal to ALL". So `"<id>|ARMOR|HELDITEMS"` leaves Improved Mobs equipping the mob while switching off the
+attribute scaling that is wanted. The form that disables only gear is `"<id>|REVERSE|ARMOR|HELDITEMS"`.
+Corrected in the enemy pass.
+
+**E8's fix cannot work as specified, and the problem is worse than recorded.** `TerroristEntity`
+overrides `dropCustomDeathLoot` and calls `spawnAtLocation` with hardcoded `ItemStack`s; there is no loot
+table anywhere in the jar, so a `DeathLootTable` override has nothing to replace. Measured over 40 kills:
+**11 golden apples and 2 enchanted — 13 of 40 corpses handed over an infection cure**, against the 20 %
+the design assumed. `kubejs/startup_scripts/gscraft_terrorist_drops.js` now cancels `LivingDropsEvent`
+for the terrorist. Verified: 20 kills, 20 cancellations, `kill @e[type=item]` finds nothing. When
+`gscraft:mobs/scavenger` exists it should give drops from there rather than leave the corpse empty.
+
+### Test T1 is wrong, and two shipped scripts were silently dead
+
+**In Control does swallow summons.** `HANDOFF.md` records T1 (2026-09-05) as "does the `onjoin` deny rule
+swallow summons and waves — run: it does not". It does. A summoned zombie vanishes within two seconds;
+with `spawn.json` emptied the same summon survives and can be killed. The cause is rule 3,
+`{dimension: overworld, when: onjoin, hostile: true, result: deny}` — an unconditional deny of every
+hostile, sitting ahead of every allow rule, which also makes rules 4 to 15 unreachable. That is
+consistent with hostiles being deliberately switched off alongside `difficulty=peaceful`, and is
+presumably intentional; but it must be lifted to test anything that spawns, and no wave or scripted
+placement will work until it is. It was restored after testing.
+
+**Three KubeJS scripts share a fault that fails silently.** Rhino re-enters a handler's scope on every
+call, so `const` and `let` declared *inside* an event handler throw "redeclaration of var <name>" from
+the second invocation onwards — the name is irrelevant. Behind `catch (x) {}` that produces a handler
+which looks armed, logs its arming message, and does nothing from the second call on.
+`gscraft_mech_griefing.js` (the mech block-destruction denial) and `gscraft_tower_lock_native.js` were
+both written that way. Both now use `var` inside their handlers and log their exceptions. Neither has
+been verified end-to-end yet — only that they load — but the failure mode is proven, because it is how
+the terrorist filter failed through four rounds of looking in the wrong place.
+
+Two more Rhino limits worth having on record: the drops collection cannot be walked from a script
+(`size()` reads 1 while the iterator's `hasNext()` is falsy and `toArray().length` is 0, so removal is
+unreachable — cancel the event instead), and an `EntityType` does stringify as its registry id.
+
+### A harness fault worth knowing, because it imitates a mod deadlock
+
+`localtest.py` stopped reading the server's stdout once it saw "Done". stdout is a pipe; after about
+sixty log lines the buffer filled and the server blocked in `FileOutputStream.writeBytes` inside the log
+appender, at zero CPU, accepting RCON commands and executing none. It looks exactly like a mod deadlock
+and is not one — a `jstack` settled it in one read. Any harness that pipes a server's output must drain
+it for the life of the process.
+
 ## 5. Decisions worth taking now
 
 The enemy pass leaves six open (F1 to F6) and recommends a default for each. Five can be taken as

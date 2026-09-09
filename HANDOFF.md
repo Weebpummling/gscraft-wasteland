@@ -49,7 +49,7 @@ how to rebuild the same state elsewhere.
 > as seated villagers, guards, the Recruits ranks and where each is hired, the site guard, placed animals, six factions
 > (the Machines added), ranks, where each faction lives (In Control areas), waves by site, elites and bosses (the
 > Overseer added at the plant complex), drops, the twelve config/script changes and **test T1** (does In Control's
-> `onjoin` deny rule swallow summons and waves with `doMobSpawning` off — **run 2026-09-05: it does not**;
+> `onjoin` deny rule swallow summons and waves with `doMobSpawning` off — **re-run 2026-09-09: it **DOES**. A summoned zombie vanishes in under two seconds; with spawn.json emptied the same summon survives. Cause: spawn.json rule 3 denies every hostile in the overworld unconditionally, ahead of every allow rule, which also makes rules 4-15 unreachable. See docs/gscraft-design-review-2026-09-08.md section 4b. The 2026-09-05 result was wrong**;
 > `docs/notes/gscraft-incontrol-onjoin-test.md`. Watch instead: the local server's `difficulty=peaceful` removes every
 > hostile; the In Control rules with `minx/maxx` keep loading with those **keywords** rejected, so they run with no bounds at all (tested 2026-09-08, `docs/gscraft-design-review-2026-09-08.md` §3; fixed locally onto named areas, and the hub mech spawner disabled). RCON is now enabled on the local server
 > (`rcon.password` in `server.properties`, local only; client `scratch/incontrol_test/rcon.py`).

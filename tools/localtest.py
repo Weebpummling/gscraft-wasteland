@@ -2,8 +2,9 @@
 
 The obvious harness - start the process and read its stdout until you see what you want - hangs the
 moment the server goes idle, because readline() blocks forever on a server that has nothing to say.
-This one stops reading as soon as "Done (" appears, does its work through RCON instead, and takes the
-rest of the console from logs/latest.log after the process has exited.
+This one signals readiness on "Done (" and does its work through RCON, while a daemon thread keeps
+draining stdout for the life of the process - which is not optional, because a child whose stdout nobody
+reads blocks on its own log writes once the pipe buffer fills.
 
     localtest.py "cmd one" "cmd two" ...        run these, then stop
     localtest.py --grep PATTERN "cmd" ...       also print boot lines matching PATTERN
@@ -62,11 +63,17 @@ class Rcon:
         return buf
 
     def cmd(self, c, timeout=20):
-        # a command that writes only to the console answers with nothing; that is an answer, not a fault
+        """One command, one reply packet.
+
+        Keep replies small. A reply over ~4 KB is split across packets and only the first is read, which
+        misaligns every read after it - prefer `kill @e[...]`, which answers with a count, over anything
+        that lists entities one per line.
+        """
         self.s.settimeout(timeout)
         try:
             return self._send(2, c)
         except (socket.timeout, TimeoutError):
+            # a command that writes only to the console answers with nothing; that is an answer
             return "(no reply - the command answers on the console, not to rcon)"
 
     def close(self):
@@ -86,13 +93,15 @@ def boot():
     lines, ready = [], threading.Event()
 
     def pump():
-        # read only until the server is up; after that the log file is the record and this thread
-        # would otherwise block forever on an idle server
+        # Keep draining for the life of the process. stdout is a pipe; if nobody reads it the buffer
+        # fills after a bufferful of log lines and the server's next write blocks the main thread -
+        # which looks exactly like a mod deadlock and is not one. Bounded tail so a long run is safe.
         for line in p.stdout:
             lines.append(line.rstrip("\n"))
-            if "Done (" in line:
+            if len(lines) > 4000:
+                del lines[:2000]
+            if not ready.is_set() and "Done (" in line:
                 ready.set()
-                break
 
     t = threading.Thread(target=pump, daemon=True)
     t.start()

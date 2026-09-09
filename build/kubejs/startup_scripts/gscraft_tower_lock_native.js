@@ -16,14 +16,14 @@ function inRect(x, z) {
 // Rhino exposes Java no-arg accessors as PROPERTIES (entity.level, level.dimension); calling them as
 // functions throws a TypeError that crashes the server tick (a dolphin did, 2026-09-04). Read both ways.
 function prop(o, name) {
-  try { const v = o[name]; return (typeof v === 'function') ? v.call(o) : v; } catch (x) { return null; }
+  try { const v = o[name]; return (typeof v === 'function') ? v.call(o) : v; } catch (err) { return null; }
 }
 function isOverworld(level) {
   try {
     if (!level) return true;
-    const d = prop(level, 'dimension');
+    var d = prop(level, 'dimension');
     if (!d) return true;
-    const loc = prop(d, 'location');
+    var loc = prop(d, 'location');
     return String(loc || d) === DIM;
   } catch (e) { return true; }
 }
@@ -40,26 +40,26 @@ ForgeEvents.onEvent('net.minecraftforge.event.level.ExplosionEvent$Detonate', ev
 
 ForgeEvents.onEvent('net.minecraftforge.event.entity.EntityMobGriefingEvent', event => {
   try {
-    const e = event.getEntity();
+    var e = event.getEntity();
     if (!e || !isOverworld(prop(e, 'level'))) return;
     if (inRect(Math.floor(e.getX()), Math.floor(e.getZ()))) event.setResult(TL_Result.DENY);
   } catch (x) { console.warn('[gscraft] tower lock griefing handler: ' + x); }
 });
 
 ForgeEvents.onEvent('net.minecraftforge.event.level.BlockEvent$FluidPlaceBlockEvent', event => {
-  const p = event.getPos();
+  var p = event.getPos();
   if (inRect(p.getX(), p.getZ())) event.setCanceled(true);
 });
 
 ForgeEvents.onEvent('net.minecraftforge.event.level.PistonEvent$Pre', event => {
-  const p = event.getPos();
+  var p = event.getPos();
   if (p.getX() >= TOWER.x0 - 13 && p.getX() <= TOWER.x1 + 13 && p.getZ() >= TOWER.z0 - 13 && p.getZ() <= TOWER.z1 + 13) {
     event.setCanceled(true);
   }
 });
 
 ForgeEvents.onEvent('net.minecraftforge.event.level.BlockEvent$EntityPlaceEvent', event => {
-  const p = event.getPos();
+  var p = event.getPos();
   if (!inRect(p.getX(), p.getZ())) return;
   if (bypassEntity(event.getEntity())) return;
   event.setCanceled(true);
