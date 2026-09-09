@@ -45,8 +45,29 @@ loot_tables:keerdm_zombie_essentials:chests/apartment_bathroom_vics", on an unkn
 a regression, and the fix has been sitting in the v7 world folder since the rebuild. Every affected
 chest currently generates empty.
 
-The two site tables (`financial`, `novo`) point at sites the 2026-09-07 routing rule defers, so only
-eleven of the thirteen are wanted back today.
+**Fixed locally 2026-09-09, and two corrections to the paragraph above.**
+
+First, I said only eleven of the thirteen were wanted, holding back the `financial` and `novo` site
+tables because the routing rule defers those sites. That was wrong. Both sites are built, deployed and
+walkable — a player can stand in either today — and a loot table is inert unless a chest references it.
+Excluding them bought nothing and left something to remember later.
+
+Second, and more important: **the datapack was never lost from version control.** `build/datapacks/gscraft`
+is tracked in this repo and is where `camp_ruins.py` and `theline.py` generate. Only the *world folder*
+copy went missing in the v8 rebuild. Restoring from `wasteland-v7` — the obvious move, and the one this
+review originally proposed — would have installed a **stale** pack: the repo source carries 55 files and
+v7 only 47, the difference being the Line's `theline.mcfunction`, its loot table and six structures, all
+generated after the v7 world was cut.
+
+So the fix is `build/datapacks/gscraft` into `wasteland-v8/datapacks/`, not v7 into v8. Done locally and
+verified: `datapack list enabled` reports 127 packs including `[file/gscraft (world)]` — a new world pack
+auto-enables on load, no `level.dat` edit needed — and the PointBlank parse error is gone. The three
+`Couldn't parse data file` lines that remain are `dragonrise_reforge` and `fcp` reading vehicle JSON out
+of their own jars, unrelated and not new.
+
+**This exposes a shipping gap.** `deployguard.py` pushes only region, entity and poi files, so it cannot
+put this datapack on the host. The same limitation blocks the FTB Quests work in Phase 3. Whatever
+carries quest data to the server has to carry world datapacks too, and neither exists yet.
 
 **D2 — waves are unreachable.** `entities-v8` section 5 and the finale both drive waves through
 `/hordes spawnWave`. `HordeCommands.registerCommands` only registers that command when
