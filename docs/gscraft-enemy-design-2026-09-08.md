@@ -147,15 +147,36 @@ All ids verified present in the shipped jars on 2026-09-08.
 | **US military** | `superbwarfare:us_helmet_pasgt` | `superbwarfare:us_chest_iotv` | the cleanest "real soldier" silhouette in the pack |
 | **Russian military** | `superbwarfare:ru_helmet_6b47` | `superbwarfare:ru_chest_6b43` | a second army that is not the first |
 | **Older / looted mil** | `superbwarfare:ge_helmet_m_35` | — | a WW2 shell: reads scavenged, not issued |
-| **Modern tactical** | `dragonrise_reforge:fast_helmet`, `t21_helmet`, `kr06_helmet`, `sniper21_helmet`, `aljin_helmet`, `cnfast` | `dragonrise_reforge:kevlar`, `kr06_chest`, `msv_chest`, `med21_chest`, `cnjustchest` | six helmets and five vests — enough for ranks *within* one faction |
-| **Peacekeeper** | `dragonrise_reforge:un_helmet` | — | a blue helmet on a corpse tells a story for free |
-| **Camouflage** | — | `dragonrise_reforge:desert07_*`, `ocean07_*`, `gorka3`, `cn21` | terrain-specific dress |
+| **Modern tactical** | `dragonrise_reforge:fast_helmet`, `t21_helmet`, `kr06_helmet`, `sniper21_helmet`, `aljin_helmet` | `dragonrise_reforge:kr06_chest`, `msv_chest`, `med21_chest`, `cnjustchest`, `cnchest` | five helmets and five vests — enough for ranks *within* one faction |
+| **Peacekeeper** | `dragonrise_reforge:un_helmet` | — | solid UN blue, lettered. A blue helmet on a corpse tells a story for free |
+| **Camouflage** | — | `dragonrise_reforge:desert07_chest`, `ocean07_chest`, `gorka3` | desert tan, blue digital, Russian olive Gorka — terrain-specific dress |
+| **Scavenger rags** | `pomkotsmechs:wandererarmorhelmet` (a face wrap), `pomkotsarmorhelmet` (a bandana) | `wandererarmorchestplate` (a jacket), `pomkotsarmorchestplate` | **the pack's only non-military soft kit**, and the best wastelander look in it — full four-slot sets |
+| **Sealed / hazmat** | `createbigcannons:gas_mask` (the **only** true respirator in the pack), `create:copper_diving_helmet` | `create:copper_backtank` | helmet + backtank is a complete sealed-suit silhouette |
+| **Junk armour** | `create:cardboard_helmet` | `cardboard_chestplate` (+ legs, boots) | reads as scrap-armoured at distance, and takes trims |
 | **Industrial / electrical** | `immersiveengineering:armor_faraday_helmet` | `armor_faraday_chestplate` (+ legs, boots) | insulated rubber — reads as plant worker, and is thematically exact at the switchyard |
 | **Heavy industrial** | `immersiveengineering:armor_steel_*` | full set | the Militia's current look |
 
 This is the pass's plainest finding: **the design specifies leather and iron while a full military
 wardrobe sits unused in the pack.** `gscraft-enemies.md` principle 3 — "every faction is legible at fifty
 metres" — is currently carried by silhouette and noise alone. It does not have to be.
+
+Four traps in that table, all bytecode-verified, all of which would otherwise be found the hard way:
+
+- **`dragonrise_reforge:kevlar` is not armour.** No item class, no slot — it is a recipe ingredient. An
+  earlier reading of this pass listed it as a chest piece; it is not one.
+- **`cn21` and `cnfast` are registered `Type.HELMET` but gate their attribute modifiers on
+  `EquipmentSlot.CHEST`**, so they give **zero armour points** on the head. Cosmetic only. Fine for a
+  rank marker, useless as protection.
+- **`army07hat` is registered as a CHESTPLATE** despite the name, and has no translation.
+- **Dragon Rising ships no boots at all.** Every faction dressed from it wears vanilla boots.
+
+**Armour trims** (16 patterns × 10 materials, verified from the server jar; no mod adds any) are a free
+rank ladder — the same silhouette with a readable colour band, e.g. `sentry/copper` for grunts,
+`sentry/iron` for NCOs, `sentry/gold` for officers, as
+`minecraft:iron_chestplate{Trim:{material:"minecraft:gold",pattern:"minecraft:sentry"}}`. But they render
+**only on vanilla-model armour**, plus IE steel and Create cardboard. They will not show on the GeckoLib
+3D sets (Dragon Rising, Superb Warfare, Pomkots), which replace the humanoid model outright. So a faction
+is dressed *either* in 3D military kit *or* in trimmed vanilla — not both.
 
 ### 2.2 Melee, and why it matters more than it sounds
 
@@ -242,6 +263,63 @@ attack 5, follow 64, knockback resistance 0.5. It ships a biome modifier but is 
 it would be the only thing on the map that is not taking itself seriously. Noted here so the next person
 who finds the flag knows it was a decision, not an oversight.
 
+## 2.6 What In Control can actually set, and three things it cannot
+
+Read from `RuleKeys` and `SpawnRule`'s attribute factory in the shipped jar, so this is exactly what
+`spawn.json` accepts.
+
+**The keys that dress a mob** are `armorhelmet`, `armorchest`, `armorlegs`, `armorboots` and `helditem`.
+**`helmet` / `chestplate` / `leggings` / `boots` are conditions, and they test the *player*** —
+`GenericRuleEvaluator.addArmorCheck` calls `Player.getItemBySlot`. Writing a rule with `helmet` expecting
+to dress a mob silently tests the wrong entity.
+
+Each equipment key takes a string, an object, or a weighted array:
+
+```json
+"armorhelmet": [ {"item": "dragonrise_reforge:fast_helmet", "factor": 3.0},
+                 {"item": "dragonrise_reforge:aljin_helmet", "factor": 1.0} ]
+```
+
+**It can set NBT**, which is what makes §3.1 possible — `Tools.parseStack` runs the `nbt` element through
+vanilla `TagParser`. A TACZ rifle in a mob's hand is one rule field:
+
+```json
+"helditem": { "item": "tacz:modern_kinetic_gun",
+              "nbt": { "GunId": "tacz:type_81", "GunFireMode": "AUTO", "GunCurrentAmmoCount": 30 } }
+```
+
+Three limits that matter to the standing design:
+
+1. **`sizemultiply` and `sizeadd` do nothing.** `RuleBase.addSizeActions` logs `Mob resizing not
+   implemented yet!` and installs a no-op, and Pehkui is not installed. **The Matron is specified at
+   size ×1.5 and the Bloater at ×1.4** (`gscraft-enemies.md` §3.1, entities-v8 §6). Neither will be any
+   bigger than an ordinary mob. Both need re-specifying on health, armour and speed — or the Matron needs
+   a different base mob to read as large.
+2. **There is no off-hand action.** Only `helditem` (mainhand) can be set. The off-hand route is the
+   `nbt` action writing `HandItems`, which is *inferred* from `readAdditionalSaveData` and should be
+   tested before the Bulwark's shield or a banner-carrier depends on it.
+3. **Equipped gear keeps vanilla's 8.5 % per-slot drop chance.** `setItemSlot` does not touch drop
+   chances, so **every rank dressed by §3 currently violates "nothing an enemy carries ever drops"**
+   (`gscraft-enemies.md` §0.2). Every dressing rule needs the `nbt` action setting
+   `ArmorDropChances: [0.0f,0.0f,0.0f,0.0f]` and `HandDropChances: [0.0f,0.0f]` — except where F3
+   deliberately wants armour to drop.
+
+**Two live rules are broken worse than test T1 recorded.** `spawn.json` rules 1 and 2 (the
+`pomkotsmechs` box) use `minx`/`maxx`/`minz`/`maxz`, which are `spawner.json` keys and do not exist in
+`SpawnRule`. `GenericAttributeMapFactory.validate()` returns false on an unknown key and `parse()` then
+returns an **empty attribute map** — so those rules load with every condition *and* every action
+stripped: no dimension filter, no mob filter, no count cap, no `result`. They are unconditional
+catch-alls, not ignored lines. They must move to the `area` key with `areas.json` populated (C2).
+
+**Improved Mobs will contest the same slots.** Its `equipment.json` is populated and it equips at
+spawn-finalize, the same moment In Control's `finalize` rules run, with no guaranteed ordering. Faction
+mobs need exempting through `"Entity Configs"` in `improvedmobs/common.toml` using the
+`<entityid>|FLAG` syntax — `"minecraft:pillager|ARMOR|HELDITEMS"` — which is how the `recruits:*` and
+`guardvillagers:guard` entries are already handled.
+
+**One id family to avoid:** GeckoLib's `mutant_zombie` and `parasite` appear in a lang sweep but
+`GeckoLibMod.shouldRegisterExamples()` is false in production, so they do not exist on a real server.
+
 ## 3. Proposed designs
 
 ### 3.1 The Militia becomes the pack's real soldiers
@@ -258,9 +336,9 @@ three elite units with **no line infantry**, which is why they read as a checkpo
 | Sergeant (Act IV) | `commando` | `dragonrise_reforge:fast_helmet` | `kevlar` | revolver | dressed; the helmet marks him |
 
 The Rifleman is the point: a pillager in US kit with a real rifle is a *soldier*, not an illager, and it
-gives the Militia the body rank it lacks. It needs `"Spawn With TACZ" = true` and a populated
-`"TACZ Gun Type"`, or an In Control `held` field carrying the NBT directly — the latter is better,
-because it keeps the weapon a per-rank design decision rather than a global roll.
+gives the Militia the body rank it lacks. It is best delivered by an In Control `helditem` carrying the `GunId` NBT (§2.6) rather than
+`"Spawn With TACZ" = true` plus a `"TACZ Gun Type"` roll, because that keeps the weapon a per-rank design
+decision instead of a global weight table.
 
 Note the IE trio arrive through **village raids** (`canTriggerEngineerRaid`, and they sit in
 `minecraft:raiders`), not natural spawn. With Hostile Villages running `vanillaVillageChance = 80`, that
@@ -271,9 +349,11 @@ is a spawn path the design does not control. Spawn eggs exist for scripted place
 Keep them on Pillager's Gun's own weapons — no ammunition economy, no drops, tuned inaccuracy — but set
 `"Gun Model Switch" = true` so the models become SBW's. Same ballistics, better silhouette.
 
-Dress them as looted, never issued: `ge_helmet_m_35` or a leather cap, one mismatched vest
-(`dragonrise_reforge:msv_chest` on the captain only), `superbwarfare:steel_pipe` and `crowbar` on the
-melee ranks. The contrast with §3.1 *is* the design — **the Militia matches, the Scavengers do not** —
+Dress them as looted, never issued. Pomkots' **`wandererarmorhelmet`** (a face wrap) and
+**`wandererarmorchestplate`** (a jacket) are the pack's only non-military soft kit and are exactly this
+faction — a wastelander, not a soldier. Mix in `ge_helmet_m_35` on some, a plain leather cap on others,
+one mismatched military vest (`dragonrise_reforge:msv_chest`) on the captain alone, and
+`superbwarfare:steel_pipe` or `crowbar` on the melee ranks. The contrast with §3.1 *is* the design — **the Militia matches, the Scavengers do not** —
 and it is readable at fifty metres for the price of equipment fields.
 
 `dragonrise_reforge:terrorist` joins them as a **Gunman** rank for the Woods outpost and the district
@@ -374,6 +454,10 @@ Layered on entities-v8 §8 (C1–C12), which stands.
 | **E5** | `"Gun Model Switch" = true` — SBW models on Scavenger guns, no ballistics change (§3.2) | `config/PillagersGun-common.toml` | config |
 | **E6** | Decide `"Gunner Needs Ammo In TACZ"`. `false` today = infinite NPC ammo, set by a default rather than the design (§1.2) | `config/PillagersGun-common.toml` | config |
 | **E7** | Add chosen hostile ids to `forge:pillager_gunner` — only one of the shipped eight is hostile (§1.1) | `data/forge/tags/entity_types/pillager_gunner.json` | datapack |
+| **E7a** | Every dressing rule sets `ArmorDropChances`/`HandDropChances` to 0 via the `nbt` action — without it all of §3 breaks "nothing an enemy carries ever drops" (§2.6) | `config/incontrol/spawn.json` | config |
+| **E7b** | Exempt every dressed faction mob from Improved Mobs with `"<id>|ARMOR|HELDITEMS"`, or it contests the same slots at finalize (§2.6) | `config/improvedmobs/common.toml` | config |
+| **E7c** | Re-specify the Matron and the Bloater without size multipliers — `sizemultiply` is a logged no-op and Pehkui is absent (§2.6) | `docs/gscraft-enemies.md` §3.1, entities-v8 §6 | doc |
+| **E7d** | Move `spawn.json` rules 1–2 off `minx/maxx/minz/maxz` onto `area`; they currently load as unconditional catch-alls, not as ignored keys (§2.6) | `config/incontrol/spawn.json` | config |
 | **E8** | `entity.dragonrise_reforge.terrorist` lang entry **and** a `DeathLootTable` override off golden apples (§2.3) | pack datapack | datapack |
 | **E9** | Per-site tables `gscraft_<site>.json` in the §4 format, ranks expressed as NBT | `.../horde_data/tables/` | datapack |
 | **E10** | Exclude the `cyber_armorer` pack from every enemy gun table on tone (§1.2) | design decision | — |
@@ -386,7 +470,9 @@ Layered on entities-v8 §8 (C1–C12), which stands.
 | **R3** | **Rejected:** auto-turrets as anti-player emplacements; impossible without scoreboard teams (§2.4) | — | — |
 
 E1 and E2 are the two that can quietly cost work: without E1 nothing in §4 fires, and without E2 every
-table written under E9 is deleted by the next mod update.
+table written under E9 is deleted by the next mod update. E7a and E7d are the two that are wrong on the
+live server right now — enemy gear is droppable, and two spawn rules have lost every condition they were
+written with.
 
 ## 6. Open decisions
 
