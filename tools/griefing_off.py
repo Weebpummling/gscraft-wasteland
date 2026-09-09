@@ -39,6 +39,12 @@ SERVER = Path(r"G:/GSCraft/server")
 LEVEL = SERVER / "wasteland-v8" / "level.dat"
 IM = SERVER / "config" / "improvedmobs" / "common.toml"
 FLAGS = ["BLOCKBREAK", "LADDER", "USEITEM"]
+# USEITEM in the Flag Blacklist did not stop the items being handed out - a dressed Rifleman was still
+# given, across successive runs, a diamond pickaxe, flint and steel, an ender pearl and a lava bucket.
+# "Item Use Blacklist" is the lever that does, and it is the one §3.5 names. These four are the ones that
+# damage the world or walk an enemy through a wall.
+NO_USE = ["minecraft:lava_bucket", "minecraft:flint_and_steel", "minecraft:tnt",
+          "minecraft:ender_pearl", "minecraft:water_bucket", "minecraft:fire_charge"]
 # the fog man ("man"); the only break_blocks key under server/config
 BREAKERS = [SERVER / "config" / "man_config.toml"]
 
@@ -82,6 +88,21 @@ def set_flags(on, dry):
                   encoding="utf-8", newline="")
 
 
+def set_item_use(on, dry):
+    s = IM.read_text(encoding="utf-8")
+    line = next(l for l in s.splitlines() if l.strip().startswith('"Item Use Blacklist"'))
+    current = json.loads(line.split("=", 1)[1].strip())
+    want = [i for i in current if i not in NO_USE] + ([] if on else NO_USE)
+    if sorted(want) == sorted(current):
+        print(f"  Item Use Blacklist already holds {len(NO_USE)} entries")
+        return
+    print(f"  Item Use Blacklist {len(current)} -> {len(want)} entries")
+    if dry:
+        return
+    IM.write_text(s.replace(line, '	"Item Use Blacklist" = ' + json.dumps(want), 1),
+                  encoding="utf-8", newline="")
+
+
 def set_breakers(on, dry):
     want = "true" if on else "false"
     for p in BREAKERS:
@@ -107,6 +128,7 @@ def main(argv):
     print(f"mob block destruction: {'ON' if on else 'OFF'}{' (dry run)' if dry else ''}")
     set_gamerule(on, dry)
     set_flags(on, dry)
+    set_item_use(on, dry)
     set_breakers(on, dry)
     return 0
 
