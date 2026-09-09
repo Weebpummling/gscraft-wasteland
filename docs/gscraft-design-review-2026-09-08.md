@@ -64,14 +64,61 @@ load-bearing across the enemy design: it is why military kit is worth taking sit
 rule sets `ArmorDropChances` or `HandDropChances` anywhere, on live or locally. The moment factions are
 dressed, every rank becomes a gun piñata and the scarcity the economy rests on is gone.
 
-## 3. One contradiction to settle before it is built on
+## 3. The contradiction, settled by test — and it was worse than either doc said
 
-`HANDOFF.md` records that the In Control rules carrying `minx/maxx/minz/maxz` are **rejected at load**.
-The 2026-09-08 enemy pass (section 2.6, E7d) records that they **load as unconditional catch-alls**.
+`HANDOFF.md` recorded that the In Control rules carrying `minx/maxx/minz/maxz` are **rejected at load**.
+The 2026-09-08 enemy pass (section 2.6, E7d) recorded that they **load as unconditional catch-alls**.
 
-Both cannot be true, and the consequences are opposite: harmless dead rules, or two `pomkotsmechs` types
-spawning across the entire map with no bounds at all. Rules 0 and 1 are live in that state right now.
-This is a fifteen-minute test locally and it should happen before any further spawn work.
+Booted locally 2026-09-08. In Control says:
+
+```
+ERROR [incontrol]: Invalid keywords for spawn.json: minx maxz maxx minz     (twice)
+ERROR [incontrol]: Invalid condition 'minx' for spawner rule!
+```
+
+**The enemy pass is right.** The *keywords* are rejected, not the rule: each rule loads and keeps every
+other condition, so the bounds simply do not exist. `HANDOFF.md` was wrong and has been corrected.
+
+Three things the review missed until the test ran:
+
+1. **A third file is affected.** `spawner.json` carries the same defect and neither document mentions
+   it. It matters far more than the other two, because a spawner does not gate spawns — it *causes*
+   them. Rule 4 spawned `pomkotsmechs:pms01` and `pms03` at `persecond: 0.02` with `attempts: 10`,
+   40 to 110 blocks from any player, anywhere in the overworld. It is tagged `ic_hub_mechs`, so it was
+   written for the hub alone. It is on the live server in that state today.
+2. **The bounds were stale as well as ignored.** All three rules carry `x 5600..6431, z 1184..1823`.
+   The v8 map spans `x -3824..799, z -3808..700`. Even with working keys they would have pointed at
+   empty space well off the map — these are v6 coordinates that survived two rebuilds.
+3. **In Control spawner rules cannot be geofenced at all.** `SpawnerConditions` accepts `biome`,
+   `block`, `dimension`, `gamestage`, `inbuilding`, `incity`, `instreet`, `inliquid`, `mindist`,
+   `maxdist`, `minheight`, `maxheight`, `minlight`, `maxlight`, `mintime`, `maxtime`, `norestrictions`,
+   `phase`, `seesky`, `structure`, `sturdy` and `validspawn`. There is no coordinate key and no `area`
+   key — `area` was tried and rejected. `entities-v8` section 154 says "the mechs never leave their
+   areas (In Control denies `pomkotsmechs:*` outside `hub`, `plant` and the district's `drone` sphere)".
+   For the two `spawn.json` gating rules that is now true. For the spawner it is not achievable as
+   written, and the design needs to know that.
+
+Only `difficulty=peaceful` has been hiding this. The moment hostiles are switched on, mechs appear
+across the whole map.
+
+### What was changed locally to fix it
+
+- `config/incontrol/areas.json` — was `[]`. Now defines `plant` (x -1150..1200, z -400..700, from
+  `poi-coordinates` line 55) and `hub` (x -3568..-2385, z -1008..700, from `sectors_v8.json`) as BOX
+  areas. In Control's area schema is `name`, `dimension`, `type` (BOX / SPHERE / CYLINDER), `center`
+  and `dimx/dimy/dimz` — centre plus extent, which is why the old min/max keys were never valid.
+- `config/incontrol/spawn.json` — the two mech rules re-written onto `"area": "plant"` and
+  `"area": "hub"`, each keeping its count cap, plus a third rule denying `pomkotsmechs` everywhere
+  else. That is the containment section 154 describes, and it now exists.
+- `config/incontrol/spawner.json` — the hub mech spawner removed, since no correct geofence is
+  available for it. Kept at `config/incontrol/spawner.disabled-hub-mechs.json` for when the hub ships.
+  The hub is deferred and no quest points at it, so nothing is lost meanwhile.
+
+The server now boots with **zero** In Control errors, from three before.
+
+These files live in `G:/GSCraft/server/config`, which is what `packwiz_build.py` builds the pack's
+config from — so the fix reaches the pack and the host on the next build, and nothing is stranded on
+one machine. It has **not** been shipped: local only, as instructed.
 
 ## 4. What to implement and test, local first
 

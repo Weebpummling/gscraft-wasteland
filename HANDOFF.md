@@ -51,7 +51,7 @@ how to rebuild the same state elsewhere.
 > Overseer added at the plant complex), drops, the twelve config/script changes and **test T1** (does In Control's
 > `onjoin` deny rule swallow summons and waves with `doMobSpawning` off — **run 2026-09-05: it does not**;
 > `docs/notes/gscraft-incontrol-onjoin-test.md`. Watch instead: the local server's `difficulty=peaceful` removes every
-> hostile; the three In Control rules with `minx/maxx` are rejected at load. RCON is now enabled on the local server
+> hostile; the In Control rules with `minx/maxx` keep loading with those **keywords** rejected, so they run with no bounds at all (tested 2026-09-08, `docs/gscraft-design-review-2026-09-08.md` §3; fixed locally onto named areas, and the hub mech spawner disabled). RCON is now enabled on the local server
 > (`rcon.password` in `server.properties`, local only; client `scratch/incontrol_test/rcon.py`).
 > Inventory behind it: `docs/notes/gscraft-entity-inventory.md`.
 >
