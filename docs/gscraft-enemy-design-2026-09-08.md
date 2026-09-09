@@ -336,7 +336,7 @@ three elite units with **no line infantry**, which is why they read as a checkpo
 | Sergeant (Act IV) | `commando` | `dragonrise_reforge:fast_helmet` | `kevlar` | revolver | dressed; the helmet marks him |
 
 The Rifleman is the point: a pillager in US kit with a real rifle is a *soldier*, not an illager, and it
-gives the Militia the body rank it lacks. It is best delivered by an In Control `helditem` carrying the `GunId` NBT (§2.6) rather than
+gives the Militia the body rank it lacks. **Written 2026-09-09** (`tools/militia_rules.py`): the rank spawns in the `farbank` and `plant` areas only, dressed at `finalize`, holding `tacz:modern_kinetic_gun` with `GunId: tacz:type_81`, with drop chances zeroed. `helditem` is confirmed correct - `SpawnRule` rejects `sethelditem` - and its `nbt` must be a JSON object. It is best delivered by an In Control `helditem` carrying the `GunId` NBT (§2.6) rather than
 `"Spawn With TACZ" = true` plus a `"TACZ Gun Type"` roll, because that keeps the weapon a per-rank design
 decision instead of a global weight table.
 

@@ -1,0 +1,12 @@
+[
+ {
+  "tool": "reskin112.py",
+  "args": [
+   "G:/GSCraft/incoming/Maps/world",
+   "{world}",
+   "../buildmap/plan_v8/transplant_plan_v8_expand.json",
+   "hub"
+  ],
+  "added": "2026-09-08T09:19:18+00:00"
+ }
+]

@@ -126,8 +126,15 @@ across the whole map.
 
 - `config/incontrol/areas.json` — was `[]`. Now defines `plant` (x -1150..1200, z -400..700, from
   `poi-coordinates` line 55) and `hub` (x -3568..-2385, z -1008..700, from `sectors_v8.json`) as BOX
-  areas. In Control's area schema is `name`, `dimension`, `type` (BOX / SPHERE / CYLINDER), `center`
-  and `dimx/dimy/dimz` — centre plus extent, which is why the old min/max keys were never valid.
+  areas.
+
+  **Corrected 2026-09-09: the schema written on 2026-09-08 was wrong and these areas never loaded.**
+  `Area` reads flat `x`, `y`, `z` plus `dimx/dimy/dimz`; the `center` object used here parses as valid
+  JSON and then fails at bind time with `Area 'plant' has no x!`, followed by `Cannot find area 'plant'!`
+  when a rule tries to use it. The 2026-09-08 check looked only for a JSON error, which is not what this
+  produces, so the containment reported as fixed was **not active**: `pomkotsmechs` fell through to the
+  catch-all deny instead — safe, but not what was described. Fixed and verified: In Control now loads
+  `areas.json`, `spawn.json` and `spawner.json` with zero errors of any kind.
 - `config/incontrol/spawn.json` — the two mech rules re-written onto `"area": "plant"` and
   `"area": "hub"`, each keeping its count cap, plus a third rule denying `pomkotsmechs` everywhere
   else. That is the containment section 154 describes, and it now exists.
@@ -338,6 +345,46 @@ sixty log lines the buffer filled and the server blocked in `FileOutputStream.wr
 appender, at zero CPU, accepting RCON commands and executing none. It looks exactly like a mod deadlock
 and is not one — a `jstack` settled it in one read. Any harness that pipes a server's output must drain
 it for the life of the process.
+
+## 4c. The Militia's ground and the Rifleman (2026-09-09)
+
+F1 ruled, so the rank is written. Where the Militia stands was not invented — the design fixes it in
+three places and this only turned it into boxes:
+
+- `enemies` §3.3: "The Militia never spawns ambient outside the east-bank spine — the rail yard and the
+  road south to the plant's outer works — and the plant complex's gates and inside. They are a *place*,
+  not a weather."
+- `entities-v8` §164: farbank is "the east-bank spine: the rail line and yard, and the road south to the
+  plant's outer works", Troopers 3 and Shields 1, with a patrol between the yard and the outer works.
+- `objectives` §111: the rail yard is "in the Skadowsky sector, on the rail corridor east of the camp".
+
+Two measured bounds close it: the camp ends at x -770 (`sectors_v8`), and `skadowsky_river` runs south
+through x -1080 at z -800 and x -1200 at z -200 (`rivers_v8`), so staying east of x -1050 keeps the box
+on the east bank. That gives **farbank x -1050..-600, z -1000..-380**, meeting the plant area at z -400.
+
+The camp sits inside that box and In Control areas are boxes with no subtraction, so a **camp** area
+(x -978..-770, z -1060..-845) is defined solely to deny the Militia there, written first — first match
+wins.
+
+The Rifleman is `minecraft:pillager` dressed at `finalize` inside farbank and plant: PASGT helmet, IOTV
+vest, a `tacz:modern_kinetic_gun` carrying `GunId: tacz:type_81`, and `ArmorDropChances` /
+`HandDropChances` at zero, which is E7a's first real application. A pillager is also the Scavengers' base
+entity, but the two factions hold different ground — the Scavengers have the roads and the Woods — so a
+pillager on the spine or in the plant is a rifleman and one anywhere else is not.
+
+All six rules sit *after* the unconditional hostile deny that currently holds hostiles off, so they
+change nothing until that hold is lifted, and are ahead of the other faction rules when it is.
+
+Four key names, each read out of the jar after the previous guess failed:
+
+- `helditem` is the action, and **§3.1 was right to say so** — an earlier note in this review claimed it
+  was a condition and that `sethelditem` was correct. It is not: `RuleBase` registers both, but
+  `SpawnRule` accepts only `helditem` and reports `sethelditem` as an invalid keyword.
+- the NBT action's JSON key is **`nbt`**, even though its field is `ACTION_MOBNBT`; `mobnbt` is rejected.
+- `helditem`'s `nbt` must be a **JSON object**, not an SNBT string.
+- a TACZ gun is the item `tacz:modern_kinetic_gun` with a `GunId`; `tacz:type_81` is a gun definition.
+
+Written by `tools/militia_rules.py`, which is re-runnable and idempotent.
 
 ## 5. Decisions worth taking now
 
