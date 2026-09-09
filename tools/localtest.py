@@ -61,8 +61,13 @@ class Rcon:
             buf += chunk
         return buf
 
-    def cmd(self, c):
-        return self._send(2, c)
+    def cmd(self, c, timeout=20):
+        # a command that writes only to the console answers with nothing; that is an answer, not a fault
+        self.s.settimeout(timeout)
+        try:
+            return self._send(2, c)
+        except (socket.timeout, TimeoutError):
+            return "(no reply - the command answers on the console, not to rcon)"
 
     def close(self):
         try:
@@ -112,18 +117,21 @@ def main(argv):
     print(f"up in {time.time() - t0:.0f}s")
 
     out = {}
-    if cmds:
-        time.sleep(3)                      # let the first tick settle before asking anything
-        r = Rcon(RCON_HOST, RCON_PORT, RCON_PASS)
+    time.sleep(3)                          # let the first tick settle before asking anything
+    r = Rcon(RCON_HOST, RCON_PORT, RCON_PASS)
+    try:
         for c in cmds:
             out[c] = r.cmd(c)
             print(f"\n> {c}\n{out[c]}")
             time.sleep(0.4)
-        r.cmd("stop")
-        r.close()
-    else:
-        r = Rcon(RCON_HOST, RCON_PORT, RCON_PASS)
-        r.cmd("stop")
+    finally:
+        # whatever happened above, the server comes down - a harness that leaves one running is worse
+        # than one that fails
+        try:
+            r.cmd("stop", timeout=30)
+        except Exception as e:
+            print(f"could not send stop over rcon ({e}); killing the process")
+            p.kill()
         r.close()
 
     try:

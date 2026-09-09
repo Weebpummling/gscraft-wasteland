@@ -188,6 +188,74 @@ than after.
    rank depends on both.
 10. Then sections 3.1 to 3.5 of the enemy pass, one faction at a time.
 
+## 4a. Phase 2 result (2026-09-09): the wave mechanism works, and it can be pinned to a site
+
+E2 applied first and deliberately. The file argues its own case — `hordes-info.json` carries the comment
+"for modpack authors: setting the value to -1 will prevent the config folder regenerating when updating
+the mod". The risk was live, not theoretical: the installed jar is `1.6.3g` and the config said `1.6.3f`,
+so the folder was already a version behind. `data_version` is now `-1`.
+
+E1 applied and confirmed. With `enableHordeEvent = true` and `hordesCommandOnly = true`, `help hordes`
+now answers:
+
+```
+/hordes spawnWave (<count>|<player>)      /hordes start (<length>|<player>)
+/hordes stop [<player>]                   /hordes reset [<player>]
+/hordes debug                             /hordes listEntities
+/hordes spawnZombie <username> <pos> [<type>]
+```
+
+D2 is closed: the command the entire wave design drives now exists.
+
+**Per-site waves are achievable, and this is the good news of the pass.** Table selection runs through
+`horde_data/scripts/default.json`, a rule list of `hordes:set_spawntable` functions gated by conditions —
+and the condition set includes `hordes:player_pos`. Unlike In Control's spawner rules (section 3), a
+horde table *can* be geofenced. `gscraft_skad.json` was written for Skadowsky's box
+(x -1088..-625, z -1488..-737) and pinned to it; the server loads both with zero errors:
+
+```
+loaded horde table hordes:gscraft_skad
+loaded horde script hordes:default
+```
+
+### The script schema, because it is undocumented and cost three attempts
+
+Nothing in the jar or the shipped files uses `hordes:comparison`, so this was read out of
+`ComparisonCondition.deserialize` with `javap` after two wrong guesses:
+
+```json
+{"name": "hordes:comparison",
+ "value": {"type": "double", "operation": "GREATER_OR_EQUAL",
+           "value1": {"type": "hordes:player_pos", "value": "x"},
+           "value2": -1088.0}}
+```
+
+- `type` on the comparison is the **atlas `DataType`**, lowercase: `byte`, `short`, `int`, `long`,
+  `float`, `double`, `string`, `boolean`. **Omitting it is the whole of "Incorrect parameters for
+  condition hordes:comparison"** — the error names the condition, not the missing key.
+- `operation` is atlas's `ComparableOperation`: `EQUALS`, `NOT_EQUALS`, `GREATER_THAN`,
+  `GREATER_OR_EQUAL`, `LESS_THAN`, `LESS_OR_EQUAL`.
+- the position getter's axis field is **`value`**, not `axis`. `axis` is only a local name inside
+  `PosGetter.get`.
+
+### Dressing and drops, in the table rather than a script
+
+The dressed entry carries `ArmorItems`, `HandItems`, `ArmorDropChances:[0.0f x4]` and
+`HandDropChances:[0.0f, 0.0f]` in its `nbt`, and loads. For **wave** mobs this is a cleaner answer to D4
+than In Control drop chances: the rank and its drop suppression live in one place, in the same file that
+defines the wave. `hordes:set_entity_loot_table` also exists, which is the lever for F3 (armour dropping
+at low rates) without touching "no working guns from corpses".
+
+E7a still stands for everything In Control dresses; this only covers what a wave spawns.
+
+### What is not yet proven
+
+`spawnWave` takes a count or a player, so firing one needs somebody in the world — it cannot be driven
+from RCON on an empty server. Everything up to the moment of spawning is verified: commands registered,
+table loaded, script loaded, geofence parsed, NBT accepted. What still needs one in-game check is that
+the wave actually draws from `gscraft_skad` inside the box and from `hordes:default` outside it, and
+that the dressed Scavenger drops nothing. Stand in Skadowsky and run `/hordes spawnWave 1`.
+
 ## 5. Decisions worth taking now
 
 The enemy pass leaves six open (F1 to F6) and recommends a default for each. Five can be taken as
