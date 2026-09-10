@@ -541,6 +541,36 @@ only one: `mobGriefing=false` in the world's `level.dat`; Improved Mobs `Flag Bl
 `USEITEM` is in that list for both reasons at once: it is what put flint and steel in an enemy's hand,
 which is arson as much as it is wrong equipment.
 
+## 4f. Density belongs to the area spawner (2026-09-09)
+
+Neither In Control ceiling could govern density. `maxcount` counts world-wide by type, so the far side
+of the map pays for the near side; `perplayer` scales the threshold by players online and with nobody
+on it denied 20 of 20 zombies. Both are gone.
+
+The lever that works is a tag. The area spawner adds `gs_placed` before `spawn()`; every Dead rank in
+`spawn.json` requires `scoreboardtags_any: gs_placed`, and a trailing deny refuses untagged Dead and
+Drowned. Vanilla's own ambient Dead no longer reach the ground, so the spawner's local AABB ceiling is
+the only thing deciding how thick it is.
+
+Verified locally:
+
+- `spawn_probe.py` 26/26, including two untagged zombies refused (town, Skadowsky).
+- Live spawner, 30 placements at each of four sites: 119 of 120 standing afterwards, 0 untagged Dead.
+  The one missing was in the Woods, where Scavengers fight the Dead on sight.
+- Overworld mean tick 0.076 ms afterwards.
+
+Two defects the live tally exposed, both fixed:
+
+- **Grenadiers were neutral to players.** The neutrality script matched on entity type, and NATO/RUAF
+  Grenadiers are pillagers. A pillager is now a Scavenger only by rank name (`Scavenger*`, `Scrapper`);
+  the vindicator and terrorist remain Scavengers by type. Checked in place: 20 RUAF Grenadiers hostile,
+  every Scavenger rank neutral.
+- **Scavenger pillagers in the town stood up as RUAF.** Kits are dressed first by type and place, so
+  the town's Scavenger pillagers became RUAF Grenadiers (10 in 30 at the centre). In army areas the
+  Scavenger pool is now the axeman and the gunman only.
+
+`/reload` still does not reload In Control, and startup scripts need a restart too.
+
 ## 5. Decisions worth taking now
 
 The enemy pass leaves six open (F1 to F6) and recommends a default for each. Five can be taken as

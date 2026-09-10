@@ -59,8 +59,14 @@ for a in ("skad", "sk_hosp", "sk_town", "sk_south", "town", "tw_stad", "tw_centr
           "tw_blocks", "plant", "pl_react", "pl_turb", "pl_admin", "pl_switch", "farm", "woods"):
     pool, capn = JOBS.get(a, (None, 0))
     JOBS[a] = ((pool or []) + DEAD, max(capn, 4) + 2)
+# In an army's own area a pillager is dressed as that army's Grenadier - In Control dresses by type and
+# place, and the kits come first - so a Scavenger pillager placed in the town stood up as RUAF. The live
+# tally read 10 RUAF Grenadiers in 30 at the town centre. There the Scavengers are the axeman and the
+# gunman only.
+SCAV_NOT_PILLAGER = [m for m in SCAV if m != "minecraft:pillager"]
 for a in ("skad", "sk_town", "sk_south", "town", "tw_blocks", "farm"):
-    JOBS[a] = (JOBS[a][0] + SCAV, JOBS[a][1] + 1)
+    extra = SCAV_NOT_PILLAGER if a in NATO + RUAF else SCAV
+    JOBS[a] = (JOBS[a][0] + extra, JOBS[a][1] + 1)
 
 # And a fallback for ground no box claims - the roads, the fields, the space between sites. Without one
 # the spawner did nothing at all outside its boxes, which is most of the map.

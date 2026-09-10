@@ -66,7 +66,7 @@ var AREAS = [
   { n: 'front_en', x0: -995, x1: -880, z0: -1250, z1: -700, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
   { n: 'front_es', x0: -1060, x1: -900, z0: -700, z1: -200, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
   { n: 'sk_out_e', x0: -768, x1: -640, z0: -1000, z1: -820, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
-  { n: 'town', x0: -3750, x1: -1800, z0: -3750, z1: -1400, cap: 8, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:vindicator', 'dragonrise_reforge:terrorist'] },
+  { n: 'town', x0: -3750, x1: -1800, z0: -3750, z1: -1400, cap: 8, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager', 'minecraft:vindicator', 'dragonrise_reforge:terrorist'] },
   { n: 'out_w1', x0: -1560, x1: -1440, z0: -1120, z1: -1000, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
   { n: 'out_w2', x0: -1500, x1: -1380, z0: -600, z1: -480, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
   { n: 'front_wn', x0: -1290, x1: -1100, z0: -1250, z1: -700, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
@@ -144,6 +144,11 @@ function tryPlace(level, px, py, pz, area) {
       var e = level.createEntity(id);
       if (!e) { gsDiag.nocreate++; return false; }
       e.setPosition(x + 0.5, y, z + 0.5);
+      // Tag before spawn(), so the tag already exists when In Control's onjoin rule evaluates it. That
+      // tag is how In Control tells a mob this spawner placed from one vanilla spawned by itself: the
+      // placed ones are let through, and the Dead that vanilla adds on its own are refused, which leaves
+      // this spawner's local ceiling as the one thing deciding how thick the ground is.
+      e.addTag('gs_placed');
       e.spawn();
       gsDiag.placed++;
       return true;

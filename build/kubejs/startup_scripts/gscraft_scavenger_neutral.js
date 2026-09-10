@@ -14,15 +14,30 @@
 // var, not const, inside handlers: Rhino re-enters the scope and const throws from the first call.
 // Never swallow the exception unlogged - that is how three of these scripts stayed broken for weeks.
 
-var SCAV_TYPES = ['pillager', 'vindicator', 'terrorist'];
+// A pillager is not always a Scavenger. NATO and RUAF Grenadiers are pillagers too - Mob Factions and
+// In Control both work per entity type - and matching on type alone left every Grenadier neutral to
+// players. The vindicator and the terrorist are only ever Scavengers, so their type is enough; a pillager
+// is one only when In Control named it as one of the Scavenger ranks.
+var SCAV_ONLY_TYPES = ['vindicator', 'terrorist'];
 var PROVOKED = 'gs_provoked';
+
+function nameOf(e) {
+  var c = null;
+  try { c = e.getCustomName(); } catch (err) { c = null; }
+  if (!c) { try { c = e.customName; } catch (err) { c = null; } }
+  if (!c) return '';
+  try { return String(c.getString()); } catch (err) { return String(c); }
+}
 
 function isScav(e) {
   try {
     var t = String(e.type);
-    for (var i = 0; i < SCAV_TYPES.length; i++) {
-      if (t.indexOf(SCAV_TYPES[i]) >= 0) return true;
+    for (var i = 0; i < SCAV_ONLY_TYPES.length; i++) {
+      if (t.indexOf(SCAV_ONLY_TYPES[i]) >= 0) return true;
     }
+    if (t.indexOf('pillager') < 0) return false;
+    var n = nameOf(e);
+    return n.indexOf('Scavenger') === 0 || n === 'Scrapper';
   } catch (err) { /* an entity with no type is not one of ours */ }
   return false;
 }
