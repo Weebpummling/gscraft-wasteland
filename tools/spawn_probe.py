@@ -47,6 +47,11 @@ PROBES = [
     ("scav_road", "minecraft:pillager",   -1500, -2500,
      ("Scavenger", "Scrapper", "Scavenger Captain")),
 
+    # vanilla's own Dead: an untagged zombie is refused everywhere, which is what keeps density in the
+    # area spawner's hands
+    ("wild_town", "minecraft:zombie",  -2800, -2500, None),
+    ("wild_skad", "minecraft:zombie",   -850, -1100, None),
+
     # builds: nothing at all
     ("no_krot", "minecraft:zombie",   -3200, -1200, None),
     ("no_mega", "minecraft:pillager",   500, -1800, None),
@@ -60,7 +65,11 @@ def main():
     for tag, mob, x, z, _ in PROBES:
         args.append(f"forceload add {x - 8} {z - 8} {x + 8} {z + 8}")
     for tag, mob, x, z, _ in PROBES:
-        args.append(f'summon {mob} {x} 100 {z} {{PersistenceRequired:1b,Tags:["{tag}"]}}')
+        # Probes stand in for the area spawner, so they carry its gs_placed tag - without it In Control
+        # now refuses the Dead, correctly, and the probe would report a failure that is not one. A tag
+        # starting "wild_" is left untagged on purpose, to prove the refusal itself.
+        tags = f'"{tag}"' if tag.startswith("wild_") else f'"{tag}","gs_placed"'
+        args.append(f'summon {mob} {x} 100 {z} {{PersistenceRequired:1b,Tags:[{tags}]}}')
     for tag, mob, x, z, _ in PROBES:
         args.append(f"data get entity @e[tag={tag},limit=1] CustomName")
 

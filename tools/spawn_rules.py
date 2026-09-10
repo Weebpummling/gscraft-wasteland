@@ -184,7 +184,7 @@ KITS = [
     (PILL, ["woods", None], "Scavenger Captain", CAPT_H,  MSV_C,   GORKA_LEGS, WAND_B, None,    2, 0.06),
     (PILL, ["woods", None], "Scavenger Digger",  None,    ARMY_C,  PANTS21,    WAND_B, SHOVEL,  4, 0.12),
     (PILL, ["woods", None], "Scrapper",          CARD_H,  CARD_C,  CARD_L,     CARD_B, CARD_SWORD, 5, 0.18),
-    (PILL,        ["woods", None], "Scavenger",        WRAP,    JACKET, WAND_L,     WAND_B, None,    ("pp", 6), None),
+    (PILL,        ["woods", None], "Scavenger",        WRAP,    JACKET, WAND_L,     WAND_B, None,    None, None),
     (SCAV_AXE,    ["woods", None], "Scavenger Raider", WW2,     GORKA,  GORKA_LEGS, WAND_B, CROWBAR, 12, None),
     (SCAV_GUN,    ["woods", None], "Scavenger Gunman", None,    None,   None,       None,   None,     6, None),
 
@@ -197,10 +197,10 @@ KITS = [
     (DEAD, ["tw_stad", "tw_centre", "tw_slabs", "tw_blocks", "town"],
      "Peacekeeper", UN_H, MSV_C, MSV_L, None, None, 3, 0.08),
     # no area and no denial after it: this is the floor the whole cell stands on
-    (DEAD, [None], "The Dead", None, None, None, None, None, ("pp", 10), None),
+    (DEAD, [None], "The Dead", None, None, None, None, None, None, None),
     (DROWNED, ["pl_intake", "plant"], "The Drowned", DIVE_H, BACKTANK, None, DIVE_B, None, 8, None),
     (DROWNED, ["tw_bridge"], "Drowned Patrol", OCEAN_H, OCEAN_C, OCEAN_L, None, None, 6, None),
-    (DROWNED, [None], "The Drowned", DIVE_H, BACKTANK, None, DIVE_B, None, ("pp", 6), None),
+    (DROWNED, [None], "The Drowned", DIVE_H, BACKTANK, None, DIVE_B, None, None, None),
 ]
 
 
@@ -226,6 +226,18 @@ def cap(n, mob, perplayer=False):
     """
     return {"amount": n, "mob": mob, "perplayer": perplayer}
 
+
+# The Dead are admitted only when the area spawner placed them. It tags each mob gs_placed before
+# spawn(), and scoreboardtags_any - a STRING condition in RuleKeys, confirmed from the bytecode rather
+# than assumed - lets a rule match on that tag. Every Dead rank carries the condition, and a deny after
+# them refuses the rest, which are the Dead vanilla spawned by itself.
+#
+# This is the lever neither ceiling could be. A world total empties the far side of the map to pay for
+# the near side; perplayer collapses to zero with nobody online and denied 20 of 20 zombies. With vanilla
+# gated out, the spawner's own ceiling - a bounded count of what actually stands near the player, and
+# the one count that behaved correctly all along - is the only thing deciding how thick the ground is.
+PLACED_KEY = "scoreboardtags_any"
+PLACED_TAG = "gs_placed"
 
 # Entity types more than one faction stands up as. In Control's counts key on entity type alone, so a
 # ceiling on one of these is shared by every faction using it: measured 2026-09-09, 27 of 30 pillagers
@@ -261,7 +273,12 @@ def dressed(mob, area, name, helm, chest, legs, feet, hand, n, chance=None):
     out = []
     if any(m in SHARED for m in mob):
         n = None                     # a shared entity type: no ceiling that other factions would fill
+    placed_only = any(m in DEAD + DROWNED for m in mob)
+    if placed_only:
+        n = None                     # the area spawner owns the Dead's density; see PLACED below
     r = rule(mob=mob, area=area, result="default", customname=name, nbt=nbt)
+    if placed_only:
+        r[PLACED_KEY] = PLACED_TAG
     if chance is None:
         # a common rank: the cap denies the surplus, and the dressing itself is unconditional. A
         # maxcount here instead would make the overflow fall through and come out as another faction.
@@ -323,6 +340,10 @@ def build():
     # the ground either army holds, no soldier stands up at all. The Dead have no such rule - they are
     # the ambient threat and their last rule is an unrestricted one.
     out.append(rule(mob=MILITIA, result="deny"))
+
+    # the Dead vanilla spawned by itself: every tagged Dead rank above has already matched and let its
+    # own through, so what reaches this line carries no gs_placed tag and is refused
+    out.append(rule(mob=DEAD + DROWNED, result="deny"))
 
     # spiders share the Dead's ground and the Woods' bunkers, and wear nothing
     for a in ("skad", "town", "woods"):

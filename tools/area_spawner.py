@@ -199,6 +199,11 @@ function tryPlace(level, px, py, pz, area) {{
       var e = level.createEntity(id);
       if (!e) {{ gsDiag.nocreate++; return false; }}
       e.setPosition(x + 0.5, y, z + 0.5);
+      // Tag before spawn(), so the tag already exists when In Control's onjoin rule evaluates it. That
+      // tag is how In Control tells a mob this spawner placed from one vanilla spawned by itself: the
+      // placed ones are let through, and the Dead that vanilla adds on its own are refused, which leaves
+      // this spawner's local ceiling as the one thing deciding how thick the ground is.
+      e.addTag('gs_placed');
       e.spawn();
       gsDiag.placed++;
       return true;
