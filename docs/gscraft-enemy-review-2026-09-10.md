@@ -250,6 +250,12 @@ roster from the registry; the infection ladder; the builds-are-no-spawn ruling; 
 
 ## 10. Decisions for the owner
 
+**RULED 2026-09-10 (owner): every recommendation below is accepted, W1 to W15, and the recommendations of §3
+(X1 to X7) with them.** Implementation starts locally at phase 2 of §11.
+One call the review left open is taken as a default and recorded here: NATO, RUAF and the Scavengers are
+**neutral to each other** (each retaliates when struck), so the Scavengers stay people between the armies
+rather than targets for both. It is one line in the faction data.
+
 | # | Decision | Recommendation |
 |---|---|---|
 | W1 | Scavenger **standing** per team: kill them and bands turn hostile; trade with them when friendly | **yes** |
@@ -281,6 +287,13 @@ Updates the war-mod design's phases. Each passes locally, on a ticking server, b
 | 6 | Director waves: the assault, the counterattack, the finale Captains | one site's full ladder in person |
 | 7 | Standing and trading; grenades after the block test | in person |
 | 8 | Outposts changing hands | a week of play |
+
+**Phase 2 done locally, 2026-09-10** (`tools/war_phase2.py`, 8 of 8 on a ticking server): factions load from
+`data/gscraft/gscraft_factions/*.json` and reload with `/reload`; the Dead hunt soldiers and Scavengers through an
+injected target goal (access transformer on `Mob.goalSelector`/`targetSelector`); a Scavenger starts fights with the
+Dead on its own and ignores the armies, which ignore it; the Converted rise wearing their kit. Two findings: Create's
+cardboard sword deals no damage, so the Scrapper now carries Superb Warfare's knife; and a lone melee Scavenger loses
+to two live zombies on Hard, which is left as balance for phase 3 to judge.
 
 Related: `gscraft-war-mod-design.md` (the mod), `gscraft-enemies.md` and `gscraft-entities-v8.md` (superseded where
 this review says so, once the owner rules), `gscraft-enemy-design-2026-09-08.md` (the capability record),

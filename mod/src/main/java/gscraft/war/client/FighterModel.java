@@ -1,19 +1,20 @@
 package gscraft.war.client;
 
 import com.tacz.guns.api.item.IGun;
-import gscraft.war.entity.Soldier;
+import gscraft.war.entity.Skinned;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.world.entity.Mob;
 
-/** The player model, with a two-handed rifle hold while the soldier is fighting. */
-public class SoldierModel extends PlayerModel<Soldier> {
-    public SoldierModel(ModelPart root) {
+/** The player model, with a two-handed rifle hold while the fighter is in a fight. */
+public class FighterModel<T extends Mob & Skinned> extends PlayerModel<T> {
+    public FighterModel(ModelPart root) {
         super(root, false);
     }
 
     @Override
-    public void setupAnim(Soldier e, float limbSwing, float limbSwingAmount, float ageInTicks,
-                          float netHeadYaw, float headPitch) {
+    public void setupAnim(T e, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
+                          float headPitch) {
         if (IGun.mainHandHoldGun(e) && e.isAggressive()) {
             rightArmPose = ArmPose.CROSSBOW_HOLD;
             leftArmPose = ArmPose.CROSSBOW_HOLD;

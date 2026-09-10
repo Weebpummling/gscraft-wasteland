@@ -13,7 +13,8 @@ public final class ClientSetup {
 
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(ModEntities.NATO_SOLDIER.get(), SoldierRenderer::new);
-        event.registerEntityRenderer(ModEntities.RUAF_SOLDIER.get(), SoldierRenderer::new);
+        event.registerEntityRenderer(ModEntities.NATO_SOLDIER.get(), FighterRenderer::new);
+        event.registerEntityRenderer(ModEntities.RUAF_SOLDIER.get(), FighterRenderer::new);
+        event.registerEntityRenderer(ModEntities.SCAVENGER.get(), FighterRenderer::new);
     }
 }

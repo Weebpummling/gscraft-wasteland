@@ -1,0 +1,7 @@
+{
+  "members": ["minecraft:zombie", "minecraft:husk", "minecraft:zombie_villager", "minecraft:drowned",
+              "hordes:zombie_player", "hordes:husk_player", "hordes:drowned_player"],
+  "hostile": ["nato", "ruaf", "scavengers"],
+  "players": "hostile",
+  "inject_targeting": true
+}

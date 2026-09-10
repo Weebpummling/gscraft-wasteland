@@ -8,6 +8,7 @@ import gscraft.war.GscraftWar;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.item.ItemStack;
 
@@ -24,7 +25,7 @@ public class GunAttackGoal extends Goal {
     private static final int RELOAD_TICKS = 50;
     private static final double RAD_TO_DEG = 180.0D / Math.PI;
 
-    private final Soldier mob;
+    private final PathfinderMob mob;
     private final double speed;
     private final float rangeSqr;
 
@@ -34,7 +35,7 @@ public class GunAttackGoal extends Goal {
     private int burstPause;
     private ShootResult lastLogged;
 
-    public GunAttackGoal(Soldier mob, double speed, float range) {
+    public GunAttackGoal(PathfinderMob mob, double speed, float range) {
         this.mob = mob;
         this.speed = speed;
         this.rangeSqr = range * range;

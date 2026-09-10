@@ -1,0 +1,5 @@
+{
+  "members": ["gscraft:scavenger"],
+  "hostile": ["dead"],
+  "players": "provoked"
+}

@@ -1,0 +1,8 @@
+{
+  "members": ["guardvillagers:guard", "minecraft:iron_golem",
+              "recruits:recruit", "recruits:recruit_shieldman", "recruits:bowman", "recruits:crossbowman",
+              "recruits:horseman", "recruits:nomad", "recruits:captain", "recruits:commander",
+              "recruits:patrol_leader", "recruits:scout", "recruits:messenger"],
+  "hostile": ["nato", "ruaf", "dead", "machines"],
+  "players": "neutral"
+}

@@ -407,6 +407,11 @@ of zips to a tag, skipping what is already there.
 
 ## Old enemy stack retired locally (2026-09-09)
 
+- `server/config/incontrol/spawn.json` (2026-09-10): a second pass rule after `mod: gscraft`,
+  `scoreboardtags_any: gs_placed -> allow`, so Dead the mod places (the Converted, later the director) get through
+  the hold. Backup `spawn.json.bak-phase2`.
+
+
 The enemy system now lives in `mod/` (GSCraft War). On the local test server the In Control faction rules, the
 KubeJS area spawner / Scavenger neutrality / terrorist drop scripts, the Improved Mobs illager exemptions and the
 Hordes phase 2 changes are off; details in `docs/gscraft-war-mod-design.md` ("Retired locally"). Backups:

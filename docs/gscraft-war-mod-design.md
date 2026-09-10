@@ -105,3 +105,8 @@ spawn without errors, owner's in-person test, owner's say-so.
   world ticks.
 - **Mob Factions** lists only vanilla-type factions; `gscraft:*` is in none, so it does not block targeting.
   The Dead will not target soldiers by themselves; phase 2 gives them that goal.
+
+## Superseded plan (2026-09-10)
+
+The owner accepted every recommendation of `gscraft-enemy-review-2026-09-10.md` (W1 to W15, X1 to X7). That
+review's §11 build order replaces the phase table above from phase 2 on.

@@ -1,0 +1,5 @@
+{
+  "members": ["gscraft:ruaf_soldier"],
+  "hostile": ["nato", "dead", "machines", "camp"],
+  "players": "hostile"
+}
