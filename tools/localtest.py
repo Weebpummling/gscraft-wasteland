@@ -11,6 +11,9 @@ reads blocks on its own log writes once the pipe buffer fills.
     localtest.py --boot-only                    just boot and stop, for a clean-start check
 
 Everything here is the LOCAL server at G:/GSCraft/server on port 9150. It never touches the host.
+
+This harness boots the server fresh every run, which is the one reliable way to test In Control rules:
+`/reload` does not reload In Control, and `/ctrl reload` will not run from RCON.
 """
 import re
 import select

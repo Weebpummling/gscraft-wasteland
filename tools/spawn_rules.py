@@ -46,6 +46,12 @@ Not included, deliberately:
 
 `--live` leaves out the hold, which is the single rule that keeps every hostile denied. Without it the
 whole design switches on. Regenerating without `--live` puts the hold back.
+
+**A change to spawn.json needs a server restart.** `/reload` reloads datapacks and KubeJS but not In
+Control, and In Control's own `/ctrl reload` refuses to run from RCON ("A player is required to run this
+command here"). Measured 2026-09-09: a pillager ceiling removed and followed by `/reload` was still
+denying 29 of 30 pillagers, because the server was running the rules from its last restart. Restart,
+or have an in-game operator run `/ctrl reload`, before believing any result.
 """
 import json
 import sys
@@ -154,6 +160,7 @@ AK47 = '{id:"tacz:modern_kinetic_gun",Count:1b,tag:{GunId:"tacz:ak47"}}'
 NATO_AREAS = ["plant", "out_e1", "out_e2", "front_en", "front_es", "sk_out_e"]
 RUAF_AREAS = ["town", "out_w1", "out_w2", "front_wn", "front_ws", "sk_out_w"]
 
+# Ranks whose entity type is shared across factions carry no ceiling here (see SHARED below).
 KITS = [
     # ---- NATO: holds the plant and the east bank
     ([COMMANDO], NATO_AREAS, "NATO Sergeant", SGT_H,    SGT_C,       TAC_LEGS, None,    None,  3, 0.12),
@@ -220,6 +227,16 @@ def cap(n, mob, perplayer=False):
     return {"amount": n, "mob": mob, "perplayer": perplayer}
 
 
+# Entity types more than one faction stands up as. In Control's counts key on entity type alone, so a
+# ceiling on one of these is shared by every faction using it: measured 2026-09-09, 27 of 30 pillagers
+# summoned in the Woods were denied by the Scavenger ceiling, which NATO's and RUAF's Grenadiers had
+# already filled, and the only survivors were rare variants evaluated before it. Ranks on these types
+# are uncapped here; the area spawner's own local ceiling, which counts what actually stands near a
+# player, is what governs how many there are.
+SHARED = {"minecraft:pillager", "immersiveengineering:commando",
+          "immersiveengineering:fusilier", "immersiveengineering:bulwark"}
+
+
 def dressed(mob, area, name, helm, chest, legs, feet, hand, n, chance=None):
     """Gate and dress, as two rules.
 
@@ -242,6 +259,8 @@ def dressed(mob, area, name, helm, chest, legs, feet, hand, n, chance=None):
     # now writes the slot.
     nbt = ("{" + NO_DROPS + "}") if hand is None else           ("{HandItems:[" + hand + ",{}]," + NO_DROPS + "}")
     out = []
+    if any(m in SHARED for m in mob):
+        n = None                     # a shared entity type: no ceiling that other factions would fill
     r = rule(mob=mob, area=area, result="default", customname=name, nbt=nbt)
     if chance is None:
         # a common rank: the cap denies the surplus, and the dressing itself is unconditional. A
@@ -259,7 +278,8 @@ def dressed(mob, area, name, helm, chest, legs, feet, hand, n, chance=None):
         # Falling through past the cap is right here - what is beyond the ceiling should simply be the
         # ordinary rank listed below, not a denial, so a full site is not an empty one.
         r["random"] = chance
-        r["maxcount"] = cap(n, mob)
+        if n is not None:
+            r["maxcount"] = cap(n, mob)
     if helm:
         r["armorhelmet"] = {"item": helm}
     if chest:
