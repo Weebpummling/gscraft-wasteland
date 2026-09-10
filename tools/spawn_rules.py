@@ -26,7 +26,9 @@ which wastes the wardrobe and flattens the read at fifty metres. So:
   - the **drowned** at the intake works and under the rail bridge get the sealed kit, a copper diving
     helmet and a backtank. They are the only enemy in the pack that reads as equipped for the water.
   - the **Scavengers do not match, and that is the point** (§3.2). Four looks across the illager ranks:
-    a face wrap, a looted WW2 shell over a Gorka jacket, a bandana, and nothing. None of it issued.
+    a face wrap, a looted WW2 shell over a Gorka jacket, and a gunman who needs no dressing at all.
+    The illager casters, the witch and the ravager are denied outright: a faction of scavengers is
+    people, and fangs and a horned beast belong to a different game.
 
 Two traps from §2.1 respected: Dragon Rising ships no boots, so nobody is given any, and `cn21`/`cnfast`
 give zero armour on the head, so they are not used as protection.
@@ -66,8 +68,15 @@ DEAD = ["minecraft:zombie", "minecraft:zombie_villager", "minecraft:husk"]
 DROWNED = ["minecraft:drowned"]
 SPIDERS = ["minecraft:spider", "minecraft:cave_spider"]
 SCAV_AXE = ["minecraft:vindicator"]
-SCAV_CASTER = ["minecraft:evoker", "minecraft:illusioner"]
-SCAV_REST = ["minecraft:witch", "minecraft:ravager"]
+# The Gunman: an armed human, which is what a scavenger should look like. Its skin is fixed so it cannot
+# be dressed from §2.1, and it needs none - it already reads as a man with a rifle. Its cure drop is
+# handled by kubejs/startup_scripts/gscraft_terrorist_drops.js.
+SCAV_GUN = ["dragonrise_reforge:terrorist"]
+# Denied outright, on tone (owner, 2026-09-09). entities-v8 lists evokers, illusioners, witches and
+# ravagers as Scavengers, but a caster throwing fangs and a horned beast are fantasy, not a wasteland
+# faction. Scavengers are people now: a pillager, an axeman and a gunman.
+SCAV_WRONG = ["minecraft:evoker", "minecraft:illusioner", "minecraft:witch", "minecraft:ravager",
+              "minecraft:vex"]
 
 BUILDS = ["camp", "krot", "mega", "indu", "lib", "runway", "hub", "plaza", "novo", "biogen"]
 NO_DROPS = "ArmorDropChances:[0.0f,0.0f,0.0f,0.0f],HandDropChances:[0.0f,0.0f]"
@@ -162,10 +171,9 @@ KITS = [
     # the roads between everything, which is whatever neither army has claimed.
     (PILL, ["woods", None], "Scavenger Captain", CAPT_H, MSV_C, GORKA_LEGS, WAND_B, CROWBAR, 2, 0.06),
     (PILL, ["woods", None], "Scrapper", CARD_H, CARD_C, CARD_L, CARD_B, CARD_SWORD, 5, 0.18),
-    (PILL,        ["woods", None], "Scavenger",        WRAP,    JACKET, WAND_L,     WAND_B, PIPE,    22, None),
+    (PILL,        ["woods", None], "Scavenger",        WRAP,    JACKET, WAND_L,     WAND_B, PIPE,    ("pp", 6), None),
     (SCAV_AXE,    ["woods", None], "Scavenger Raider", WW2,     GORKA,  GORKA_LEGS, WAND_B, CROWBAR, 12, None),
-    (SCAV_CASTER, ["woods", None], "Scavenger Elder",  BANDANA, RAGS,   RAGS_L,     RAGS_B, None,     6, None),
-    (SCAV_REST,   ["woods", None], "Scavenger",        None,    None,   None,       None,   None,     8, None),
+    (SCAV_GUN,    ["woods", None], "Scavenger Gunman", None,    None,   None,       None,   None,     6, None),
 
     # ---- the Dead: the ambient threat, everywhere, wearing what they died in
     (DEAD, ["pl_react"], "Containment Crew", GASMASK, FARADAY_C, FARADAY_L, FARADAY_B, CROWBAR, 4, 0.35),
@@ -176,10 +184,10 @@ KITS = [
     (DEAD, ["tw_stad", "tw_centre", "tw_slabs", "tw_blocks", "town"],
      "Peacekeeper", UN_H, MSV_C, MSV_L, None, None, 3, 0.08),
     # no area and no denial after it: this is the floor the whole cell stands on
-    (DEAD, [None], "The Dead", None, None, None, None, None, None, None),
+    (DEAD, [None], "The Dead", None, None, None, None, None, ("pp", 10), None),
     (DROWNED, ["pl_intake", "plant"], "The Drowned", DIVE_H, BACKTANK, None, DIVE_B, None, 8, None),
     (DROWNED, ["tw_bridge"], "Drowned Patrol", OCEAN_H, OCEAN_C, OCEAN_L, None, None, 6, None),
-    (DROWNED, [None], "The Drowned", DIVE_H, BACKTANK, None, DIVE_B, None, None, None),
+    (DROWNED, [None], "The Drowned", DIVE_H, BACKTANK, None, DIVE_B, None, ("pp", 6), None),
 ]
 
 
@@ -194,7 +202,7 @@ def rule(mob=None, area=None, result="deny", when="onjoin", **extra):
     return r
 
 
-def cap(n, mob):
+def cap(n, mob, perplayer=False):
     """A population ceiling.
 
     Note what this counts: In Control's count is **world-wide**, not per area. There is no way to scope
@@ -203,7 +211,7 @@ def cap(n, mob):
     cap at all - vanilla's own mob cap is the limit there, and a ceiling of fourteen zombies would have
     left the entire cell empty.
     """
-    return {"amount": n, "mob": mob, "perplayer": False}
+    return {"amount": n, "mob": mob, "perplayer": perplayer}
 
 
 def dressed(mob, area, name, helm, chest, legs, feet, hand, n, chance=None):
@@ -229,7 +237,12 @@ def dressed(mob, area, name, helm, chest, legs, feet, hand, n, chance=None):
         # maxcount here instead would make the overflow fall through and come out as another faction.
         # n of None means no ceiling, which is what the ambient ranks want.
         if n is not None:
-            out.append(rule(mob=mob, area=area, result="deny", mincount=cap(n, mob)))
+            # ("pp", k) means a per-player ceiling of k rather than a world total of n
+            if isinstance(n, tuple):
+                out.append(rule(mob=mob, area=area, result="deny",
+                                mincount=cap(n[1], mob, perplayer=True)))
+            else:
+                out.append(rule(mob=mob, area=area, result="deny", mincount=cap(n, mob)))
     else:
         # a rare variant: the chance sets how often it appears and the maxcount holds the ceiling.
         # Falling through past the cap is right here - what is beyond the ceiling should simply be the
@@ -284,12 +297,15 @@ def build():
     for a in ("skad", "town", "woods"):
         out.append(rule(mob=SPIDERS, area=a, result="default", maxcount=cap(8, SPIDERS)))
     out.append(rule(mob=SPIDERS, result="deny"))
+
+    # the illager casters and the ravager never stand up at all
+    out.append(rule(mob=SCAV_WRONG, result="deny"))
     return out
 
 
 OWNED_NAMES = {k[2] for k in KITS}
 OWNED_MOBS = set(MECHS + MILITIA + DEAD + DROWNED + SPIDERS + PILL +
-                 SCAV_AXE + SCAV_CASTER + SCAV_REST)
+                 SCAV_AXE + SCAV_GUN + SCAV_WRONG)
 
 
 def main(argv):

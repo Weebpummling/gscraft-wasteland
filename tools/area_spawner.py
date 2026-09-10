@@ -20,6 +20,10 @@ table, in `spawn_rules.py`, and this file never repeats it.
 Boxes come from `incontrol_areas.py`, so the spawner and the rules cannot drift apart.
 
     area_spawner.py [--interval TICKS] [--dry-run]
+
+Density is set by two dials: INTERVAL, how often a pass runs, and the per-area ceiling, how many of the
+spawner's own kinds may stand within 48 blocks of a player before it stops adding. Both were halved on
+2026-09-09 after the first in-game look read as far too busy around Skadowsky.
 """
 import sys
 from pathlib import Path
@@ -37,19 +41,40 @@ SOLDIERS = ["immersiveengineering:commando", "immersiveengineering:commando",
             "immersiveengineering:bulwark", "minecraft:pillager", "minecraft:pillager"]
 DEAD = ["minecraft:zombie", "minecraft:zombie", "minecraft:zombie",
         "minecraft:husk", "minecraft:zombie_villager"]
-SCAV = ["minecraft:pillager", "minecraft:pillager", "minecraft:vindicator", "minecraft:evoker"]
+# people, not illager casters: a raider, an axeman and a gunman (owner's ruling on tone, 2026-09-09)
+SCAV = ["minecraft:pillager", "minecraft:pillager", "minecraft:vindicator",
+        "dragonrise_reforge:terrorist"]
 
-# area -> (entity pool, how many may stand within RADIUS of a player in this area)
+# area -> (entity pool, how many of that kind may stand within RADIUS of a player there)
 JOBS = {}
 for a in NATO + RUAF:
-    JOBS[a] = (SOLDIERS, 8)
+    JOBS[a] = (SOLDIERS, 5)
 for a in ("woods",):
-    JOBS[a] = (SCAV, 6)
-# the Dead are the floor: every base-map area gets them, at a lower local ceiling
+    JOBS[a] = (SCAV, 5)
+
+# The Dead are the floor and go everywhere. The Scavengers hold the roads and the ground between
+# things, so they ride along in the open areas too - without that they existed only in the Woods, and a
+# player in Skadowsky met nothing but zombies.
 for a in ("skad", "sk_hosp", "sk_town", "sk_south", "town", "tw_stad", "tw_centre", "tw_slabs",
           "tw_blocks", "plant", "pl_react", "pl_turb", "pl_admin", "pl_switch", "farm", "woods"):
     pool, capn = JOBS.get(a, (None, 0))
-    JOBS[a] = ((pool or []) + DEAD, max(capn, 6) + 4)
+    JOBS[a] = ((pool or []) + DEAD, max(capn, 4) + 2)
+for a in ("skad", "sk_town", "sk_south", "town", "tw_blocks", "farm"):
+    JOBS[a] = (JOBS[a][0] + SCAV, JOBS[a][1] + 1)
+
+# And a fallback for ground no box claims - the roads, the fields, the space between sites. Without one
+# the spawner did nothing at all outside its boxes, which is most of the map.
+ANYWHERE = (DEAD + SCAV, 4)
+
+
+def js_denies():
+    """The build boxes, where In Control denies every hostile."""
+    from incontrol_areas import BUILDS
+    rows = []
+    for name in BUILDS:
+        x0, x1, z0, z1, _ = BOXES[name]
+        rows.append(f"  {{ n: '{name}', x0: {x0}, x1: {x1}, z0: {z0}, z1: {z1} }}")
+    return ",\n".join(rows)
 
 
 def js_boxes():
@@ -86,15 +111,50 @@ var INTERVAL = {interval};        // ticks between passes
 var RADIUS = 44;                  // how far out a mob may be placed
 var MIN_RADIUS = 20;              // and how close it may come
 var TRIES = 6;                    // candidate positions per attempt
-var COUNT_BOX = 64;               // half-extent of the AABB used to count what is already there
+var COUNT_BOX = 48;               // horizontal half-extent of the AABB used to count what is there
+var COUNT_Y = 10;                 // and the vertical one. Kept tight on purpose: at y +/-40 the box
+                                  // reached into the caves below and their zombies filled the ceiling,
+                                  // so the surface stayed empty while the log read near=32/8.
 // `Math` here is java.lang.Math: the static methods resolve (random, cos, floor all work) but the PI
 // *field* does not - Math.PI reads undefined, so `Math.random() * Math.PI * 2` was NaN and every
 // candidate position failed its bounds test in silence. Write the turn out in full.
 var TAU = 6.283185307179586;
+var DEBUG = true;                 // logs one line per pass per player; turn off once tuned
+
+// the pool used where no box claims the ground: the roads and the open country between sites
+var ANYWHERE = {{ n: '(open ground)', cap: {any_cap}, pool: [{any_pool}] }};
+
+// The builds, where In Control denies every hostile. The spawner has to know them too: without this it
+// placed happily inside the camp and In Control deleted each mob as it joined, so the log read
+// "placed=true near=0" for ever while the player saw nothing.
+var DENIES = [
+{denies}
+];
+
+function inDeny(x, z) {{
+  for (var i = 0; i < DENIES.length; i++) {{
+    var d = DENIES[i];
+    if (x >= d.x0 && x <= d.x1 && z >= d.z0 && z <= d.z1) return true;
+  }}
+  return false;
+}}
 
 var AREAS = [
 {boxes}
 ];
+
+// the entity kinds the spawner places, plus the hostiles vanilla puts in the same ground: these are
+// what the local ceiling counts, and nothing else
+var OURS = ['zombie', 'husk', 'drowned', 'pillager', 'vindicator', 'terrorist', 'commando',
+            'fusilier', 'bulwark', 'skeleton', 'stray', 'spider', 'creeper', 'enderman',
+            'pomkotsmechs'];
+
+function isOurs(t) {{
+  for (var i = 0; i < OURS.length; i++) {{
+    if (t.indexOf(OURS[i]) >= 0) return true;
+  }}
+  return false;
+}}
 
 function areaAt(x, z) {{
   for (var i = 0; i < AREAS.length; i++) {{
@@ -124,7 +184,9 @@ function tryPlace(level, px, py, pz, area) {{
     var dist = MIN_RADIUS + Math.random() * (RADIUS - MIN_RADIUS);
     var x = Math.floor(px + Math.cos(ang) * dist);
     var z = Math.floor(pz + Math.sin(ang) * dist);
-    if (!areaAt(x, z)) {{ gsDiag.outside++; continue; }}   // stay inside the box that asked for it
+    // stay inside the box that asked for it; the open-ground pool has no box to stay inside
+    if (inDeny(x, z)) {{ gsDiag.outside++; continue; }}
+    if (area.x0 !== undefined && !areaAt(x, z)) {{ gsDiag.outside++; continue; }}
     var found = false;
     for (var dy = 10; dy >= -24; dy--) {{      // wide enough for a player on a roof or in a cellar
       var y = py + dy;
@@ -156,19 +218,26 @@ ServerEvents.tick(event => {{
     if (!players || players.length === 0) return;      // nobody about: cost nothing
     for (var i = 0; i < players.length; i++) {{
       var p = players[i];
-      var area = areaAt(Math.floor(p.x), Math.floor(p.z));
-      if (!area) continue;
+      var area = areaAt(Math.floor(p.x), Math.floor(p.z)) || ANYWHERE;
+      var inSafe = inDeny(Math.floor(p.x), Math.floor(p.z));
       var level = p.level;
       var near = level.getEntitiesWithin(
-        AABB.of(p.x - COUNT_BOX, p.y - 40, p.z - COUNT_BOX,
-                p.x + COUNT_BOX, p.y + 40, p.z + COUNT_BOX));
+        AABB.of(p.x - COUNT_BOX, p.y - COUNT_Y, p.z - COUNT_BOX,
+                p.x + COUNT_BOX, p.y + COUNT_Y, p.z + COUNT_BOX));
+      // Count only what this spawner is responsible for. Counting every entity meant villagers,
+      // animals, item frames and boats filled the ceiling before a single mob was placed - the log read
+      // "near=14/10 placed=false" in a town square with no hostiles in sight.
       var n = 0;
       for (var k = 0; k < near.length; k++) {{
-        var t = String(near[k].type);
-        if (t.indexOf('player') < 0 && t.indexOf('item') < 0) n++;
+        if (isOurs(String(near[k].type))) n++;
       }}
-      if (n >= area.cap) continue;
-      tryPlace(level, Math.floor(p.x), Math.floor(p.y), Math.floor(p.z), area);
+      var placed = (n < area.cap)
+        && tryPlace(level, Math.floor(p.x), Math.floor(p.y), Math.floor(p.z), area);
+      if (DEBUG) {{
+        console.info('[gscraft][spawn] ' + p.username + ' in ' + area.n + ' near=' + n
+                     + '/' + area.cap + ' placed=' + placed
+                     + (inSafe ? ' (standing in a no-spawn build)' : ''));
+      }}
     }}
   }} catch (err) {{
     console.error('[gscraft] area spawner failed: ' + err);
@@ -225,10 +294,13 @@ console.info('[gscraft] area spawner armed: ' + AREAS.length + ' areas, one pass
 
 
 def main(argv):
-    interval = 100
+    interval = 200
     if "--interval" in argv:
         interval = int(argv[argv.index("--interval") + 1])
-    js = TEMPLATE.format(interval=interval, boxes=js_boxes())
+    js = TEMPLATE.format(interval=interval, boxes=js_boxes(),
+                         any_cap=ANYWHERE[1],
+                         any_pool=", ".join(f"'{e}'" for e in ANYWHERE[0]),
+                         denies=js_denies())
     print(f"{len(JOBS)} areas, interval {interval} ticks")
     for name, (pool, capn) in sorted(JOBS.items()):
         kinds = sorted({e.split(":")[-1] for e in pool})

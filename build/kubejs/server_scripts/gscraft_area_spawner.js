@@ -18,44 +18,88 @@
 // var, not const, even at the top level. A const declared here reads as undefined from inside a
 // function in this Rhino, so MIN_RADIUS + Math.random() * (RADIUS - MIN_RADIUS) came out NaN and every
 // candidate position failed its bounds test silently. Same trap as the const-in-handler one.
-var INTERVAL = 100;        // ticks between passes
+var INTERVAL = 200;        // ticks between passes
 var RADIUS = 44;                  // how far out a mob may be placed
 var MIN_RADIUS = 20;              // and how close it may come
 var TRIES = 6;                    // candidate positions per attempt
-var COUNT_BOX = 64;               // half-extent of the AABB used to count what is already there
+var COUNT_BOX = 48;               // horizontal half-extent of the AABB used to count what is there
+var COUNT_Y = 10;                 // and the vertical one. Kept tight on purpose: at y +/-40 the box
+                                  // reached into the caves below and their zombies filled the ceiling,
+                                  // so the surface stayed empty while the log read near=32/8.
 // `Math` here is java.lang.Math: the static methods resolve (random, cos, floor all work) but the PI
 // *field* does not - Math.PI reads undefined, so `Math.random() * Math.PI * 2` was NaN and every
 // candidate position failed its bounds test in silence. Write the turn out in full.
 var TAU = 6.283185307179586;
+var DEBUG = true;                 // logs one line per pass per player; turn off once tuned
+
+// the pool used where no box claims the ground: the roads and the open country between sites
+var ANYWHERE = { n: '(open ground)', cap: 4, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:vindicator', 'dragonrise_reforge:terrorist'] };
+
+// The builds, where In Control denies every hostile. The spawner has to know them too: without this it
+// placed happily inside the camp and In Control deleted each mob as it joined, so the log read
+// "placed=true near=0" for ever while the player saw nothing.
+var DENIES = [
+  { n: 'camp', x0: -978, x1: -770, z0: -1060, z1: -845 },
+  { n: 'krot', x0: -3392, x1: -3073, z0: -1344, z1: -1025 },
+  { n: 'mega', x0: 368, x1: 751, z0: -2128, z1: -1601 },
+  { n: 'indu', x0: 336, x1: 799, z0: -1376, z1: -1105 },
+  { n: 'lib', x0: -2480, x1: -2385, z0: -3808, z1: -3713 },
+  { n: 'runway', x0: -2064, x1: -1553, z0: -3792, z1: -3601 },
+  { n: 'hub', x0: -3568, x1: -2385, z0: -1008, z1: 700 },
+  { n: 'plaza', x0: -2352, x1: -2193, z0: -1008, z1: -865 },
+  { n: 'novo', x0: -2352, x1: -2209, z0: -832, z1: -673 },
+  { n: 'biogen', x0: -2352, x1: -2289, z0: -640, z1: -529 }
+];
+
+function inDeny(x, z) {
+  for (var i = 0; i < DENIES.length; i++) {
+    var d = DENIES[i];
+    if (x >= d.x0 && x <= d.x1 && z >= d.z0 && z <= d.z1) return true;
+  }
+  return false;
+}
 
 var AREAS = [
-  { n: 'plant', x0: -1150, x1: 1200, z0: -400, z1: 700, cap: 12, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'out_e1', x0: -900, x1: -780, z0: -600, z1: -480, cap: 8, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
-  { n: 'out_e2', x0: -700, x1: -580, z0: -1150, z1: -1030, cap: 8, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
-  { n: 'front_en', x0: -995, x1: -880, z0: -1250, z1: -700, cap: 8, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
-  { n: 'front_es', x0: -1060, x1: -900, z0: -700, z1: -200, cap: 8, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
-  { n: 'sk_out_e', x0: -760, x1: -660, z0: -950, z1: -850, cap: 8, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
-  { n: 'town', x0: -3750, x1: -1800, z0: -3750, z1: -1400, cap: 12, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'out_w1', x0: -1560, x1: -1440, z0: -1120, z1: -1000, cap: 8, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
-  { n: 'out_w2', x0: -1500, x1: -1380, z0: -600, z1: -480, cap: 8, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
-  { n: 'front_wn', x0: -1290, x1: -1100, z0: -1250, z1: -700, cap: 8, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
-  { n: 'front_ws', x0: -1380, x1: -1210, z0: -700, z1: -200, cap: 8, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
-  { n: 'sk_out_w', x0: -1070, x1: -1000, z0: -1000, z1: -920, cap: 8, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
-  { n: 'woods', x0: -2450, x1: -1600, z0: -1350, z1: 100, cap: 10, pool: ['minecraft:pillager', 'minecraft:pillager', 'minecraft:vindicator', 'minecraft:evoker', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'skad', x0: -1088, x1: -625, z0: -1488, z1: -737, cap: 10, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'sk_hosp', x0: -960, x1: -690, z0: -1344, z1: -1240, cap: 10, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'sk_town', x0: -980, x1: -660, z0: -1240, z1: -1000, cap: 10, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'sk_south', x0: -980, x1: -660, z0: -1000, z1: -760, cap: 10, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'tw_stad', x0: -2503, x1: -2287, z0: -3584, z1: -3381, cap: 10, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'tw_centre', x0: -2540, x1: -2220, z0: -3105, z1: -2845, cap: 10, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'tw_slabs', x0: -3650, x1: -2900, z0: -3255, z1: -2710, cap: 10, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'tw_blocks', x0: -2400, x1: -1890, z0: -2350, z1: -1730, cap: 10, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'pl_react', x0: -743, x1: -541, z0: 337, z1: 699, cap: 10, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'pl_turb', x0: -13, x1: 824, z0: 546, z1: 634, cap: 10, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'pl_admin', x0: -199, x1: 375, z0: 36, z1: 372, cap: 10, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'pl_switch', x0: -957, x1: -708, z0: 37, z1: 184, cap: 10, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
-  { n: 'farm', x0: -2200, x1: -2020, z0: -990, z1: -800, cap: 10, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] }
+  { n: 'plant', x0: -1150, x1: 1200, z0: -400, z1: 700, cap: 7, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
+  { n: 'out_e1', x0: -900, x1: -780, z0: -600, z1: -480, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
+  { n: 'out_e2', x0: -700, x1: -580, z0: -1150, z1: -1030, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
+  { n: 'front_en', x0: -995, x1: -880, z0: -1250, z1: -700, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
+  { n: 'front_es', x0: -1060, x1: -900, z0: -700, z1: -200, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
+  { n: 'sk_out_e', x0: -768, x1: -640, z0: -1000, z1: -820, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
+  { n: 'town', x0: -3750, x1: -1800, z0: -3750, z1: -1400, cap: 8, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:vindicator', 'dragonrise_reforge:terrorist'] },
+  { n: 'out_w1', x0: -1560, x1: -1440, z0: -1120, z1: -1000, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
+  { n: 'out_w2', x0: -1500, x1: -1380, z0: -600, z1: -480, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
+  { n: 'front_wn', x0: -1290, x1: -1100, z0: -1250, z1: -700, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
+  { n: 'front_ws', x0: -1380, x1: -1210, z0: -700, z1: -200, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
+  { n: 'sk_out_w', x0: -1088, x1: -1000, z0: -1060, z1: -860, cap: 5, pool: ['immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:commando', 'immersiveengineering:fusilier', 'immersiveengineering:bulwark', 'minecraft:pillager', 'minecraft:pillager'] },
+  { n: 'woods', x0: -2450, x1: -1600, z0: -1350, z1: 100, cap: 7, pool: ['minecraft:pillager', 'minecraft:pillager', 'minecraft:vindicator', 'dragonrise_reforge:terrorist', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
+  { n: 'skad', x0: -1088, x1: -625, z0: -1488, z1: -737, cap: 7, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:vindicator', 'dragonrise_reforge:terrorist'] },
+  { n: 'sk_hosp', x0: -960, x1: -690, z0: -1344, z1: -1240, cap: 6, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
+  { n: 'sk_town', x0: -980, x1: -660, z0: -1240, z1: -1000, cap: 7, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:vindicator', 'dragonrise_reforge:terrorist'] },
+  { n: 'sk_south', x0: -980, x1: -660, z0: -1000, z1: -760, cap: 7, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:vindicator', 'dragonrise_reforge:terrorist'] },
+  { n: 'tw_stad', x0: -2503, x1: -2287, z0: -3584, z1: -3381, cap: 6, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
+  { n: 'tw_centre', x0: -2540, x1: -2220, z0: -3105, z1: -2845, cap: 6, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
+  { n: 'tw_slabs', x0: -3650, x1: -2900, z0: -3255, z1: -2710, cap: 6, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
+  { n: 'tw_blocks', x0: -2400, x1: -1890, z0: -2350, z1: -1730, cap: 7, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:vindicator', 'dragonrise_reforge:terrorist'] },
+  { n: 'pl_react', x0: -743, x1: -541, z0: 337, z1: 699, cap: 6, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
+  { n: 'pl_turb', x0: -13, x1: 824, z0: 546, z1: 634, cap: 6, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
+  { n: 'pl_admin', x0: -199, x1: 375, z0: 36, z1: 372, cap: 6, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
+  { n: 'pl_switch', x0: -957, x1: -708, z0: 37, z1: 184, cap: 6, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager'] },
+  { n: 'farm', x0: -2200, x1: -2020, z0: -990, z1: -800, cap: 7, pool: ['minecraft:zombie', 'minecraft:zombie', 'minecraft:zombie', 'minecraft:husk', 'minecraft:zombie_villager', 'minecraft:pillager', 'minecraft:pillager', 'minecraft:vindicator', 'dragonrise_reforge:terrorist'] }
 ];
+
+// the entity kinds the spawner places, plus the hostiles vanilla puts in the same ground: these are
+// what the local ceiling counts, and nothing else
+var OURS = ['zombie', 'husk', 'drowned', 'pillager', 'vindicator', 'terrorist', 'commando',
+            'fusilier', 'bulwark', 'skeleton', 'stray', 'spider', 'creeper', 'enderman',
+            'pomkotsmechs'];
+
+function isOurs(t) {
+  for (var i = 0; i < OURS.length; i++) {
+    if (t.indexOf(OURS[i]) >= 0) return true;
+  }
+  return false;
+}
 
 function areaAt(x, z) {
   for (var i = 0; i < AREAS.length; i++) {
@@ -85,7 +129,9 @@ function tryPlace(level, px, py, pz, area) {
     var dist = MIN_RADIUS + Math.random() * (RADIUS - MIN_RADIUS);
     var x = Math.floor(px + Math.cos(ang) * dist);
     var z = Math.floor(pz + Math.sin(ang) * dist);
-    if (!areaAt(x, z)) { gsDiag.outside++; continue; }   // stay inside the box that asked for it
+    // stay inside the box that asked for it; the open-ground pool has no box to stay inside
+    if (inDeny(x, z)) { gsDiag.outside++; continue; }
+    if (area.x0 !== undefined && !areaAt(x, z)) { gsDiag.outside++; continue; }
     var found = false;
     for (var dy = 10; dy >= -24; dy--) {      // wide enough for a player on a roof or in a cellar
       var y = py + dy;
@@ -117,19 +163,26 @@ ServerEvents.tick(event => {
     if (!players || players.length === 0) return;      // nobody about: cost nothing
     for (var i = 0; i < players.length; i++) {
       var p = players[i];
-      var area = areaAt(Math.floor(p.x), Math.floor(p.z));
-      if (!area) continue;
+      var area = areaAt(Math.floor(p.x), Math.floor(p.z)) || ANYWHERE;
+      var inSafe = inDeny(Math.floor(p.x), Math.floor(p.z));
       var level = p.level;
       var near = level.getEntitiesWithin(
-        AABB.of(p.x - COUNT_BOX, p.y - 40, p.z - COUNT_BOX,
-                p.x + COUNT_BOX, p.y + 40, p.z + COUNT_BOX));
+        AABB.of(p.x - COUNT_BOX, p.y - COUNT_Y, p.z - COUNT_BOX,
+                p.x + COUNT_BOX, p.y + COUNT_Y, p.z + COUNT_BOX));
+      // Count only what this spawner is responsible for. Counting every entity meant villagers,
+      // animals, item frames and boats filled the ceiling before a single mob was placed - the log read
+      // "near=14/10 placed=false" in a town square with no hostiles in sight.
       var n = 0;
       for (var k = 0; k < near.length; k++) {
-        var t = String(near[k].type);
-        if (t.indexOf('player') < 0 && t.indexOf('item') < 0) n++;
+        if (isOurs(String(near[k].type))) n++;
       }
-      if (n >= area.cap) continue;
-      tryPlace(level, Math.floor(p.x), Math.floor(p.y), Math.floor(p.z), area);
+      var placed = (n < area.cap)
+        && tryPlace(level, Math.floor(p.x), Math.floor(p.y), Math.floor(p.z), area);
+      if (DEBUG) {
+        console.info('[gscraft][spawn] ' + p.username + ' in ' + area.n + ' near=' + n
+                     + '/' + area.cap + ' placed=' + placed
+                     + (inSafe ? ' (standing in a no-spawn build)' : ''));
+      }
     }
   } catch (err) {
     console.error('[gscraft] area spawner failed: ' + err);

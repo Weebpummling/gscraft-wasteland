@@ -98,8 +98,10 @@ BOXES = {
     # ---- the two outposts at Skadowsky, which is where the player meets both armies. The south-west
     # bridge (x -1104..-981, deck z -957..-936) is the only crossing on this side, so the western army
     # holds a bridgehead on the near bank and the eastern army sits on the rail yard opposite it.
-    "sk_out_w": (-1070, -1000, -1000, -920, "the bridgehead, west of the camp, on the crossing"),
-    "sk_out_e": (-760, -660, -950, -850, "the rail yard outpost, east of the camp"),
+    # Widened 2026-09-09: at 70 x 80 and 100 x 100 a player had to stand inside the box to meet either
+    # garrison, so Skadowsky read as empty of both armies. Still clear of the camp and of each other.
+    "sk_out_w": (-1088, -1000, -1060, -860, "the bridgehead, west of the camp, on the crossing"),
+    "sk_out_e": (-768, -640, -1000, -820, "the rail yard outpost, east of the camp"),
 }
 
 BUILDS = ("camp", "krot", "mega", "indu", "lib", "runway", "hub", "plaza", "novo", "biogen")
