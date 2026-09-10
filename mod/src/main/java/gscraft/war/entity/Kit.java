@@ -41,6 +41,20 @@ public final class Kit {
             if (rank == null) GscraftWar.LOG.warn("[gscraft] pinned rank '{}' is not a {} rank; rolling", pinned, faction);
         }
         if (rank == null) rank = pick(ranks, random);
+        equipRank(mob, rank);
+        return rank;
+    }
+
+    /** Dress the mob as one rank rolled from the given pool; null for an empty pool. */
+    @Nullable
+    public static RankDef issueFrom(Mob mob, List<RankDef> pool, RandomSource random) {
+        if (pool.isEmpty()) return null;
+        RankDef rank = pick(pool, random);
+        equipRank(mob, rank);
+        return rank;
+    }
+
+    private static void equipRank(Mob mob, RankDef rank) {
         equip(mob, EquipmentSlot.HEAD, rank.head());
         equip(mob, EquipmentSlot.CHEST, rank.chest());
         equip(mob, EquipmentSlot.LEGS, rank.legs());
@@ -51,7 +65,6 @@ public final class Kit {
             equip(mob, EquipmentSlot.MAINHAND, rank.melee());
         }
         equip(mob, EquipmentSlot.OFFHAND, rank.offhand());
-        return rank;
     }
 
     private static RankDef pick(List<RankDef> ranks, RandomSource random) {

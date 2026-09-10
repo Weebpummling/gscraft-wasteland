@@ -28,6 +28,8 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.ai.goal.MoveTowardsRestrictionGoal;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
@@ -37,7 +39,7 @@ import javax.annotation.Nullable;
  * illagers the factions stood up as before carry no armour layer, so every kit was invisible. A Monster on
  * purpose: turrets, guards and recruits already treat monsters as the enemy, and the armies are.
  */
-public class Soldier extends Monster implements FactionMember, Skinned, GunUser, Hearing {
+public class Soldier extends Monster implements FactionMember, Skinned, GunUser, Hearing, Homed {
     private static final EntityDataAccessor<Integer> SKIN =
             SynchedEntityData.defineId(Soldier.class, EntityDataSerializers.INT);
 
@@ -92,6 +94,13 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
     }
 
     @Override
+    public void setHome(BlockPos post, int radius) {
+        state.home = post;
+        state.homeRadius = radius;
+        state.applyHome(this);
+    }
+
+    @Override
     public void hear(Vec3 pos) {
         if (investigate != null) investigate.hear(pos);
     }
@@ -115,6 +124,7 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
         // assigned here, not at the field: Mob's constructor calls registerGoals before field initialisers run
         investigate = new InvestigateGoal(this);
         goalSelector.addGoal(5, investigate);
+        goalSelector.addGoal(6, new MoveTowardsRestrictionGoal(this, 1.0D));
         goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 0.8D));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 16.0F));
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));
@@ -184,6 +194,7 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         state.load(tag);
+        state.applyHome(this);
         entityData.set(SKIN, tag.getInt("GscraftSkin"));
     }
 }

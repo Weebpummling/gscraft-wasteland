@@ -33,6 +33,8 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.ai.goal.MoveTowardsRestrictionGoal;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
@@ -48,7 +50,7 @@ import java.util.UUID;
  * A strike is remembered by the whole band, not only the one who was hit: every Scavenger within 24 blocks takes
  * the grudge, and keeps it through a save. Team standing (review W1) builds on this in a later phase.
  */
-public class Scavenger extends PathfinderMob implements FactionMember, Skinned, Grudging, GunUser, Hearing {
+public class Scavenger extends PathfinderMob implements FactionMember, Skinned, Grudging, GunUser, Hearing, Homed {
     public static final String FACTION = "scavengers";
     private static final double BAND_RADIUS = 24.0D;
     private static final EntityDataAccessor<Integer> SKIN =
@@ -113,6 +115,13 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
     }
 
     @Override
+    public void setHome(BlockPos post, int radius) {
+        state.home = post;
+        state.homeRadius = radius;
+        state.applyHome(this);
+    }
+
+    @Override
     public void hear(Vec3 pos) {
         if (investigate != null) investigate.hear(pos);
     }
@@ -136,6 +145,7 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
         // assigned here, not at the field: Mob's constructor calls registerGoals before field initialisers run
         investigate = new InvestigateGoal(this);
         goalSelector.addGoal(5, investigate);
+        goalSelector.addGoal(6, new MoveTowardsRestrictionGoal(this, 1.0D));
         goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 0.8D));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 12.0F));
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));
@@ -205,6 +215,7 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         state.load(tag);
+        state.applyHome(this);
         entityData.set(SKIN, tag.getInt("GscraftSkin"));
         grudges.clear();
         for (Tag t : tag.getList("GscraftGrudges", Tag.TAG_INT_ARRAY)) grudges.add(NbtUtils.loadUUID(t));

@@ -55,6 +55,7 @@ public final class WarEvents {
     public static void reloadListeners(AddReloadListenerEvent event) {
         event.addListener(new Factions());
         event.addListener(new Ranks());
+        event.addListener(new gscraft.war.world.Zones());
     }
 
     /**

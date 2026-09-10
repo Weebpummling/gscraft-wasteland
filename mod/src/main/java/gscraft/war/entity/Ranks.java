@@ -61,6 +61,13 @@ public final class Ranks extends SimpleJsonResourceReloadListener {
         return byFaction.getOrDefault(faction, List.of());
     }
 
+    public static RankDef named(String faction, String name) {
+        for (RankDef r : forFaction(faction)) {
+            if (r.name().equals(name)) return r;
+        }
+        return null;
+    }
+
     public static Map<String, List<RankDef>> all() {
         return byFaction;
     }

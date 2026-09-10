@@ -1,0 +1,22 @@
+{
+  "ranks": [
+    {"name": "The Dead", "weight": 92, "role": "rifleman"},
+    {"name": "Peacekeeper", "weight": 8, "role": "rifleman",
+     "head": "dragonrise_reforge:un_helmet", "chest": "dragonrise_reforge:msv_chest", "legs": "dragonrise_reforge:msv_pants"},
+    {"name": "Plant Worker", "weight": 65, "role": "rifleman",
+     "head": "immersiveengineering:armor_faraday_helmet", "chest": "immersiveengineering:armor_faraday_chestplate",
+     "legs": "immersiveengineering:armor_faraday_leggings", "feet": "immersiveengineering:armor_faraday_boots",
+     "melee": "superbwarfare:crowbar"},
+    {"name": "Containment Crew", "weight": 35, "role": "rifleman",
+     "head": "createbigcannons:gas_mask", "chest": "immersiveengineering:armor_faraday_chestplate",
+     "legs": "immersiveengineering:armor_faraday_leggings", "feet": "immersiveengineering:armor_faraday_boots",
+     "melee": "superbwarfare:crowbar"},
+    {"name": "The Infected", "weight": 1, "role": "rifleman", "chest": "dragonrise_reforge:med21_chest"},
+    {"name": "Yard Hand", "weight": 30, "role": "rifleman",
+     "chest": "dragonrise_reforge:gorka3", "legs": "dragonrise_reforge:gorka3_leggings", "melee": "superbwarfare:military_shovel"},
+    {"name": "The Drowned", "weight": 1, "role": "rifleman",
+     "head": "create:copper_diving_helmet", "chest": "create:copper_backtank", "feet": "create:copper_diving_boots"},
+    {"name": "Drowned Patrol", "weight": 1, "role": "rifleman",
+     "head": "dragonrise_reforge:ocean07_helmet", "chest": "dragonrise_reforge:ocean07_chest", "legs": "dragonrise_reforge:ocean07_pants"}
+  ]
+}

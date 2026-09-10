@@ -1,0 +1,848 @@
+{
+ "zones": [
+  {
+   "name": "camp",
+   "box": [
+    -978,
+    -770,
+    -1060,
+    -845
+   ],
+   "note": "the camp in Skadowsky (sectors_v8)",
+   "exclude": true
+  },
+  {
+   "name": "krot",
+   "box": [
+    -3392,
+    -3073,
+    -1344,
+    -1025
+   ],
+   "note": "KROT - WIP, extent known stale, see the docstring",
+   "exclude": true
+  },
+  {
+   "name": "mega",
+   "box": [
+    368,
+    751,
+    -2128,
+    -1601
+   ],
+   "note": "the mega-base (sectors_v8)",
+   "exclude": true
+  },
+  {
+   "name": "indu",
+   "box": [
+    336,
+    799,
+    -1376,
+    -1105
+   ],
+   "note": "the industrial district (sectors_v8)",
+   "exclude": true
+  },
+  {
+   "name": "lib",
+   "box": [
+    -2480,
+    -2385,
+    -3808,
+    -3713
+   ],
+   "note": "the library (sectors_v8)",
+   "exclude": true
+  },
+  {
+   "name": "runway",
+   "box": [
+    -2064,
+    -1553,
+    -3792,
+    -3601
+   ],
+   "note": "the runway pad (sectors_v8)",
+   "exclude": true
+  },
+  {
+   "name": "hub",
+   "box": [
+    -3568,
+    -2385,
+    -1008,
+    700
+   ],
+   "note": "Novo Expograd, the desert city - deferred",
+   "exclude": true
+  },
+  {
+   "name": "plaza",
+   "box": [
+    -2352,
+    -2193,
+    -1008,
+    -865
+   ],
+   "note": "Financial Plaza and sewers - deferred",
+   "exclude": true
+  },
+  {
+   "name": "novo",
+   "box": [
+    -2352,
+    -2209,
+    -832,
+    -673
+   ],
+   "note": "Novo Industrial Zone - deferred",
+   "exclude": true
+  },
+  {
+   "name": "biogen",
+   "box": [
+    -2352,
+    -2289,
+    -640,
+    -529
+   ],
+   "note": "Bio Gen offices - deferred",
+   "exclude": true
+  },
+  {
+   "name": "sk_out_w",
+   "box": [
+    -1088,
+    -1000,
+    -1060,
+    -860
+   ],
+   "note": "the bridgehead, west of the camp, on the crossing",
+   "cap": 5,
+   "spawns": [
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 2
+    }
+   ],
+   "garrison": {
+    "entity": "gscraft:ruaf_soldier",
+    "count": 3,
+    "refill_minutes": 10
+   }
+  },
+  {
+   "name": "sk_out_e",
+   "box": [
+    -768,
+    -640,
+    -1000,
+    -820
+   ],
+   "note": "the rail yard outpost, east of the camp",
+   "cap": 5,
+   "spawns": [
+    {
+     "entity": "gscraft:nato_soldier",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 2
+    }
+   ],
+   "garrison": {
+    "entity": "gscraft:nato_soldier",
+    "count": 3,
+    "refill_minutes": 10
+   }
+  },
+  {
+   "name": "out_w1",
+   "box": [
+    -1560,
+    -1440,
+    -1120,
+    -1000
+   ],
+   "note": "western outpost, north: east of the Woods toward the river",
+   "cap": 5,
+   "spawns": [
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 2
+    }
+   ],
+   "garrison": {
+    "entity": "gscraft:ruaf_soldier",
+    "count": 4,
+    "refill_minutes": 10
+   }
+  },
+  {
+   "name": "out_w2",
+   "box": [
+    -1500,
+    -1380,
+    -600,
+    -480
+   ],
+   "note": "western outpost, south: the open ground above the farm road",
+   "cap": 5,
+   "spawns": [
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 2
+    }
+   ],
+   "garrison": {
+    "entity": "gscraft:ruaf_soldier",
+    "count": 4,
+    "refill_minutes": 10
+   }
+  },
+  {
+   "name": "out_e1",
+   "box": [
+    -900,
+    -780,
+    -600,
+    -480
+   ],
+   "note": "eastern outpost, south: between the river and the plant's west gate",
+   "cap": 5,
+   "spawns": [
+    {
+     "entity": "gscraft:nato_soldier",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 2
+    }
+   ],
+   "garrison": {
+    "entity": "gscraft:nato_soldier",
+    "count": 4,
+    "refill_minutes": 10
+   }
+  },
+  {
+   "name": "out_e2",
+   "box": [
+    -700,
+    -580,
+    -1150,
+    -1030
+   ],
+   "note": "eastern outpost, north: the ground above the rail corridor",
+   "cap": 5,
+   "spawns": [
+    {
+     "entity": "gscraft:nato_soldier",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 2
+    }
+   ],
+   "garrison": {
+    "entity": "gscraft:nato_soldier",
+    "count": 4,
+    "refill_minutes": 10
+   }
+  },
+  {
+   "name": "front_wn",
+   "box": [
+    -1290,
+    -1100,
+    -1250,
+    -700
+   ],
+   "note": "west bank, north reach - the river runs x -1080 here",
+   "cap": 5,
+   "spawns": [
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 2
+    }
+   ]
+  },
+  {
+   "name": "front_ws",
+   "box": [
+    -1380,
+    -1210,
+    -700,
+    -200
+   ],
+   "note": "west bank, south reach - the river bends out to x -1200",
+   "cap": 5,
+   "spawns": [
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 2
+    }
+   ]
+  },
+  {
+   "name": "front_en",
+   "box": [
+    -995,
+    -880,
+    -1250,
+    -700
+   ],
+   "note": "east bank, north reach",
+   "cap": 5,
+   "spawns": [
+    {
+     "entity": "gscraft:nato_soldier",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 2
+    }
+   ]
+  },
+  {
+   "name": "front_es",
+   "box": [
+    -1060,
+    -900,
+    -700,
+    -200
+   ],
+   "note": "east bank, south reach",
+   "cap": 5,
+   "spawns": [
+    {
+     "entity": "gscraft:nato_soldier",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 2
+    }
+   ]
+  },
+  {
+   "name": "sk_hosp",
+   "box": [
+    -960,
+    -690,
+    -1344,
+    -1240
+   ],
+   "note": "the hospital cluster; design gives x -865..-698, z -1312..-1242",
+   "cap": 6,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    }
+   ],
+   "dead_ranks": [
+    "The Infected"
+   ],
+   "horrors": [
+    {
+     "entity": "the_knocker:knocker",
+     "night": true,
+     "chance": 0.03
+    }
+   ]
+  },
+  {
+   "name": "sk_town",
+   "box": [
+    -980,
+    -660,
+    -1240,
+    -1000
+   ],
+   "note": "the central streets between the hospital and the camp",
+   "cap": 7,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "The Dead"
+   ]
+  },
+  {
+   "name": "sk_south",
+   "box": [
+    -980,
+    -660,
+    -1000,
+    -760
+   ],
+   "note": "the southern cluster: the station, the yard and the rail",
+   "cap": 7,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "Yard Hand",
+    "The Dead"
+   ]
+  },
+  {
+   "name": "pl_react",
+   "box": [
+    -743,
+    -541,
+    337,
+    699
+   ],
+   "note": "the confinement hall over the reactor, 202 x 362",
+   "cap": 6,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    }
+   ],
+   "dead_ranks": [
+    "Containment Crew",
+    "Plant Worker"
+   ]
+  },
+  {
+   "name": "pl_turb",
+   "box": [
+    -13,
+    824,
+    546,
+    634
+   ],
+   "note": "the turbine hall, 837 x 88",
+   "cap": 6,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:nato_soldier",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "Plant Worker"
+   ],
+   "horrors": [
+    {
+     "entity": "eyesinthedarkness:eyes",
+     "night": true,
+     "chance": 0.02
+    }
+   ]
+  },
+  {
+   "name": "pl_admin",
+   "box": [
+    -199,
+    375,
+    36,
+    372
+   ],
+   "note": "administration and workshop block, 574 x 336",
+   "cap": 6,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    }
+   ],
+   "dead_ranks": [
+    "Plant Worker"
+   ]
+  },
+  {
+   "name": "pl_switch",
+   "box": [
+    -957,
+    -708,
+    37,
+    184
+   ],
+   "note": "the four low halls: switchyard and storage bays",
+   "cap": 6,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:nato_soldier",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "Plant Worker"
+   ]
+  },
+  {
+   "name": "pl_intake",
+   "box": [
+    606,
+    1180,
+    -101,
+    413
+   ],
+   "note": "cooling-water intake works, 573 x 514",
+   "cap": 6,
+   "spawns": [
+    {
+     "entity": "minecraft:drowned",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "The Drowned"
+   ]
+  },
+  {
+   "name": "tw_stad",
+   "box": [
+    -2503,
+    -2287,
+    -3584,
+    -3381
+   ],
+   "note": "the stadium, running track and grandstand",
+   "cap": 6,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 1
+    }
+   ],
+   "dead_ranks": [
+    "Peacekeeper",
+    "The Dead"
+   ]
+  },
+  {
+   "name": "tw_centre",
+   "box": [
+    -2540,
+    -2220,
+    -3105,
+    -2845
+   ],
+   "note": "the park, the radiating avenues and the roundabout",
+   "cap": 6,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "Peacekeeper",
+    "The Dead"
+   ]
+  },
+  {
+   "name": "tw_slabs",
+   "box": [
+    -3650,
+    -2900,
+    -3255,
+    -2710
+   ],
+   "note": "the long slab blocks of the west and north-west quarters",
+   "cap": 6,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "Peacekeeper",
+    "The Dead"
+   ]
+  },
+  {
+   "name": "tw_blocks",
+   "box": [
+    -2400,
+    -1890,
+    -2350,
+    -1730
+   ],
+   "note": "the microdistrict and courtyard blocks, south-east",
+   "cap": 7,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 2
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 1
+    }
+   ],
+   "dead_ranks": [
+    "Peacekeeper",
+    "The Dead"
+   ]
+  },
+  {
+   "name": "tw_bridge",
+   "box": [
+    -926,
+    -882,
+    -2353,
+    -2051
+   ],
+   "note": "the rail bridge over the water, south approach",
+   "cap": 6,
+   "spawns": [
+    {
+     "entity": "minecraft:drowned",
+     "weight": 5
+    }
+   ],
+   "dead_ranks": [
+    "Drowned Patrol"
+   ]
+  },
+  {
+   "name": "skad",
+   "box": [
+    -1088,
+    -625,
+    -1488,
+    -737
+   ],
+   "note": "the Skadowsky sector (sectors_v8); the camp inside is denied",
+   "cap": 7,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "The Dead"
+   ]
+  },
+  {
+   "name": "plant",
+   "box": [
+    -1150,
+    1200,
+    -400,
+    700
+   ],
+   "note": "the power station complex (poi-coordinates \u00a72)",
+   "cap": 7,
+   "spawns": [
+    {
+     "entity": "gscraft:nato_soldier",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    }
+   ],
+   "dead_ranks": [
+    "Plant Worker",
+    "The Dead"
+   ]
+  },
+  {
+   "name": "town",
+   "box": [
+    -3750,
+    -1800,
+    -3750,
+    -1400
+   ],
+   "note": "Pripyat, the ruin field (poi-coordinates \u00a72)",
+   "cap": 8,
+   "spawns": [
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 1
+    }
+   ],
+   "dead_ranks": [
+    "Peacekeeper",
+    "The Dead"
+   ]
+  },
+  {
+   "name": "woods",
+   "box": [
+    -2450,
+    -1600,
+    -1350,
+    100
+   ],
+   "note": "standing forest (poi-coordinates \u00a72)",
+   "cap": 7,
+   "spawns": [
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 4
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    }
+   ],
+   "dead_ranks": [
+    "The Dead"
+   ],
+   "horrors": [
+    {
+     "entity": "man:manfromthefog",
+     "night": true,
+     "chance": 0.02
+    }
+   ]
+  },
+  {
+   "name": "farm",
+   "box": [
+    -2200,
+    -2020,
+    -990,
+    -800
+   ],
+   "note": "the collective farm's fields, around the farmstead",
+   "cap": 7,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "The Dead"
+   ]
+  },
+  {
+   "name": "farbank",
+   "box": [
+    -1050,
+    -600,
+    -1000,
+    -380
+   ],
+   "note": "the east-bank spine, from the rail yard south",
+   "cap": 5,
+   "spawns": [
+    {
+     "entity": "gscraft:nato_soldier",
+     "weight": 3
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 3
+    }
+   ],
+   "dead_ranks": [
+    "The Dead"
+   ]
+  },
+  {
+   "name": "open",
+   "cap": 4,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "The Dead"
+   ]
+  }
+ ]
+}

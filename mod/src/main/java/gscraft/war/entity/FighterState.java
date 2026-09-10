@@ -1,6 +1,8 @@
 package gscraft.war.entity;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.entity.Mob;
 
 /**
  * The rank a fighter was issued and what it has left, saved with the entity. {@code GscraftRank} on a summon pins
@@ -13,6 +15,9 @@ public final class FighterState {
     public Role role;
     public int magazines;
     public boolean outOfAmmo;
+    /** a garrison member's post; radius 0 means it roams */
+    public BlockPos home = BlockPos.ZERO;
+    public int homeRadius;
 
     public FighterState(Role defaultRole) {
         this.role = defaultRole;
@@ -32,6 +37,10 @@ public final class FighterState {
         tag.putString("GscraftRole", role.name());
         tag.putInt("GscraftMagazines", magazines);
         tag.putBoolean("GscraftOutOfAmmo", outOfAmmo);
+        if (homeRadius > 0) {
+            tag.putLong("GscraftHome", home.asLong());
+            tag.putInt("GscraftHomeRadius", homeRadius);
+        }
     }
 
     public void load(CompoundTag tag) {
@@ -40,5 +49,14 @@ public final class FighterState {
         if (tag.contains("GscraftRole")) role = Role.parse(tag.getString("GscraftRole"));
         if (tag.contains("GscraftMagazines")) magazines = tag.getInt("GscraftMagazines");
         outOfAmmo = tag.getBoolean("GscraftOutOfAmmo");
+        if (tag.contains("GscraftHomeRadius")) {
+            home = BlockPos.of(tag.getLong("GscraftHome"));
+            homeRadius = tag.getInt("GscraftHomeRadius");
+        }
+    }
+
+    /** re-bind the mob to its post; restrictTo itself is not saved by vanilla */
+    public void applyHome(Mob mob) {
+        if (homeRadius > 0) mob.restrictTo(home, homeRadius);
     }
 }
