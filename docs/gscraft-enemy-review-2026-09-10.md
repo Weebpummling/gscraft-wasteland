@@ -78,10 +78,10 @@ mod will build whatever they say, so these come first.
 | Rank | Kit change from today | What it does that an illager could not |
 |---|---|---|
 | Rifleman | — | the line: bursts, holds ground, reloads in cover |
-| Sergeant (≈1 in 8) | fast helmet, kr06 vest | **leads a squad**: picks the squad's target, orders the fall-back when the squad is under half strength |
-| Marksman | sniper21 helmet, a scoped TACZ rifle chosen in test | overwatch from height; long aim time, one heavy shot. Pillager's Gun's laser tell can be copied for fairness |
+| Sergeant (≈1 in 8) | the side's uniform (ruled 2026-09-10) | **leads a squad**: picks the squad's target, orders the fall-back when the squad is under half strength |
+| Marksman | the side's uniform, a scoped TACZ rifle chosen in test | overwatch from height; long aim time, one heavy shot. Pillager's Gun's laser tell can be copied for fairness |
 | Gunner | a TACZ machine gun chosen in test | suppression: fires at the player's **last known position** when sight is lost |
-| Shield | IE steel chest and legs, `minecraft:shield` (the pack's only shield) | actually **raises the shield** while advancing; the rest of the squad walks behind him |
+| Shield | the side's uniform, `minecraft:shield` (the pack's only shield) | actually **raises the shield** while advancing; the rest of the squad walks behind him |
 | Grenadier | as Rifleman | throws `superbwarfare` hand grenades or smoke **(jar: `HandGrenadeEntity`, `SmokeDecoyEntity`)** — only after a test proves `EXPLOSION_DESTROY = false` covers them **(test)** |
 
 Doctrine: **fewer, better protected, patient.** NATO holds posts and waits for the player to come to them.
@@ -324,7 +324,7 @@ and it was rolling gear onto the Dead after the director dressed them (lava buck
 Difficulty by distance goes with it; if difficulty scaling returns, it is the director's, per zone. RUAF's Skadowsky
 post moved into the town, to the brick block between the camp and the hospital (`sk_out_w`, centre -752, -1124).
 
-**Areas, ground and kit, 2026-09-10** (`tools/war_phase4b.py` 12 of 12; phases 4, 3 and 2 still 13, 8 and 8 of each). Owner asks: each
+**Areas, ground and kit, 2026-09-10** (`tools/war_phase4b.py` 13 of 13; phases 4, 3 and 2 still 13, 8 and 8 of each). Owner asks: each
 area with its own creatures; how underground placement affects surface density; thinner in the open, denser indoors;
 randomised Scavenger kit, limited variety for the armies.
 
@@ -351,9 +351,10 @@ randomised Scavenger kit, limited variety for the armies.
   underground placement in five skips the walkable rule, held to a quarter of the cap (tag `gs_sealed`). Open ground
   sees less of it (town street 15 %, Skadowsky street 6 % visible) because placement is further out; they walk in.
 - *Kit*: every rank slot is a weighted choice (`"none"` leaves it empty). Scavengers roll each slot: 20 different
-  loadouts in 20. NATO and RUAF keep one uniform per rank and vary the weapon (NATO Riflemen: 12 in the same vest,
+  loadouts in 20. NATO and RUAF wear their side's Rifleman uniform at every rank (owner: how ranks look different comes later) and
+  vary the weapon (NATO Riflemen: 12 in the same vest,
   M4A1 6 / HK416D 5 / M16A4 1). RUAF now draws on the CIBR pack already in the player pack (AK-105, AK-103, AK-24,
-  AS Val, PKP, SVD), and the RUAF Sergeant wears the MSV vest instead of the KR06 vest NATO's Sergeant wears.
+  AS Val, PKP, SVD). Scavengers carry a firearm or a melee weapon, never anything in the off-hand (owner).
 - *Commands*: `/gscraft env <x y z>`, `director passat|survey <x y z> …`, `director room <x z> <radius>`,
   `director horrors <x y z>`.
 

@@ -445,7 +445,7 @@ the hospital: `sk_out_w` x -784..-720, z -1148..-1100 (centre -752, -1124). The 
   `tools/war_zones.py`; zone order matters (first box wins) - `farm` now precedes `woods`, which had hidden it.
 - **Area creatures**: Bloater (plant), Matron (hospital lair, persistent, one), Riders (farm, farbank, open ground,
   night), cave spiders under the Woods, the town and open ground, Runners among the Dead.
-- **Kit**: every rank slot is a weighted choice. Scavengers roll each slot; NATO and RUAF keep one uniform per rank
+- **Kit**: every rank slot is a weighted choice. Scavengers roll each slot; NATO and RUAF wear their side's uniform at every rank
   and vary the rifle. RUAF uses the CIBR gun pack (`cib:ak105`, `ak103`, `ak24`, `asval`, `pkp`, `svd`), which ships
   in the player pack's `tacz/` folder already.
 - **Commands** added: `/gscraft env <x y z>`, `director passat <x y z> <n>`, `director survey <x y z> <samples>`

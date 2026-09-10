@@ -36,8 +36,17 @@
       "name": "NATO Sergeant",
       "weight": 12,
       "role": "sergeant",
-      "head": "dragonrise_reforge:fast_helmet",
-      "chest": "dragonrise_reforge:kr06_chest",
+      "head": [
+        {
+          "item": "superbwarfare:us_helmet_pasgt",
+          "weight": 7
+        },
+        {
+          "item": "dragonrise_reforge:fast_helmet",
+          "weight": 1
+        }
+      ],
+      "chest": "superbwarfare:us_chest_iotv",
       "legs": "dragonrise_reforge:kr06_pants",
       "gun": [
         {
@@ -59,7 +68,16 @@
       "name": "NATO Marksman",
       "weight": 10,
       "role": "marksman",
-      "head": "dragonrise_reforge:sniper21_helmet",
+      "head": [
+        {
+          "item": "superbwarfare:us_helmet_pasgt",
+          "weight": 7
+        },
+        {
+          "item": "dragonrise_reforge:fast_helmet",
+          "weight": 1
+        }
+      ],
       "chest": "superbwarfare:us_chest_iotv",
       "legs": "dragonrise_reforge:kr06_pants",
       "gun": [
@@ -82,7 +100,16 @@
       "name": "NATO Gunner",
       "weight": 10,
       "role": "gunner",
-      "head": "superbwarfare:us_helmet_pasgt",
+      "head": [
+        {
+          "item": "superbwarfare:us_helmet_pasgt",
+          "weight": 7
+        },
+        {
+          "item": "dragonrise_reforge:fast_helmet",
+          "weight": 1
+        }
+      ],
       "chest": "superbwarfare:us_chest_iotv",
       "legs": "dragonrise_reforge:kr06_pants",
       "gun": "tacz:m249",
@@ -92,10 +119,18 @@
       "name": "NATO Shield",
       "weight": 10,
       "role": "shield",
-      "head": "superbwarfare:us_helmet_pasgt",
-      "chest": "immersiveengineering:armor_steel_chestplate",
-      "legs": "immersiveengineering:armor_steel_leggings",
-      "feet": "immersiveengineering:armor_steel_boots",
+      "head": [
+        {
+          "item": "superbwarfare:us_helmet_pasgt",
+          "weight": 7
+        },
+        {
+          "item": "dragonrise_reforge:fast_helmet",
+          "weight": 1
+        }
+      ],
+      "chest": "superbwarfare:us_chest_iotv",
+      "legs": "dragonrise_reforge:kr06_pants",
       "gun": [
         {
           "item": "tacz:m9a4",

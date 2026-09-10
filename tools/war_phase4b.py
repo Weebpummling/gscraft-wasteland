@@ -8,7 +8,7 @@ war_phase3.py and war_phase2.py after it as the regression.
 4. The plant's Act III ground draws Bloaters.
 5. Riders come out on the collective farm's fields at night.
 6. A bunker draws cave spiders with its Dead.
-7. Scavengers never match; soldiers of one rank wear one uniform and vary only the rifle; a small share of
+7. Scavengers never match; every rank of a side wears that side's uniform and only the weapon varies; a small share of
    indoor spawns waits behind shut doors.
 8. The sweep: at surface, indoor and underground reference points, where the first version's placement landed
    against the layered one - same ground as the player, height from the player, visible, walkable.
@@ -184,11 +184,33 @@ with Site(-2000, -2600) as s:
     sergeant = c(f"summon gscraft:ruaf_soldier -2000 {sy} -2600 {{GscraftRank:\"RUAF Sergeant\",Tags:[\"rsgt\"]}}")
     time.sleep(1)
     sgt_chest = (val("@e[tag=rsgt,limit=1]", "ArmorItems[2].id") or "").strip('"')
-    check("RUAF Riflemen wear one uniform and vary the rifle; the Sergeant is not dressed as NATO's",
+    check("RUAF Riflemen wear one uniform and vary the rifle",
           n >= 4 and list(chests) == ["superbwarfare:ru_chest_6b43"]
           and set(guns) <= {"tacz:ak47", "cib:ak105", "cib:ak103"} and len(guns) >= 2
-          and sgt_chest == "dragonrise_reforge:msv_chest",
+          and sgt_chest == "superbwarfare:ru_chest_6b43",
           f"{n} riflemen; chests {dict(chests)}; rifles {dict(guns)}; sergeant's chest {sgt_chest}")
+
+# every rank of a side wears that side's Rifleman uniform (owner, 2026-09-10: ranks will differ later, not by clothes)
+UNIFORM = {"nato": ("superbwarfare:us_chest_iotv", "dragonrise_reforge:kr06_pants",
+                    {"superbwarfare:us_helmet_pasgt", "dragonrise_reforge:fast_helmet"}),
+           "ruaf": ("superbwarfare:ru_chest_6b43", "dragonrise_reforge:msv_pants", {"superbwarfare:ru_helmet_6b47"})}
+RANKS = {"nato": ["NATO Rifleman", "NATO Sergeant", "NATO Marksman", "NATO Gunner", "NATO Shield"],
+         "ruaf": ["RUAF Rifleman", "RUAF Sergeant", "RUAF Gunner", "RUAF Marksman", "RUAF Shield"]}
+with Site(-2000, -2600) as s:
+    sy = surface_y(-2000, -2600)
+    wrong = []
+    for row, (side, ranks) in enumerate(RANKS.items()):
+        chest, legs, heads = UNIFORM[side]
+        for i, rank in enumerate(ranks):
+            tag = f"uni_{side}{i}"
+            c(f'summon gscraft:{side}_soldier {-2000 + 2 * i} {sy} {-2600 + 4 * row} {{GscraftRank:"{rank}",Tags:["{tag}"]}}')
+        time.sleep(1)
+        for i, rank in enumerate(ranks):
+            sel = f"@e[tag=uni_{side}{i},limit=1]"
+            got = [(val(sel, f"ArmorItems[{k}].id") or "").strip('"') for k in (3, 2, 1, 0)]
+            if not (got[0] in heads and got[1] == chest and got[2] == legs and got[3] == ""):
+                wrong.append(f"{rank}: {got}")
+    check("every NATO and RUAF rank wears its side's uniform", not wrong, wrong or "10 ranks as their Riflemen")
 
 # a small share of indoor spawns waits behind shut doors, held to a quarter of the cap
 with Site(-752, -1124) as s:

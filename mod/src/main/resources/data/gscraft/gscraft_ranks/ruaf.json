@@ -28,7 +28,7 @@
       "weight": 12,
       "role": "sergeant",
       "head": "superbwarfare:ru_helmet_6b47",
-      "chest": "dragonrise_reforge:msv_chest",
+      "chest": "superbwarfare:ru_chest_6b43",
       "legs": "dragonrise_reforge:msv_pants",
       "gun": [
         {
@@ -69,7 +69,7 @@
       "name": "RUAF Marksman",
       "weight": 6,
       "role": "marksman",
-      "head": "dragonrise_reforge:sniper21_helmet",
+      "head": "superbwarfare:ru_helmet_6b47",
       "chest": "superbwarfare:ru_chest_6b43",
       "legs": "dragonrise_reforge:msv_pants",
       "gun": [
@@ -93,9 +93,8 @@
       "weight": 10,
       "role": "shield",
       "head": "superbwarfare:ru_helmet_6b47",
-      "chest": "immersiveengineering:armor_steel_chestplate",
-      "legs": "immersiveengineering:armor_steel_leggings",
-      "feet": "immersiveengineering:armor_steel_boots",
+      "chest": "superbwarfare:ru_chest_6b43",
+      "legs": "dragonrise_reforge:msv_pants",
       "gun": [
         {
           "item": "tacz:cz75",
