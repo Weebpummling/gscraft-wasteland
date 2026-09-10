@@ -51,7 +51,11 @@ BOXES = {
     "woods":   (-2450, -1600, -1350, 100, "standing forest (poi-coordinates §2)"),
     "plant":   (-1150, 1200, -400, 700, "the power station complex (poi-coordinates §2)"),
     "skad":    (-1088, -625, -1488, -737, "the Skadowsky sector (sectors_v8); the camp inside is denied"),
-    "farbank": (-1050, -600, -1000, -380, "the east-bank spine, derived in the design review §4c"),
+    # Deliberately overlaps Skadowsky's southern third. The design puts the spine's head at the rail
+    # yard, which is inside the sector (objectives §111, entities-v8 §164), and the owner's ruling is
+    # that a varied starting zone is wanted - so the Militia reach the yard rather than stopping at the
+    # sector line.
+    "farbank": (-1050, -600, -1000, -380, "the east-bank spine, from the rail yard south"),
     "farm":    (-2200, -2020, -990, -800, "the collective farm's fields, around the farmstead"),
 
     # Skadowsky, from a built-block density scan of the sector (2026-09-09): three clusters, north to
@@ -73,6 +77,29 @@ BOXES = {
     "tw_slabs": (-3650, -2900, -3255, -2710, "the long slab blocks of the west and north-west quarters"),
     "tw_blocks": (-2400, -1890, -2350, -1730, "the microdistrict and courtyard blocks, south-east"),
     "tw_bridge": (-926, -882, -2353, -2051, "the rail bridge over the water, south approach"),
+
+    # ---- the front. skadowsky_river runs from (-740,-1720) south to (-1350,700), so it bisects the
+    # cell: the town, the Woods, the farm and KROT are west of it; Skadowsky and the plant are east.
+    # The river is diagonal and an area is a box, so each bank takes two boxes rather than one, north
+    # and south, each kept clear of the water itself.
+    "front_wn": (-1290, -1100, -1250, -700, "west bank, north reach - the river runs x -1080 here"),
+    "front_ws": (-1380, -1210, -700, -200, "west bank, south reach - the river bends out to x -1200"),
+    # starts east of sk_out_w (which ends at -1000): the Column's bridgehead is on this bank, and the
+    # Militia rules are evaluated first, so an overlap here would fly the wrong flag over the crossing.
+    "front_en": (-995, -880, -1250, -700, "east bank, north reach"),
+    "front_es": (-1060, -900, -700, -200, "east bank, south reach"),
+
+    # ---- outposts, pushed out from each heartland toward the middle
+    "out_w1": (-1560, -1440, -1120, -1000, "western outpost, north: east of the Woods toward the river"),
+    "out_w2": (-1500, -1380, -600, -480, "western outpost, south: the open ground above the farm road"),
+    "out_e1": (-900, -780, -600, -480, "eastern outpost, south: between the river and the plant's west gate"),
+    "out_e2": (-700, -580, -1150, -1030, "eastern outpost, north: the ground above the rail corridor"),
+
+    # ---- the two outposts at Skadowsky, which is where the player meets both armies. The south-west
+    # bridge (x -1104..-981, deck z -957..-936) is the only crossing on this side, so the western army
+    # holds a bridgehead on the near bank and the eastern army sits on the rail yard opposite it.
+    "sk_out_w": (-1070, -1000, -1000, -920, "the bridgehead, west of the camp, on the crossing"),
+    "sk_out_e": (-760, -660, -950, -850, "the rail yard outpost, east of the camp"),
 }
 
 BUILDS = ("camp", "krot", "mega", "indu", "lib", "runway", "hub", "plaza", "novo", "biogen")

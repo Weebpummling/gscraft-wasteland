@@ -17,33 +17,35 @@ LOCALTEST = Path(__file__).resolve().parent / "localtest.py"
 
 # tag, entity, x, z, expected name (None = should not exist at all)
 PROBES = [
-    # the Militia, by rank, on the spine
-    ("mil_shield", "immersiveengineering:bulwark",  -825, -690, "Militia Shield"),
-    ("mil_gunner", "immersiveengineering:fusilier", -825, -690, "Militia Gunner"),
-    ("mil_troop",  "immersiveengineering:commando", -825, -690, ("Militia Trooper", "Militia Sergeant")),
-    ("mil_rifle",  "minecraft:pillager",            -825, -690, "Militia Rifleman"),
-    ("mil_plant",  "minecraft:pillager",             400,  590, "Militia Rifleman"),
+    # the Militia, east of the river
+    ("mil_plant", "minecraft:pillager",             400,   590, "Militia Rifleman"),
+    ("mil_out",   "immersiveengineering:bulwark",  -840,  -540, "Militia Shield"),
+    ("mil_front", "immersiveengineering:fusilier", -930, -1150, "Militia Gunner"),
+    ("mil_skad",  "minecraft:pillager",            -710,  -900, "Militia Rifleman"),
 
-    # the Dead, by site
+    # the Column, west of the river
+    ("col_town",  "minecraft:pillager",           -2400, -2900, "Column Rifleman"),
+    ("col_out",   "immersiveengineering:bulwark", -1500, -1060, "Column Shield"),
+    ("col_front", "immersiveengineering:fusilier",-1200, -1000, "Column Marksman"),
+    ("col_skad",  "minecraft:pillager",           -1035,  -960, "Column Rifleman"),
+
+    # the Dead: ambient everywhere, and by site where a site claims them
     ("dead_swit", "minecraft:zombie",  -815,   105, "Plant Worker"),
     ("dead_reac", "minecraft:zombie",  -642,   518, ("Plant Worker", "Containment Crew")),
-    ("dead_turb", "minecraft:zombie",   400,   590, "Plant Worker"),
     ("dead_hosp", "minecraft:zombie",  -782, -1277, "The Infected"),
     ("dead_yard", "minecraft:zombie",  -850,  -800, "Yard Hand"),
     ("dead_stad", "minecraft:zombie", -2395, -3482, ("The Dead", "Peacekeeper")),
-    ("dead_blok", "minecraft:zombie", -2100, -2000, "The Dead"),
-    ("dead_farm", "minecraft:zombie", -2100,  -900, "The Dead"),
+    ("dead_road", "minecraft:zombie", -1500, -2500, "The Dead"),
+    ("dead_wood", "minecraft:zombie", -2000,  -600, "The Dead"),
+    ("dead_far",  "minecraft:zombie",   900, -3000, "The Dead"),
 
-    # the drowned, where there is water
     ("drwn_intk", "minecraft:drowned",  893,   156, "The Drowned"),
     ("drwn_brdg", "minecraft:drowned", -904, -2200, "Drowned Patrol"),
 
-    # the Scavengers, four looks
-    # a pillager can roll the rare Scrapper or Captain variant, so any Scavenger-family name passes
-    ("scav_pill", "minecraft:pillager",   -2000,  -600, ("Scavenger", "Scrapper", "Scavenger Captain")),
-    ("scav_raid", "minecraft:vindicator", -2000,  -600, "Scavenger Raider"),
-    ("scav_eldr", "minecraft:evoker",     -2000,  -600, "Scavenger Elder"),
-    ("scav_road", "minecraft:pillager",   -1500, -2500, ("Scavenger", "Scrapper", "Scavenger Captain")),
+    # the Scavengers hold whatever neither army does
+    ("scav_wood", "minecraft:vindicator", -2000, -600, "Scavenger Raider"),
+    ("scav_road", "minecraft:pillager",   -1500, -2500,
+     ("Scavenger", "Scrapper", "Scavenger Captain")),
 
     # builds: nothing at all
     ("no_krot", "minecraft:zombie",   -3200, -1200, None),

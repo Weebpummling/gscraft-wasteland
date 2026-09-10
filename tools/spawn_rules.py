@@ -104,7 +104,9 @@ def item(i):
     return '{id:"' + i + '",Count:1b}'
 
 
-RIFLE = '{id:"tacz:modern_kinetic_gun",Count:1b,tag:{GunId:"tacz:type_81"}}'
+# The rifle matches the kit. A Type 81 is a Chinese rifle and read wrong on a US-kitted trooper; the
+# spine carries an M4, the plant's Russian-kitted garrison an AK. Both are in TACZ's 54.
+RIFLE = '{id:"tacz:modern_kinetic_gun",Count:1b,tag:{GunId:"tacz:m4a1"}}'
 CROWBAR, PIPE, SHOVEL = item(SBW + "crowbar"), item(SBW + "steel_pipe"), item(SBW + "military_shovel")
 CARD_SWORD = item(CR + "cardboard_sword")
 AK47 = '{id:"tacz:modern_kinetic_gun",Count:1b,tag:{GunId:"tacz:ak47"}}'
@@ -113,44 +115,60 @@ AK47 = '{id:"tacz:modern_kinetic_gun",Count:1b,tag:{GunId:"tacz:ak47"}}'
 #   areas   None means "anywhere not already claimed by a rule above"
 #   chance  None is always; a number is In Control's `random`, so the rank is a rare variant and must be
 #           listed BEFORE the common rank it varies, because the first matching rule wins
+# The two armies hold ground; the Dead are everywhere underneath them.
+#
+#   the Militia    US kit, an M4. Heartland the plant, east of the river. Outposts out_e1/out_e2, the
+#                  east bank of the front, and the rail yard at Skadowsky.
+#   the Column     Russian kit, an AK. Heartland the town, west of the river. Outposts out_w1/out_w2,
+#                  the west bank, and the bridgehead at Skadowsky.
+#
+# The river is the front and the south-west bridge is the only crossing on this side, which is why both
+# armies keep an outpost at Skadowsky: it is where the player meets each of them for the first time,
+# facing each other across the one crossing.
+#
+# The Dead are ambient everywhere and are listed last, with no denial after them. Their site variants
+# come first so a corpse at the switchyard is a plant worker and one in the hospital is a patient; the
+# plain rank at the end catches every other piece of ground in the cell.
+MIL_AREAS = ["plant", "out_e1", "out_e2", "front_en", "front_es", "sk_out_e"]
+COL_AREAS = ["town", "out_w1", "out_w2", "front_wn", "front_ws", "sk_out_w"]
+
 KITS = [
-    # ---- the Militia, the spine's checkpoint: US kit, and a Type 81 in the Rifleman's hands
-    ([COMMANDO], ["farbank"], "Militia Sergeant", SGT_H,    SGT_C,       TAC_LEGS, None,    None,    2, 0.12),
-    ([BULWARK],  ["farbank"], "Militia Shield",   PASGT,    STEEL_CHEST, STEEL_L,  STEEL_B, None,    3, None),
-    ([FUSILIER], ["farbank"], "Militia Gunner",   MARKSMAN, IOTV,        TAC_LEGS, None,    None,    3, None),
-    ([COMMANDO], ["farbank"], "Militia Trooper",  PASGT,    IOTV,        TAC_LEGS, None,    None,    6, None),
-    (PILL,       ["farbank"], "Militia Rifleman", PASGT,    IOTV,        TAC_LEGS, None,    RIFLE,   4, None),
+    # ---- the Militia: the unit that never stood down, holding the plant and the east bank
+    ([COMMANDO], MIL_AREAS, "Militia Sergeant", SGT_H,    SGT_C,       TAC_LEGS, None,    None,  3, 0.12),
+    ([BULWARK],  MIL_AREAS, "Militia Shield",   PASGT,    STEEL_CHEST, STEEL_L,  STEEL_B, None,  8, None),
+    ([FUSILIER], MIL_AREAS, "Militia Gunner",   MARKSMAN, IOTV,        TAC_LEGS, None,    None,  8, None),
+    ([COMMANDO], MIL_AREAS, "Militia Trooper",  PASGT,    IOTV,        TAC_LEGS, None,    None, 18, None),
+    (PILL,       MIL_AREAS, "Militia Rifleman", PASGT,    IOTV,        TAC_LEGS, None,    RIFLE,14, None),
 
-    # ---- the Militia, the plant garrison. The same army in the kit the plant's armoury held, which is
-    # the player's cue that they have crossed off the checkpoint's ground and onto the last stand. Their
-    # rifles match their kit: an AK where the spine carries a Type 81.
-    ([COMMANDO], ["plant"], "Militia Sergeant", SGT_H,    SGT_C, MSV_L,    None,    None, 2, 0.12),
-    ([BULWARK],  ["plant"], "Militia Shield",   RU_H,     STEEL_CHEST, STEEL_L, STEEL_B, None, 3, None),
-    ([FUSILIER], ["plant"], "Militia Gunner",   MARKSMAN, RU_C,  MSV_L,    None,    None, 3, None),
-    ([COMMANDO], ["plant"], "Militia Trooper",  RU_H,     RU_C,  MSV_L,    None,    None, 6, None),
-    (PILL,       ["plant"], "Militia Rifleman", RU_H,     RU_C,  MSV_L,    None,    AK47, 4, None),
+    # ---- the Column: the second army, in the kit it arrived in, stopped in the town
+    ([COMMANDO], COL_AREAS, "Column Sergeant", SGT_H,    SGT_C,       MSV_L,   None,    None, 3, 0.12),
+    ([BULWARK],  COL_AREAS, "Column Shield",   RU_H,     STEEL_CHEST, STEEL_L, STEEL_B, None, 8, None),
+    ([FUSILIER], COL_AREAS, "Column Marksman", MARKSMAN, RU_C,        MSV_L,   None,    None, 8, None),
+    ([COMMANDO], COL_AREAS, "Column Soldier",  RU_H,     RU_C,        MSV_L,   None,    None,18, None),
+    (PILL,       COL_AREAS, "Column Rifleman", RU_H,     RU_C,        MSV_L,   None,    AK47,14, None),
 
-    # ---- the Dead, wearing what they died in
+    # ---- the Scavengers: looted, never issued, and never twice the same (§3.2). They hold the Woods and
+    # the roads between everything, which is whatever neither army has claimed.
+    (PILL, ["woods", None], "Scavenger Captain", CAPT_H, MSV_C, GORKA_LEGS, WAND_B, CROWBAR, 2, 0.06),
+    (PILL, ["woods", None], "Scrapper", CARD_H, CARD_C, CARD_L, CARD_B, CARD_SWORD, 5, 0.18),
+    (PILL,        ["woods", None], "Scavenger",        WRAP,    JACKET, WAND_L,     WAND_B, PIPE,    22, None),
+    (SCAV_AXE,    ["woods", None], "Scavenger Raider", WW2,     GORKA,  GORKA_LEGS, WAND_B, CROWBAR, 12, None),
+    (SCAV_CASTER, ["woods", None], "Scavenger Elder",  BANDANA, RAGS,   RAGS_L,     RAGS_B, None,     6, None),
+    (SCAV_REST,   ["woods", None], "Scavenger",        None,    None,   None,       None,   None,     8, None),
+
+    # ---- the Dead: the ambient threat, everywhere, wearing what they died in
     (DEAD, ["pl_react"], "Containment Crew", GASMASK, FARADAY_C, FARADAY_L, FARADAY_B, CROWBAR, 4, 0.35),
     (DEAD, ["pl_switch", "pl_admin", "pl_turb", "pl_react"],
-     "Plant Worker", FARADAY_H, FARADAY_C, FARADAY_L, FARADAY_B, CROWBAR, 10, None),
+     "Plant Worker", FARADAY_H, FARADAY_C, FARADAY_L, FARADAY_B, CROWBAR, 16, None),
     (DEAD, ["sk_hosp"], "The Infected", None, MEDIC, None, None, None, 12, None),
     (DEAD, ["sk_south"], "Yard Hand", None, GORKA, GORKA_LEGS, None, SHOVEL, 8, None),
     (DEAD, ["tw_stad", "tw_centre", "tw_slabs", "tw_blocks", "town"],
      "Peacekeeper", UN_H, MSV_C, MSV_L, None, None, 3, 0.08),
-    (DEAD, ["sk_town", "tw_stad", "tw_centre", "tw_slabs", "tw_blocks", "town", "skad", "farm"],
-     "The Dead", None, None, None, None, None, 14, None),
-    # the intake works drowned went in sealed; the ones under the rail bridge were a patrol that did not
+    # no area and no denial after it: this is the floor the whole cell stands on
+    (DEAD, [None], "The Dead", None, None, None, None, None, None, None),
     (DROWNED, ["pl_intake", "plant"], "The Drowned", DIVE_H, BACKTANK, None, DIVE_B, None, 8, None),
     (DROWNED, ["tw_bridge"], "Drowned Patrol", OCEAN_H, OCEAN_C, OCEAN_L, None, None, 6, None),
-
-    # ---- the Scavengers: looted, never issued, and never twice the same (§3.2)
-    (PILL, ["woods", None], "Scavenger Captain", CAPT_H, MSV_C, GORKA_LEGS, WAND_B, CROWBAR, 2, 0.06),
-    (PILL, ["woods", None], "Scrapper", CARD_H, CARD_C, CARD_L, CARD_B, CARD_SWORD, 5, 0.18),
-    (PILL,        ["woods", None], "Scavenger",        WRAP,    JACKET, WAND_L,     WAND_B, PIPE,    10, None),
-    (SCAV_AXE,    ["woods", None], "Scavenger Raider", WW2,     GORKA,  GORKA_LEGS, WAND_B, CROWBAR, 6, None),
-    (SCAV_CASTER, ["woods", None], "Scavenger Elder",  BANDANA, RAGS,   RAGS_L,     RAGS_B, None,    3, None),
-    (SCAV_REST,   ["woods", None], "Scavenger",        None,    None,   None,       None,   None,    4, None),
+    (DROWNED, [None], "The Drowned", DIVE_H, BACKTANK, None, DIVE_B, None, None, None),
 ]
 
 
@@ -166,6 +184,14 @@ def rule(mob=None, area=None, result="deny", when="onjoin", **extra):
 
 
 def cap(n, mob):
+    """A population ceiling.
+
+    Note what this counts: In Control's count is **world-wide**, not per area. There is no way to scope
+    it to the rule's own area, so a rank listed in six areas with a cap of 4 gets four across the whole
+    map, not four in each. Every number below is therefore a world total, and the ambient ranks carry no
+    cap at all - vanilla's own mob cap is the limit there, and a ceiling of fourteen zombies would have
+    left the entire cell empty.
+    """
     return {"amount": n, "mob": mob, "perplayer": False}
 
 
@@ -190,7 +216,9 @@ def dressed(mob, area, name, helm, chest, legs, feet, hand, n, chance=None):
     if chance is None:
         # a common rank: the cap denies the surplus, and the dressing itself is unconditional. A
         # maxcount here instead would make the overflow fall through and come out as another faction.
-        out.append(rule(mob=mob, area=area, result="deny", mincount=cap(n, mob)))
+        # n of None means no ceiling, which is what the ambient ranks want.
+        if n is not None:
+            out.append(rule(mob=mob, area=area, result="deny", mincount=cap(n, mob)))
     else:
         # a rare variant: the chance sets how often it appears and the maxcount holds the ceiling.
         # Falling through past the cap is right here - what is beyond the ceiling should simply be the
@@ -231,8 +259,10 @@ def build():
             out.extend(dressed(mobs, a, name, helm, chest, legs, feet, hand, n, chance))
 
     # ---- "a place, not a weather": each faction denied outside the ground claimed above
+    # the Militia and the Column are the same three IE entities, so a single denial covers both: outside
+    # the ground either army holds, no soldier stands up at all. The Dead have no such rule - they are
+    # the ambient threat and their last rule is an unrestricted one.
     out.append(rule(mob=MILITIA, result="deny"))
-    out.append(rule(mob=DEAD + DROWNED, result="deny"))
 
     # spiders share the Dead's ground and the Woods' bunkers, and wear nothing
     for a in ("skad", "town", "woods"):

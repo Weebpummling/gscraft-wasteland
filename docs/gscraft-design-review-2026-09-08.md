@@ -426,6 +426,53 @@ works. Rails run north-south through x -960..-928 and past the hospital.
 blocks, `tw_blocks` the south-east microdistricts and courtyards, `tw_bridge` the rail bridge. All the
 Dead, carrying nothing, except the bridge, which is the Drowned.
 
+## 4d-3. Two armies across the river (owner, 2026-09-09)
+
+The armed factions split between the two ends of the map, with the river as the front line between them.
+
+`skadowsky_river` runs from (-740, -1720) south to (-1350, 700), which genuinely bisects the cell: the
+town, the Woods, the farm and KROT lie west of it; Skadowsky and the plant lie east.
+
+| | the Militia | the Column |
+|---|---|---|
+| kit | US — PASGT, IOTV | Russian — 6B47, 6B43 |
+| rifle | `tacz:m4a1` | `tacz:ak47` |
+| heartland | the plant, east | the town, west |
+| outposts | `out_e1`, `out_e2` | `out_w1`, `out_w2` |
+| front | `front_en`, `front_es` — east bank | `front_wn`, `front_ws` — west bank |
+| at Skadowsky | the rail yard, east of the camp | the bridgehead, on the crossing |
+
+The south-west bridge is the only crossing on this side, which is why both armies keep an outpost at
+Skadowsky: it is where the player meets each of them for the first time, facing each other over the one
+way across. The river is diagonal and an area is a box, so each bank takes two boxes rather than one,
+north and south, both kept clear of the water.
+
+`front_en` starts at x -995 rather than -1060 on purpose: the Column's bridgehead runs to -1000, the
+Militia rules are evaluated first, and an overlap there would have flown the wrong flag over the
+crossing. It was caught by probe, not by reading.
+
+**The rifle now matches the kit.** An earlier pass had the US-kitted troopers carrying a `type_81`,
+which is a Chinese rifle. The Militia carry an M4 and the Column an AK.
+
+**The Dead are ambient everywhere** and are listed last with no denial after them, so they are the floor
+the whole cell stands on. Their site variants come first, so a corpse at the switchyard is a plant
+worker and one in the hospital is a patient, but every other piece of ground still gets the plain rank.
+
+### In Control's counts are world-wide, and that changes every number
+
+`maxcount` and `mincount` take a mob list and a `perplayer` flag and nothing else. There is **no way to
+scope a count to the rule's own area**. A rank listed in six areas with a cap of 4 therefore gets four
+across the entire map, not four in each.
+
+That was quietly wrong everywhere until a probe tripped over it: the probe summons a dozen pillagers
+across the cell, and by the time it reached the bridgehead the world already held more than the cap, so
+the Column's own outpost denied its own rifleman. Every ceiling is now a world total — 14 Riflemen, 18
+Troopers, 22 Scavengers — and the **ambient ranks carry no cap at all**, because a ceiling of fourteen
+zombies would have left the whole cell empty and vanilla's own mob cap is the right limit there.
+
+Twenty-four probes pass, covering both armies at heartland, outpost, front and Skadowsky, the Dead at
+four sites and on open ground, both drowned variants, the Scavengers, and four builds returning nothing.
+
 ## 4d-2. The equipment review: stop putting a PASGT on everything
 
 An earlier pass gave a PASGT helmet and an IOTV vest to everything that could hold one. §2.1 lists about
