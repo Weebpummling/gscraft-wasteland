@@ -40,7 +40,10 @@ Not included, deliberately:
     configs (`gscraft-enemies.md` §3.4).
   - skeletons are "background" (`entities-v8` §2) and keep their existing rules.
 
-    spawn_rules.py [--dry-run]
+    spawn_rules.py [--dry-run] [--live]
+
+`--live` leaves out the hold, which is the single rule that keeps every hostile denied. Without it the
+whole design switches on. Regenerating without `--live` puts the hold back.
 """
 import json
 import sys
@@ -245,6 +248,9 @@ def dressed(mob, area, name, helm, chest, legs, feet, hand, n, chance=None):
     return out
 
 
+LIVE = False
+
+
 def build():
     out = []
 
@@ -252,8 +258,10 @@ def build():
     for a in BUILDS:
         out.append(rule(area=a, result="deny", hostile=True))
 
-    # ---- 2. the hold
-    out.append(rule(result="deny", hostile=True))
+    # ---- 2. the hold. One unconditional hostile deny, ahead of every faction rule and behind the build
+    # denies, so the whole design is off until it is removed. `--live` omits it.
+    if not LIVE:
+        out.append(rule(result="deny", hostile=True))
 
     # ---- 3. the Machines. The hub is theirs in the design but is a build and deferred, so the plant is
     # the only ground they hold today, and the reactor hall is where the Overseer stands.
@@ -285,7 +293,10 @@ OWNED_MOBS = set(MECHS + MILITIA + DEAD + DROWNED + SPIDERS + PILL +
 
 
 def main(argv):
+    global LIVE
     dry = "--dry-run" in argv
+    LIVE = "--live" in argv
+    print("hostiles: " + ("LIVE - the hold is omitted" if LIVE else "held - the hold rule is in place"))
     spawn = json.loads((IC / "spawn.json").read_text(encoding="utf-8"))
 
     def ours(r):
