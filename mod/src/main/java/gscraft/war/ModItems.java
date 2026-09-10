@@ -18,6 +18,11 @@ public final class ModItems {
     public static final RegistryObject<Item> SCAVENGER_EGG = ITEMS.register("scavenger_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.SCAVENGER, 0x6B5B3E, 0xA86C12, new Item.Properties()));
 
+    public static final RegistryObject<Item> BLOATER_EGG = ITEMS.register("bloater_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.BLOATER, 0x5C6B3A, 0x8B9A46, new Item.Properties()));
+    public static final RegistryObject<Item> MATRON_EGG = ITEMS.register("matron_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.MATRON, 0xC2B280, 0x6E2C2C, new Item.Properties()));
+
     private ModItems() {}
 
     static void creativeTabs(BuildCreativeModeTabContentsEvent event) {
@@ -25,6 +30,8 @@ public final class ModItems {
             event.accept(NATO_SOLDIER_EGG);
             event.accept(RUAF_SOLDIER_EGG);
             event.accept(SCAVENGER_EGG);
+            event.accept(BLOATER_EGG);
+            event.accept(MATRON_EGG);
         }
     }
 }

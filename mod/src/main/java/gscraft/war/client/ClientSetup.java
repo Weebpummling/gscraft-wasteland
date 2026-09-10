@@ -2,6 +2,8 @@ package gscraft.war.client;
 
 import gscraft.war.GscraftWar;
 import gscraft.war.ModEntities;
+import gscraft.war.entity.Bloater;
+import gscraft.war.entity.Matron;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -16,5 +18,7 @@ public final class ClientSetup {
         event.registerEntityRenderer(ModEntities.NATO_SOLDIER.get(), FighterRenderer::new);
         event.registerEntityRenderer(ModEntities.RUAF_SOLDIER.get(), FighterRenderer::new);
         event.registerEntityRenderer(ModEntities.SCAVENGER.get(), FighterRenderer::new);
+        event.registerEntityRenderer(ModEntities.BLOATER.get(), ctx -> new ScaledZombieRenderer(ctx, Bloater.RENDER_SCALE, false));
+        event.registerEntityRenderer(ModEntities.MATRON.get(), ctx -> new ScaledZombieRenderer(ctx, Matron.RENDER_SCALE, true));
     }
 }

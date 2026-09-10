@@ -38,9 +38,11 @@ public final class Ranks extends SimpleJsonResourceReloadListener {
                             GsonHelper.getAsString(o, "name"),
                             GsonHelper.getAsInt(o, "weight", 1),
                             Role.parse(GsonHelper.getAsString(o, "role", "rifleman")),
-                            str(o, "head"), str(o, "chest"), str(o, "legs"), str(o, "feet"),
-                            str(o, "gun"), str(o, "melee"), str(o, "offhand"),
-                            GsonHelper.getAsInt(o, "magazines", 3)));
+                            choice(o, "head"), choice(o, "chest"), choice(o, "legs"), choice(o, "feet"),
+                            choice(o, "gun"), choice(o, "melee"), choice(o, "offhand"),
+                            GsonHelper.getAsInt(o, "magazines", 3),
+                            GsonHelper.getAsFloat(o, "speed", 1.0F),
+                            GsonHelper.getAsFloat(o, "health", 1.0F)));
                 }
                 map.put(file.getPath(), List.copyOf(list));
             } catch (Exception ex) {
@@ -53,8 +55,26 @@ public final class Ranks extends SimpleJsonResourceReloadListener {
         GscraftWar.LOG.info("[gscraft] ranks loaded: {}", summary.toString().trim());
     }
 
-    private static String str(JsonObject o, String key) {
-        return o.has(key) && !o.get(key).isJsonNull() ? o.get(key).getAsString() : null;
+    /** a slot: absent, one id, or a list of ids and {"item", "weight"} objects; "none" or a null item is an empty slot */
+    private static Choice choice(JsonObject o, String key) {
+        if (!o.has(key) || o.get(key).isJsonNull()) return Choice.NONE;
+        JsonElement el = o.get(key);
+        if (el.isJsonPrimitive()) return new Choice(List.of(new Choice.Option(item(el.getAsString()), 1)));
+        List<Choice.Option> list = new ArrayList<>();
+        for (JsonElement e : el.getAsJsonArray()) {
+            if (e.isJsonPrimitive()) {
+                list.add(new Choice.Option(item(e.getAsString()), 1));
+            } else {
+                JsonObject c = e.getAsJsonObject();
+                String id = c.has("item") && !c.get("item").isJsonNull() ? item(c.get("item").getAsString()) : null;
+                list.add(new Choice.Option(id, GsonHelper.getAsInt(c, "weight", 1)));
+            }
+        }
+        return new Choice(List.copyOf(list));
+    }
+
+    private static String item(String id) {
+        return "none".equals(id) ? null : id;
     }
 
     public static List<RankDef> forFaction(String faction) {

@@ -1,24 +1,422 @@
 {
   "ranks": [
-    {"name": "Scavenger", "weight": 40, "role": "scavenger",
-     "head": "pomkotsmechs:wandererarmorhelmet", "chest": "pomkotsmechs:wandererarmorchestplate",
-     "legs": "pomkotsmechs:wandererarmorleggings", "feet": "pomkotsmechs:wandererarmorboots", "melee": "superbwarfare:steel_pipe"},
-    {"name": "Scrapper", "weight": 18, "role": "scavenger",
-     "head": "create:cardboard_helmet", "chest": "create:cardboard_chestplate",
-     "legs": "create:cardboard_leggings", "feet": "create:cardboard_boots", "melee": "superbwarfare:knife"},
-    {"name": "Scavenger Raider", "weight": 16, "role": "scavenger",
-     "head": "superbwarfare:ge_helmet_m_35", "chest": "dragonrise_reforge:gorka3",
-     "legs": "dragonrise_reforge:gorka3_leggings", "feet": "pomkotsmechs:wandererarmorboots", "melee": "superbwarfare:crowbar"},
-    {"name": "Scavenger Digger", "weight": 12, "role": "scavenger",
-     "chest": "dragonrise_reforge:army07hat", "legs": "dragonrise_reforge:pants21",
-     "feet": "pomkotsmechs:wandererarmorboots", "melee": "superbwarfare:military_shovel"},
-    {"name": "Scavenger Gunman", "weight": 8, "role": "scavenger",
-     "head": "pomkotsmechs:pomkotsarmorhelmet", "chest": "dragonrise_reforge:gorka3",
-     "legs": "pomkotsmechs:wandererarmorleggings", "feet": "pomkotsmechs:wandererarmorboots",
-     "gun": "tacz:kar98", "magazines": 2},
-    {"name": "Scavenger Captain", "weight": 6, "role": "scavenger",
-     "head": "dragonrise_reforge:kr06_helmet", "chest": "dragonrise_reforge:msv_chest",
-     "legs": "dragonrise_reforge:gorka3_leggings", "feet": "pomkotsmechs:wandererarmorboots",
-     "gun": "tacz:spas_12", "magazines": 2}
+    {
+      "name": "Scavenger",
+      "weight": 40,
+      "role": "scavenger",
+      "head": [
+        {
+          "item": "pomkotsmechs:wandererarmorhelmet",
+          "weight": 4
+        },
+        {
+          "item": "pomkotsmechs:pomkotsarmorhelmet",
+          "weight": 3
+        },
+        {
+          "item": "minecraft:leather_helmet",
+          "weight": 2
+        },
+        {
+          "item": "superbwarfare:ge_helmet_m_35",
+          "weight": 1
+        },
+        {
+          "item": "none",
+          "weight": 3
+        }
+      ],
+      "chest": [
+        {
+          "item": "pomkotsmechs:wandererarmorchestplate",
+          "weight": 4
+        },
+        {
+          "item": "pomkotsmechs:pomkotsarmorchestplate",
+          "weight": 3
+        },
+        {
+          "item": "minecraft:leather_chestplate",
+          "weight": 2
+        },
+        {
+          "item": "dragonrise_reforge:gorka3",
+          "weight": 1
+        },
+        {
+          "item": "none",
+          "weight": 1
+        }
+      ],
+      "legs": [
+        {
+          "item": "pomkotsmechs:wandererarmorleggings",
+          "weight": 4
+        },
+        {
+          "item": "pomkotsmechs:pomkotsarmorleggings",
+          "weight": 3
+        },
+        {
+          "item": "minecraft:leather_leggings",
+          "weight": 2
+        },
+        {
+          "item": "dragonrise_reforge:pants21",
+          "weight": 1
+        },
+        {
+          "item": "none",
+          "weight": 1
+        }
+      ],
+      "feet": [
+        {
+          "item": "pomkotsmechs:wandererarmorboots",
+          "weight": 4
+        },
+        {
+          "item": "pomkotsmechs:pomkotsarmorboots",
+          "weight": 3
+        },
+        {
+          "item": "minecraft:leather_boots",
+          "weight": 2
+        },
+        {
+          "item": "none",
+          "weight": 2
+        }
+      ],
+      "gun": [
+        {
+          "item": "none",
+          "weight": 8
+        },
+        {
+          "item": "tacz:db_short",
+          "weight": 1
+        },
+        {
+          "item": "tacz:m1911",
+          "weight": 1
+        }
+      ],
+      "melee": [
+        {
+          "item": "superbwarfare:steel_pipe",
+          "weight": 4
+        },
+        {
+          "item": "superbwarfare:crowbar",
+          "weight": 2
+        },
+        {
+          "item": "superbwarfare:knife",
+          "weight": 2
+        },
+        {
+          "item": "minecraft:stone_axe",
+          "weight": 1
+        },
+        {
+          "item": "superbwarfare:t_baton",
+          "weight": 1
+        }
+      ],
+      "magazines": 1
+    },
+    {
+      "name": "Scrapper",
+      "weight": 18,
+      "role": "scavenger",
+      "head": [
+        {
+          "item": "create:cardboard_helmet",
+          "weight": 5
+        },
+        {
+          "item": "none",
+          "weight": 1
+        }
+      ],
+      "chest": "create:cardboard_chestplate",
+      "legs": [
+        {
+          "item": "create:cardboard_leggings",
+          "weight": 4
+        },
+        {
+          "item": "pomkotsmechs:wandererarmorleggings",
+          "weight": 1
+        }
+      ],
+      "feet": [
+        {
+          "item": "create:cardboard_boots",
+          "weight": 4
+        },
+        {
+          "item": "none",
+          "weight": 1
+        }
+      ],
+      "melee": [
+        {
+          "item": "superbwarfare:knife",
+          "weight": 3
+        },
+        {
+          "item": "superbwarfare:steel_pipe",
+          "weight": 2
+        },
+        {
+          "item": "superbwarfare:crowbar",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Scavenger Raider",
+      "weight": 16,
+      "role": "scavenger",
+      "head": [
+        {
+          "item": "superbwarfare:ge_helmet_m_35",
+          "weight": 5
+        },
+        {
+          "item": "pomkotsmechs:pomkotsarmorhelmet",
+          "weight": 2
+        },
+        {
+          "item": "dragonrise_reforge:kr06_helmet",
+          "weight": 1
+        }
+      ],
+      "chest": [
+        {
+          "item": "dragonrise_reforge:gorka3",
+          "weight": 5
+        },
+        {
+          "item": "pomkotsmechs:wandererarmorchestplate",
+          "weight": 2
+        }
+      ],
+      "legs": [
+        {
+          "item": "dragonrise_reforge:gorka3_leggings",
+          "weight": 5
+        },
+        {
+          "item": "pomkotsmechs:wandererarmorleggings",
+          "weight": 2
+        }
+      ],
+      "feet": [
+        {
+          "item": "pomkotsmechs:wandererarmorboots",
+          "weight": 3
+        },
+        {
+          "item": "pomkotsmechs:pomkotsarmorboots",
+          "weight": 2
+        }
+      ],
+      "gun": [
+        {
+          "item": "none",
+          "weight": 5
+        },
+        {
+          "item": "tacz:db_short",
+          "weight": 1
+        }
+      ],
+      "melee": [
+        {
+          "item": "superbwarfare:crowbar",
+          "weight": 4
+        },
+        {
+          "item": "superbwarfare:hammer",
+          "weight": 1
+        },
+        {
+          "item": "superbwarfare:military_shovel",
+          "weight": 1
+        }
+      ],
+      "magazines": 1
+    },
+    {
+      "name": "Scavenger Digger",
+      "weight": 12,
+      "role": "scavenger",
+      "head": [
+        {
+          "item": "none",
+          "weight": 3
+        },
+        {
+          "item": "minecraft:leather_helmet",
+          "weight": 1
+        }
+      ],
+      "chest": [
+        {
+          "item": "dragonrise_reforge:army07hat",
+          "weight": 4
+        },
+        {
+          "item": "dragonrise_reforge:gorka3",
+          "weight": 1
+        }
+      ],
+      "legs": "dragonrise_reforge:pants21",
+      "feet": "pomkotsmechs:wandererarmorboots",
+      "melee": [
+        {
+          "item": "superbwarfare:military_shovel",
+          "weight": 4
+        },
+        {
+          "item": "minecraft:iron_shovel",
+          "weight": 1
+        }
+      ]
+    },
+    {
+      "name": "Scavenger Gunman",
+      "weight": 8,
+      "role": "scavenger",
+      "head": [
+        {
+          "item": "pomkotsmechs:pomkotsarmorhelmet",
+          "weight": 3
+        },
+        {
+          "item": "pomkotsmechs:wandererarmorhelmet",
+          "weight": 2
+        },
+        {
+          "item": "none",
+          "weight": 2
+        }
+      ],
+      "chest": [
+        {
+          "item": "dragonrise_reforge:gorka3",
+          "weight": 3
+        },
+        {
+          "item": "pomkotsmechs:wandererarmorchestplate",
+          "weight": 2
+        },
+        {
+          "item": "pomkotsmechs:pomkotsarmorchestplate",
+          "weight": 1
+        }
+      ],
+      "legs": [
+        {
+          "item": "pomkotsmechs:wandererarmorleggings",
+          "weight": 3
+        },
+        {
+          "item": "dragonrise_reforge:gorka3_leggings",
+          "weight": 2
+        }
+      ],
+      "feet": [
+        {
+          "item": "pomkotsmechs:wandererarmorboots",
+          "weight": 3
+        },
+        {
+          "item": "pomkotsmechs:pomkotsarmorboots",
+          "weight": 1
+        }
+      ],
+      "gun": [
+        {
+          "item": "tacz:kar98",
+          "weight": 4
+        },
+        {
+          "item": "tacz:springfield1873",
+          "weight": 3
+        },
+        {
+          "item": "tacz:db_long",
+          "weight": 2
+        },
+        {
+          "item": "tacz:uzi",
+          "weight": 1
+        },
+        {
+          "item": "tacz:sks_tactical",
+          "weight": 1
+        }
+      ],
+      "magazines": 2
+    },
+    {
+      "name": "Scavenger Captain",
+      "weight": 6,
+      "role": "scavenger",
+      "head": [
+        {
+          "item": "dragonrise_reforge:kr06_helmet",
+          "weight": 3
+        },
+        {
+          "item": "dragonrise_reforge:fast_helmet",
+          "weight": 1
+        },
+        {
+          "item": "superbwarfare:ge_helmet_m_35",
+          "weight": 1
+        }
+      ],
+      "chest": [
+        {
+          "item": "dragonrise_reforge:msv_chest",
+          "weight": 3
+        },
+        {
+          "item": "dragonrise_reforge:kr06_chest",
+          "weight": 1
+        }
+      ],
+      "legs": [
+        {
+          "item": "dragonrise_reforge:gorka3_leggings",
+          "weight": 3
+        },
+        {
+          "item": "dragonrise_reforge:msv_pants",
+          "weight": 1
+        }
+      ],
+      "feet": "pomkotsmechs:wandererarmorboots",
+      "gun": [
+        {
+          "item": "tacz:spas_12",
+          "weight": 3
+        },
+        {
+          "item": "tacz:m870",
+          "weight": 2
+        },
+        {
+          "item": "tacz:ak47",
+          "weight": 1
+        }
+      ],
+      "magazines": 2
+    }
   ]
 }

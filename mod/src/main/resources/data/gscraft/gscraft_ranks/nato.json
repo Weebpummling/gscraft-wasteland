@@ -1,20 +1,117 @@
 {
   "ranks": [
-    {"name": "NATO Rifleman", "weight": 58, "role": "rifleman",
-     "head": "superbwarfare:us_helmet_pasgt", "chest": "superbwarfare:us_chest_iotv", "legs": "dragonrise_reforge:kr06_pants",
-     "gun": "tacz:m4a1", "magazines": 4},
-    {"name": "NATO Sergeant", "weight": 12, "role": "sergeant",
-     "head": "dragonrise_reforge:fast_helmet", "chest": "dragonrise_reforge:kr06_chest", "legs": "dragonrise_reforge:kr06_pants",
-     "gun": "tacz:m4a1", "magazines": 4},
-    {"name": "NATO Marksman", "weight": 10, "role": "marksman",
-     "head": "dragonrise_reforge:sniper21_helmet", "chest": "superbwarfare:us_chest_iotv", "legs": "dragonrise_reforge:kr06_pants",
-     "gun": "tacz:mk14", "magazines": 3},
-    {"name": "NATO Gunner", "weight": 10, "role": "gunner",
-     "head": "superbwarfare:us_helmet_pasgt", "chest": "superbwarfare:us_chest_iotv", "legs": "dragonrise_reforge:kr06_pants",
-     "gun": "tacz:m249", "magazines": 2},
-    {"name": "NATO Shield", "weight": 10, "role": "shield",
-     "head": "superbwarfare:us_helmet_pasgt", "chest": "immersiveengineering:armor_steel_chestplate",
-     "legs": "immersiveengineering:armor_steel_leggings", "feet": "immersiveengineering:armor_steel_boots",
-     "gun": "tacz:m9a4", "offhand": "minecraft:shield", "magazines": 3}
+    {
+      "name": "NATO Rifleman",
+      "weight": 58,
+      "role": "rifleman",
+      "head": [
+        {
+          "item": "superbwarfare:us_helmet_pasgt",
+          "weight": 7
+        },
+        {
+          "item": "dragonrise_reforge:fast_helmet",
+          "weight": 1
+        }
+      ],
+      "chest": "superbwarfare:us_chest_iotv",
+      "legs": "dragonrise_reforge:kr06_pants",
+      "gun": [
+        {
+          "item": "tacz:m4a1",
+          "weight": 6
+        },
+        {
+          "item": "tacz:hk416d",
+          "weight": 3
+        },
+        {
+          "item": "tacz:m16a4",
+          "weight": 2
+        }
+      ],
+      "magazines": 4
+    },
+    {
+      "name": "NATO Sergeant",
+      "weight": 12,
+      "role": "sergeant",
+      "head": "dragonrise_reforge:fast_helmet",
+      "chest": "dragonrise_reforge:kr06_chest",
+      "legs": "dragonrise_reforge:kr06_pants",
+      "gun": [
+        {
+          "item": "tacz:m4a1",
+          "weight": 5
+        },
+        {
+          "item": "tacz:hk416d",
+          "weight": 3
+        },
+        {
+          "item": "tacz:scar_l",
+          "weight": 2
+        }
+      ],
+      "magazines": 4
+    },
+    {
+      "name": "NATO Marksman",
+      "weight": 10,
+      "role": "marksman",
+      "head": "dragonrise_reforge:sniper21_helmet",
+      "chest": "superbwarfare:us_chest_iotv",
+      "legs": "dragonrise_reforge:kr06_pants",
+      "gun": [
+        {
+          "item": "tacz:mk14",
+          "weight": 6
+        },
+        {
+          "item": "tacz:m700",
+          "weight": 2
+        },
+        {
+          "item": "tacz:spr15hb",
+          "weight": 2
+        }
+      ],
+      "magazines": 3
+    },
+    {
+      "name": "NATO Gunner",
+      "weight": 10,
+      "role": "gunner",
+      "head": "superbwarfare:us_helmet_pasgt",
+      "chest": "superbwarfare:us_chest_iotv",
+      "legs": "dragonrise_reforge:kr06_pants",
+      "gun": "tacz:m249",
+      "magazines": 2
+    },
+    {
+      "name": "NATO Shield",
+      "weight": 10,
+      "role": "shield",
+      "head": "superbwarfare:us_helmet_pasgt",
+      "chest": "immersiveengineering:armor_steel_chestplate",
+      "legs": "immersiveengineering:armor_steel_leggings",
+      "feet": "immersiveengineering:armor_steel_boots",
+      "gun": [
+        {
+          "item": "tacz:m9a4",
+          "weight": 5
+        },
+        {
+          "item": "tacz:glock_17",
+          "weight": 3
+        },
+        {
+          "item": "tacz:p320",
+          "weight": 2
+        }
+      ],
+      "offhand": "minecraft:shield",
+      "magazines": 3
+    }
   ]
 }

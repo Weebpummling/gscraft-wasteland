@@ -6,6 +6,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeInstance;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -13,12 +17,18 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.UUID;
 
 /**
- * Dresses a fighter as one rank of its faction. The ranks themselves are data ({@link Ranks}); the wardrobe was
- * chosen from the live registry (docs/gscraft-equipment-inventory.md).
+ * Dresses a fighter as one rank of its faction. The ranks are data ({@link Ranks}); every slot is rolled from its
+ * {@link Choice} as the fighter is issued, so two Scavengers of the same kind rarely match and two soldiers of the same
+ * rank match in everything but the details the rank lets vary. The wardrobe was chosen from the live registry
+ * (docs/gscraft-equipment-inventory.md).
  */
 public final class Kit {
+    private static final UUID SPEED_ID = UUID.fromString("5a0c7e1e-6b0e-4a35-9d7e-1f3c2a9b0a01");
+    private static final UUID HEALTH_ID = UUID.fromString("5a0c7e1e-6b0e-4a35-9d7e-1f3c2a9b0a02");
+
     private Kit() {}
 
     /**
@@ -41,7 +51,7 @@ public final class Kit {
             if (rank == null) GscraftWar.LOG.warn("[gscraft] pinned rank '{}' is not a {} rank; rolling", pinned, faction);
         }
         if (rank == null) rank = pick(ranks, random);
-        equipRank(mob, rank);
+        equipRank(mob, rank, random);
         return rank;
     }
 
@@ -50,21 +60,35 @@ public final class Kit {
     public static RankDef issueFrom(Mob mob, List<RankDef> pool, RandomSource random) {
         if (pool.isEmpty()) return null;
         RankDef rank = pick(pool, random);
-        equipRank(mob, rank);
+        equipRank(mob, rank, random);
         return rank;
     }
 
-    private static void equipRank(Mob mob, RankDef rank) {
-        equip(mob, EquipmentSlot.HEAD, rank.head());
-        equip(mob, EquipmentSlot.CHEST, rank.chest());
-        equip(mob, EquipmentSlot.LEGS, rank.legs());
-        equip(mob, EquipmentSlot.FEET, rank.feet());
-        if (rank.gun() != null) {
-            mob.setItemSlot(EquipmentSlot.MAINHAND, gun(rank.gun()));
+    private static void equipRank(Mob mob, RankDef rank, RandomSource random) {
+        equip(mob, EquipmentSlot.HEAD, rank.head().pick(random));
+        equip(mob, EquipmentSlot.CHEST, rank.chest().pick(random));
+        equip(mob, EquipmentSlot.LEGS, rank.legs().pick(random));
+        equip(mob, EquipmentSlot.FEET, rank.feet().pick(random));
+        String gun = rank.gun().pick(random);
+        if (gun != null) {
+            mob.setItemSlot(EquipmentSlot.MAINHAND, gun(gun));
         } else {
-            equip(mob, EquipmentSlot.MAINHAND, rank.melee());
+            equip(mob, EquipmentSlot.MAINHAND, rank.melee().pick(random));
         }
-        equip(mob, EquipmentSlot.OFFHAND, rank.offhand());
+        equip(mob, EquipmentSlot.OFFHAND, rank.offhand().pick(random));
+        multiply(mob, Attributes.MOVEMENT_SPEED, rank.speed(), SPEED_ID);
+        multiply(mob, Attributes.MAX_HEALTH, rank.health(), HEALTH_ID);
+        if (rank.health() != 1.0D) mob.setHealth(mob.getMaxHealth());
+    }
+
+    private static void multiply(Mob mob, Attribute attribute, double factor, UUID id) {
+        AttributeInstance instance = mob.getAttribute(attribute);
+        if (instance == null) return;
+        instance.removeModifier(id);
+        if (factor != 1.0D) {
+            instance.addPermanentModifier(new AttributeModifier(id, "gscraft rank", factor - 1.0D,
+                    AttributeModifier.Operation.MULTIPLY_BASE));
+        }
     }
 
     private static RankDef pick(List<RankDef> ranks, RandomSource random) {

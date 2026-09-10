@@ -130,6 +130,16 @@
      "weight": 2
     }
    ],
+   "indoor_spawns": [
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 4
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 2
+    }
+   ],
    "garrison": {
     "entity": "gscraft:ruaf_soldier",
     "count": 3,
@@ -150,6 +160,16 @@
     {
      "entity": "gscraft:nato_soldier",
      "weight": 5
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 2
+    }
+   ],
+   "indoor_spawns": [
+    {
+     "entity": "gscraft:nato_soldier",
+     "weight": 4
     },
     {
      "entity": "minecraft:zombie",
@@ -284,6 +304,20 @@
     {
      "entity": "minecraft:zombie",
      "weight": 2
+    },
+    {
+     "entity": "minecraft:drowned",
+     "weight": 2
+    }
+   ],
+   "underground_spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:cave_spider",
+     "weight": 1
     }
    ]
   },
@@ -304,6 +338,10 @@
     },
     {
      "entity": "minecraft:zombie",
+     "weight": 2
+    },
+    {
+     "entity": "minecraft:drowned",
      "weight": 2
     }
    ]
@@ -326,6 +364,10 @@
     {
      "entity": "minecraft:zombie",
      "weight": 2
+    },
+    {
+     "entity": "minecraft:drowned",
+     "weight": 2
     }
    ]
   },
@@ -347,6 +389,10 @@
     {
      "entity": "minecraft:zombie",
      "weight": 2
+    },
+    {
+     "entity": "minecraft:drowned",
+     "weight": 2
     }
    ]
   },
@@ -367,13 +413,23 @@
     }
    ],
    "dead_ranks": [
-    "The Infected"
+    "The Infected",
+    "Runner"
    ],
+   "lair": {
+    "entity": "gscraft:matron",
+    "count": 1,
+    "refill_minutes": 120
+   },
    "horrors": [
     {
      "entity": "the_knocker:knocker",
      "night": true,
-     "chance": 0.03
+     "chance": 0.03,
+     "envs": [
+      "indoor",
+      "underground"
+     ]
     }
    ]
   },
@@ -397,8 +453,29 @@
      "weight": 2
     }
    ],
+   "indoor_spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 6
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 1
+    }
+   ],
    "dead_ranks": [
+    "Runner",
     "The Dead"
+   ],
+   "horrors": [
+    {
+     "entity": "eyesinthedarkness:eyes",
+     "night": true,
+     "chance": 0.015,
+     "envs": [
+      "open"
+     ]
+    }
    ]
   },
   {
@@ -423,7 +500,18 @@
    ],
    "dead_ranks": [
     "Yard Hand",
+    "Runner",
     "The Dead"
+   ],
+   "horrors": [
+    {
+     "entity": "eyesinthedarkness:eyes",
+     "night": true,
+     "chance": 0.015,
+     "envs": [
+      "open"
+     ]
+    }
    ]
   },
   {
@@ -440,6 +528,10 @@
     {
      "entity": "minecraft:zombie",
      "weight": 5
+    },
+    {
+     "entity": "gscraft:bloater",
+     "weight": 1
     }
    ],
    "dead_ranks": [
@@ -465,6 +557,20 @@
     {
      "entity": "gscraft:nato_soldier",
      "weight": 2
+    },
+    {
+     "entity": "gscraft:bloater",
+     "weight": 1
+    }
+   ],
+   "indoor_spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 6
+    },
+    {
+     "entity": "gscraft:bloater",
+     "weight": 1
     }
    ],
    "dead_ranks": [
@@ -474,7 +580,10 @@
     {
      "entity": "eyesinthedarkness:eyes",
      "night": true,
-     "chance": 0.02
+     "chance": 0.02,
+     "envs": [
+      "indoor"
+     ]
     }
    ]
   },
@@ -492,6 +601,10 @@
     {
      "entity": "minecraft:zombie",
      "weight": 5
+    },
+    {
+     "entity": "gscraft:bloater",
+     "weight": 1
     }
    ],
    "dead_ranks": [
@@ -516,6 +629,10 @@
     {
      "entity": "gscraft:nato_soldier",
      "weight": 2
+    },
+    {
+     "entity": "gscraft:bloater",
+     "weight": 1
     }
    ],
    "dead_ranks": [
@@ -566,9 +683,31 @@
      "weight": 1
     }
    ],
+   "underground_spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:cave_spider",
+     "weight": 1
+    }
+   ],
    "dead_ranks": [
     "Peacekeeper",
+    "Runner",
     "The Dead"
+   ],
+   "horrors": [
+    {
+     "entity": "the_knocker:knocker",
+     "night": true,
+     "chance": 0.02,
+     "envs": [
+      "indoor",
+      "underground"
+     ]
+    }
    ]
   },
   {
@@ -591,9 +730,41 @@
      "weight": 2
     }
    ],
+   "indoor_spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 6
+    },
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 1
+    }
+   ],
+   "underground_spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:cave_spider",
+     "weight": 1
+    }
+   ],
    "dead_ranks": [
     "Peacekeeper",
+    "Runner",
     "The Dead"
+   ],
+   "horrors": [
+    {
+     "entity": "the_knocker:knocker",
+     "night": true,
+     "chance": 0.02,
+     "envs": [
+      "indoor",
+      "underground"
+     ]
+    }
    ]
   },
   {
@@ -616,9 +787,41 @@
      "weight": 2
     }
    ],
+   "indoor_spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 6
+    },
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 1
+    }
+   ],
+   "underground_spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:cave_spider",
+     "weight": 1
+    }
+   ],
    "dead_ranks": [
     "Peacekeeper",
+    "Runner",
     "The Dead"
+   ],
+   "horrors": [
+    {
+     "entity": "the_knocker:knocker",
+     "night": true,
+     "chance": 0.02,
+     "envs": [
+      "indoor",
+      "underground"
+     ]
+    }
    ]
   },
   {
@@ -645,9 +848,41 @@
      "weight": 1
     }
    ],
+   "indoor_spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 6
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 1
+    }
+   ],
+   "underground_spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:cave_spider",
+     "weight": 1
+    }
+   ],
    "dead_ranks": [
     "Peacekeeper",
+    "Runner",
     "The Dead"
+   ],
+   "horrors": [
+    {
+     "entity": "the_knocker:knocker",
+     "night": true,
+     "chance": 0.02,
+     "envs": [
+      "indoor",
+      "underground"
+     ]
+    }
    ]
   },
   {
@@ -691,7 +926,18 @@
     }
    ],
    "dead_ranks": [
+    "Runner",
     "The Dead"
+   ],
+   "horrors": [
+    {
+     "entity": "eyesinthedarkness:eyes",
+     "night": true,
+     "chance": 0.015,
+     "envs": [
+      "open"
+     ]
+    }
    ]
   },
   {
@@ -712,6 +958,20 @@
     {
      "entity": "minecraft:zombie",
      "weight": 5
+    },
+    {
+     "entity": "gscraft:bloater",
+     "weight": 1
+    }
+   ],
+   "underground_spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 4
+    },
+    {
+     "entity": "minecraft:cave_spider",
+     "weight": 2
     }
    ],
    "dead_ranks": [
@@ -743,8 +1003,70 @@
      "weight": 1
     }
    ],
+   "indoor_spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 6
+    },
+    {
+     "entity": "gscraft:ruaf_soldier",
+     "weight": 2
+    }
+   ],
+   "underground_spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "minecraft:cave_spider",
+     "weight": 1
+    }
+   ],
    "dead_ranks": [
     "Peacekeeper",
+    "Runner",
+    "The Dead"
+   ],
+   "horrors": [
+    {
+     "entity": "the_knocker:knocker",
+     "night": true,
+     "chance": 0.02,
+     "envs": [
+      "indoor",
+      "underground"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "farm",
+   "box": [
+    -2200,
+    -2020,
+    -990,
+    -800
+   ],
+   "note": "the collective farm's fields, around the farmstead",
+   "cap": 7,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 2
+    },
+    {
+     "entity": "gscraft:rider",
+     "weight": 1,
+     "night": true
+    }
+   ],
+   "dead_ranks": [
+    "Runner",
     "The Dead"
    ]
   },
@@ -768,39 +1090,29 @@
      "weight": 5
     }
    ],
+   "underground_spawns": [
+    {
+     "entity": "minecraft:cave_spider",
+     "weight": 4
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 3
+    }
+   ],
    "dead_ranks": [
+    "Runner",
     "The Dead"
    ],
    "horrors": [
     {
      "entity": "man:manfromthefog",
      "night": true,
-     "chance": 0.02
+     "chance": 0.02,
+     "envs": [
+      "open"
+     ]
     }
-   ]
-  },
-  {
-   "name": "farm",
-   "box": [
-    -2200,
-    -2020,
-    -990,
-    -800
-   ],
-   "note": "the collective farm's fields, around the farmstead",
-   "cap": 7,
-   "spawns": [
-    {
-     "entity": "minecraft:zombie",
-     "weight": 5
-    },
-    {
-     "entity": "gscraft:scavenger",
-     "weight": 2
-    }
-   ],
-   "dead_ranks": [
-    "The Dead"
    ]
   },
   {
@@ -821,6 +1133,15 @@
     {
      "entity": "minecraft:zombie",
      "weight": 3
+    },
+    {
+     "entity": "minecraft:drowned",
+     "weight": 2
+    },
+    {
+     "entity": "gscraft:rider",
+     "weight": 1,
+     "night": true
     }
    ],
    "dead_ranks": [
@@ -838,9 +1159,25 @@
     {
      "entity": "gscraft:scavenger",
      "weight": 2
+    },
+    {
+     "entity": "gscraft:rider",
+     "weight": 1,
+     "night": true
+    }
+   ],
+   "underground_spawns": [
+    {
+     "entity": "minecraft:cave_spider",
+     "weight": 3
+    },
+    {
+     "entity": "minecraft:zombie",
+     "weight": 4
     }
    ],
    "dead_ranks": [
+    "Runner",
     "The Dead"
    ]
   }

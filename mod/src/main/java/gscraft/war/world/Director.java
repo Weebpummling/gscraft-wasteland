@@ -22,12 +22,18 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Drowned;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.MobSpawnEvent;
@@ -43,24 +49,26 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * The director (review §11 phase 4): places the ambient Dead, Scavengers and soldiers around players by zone,
- * keeps the outposts' garrisons standing, and lets each horror into the ground it belongs to. It replaces In
- * Control's faction rules and the KubeJS area spawner, and it answers the one question both could not: how many
- * stand near *this* player, on *this* ground.
+ * The director (review §11 phase 4): places the ambient Dead, Scavengers and soldiers around players by zone, keeps
+ * the outposts' garrisons and each zone's unique creature standing, and lets each horror into the ground it belongs
+ * to. It replaces In Control's faction rules and the KubeJS area spawner.
+ *
+ * Placement is layered by the kind of ground (see {@link Env}): a player in the open gets a thinner scatter further
+ * out, a player inside a building or underground gets a denser one close by, on the same kind of ground, counted
+ * against its own cap. The first version looked from ten blocks above the player's feet down to twenty-four below
+ * and took the highest standing room it found, so a player in the street drew the Dead onto roofs and into cellars,
+ * and every one of them counted against the street's cap; {@link #survey} measures both, side by side.
  */
 @Mod.EventBusSubscriber(modid = GscraftWar.MODID)
 public final class Director {
     public static final int INTERVAL = 200;
-    private static final int COUNT_BOX = 48;
-    private static final int COUNT_Y = 10;
-    private static final int MIN_R = 20;
-    private static final int MAX_R = 44;
-    private static final int TRIES = 6;
-    private static final int HORROR_MIN_R = 32;
-    private static final int HORROR_MAX_R = 56;
+    private static final int TRIES = 10;
     private static final int HORROR_CLEAR = 96;
     private static final int GARRISON_WAKE = 128;
     private static final String GARRISON_TAG = "gs_garrison_";
+    private static final String LAIR_TAG = "gs_lair_";
+    /** a zone entry naming this places a zombie horse with one of the Dead riding it */
+    public static final ResourceLocation RIDER = new ResourceLocation(GscraftWar.MODID, "rider");
 
     private static int ticks;
     private static boolean paused;
@@ -101,41 +109,55 @@ public final class Director {
                 paused ? "paused" : "running", passes, placed, refused, ms);
     }
 
-    /** one ambient placement near a player, if the zone's cap allows it */
+    // ---- ambient placement
+
+    /** one placement near a player, if the zone's cap for the ground the player stands on allows it */
     public static boolean ambient(ServerLevel level, BlockPos at) {
         Zone zone = Zones.at(at.getX(), at.getZ());
         if (zone == null || zone.exclude() || zone.cap() <= 0) return false;
-        if (countOurs(level, at) >= zone.cap()) return false;
-        return placeNear(level, at, MIN_R, MAX_R, null) != null;
+        Env env = Env.at(level, at);
+        if (countOurs(level, at, env) >= capFor(zone, env)) return false;
+        return placeNear(level, at, env, null) != null;
     }
 
-    public static int countOurs(ServerLevel level, BlockPos at) {
-        AABB box = new AABB(at).inflate(COUNT_BOX, COUNT_Y, COUNT_BOX);
+    public static int capFor(Zone zone, Env env) {
+        return Math.max(1, (int) Math.round(zone.cap() * env.capScale));
+    }
+
+    /** the director's own creatures near a point, on the same kind of ground only */
+    public static int countOurs(ServerLevel level, BlockPos at, Env env) {
+        AABB box = new AABB(at).inflate(env.countBox, env.countY, env.countBox);
         return level.getEntitiesOfClass(Mob.class, box,
-                m -> m instanceof FactionMember || m.getTags().contains(WarEvents.PLACED_TAG)).size();
+                m -> (m instanceof FactionMember || m.getTags().contains(WarEvents.PLACED_TAG))
+                        && Env.at(level, m.blockPosition()) == env).size();
     }
 
     /**
-     * Find standing room 20 to 44 blocks out and place what the zone at that spot calls for. The zone is read at
-     * the spot, not at the player, so a player at a border draws from the ground each placement lands on.
+     * Find standing room on the same kind of ground as the reference point and place what the zone at that spot
+     * draws for that ground. The zone is read where the placement lands.
      */
-    public static Mob placeNear(ServerLevel level, BlockPos at, int minR, int maxR, ResourceLocation forced) {
+    public static Mob placeNear(ServerLevel level, BlockPos at, Env env, ResourceLocation forced) {
         RandomSource random = level.getRandom();
         for (int t = 0; t < TRIES; t++) {
             double angle = random.nextDouble() * Math.PI * 2.0D;
-            double dist = minR + random.nextDouble() * (maxR - minR);
+            double dist = env.minR + random.nextDouble() * (env.maxR - env.minR);
             int x = Mth.floor(at.getX() + Math.cos(angle) * dist);
             int z = Mth.floor(at.getZ() + Math.sin(angle) * dist);
             Zone here = Zones.at(x, z);
             if (here == null || here.exclude()) continue;
-            ResourceLocation id = forced != null ? forced : pick(here.spawns(), random);
-            EntityType<?> type = type(id);
+            ResourceLocation id = forced != null ? forced : pick(here.spawnsFor(env), random, level.isDay());
+            if (id == null) continue;
+            boolean rider = RIDER.equals(id);
+            if (rider && env != Env.OPEN) continue;
+            EntityType<?> type = rider ? EntityType.ZOMBIE_HORSE : type(id);
             if (type == null) continue;
-            BlockPos pos = findStand(level, x, at.getY(), z, type == EntityType.DROWNED);
+            boolean aquatic = type == EntityType.DROWNED;
+            BlockPos pos = findStand(level, x, at.getY(), z, env, aquatic);
             if (pos == null) continue;
+            if (env != Env.OPEN && !aquatic && !reaches(level, pos, at)) continue;
             // a zombie under open sky by day burns; the husk is the same body that does not
-            if (type == EntityType.ZOMBIE && level.isDay() && level.canSeeSky(pos)) type = EntityType.HUSK;
-            Mob mob = spawn(level, type, pos, here);
+            if (type == EntityType.ZOMBIE && level.isDay() && env == Env.OPEN) type = EntityType.HUSK;
+            Mob mob = rider ? spawnRider(level, pos, here) : spawn(level, type, pos, here);
             if (mob != null) return mob;
         }
         return null;
@@ -150,37 +172,93 @@ public final class Director {
         return ForgeRegistries.ENTITY_TYPES.getValue(id);
     }
 
-    private static ResourceLocation pick(List<SpawnEntry> entries, RandomSource random) {
+    private static ResourceLocation pick(List<SpawnEntry> entries, RandomSource random, boolean day) {
         int total = 0;
-        for (SpawnEntry e : entries) total += Math.max(0, e.weight());
+        for (SpawnEntry e : entries) {
+            if (!(e.night() && day)) total += Math.max(0, e.weight());
+        }
         if (total <= 0) return null;
         int roll = random.nextInt(total);
         for (SpawnEntry e : entries) {
+            if (e.night() && day) continue;
             roll -= Math.max(0, e.weight());
             if (roll < 0) return e.entity();
         }
         return null;
     }
 
-    /** standing room near the reference height: roofs and cellars both count, water only for the drowned */
-    private static BlockPos findStand(ServerLevel level, int x, int y0, int z, boolean aquatic) {
-        for (int dy = 10; dy >= -24; dy--) {
-            BlockPos p = new BlockPos(x, y0 + dy, z);
-            if (!level.hasChunkAt(p)) return null;
-            BlockState feet = level.getBlockState(p);
-            BlockState head = level.getBlockState(p.above());
-            if (aquatic) {
-                if (feet.getFluidState().is(FluidTags.WATER) && head.getFluidState().is(FluidTags.WATER)) return p;
-                continue;
-            }
-            BlockPos below = p.below();
-            if (level.getBlockState(below).isFaceSturdy(level, below, Direction.UP)
-                    && feet.getCollisionShape(level, p).isEmpty() && feet.getFluidState().isEmpty()
-                    && head.getCollisionShape(level, p.above()).isEmpty()) {
+    private static Zombie probe;
+
+    /**
+     * Inside and underground, placement has to be able to walk to the player. Measured 2026-09-10: in the RUAF post
+     * 33 of 34 indoor placements stood behind shut doors, filling the cap with creatures nobody would meet.
+     * The probe is a zombie that is never added to the world; only its path finder is used.
+     */
+    static boolean reaches(ServerLevel level, BlockPos from, BlockPos to) {
+        if (probe == null || probe.level() != level) {
+            probe = EntityType.ZOMBIE.create(level);
+            if (probe == null) return true;
+            var follow = probe.getAttribute(Attributes.FOLLOW_RANGE);
+            if (follow != null) follow.setBaseValue(64.0D);
+        }
+        probe.moveTo(from.getX() + 0.5D, from.getY(), from.getZ() + 0.5D, 0.0F, 0.0F);
+        probe.setOnGround(true);
+        Path path = probe.getNavigation().createPath(to, 1);
+        return path != null && path.canReach();
+    }
+
+    /** standing room nearest the reference height, on the same kind of ground; water only for the drowned */
+    static BlockPos findStand(ServerLevel level, int x, int y0, int z, Env env, boolean aquatic) {
+        int reach = Math.max(env.dyUp, env.dyDown);
+        for (int d = 0; d <= reach; d++) {
+            for (int sign = -1; sign <= 1; sign += 2) {
+                if (d == 0 && sign == 1) continue;
+                int dy = d * sign;
+                if (dy > env.dyUp || -dy > env.dyDown) continue;
+                BlockPos p = new BlockPos(x, y0 + dy, z);
+                if (!level.hasChunkAt(p)) return null;
+                if (!standable(level, p, aquatic)) continue;
+                if (!aquatic && Env.at(level, p) != env) continue;
                 return p;
             }
         }
         return null;
+    }
+
+    /** the nearest standing room to a point, within three blocks across and two up or down; null when there is none */
+    public static BlockPos nearestStand(ServerLevel level, BlockPos at) {
+        if (standable(level, at, false)) return at;
+        for (int r = 1; r <= 3; r++) {
+            for (int dy = -2; dy <= 2; dy++) {
+                for (int dx = -r; dx <= r; dx++) {
+                    for (int dz = -r; dz <= r; dz++) {
+                        BlockPos p = at.offset(dx, dy, dz);
+                        if (level.hasChunkAt(p) && standable(level, p, false)) return p;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    /** the first version's search, kept only so {@link #survey} can measure what the layered one changed */
+    static BlockPos legacyStand(ServerLevel level, int x, int y0, int z) {
+        for (int dy = 10; dy >= -24; dy--) {
+            BlockPos p = new BlockPos(x, y0 + dy, z);
+            if (!level.hasChunkAt(p)) return null;
+            if (standable(level, p, false)) return p;
+        }
+        return null;
+    }
+
+    private static boolean standable(ServerLevel level, BlockPos p, boolean aquatic) {
+        BlockState feet = level.getBlockState(p);
+        BlockState head = level.getBlockState(p.above());
+        if (aquatic) return feet.getFluidState().is(FluidTags.WATER) && head.getFluidState().is(FluidTags.WATER);
+        BlockPos below = p.below();
+        return level.getBlockState(below).isFaceSturdy(level, below, Direction.UP)
+                && feet.getCollisionShape(level, p).isEmpty() && feet.getFluidState().isEmpty()
+                && head.getCollisionShape(level, p.above()).isEmpty();
     }
 
     private static Mob spawn(ServerLevel level, EntityType<?> type, BlockPos pos, Zone zone) {
@@ -197,12 +275,31 @@ public final class Director {
         mob.addTag(WarEvents.PLACED_TAG);
         mob.addTag("gs_director");
         // the zombie family: never a baby, never a chicken jockey
-        net.minecraft.world.entity.SpawnGroupData group = mob instanceof Zombie ? new Zombie.ZombieGroupData(false, false) : null;
+        SpawnGroupData group = mob instanceof Zombie ? new Zombie.ZombieGroupData(false, false) : null;
         mob.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.EVENT, group, null);
-        if (mob instanceof Zombie zombie) dressDead(zombie, zone, level.getRandom());
+        if (mob instanceof Zombie zombie) {
+            ResourceLocation key = ForgeRegistries.ENTITY_TYPES.getKey(type);
+            if (key != null && GscraftWar.MODID.equals(key.getNamespace())) {
+                clearGear(zombie);   // the mod's own Dead are their own look, not a dressed rank
+            } else {
+                dressDead(zombie, zone, level.getRandom());
+            }
+        }
         level.addFreshEntity(mob);
         placed++;
         return mob;
+    }
+
+    /** the Dead's cavalry (entities-v8 §3.1): a zombie horse, one of the Dead in the saddle */
+    private static Mob spawnRider(ServerLevel level, BlockPos pos, Zone zone) {
+        Mob horse = spawn(level, EntityType.ZOMBIE_HORSE, pos, zone);
+        if (horse == null) return null;
+        Mob rider = spawn(level, EntityType.ZOMBIE, pos, zone);
+        if (rider != null) {
+            rider.startRiding(horse, true);
+            rider.setCustomName(Component.literal("Rider"));
+        }
+        return horse;
     }
 
     /**
@@ -218,6 +315,13 @@ public final class Director {
         return !MagnumTorchCompat.refuses(mob, level);
     }
 
+    private static void clearGear(Zombie zombie) {
+        for (EquipmentSlot slot : EquipmentSlot.values()) {
+            zombie.setItemSlot(slot, ItemStack.EMPTY);
+            zombie.setDropChance(slot, 0.0F);
+        }
+    }
+
     /** the Dead wear what they died in: the zone names which ranks, the ranks file what each wears */
     private static void dressDead(Zombie zombie, Zone zone, RandomSource random) {
         List<RankDef> pool = new ArrayList<>();
@@ -225,8 +329,9 @@ public final class Director {
             RankDef r = Ranks.named("dead", name);
             if (r != null) pool.add(r);
         }
-        if (pool.isEmpty()) {
-            RankDef plain = Ranks.named("dead", zombie instanceof Drowned ? "The Drowned" : "The Dead");
+        if (pool.isEmpty() || zombie instanceof Drowned) {
+            pool.clear();
+            RankDef plain = Ranks.named("dead", zombie instanceof Drowned ? drownedRank(zone) : "The Dead");
             if (plain != null) pool.add(plain);
         }
         for (EquipmentSlot slot : EquipmentSlot.values()) {
@@ -238,85 +343,214 @@ public final class Director {
         if (rank != null && !rank.name().equals("The Dead")) zombie.setCustomName(Component.literal(rank.name()));
     }
 
-    /** one attempt at each horror the zone admits; force skips the chance roll, not the night rule */
+    private static String drownedRank(Zone zone) {
+        return zone.deadRanks().contains("Drowned Patrol") ? "Drowned Patrol" : "The Drowned";
+    }
+
+    // ---- horrors
+
+    /** one attempt at each horror the zone admits; force skips the chance roll, not the night or ground rules */
     public static int horrors(ServerLevel level, BlockPos at, boolean force) {
         Zone zone = Zones.at(at.getX(), at.getZ());
         if (zone == null || zone.exclude()) return 0;
+        Env env = Env.at(level, at);
         int n = 0;
         for (HorrorDef horror : zone.horrors()) {
             if (horror.night() && level.isDay()) continue;
+            if (!horror.envs().isEmpty() && !horror.envs().contains(env)) continue;
             if (!force && level.getRandom().nextDouble() >= horror.chance()) continue;
             EntityType<?> type = type(horror.entity());
             if (type == null) continue;
             AABB near = new AABB(at).inflate(HORROR_CLEAR);
             if (!level.getEntitiesOfClass(Entity.class, near, e -> e.getType() == type).isEmpty()) continue;
-            if (placeNear(level, at, HORROR_MIN_R, HORROR_MAX_R, horror.entity()) != null) n++;
+            if (placeNear(level, at, env, horror.entity()) != null) n++;
         }
         return n;
     }
 
+    // ---- garrisons and lairs
+
     /**
-     * Keep every garrison standing. A garrison wakes when a player is within 128 blocks of it, counts its members
-     * inside the zone, and tops up whatever is missing - at once the first time, then only once the refill time has
-     * passed since the last top-up, so an outpost the players have just emptied stays empty for a while.
+     * Keep every garrison and lair standing. Each wakes when a player is within 128 blocks, counts its members inside
+     * the zone, and tops up whatever is missing - at once the first time, then only once its refill time has passed
+     * since the last top-up. A lair is the zone's unique creature: one, and a long wait before it returns.
      *
      * @param only  one zone by name, or null for all
      * @param force skip both the player and the refill-time checks (the test command)
      */
     public static int garrisons(ServerLevel level, String only, boolean force) {
         GarrisonData data = GarrisonData.get(level);
-        long now = level.getGameTime();
         int spawned = 0;
         for (Zone zone : Zones.all()) {
-            GarrisonDef garrison = zone.garrison();
-            if (garrison == null || !zone.hasBox() || (only != null && !only.equals(zone.name()))) continue;
-            int cx = zone.centerX();
-            int cz = zone.centerZ();
-            if (!level.hasChunkAt(new BlockPos(cx, 64, cz))) continue;
-            if (!force && level.players().stream().noneMatch(p -> p.distanceToSqr(cx, p.getY(), cz) <= GARRISON_WAKE * GARRISON_WAKE)) {
-                continue;
-            }
-            String tag = GARRISON_TAG + zone.name();
-            AABB box = new AABB(zone.x0(), level.getMinBuildHeight(), zone.z0(), zone.x1() + 1, level.getMaxBuildHeight(), zone.z1() + 1)
-                    .inflate(16.0D, 0.0D, 16.0D);
-            int alive = level.getEntitiesOfClass(Mob.class, box, m -> m.getTags().contains(tag)).size();
-            int missing = garrison.count() - alive;
-            if (missing <= 0) continue;
-            Long last = data.lastRefill(zone.name());
-            if (!force && last != null && now - last < garrison.refillTicks()) continue;
-            EntityType<?> type = type(garrison.entity());
-            if (type == null) continue;
-            for (int i = 0; i < missing; i++) {
-                BlockPos pos = surfaceIn(level, zone);
-                if (pos == null) continue;
-                Mob mob = spawn(level, type, pos, zone);
-                if (mob == null) continue;
-                mob.addTag(tag);
-                mob.setPersistenceRequired();
-                BlockPos home = new BlockPos(cx, pos.getY(), cz);
-                int radius = Math.max(8, zone.halfExtent());
-                if (mob instanceof Homed homed) homed.setHome(home, radius);
-                else mob.restrictTo(home, radius);
-                spawned++;
-            }
-            data.markRefill(zone.name(), now);
+            if (!zone.hasBox() || (only != null && !only.equals(zone.name()))) continue;
+            if (zone.garrison() != null) spawned += keep(level, data, zone, zone.garrison(), GARRISON_TAG, "", force);
+            if (zone.lair() != null) spawned += keep(level, data, zone, zone.lair(), LAIR_TAG, "lair:", force);
         }
         return spawned;
     }
 
-    private static BlockPos surfaceIn(ServerLevel level, Zone zone) {
+    private static int keep(ServerLevel level, GarrisonData data, Zone zone, GarrisonDef def, String tagPrefix,
+                            String dataPrefix, boolean force) {
+        int cx = zone.centerX();
+        int cz = zone.centerZ();
+        if (!level.hasChunkAt(new BlockPos(cx, 64, cz))) return 0;
+        if (!force && level.players().stream().noneMatch(p -> p.distanceToSqr(cx, p.getY(), cz) <= GARRISON_WAKE * GARRISON_WAKE)) {
+            return 0;
+        }
+        String tag = tagPrefix + zone.name();
+        AABB box = new AABB(zone.x0(), level.getMinBuildHeight(), zone.z0(), zone.x1() + 1, level.getMaxBuildHeight(), zone.z1() + 1)
+                .inflate(16.0D, 0.0D, 16.0D);
+        int alive = level.getEntitiesOfClass(Mob.class, box, m -> m.getTags().contains(tag)).size();
+        int missing = def.count() - alive;
+        if (missing <= 0) return 0;
+        long now = level.getGameTime();
+        Long last = data.lastRefill(dataPrefix + zone.name());
+        if (!force && last != null && now - last < def.refillTicks()) return 0;
+        EntityType<?> type = type(def.entity());
+        if (type == null) return 0;
+        int spawned = 0;
+        for (int i = 0; i < missing; i++) {
+            BlockPos pos = groundIn(level, zone);
+            if (pos == null) continue;
+            Mob mob = spawn(level, type, pos, zone);
+            if (mob == null) continue;
+            mob.addTag(tag);
+            mob.setPersistenceRequired();
+            BlockPos home = new BlockPos(cx, pos.getY(), cz);
+            int radius = Math.max(8, zone.halfExtent());
+            if (mob instanceof Homed homed) homed.setHome(home, radius);
+            else mob.restrictTo(home, radius);
+            spawned++;
+        }
+        data.markRefill(dataPrefix + zone.name(), now);
+        return spawned;
+    }
+
+    /**
+     * Ground-floor standing room inside a zone: the lowest spot in a column that is not underground. The top of the
+     * column is a roof as often as not - the garrison of a brick block belongs in the block, not on it.
+     */
+    private static BlockPos groundIn(ServerLevel level, Zone zone) {
         RandomSource random = level.getRandom();
-        for (int t = 0; t < 12; t++) {
+        for (int t = 0; t < 16; t++) {
             int x = zone.x0() + random.nextInt(Math.max(1, zone.x1() - zone.x0()));
             int z = zone.z0() + random.nextInt(Math.max(1, zone.z1() - zone.z0()));
             if (!level.hasChunkAt(new BlockPos(x, 64, z))) continue;
-            int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
-            BlockPos p = new BlockPos(x, y, z);
-            BlockPos below = p.below();
-            if (level.getBlockState(below).isFaceSturdy(level, below, Direction.UP) && level.getBlockState(p).getFluidState().isEmpty()) {
-                return p;
+            int top = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
+            for (int y = Math.max(level.getMinBuildHeight() + 1, top - 60); y <= top; y++) {
+                BlockPos p = new BlockPos(x, y, z);
+                if (standable(level, p, false) && Env.at(level, p) != Env.UNDERGROUND) return p;
             }
         }
         return null;
+    }
+
+    /**
+     * The nearest ground-floor room to a column: the lowest standing room that is not underground, inside, with a
+     * floor of at least twenty indoor standing spots around it, so a sealed pocket in a foundation does not count.
+     * The survey's indoor reference points come from here.
+     */
+    public static BlockPos groundRoom(ServerLevel level, int cx, int cz, int radius) {
+        for (int r = 0; r <= radius; r += 2) {
+            for (int dx = -r; dx <= r; dx += 2) {
+                for (int dz = -r; dz <= r; dz += 2) {
+                    if (Math.max(Math.abs(dx), Math.abs(dz)) != r) continue;
+                    int x = cx + dx;
+                    int z = cz + dz;
+                    if (!level.hasChunkAt(new BlockPos(x, 64, z))) continue;
+                    int top = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
+                    for (int y = Math.max(level.getMinBuildHeight() + 1, top - 60); y <= top; y++) {
+                        BlockPos p = new BlockPos(x, y, z);
+                        if (!standable(level, p, false)) continue;
+                        Env env = Env.at(level, p);
+                        if (env == Env.UNDERGROUND) continue;
+                        if (env == Env.INDOOR && floorAround(level, p) >= 20) return p;
+                        break;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    private static int floorAround(ServerLevel level, BlockPos at) {
+        int n = 0;
+        for (int dx = -4; dx <= 4; dx++) {
+            for (int dz = -4; dz <= 4; dz++) {
+                BlockPos p = at.offset(dx, 0, dz);
+                if (standable(level, p, false) && Env.at(level, p) == Env.INDOOR) n++;
+            }
+        }
+        return n;
+    }
+
+    // ---- the survey
+
+    /** what placement from one reference point produces, measured without placing anything */
+    public record Survey(Env reference, int samples, int found, int open, int indoor, int underground,
+                        double meanRise, int visible, int reachable, int checked) {
+        public String describe(String label) {
+            return String.format("%s: found %d of %d; open %d, indoor %d, underground %d; same ground as you %d%%; "
+                            + "mean height from you %.1f; visible %d%%; walkable to you %d of %d",
+                    label, found, samples, open, indoor, underground,
+                    found == 0 ? 0 : Math.round(100.0 * sameAs(reference) / found), meanRise,
+                    found == 0 ? 0 : Math.round(100.0 * visible / found), reachable, checked);
+        }
+
+        private int sameAs(Env env) {
+            return switch (env) {
+                case OPEN -> open;
+                case INDOOR -> indoor;
+                case UNDERGROUND -> underground;
+            };
+        }
+    }
+
+    /**
+     * Sample placement spots around a reference point with either search - the first version's or the layered one -
+     * and classify each: the kind of ground, the height from the reference, whether it can be seen from the
+     * reference's eyes, and (for the first 40) whether one of the Dead standing there can walk to it.
+     */
+    public static Survey survey(ServerLevel level, BlockPos ref, int samples, boolean legacy) {
+        Env env = Env.at(level, ref);
+        RandomSource random = level.getRandom();
+        Zombie probe = EntityType.ZOMBIE.create(level);
+        if (probe == null) return new Survey(env, samples, 0, 0, 0, 0, 0, 0, 0, 0);
+        var follow = probe.getAttribute(Attributes.FOLLOW_RANGE);
+        if (follow != null) follow.setBaseValue(64.0D);
+        int found = 0, open = 0, indoor = 0, under = 0, visible = 0, reachable = 0, checked = 0;
+        double rise = 0;
+        Vec3 eyes = Vec3.atBottomCenterOf(ref).add(0, 1.62D, 0);
+        for (int i = 0; i < samples; i++) {
+            double angle = random.nextDouble() * Math.PI * 2.0D;
+            double dist = legacy ? 20 + random.nextDouble() * 24 : env.minR + random.nextDouble() * (env.maxR - env.minR);
+            int x = Mth.floor(ref.getX() + Math.cos(angle) * dist);
+            int z = Mth.floor(ref.getZ() + Math.sin(angle) * dist);
+            Zone here = Zones.at(x, z);
+            if (here == null || here.exclude()) continue;
+            BlockPos pos = legacy ? legacyStand(level, x, ref.getY(), z) : findStand(level, x, ref.getY(), z, env, false);
+            if (pos == null) continue;
+            if (!legacy && env != Env.OPEN && !reaches(level, pos, ref)) continue;
+            found++;
+            switch (Env.at(level, pos)) {
+                case OPEN -> open++;
+                case INDOOR -> indoor++;
+                case UNDERGROUND -> under++;
+            }
+            rise += Math.abs(pos.getY() - ref.getY());
+            Vec3 target = Vec3.atBottomCenterOf(pos).add(0, 1.5D, 0);
+            if (level.clip(new ClipContext(eyes, target, ClipContext.Block.VISUAL, ClipContext.Fluid.NONE, probe)).getType() == HitResult.Type.MISS) {
+                visible++;
+            }
+            if (checked < 40) {
+                probe.moveTo(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, 0.0F, 0.0F);
+                probe.setOnGround(true);
+                Path path = probe.getNavigation().createPath(ref, 1);
+                checked++;
+                if (path != null && path.canReach()) reachable++;
+            }
+        }
+        probe.discard();
+        return new Survey(env, samples, found, open, indoor, under, found == 0 ? 0 : rise / found, visible, reachable, checked);
     }
 }

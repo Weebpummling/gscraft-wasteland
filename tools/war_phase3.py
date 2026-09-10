@@ -23,11 +23,15 @@ X, Z = -2000, -600
 AREA = f"x={X},z={Z},distance=..90"
 HELMET = 'ArmorItems:[{},{},{},{id:"minecraft:leather_helmet",Count:1b}]'
 CLEAR = ["minecraft:zombie", "gscraft:nato_soldier", "gscraft:ruaf_soldier", "gscraft:scavenger"]
-EXPECT = {
-    "NATO Rifleman": ("tacz:m4a1", None), "NATO Sergeant": ("tacz:m4a1", None), "NATO Marksman": ("tacz:mk14", None),
-    "NATO Gunner": ("tacz:m249", None), "NATO Shield": ("tacz:m9a4", "minecraft:shield"),
-    "RUAF Rifleman": ("tacz:ak47", None), "RUAF Sergeant": ("tacz:ak47", None), "RUAF Marksman": ("tacz:sks_tactical", None),
-    "RUAF Gunner": ("tacz:rpk", None), "RUAF Shield": ("tacz:cz75", "minecraft:shield"),
+EXPECT = {   # each rank's allowed guns (a rank may vary its weapon) and the offhand it must carry
+    "NATO Rifleman": ({"tacz:m4a1", "tacz:hk416d", "tacz:m16a4"}, None),
+    "NATO Sergeant": ({"tacz:m4a1", "tacz:hk416d", "tacz:scar_l"}, None),
+    "NATO Marksman": ({"tacz:mk14", "tacz:m700", "tacz:spr15hb"}, None),
+    "NATO Gunner": ({"tacz:m249"}, None),
+    "NATO Shield": ({"tacz:m9a4", "tacz:glock_17", "tacz:p320"}, "minecraft:shield"),
+    "RUAF Rifleman": ({"tacz:ak47", "cib:ak105", "cib:ak103"}, None), "RUAF Sergeant": ({"cib:ak24", "tacz:ak47", "cib:asval"}, None),
+    "RUAF Marksman": ({"tacz:sks_tactical", "cib:svd", "tacz:kar98"}, None), "RUAF Gunner": ({"tacz:rpk", "cib:pkp"}, None),
+    "RUAF Shield": ({"tacz:cz75", "tacz:glock_17"}, "minecraft:shield"),
 }
 
 r = L.Rcon("127.0.0.1", 25575, "gscraft-local-test")
@@ -112,7 +116,7 @@ for i, (rank, (gun, off)) in enumerate(EXPECT.items()):
     got = (val(f"@e[tag=p3r{i},limit=1]", "HandItems[0].tag.GunId") or "").strip('"')
     got_off = (val(f"@e[tag=p3r{i},limit=1]", "HandItems[1].id") or "").strip('"') or None
     role = (val(f"@e[tag=p3r{i},limit=1]", "GscraftRole") or "").strip('"')
-    if got != gun or (off and got_off != off):
+    if got not in gun or (off and got_off != off):
         bad.append(f"{rank}: gun {got}, offhand {got_off}, role {role}")
 check("each rank carries its role's gun", not bad, bad or f"{len(EXPECT)} ranks as specified")
 clear()

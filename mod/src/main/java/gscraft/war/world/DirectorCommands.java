@@ -2,6 +2,8 @@ package gscraft.war.world;
 
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.brigadier.builder.ArgumentBuilder;
+import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import gscraft.war.GscraftWar;
 import net.minecraft.commands.CommandSourceStack;
@@ -14,8 +16,10 @@ import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.function.Function;
+
 /**
- * /gscraft zone|zones|director|garrison - how the director is inspected and exercised without a player standing
+ * /gscraft zone|zones|env|director|garrison - how the director is inspected and exercised without a player standing
  * in the zone. Brigadier merges this with the other /gscraft subcommands.
  */
 @Mod.EventBusSubscriber(modid = GscraftWar.MODID)
@@ -30,24 +34,28 @@ public final class DirectorCommands {
                     say(ctx, Zones.all().size() + " zones");
                     return Zones.all().size();
                 }))
-                .then(Commands.literal("zone")
-                        .then(Commands.argument("x", IntegerArgumentType.integer())
-                                .then(Commands.argument("z", IntegerArgumentType.integer())
-                                        .executes(ctx -> {
-                                            int x = IntegerArgumentType.getInteger(ctx, "x");
-                                            int z = IntegerArgumentType.getInteger(ctx, "z");
-                                            Zone zone = Zones.at(x, z);
-                                            if (zone == null) {
-                                                say(ctx, "no zone at " + x + " " + z);
-                                                return 0;
-                                            }
-                                            say(ctx, "zone " + zone.name() + (zone.exclude() ? " (excluded)" : "")
-                                                    + " cap " + zone.cap() + " spawns " + zone.spawns().size()
-                                                    + " dead " + zone.deadRanks()
-                                                    + (zone.garrison() != null ? " garrison " + zone.garrison().count() : "")
-                                                    + " horrors " + zone.horrors().size());
-                                            return 1;
-                                        }))))
+                .then(Commands.literal("zone").then(xz(ctx -> {
+                    int x = IntegerArgumentType.getInteger(ctx, "x");
+                    int z = IntegerArgumentType.getInteger(ctx, "z");
+                    Zone zone = Zones.at(x, z);
+                    if (zone == null) {
+                        say(ctx, "no zone at " + x + " " + z);
+                        return 0;
+                    }
+                    say(ctx, "zone " + zone.name() + (zone.exclude() ? " (excluded)" : "")
+                            + " cap " + zone.cap() + " spawns " + zone.spawns().size()
+                            + " indoor " + zone.indoorSpawns().size() + " underground " + zone.undergroundSpawns().size()
+                            + " dead " + zone.deadRanks()
+                            + (zone.garrison() != null ? " garrison " + zone.garrison().count() : "")
+                            + (zone.lair() != null ? " lair " + zone.lair().entity() : "")
+                            + " horrors " + zone.horrors().size());
+                    return 1;
+                })))
+                .then(Commands.literal("env").then(xyz(ctx -> {
+                    BlockPos at = pos(ctx);
+                    say(ctx, "ground at " + at.toShortString() + ": " + Env.at(ctx.getSource().getLevel(), at));
+                    return 1;
+                })))
                 .then(Commands.literal("director")
                         .then(Commands.literal("pause").executes(ctx -> {
                             Director.setPaused(true);
@@ -63,41 +71,89 @@ public final class DirectorCommands {
                             say(ctx, Director.stats());
                             return 1;
                         }))
-                        .then(Commands.literal("pass")
-                                .then(Commands.argument("x", IntegerArgumentType.integer())
-                                        .then(Commands.argument("z", IntegerArgumentType.integer())
-                                                .then(Commands.argument("passes", IntegerArgumentType.integer(1, 500))
-                                                        .executes(DirectorCommands::pass)))))
-                        .then(Commands.literal("horrors")
-                                .then(Commands.argument("x", IntegerArgumentType.integer())
-                                        .then(Commands.argument("z", IntegerArgumentType.integer())
-                                                .executes(ctx -> {
-                                                    BlockPos at = surface(ctx);
-                                                    int n = Director.horrors(ctx.getSource().getLevel(), at, true);
-                                                    say(ctx, "horrors placed " + n);
-                                                    return n;
-                                                })))))
+                        .then(Commands.literal("pass").then(xzThen(passes(ctx -> pass(ctx, surface(ctx))))))
+                        .then(Commands.literal("passat").then(xyzThen(passes(ctx -> pass(ctx, standAt(ctx))))))
+                        .then(Commands.literal("survey").then(xyzThen(Commands.argument("samples",
+                                IntegerArgumentType.integer(10, 1000)).executes(DirectorCommands::survey))))
+                        .then(Commands.literal("room").then(xzThen(Commands.argument("radius",
+                                IntegerArgumentType.integer(2, 128)).executes(ctx -> {
+                            int x = IntegerArgumentType.getInteger(ctx, "x");
+                            int z = IntegerArgumentType.getInteger(ctx, "z");
+                            int radius = IntegerArgumentType.getInteger(ctx, "radius");
+                            BlockPos room = Director.groundRoom(ctx.getSource().getLevel(), x, z, radius);
+                            say(ctx, room == null ? "no ground-floor room within " + radius
+                                    : "room at " + room.getX() + " " + room.getY() + " " + room.getZ());
+                            return room == null ? 0 : 1;
+                        }))))
+                        .then(Commands.literal("horrors").then(xyz(ctx -> {
+                            int n = Director.horrors(ctx.getSource().getLevel(), pos(ctx), true);
+                            say(ctx, "horrors placed " + n);
+                            return n;
+                        }))))
                 .then(Commands.literal("garrison")
                         .then(Commands.argument("zone", StringArgumentType.word())
                                 .then(Commands.literal("fill").executes(ctx -> garrison(ctx, false)))
                                 .then(Commands.literal("force").executes(ctx -> garrison(ctx, true))))));
     }
 
-    /** placement passes at a point, ignoring the cap - the director's own test, the way /gscraftspawn was the KubeJS one */
-    private static int pass(CommandContext<CommandSourceStack> ctx) {
+    private static RequiredArgumentBuilder<CommandSourceStack, Integer> xz(Function<CommandContext<CommandSourceStack>, Integer> run) {
+        var z = Commands.argument("z", IntegerArgumentType.integer());
+        if (run != null) z.executes(run::apply);
+        return Commands.argument("x", IntegerArgumentType.integer()).then(z);
+    }
+
+    private static RequiredArgumentBuilder<CommandSourceStack, Integer> xyz(Function<CommandContext<CommandSourceStack>, Integer> run) {
+        var z = Commands.argument("z", IntegerArgumentType.integer());
+        if (run != null) z.executes(run::apply);
+        return Commands.argument("x", IntegerArgumentType.integer())
+                .then(Commands.argument("y", IntegerArgumentType.integer()).then(z));
+    }
+
+    /** x z, then more arguments; Brigadier builds a child when it is attached, so the tail goes on z first */
+    private static RequiredArgumentBuilder<CommandSourceStack, Integer> xzThen(ArgumentBuilder<CommandSourceStack, ?> tail) {
+        return Commands.argument("x", IntegerArgumentType.integer())
+                .then(Commands.argument("z", IntegerArgumentType.integer()).then(tail));
+    }
+
+    private static RequiredArgumentBuilder<CommandSourceStack, Integer> xyzThen(ArgumentBuilder<CommandSourceStack, ?> tail) {
+        return Commands.argument("x", IntegerArgumentType.integer())
+                .then(Commands.argument("y", IntegerArgumentType.integer())
+                        .then(Commands.argument("z", IntegerArgumentType.integer()).then(tail)));
+    }
+
+    private static RequiredArgumentBuilder<CommandSourceStack, Integer> passes(Function<CommandContext<CommandSourceStack>, Integer> run) {
+        return Commands.argument("passes", IntegerArgumentType.integer(1, 500)).executes(run::apply);
+    }
+
+    /** placement passes at a point, ignoring the cap, on the kind of ground the point stands on */
+    private static int pass(CommandContext<CommandSourceStack> ctx, BlockPos at) {
         ServerLevel level = ctx.getSource().getLevel();
-        BlockPos at = surface(ctx);
         int passes = IntegerArgumentType.getInteger(ctx, "passes");
+        Env env = Env.at(level, at);
         long t0 = System.nanoTime();
         int n = 0;
         for (int i = 0; i < passes; i++) {
-            if (Director.placeNear(level, at, 20, 44, null) != null) n++;
+            if (Director.placeNear(level, at, env, null) != null) n++;
         }
         double ms = (System.nanoTime() - t0) / 1e6;
         Zone zone = Zones.at(at.getX(), at.getZ());
-        say(ctx, String.format("zone %s: placed %d of %d in %.1f ms (%.2f ms per pass)",
-                zone == null ? "none" : zone.name(), n, passes, ms, ms / passes));
+        say(ctx, String.format("zone %s, %s ground: placed %d of %d in %.1f ms (%.2f ms per pass)",
+                zone == null ? "none" : zone.name(), env, n, passes, ms, ms / passes));
         return n;
+    }
+
+    private static int survey(CommandContext<CommandSourceStack> ctx) {
+        ServerLevel level = ctx.getSource().getLevel();
+        BlockPos at = standAt(ctx);
+        int samples = IntegerArgumentType.getInteger(ctx, "samples");
+        Zone zone = Zones.at(at.getX(), at.getZ());
+        Env env = Env.at(level, at);
+        say(ctx, "survey at " + at.toShortString() + ", zone " + (zone == null ? "none" : zone.name()) + ", ground " + env
+                + (zone == null ? "" : ", cap here " + Director.capFor(zone, env) + " (zone " + zone.cap() + ")")
+                + ", director creatures counted here now " + Director.countOurs(level, at, env));
+        say(ctx, Director.survey(level, at, samples, true).describe("first version"));
+        say(ctx, Director.survey(level, at, samples, false).describe("layered"));
+        return 1;
     }
 
     private static int garrison(CommandContext<CommandSourceStack> ctx, boolean force) {
@@ -116,6 +172,18 @@ public final class DirectorCommands {
         int z = IntegerArgumentType.getInteger(ctx, "z");
         int y = ctx.getSource().getLevel().getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
         return new BlockPos(x, y, z);
+    }
+
+    /** the point given, moved to the nearest standing room when it is inside a block */
+    private static BlockPos standAt(CommandContext<CommandSourceStack> ctx) {
+        BlockPos raw = pos(ctx);
+        BlockPos stand = Director.nearestStand(ctx.getSource().getLevel(), raw);
+        return stand != null ? stand : raw;
+    }
+
+    private static BlockPos pos(CommandContext<CommandSourceStack> ctx) {
+        return new BlockPos(IntegerArgumentType.getInteger(ctx, "x"), IntegerArgumentType.getInteger(ctx, "y"),
+                IntegerArgumentType.getInteger(ctx, "z"));
     }
 
     private static void say(CommandContext<CommandSourceStack> ctx, String text) {

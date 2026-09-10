@@ -324,6 +324,38 @@ and it was rolling gear onto the Dead after the director dressed them (lava buck
 Difficulty by distance goes with it; if difficulty scaling returns, it is the director's, per zone. RUAF's Skadowsky
 post moved into the town, to the brick block between the camp and the hospital (`sk_out_w`, centre -752, -1124).
 
+**Areas, ground and kit, 2026-09-10** (`tools/war_phase4b.py` 11 of 11; phases 4, 3 and 2 still 13, 8 and 8 of each). Owner asks: each
+area with its own creatures; how underground placement affects surface density; thinner in the open, denser indoors;
+randomised Scavenger kit, limited variety for the armies.
+
+- *Ground kinds* (`world/Env.java`), read from what is overhead: rock or earth, or a built ceiling with three or more
+  blocks of rock or earth over it, is underground; other solid is indoor; nothing for 24 blocks is open. Open: cap
+  ×0.75, placed 28–52 blocks out. Indoor and underground: cap ×1.5, placed 6–24 out. Placement stays on the player's
+  kind of ground, caps count per kind, and indoors or underground a placement must have a walkable path to the player.
+- *Area creatures*: Bloaters at the plant (5 in 60 placements), the Matron alone in the hospital lair (persistent, not
+  doubled), Riders on the farm's fields at night, cave spiders with the Dead under the Woods (19 and 11 in 40), Runners
+  among the town's Dead (speed 0.30 against 0.23). The `farm` zone had never matched: its box sits inside `woods`, which
+  was listed first; the order is fixed.
+- *What the first version did to density*, same reference points, 150 samples each. From a street it put 6–18 % of
+  placements indoors or underground (town centre 18 of 131), and every one counted against the street's cap. From the
+  plant yard, 21 % landed off the player's ground, 10 blocks up or down on average, 11 of 40 walkable. From inside a
+  building it placed 79–98 % outdoors (RUAF post 116 of 129, Skadowsky house 111 of 113, town centre 106 of 134); from
+  the hospital's ground floor, half went underground. From bunkers and the
+  west-front dungeon it put the Dead 5.6–10.2 blocks above or below on average, 0–16 % visible, 1–8 of 25–40 walkable. The spawner
+  blocks (167 in the playable area, half below y 40) spawn nothing under the hold, so the underground held only what the
+  director placed, and that came mostly from players on the surface above it.
+- *Layered*: 100 % on the player's ground everywhere. Underground: 75–100 % visible and every sampled placement walkable in
+  the bunkers, the cellar and the dungeon. Indoors, walkability decides: the hospital gives 52 placements, 98 % visible; the RUAF post's
+  brick block gives 1 and a Skadowsky house 3, because their rooms are shut off by doors the Dead cannot open. Before the
+  walkable rule the post took 34, of which 33 could never reach the player and would have filled the cap. Open ground
+  sees less of it (town street 15 %, Skadowsky street 6 % visible) because placement is further out; they walk in.
+- *Kit*: every rank slot is a weighted choice (`"none"` leaves it empty). Scavengers roll each slot: 20 different
+  loadouts in 20. NATO and RUAF keep one uniform per rank and vary the weapon (NATO Riflemen: 12 in the same vest,
+  M4A1 6 / HK416D 5 / M16A4 1). RUAF now draws on the CIBR pack already in the player pack (AK-105, AK-103, AK-24,
+  AS Val, PKP, SVD), and the RUAF Sergeant wears the MSV vest instead of the KR06 vest NATO's Sergeant wears.
+- *Commands*: `/gscraft env <x y z>`, `director passat|survey <x y z> …`, `director room <x z> <radius>`,
+  `director horrors <x y z>`.
+
 Related: `gscraft-war-mod-design.md` (the mod), `gscraft-enemies.md` and `gscraft-entities-v8.md` (superseded where
 this review says so, once the owner rules), `gscraft-enemy-design-2026-09-08.md` (the capability record),
 `gscraft-equipment-inventory.md` (the wardrobe), `gscraft-finale.md` (the Sleeper), map design §6 (the loop).
