@@ -91,6 +91,8 @@ GORKA = DR + "gorka3"
 WRAP, JACKET = PK + "wandererarmorhelmet", PK + "wandererarmorchestplate"
 BANDANA, RAGS = PK + "pomkotsarmorhelmet", PK + "pomkotsarmorchestplate"
 WW2 = SBW + "ge_helmet_m_35"
+ARMY_C = DR + "army07hat"        # registered as a CHEST piece despite the name (§2.1)
+PANTS21 = DR + "pants21"
 DIVE_H, BACKTANK, DIVE_B = CR + "copper_diving_helmet", CR + "copper_backtank", CR + "copper_diving_boots"
 # legs and feet, from the registry dump: Superb Warfare has no legs at all and Dragon Rising no boots,
 # but DR does ship six leggings and Pomkots ships complete four-slot sets. Nobody wears bare legs now.
@@ -169,9 +171,13 @@ KITS = [
 
     # ---- the Scavengers: looted, never issued, and never twice the same (§3.2). They hold the Woods and
     # the roads between everything, which is whatever neither army has claimed.
-    (PILL, ["woods", None], "Scavenger Captain", CAPT_H, MSV_C, GORKA_LEGS, WAND_B, CROWBAR, 2, 0.06),
-    (PILL, ["woods", None], "Scrapper", CARD_H, CARD_C, CARD_L, CARD_B, CARD_SWORD, 5, 0.18),
-    (PILL,        ["woods", None], "Scavenger",        WRAP,    JACKET, WAND_L,     WAND_B, PIPE,    ("pp", 6), None),
+    # ---- the Scavengers, dressed as looted rather than issued. Four looks across the ranks and none of
+    # them matching, which is the whole of §3.2. Only the melee ranks are given a weapon: the rest keep
+    # the gun Pillager's Gun hands them, which is what §3.2 asks for and what E5's model swap dresses.
+    (PILL, ["woods", None], "Scavenger Captain", CAPT_H,  MSV_C,   GORKA_LEGS, WAND_B, None,    2, 0.06),
+    (PILL, ["woods", None], "Scavenger Digger",  None,    ARMY_C,  PANTS21,    WAND_B, SHOVEL,  4, 0.12),
+    (PILL, ["woods", None], "Scrapper",          CARD_H,  CARD_C,  CARD_L,     CARD_B, CARD_SWORD, 5, 0.18),
+    (PILL,        ["woods", None], "Scavenger",        WRAP,    JACKET, WAND_L,     WAND_B, None,    ("pp", 6), None),
     (SCAV_AXE,    ["woods", None], "Scavenger Raider", WW2,     GORKA,  GORKA_LEGS, WAND_B, CROWBAR, 12, None),
     (SCAV_GUN,    ["woods", None], "Scavenger Gunman", None,    None,   None,       None,   None,     6, None),
 
@@ -229,7 +235,12 @@ def dressed(mob, area, name, helm, chest, legs, feet, hand, n, chance=None):
     hand to Improved Mobs, which filled it with a diamond pickaxe, then flint and steel, then an ender
     pearl, then a lava bucket across successive runs. Writing HandItems sets both slots at once.
     """
-    nbt = "{HandItems:[" + (hand or "{}") + ",{}]," + NO_DROPS + "}"
+    # A hand of None leaves HandItems alone entirely. Pillager's Gun arms anything in the
+    # forge:pillager_gunner tag at join, and writing HandItems:[{},{}] was deleting that gun a moment
+    # later - which is why the Scavengers, whose whole design is Pillager's Gun weapons (§3.2), were
+    # walking around with a length of pipe and nothing else. Only a rank that wants a specific weapon
+    # now writes the slot.
+    nbt = ("{" + NO_DROPS + "}") if hand is None else           ("{HandItems:[" + hand + ",{}]," + NO_DROPS + "}")
     out = []
     r = rule(mob=mob, area=area, result="default", customname=name, nbt=nbt)
     if chance is None:

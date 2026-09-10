@@ -208,6 +208,18 @@ function tryPlace(level, px, py, pz, area) {{
   return false;
 }}
 
+function tryPlaceMan(level, px, py, pz, area) {{
+  var near = level.getEntitiesWithin(
+    AABB.of(px - 96, py - 32, pz - 96, px + 96, py + 32, pz + 96));
+  for (var i = 0; i < near.length; i++) {{
+    if (String(near[i].type).indexOf('man:') >= 0) return;   // only ever one of him
+  }}
+  var saved = area.pool;
+  area.pool = ['man:manfromthefog'];
+  tryPlace(level, px, py, pz, area);
+  area.pool = saved;
+}}
+
 var gscraftTick = 0;
 
 ServerEvents.tick(event => {{
@@ -230,6 +242,13 @@ ServerEvents.tick(event => {{
       var n = 0;
       for (var k = 0; k < near.length; k++) {{
         if (isOurs(String(near[k].type))) n++;
+      }}
+      // The fog man is location-based now, not a global timer. The mod's own enable_spawning fired
+      // every 4 to 16 minutes anywhere on the map, day included, and once produced the sound and the
+      // visuals with no man behind them - which is what disconnected the owner. He belongs to the
+      // Woods (entities-v8 s167: "his only land by day"), rarely, and after dark.
+      if (area.n === 'woods' && Math.random() < 0.02 && level.getDayTime() % 24000 > 13000) {{
+        tryPlaceMan(level, Math.floor(p.x), Math.floor(p.y), Math.floor(p.z), area);
       }}
       var placed = (n < area.cap)
         && tryPlace(level, Math.floor(p.x), Math.floor(p.y), Math.floor(p.z), area);
