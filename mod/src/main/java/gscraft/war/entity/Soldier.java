@@ -28,6 +28,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
@@ -36,12 +37,13 @@ import javax.annotation.Nullable;
  * illagers the factions stood up as before carry no armour layer, so every kit was invisible. A Monster on
  * purpose: turrets, guards and recruits already treat monsters as the enemy, and the armies are.
  */
-public class Soldier extends Monster implements FactionMember, Skinned {
+public class Soldier extends Monster implements FactionMember, Skinned, GunUser, Hearing {
     private static final EntityDataAccessor<Integer> SKIN =
             SynchedEntityData.defineId(Soldier.class, EntityDataSerializers.INT);
 
     private final String faction;
-    private boolean kitIssued;
+    private final FighterState state = new FighterState(Role.RIFLEMAN);
+    private InvestigateGoal investigate;
 
     public Soldier(EntityType<? extends Soldier> type, Level level, String faction) {
         super(type, level);
@@ -68,6 +70,33 @@ public class Soldier extends Monster implements FactionMember, Skinned {
     }
 
     @Override
+    public Role role() {
+        return state.role;
+    }
+
+    @Override
+    public boolean takeMagazine() {
+        if (state.magazines <= 0) return false;
+        state.magazines--;
+        return true;
+    }
+
+    @Override
+    public boolean outOfAmmo() {
+        return state.outOfAmmo;
+    }
+
+    @Override
+    public void markOutOfAmmo() {
+        state.outOfAmmo = true;
+    }
+
+    @Override
+    public void hear(Vec3 pos) {
+        if (investigate != null) investigate.hear(pos);
+    }
+
+    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         entityData.define(SKIN, 0);
@@ -76,13 +105,16 @@ public class Soldier extends Monster implements FactionMember, Skinned {
     @Override
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
-        goalSelector.addGoal(2, new GunAttackGoal(this, 1.0D, 40.0F));
+        goalSelector.addGoal(2, new GunAttackGoal(this, 1.0D));
         goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.1D, false) {
             @Override
             public boolean canUse() {
-                return !IGun.mainHandHoldGun(mob) && super.canUse();
+                return (!IGun.mainHandHoldGun(mob) || state.outOfAmmo) && super.canUse();
             }
         });
+        // assigned here, not at the field: Mob's constructor calls registerGoals before field initialisers run
+        investigate = new InvestigateGoal(this);
+        goalSelector.addGoal(5, investigate);
         goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 0.8D));
         goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 16.0F));
         goalSelector.addGoal(8, new RandomLookAroundGoal(this));
@@ -92,6 +124,12 @@ public class Soldier extends Monster implements FactionMember, Skinned {
                 p -> Factions.hostileToPlayer(this, (Player) p)));
         targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, true, false,
                 e -> Factions.hostile(this, e)));
+    }
+
+    @Override
+    protected void customServerAiStep() {
+        super.customServerAiStep();
+        if (state.role == Role.SERGEANT && tickCount % 20 == 0) Fighters.callTarget(this);
     }
 
     /** Never turn on your own side, even after a stray round. */
@@ -112,7 +150,7 @@ public class Soldier extends Monster implements FactionMember, Skinned {
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType reason,
                                         @Nullable SpawnGroupData data, @Nullable CompoundTag tag) {
         SpawnGroupData result = super.finalizeSpawn(level, difficulty, reason, data, tag);
-        issueKit();
+        if (!state.kitIssued) issueKit();
         return result;
     }
 
@@ -120,27 +158,32 @@ public class Soldier extends Monster implements FactionMember, Skinned {
     public void tick() {
         super.tick();
         // /summon with any NBT skips finalizeSpawn, so a soldier that arrived that way dresses on its first tick
-        if (!level().isClientSide && !kitIssued) issueKit();
+        if (!level().isClientSide && !state.kitIssued) issueKit();
     }
 
     private void issueKit() {
         entityData.set(SKIN, random.nextInt(SKIN_COUNT));
-        setCustomName(Component.literal(Kit.issue(this, faction, random)));
+        RankDef rank = Kit.issue(this, faction, random, state.rank);
+        if (rank != null) {
+            state.apply(rank);
+            setCustomName(Component.literal(rank.name()));
+        } else {
+            state.kitIssued = true;
+        }
         for (EquipmentSlot slot : EquipmentSlot.values()) setDropChance(slot, 0.0F);
-        kitIssued = true;
     }
 
     @Override
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
-        tag.putBoolean("GscraftKitIssued", kitIssued);
+        state.save(tag);
         tag.putInt("GscraftSkin", skin());
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
-        kitIssued = tag.getBoolean("GscraftKitIssued");
+        state.load(tag);
         entityData.set(SKIN, tag.getInt("GscraftSkin"));
     }
 }

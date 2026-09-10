@@ -1,0 +1,24 @@
+{
+  "ranks": [
+    {"name": "Scavenger", "weight": 40, "role": "scavenger",
+     "head": "pomkotsmechs:wandererarmorhelmet", "chest": "pomkotsmechs:wandererarmorchestplate",
+     "legs": "pomkotsmechs:wandererarmorleggings", "feet": "pomkotsmechs:wandererarmorboots", "melee": "superbwarfare:steel_pipe"},
+    {"name": "Scrapper", "weight": 18, "role": "scavenger",
+     "head": "create:cardboard_helmet", "chest": "create:cardboard_chestplate",
+     "legs": "create:cardboard_leggings", "feet": "create:cardboard_boots", "melee": "superbwarfare:knife"},
+    {"name": "Scavenger Raider", "weight": 16, "role": "scavenger",
+     "head": "superbwarfare:ge_helmet_m_35", "chest": "dragonrise_reforge:gorka3",
+     "legs": "dragonrise_reforge:gorka3_leggings", "feet": "pomkotsmechs:wandererarmorboots", "melee": "superbwarfare:crowbar"},
+    {"name": "Scavenger Digger", "weight": 12, "role": "scavenger",
+     "chest": "dragonrise_reforge:army07hat", "legs": "dragonrise_reforge:pants21",
+     "feet": "pomkotsmechs:wandererarmorboots", "melee": "superbwarfare:military_shovel"},
+    {"name": "Scavenger Gunman", "weight": 8, "role": "scavenger",
+     "head": "pomkotsmechs:pomkotsarmorhelmet", "chest": "dragonrise_reforge:gorka3",
+     "legs": "pomkotsmechs:wandererarmorleggings", "feet": "pomkotsmechs:wandererarmorboots",
+     "gun": "tacz:kar98", "magazines": 2},
+    {"name": "Scavenger Captain", "weight": 6, "role": "scavenger",
+     "head": "dragonrise_reforge:kr06_helmet", "chest": "dragonrise_reforge:msv_chest",
+     "legs": "dragonrise_reforge:gorka3_leggings", "feet": "pomkotsmechs:wandererarmorboots",
+     "gun": "tacz:spas_12", "magazines": 2}
+  ]
+}

@@ -295,6 +295,17 @@ Dead on its own and ignores the armies, which ignore it; the Converted rise wear
 cardboard sword deals no damage, so the Scrapper now carries Superb Warfare's knife; and a lone melee Scavenger loses
 to two live zombies on Hard, which is left as balance for phase 3 to judge.
 
+**Phase 3 done locally, 2026-09-10** (`tools/war_phase3.py` 8 of 8, `war_phase2.py` 8 of 8 as regression): ranks
+are data in `data/gscraft/gscraft_ranks/<faction>.json` with a role each — Rifleman, Sergeant (calls his target to
+idle allies within 20 blocks), Marksman (64-block reach, long aim, holds distance, backs away inside 16), Gunner
+(long bursts, two seconds of fire on the last known position), Shield (raises a real shield while closing and
+reloading). Guns from the 54 loaded TACZ guns: NATO `m4a1`/`mk14`/`m249`/`m9a4`, RUAF `ak47`/`sks_tactical`/`rpk`/`cz75`.
+Ammunition is finite (W10): spare magazines per rank, then melee. Gunfire is heard: 64 blocks, 12 with a suppressor
+(TACZ `GunProperties.SILENCE`); an enemy walks to the shot, an idle ally joins the shooter's fight. Measured: a
+rifleman with no spare magazine closed to melee at 0.8 blocks; a Marksman held 30 blocks and took a target from 200 to
+48; a RUAF soldier 50 blocks out walked from the shot's 50 to 18 blocks and killed the shooter. In person still: the
+Shield's block, the Gunner's suppression, the Sergeant's call.
+
 Related: `gscraft-war-mod-design.md` (the mod), `gscraft-enemies.md` and `gscraft-entities-v8.md` (superseded where
 this review says so, once the owner rules), `gscraft-enemy-design-2026-09-08.md` (the capability record),
 `gscraft-equipment-inventory.md` (the wardrobe), `gscraft-finale.md` (the Sleeper), map design §6 (the loop).
