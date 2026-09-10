@@ -75,9 +75,41 @@ Out of that inventory, `tools/spawn_rules.py` assigns:
 | Scavenger Raider | ge M35 | Gorka 3 | Gorka 3 | wanderer | crowbar |
 | Scavenger Elder | bandana | rags | rags | rags | — |
 
-That uses **23 of the 57** non-vanilla armour pieces and four melee weapons. What is still unused and
-worth spending: the Russian set (`ru_helmet_6b47`, `ru_chest_6b43`) has no wearer, and neither do the UN
-peacekeeper helmet, the desert and ocean camouflage sets, `fast_helmet`, `t21_helmet`, `aljin_helmet`,
-`kr06_helmet`, the cardboard junk armour, or `createbigcannons:gas_mask`. Each is a rank that has not
-been written yet rather than an oversight — a second army, a checkpoint that used to be UN, a
-desert-camouflaged patrol, a scrap-armoured raider, a sealed scientist.
+The roster below (`tools/spawn_rules.py`) spends **39 of the 57** non-vanilla pieces across 16 ranks.
+
+| faction | rank | head | chest | legs | feet | hand |
+|---|---|---|---|---|---|---|
+| Militia — the spine | Sergeant *(12 %)* | fast | kr06 vest | kr06 | — | — |
+| | Shield | PASGT | IE steel | IE steel | IE steel | — |
+| | Gunner | sniper21 | IOTV | kr06 | — | — |
+| | Trooper | PASGT | IOTV | kr06 | — | — |
+| | Rifleman | PASGT | IOTV | kr06 | — | `tacz:type_81` |
+| Militia — the plant | Sergeant *(12 %)* | fast | kr06 vest | msv | — | — |
+| | Shield | **6B47** | IE steel | IE steel | IE steel | — |
+| | Gunner | sniper21 | **6B43** | msv | — | — |
+| | Trooper | **6B47** | **6B43** | msv | — | — |
+| | Rifleman | **6B47** | **6B43** | msv | — | **`tacz:ak47`** |
+| The Dead | Containment Crew *(35 %, reactor)* | **gas mask** | faraday | faraday | faraday | crowbar |
+| | Plant Worker | faraday | faraday | faraday | faraday | crowbar |
+| | The Infected *(hospital)* | — | med21 | — | — | — |
+| | Yard Hand *(the yard)* | — | Gorka 3 | Gorka 3 | — | shovel |
+| | Peacekeeper *(8 %, town)* | **UN** | msv | msv | — | — |
+| | The Dead | — | — | — | — | — |
+| | The Drowned *(intake)* | copper diving | backtank | — | copper diving | — |
+| | Drowned Patrol *(bridge)* | **ocean07** | **ocean07** | **ocean07** | — | — |
+| Scavengers | Captain *(6 %)* | **kr06** | **msv** | Gorka 3 | wanderer | crowbar |
+| | Scrapper *(18 %)* | **cardboard** | **cardboard** | **cardboard** | **cardboard** | cardboard sword |
+| | Scavenger | wanderer | wanderer | wanderer | wanderer | steel pipe |
+| | Raider | ge M35 | Gorka 3 | Gorka 3 | wanderer | crowbar |
+| | Elder | bandana | rags | rags | rags | — |
+
+Two decisions worth recording. **The Militia's two detachments** wear different kit on purpose: the
+spine's checkpoint is in US gear with a Type 81, the plant's garrison in Russian gear with an AK. They
+are one army in whatever the plant's armoury held, not two armies — and crossing from one to the other
+is a visible cue that the player has left the checkpoint and reached the last stand. **The rare variants**
+use In Control's `random`, and unlike the common ranks they carry a `maxcount` rather than a deny: past
+the ceiling they fall through to the ordinary rank below, so a full site is never an empty one.
+
+Still unspent: the **desert07** set, whose ground is the desert city and therefore denied and deferred;
+`cnchest`, `cnjustchest`, `aljin_helmet`, `t21_helmet`, `army07hat`, `pants21`, the netherite diving and
+backtank pieces, and `flower_crown`. `cn21` and `cnfast` will stay unspent — they give zero protection.

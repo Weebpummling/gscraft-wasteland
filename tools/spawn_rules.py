@@ -88,6 +88,16 @@ FARADAY_L, FARADAY_B = IE + "armor_faraday_leggings", IE + "armor_faraday_boots"
 STEEL_L, STEEL_B = IE + "armor_steel_leggings", IE + "armor_steel_boots"
 WAND_L, WAND_B = PK + "wandererarmorleggings", PK + "wandererarmorboots"
 RAGS_L, RAGS_B = PK + "pomkotsarmorleggings", PK + "pomkotsarmorboots"
+# the second detachment, the sealed, the peacekeepers, the junk-armoured and the captain's one good vest
+RU_H, RU_C = SBW + "ru_helmet_6b47", SBW + "ru_chest_6b43"
+MSV_C, MSV_L = DR + "msv_chest", DR + "msv_pants"
+SGT_H, SGT_C = DR + "fast_helmet", DR + "kr06_chest"
+CAPT_H = DR + "kr06_helmet"
+UN_H = DR + "un_helmet"
+OCEAN_H, OCEAN_C, OCEAN_L = DR + "ocean07_helmet", DR + "ocean07_chest", DR + "ocean07_pants"
+GASMASK = "createbigcannons:gas_mask"
+CARD_H, CARD_C = CR + "cardboard_helmet", CR + "cardboard_chestplate"
+CARD_L, CARD_B = CR + "cardboard_leggings", CR + "cardboard_boots"
 
 
 def item(i):
@@ -96,30 +106,51 @@ def item(i):
 
 RIFLE = '{id:"tacz:modern_kinetic_gun",Count:1b,tag:{GunId:"tacz:type_81"}}'
 CROWBAR, PIPE, SHOVEL = item(SBW + "crowbar"), item(SBW + "steel_pipe"), item(SBW + "military_shovel")
+CARD_SWORD = item(CR + "cardboard_sword")
+AK47 = '{id:"tacz:modern_kinetic_gun",Count:1b,tag:{GunId:"tacz:ak47"}}'
 
-# mobs, areas, rank name, head, chest, legs, feet, main hand, cap per area.
-# an area of None means "anywhere not already claimed by a rule above".
+# mobs, areas, rank, head, chest, legs, feet, hand, cap, chance
+#   areas   None means "anywhere not already claimed by a rule above"
+#   chance  None is always; a number is In Control's `random`, so the rank is a rare variant and must be
+#           listed BEFORE the common rank it varies, because the first matching rule wins
 KITS = [
-    # ---- the Militia. One army; the ranks are not interchangeable.
-    ([BULWARK],  ["farbank", "plant"], "Militia Shield",   PASGT,    STEEL_CHEST, STEEL_L,   STEEL_B,   None,    3),
-    ([FUSILIER], ["farbank", "plant"], "Militia Gunner",   MARKSMAN, IOTV,        TAC_LEGS,  None,      None,    3),
-    ([COMMANDO], ["farbank", "plant"], "Militia Trooper",  PASGT,    IOTV,        TAC_LEGS,  None,      None,    6),
-    (PILL,       ["farbank", "plant"], "Militia Rifleman", PASGT,    IOTV,        TAC_LEGS,  None,      RIFLE,   4),
+    # ---- the Militia, the spine's checkpoint: US kit, and a Type 81 in the Rifleman's hands
+    ([COMMANDO], ["farbank"], "Militia Sergeant", SGT_H,    SGT_C,       TAC_LEGS, None,    None,    2, 0.12),
+    ([BULWARK],  ["farbank"], "Militia Shield",   PASGT,    STEEL_CHEST, STEEL_L,  STEEL_B, None,    3, None),
+    ([FUSILIER], ["farbank"], "Militia Gunner",   MARKSMAN, IOTV,        TAC_LEGS, None,    None,    3, None),
+    ([COMMANDO], ["farbank"], "Militia Trooper",  PASGT,    IOTV,        TAC_LEGS, None,    None,    6, None),
+    (PILL,       ["farbank"], "Militia Rifleman", PASGT,    IOTV,        TAC_LEGS, None,    RIFLE,   4, None),
+
+    # ---- the Militia, the plant garrison. The same army in the kit the plant's armoury held, which is
+    # the player's cue that they have crossed off the checkpoint's ground and onto the last stand. Their
+    # rifles match their kit: an AK where the spine carries a Type 81.
+    ([COMMANDO], ["plant"], "Militia Sergeant", SGT_H,    SGT_C, MSV_L,    None,    None, 2, 0.12),
+    ([BULWARK],  ["plant"], "Militia Shield",   RU_H,     STEEL_CHEST, STEEL_L, STEEL_B, None, 3, None),
+    ([FUSILIER], ["plant"], "Militia Gunner",   MARKSMAN, RU_C,  MSV_L,    None,    None, 3, None),
+    ([COMMANDO], ["plant"], "Militia Trooper",  RU_H,     RU_C,  MSV_L,    None,    None, 6, None),
+    (PILL,       ["plant"], "Militia Rifleman", RU_H,     RU_C,  MSV_L,    None,    AK47, 4, None),
 
     # ---- the Dead, wearing what they died in
+    (DEAD, ["pl_react"], "Containment Crew", GASMASK, FARADAY_C, FARADAY_L, FARADAY_B, CROWBAR, 4, 0.35),
     (DEAD, ["pl_switch", "pl_admin", "pl_turb", "pl_react"],
-     "Plant Worker", FARADAY_H, FARADAY_C, FARADAY_L, FARADAY_B, CROWBAR, 10),
-    (DEAD, ["sk_hosp"], "The Infected", None, MEDIC, None, None, None, 12),
-    (DEAD, ["sk_south"], "Yard Hand", None, GORKA, GORKA_LEGS, None, SHOVEL, 8),
+     "Plant Worker", FARADAY_H, FARADAY_C, FARADAY_L, FARADAY_B, CROWBAR, 10, None),
+    (DEAD, ["sk_hosp"], "The Infected", None, MEDIC, None, None, None, 12, None),
+    (DEAD, ["sk_south"], "Yard Hand", None, GORKA, GORKA_LEGS, None, SHOVEL, 8, None),
+    (DEAD, ["tw_stad", "tw_centre", "tw_slabs", "tw_blocks", "town"],
+     "Peacekeeper", UN_H, MSV_C, MSV_L, None, None, 3, 0.08),
     (DEAD, ["sk_town", "tw_stad", "tw_centre", "tw_slabs", "tw_blocks", "town", "skad", "farm"],
-     "The Dead", None, None, None, None, None, 14),
-    (DROWNED, ["pl_intake", "tw_bridge", "plant"], "The Drowned", DIVE_H, BACKTANK, None, DIVE_B, None, 8),
+     "The Dead", None, None, None, None, None, 14, None),
+    # the intake works drowned went in sealed; the ones under the rail bridge were a patrol that did not
+    (DROWNED, ["pl_intake", "plant"], "The Drowned", DIVE_H, BACKTANK, None, DIVE_B, None, 8, None),
+    (DROWNED, ["tw_bridge"], "Drowned Patrol", OCEAN_H, OCEAN_C, OCEAN_L, None, None, 6, None),
 
     # ---- the Scavengers: looted, never issued, and never twice the same (§3.2)
-    (PILL,        ["woods", None], "Scavenger",        WRAP,    JACKET, WAND_L,    WAND_B,    PIPE,    10),
-    (SCAV_AXE,    ["woods", None], "Scavenger Raider", WW2,     GORKA,  GORKA_LEGS, WAND_B,   CROWBAR, 6),
-    (SCAV_CASTER, ["woods", None], "Scavenger Elder",  BANDANA, RAGS,   RAGS_L,    RAGS_B,    None,    3),
-    (SCAV_REST,   ["woods", None], "Scavenger",        None,    None,   None,      None,      None,    4),
+    (PILL, ["woods", None], "Scavenger Captain", CAPT_H, MSV_C, GORKA_LEGS, WAND_B, CROWBAR, 2, 0.06),
+    (PILL, ["woods", None], "Scrapper", CARD_H, CARD_C, CARD_L, CARD_B, CARD_SWORD, 5, 0.18),
+    (PILL,        ["woods", None], "Scavenger",        WRAP,    JACKET, WAND_L,     WAND_B, PIPE,    10, None),
+    (SCAV_AXE,    ["woods", None], "Scavenger Raider", WW2,     GORKA,  GORKA_LEGS, WAND_B, CROWBAR, 6, None),
+    (SCAV_CASTER, ["woods", None], "Scavenger Elder",  BANDANA, RAGS,   RAGS_L,     RAGS_B, None,    3, None),
+    (SCAV_REST,   ["woods", None], "Scavenger",        None,    None,   None,       None,   None,    4, None),
 ]
 
 
@@ -138,7 +169,7 @@ def cap(n, mob):
     return {"amount": n, "mob": mob, "perplayer": False}
 
 
-def dressed(mob, area, name, helm, chest, legs, feet, hand, n):
+def dressed(mob, area, name, helm, chest, legs, feet, hand, n, chance=None):
     """Gate and dress, as two rules.
 
     They have to be two. A `maxcount` on the dressing rule means that past the cap the rule stops
@@ -154,8 +185,18 @@ def dressed(mob, area, name, helm, chest, legs, feet, hand, n):
     pearl, then a lava bucket across successive runs. Writing HandItems sets both slots at once.
     """
     nbt = "{HandItems:[" + (hand or "{}") + ",{}]," + NO_DROPS + "}"
-    out = [rule(mob=mob, area=area, result="deny", mincount=cap(n, mob))]
+    out = []
     r = rule(mob=mob, area=area, result="default", customname=name, nbt=nbt)
+    if chance is None:
+        # a common rank: the cap denies the surplus, and the dressing itself is unconditional. A
+        # maxcount here instead would make the overflow fall through and come out as another faction.
+        out.append(rule(mob=mob, area=area, result="deny", mincount=cap(n, mob)))
+    else:
+        # a rare variant: the chance sets how often it appears and the maxcount holds the ceiling.
+        # Falling through past the cap is right here - what is beyond the ceiling should simply be the
+        # ordinary rank listed below, not a denial, so a full site is not an empty one.
+        r["random"] = chance
+        r["maxcount"] = cap(n, mob)
     if helm:
         r["armorhelmet"] = {"item": helm}
     if chest:
@@ -185,9 +226,9 @@ def build():
     out.append(rule(mob=MECHS, result="deny"))
 
     # ---- 4 to 6, by site
-    for mobs, areas, name, helm, chest, legs, feet, hand, n in KITS:
+    for mobs, areas, name, helm, chest, legs, feet, hand, n, chance in KITS:
         for a in areas:
-            out.extend(dressed(mobs, a, name, helm, chest, legs, feet, hand, n))
+            out.extend(dressed(mobs, a, name, helm, chest, legs, feet, hand, n, chance))
 
     # ---- "a place, not a weather": each faction denied outside the ground claimed above
     out.append(rule(mob=MILITIA, result="deny"))

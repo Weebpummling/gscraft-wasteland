@@ -20,28 +20,30 @@ PROBES = [
     # the Militia, by rank, on the spine
     ("mil_shield", "immersiveengineering:bulwark",  -825, -690, "Militia Shield"),
     ("mil_gunner", "immersiveengineering:fusilier", -825, -690, "Militia Gunner"),
-    ("mil_troop",  "immersiveengineering:commando", -825, -690, "Militia Trooper"),
+    ("mil_troop",  "immersiveengineering:commando", -825, -690, ("Militia Trooper", "Militia Sergeant")),
     ("mil_rifle",  "minecraft:pillager",            -825, -690, "Militia Rifleman"),
     ("mil_plant",  "minecraft:pillager",             400,  590, "Militia Rifleman"),
 
     # the Dead, by site
     ("dead_swit", "minecraft:zombie",  -815,   105, "Plant Worker"),
+    ("dead_reac", "minecraft:zombie",  -642,   518, ("Plant Worker", "Containment Crew")),
     ("dead_turb", "minecraft:zombie",   400,   590, "Plant Worker"),
     ("dead_hosp", "minecraft:zombie",  -782, -1277, "The Infected"),
     ("dead_yard", "minecraft:zombie",  -850,  -800, "Yard Hand"),
-    ("dead_stad", "minecraft:zombie", -2395, -3482, "The Dead"),
+    ("dead_stad", "minecraft:zombie", -2395, -3482, ("The Dead", "Peacekeeper")),
     ("dead_blok", "minecraft:zombie", -2100, -2000, "The Dead"),
     ("dead_farm", "minecraft:zombie", -2100,  -900, "The Dead"),
 
     # the drowned, where there is water
     ("drwn_intk", "minecraft:drowned",  893,   156, "The Drowned"),
-    ("drwn_brdg", "minecraft:drowned", -904, -2200, "The Drowned"),
+    ("drwn_brdg", "minecraft:drowned", -904, -2200, "Drowned Patrol"),
 
     # the Scavengers, four looks
-    ("scav_pill", "minecraft:pillager",   -2000,  -600, "Scavenger"),
+    # a pillager can roll the rare Scrapper or Captain variant, so any Scavenger-family name passes
+    ("scav_pill", "minecraft:pillager",   -2000,  -600, ("Scavenger", "Scrapper", "Scavenger Captain")),
     ("scav_raid", "minecraft:vindicator", -2000,  -600, "Scavenger Raider"),
     ("scav_eldr", "minecraft:evoker",     -2000,  -600, "Scavenger Elder"),
-    ("scav_road", "minecraft:pillager",   -1500, -2500, "Scavenger"),
+    ("scav_road", "minecraft:pillager",   -1500, -2500, ("Scavenger", "Scrapper", "Scavenger Captain")),
 
     # builds: nothing at all
     ("no_krot", "minecraft:zombie",   -3200, -1200, None),
@@ -71,8 +73,9 @@ def main():
             good = "Found no elements" in got or "No entity" in got or got == ""
             shown = "denied" if good else got[:40]
         else:
-            good = f'"{want}"' in got
-            shown = want if good else got[:40]
+            wants = want if isinstance(want, tuple) else (want,)
+            good = any(f'"{w}"' in got for w in wants)
+            shown = next((w for w in wants if f'"{w}"' in got), got[:40])
         ok, bad = ok + good, bad + (not good)
         print(f"  {'PASS' if good else 'FAIL'}  {tag:10s} {mob.split(':')[-1]:12s} "
               f"{x:6d},{z:6d}  -> {shown}")
