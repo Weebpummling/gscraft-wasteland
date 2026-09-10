@@ -8,7 +8,8 @@ war_phase3.py and war_phase2.py after it as the regression.
 4. The plant's Act III ground draws Bloaters.
 5. Riders come out on the collective farm's fields at night.
 6. A bunker draws cave spiders with its Dead.
-7. Scavengers never match; soldiers of one rank wear one uniform and vary only the rifle.
+7. Scavengers never match; soldiers of one rank wear one uniform and vary only the rifle; a small share of
+   indoor spawns waits behind shut doors.
 8. The sweep: at surface, indoor and underground reference points, where the first version's placement landed
    against the layered one - same ground as the player, height from the player, visible, walkable.
 """
@@ -188,6 +189,14 @@ with Site(-2000, -2600) as s:
           and set(guns) <= {"tacz:ak47", "cib:ak105", "cib:ak103"} and len(guns) >= 2
           and sgt_chest == "dragonrise_reforge:msv_chest",
           f"{n} riflemen; chests {dict(chests)}; rifles {dict(guns)}; sergeant's chest {sgt_chest}")
+
+# a small share of indoor spawns waits behind shut doors, held to a quarter of the cap
+with Site(-752, -1124) as s:
+    m = re.search(r"room at (-?\d+) (-?\d+) (-?\d+)", c("gscraft director room -752 -1124 48"))
+    out = c(f"gscraft director ambient {m.group(1)} {m.group(2)} {m.group(3)} 300") if m else "no room found"
+    mm = re.search(r"counted here (\d+) of cap (\d+), behind shut doors (\d+) of (\d+)", out)
+    check("indoors, a few wait behind shut doors, never more than a quarter of the cap",
+          mm is not None and 1 <= int(mm.group(3)) <= int(mm.group(4)) and int(mm.group(1)) <= int(mm.group(2)), out)
 
 # 8. the sweep: first version against layered, by the kind of ground
 print("\n  sweep: where placement lands, by reference point")

@@ -324,7 +324,7 @@ and it was rolling gear onto the Dead after the director dressed them (lava buck
 Difficulty by distance goes with it; if difficulty scaling returns, it is the director's, per zone. RUAF's Skadowsky
 post moved into the town, to the brick block between the camp and the hospital (`sk_out_w`, centre -752, -1124).
 
-**Areas, ground and kit, 2026-09-10** (`tools/war_phase4b.py` 11 of 11; phases 4, 3 and 2 still 13, 8 and 8 of each). Owner asks: each
+**Areas, ground and kit, 2026-09-10** (`tools/war_phase4b.py` 12 of 12; phases 4, 3 and 2 still 13, 8 and 8 of each). Owner asks: each
 area with its own creatures; how underground placement affects surface density; thinner in the open, denser indoors;
 randomised Scavenger kit, limited variety for the armies.
 
@@ -347,7 +347,8 @@ randomised Scavenger kit, limited variety for the armies.
 - *Layered*: 100 % on the player's ground everywhere. Underground: 75–100 % visible and every sampled placement walkable in
   the bunkers, the cellar and the dungeon. Indoors, walkability decides: the hospital gives 52 placements, 98 % visible; the RUAF post's
   brick block gives 1 and a Skadowsky house 3, because their rooms are shut off by doors the Dead cannot open. Before the
-  walkable rule the post took 34, of which 33 could never reach the player and would have filled the cap. Open ground
+  walkable rule the post took 34, of which 33 could never reach the player and would have filled the cap. Ruled (owner): a small share may wait behind shut doors - one indoor or
+  underground placement in five skips the walkable rule, held to a quarter of the cap (tag `gs_sealed`). Open ground
   sees less of it (town street 15 %, Skadowsky street 6 % visible) because placement is further out; they walk in.
 - *Kit*: every rank slot is a weighted choice (`"none"` leaves it empty). Scavengers roll each slot: 20 different
   loadouts in 20. NATO and RUAF keep one uniform per rank and vary the weapon (NATO Riflemen: 12 in the same vest,

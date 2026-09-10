@@ -11,6 +11,7 @@ import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -75,6 +76,7 @@ public final class DirectorCommands {
                         .then(Commands.literal("passat").then(xyzThen(passes(ctx -> pass(ctx, standAt(ctx))))))
                         .then(Commands.literal("survey").then(xyzThen(Commands.argument("samples",
                                 IntegerArgumentType.integer(10, 1000)).executes(DirectorCommands::survey))))
+                        .then(Commands.literal("ambient").then(xyzThen(passes(DirectorCommands::ambient))))
                         .then(Commands.literal("room").then(xzThen(Commands.argument("radius",
                                 IntegerArgumentType.integer(2, 128)).executes(ctx -> {
                             int x = IntegerArgumentType.getInteger(ctx, "x");
@@ -132,13 +134,35 @@ public final class DirectorCommands {
         Env env = Env.at(level, at);
         long t0 = System.nanoTime();
         int n = 0;
+        int sealed = 0;
         for (int i = 0; i < passes; i++) {
-            if (Director.placeNear(level, at, env, null) != null) n++;
+            Mob mob = Director.placeNear(level, at, env, null, Director.rollSealed(level, env));
+            if (mob == null) continue;
+            n++;
+            if (mob.getTags().contains(Director.SEALED_TAG)) sealed++;
         }
         double ms = (System.nanoTime() - t0) / 1e6;
         Zone zone = Zones.at(at.getX(), at.getZ());
-        say(ctx, String.format("zone %s, %s ground: placed %d of %d in %.1f ms (%.2f ms per pass)",
-                zone == null ? "none" : zone.name(), env, n, passes, ms, ms / passes));
+        say(ctx, String.format("zone %s, %s ground: placed %d of %d in %.1f ms (%.2f ms per pass), behind shut doors %d",
+                zone == null ? "none" : zone.name(), env, n, passes, ms, ms / passes, sealed));
+        return n;
+    }
+
+    /** the director's own ambient step at a point, cap and all, as if a player stood there for this many passes */
+    private static int ambient(CommandContext<CommandSourceStack> ctx) {
+        ServerLevel level = ctx.getSource().getLevel();
+        BlockPos at = standAt(ctx);
+        int passes = IntegerArgumentType.getInteger(ctx, "passes");
+        int n = 0;
+        for (int i = 0; i < passes; i++) {
+            if (Director.ambient(level, at)) n++;
+        }
+        Env env = Env.at(level, at);
+        Zone zone = Zones.at(at.getX(), at.getZ());
+        int cap = zone == null ? 0 : Director.capFor(zone, env);
+        say(ctx, String.format("ambient at %s, %s ground: placed %d in %d passes; counted here %d of cap %d, "
+                        + "behind shut doors %d of %d", at.toShortString(), env, n, passes,
+                Director.countOurs(level, at, env), cap, Director.countSealed(level, at, env), Director.sealedCap(cap)));
         return n;
     }
 

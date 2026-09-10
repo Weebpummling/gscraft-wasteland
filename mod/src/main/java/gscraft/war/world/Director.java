@@ -67,6 +67,10 @@ public final class Director {
     private static final int GARRISON_WAKE = 128;
     private static final String GARRISON_TAG = "gs_garrison_";
     private static final String LAIR_TAG = "gs_lair_";
+    /** marks a creature placed behind shut doors, out of the player's reach (owner, 2026-09-10: a small share) */
+    public static final String SEALED_TAG = "gs_sealed";
+    /** the share of indoor and underground placements allowed to skip the walk-to-the-player rule */
+    private static final float SEALED_SHARE = 0.2F;
     /** a zone entry naming this places a zombie horse with one of the Dead riding it */
     public static final ResourceLocation RIDER = new ResourceLocation(GscraftWar.MODID, "rider");
 
@@ -116,8 +120,26 @@ public final class Director {
         Zone zone = Zones.at(at.getX(), at.getZ());
         if (zone == null || zone.exclude() || zone.cap() <= 0) return false;
         Env env = Env.at(level, at);
-        if (countOurs(level, at, env) >= capFor(zone, env)) return false;
-        return placeNear(level, at, env, null) != null;
+        int cap = capFor(zone, env);
+        if (countOurs(level, at, env) >= cap) return false;
+        boolean sealed = rollSealed(level, env) && countSealed(level, at, env) < sealedCap(cap);
+        return placeNear(level, at, env, null, sealed) != null;
+    }
+
+    /** whether this placement may land behind shut doors: indoors or underground, one time in five */
+    public static boolean rollSealed(ServerLevel level, Env env) {
+        return env != Env.OPEN && level.getRandom().nextFloat() < SEALED_SHARE;
+    }
+
+    /** creatures behind shut doors are held to a quarter of the cap, so they never starve the ones that can reach */
+    public static int sealedCap(int cap) {
+        return Math.max(1, cap / 4);
+    }
+
+    public static int countSealed(ServerLevel level, BlockPos at, Env env) {
+        AABB box = new AABB(at).inflate(env.countBox, env.countY, env.countBox);
+        return level.getEntitiesOfClass(Mob.class, box,
+                m -> m.getTags().contains(SEALED_TAG) && Env.at(level, m.blockPosition()) == env).size();
     }
 
     public static int capFor(Zone zone, Env env) {
@@ -137,6 +159,11 @@ public final class Director {
      * draws for that ground. The zone is read where the placement lands.
      */
     public static Mob placeNear(ServerLevel level, BlockPos at, Env env, ResourceLocation forced) {
+        return placeNear(level, at, env, forced, false);
+    }
+
+    /** @param allowSealed indoors or underground, the placement may stand where it cannot walk to the player */
+    public static Mob placeNear(ServerLevel level, BlockPos at, Env env, ResourceLocation forced, boolean allowSealed) {
         RandomSource random = level.getRandom();
         for (int t = 0; t < TRIES; t++) {
             double angle = random.nextDouble() * Math.PI * 2.0D;
@@ -154,11 +181,15 @@ public final class Director {
             boolean aquatic = type == EntityType.DROWNED;
             BlockPos pos = findStand(level, x, at.getY(), z, env, aquatic);
             if (pos == null) continue;
-            if (env != Env.OPEN && !aquatic && !reaches(level, pos, at)) continue;
+            boolean shut = env != Env.OPEN && !aquatic && !reaches(level, pos, at);
+            if (shut && !allowSealed) continue;
             // a zombie under open sky by day burns; the husk is the same body that does not
             if (type == EntityType.ZOMBIE && level.isDay() && env == Env.OPEN) type = EntityType.HUSK;
             Mob mob = rider ? spawnRider(level, pos, here) : spawn(level, type, pos, here);
-            if (mob != null) return mob;
+            if (mob != null) {
+                if (shut) mob.addTag(SEALED_TAG);
+                return mob;
+            }
         }
         return null;
     }
@@ -488,13 +519,13 @@ public final class Director {
 
     /** what placement from one reference point produces, measured without placing anything */
     public record Survey(Env reference, int samples, int found, int open, int indoor, int underground,
-                        double meanRise, int visible, int reachable, int checked) {
+                        double meanRise, int visible, int reachable, int checked, int behindDoors) {
         public String describe(String label) {
             return String.format("%s: found %d of %d; open %d, indoor %d, underground %d; same ground as you %d%%; "
-                            + "mean height from you %.1f; visible %d%%; walkable to you %d of %d",
+                            + "mean height from you %.1f; visible %d%%; walkable to you %d of %d; behind shut doors %d",
                     label, found, samples, open, indoor, underground,
                     found == 0 ? 0 : Math.round(100.0 * sameAs(reference) / found), meanRise,
-                    found == 0 ? 0 : Math.round(100.0 * visible / found), reachable, checked);
+                    found == 0 ? 0 : Math.round(100.0 * visible / found), reachable, checked, behindDoors);
         }
 
         private int sameAs(Env env) {
@@ -515,10 +546,10 @@ public final class Director {
         Env env = Env.at(level, ref);
         RandomSource random = level.getRandom();
         Zombie probe = EntityType.ZOMBIE.create(level);
-        if (probe == null) return new Survey(env, samples, 0, 0, 0, 0, 0, 0, 0, 0);
+        if (probe == null) return new Survey(env, samples, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         var follow = probe.getAttribute(Attributes.FOLLOW_RANGE);
         if (follow != null) follow.setBaseValue(64.0D);
-        int found = 0, open = 0, indoor = 0, under = 0, visible = 0, reachable = 0, checked = 0;
+        int found = 0, open = 0, indoor = 0, under = 0, visible = 0, reachable = 0, checked = 0, behind = 0;
         double rise = 0;
         Vec3 eyes = Vec3.atBottomCenterOf(ref).add(0, 1.62D, 0);
         for (int i = 0; i < samples; i++) {
@@ -530,7 +561,10 @@ public final class Director {
             if (here == null || here.exclude()) continue;
             BlockPos pos = legacy ? legacyStand(level, x, ref.getY(), z) : findStand(level, x, ref.getY(), z, env, false);
             if (pos == null) continue;
-            if (!legacy && env != Env.OPEN && !reaches(level, pos, ref)) continue;
+            if (!legacy && env != Env.OPEN && !reaches(level, pos, ref)) {
+                behind++;
+                continue;
+            }
             found++;
             switch (Env.at(level, pos)) {
                 case OPEN -> open++;
@@ -551,6 +585,6 @@ public final class Director {
             }
         }
         probe.discard();
-        return new Survey(env, samples, found, open, indoor, under, found == 0 ? 0 : rise / found, visible, reachable, checked);
+        return new Survey(env, samples, found, open, indoor, under, found == 0 ? 0 : rise / found, visible, reachable, checked, behind);
     }
 }
