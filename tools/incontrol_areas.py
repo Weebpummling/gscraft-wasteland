@@ -129,4 +129,7 @@ def main(argv):
 
 
 if __name__ == "__main__":
+    if "--retired-ok" not in __import__("sys").argv:
+        raise SystemExit("RETIRED 2026-09-09: the enemy system lives in mod/ (GSCraft War). This tool rewrites the "
+                         "local server's In Control / KubeJS spawn files. Pass --retired-ok to run it anyway.")
     sys.exit(main(sys.argv))

@@ -404,3 +404,14 @@ of zips to a tag, skipping what is already there.
 - `server/config/improvedmobs/common.toml`: `gscraft` namespace excluded (backup `common.toml.bak-war-mod`).
 - `gscraft-0.1.0.jar` (GSCraft War, `mod/`) is on the local server only. Not in the packwiz pack, not on
   live. Prism instance `GSCraft-WarTest` (local only, no packwiz sync, servers.dat = localhost:9150).
+
+## Old enemy stack retired locally (2026-09-09)
+
+The enemy system now lives in `mod/` (GSCraft War). On the local test server the In Control faction rules, the
+KubeJS area spawner / Scavenger neutrality / terrorist drop scripts, the Improved Mobs illager exemptions and the
+Hordes phase 2 changes are off; details in `docs/gscraft-war-mod-design.md` ("Retired locally"). Backups:
+`server/retired-2026-09-09/`. In Control holds every hostile except `mod: gscraft`.
+
+**Pack rebuild trap:** `tools/packwiz_build.py` copies `server/config` into `build/packwiz` wholesale. Before any
+pack rebuild, set `pauseEventServer = true` back in `server/config/hordes-common.toml`, or the local-only value
+ships to every player.

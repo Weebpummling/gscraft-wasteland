@@ -57,6 +57,20 @@ In Control faction rules (the builds deny moves into the director), `gscraft_are
 for army types, `gscraft_terrorist_drops.js` once the Gunman is a Scavenger body. Hordes waves stay; their
 tables can point at the new types.
 
+**Retired locally, 2026-09-09 (owner, after the in-person phase 1 test: "turn off our hackjob spawn rules and
+everything else").** The local test server is back to the hold, the same state as live: no natural hostiles.
+- In Control `spawn.json` = `{mod: gscraft, allow}` + the hold + the pre-existing apocalypse rules behind it;
+  `areas.json` = `[]`. The other session's two mech rules with rejected `minx`/`maxx` keys were not restored.
+- KubeJS area spawner, Scavenger neutrality and terrorist drop filter removed (repo copies in `retired/kubejs`).
+- Improved Mobs illager exemptions removed; the `gscraft` exclusion stays.
+- Hordes events off again (`enableHordeEvent = false`), its data files restored, the Skadowsky table removed.
+  Hordes returns, if at all, with the director phase and the new types.
+- Kept, because they are standing rulings rather than spawn rules: mob griefing off (gamerule, Improved Mobs
+  flags, `break_blocks = false`) and the fog man's random trigger off (`enable_spawning = false`; he returns
+  with a location trigger in the director). The hold also covers "nothing spawns at KROT or player builds".
+- Backups of every removed or changed file: `server/retired-2026-09-09/`. `spawn_rules.py`, `area_spawner.py`
+  and `incontrol_areas.py` refuse to run without `--retired-ok`.
+
 ## Distribution
 
 Entities need client renderers, so the jar goes on the server and every client (packwiz side `both`).
