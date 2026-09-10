@@ -420,3 +420,17 @@ Hordes phase 2 changes are off; details in `docs/gscraft-war-mod-design.md` ("Re
 **Pack rebuild trap:** `tools/packwiz_build.py` copies `server/config` into `build/packwiz` wholesale. Before any
 pack rebuild, set `pauseEventServer = true` back in `server/config/hordes-common.toml`, or the local-only value
 ships to every player.
+
+## Improved Mobs removed (owner, 2026-09-10)
+
+"There is no need to keep a mod when it serves no purpose." The GSCraft War mod owns enemy gear, targeting and
+placement; Improved Mobs' remaining effects were liabilities: rolled gear on the Dead (measured: 20 of 30 fresh zombies
+holding something, lava buckets and ender pearls among it), 30 % container stealing, 5 % neutral aggro. Distance
+scaling was its one useful effect and is not needed for the design pass. Removed from the local server and the test
+instance at the next restart; its jar and config go to `server/retired-mods-2026-09-10/`. `packwiz_build.py` reads
+`server/mods`, so the next pack build drops it for players - that is a pack change and waits for the deploy gate.
+
+RUAF's Skadowsky post moved (owner, 2026-09-10) from the riverbank bridgehead to the brick block between the camp and
+the hospital: `sk_out_w` x -784..-720, z -1148..-1100 (centre -752, -1124). Live on the local server through the
+local-only world datapack `wasteland-v8/datapacks/gscraft_war_dev` until the rebuilt jar is installed; delete that
+datapack then. It must never be deployed.

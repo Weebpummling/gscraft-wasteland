@@ -113,12 +113,12 @@
   {
    "name": "sk_out_w",
    "box": [
-    -1088,
-    -1000,
-    -1060,
-    -860
+    -784,
+    -720,
+    -1148,
+    -1100
    ],
-   "note": "the bridgehead, west of the camp, on the crossing",
+   "note": "RUAF's post inside Skadowsky: the brick and stone block between the camp and the hospital (owner, 2026-09-10); was the bridgehead at the river's edge",
    "cap": 5,
    "spawns": [
     {

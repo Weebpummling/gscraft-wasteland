@@ -100,7 +100,7 @@ BOXES = {
     # holds a bridgehead on the near bank and the eastern army sits on the rail yard opposite it.
     # Widened 2026-09-09: at 70 x 80 and 100 x 100 a player had to stand inside the box to meet either
     # garrison, so Skadowsky read as empty of both armies. Still clear of the camp and of each other.
-    "sk_out_w": (-1088, -1000, -1060, -860, "the bridgehead, west of the camp, on the crossing"),
+    "sk_out_w": (-784, -720, -1148, -1100, "RUAF's post inside Skadowsky: the brick and stone block between the camp and the hospital (owner, 2026-09-10); was the bridgehead at the river's edge"),
     "sk_out_e": (-768, -640, -1000, -820, "the rail yard outpost, east of the camp"),
 }
 

@@ -319,6 +319,11 @@ turbine hall, at night, one at a time. Measured: ~0.3 to 1.1 ms per placement; a
 the overworld from 3.0 to 5.0 ms per tick, 0.08 ms each. Commands: `/gscraft zone|zones|director pass|horrors|stats|
 pause|resume` and `/gscraft garrison <zone> fill|force`.
 
+**Improved Mobs removed, 2026-09-10 (owner):** it served no purpose once the mod owned gear, targeting and placement,
+and it was rolling gear onto the Dead after the director dressed them (lava buckets, ender pearls, flint and steel).
+Difficulty by distance goes with it; if difficulty scaling returns, it is the director's, per zone. RUAF's Skadowsky
+post moved into the town, to the brick block between the camp and the hospital (`sk_out_w`, centre -752, -1124).
+
 Related: `gscraft-war-mod-design.md` (the mod), `gscraft-enemies.md` and `gscraft-entities-v8.md` (superseded where
 this review says so, once the owner rules), `gscraft-enemy-design-2026-09-08.md` (the capability record),
 `gscraft-equipment-inventory.md` (the wardrobe), `gscraft-finale.md` (the Sleeper), map design §6 (the loop).
