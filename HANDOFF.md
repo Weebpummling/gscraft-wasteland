@@ -396,3 +396,11 @@ Rollback is the reverse: `scratch/rollback/rollback.py` on the working machine h
 elease\` (sizes verified before deletion). `build-v6-2026-09-03` (4 assets): the finished v6 world. `build-v7-2026-09-04` (5 assets): the finished v7 world (three region parts + meta, unpack into one `wasteland-v7` folder) and the client pack with the Parties/Xaero fix. `pack-files-2026-09-04` carries the packwiz-hosted jars including `parties_xaerominimap_fix-1.0.0.jar`. Player identity files
 (ops, whitelist, user caches) are deliberately not published. `tools/release_upload.py` re-uploads a folder
 of zips to a tag, skipping what is already there.
+
+## Local test server differs from live (2026-09-09)
+
+- `server/config/hordes-common.toml`: `pauseEventServer = false` locally so headless tests tick (backup
+  `hordes-common.toml.bak-pause-true`). Live keeps `true`. Never carry this file to live.
+- `server/config/improvedmobs/common.toml`: `gscraft` namespace excluded (backup `common.toml.bak-war-mod`).
+- `gscraft-0.1.0.jar` (GSCraft War, `mod/`) is on the local server only. Not in the packwiz pack, not on
+  live. Prism instance `GSCraft-WarTest` (local only, no packwiz sync, servers.dat = localhost:9150).

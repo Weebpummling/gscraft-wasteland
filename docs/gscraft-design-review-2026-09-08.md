@@ -557,7 +557,12 @@ Verified locally:
 - `spawn_probe.py` 26/26, including two untagged zombies refused (town, Skadowsky).
 - Live spawner, 30 placements at each of four sites: 119 of 120 standing afterwards, 0 untagged Dead.
   The one missing was in the Woods, where Scavengers fight the Dead on sight.
-- Overworld mean tick 0.076 ms afterwards.
+- ~~Overworld mean tick 0.076 ms afterwards.~~ **Void.** The local server was paused: The Hordes'
+  `pauseEventServer = true` stops world ticking with no player online (gametime frozen, a falling
+  arrow hung in mid-air). Every headless tick-lag figure so far measured a paused world. The ~0.5 ms
+  per placement stands (timed inside the command). Placement, dressing and tag results stand too;
+  anything that needed mob AI to run (fights, retaliation) was never exercised headless.
+  The local test server now runs `pauseEventServer = false`; live keeps `true`.
 
 Two defects the live tally exposed, both fixed:
 

@@ -1,0 +1,19 @@
+package gscraft.war.client;
+
+import gscraft.war.GscraftWar;
+import gscraft.war.ModEntities;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod.EventBusSubscriber(modid = GscraftWar.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+public final class ClientSetup {
+    private ClientSetup() {}
+
+    @SubscribeEvent
+    public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerEntityRenderer(ModEntities.NATO_SOLDIER.get(), SoldierRenderer::new);
+        event.registerEntityRenderer(ModEntities.RUAF_SOLDIER.get(), SoldierRenderer::new);
+    }
+}
