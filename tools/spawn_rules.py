@@ -117,9 +117,17 @@ AK47 = '{id:"tacz:modern_kinetic_gun",Count:1b,tag:{GunId:"tacz:ak47"}}'
 #           listed BEFORE the common rank it varies, because the first matching rule wins
 # The two armies hold ground; the Dead are everywhere underneath them.
 #
-#   the Militia    US kit, an M4. Heartland the plant, east of the river. Outposts out_e1/out_e2, the
+# NATO and RUAF are the same four entity types (the three IE soldiers and a pillager), told apart only by
+# which area they stood up in and what In Control then dressed them in. That is enough for the player to
+# read them apart at fifty metres, and it is NOT enough to make them fight each other: Mob Factions
+# assigns a faction per **entity type**, so both armies land in the same faction and will never exchange
+# a shot. The front line is a matter of placement and of who the player meets where, not of mob-versus-mob
+# combat. Making them genuinely hostile needs either scoreboard teams (design F6, deferred) or a second
+# army built from different entities, which would cost the Russian kit its wearers.
+#
+#   NATO           US kit, an M4. Heartland the plant, east of the river. Outposts out_e1/out_e2, the
 #                  east bank of the front, and the rail yard at Skadowsky.
-#   the Column     Russian kit, an AK. Heartland the town, west of the river. Outposts out_w1/out_w2,
+#   RUAF           Russian kit, an AK. Heartland the town, west of the river. Outposts out_w1/out_w2,
 #                  the west bank, and the bridgehead at Skadowsky.
 #
 # The river is the front and the south-west bridge is the only crossing on this side, which is why both
@@ -129,23 +137,23 @@ AK47 = '{id:"tacz:modern_kinetic_gun",Count:1b,tag:{GunId:"tacz:ak47"}}'
 # The Dead are ambient everywhere and are listed last, with no denial after them. Their site variants
 # come first so a corpse at the switchyard is a plant worker and one in the hospital is a patient; the
 # plain rank at the end catches every other piece of ground in the cell.
-MIL_AREAS = ["plant", "out_e1", "out_e2", "front_en", "front_es", "sk_out_e"]
-COL_AREAS = ["town", "out_w1", "out_w2", "front_wn", "front_ws", "sk_out_w"]
+NATO_AREAS = ["plant", "out_e1", "out_e2", "front_en", "front_es", "sk_out_e"]
+RUAF_AREAS = ["town", "out_w1", "out_w2", "front_wn", "front_ws", "sk_out_w"]
 
 KITS = [
-    # ---- the Militia: the unit that never stood down, holding the plant and the east bank
-    ([COMMANDO], MIL_AREAS, "Militia Sergeant", SGT_H,    SGT_C,       TAC_LEGS, None,    None,  3, 0.12),
-    ([BULWARK],  MIL_AREAS, "Militia Shield",   PASGT,    STEEL_CHEST, STEEL_L,  STEEL_B, None,  8, None),
-    ([FUSILIER], MIL_AREAS, "Militia Gunner",   MARKSMAN, IOTV,        TAC_LEGS, None,    None,  8, None),
-    ([COMMANDO], MIL_AREAS, "Militia Trooper",  PASGT,    IOTV,        TAC_LEGS, None,    None, 18, None),
-    (PILL,       MIL_AREAS, "Militia Rifleman", PASGT,    IOTV,        TAC_LEGS, None,    RIFLE,14, None),
+    # ---- NATO: holds the plant and the east bank
+    ([COMMANDO], NATO_AREAS, "NATO Sergeant", SGT_H,    SGT_C,       TAC_LEGS, None,    None,  3, 0.12),
+    ([BULWARK],  NATO_AREAS, "NATO Shield",   PASGT,    STEEL_CHEST, STEEL_L,  STEEL_B, None,  8, None),
+    ([FUSILIER], NATO_AREAS, "NATO Gunner",   MARKSMAN, IOTV,        TAC_LEGS, None,    None,  8, None),
+    ([COMMANDO], NATO_AREAS, "NATO Rifleman",  PASGT,    IOTV,        TAC_LEGS, None,    None, 18, None),
+    (PILL,       NATO_AREAS, "NATO Grenadier", PASGT,    IOTV,        TAC_LEGS, None,    RIFLE,14, None),
 
-    # ---- the Column: the second army, in the kit it arrived in, stopped in the town
-    ([COMMANDO], COL_AREAS, "Column Sergeant", SGT_H,    SGT_C,       MSV_L,   None,    None, 3, 0.12),
-    ([BULWARK],  COL_AREAS, "Column Shield",   RU_H,     STEEL_CHEST, STEEL_L, STEEL_B, None, 8, None),
-    ([FUSILIER], COL_AREAS, "Column Marksman", MARKSMAN, RU_C,        MSV_L,   None,    None, 8, None),
-    ([COMMANDO], COL_AREAS, "Column Soldier",  RU_H,     RU_C,        MSV_L,   None,    None,18, None),
-    (PILL,       COL_AREAS, "Column Rifleman", RU_H,     RU_C,        MSV_L,   None,    AK47,14, None),
+    # ---- RUAF: holds the town and the west bank
+    ([COMMANDO], RUAF_AREAS, "RUAF Sergeant", SGT_H,    SGT_C,       MSV_L,   None,    None, 3, 0.12),
+    ([BULWARK],  RUAF_AREAS, "RUAF Shield",   RU_H,     STEEL_CHEST, STEEL_L, STEEL_B, None, 8, None),
+    ([FUSILIER], RUAF_AREAS, "RUAF Marksman", MARKSMAN, RU_C,        MSV_L,   None,    None, 8, None),
+    ([COMMANDO], RUAF_AREAS, "RUAF Rifleman",  RU_H,     RU_C,        MSV_L,   None,    None,18, None),
+    (PILL,       RUAF_AREAS, "RUAF Grenadier", RU_H,     RU_C,        MSV_L,   None,    AK47,14, None),
 
     # ---- the Scavengers: looted, never issued, and never twice the same (§3.2). They hold the Woods and
     # the roads between everything, which is whatever neither army has claimed.
@@ -259,7 +267,7 @@ def build():
             out.extend(dressed(mobs, a, name, helm, chest, legs, feet, hand, n, chance))
 
     # ---- "a place, not a weather": each faction denied outside the ground claimed above
-    # the Militia and the Column are the same three IE entities, so a single denial covers both: outside
+    # NATO and RUAF are the same three IE entities, so a single denial covers both: outside
     # the ground either army holds, no soldier stands up at all. The Dead have no such rule - they are
     # the ambient threat and their last rule is an unrestricted one.
     out.append(rule(mob=MILITIA, result="deny"))

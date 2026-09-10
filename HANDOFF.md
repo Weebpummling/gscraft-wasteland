@@ -77,7 +77,7 @@ how to rebuild the same state elsewhere.
 >
 > **Gap sweep 2026-09-06 (`docs/gscraft-design-gaps.md` §H):** eight gaps found and closed the same day — the fifteen
 > keeper quests, the three rail quests, Teddy's H8, the eighteen counter pages, what a keeper's counter does when a
-> site falls back, the boat's act (J5 hands out the boat, W-V1 the speedboat, W12 crosses to FR-06), the Militia's
+> site falls back, the boat's act (J5 hands out the boat, W-V1 the speedboat, W12 crosses to FR-06), NATO's
 > home. **The two-camp-rectangle question is closed (2026-09-07):** the map plan used to carry two plateau rectangles
 > and an argument about which was right. Neither is live. Nothing was ever built on either, and the camp is now in
 > Skadowsky at x −978…−770 × z −1060…−845, matching `buildmap/plan_v8/sectors_v8.json`. No mod is missing; the only
@@ -204,7 +204,7 @@ city/wilderness per chunk (§5 of the structure plan): 6 % of the land is city b
 balance stands and the lower-density LC profile that was staged is withdrawn.
 
 **Enemy design (this workstation, 2026-09-04): `docs/gscraft-enemies.md` draft 1.** Five factions (the Dead,
-Scavengers, the Militia, the Horrors, the Camp), ranks with per-act equipment set through In Control!'s rule
+Scavengers, NATO, the Horrors, the Camp), ranks with per-act equipment set through In Control!'s rule
 fields, four wave roles, six elite definitions, mob drop tables, difficulty by ring. **Four config defaults are
 wrong and want fixing before the next player test** (enemies §8): Improved Mobs' `Stealer Chance` (mobs open
 containers — `StealGoal` verified in the jar), its empty `Item Blacklist` (a mob can pick up a dropped rocket

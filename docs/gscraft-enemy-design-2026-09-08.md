@@ -154,7 +154,7 @@ All ids verified present in the shipped jars on 2026-09-08.
 | **Sealed / hazmat** | `createbigcannons:gas_mask` (the **only** true respirator in the pack), `create:copper_diving_helmet` | `create:copper_backtank` | helmet + backtank is a complete sealed-suit silhouette |
 | **Junk armour** | `create:cardboard_helmet` | `cardboard_chestplate` (+ legs, boots) | reads as scrap-armoured at distance, and takes trims |
 | **Industrial / electrical** | `immersiveengineering:armor_faraday_helmet` | `armor_faraday_chestplate` (+ legs, boots) | insulated rubber — reads as plant worker, and is thematically exact at the switchyard |
-| **Heavy industrial** | `immersiveengineering:armor_steel_*` | full set | the Militia's current look |
+| **Heavy industrial** | `immersiveengineering:armor_steel_*` | full set | NATO's current look |
 
 This is the pass's plainest finding: **the design specifies leather and iron while a full military
 wardrobe sits unused in the pack.** `gscraft-enemies.md` principle 3 — "every faction is legible at fifty
@@ -322,7 +322,7 @@ mobs need exempting through `"Entity Configs"` in `improvedmobs/common.toml` usi
 
 ## 3. Proposed designs
 
-### 3.1 The Militia becomes the pack's real soldiers
+### 3.1 NATO becomes the pack's real soldiers
 
 They are the faction the wardrobe was made for, and today they are three IE entities in IE's own kit —
 three elite units with **no line infantry**, which is why they read as a checkpoint rather than an army.
@@ -336,7 +336,7 @@ three elite units with **no line infantry**, which is why they read as a checkpo
 | Sergeant (Act IV) | `commando` | `dragonrise_reforge:fast_helmet` | `kevlar` | revolver | dressed; the helmet marks him |
 
 The Rifleman is the point: a pillager in US kit with a real rifle is a *soldier*, not an illager, and it
-gives the Militia the body rank it lacks. **Written 2026-09-09** (`tools/militia_rules.py`): the rank spawns in the `farbank` and `plant` areas only, dressed at `finalize`, holding `tacz:modern_kinetic_gun` with `GunId: tacz:type_81`, with drop chances zeroed. `helditem` is confirmed correct - `SpawnRule` rejects `sethelditem` - and its `nbt` must be a JSON object. It is best delivered by an In Control `helditem` carrying the `GunId` NBT (§2.6) rather than
+gives NATO the body rank it lacks. **Written 2026-09-09** (`tools/militia_rules.py`): the rank spawns in the `farbank` and `plant` areas only, dressed at `finalize`, holding `tacz:modern_kinetic_gun` with `GunId: tacz:type_81`, with drop chances zeroed. `helditem` is confirmed correct - `SpawnRule` rejects `sethelditem` - and its `nbt` must be a JSON object. It is best delivered by an In Control `helditem` carrying the `GunId` NBT (§2.6) rather than
 `"Spawn With TACZ" = true` plus a `"TACZ Gun Type"` roll, because that keeps the weapon a per-rank design
 decision instead of a global weight table.
 
@@ -353,7 +353,7 @@ Dress them as looted, never issued. Pomkots' **`wandererarmorhelmet`** (a face w
 **`wandererarmorchestplate`** (a jacket) are the pack's only non-military soft kit and are exactly this
 faction — a wastelander, not a soldier. Mix in `ge_helmet_m_35` on some, a plain leather cap on others,
 one mismatched military vest (`dragonrise_reforge:msv_chest`) on the captain alone, and
-`superbwarfare:steel_pipe` or `crowbar` on the melee ranks. The contrast with §3.1 *is* the design — **the Militia matches, the Scavengers do not** —
+`superbwarfare:steel_pipe` or `crowbar` on the melee ranks. The contrast with §3.1 *is* the design — **NATO matches, the Scavengers do not** —
 and it is readable at fifty metres for the price of equipment fields.
 
 `dragonrise_reforge:terrorist` joins them as a **Gunman** rank for the Woods outpost and the district
@@ -378,7 +378,7 @@ people who worked there. The Dead's story is told by what they are still wearing
 vanilla armour only, on a ladder of leather 0.05 → netherite 0.2 per piece, all `add_multiplied_total`.
 
 **Proposal: add the §2.1 headgear and vests above vanilla iron, at 0.15–0.2.** A gas-mask-shaped helmet
-that does nothing against infection is a wasted mechanic; one that resists it makes every Militia corpse
+that does nothing against infection is a wasted mechanic; one that resists it makes every NATO corpse
 worth searching and gives players a reason to dress like the enemy. One JSON file, no mod.
 
 It also gives the drops table something to do without breaking "nothing an enemy carries ever drops": the
@@ -402,7 +402,7 @@ Mobs' *item use* when zeroing its *equipment* (C3).
 Given §2.4, an auto-turret cannot threaten a player without scoreboard teams. Two honest uses remain:
 
 - **A faction-war set piece.** A live `superbwarfare:hpj_11` at the plant complex's gate shoots the Dead
-  and the Scavengers on sight, because both implement `Enemy`. entities-v8 §4 already wants "the Militia
+  and the Scavengers on sight, because both implement `Enemy`. entities-v8 §4 already wants "NATO
   vs the Machines at the gates, all day" as something players watch from the viaduct. A turret makes that
   fight visible and permanent without any AI work — and it is *ignoring the players standing next to it*,
   which is its own kind of unsettling.
@@ -450,7 +450,7 @@ Layered on entities-v8 §8 (C1–C12), which stands.
 | **E1** | `enableHordeEvent = true`, `hordesCommandOnly = true`. Without both, §4's waves and the finale cannot fire | `config/hordes-common.toml` | config |
 | **E2** | `data_version` → `-1`. It is `12` today, and the next mod update **deletes `config/hordes/` wholesale** — it has already happened once, `hordes-backup/` is at version 6 | `config/hordes/hordes-info.json` | config |
 | **E3** | Add the §2.1 helmets and vests to the infection ladder above vanilla iron (§3.4) | `.../infection/wearables_protection.json` | datapack |
-| **E4** | Militia Rifleman's weapon: In Control `held` NBT, or `"Spawn With TACZ" = true` + `"TACZ Gun Type"` (§3.1) | `config/PillagersGun-common.toml` | config |
+| **E4** | NATO Rifleman's weapon: In Control `held` NBT, or `"Spawn With TACZ" = true` + `"TACZ Gun Type"` (§3.1) | `config/PillagersGun-common.toml` | config |
 | **E5** | `"Gun Model Switch" = true` — SBW models on Scavenger guns, no ballistics change (§3.2). **Applied 2026-09-09, local only.** Server boots clean with it | `config/PillagersGun-common.toml` | config |
 | **E6** | Decide `"Gunner Needs Ammo In TACZ"`. `false` today = infinite NPC ammo, set by a default rather than the design (§1.2) | `config/PillagersGun-common.toml` | config |
 | **E7** | Add chosen hostile ids to `forge:pillager_gunner` — only one of the shipped eight is hostile (§1.1) | `data/forge/tags/entity_types/pillager_gunner.json` | datapack |
@@ -478,7 +478,7 @@ written with.
 
 | # | Question | Recommendation |
 |---|---|---|
-| F1 | Does the Militia get TACZ rifles, or stay purely IE? | **RULED 2026-09-09 (owner): TACZ.** `tacz:type_81` and `tacz:ak47` both verified present in `tacz-1.20.1-1.1.8-hotfix.jar`. Delivered per rank through an In Control `helditem` carrying the `GunId` NBT, **not** through `"Spawn With TACZ" = true`, which stays `false`: the global flag rolls from a weight table and would arm every gunner in the pack, where the design wants the weapon to be a per-rank decision |
+| F1 | Does NATO get TACZ rifles, or stay purely IE? | **RULED 2026-09-09 (owner): TACZ.** `tacz:type_81` and `tacz:ak47` both verified present in `tacz-1.20.1-1.1.8-hotfix.jar`. Delivered per rank through an In Control `helditem` carrying the `GunId` NBT, **not** through `"Spawn With TACZ" = true`, which stays `false`: the global flag rolls from a weight table and would arm every gunner in the pack, where the design wants the weapon to be a per-rank decision |
 | F2 | Is `dragonrise_reforge:terrorist` a Scavenger rank or its own faction? | **RULED 2026-09-09 (owner): a Scavenger rank.** Its cure drop is fixed (`kubejs/startup_scripts/gscraft_terrorist_drops.js`, §2.3 item 2), so the rank is safe to place. Item 1 of §2.3 stands: it still has no lang entry and shows as `entity.dragonrise_reforge.terrorist`. Item 3 stands too - its skin is fixed, so it cannot be dressed from §2.1 and reads the same wherever it appears |
 | F3 | Do enemy **armour** pieces drop, given §3.4 makes them worth wanting? | yes, at low rates, armour only — the one thing that can drop without touching "no working guns from corpses" |
 | F4 | Infinite NPC ammunition (E6)? | make it finite. A scavenging world where only the enemy never runs dry is the wrong way round |

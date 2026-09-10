@@ -272,7 +272,7 @@ helmet), IE faraday 0.12, the nineteen SBW and Dragon Rising helmets and vests 0
 diamond), copper backtank 0.20, diving helmet 0.25, gas mask 0.30. A full sealed suit is 0.50, which is
 the answer §3.4 wants to exist. Loads with zero errors.
 
-**F1 and F2 ruled (owner, 2026-09-09):** the Militia gets TACZ rifles, and the terrorist is a Scavenger
+**F1 and F2 ruled (owner, 2026-09-09):** NATO gets TACZ rifles, and the terrorist is a Scavenger
 rank. `tacz:type_81` and `tacz:ak47` are both present in the shipped jar. The rifle is delivered per rank
 through an In Control `helditem` with `GunId` NBT rather than `"Spawn With TACZ" = true`, which stays
 `false` — the global flag rolls from a weight table and would arm every gunner in the pack. E5 applied:
@@ -346,12 +346,12 @@ appender, at zero CPU, accepting RCON commands and executing none. It looks exac
 and is not one — a `jstack` settled it in one read. Any harness that pipes a server's output must drain
 it for the life of the process.
 
-## 4c. The Militia's ground and the Rifleman (2026-09-09)
+## 4c. NATO's ground and the Rifleman (2026-09-09)
 
-F1 ruled, so the rank is written. Where the Militia stands was not invented — the design fixes it in
+F1 ruled, so the rank is written. Where NATO stands was not invented — the design fixes it in
 three places and this only turned it into boxes:
 
-- `enemies` §3.3: "The Militia never spawns ambient outside the east-bank spine — the rail yard and the
+- `enemies` §3.3: "NATO never spawns ambient outside the east-bank spine — the rail yard and the
   road south to the plant's outer works — and the plant complex's gates and inside. They are a *place*,
   not a weather."
 - `entities-v8` §164: farbank is "the east-bank spine: the rail line and yard, and the road south to the
@@ -363,7 +363,7 @@ through x -1080 at z -800 and x -1200 at z -200 (`rivers_v8`), so staying east o
 on the east bank. That gives **farbank x -1050..-600, z -1000..-380**, meeting the plant area at z -400.
 
 The camp sits inside that box and In Control areas are boxes with no subtraction, so a **camp** area
-(x -978..-770, z -1060..-845) is defined solely to deny the Militia there, written first — first match
+(x -978..-770, z -1060..-845) is defined solely to deny NATO there, written first — first match
 wins.
 
 The Rifleman is `minecraft:pillager` dressed at `finalize` inside farbank and plant: PASGT helmet, IOTV
@@ -415,9 +415,9 @@ works. Rails run north-south through x -960..-928 and past the hospital.
 | zone | structure | who |
 |---|---|---|
 | `pl_react` | confinement hall, 202 x 362 | the Machines, and Plant Workers |
-| `pl_turb` | turbine hall, 837 x 88 | Plant Workers, Militia |
+| `pl_turb` | turbine hall, 837 x 88 | Plant Workers, NATO |
 | `pl_admin` | admin and workshop, 574 x 336 | Plant Workers |
-| `pl_switch` | the four low halls | Plant Workers, Militia |
+| `pl_switch` | the four low halls | Plant Workers, NATO |
 | `pl_intake` | cooling-water intake, 573 x 514 | The Drowned, sealed |
 
 ### The town
@@ -426,14 +426,14 @@ works. Rails run north-south through x -960..-928 and past the hospital.
 blocks, `tw_blocks` the south-east microdistricts and courtyards, `tw_bridge` the rail bridge. All the
 Dead, carrying nothing, except the bridge, which is the Drowned.
 
-## 4d-3. Two armies across the river (owner, 2026-09-09)
+## 4d-3. NATO and RUAF across the river (owner, 2026-09-09)
 
 The armed factions split between the two ends of the map, with the river as the front line between them.
 
 `skadowsky_river` runs from (-740, -1720) south to (-1350, 700), which genuinely bisects the cell: the
 town, the Woods, the farm and KROT lie west of it; Skadowsky and the plant lie east.
 
-| | the Militia | the Column |
+| | NATO | RUAF |
 |---|---|---|
 | kit | US — PASGT, IOTV | Russian — 6B47, 6B43 |
 | rifle | `tacz:m4a1` | `tacz:ak47` |
@@ -447,12 +447,21 @@ Skadowsky: it is where the player meets each of them for the first time, facing 
 way across. The river is diagonal and an area is a box, so each bank takes two boxes rather than one,
 north and south, both kept clear of the water.
 
-`front_en` starts at x -995 rather than -1060 on purpose: the Column's bridgehead runs to -1000, the
-Militia rules are evaluated first, and an overlap there would have flown the wrong flag over the
+`front_en` starts at x -995 rather than -1060 on purpose: RUAF's bridgehead runs to -1000, the
+NATO rules are evaluated first, and an overlap there would have flown the wrong flag over the
 crossing. It was caught by probe, not by reading.
 
 **The rifle now matches the kit.** An earlier pass had the US-kitted troopers carrying a `type_81`,
-which is a Chinese rifle. The Militia carry an M4 and the Column an AK.
+which is a Chinese rifle. NATO carry an M4 and the Column an AK.
+
+**They cannot fight each other, and that is settled rather than unsolved.** Both armies are the same
+four entity types — the three IE soldiers and a pillager — told apart only by the area they stood up in
+and what In Control dressed them in. Mob Factions assigns a faction per **entity type**, so both land in
+the same faction and will never exchange a shot. The alternatives were scoreboard teams (design F6,
+deferred) or building the second army from different entities, which would cost the Russian kit its
+wearers. Ruled by the owner: keep them in one faction and express the front through **placement** — they
+hold opposite banks and the player crosses between them. The design's existing NATO-versus-Machines
+fight at the plant gates still works, because the Machines are different entities.
 
 **The Dead are ambient everywhere** and are listed last with no denial after them, so they are the floor
 the whole cell stands on. Their site variants come first, so a corpse at the switchyard is a plant
@@ -481,10 +490,10 @@ forty pieces; that used two of them and flattened the read at fifty metres, whic
 
 | who | where | head | chest | hand |
 |---|---|---|---|---|
-| Militia Shield | spine, plant | PASGT | **IE steel chestplate** | — |
-| Militia Gunner | spine, plant | **sniper21 helmet** | IOTV | — |
-| Militia Trooper | spine, plant | PASGT | IOTV | — |
-| Militia Rifleman | spine, plant | PASGT | IOTV | `tacz:type_81` |
+| NATO Shield | spine, plant | PASGT | **IE steel chestplate** | — |
+| NATO Gunner | spine, plant | **sniper21 helmet** | IOTV | — |
+| NATO Trooper | spine, plant | PASGT | IOTV | — |
+| NATO Rifleman | spine, plant | PASGT | IOTV | `tacz:type_81` |
 | Plant Worker | the plant's four halls | faraday helmet | faraday chest | crowbar |
 | The Infected | the hospital | — | **med21 vest** | — |
 | Yard Hand | the yard and station | — | **Gorka 3** | military shovel |
@@ -494,7 +503,7 @@ forty pieces; that used two of them and flattened the read at fifty metres, whic
 | Scavenger Raider | Woods and roads | **ge M35 shell** | **Gorka 3** | crowbar |
 | Scavenger Elder | Woods and roads | **bandana** | **rags** | — |
 
-The reasoning, so it survives the next edit: the Militia match because they are an army that never stood
+The reasoning, so it survives the next edit: NATO match because they are an army that never stood
 down, but the ranks are not interchangeable — the Bulwark takes steel on the chest because he is the
 shield, the Fusilier takes a marksman's helmet because he holds the longest line. The Dead wear what they
 died in, which is the whole of §3.3: rubber and a crowbar at the switchyard, a medic's vest at the
@@ -509,7 +518,7 @@ and are not used.
 
 ### Twenty-two probes, all passing
 
-Each rank stood up at a coordinate inside its own zone and read back by name: four Militia ranks on the
+Each rank stood up at a coordinate inside its own zone and read back by name: four NATO ranks on the
 spine, the Rifleman at the plant, Plant Workers at the switchyard and the turbine hall, The Infected at
 the hospital, a Yard Hand at the yard, the Dead at the stadium, the blocks and the farm, the Drowned at
 the intake works and under the rail bridge, three Scavenger looks in the Woods and one on the road, and

@@ -11,7 +11,7 @@ differ, this document wins. Nothing here needs a mod the pack does not carry.
 1. **Nothing spawns by accident.** `doMobSpawning` stays off. Every living thing is placed by a template or a
    function, ruled by In Control per area, or summoned by the loop. The wasteland is authored, like the map.
 2. **Every faction owns a land.** The Dead own the home sector and, over the bridge, the town and the farm; the
-   Scavengers the roads and the Woods; the Militia the east-bank spine and the plant complex's gates; the Machines the
+   Scavengers the roads and the Woods; NATO the east-bank spine and the plant complex's gates; the Machines the
    plant complex; the Horrors own the dark between fights and no ground.
 3. **A site's occupiers are its faction; a site's counterattack is its faction plus the one it hates.** The faction
    war (Mob Factions) is real: an unclaimed site thins itself, and a held site's ambient stops.
@@ -105,7 +105,7 @@ carries thirty-seven mech entities and two edges that need an owner.
 |---|---|---|---|---|
 | **The Dead** | the infected town | `zombie`, `zombie_villager`, `husk`, `drowned`, `zombie_horse`, Hordes' converted forms (a zombie villager re-skinned as a dead Scavenger or Militiaman: `infection_conversions.json`), `hordes:zombie_player` (a dead player) | the home sector: Skadowsky outside the camp pocket, its hospital, station and rail yard; west over the bridge: the town, the collective farm, the Line's corridor; the river shallows and the cooling pond (drowned) | mass, infection, doors and glass, hear a shot at ten blocks |
 | **The Scavengers** | living raiders | `pillager` (guns), `vindicator` (axes), `evoker` (a captain's escort), `ravager` (a breacher's mount, Act III+), `witch` (the cook) | the roads (patrols) and the Woods outpost; the bus depot on the town's south edge; the district's own sites — Novo, the plaza, Bio Gen — and the sewers are deferred to a later quest line | fire from cover, flank, break doors |
-| **The Militia** | the unit that never stood down | `immersiveengineering:commando`, `fusilier`, `bulwark` | the east bank: the rail yard, the road south, the plant complex's gates and its inside; FR-06 and the waterworks' approaches are deferred | ranks, shields, a railgun |
+| **NATO** | the unit that never stood down | `immersiveengineering:commando`, `fusilier`, `bulwark` | the east bank: the rail yard, the road south, the plant complex's gates and its inside; FR-06 and the waterworks' approaches are deferred | ranks, shields, a railgun |
 | **The Machines** *(new)* | what the plant left running and the city built | `pomkotsmechs:pmss01…03` (tiny), `pms01…10` (walkers and drones), `pmt01…04` (turrets), `pmb01…08` (bosses) | the plant complex (its turrets and the Overseer); the hub, the Custodian's city, is deferred with the desert city | no fear, no doors, ranged from the air; the only enemy that flies |
 | **The Horrors** | the dark | `the_knocker:knocker` (+ stalk forms), `man:manfromthefog` (+ forms), `eyesinthedarkness:eyes` | between fights: the Woods (the fog man), the Skadowsky hospital (the Knocker; the sewers are deferred), any dark place (the Eyes) | one at a time, never in a wave |
 | **The Camp** | the players' | the villagers, `guardvillagers:guard`, every `recruits:` id, `iron_golem` | the camp, every held site | Pillagers Gun arms guards and recruits alike |
@@ -115,15 +115,15 @@ carries thirty-seven mech entities and two edges that need an owner.
 Scavengers: pillager, vindicator, evoker, vex, ravager, witch, illusioner); **`militia`** (the three IE ids —
 missing today); **`machine`** (every `pomkotsmechs:pms*`, `pmss*`, `pmt*`, `pmb*` id); `civilian` (villager,
 iron golem, `guardvillagers:guard`, **all thirteen `recruits:` ids** — missing today). Enemies: everyone hates the
-civilians; the Dead hate everyone; the Scavengers hate the Dead and the Militia; the Militia hates the Dead, the
+civilians; the Dead hate everyone; the Scavengers hate the Dead and NATO; NATO hates the Dead, the
 Scavengers and the Machines; the Machines hate everything that breathes. Allies: none. What it buys on the map: the
-plant complex's gates are a standing fight between the Militia and the Machines the players can watch from the
+plant complex's gates are a standing fight between NATO and the Machines the players can watch from the
 viaduct; the bus depot forecourt meeting between the district's Scavengers and the town's Dead is deferred with the
 district.
 
 ## 3. Ranks
 
-`gscraft-enemies.md` §3 gives the Dead, the Scavengers, the Militia and the Horrors with shares, gear and health;
+`gscraft-enemies.md` §3 gives the Dead, the Scavengers, NATO and the Horrors with shares, gear and health;
 those tables stand. Additions and the Machines:
 
 ### 3.1 The Dead — two more ranks
@@ -161,9 +161,9 @@ areas (In Control denies `pomkotsmechs:*` outside `hub`, `plant` and the distric
 | **town** — the rest of the town | the Dead, dense: Shamblers 8, Workers 2, Runners 1; the Converted in the blocks near the district | the town's landmarks each carry a placed garrison (the palace of culture: a Scavenger squad; the tallest block: the roof boss) | the Knocker in the cellars | a Scavenger road patrol (`ic_patrol`) on the town's south road by day |
 | **river** — the south-west bridge (x −1104…−981, deck z −957…−936, deck y 89) and the Line's corridor west of it to the collective farm at (−2112, −896) | the Dead along the corridor, which stays deliberately empty between stops: caps still to be set for the westward cut `[needs measurement]` | — | none | none |
 | **district** — KROT (x −3392…−3073 × z −1344…−1025) and the bus depot on the town's south edge; Novo, the plaza and Bio Gen are deferred to a later quest line | Scavengers: Runners 4, Shooters 2, Breachers 1; the Dead from the town's edge (the faction war) | **KROT:** Walker's heavy-industry strongpoint, keeper Kessler; **the bus depot:** the Scavengers' ammunition dump (W-A5); Novo (the Foreman), the plaza (the Broker) and Bio Gen's post are deferred with their sites | the Eyes (the plaza's vault is deferred with the plaza) | Scavenger patrols on the district road and the town's south road |
-| **farbank** — the east-bank spine: the rail line and yard, and the road south to the plant's outer works. The key name is legacy: since the banks swapped this ground is the **home** bank. FR-06 and the waterworks are deferred to a later quest line | the Militia: Troopers 3, Shields 1; the Drowned along the shore; Riders at night | the rail yard: a Militia checkpoint (the train's first obstacle); the waterworks (the Drowned + a Militia post, Rust) and FR-06 (the Militia, Sergeant Kell) are deferred with their sites | the fog man on the east-bank road at night | a Militia patrol between the yard and the plant's outer works |
+| **farbank** — the east-bank spine: the rail line and yard, and the road south to the plant's outer works. The key name is legacy: since the banks swapped this ground is the **home** bank. FR-06 and the waterworks are deferred to a later quest line | NATO: Troopers 3, Shields 1; the Drowned along the shore; Riders at night | the rail yard: a NATO checkpoint (the train's first obstacle); the waterworks (the Drowned + a NATO post, Rust) and FR-06 (NATO, Sergeant Kell) are deferred with their sites | the fog man on the east-bank road at night | a NATO patrol between the yard and the plant's outer works |
 | **hub** — the walled city, **deferred to a later quest line**; no quest points at it | Machines: Crawlers 4, Walkers 2, Drones 1; the mech bay's trader — held with the site | **the hub:** the Machines (the Custodian) — deferred | none | none — the walls |
-| **plant** — the plant complex, on Skadowsky's own bank: the switchyard and admin block (−815, 105), the turbine hall (400, 590), the cooling intake works (895, 155), the confinement hall (−642, 518) | Machines at the gates (turrets placed, Walkers 2), the Militia inside (their last stand), the Drowned in the cooling pond | **the control room:** the Overseer; **the switchyard, the turbine hall, the intake works:** a Militia squad each — the three plant strongpoints (keepers Ilya, Rook, Oksana). The confinement hall is Act IV's prize, not a strongpoint | the Eyes in the turbine hall | the Militia vs the Machines at the gates, all day |
+| **plant** — the plant complex, on Skadowsky's own bank: the switchyard and admin block (−815, 105), the turbine hall (400, 590), the cooling intake works (895, 155), the confinement hall (−642, 518) | Machines at the gates (turrets placed, Walkers 2), NATO inside (their last stand), the Drowned in the cooling pond | **the control room:** the Overseer; **the switchyard, the turbine hall, the intake works:** a NATO squad each — the three plant strongpoints (keepers Ilya, Rook, Oksana). The confinement hall is Act IV's prize, not a strongpoint | the Eyes in the turbine hall | NATO vs the Machines at the gates, all day |
 | **woods** — the Woods and the farmsteads | Scavengers thin (Runners 2), the Dead thin; wolves | **the outpost:** Scavengers (the outpost captain) until R-W1; the bunkers: the Dead + cave spiders | **the fog man** (his only land by day) | none |
 
 Rules that go with the table: the ambient stops inside a held site's rectangle (`EntityEvents.checkSpawn`, design
@@ -181,8 +181,8 @@ faction pair:
 | Skadowsky — the sector clearance, then the hospital (Act I) | the Dead only; no Shooter share (the Matron a wave early) | the Dead + Riders in wave 3 | **the Matron** (husk) | the bridge from the west — where `skadowsky_defended` is fought — with the main road east and the rail corridor north and south |
 | Novo (II) — **deferred to a later quest line** | Scavengers | Scavengers + the Converted (the town's Dead follow them) | **the Foreman** (pillager) | — (deferred) |
 | the plaza (II) — **deferred to a later quest line** | Scavengers + one Drone | Scavengers + Drones | **the Broker** (pillager) | — (deferred) |
-| the waterworks (III) — **deferred to a later quest line** | the Drowned + a Militia post | the Militia + the Drowned | **Rust** (drowned) | — (deferred) |
-| FR-06 (III) — **deferred to a later quest line** | the Militia | the Militia + a Wrecker | **Sergeant Kell** (commando) | — (deferred) |
+| the waterworks (III) — **deferred to a later quest line** | the Drowned + a NATO post | NATO + the Drowned | **Rust** (drowned) | — (deferred) |
+| FR-06 (III) — **deferred to a later quest line** | NATO | NATO + a Wrecker | **Sergeant Kell** (commando) | — (deferred) |
 | the Woods outpost (II, R-W1) | Scavengers, no marker, no counterattack | — | the outpost captain | — |
 
 The live strongpoint set is the five of `docs/gscraft-skadowsky-camp.md` §11.4 — the Skadowsky hospital, the plant's
@@ -193,7 +193,7 @@ north and south.
 
 The finale (finale doc) keeps its five waves and four Captains; the four Captains are now the four fighting
 factions' answers: **the Matron's kin** (the Dead), **the Broker's brother** (a Scavenger), **the Colonel** (the
-Militia's last officer, `commando`), **the Sentinel** (`pmb02`, the Machines) — one per wave 2–5 — and the Sleeper
+NATO's last officer, `commando`), **the Sentinel** (`pmb02`, the Machines) — one per wave 2–5 — and the Sleeper
 rises with the Sentinel. Waves are spawned by `/hordes spawnWave <n>` against per-site tables
 (`horde_data/tables/gscraft_<site>.json`, entries with NBT for gear and names) where that command proves to work with
 the event disabled (test item T1, §8), else by the loop's `summon` with In Control `finalize` rules dressing each mob.
@@ -219,7 +219,7 @@ override, so no random undead knight walks out of the town (inventory §2).
 
 ## 7. Drops
 
-Enemies §6 stands (the Dead: cloth, duct tape; Scavengers: casings, gunpowder, scrap, a dog tag; the Militia: IE
+Enemies §6 stands (the Dead: cloth, duct tape; Scavengers: casings, gunpowder, scrap, a dog tag; NATO: IE
 revolver parts, plates; Horrors: nothing; elites ×3 + a component). The Machines drop **mech scrap** (`gscraft:mech_scrap`,
 a small item Walker salvages into metal scrap and circuit assemblies) at 40 %, a **servo** (a mechanical item) at 10 %;
 the Custodian drops its core stone (W-M2), the Overseer the red boss box (the mod's own table). The Rider's horse

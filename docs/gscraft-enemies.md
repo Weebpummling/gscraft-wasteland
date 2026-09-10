@@ -18,7 +18,7 @@ that are actively wrong for this design.
    `Should drop equipment` is false, and both stay that way. Working guns and armour come from the
    station or they do not come at all (crafting §5). Enemies drop **materials**, never products.
 3. **Every faction is legible at fifty metres.** A player should name what is coming from its
-   silhouette and its noise: the Dead shamble and moan, Scavengers shout and shoot, the Militia
+   silhouette and its noise: the Dead shamble and moan, Scavengers shout and shoot, NATO
    marches in line and reflects light, the Horrors are alone and quiet.
 4. **Factions fight each other.** Mob Factions is configured so an unclaimed site is a three-way
    war the players can watch, wait out, or start.
@@ -36,7 +36,7 @@ that are actively wrong for this design.
 |---|---|---|---|---|---|
 | **The Dead** | the infected: what the city became. No leadership, no equipment, endless | `minecraft:zombie`, `zombie_villager`, `husk` (dry ground), `drowned` (the plant, the lake), `minecraft:spider` / `cave_spider` (the bunkers; the sewers are deferred to a later quest line) | everywhere; the Skadowsky sector outside the camp pocket is theirs, the hospital most of all | mass, no ranged, break glass and wooden doors, hear gunfire at 10 blocks per Zombie Awareness | infection (Hordes): every hit rolls 75 % on a player, curable at Tony's clinic |
 | **Scavengers** | living raiders in dead men's clothes — the faction the players could have become | `minecraft:pillager` (guns, via Pillagers Gun), `minecraft:vindicator` (axes, breachers), `minecraft:evoker` (rare, a captain's escort) | the road outposts and the Woods outpost; Novo and Financial Plaza are deferred to a later quest line | fire from cover, flank, break doors; a captain rallies them | the only faction that uses guns from the first act |
-| **The Militia** | a surviving military unit that never stood down; they hold the east-bank works and answer to nobody | `immersiveengineering:fusilier` (railgun), `immersiveengineering:commando` (revolver), `immersiveengineering:bulwark` (shield, armour) | the rail yard, the road south, the plant complex's gates and its inside; FR-06 and the hub's approaches are deferred to a later quest line | disciplined ranks: Bulwarks forward, Commandos behind, a Fusilier holding the long line | armour that shrugs off pistols; the only faction with a shield wall |
+| **NATO** | a surviving military unit that never stood down; they hold the east-bank works and answer to nobody | `immersiveengineering:fusilier` (railgun), `immersiveengineering:commando` (revolver), `immersiveengineering:bulwark` (shield, armour) | the rail yard, the road south, the plant complex's gates and its inside; FR-06 and the hub's approaches are deferred to a later quest line | disciplined ranks: Bulwarks forward, Commandos behind, a Fusilier holding the long line | armour that shrugs off pistols; the only faction with a shield wall |
 | **The Horrors** | whatever the end of the world left behind. Not a faction that holds ground — they hunt | `the_knocker:knocker` (+ `knockerstalk`, `knockerstalklooked`, `knockerdeadanimal`, `knockerswim`), `man:manfromthefog` (+ `managgresive`, `manfromthefogback`, `mftfhang`), `eyesinthedarkness:eyes` | the hospital after dark, the Woods, any site's elite slot (the sewers are deferred to a later quest line) | alone, at night, from behind; they do not join waves | no drops, no reason, no negotiating |
 | **The Camp** (the players') | the six survivors, their guards and hired soldiers | `guardvillagers:guard`, the ten `recruits:` ids (recruit, recruit_shieldman, bowman, crossbowman, captain, commander, horseman, nomad, scout, messenger), `minecraft:villager`, `iron_golem` | the camp, and every held site's guard | Pillagers Gun arms guards and Recruits too (`Villager Spawn With Gun` = true) | the only faction that respawns for free |
 
@@ -98,7 +98,7 @@ the mod's: pistol 50 %, shotgun 20 %, assault rifle 20 %, sniper 5 %, bazooka 5 
 bridge's east end — would take out Marshall's gatehouse at x −978…−955 × z −955…−940, which the grief
 lock cannot stop because mob explosions are cancelled only inside the locked rectangles (design §3.6). Pillagers Gun 3.1.0 registers no flamethrower (mod audit §4), so its config key is dead; `Break Block` false.
 
-### 3.3 The Militia
+### 3.3 NATO
 
 The three IE entities need no dressing — they ship armoured and armed, and their drops (§6) are the
 only source of IE revolver parts in the world.
@@ -109,7 +109,7 @@ only source of IE revolver parts in the world.
 | Shield | `bulwark` | 30 % | walks in front, blocks projectiles | ×1.5, knockback resistance 0.6 |
 | Gunner | `fusilier` | 10 % | railgun; the longest reach any enemy has | ×1.2 |
 
-The Militia never spawns ambient outside **the east-bank spine** — the rail yard and the road south to the plant's
+NATO never spawns ambient outside **the east-bank spine** — the rail yard and the road south to the plant's
 outer works — and the plant complex's gates and inside (2026-09-06: the hub is the Machines', `gscraft-entities-v8.md`
 §2; FR-06 and the waterworks' approaches are deferred to a later quest line). They are a *place*, not a
 weather. Act IV adds a fourth rank, **Sergeant** (`commando`, health ×2.5, `customname`, an Apotheosis
@@ -179,7 +179,7 @@ faction's material at ×3, never its gear.
 |---|---|---|
 | The Dead | rotten flesh (vanilla), **cloth** 20 %, **duct tape** 5 % | the bandage chain has a floor that does not depend on containers |
 | Scavengers | **casings** 40 %, **gunpowder** 25 %, **metal scrap** 20 %, a **dog tag** 5 % | ammunition never runs dry if you fight for it; the dog tag is Marshall's bounty (§7 open) |
-| Militia | vanilla emerald + IE `gunpart_barrel` / `drum` / `hammer` (their own tables), **plate** 15 % | the only source of IE revolver parts — deliberate: the Militia is where a revolver comes from |
+| NATO | vanilla emerald + IE `gunpart_barrel` / `drum` / `hammer` (their own tables), **plate** 15 % | the only source of IE revolver parts — deliberate: NATO is where a revolver comes from |
 | Horrors | nothing | by design |
 | Elites | their faction's material ×3, plus one **component** at the sites whose container the design already names | the elite is worth the fight without being the only route |
 
@@ -225,7 +225,7 @@ session, so they go in before the next player test, ahead of the rest of this do
 |---|---|---|
 | E1 | **Do Scavengers talk?** A captain that shouts before a wave (a `say` from the loop script, or signs left at their camps) gives the faction a voice; silence keeps them animal | one line per wave from the captain, written like radio chatter, off by a config flag if it grates |
 | E2 | **Dog tags as a bounty** — Marshall pays per tag (a vendor barter, `gscraft-vendors.md`) | yes: it makes killing Scavengers anywhere worth something without touching the loot economy |
-| E3 | **Does the Militia ever talk to the players?** A surrendered Commando as a vendor, or a truce quest, is a whole chapter's worth of design | not in this build; note it as the season-two hook the finale doc already wants |
+| E3 | **Does NATO ever talk to the players?** A surrendered Commando as a vendor, or a truce quest, is a whole chapter's worth of design | not in this build; note it as the season-two hook the finale doc already wants |
 | E4 | **Infection on Scavengers** — should the Dead convert killed Scavengers into more Dead? Hordes can do it (`infectionEntitiesAggroConversions`) | yes at sites the players have not taken, no during a counterattack (the wave would grow while they fight it) |
 | E5 | **Horror frequency** — one per site is the design rule; the mods' own configs currently decide | set each mod's spawn chance from the site rules in Phase D and measure it on the first play test |
 

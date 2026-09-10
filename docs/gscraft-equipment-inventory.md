@@ -62,10 +62,10 @@ Out of that inventory, `tools/spawn_rules.py` assigns:
 
 | rank | head | chest | legs | feet | hand |
 |---|---|---|---|---|---|
-| Militia Shield | PASGT | IE steel | IE steel | IE steel | — |
-| Militia Gunner | sniper21 | IOTV | kr06 pants | — | — |
-| Militia Trooper | PASGT | IOTV | kr06 pants | — | — |
-| Militia Rifleman | PASGT | IOTV | kr06 pants | — | `tacz:type_81` |
+| NATO Shield | PASGT | IE steel | IE steel | IE steel | — |
+| NATO Gunner | sniper21 | IOTV | kr06 pants | — | — |
+| NATO Trooper | PASGT | IOTV | kr06 pants | — | — |
+| NATO Rifleman | PASGT | IOTV | kr06 pants | — | `tacz:type_81` |
 | Plant Worker | faraday | faraday | faraday | faraday | crowbar |
 | The Infected | — | med21 vest | — | — | — |
 | Yard Hand | — | Gorka 3 | Gorka 3 | — | military shovel |
@@ -79,12 +79,12 @@ The roster below (`tools/spawn_rules.py`) spends **39 of the 57** non-vanilla pi
 
 | faction | rank | head | chest | legs | feet | hand |
 |---|---|---|---|---|---|---|
-| Militia — the spine | Sergeant *(12 %)* | fast | kr06 vest | kr06 | — | — |
+| NATO — the spine | Sergeant *(12 %)* | fast | kr06 vest | kr06 | — | — |
 | | Shield | PASGT | IE steel | IE steel | IE steel | — |
 | | Gunner | sniper21 | IOTV | kr06 | — | — |
 | | Trooper | PASGT | IOTV | kr06 | — | — |
 | | Rifleman | PASGT | IOTV | kr06 | — | `tacz:type_81` |
-| Militia — the plant | Sergeant *(12 %)* | fast | kr06 vest | msv | — | — |
+| NATO — the plant | Sergeant *(12 %)* | fast | kr06 vest | msv | — | — |
 | | Shield | **6B47** | IE steel | IE steel | IE steel | — |
 | | Gunner | sniper21 | **6B43** | msv | — | — |
 | | Trooper | **6B47** | **6B43** | msv | — | — |
@@ -103,7 +103,7 @@ The roster below (`tools/spawn_rules.py`) spends **39 of the 57** non-vanilla pi
 | | Raider | ge M35 | Gorka 3 | Gorka 3 | wanderer | crowbar |
 | | Elder | bandana | rags | rags | rags | — |
 
-Two decisions worth recording. **The Militia's two detachments** wear different kit on purpose: the
+Two decisions worth recording. **NATO's two detachments** wear different kit on purpose: the
 spine's checkpoint is in US gear with a Type 81, the plant's garrison in Russian gear with an AK. They
 are one army in whatever the plant's armoury held, not two armies — and crossing from one to the other
 is a visible cue that the player has left the checkpoint and reached the last stand. **The rare variants**

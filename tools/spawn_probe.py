@@ -18,16 +18,16 @@ LOCALTEST = Path(__file__).resolve().parent / "localtest.py"
 # tag, entity, x, z, expected name (None = should not exist at all)
 PROBES = [
     # the Militia, east of the river
-    ("mil_plant", "minecraft:pillager",             400,   590, "Militia Rifleman"),
-    ("mil_out",   "immersiveengineering:bulwark",  -840,  -540, "Militia Shield"),
-    ("mil_front", "immersiveengineering:fusilier", -930, -1150, "Militia Gunner"),
-    ("mil_skad",  "minecraft:pillager",            -710,  -900, "Militia Rifleman"),
+    ("mil_plant", "minecraft:pillager",             400,   590, "NATO Grenadier"),
+    ("mil_out",   "immersiveengineering:bulwark",  -840,  -540, "NATO Shield"),
+    ("mil_front", "immersiveengineering:fusilier", -930, -1150, "NATO Gunner"),
+    ("mil_skad",  "minecraft:pillager",            -710,  -900, "NATO Grenadier"),
 
     # the Column, west of the river
-    ("col_town",  "minecraft:pillager",           -2400, -2900, "Column Rifleman"),
-    ("col_out",   "immersiveengineering:bulwark", -1500, -1060, "Column Shield"),
-    ("col_front", "immersiveengineering:fusilier",-1200, -1000, "Column Marksman"),
-    ("col_skad",  "minecraft:pillager",           -1035,  -960, "Column Rifleman"),
+    ("col_town",  "minecraft:pillager",           -2400, -2900, "RUAF Grenadier"),
+    ("col_out",   "immersiveengineering:bulwark", -1500, -1060, "RUAF Shield"),
+    ("col_front", "immersiveengineering:fusilier",-1200, -1000, "RUAF Marksman"),
+    ("col_skad",  "minecraft:pillager",           -1035,  -960, "RUAF Grenadier"),
 
     # the Dead: ambient everywhere, and by site where a site claims them
     ("dead_swit", "minecraft:zombie",  -815,   105, "Plant Worker"),
