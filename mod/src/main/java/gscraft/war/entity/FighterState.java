@@ -10,6 +10,11 @@ import net.minecraft.world.entity.Mob;
  * loadout as summoned.
  */
 public final class FighterState {
+    /** an order (feasibility B2): hold a point, or advance to it and then hold */
+    public enum Order { NONE, HOLD, ADVANCE }
+
+    public Order order = Order.NONE;
+    public BlockPos orderPos = BlockPos.ZERO;
     public boolean kitIssued;
     public String rank = "";
     public Role role;
@@ -43,6 +48,10 @@ public final class FighterState {
         tag.putString("GscraftRole", role.name());
         tag.putInt("GscraftMagazines", magazines);
         tag.putInt("GscraftGrenades", grenades);
+        if (order != Order.NONE) {
+            tag.putString("GscraftOrder", order.name());
+            tag.putLong("GscraftOrderPos", orderPos.asLong());
+        }
         tag.putBoolean("GscraftOutOfAmmo", outOfAmmo);
         if (homeRadius > 0) {
             tag.putLong("GscraftHome", home.asLong());
@@ -56,6 +65,10 @@ public final class FighterState {
         if (tag.contains("GscraftRole")) role = Role.parse(tag.getString("GscraftRole"));
         if (tag.contains("GscraftMagazines")) magazines = tag.getInt("GscraftMagazines");
         grenades = tag.getInt("GscraftGrenades");
+        if (tag.contains("GscraftOrder")) {
+            order = Order.valueOf(tag.getString("GscraftOrder"));
+            orderPos = BlockPos.of(tag.getLong("GscraftOrderPos"));
+        }
         outOfAmmo = tag.getBoolean("GscraftOutOfAmmo");
         if (tag.contains("GscraftHomeRadius")) {
             home = BlockPos.of(tag.getLong("GscraftHome"));

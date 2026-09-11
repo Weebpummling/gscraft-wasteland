@@ -135,12 +135,22 @@ public final class DirectorCommands {
                         return 0;
                     }
                     gscraft.war.entity.FighterState st = user.fighterState();
-                    say(ctx, String.format("%s: rank %s, role %s, magazines %d, grenades %d, suppression %.2f, pose %s, sprinting %s, target %s, ammo %s",
+                    gscraft.war.entity.Cover.Spot cover = e instanceof gscraft.war.entity.Soldier sol ? sol.cover()
+                            : e instanceof gscraft.war.entity.Scavenger sc ? sc.cover() : null;
+                    boolean hidden = mob.getTarget() != null && gscraft.war.entity.Cover.covered(ctx.getSource().getLevel(), mob, mob.getTarget(), mob.position());
+                    say(ctx, String.format("%s: rank %s, role %s, magazines %d, grenades %d, suppression %.2f, pose %s, sprinting %s, target %s, ammo %s, "
+                                    + "order %s%s, cover %s, hidden from target %s",
                             mob.getName().getString(), st.rank, st.role, st.magazines, st.grenades, st.suppression, mob.getPose(),
                             mob.isSprinting(), mob.getTarget() == null ? "none" : mob.getTarget().getName().getString(),
-                            st.outOfAmmo ? "out" : "yes"));
+                            st.outOfAmmo ? "out" : "yes", st.order, st.order == gscraft.war.entity.FighterState.Order.NONE ? "" : " at " + st.orderPos.toShortString(),
+                            cover == null ? "none" : cover.spot().toShortString(), hidden));
                     return 1;
-                }).then(Commands.literal("goto").then(xyzThen(Commands.literal("now").executes(ctx -> {
+                }).then(Commands.literal("hold").then(xyzThen(Commands.literal("now").executes(ctx -> order(ctx, gscraft.war.entity.FighterState.Order.HOLD, false)))))
+                .then(Commands.literal("advance").then(xyzThen(Commands.literal("now").executes(ctx -> order(ctx, gscraft.war.entity.FighterState.Order.ADVANCE, false)))))
+                .then(Commands.literal("free").executes(ctx -> order(ctx, gscraft.war.entity.FighterState.Order.NONE, false)))
+                .then(Commands.literal("squadhold").then(xyzThen(Commands.literal("now").executes(ctx -> order(ctx, gscraft.war.entity.FighterState.Order.HOLD, true)))))
+                .then(Commands.literal("squadadvance").then(xyzThen(Commands.literal("now").executes(ctx -> order(ctx, gscraft.war.entity.FighterState.Order.ADVANCE, true)))))
+                .then(Commands.literal("goto").then(xyzThen(Commands.literal("now").executes(ctx -> {
                     // an order to walk to a point (feasibility B2, first cut): the operator's, and the tests'
                     net.minecraft.world.entity.Entity e = net.minecraft.commands.arguments.EntityArgument.getEntity(ctx, "who");
                     BlockPos to = pos(ctx);
@@ -148,9 +158,14 @@ public final class DirectorCommands {
                         say(ctx, "not a mob");
                         return 0;
                     }
-                    boolean ok = mob.getNavigation().moveTo(to.getX() + 0.5D, to.getY(), to.getZ() + 0.5D, 1.0D);
-                    say(ctx, mob.getName().getString() + (ok ? " walks to " : " finds no path to ") + to.toShortString());
-                    return ok ? 1 : 0;
+                    if (!(e instanceof gscraft.war.entity.GunUser user)) {
+                        say(ctx, "not a fighter");
+                        return 0;
+                    }
+                    user.fighterState().order = gscraft.war.entity.FighterState.Order.ADVANCE;
+                    user.fighterState().orderPos = to;
+                    say(ctx, mob.getName().getString() + " walks to " + to.toShortString());
+                    return 1;
                 }))))))
                 .then(Commands.literal("garrison")
                         .then(Commands.argument("zone", StringArgumentType.word())
@@ -249,6 +264,29 @@ public final class DirectorCommands {
         int n = Director.garrisons(ctx.getSource().getLevel(), name, force);
         say(ctx, "garrison " + name + ": spawned " + n);
         return n;
+    }
+
+    /** an order to one fighter, or (squad) to it and every ally within twenty blocks - a Sergeant's call */
+    private static int order(CommandContext<CommandSourceStack> ctx, gscraft.war.entity.FighterState.Order order, boolean squad) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        net.minecraft.world.entity.Entity e = net.minecraft.commands.arguments.EntityArgument.getEntity(ctx, "who");
+        if (!(e instanceof net.minecraft.world.entity.Mob leader) || !(e instanceof gscraft.war.entity.GunUser)) {
+            say(ctx, "not a fighter");
+            return 0;
+        }
+        BlockPos at = order == gscraft.war.entity.FighterState.Order.NONE ? BlockPos.ZERO : pos(ctx);
+        java.util.List<net.minecraft.world.entity.Mob> given = new java.util.ArrayList<>();
+        given.add(leader);
+        if (squad) {
+            given.addAll(ctx.getSource().getLevel().getEntitiesOfClass(net.minecraft.world.entity.Mob.class, leader.getBoundingBox().inflate(20.0D),
+                    m -> m != leader && m instanceof gscraft.war.entity.GunUser && gscraft.war.faction.Factions.allied(m, leader)));
+        }
+        for (net.minecraft.world.entity.Mob m : given) {
+            gscraft.war.entity.FighterState st = ((gscraft.war.entity.GunUser) m).fighterState();
+            st.order = order;
+            st.orderPos = at;
+        }
+        say(ctx, given.size() + " ordered: " + order + (order == gscraft.war.entity.FighterState.Order.NONE ? "" : " at " + at.toShortString()));
+        return given.size();
     }
 
     private static BlockPos surface(CommandContext<CommandSourceStack> ctx) {

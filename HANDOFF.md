@@ -494,5 +494,8 @@ the hospital: `sk_out_w` x -784..-720, z -1148..-1100 (centre -752, -1124). The 
   `/wasteland-v8/serverconfig/` with the next deploy** or NPC grenades break blocks (two did, locally, before the
   right file was found). Test: `tools/war_phase7.py` first, then 6, 5, 4b, 4, 3, 2. TRAP: a `Goal` must not read a
   body's fields in its constructor - `Mob` registers goals before the subclass's fields exist (it crashed the server).
+- **Sharper fighters, step B (2026-09-10):** cover with peeking, hold/advance orders (`/gscraft fighter <who>
+  hold|advance|free`, `squadhold|squadadvance`), the Marksman flat beyond 32. Fighters remember a target 15 s unseen.
+  Test: `tools/war_phase8.py`, then 7 and the rest.
 - Eyes in the Darkness natural spawn is off locally (`eyesinthedarkness-server.toml`, backup `.bak-director`); the
   director places the Eyes instead.

@@ -61,6 +61,7 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
             SynchedEntityData.defineId(Scavenger.class, EntityDataSerializers.INT);
 
     private final Set<UUID> grudges = new HashSet<>();
+    private GunAttackGoal gunGoal;
     private final FighterState state = new FighterState(Role.SCAVENGER);
     private InvestigateGoal investigate;
 
@@ -78,7 +79,7 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.3D)
-                .add(Attributes.FOLLOW_RANGE, 32.0D)
+                .add(Attributes.FOLLOW_RANGE, 40.0D)
                 .add(Attributes.ATTACK_DAMAGE, 2.0D);
     }
 
@@ -146,7 +147,9 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
         goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(1, new OpenDoorGoal(this, true));
         goalSelector.addGoal(1, new GrenadeGoal(this));
-        goalSelector.addGoal(2, new GunAttackGoal(this, 1.0D));
+        gunGoal = new GunAttackGoal(this, 1.0D);
+        goalSelector.addGoal(2, gunGoal);
+        goalSelector.addGoal(4, new OrderGoal(this));
         goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.15D, false) {
             @Override
             public boolean canUse() {
@@ -166,6 +169,10 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
                 p -> Factions.hostileToPlayer(this, (Player) p)));
         targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, true, false,
                 e -> Factions.hostile(this, e)));
+        // a target out of sight for fifteen seconds is still the target: cover means not seeing it (feasibility B1)
+        targetSelector.getAvailableGoals().forEach(w -> {
+            if (w.getGoal() instanceof NearestAttackableTargetGoal<?> g) g.setUnseenMemoryTicks(300);
+        });
     }
 
     @Override
@@ -204,6 +211,11 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
     @Override
     public FighterState fighterState() {
         return state;
+    }
+
+    /** the cover the gun goal holds, for the readout */
+    public Cover.Spot cover() {
+        return gunGoal == null ? null : gunGoal.cover();
     }
 
     /** crouched and flat stances (feasibility A3): the box follows the pose the way a player's does */

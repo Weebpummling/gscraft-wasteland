@@ -145,6 +145,26 @@ cover placement in real ruins need the WarTest client; the grenade block test is
 - `/gscraft fighter <who>` reads rank, magazines, grenades, suppression, pose, sprint, target; `… goto <x y z> now`
   orders a walk (the first piece of B2). The per-shot debug log line is gone.
 
-Next: step B (cover-seeking, peeking, hold/advance), then C (squads, patrols, bounding).
+**Step B built the same night** (`tools/war_phase8.py` 6 of 6; 7, 6, 5, 4b, 4, 3, 2 as regression: 7, 8, 9, 14, 13, 8, 8 of each):
+
+- B1 cover (`entity/Cover.java`): sixteen candidates 3–10 blocks out on the fighter's side of the target; a spot
+  counts when the target's eyes cannot see its chest height and a lean 0.8 blocks beside it can see out from head
+  height; nearest wins. The gun goal walks there, crouches, steps to the lean for a burst and back for the pause;
+  cover is dropped after two seconds of the target seeing into it. Measured: a Rifleman with a wall to one side chose
+  the spot behind it, was hidden from the target in 15 of 24 seconds and took the target's health down through the
+  lean. Not for the Shield; an advancing fighter takes none; a holding one only within six blocks of its point.
+- B2 orders (`FighterState.Order`, `OrderGoal`): HOLD never chases and fires from its point (measured: 0.0 blocks of
+  drift over fifteen seconds at a target 40 off); ADVANCE walks to the point at speed and becomes HOLD on arrival
+  (6 s over 24 blocks with a target in view). `/gscraft fighter <who> hold|advance <x y z> now`, `free`,
+  `squadhold|squadadvance` for the fighter and every ally within twenty blocks (the Sergeant's call). The old
+  `goto` is an advance.
+- A3: the Marksman goes flat to fire beyond 32 blocks, once its aim is complete. Two findings from ground-level
+  tests: a lowered eye over rough ground blinks, so the aim counter now decays on a blink rather than restarting,
+  and a lowered stance that loses sight stands back up for five seconds. Target memory is fifteen seconds unseen
+  (vanilla's three made cover cost the target); the Soldier's follow range is 64, the Scavenger's 40, since
+  targeting is capped by it.
+- Readout: `/gscraft fighter` adds order, cover spot, and whether the fighter is hidden from its target.
+
+Next: step C (squads, formations, patrol routes, bounding overwatch, fall-back).
 
 Related: `gscraft-enemy-review-2026-09-10.md` §5 (behaviour by value and cost) and §11 (phase 5), `gscraft-war-mod-design.md` §5–6 (squads in SavedData), `gscraft-fold-in-review-2026-09-10.md`.

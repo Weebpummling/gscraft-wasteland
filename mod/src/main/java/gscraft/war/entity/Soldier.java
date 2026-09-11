@@ -48,6 +48,7 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
             SynchedEntityData.defineId(Soldier.class, EntityDataSerializers.INT);
 
     private final String faction;
+    private GunAttackGoal gunGoal;
     private final FighterState state = new FighterState(Role.RIFLEMAN);
     private InvestigateGoal investigate;
 
@@ -66,7 +67,7 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
         return Monster.createMonsterAttributes()
                 .add(Attributes.MAX_HEALTH, 24.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.3D)
-                .add(Attributes.FOLLOW_RANGE, 48.0D)
+                .add(Attributes.FOLLOW_RANGE, 64.0D)
                 .add(Attributes.ATTACK_DAMAGE, 3.0D);
     }
 
@@ -125,7 +126,9 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
         goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(1, new OpenDoorGoal(this, true));
         goalSelector.addGoal(1, new GrenadeGoal(this));
-        goalSelector.addGoal(2, new GunAttackGoal(this, 1.0D));
+        gunGoal = new GunAttackGoal(this, 1.0D);
+        goalSelector.addGoal(2, gunGoal);
+        goalSelector.addGoal(4, new OrderGoal(this));
         goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.1D, false) {
             @Override
             public boolean canUse() {
@@ -145,6 +148,10 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
                 p -> Factions.hostileToPlayer(this, (Player) p)));
         targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, LivingEntity.class, 10, true, false,
                 e -> Factions.hostile(this, e)));
+        // a target out of sight for fifteen seconds is still the target: cover means not seeing it (feasibility B1)
+        targetSelector.getAvailableGoals().forEach(w -> {
+            if (w.getGoal() instanceof NearestAttackableTargetGoal<?> g) g.setUnseenMemoryTicks(300);
+        });
     }
 
     @Override
@@ -186,6 +193,11 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
     @Override
     public FighterState fighterState() {
         return state;
+    }
+
+    /** the cover the gun goal holds, for the readout */
+    public Cover.Spot cover() {
+        return gunGoal == null ? null : gunGoal.cover();
     }
 
     /** crouched and flat stances (feasibility A3): the box follows the pose the way a player's does */
