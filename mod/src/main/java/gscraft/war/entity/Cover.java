@@ -71,8 +71,8 @@ public final class Cover {
             Vec3 side = new Vec3(-dir.z, 0.0D, dir.x).normalize().scale(LEAN);
             Vec3 lean = null;
             for (Vec3 candidate : new Vec3[] {stand.add(side), stand.subtract(side)}) {
-                BlockPos leanFeet = BlockPos.containing(candidate);
-                if (Director.nearestStand(level, leanFeet) == null) continue;
+                // the body has to fit at the lean itself: a spot beside a bush whose lean sits in the bush is no cover
+                if (!level.noCollision(mob, mob.getBoundingBox().move(candidate.subtract(mob.position())))) continue;
                 if (!clipBlocked(level, mob, candidate.add(0.0D, eye, 0.0D), eyes)) {
                     lean = candidate;
                     break;

@@ -502,5 +502,21 @@ the hospital: `sk_out_w` x -784..-720, z -1148..-1100 (centre -752, -1124). The 
 - **Sharper fighters, step B (2026-09-10):** cover with peeking, hold/advance orders (`/gscraft fighter <who>
   hold|advance|free`, `squadhold|squadadvance`), the Marksman flat beyond 32. Fighters remember a target 15 s unseen.
   Test: `tools/war_phase8.py`, then 7 and the rest.
+- **Sharper fighters, step C (2026-09-11, local only):** squads (`entity/Squad.java` - a shared id and slot on each
+  body, formed from every director group, garrison and wave), wedge/line/column following, patrol routes per zone
+  (`patrols` in `gscraft_zones/map.json` via `tools/war_zones.py`), bounding overwatch and the fall-back from the
+  leader's once-a-second tick. `/gscraft squad <who> [form|disband|formation <f>|route <x z ...>|patrol]`.
+  Test: `tools/war_phase9.py`, then 8 and the rest. Not on live yet. Two step-B fixes rode along: cover only inside
+  1.2x the holding distance (a Rifleman dug in at forty blocks and never advanced), and the burst pause counts down
+  behind cover (the Marksman never leaned out again). Garrisons are not squads - guards keep their posts.
+- **Resource handling (2026-09-11, local only, feasibility doc §9):** the ambient cap ignores garrisons, lairs and
+  waves; ceilings of 12 director creatures per player (80 blocks) and 96 per server; the sweep at 128 with one pass
+  of grace; garrisons rest when nobody is within 256 for three passes; an assault with nobody within 128 freezes its
+  clock and takes its wave back after a minute; patrols walk only with someone within 96. `/gscraft director
+  phantom set|add|clear` and `bench <passes>` for tests without players (`tools/war_phase10.py`). Measured: a
+  director pass costs well under a millisecond; the entity count follows how spread out the players are (a party
+  shares one cap). TRAP: a mob killed in a loaded chunk that does not tick never finishes dying; the body is invisible
+  to `@e` but counted by any Java count that skips `isAlive` - every count asks now and the sweep discards bodies.
+  `/gscraft director census <x y z>` shows what a cap counts. Test: `tools/war_phase10.py`, then 9 and the rest.
 - Eyes in the Darkness natural spawn is off locally (`eyesinthedarkness-server.toml`, backup `.bak-director`); the
   director places the Eyes instead.

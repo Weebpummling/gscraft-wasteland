@@ -310,6 +310,22 @@
      "weight": 2
     }
    ],
+   "patrols": [
+    [
+     [
+      -1200,
+      -1230
+     ],
+     [
+      -1200,
+      -960
+     ],
+     [
+      -1200,
+      -720
+     ]
+    ]
+   ],
    "underground_spawns": [
     {
      "entity": "minecraft:zombie",
@@ -369,6 +385,22 @@
      "entity": "minecraft:drowned",
      "weight": 2
     }
+   ],
+   "patrols": [
+    [
+     [
+      -940,
+      -720
+     ],
+     [
+      -940,
+      -960
+     ],
+     [
+      -940,
+      -1230
+     ]
+    ]
    ]
   },
   {
@@ -634,6 +666,26 @@
      "entity": "gscraft:bloater",
      "weight": 1
     }
+   ],
+   "patrols": [
+    [
+     [
+      -950,
+      50
+     ],
+     [
+      -720,
+      50
+     ],
+     [
+      -720,
+      170
+     ],
+     [
+      -950,
+      170
+     ]
+    ]
    ],
    "dead_ranks": [
     "Plant Worker"
@@ -1002,6 +1054,26 @@
      "entity": "gscraft:scavenger",
      "weight": 1
     }
+   ],
+   "patrols": [
+    [
+     [
+      -2450,
+      -3050
+     ],
+     [
+      -2300,
+      -3050
+     ],
+     [
+      -2300,
+      -2900
+     ],
+     [
+      -2450,
+      -2900
+     ]
+    ]
    ],
    "indoor_spawns": [
     {

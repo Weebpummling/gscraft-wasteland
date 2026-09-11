@@ -19,5 +19,6 @@
   "gscraft.callout.contact": "[%s] Contact!",
   "gscraft.callout.reloading": "[%s] Reloading!",
   "gscraft.callout.grenade": "[%s] Grenade!",
-  "gscraft.callout.pinned": "[%s] Pinned down!"
+  "gscraft.callout.pinned": "[%s] Pinned down!",
+  "gscraft.callout.fall_back": "[%s] Fall back!"
 }

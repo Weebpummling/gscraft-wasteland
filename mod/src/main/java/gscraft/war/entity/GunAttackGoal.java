@@ -52,6 +52,7 @@ public class GunAttackGoal extends Goal {
     private static final int COVER_LOST_TICKS = 40;
     private static final double COVER_ARRIVE = 1.6D;
     private static final int COVER_PATH_EVERY = 10;
+    private static final int COVER_TRAVEL_TICKS = 100;   // a spot not reached in five seconds is given up
     private static final int LOW_BLOCKED_TICKS = 100;
     private static final double HOLD_COVER_REACH = 6.0D;
 
@@ -77,6 +78,8 @@ public class GunAttackGoal extends Goal {
     private int coverSearch;
     private int coverLost;
     private int coverPath;
+    private int coverTravel;
+    private int leanStuck;
     /** a lowered stance that lost the line of sight stands back up and stays up for a while */
     private long lowBlockedUntil;
 
@@ -188,6 +191,9 @@ public class GunAttackGoal extends Goal {
             return;
         }
 
+        // the pause between bursts is time, not time in sight: counted down behind cover too, or a fighter whose
+        // pause outlasted its step back behind the cover never leaned out again (the Marksman, every time)
+        if (burstPause > 0) burstPause--;
         Vec3 aim = null;
         int aimTicks = Math.round(role.aimTicks * (1.0F + s));
         if (canSee && seeTime >= aimTicks && distSqr <= role.range * role.range) {
@@ -201,10 +207,7 @@ public class GunAttackGoal extends Goal {
         }
         op.aim(true);
 
-        if (burstPause > 0) {
-            burstPause--;
-            return;
-        }
+        if (burstPause > 0) return;
         if (burstLeft <= 0) burstLeft = role.burstMin + mob.getRandom().nextInt(role.burstMax - role.burstMin + 1);
 
         float spread = role.spread * (1.0F + 2.0F * s);
@@ -256,7 +259,15 @@ public class GunAttackGoal extends Goal {
             return;
         }
         if (cover != null) {
-            if (Cover.covered(level, mob, target, cover.stand())) {
+            boolean there = mob.position().distanceTo(cover.stand()) <= COVER_ARRIVE;
+            if (!there && !leaning && ++coverTravel > COVER_TRAVEL_TICKS) {
+                cover = null;   // the path never got there: a spot the fighter cannot actually stand in
+                return;
+            }
+            // judged where the fighter really stands once it is there (a spot the body settles beside, not on, is no
+            // cover), at the marked stand while walking in or leaning out
+            Vec3 judge = there && !leaning ? mob.position() : cover.stand();
+            if (Cover.covered(level, mob, target, judge)) {
                 coverLost = 0;
             } else if (++coverLost > COVER_LOST_TICKS) {
                 cover = null;
@@ -264,7 +275,10 @@ public class GunAttackGoal extends Goal {
             }
             return;
         }
-        if (distSqr > role.range * role.range * 1.5D) return;   // too far to be in the fight yet
+        // cover only once the fighter has closed to its holding distance (the squad bounds beyond it); a fighter that
+        // dug in at forty blocks never advanced - the Marksman's hold is its full range, so it digs in where it stands
+        double hold = role.range * role.holdAt * 1.2D;
+        if (distSqr > hold * hold) return;
         if (--coverSearch > 0) return;
         coverSearch = COVER_SEARCH_EVERY;
         Cover.Spot found = Cover.find(level, mob, target, role.range);
@@ -273,6 +287,7 @@ public class GunAttackGoal extends Goal {
         cover = found;
         leaning = false;
         coverLost = 0;
+        coverTravel = 0;
     }
 
     private void move(Role role, FighterState state, LivingEntity target, double distSqr, boolean canSee) {
@@ -298,9 +313,21 @@ public class GunAttackGoal extends Goal {
                 mob.getNavigation().stop();
                 // at the cover: step to the lean to fire, back behind it to pause or reload
                 boolean wantLean = burstPause == 0 && reloadTicks == 0 && distSqr <= role.range * role.range;
-                if (wantLean != leaning) leaning = wantLean;
+                if (wantLean != leaning) {
+                    leaning = wantLean;
+                    leanStuck = 0;
+                }
                 Vec3 step = leaning ? cover.lean() : stand;
-                if (mob.position().distanceTo(step) > 0.35D) mob.getMoveControl().setWantedPosition(step.x, step.y, step.z, 0.7D);
+                if (mob.position().distanceTo(step) > 0.35D) {
+                    mob.getMoveControl().setWantedPosition(step.x, step.y, step.z, 0.7D);
+                    // a lean the body cannot reach in two seconds (something in the way the search did not see): the spot is no good
+                    if (leaning && ++leanStuck > 40) {
+                        cover = null;
+                        leaning = false;
+                    }
+                } else {
+                    leanStuck = 0;
+                }
                 moving = false;
             }
             mob.setSprinting(false);
@@ -338,7 +365,8 @@ public class GunAttackGoal extends Goal {
         if (moving || !mayLower) {
             stance(Pose.STANDING);
             strafeTicks = 0;
-        } else if (role == Role.MARKSMAN && canSee && seeTime >= role.aimTicks && distSqr > MARKSMAN_PRONE_DIST * MARKSMAN_PRONE_DIST) {
+        } else if (role == Role.MARKSMAN && cover == null && canSee && seeTime >= role.aimTicks && distSqr > MARKSMAN_PRONE_DIST * MARKSMAN_PRONE_DIST) {
+            // flat in the open only: a cover's lean is judged from the crouched eye, and a prone eye behind it sees nothing
             stance(Pose.SWIMMING);
             strafeTicks = 0;
         } else if (cover != null || s >= CROUCH_AT

@@ -129,6 +129,8 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
         gunGoal = new GunAttackGoal(this, 1.0D);
         goalSelector.addGoal(2, gunGoal);
         goalSelector.addGoal(4, new OrderGoal(this));
+        goalSelector.addGoal(5, new PatrolGoal(this));
+        goalSelector.addGoal(5, new SquadFollowGoal(this));
         goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.1D, false) {
             @Override
             public boolean canUse() {
@@ -159,6 +161,7 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
         super.customServerAiStep();
         state.decaySuppression();
         if (state.role == Role.SERGEANT && tickCount % 20 == 0) Fighters.callTarget(this);
+        if (tickCount % 20 == 10) Squad.leaderTick(this);
     }
 
     /** Never turn on your own side, even after a stray round. */

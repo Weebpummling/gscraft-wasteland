@@ -218,9 +218,16 @@ with Site(-2000, -600) as s:
     sizes = []
     for i in range(4):
         c(f"kill @e[tag=gs_director,{s.area()}]")
-        c(f"gscraft director ambient -2000 {y} -600 1")
+        c(f"kill @e[tag=gs_placed,{s.area()}]")     # the horrors an earlier test left count too, and the site's clear does not know them
+        reply = c(f"gscraft director ambient -2000 {y} -600 1")
         time.sleep(1)
         sizes.append(count(f"@e[tag=gs_director,{s.area()}]"))
+        if sizes[-1] == 0:
+            # what the count box holds when nothing was placed: the types the cap could be counting
+            who = {t: count(f"@e[type={t},x=-2080,y={y - 12},z=-680,dx=160,dy=24,dz=160]") for t in
+                   ("gscraft:nato_soldier", "gscraft:ruaf_soldier", "gscraft:scavenger", "minecraft:zombie", "minecraft:husk", "minecraft:zombie_horse", "recruits:recruit",
+                    "minecraft:drowned", "minecraft:cave_spider", "gscraft:bloater", "eyesinthedarkness:eyes", "the_knocker:knocker", "gscraft:matron", "man:manfromthefog")}
+            print(f"     step {i}: {reply[:120]}; in the box {dict((k, v) for k, v in who.items() if v)}")
     # data get never returns an entity's id, so the kind is counted by type; a day zombie is placed as a husk
     kinds = {k for k, types in (("dead", ("minecraft:zombie", "minecraft:husk")), ("scav", ("gscraft:scavenger",)),
                                 ("rider", ("minecraft:zombie_horse",)), ("spider", ("minecraft:cave_spider",)))

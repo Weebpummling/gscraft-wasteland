@@ -150,6 +150,8 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
         gunGoal = new GunAttackGoal(this, 1.0D);
         goalSelector.addGoal(2, gunGoal);
         goalSelector.addGoal(4, new OrderGoal(this));
+        goalSelector.addGoal(5, new PatrolGoal(this));
+        goalSelector.addGoal(5, new SquadFollowGoal(this));
         goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.15D, false) {
             @Override
             public boolean canUse() {
@@ -205,6 +207,7 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
     public void tick() {
         super.tick();
         if (!level().isClientSide) state.decaySuppression();
+        if (!level().isClientSide && tickCount % 20 == 10) Squad.leaderTick(this);
         if (!level().isClientSide && !state.kitIssued) issueKit();
     }
 

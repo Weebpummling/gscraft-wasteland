@@ -112,6 +112,14 @@ PLACES = {
     "farm": dict(cap=7, open=pool(dead=5, scav=2, rider=1), dead=["Runner", "The Dead"]),
     "farbank": dict(cap=5, open=pool(nato=3, dead=3, drowned=2, rider=1), dead=["The Dead"]),
 }
+# patrol routes (feasibility C2): a squad leader idle in the zone walks the nearest one and loops; x/z only
+PATROLS = {
+    "front_wn": [[[-1200, -1230], [-1200, -960], [-1200, -720]]],
+    "front_en": [[[-940, -720], [-940, -960], [-940, -1230]]],
+    "town": [[[-2450, -3050], [-2300, -3050], [-2300, -2900], [-2450, -2900]]],
+    "pl_switch": [[[-950, 50], [-720, 50], [-720, 170], [-950, 170]]],
+}
+
 ORDER = (list(BUILDS)
          + ["sk_out_w", "sk_out_e", "out_w1", "out_w2", "out_e1", "out_e2",
             "front_wn", "front_ws", "front_en", "front_es",
@@ -138,6 +146,8 @@ def main(argv):
         else:
             p = PLACES[name]
             zone.update({"cap": p["cap"], "spawns": p["open"]})
+            if name in PATROLS:
+                zone["patrols"] = PATROLS[name]
             for key, field in (("indoor", "indoor_spawns"), ("underground", "underground_spawns"),
                                ("dead", "dead_ranks"), ("garrison", "garrison"), ("lair", "lair"), ("horrors", "horrors")):
                 if p.get(key):

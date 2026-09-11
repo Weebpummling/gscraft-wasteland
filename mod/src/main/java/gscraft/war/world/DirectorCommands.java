@@ -72,6 +72,30 @@ public final class DirectorCommands {
                             say(ctx, Director.stats());
                             return 1;
                         }))
+                        .then(Commands.literal("phantom")
+                                .then(Commands.literal("clear").executes(ctx -> {
+                                    Director.setPhantoms(java.util.List.of());
+                                    say(ctx, "no phantoms");
+                                    return 1;
+                                }))
+                                .then(Commands.literal("add").then(xyz(ctx -> {
+                                    java.util.List<BlockPos> all = new java.util.ArrayList<>(Director.phantoms());
+                                    all.add(pos(ctx));
+                                    Director.setPhantoms(all);
+                                    say(ctx, all.size() + " phantoms");
+                                    return all.size();
+                                })))
+                                .then(Commands.literal("set").then(xyz(ctx -> {
+                                    Director.setPhantoms(java.util.List.of(pos(ctx)));
+                                    say(ctx, "1 phantom at " + pos(ctx).toShortString());
+                                    return 1;
+                                }))))
+                        .then(Commands.literal("bench").then(passes(DirectorCommands::bench)))
+                        .then(Commands.literal("census").then(xyz(ctx -> {
+                            ServerLevel level = ctx.getSource().getLevel();
+                            say(ctx, Director.census(level, pos(ctx), Env.at(level, pos(ctx))));
+                            return 1;
+                        })))
                         .then(Commands.literal("pass").then(xzThen(passes(ctx -> pass(ctx, surface(ctx))))))
                         .then(Commands.literal("passat").then(xyzThen(passes(ctx -> pass(ctx, standAt(ctx))))))
                         .then(Commands.literal("survey").then(xyzThen(Commands.argument("samples",
@@ -167,6 +191,13 @@ public final class DirectorCommands {
                     say(ctx, mob.getName().getString() + " walks to " + to.toShortString());
                     return 1;
                 }))))))
+                .then(Commands.literal("squad").then(Commands.argument("who", net.minecraft.commands.arguments.EntityArgument.entity())
+                        .executes(ctx -> squad(ctx, "info", ""))
+                        .then(Commands.literal("form").executes(ctx -> squad(ctx, "form", "")))
+                        .then(Commands.literal("disband").executes(ctx -> squad(ctx, "disband", "")))
+                        .then(Commands.literal("formation").then(Commands.argument("f", StringArgumentType.word()).executes(ctx -> squad(ctx, "formation", StringArgumentType.getString(ctx, "f")))))
+                        .then(Commands.literal("route").then(Commands.argument("points", StringArgumentType.greedyString()).executes(ctx -> squad(ctx, "route", StringArgumentType.getString(ctx, "points")))))
+                        .then(Commands.literal("patrol").executes(ctx -> squad(ctx, "patrol", "")))))
                 .then(Commands.literal("garrison")
                         .then(Commands.argument("zone", StringArgumentType.word())
                                 .then(Commands.literal("fill").executes(ctx -> garrison(ctx, false)))
@@ -200,6 +231,32 @@ public final class DirectorCommands {
 
     private static RequiredArgumentBuilder<CommandSourceStack, Integer> passes(Function<CommandContext<CommandSourceStack>, Integer> run) {
         return Commands.argument("passes", IntegerArgumentType.integer(1, 500)).executes(run::apply);
+    }
+
+    /** full director passes for the players (or phantoms) present, timed: what one tick of the director costs */
+    private static int bench(CommandContext<CommandSourceStack> ctx) {
+        ServerLevel level = ctx.getSource().getLevel();
+        int passes = IntegerArgumentType.getInteger(ctx, "passes");
+        java.util.List<BlockPos> at = Director.presence(level);
+        if (at.isEmpty()) {
+            say(ctx, "nobody present: no players and no phantoms");
+            return 0;
+        }
+        long total = 0;
+        long worst = 0;
+        long best = Long.MAX_VALUE;
+        int before = Director.countDirector(level);
+        for (int i = 0; i < passes; i++) {
+            Director.pass(level, at);
+            long n = Director.lastPassNanos();
+            total += n;
+            worst = Math.max(worst, n);
+            best = Math.min(best, n);
+        }
+        int after = Director.countDirector(level);
+        say(ctx, String.format("bench: %d passes for %d present: %.3f ms mean, %.3f min, %.3f max per pass; creatures %d -> %d",
+                passes, at.size(), total / 1e6 / passes, best / 1e6, worst / 1e6, before, after));
+        return passes;
     }
 
     /** placement passes at a point, ignoring the cap, on the kind of ground the point stands on */
@@ -287,6 +344,90 @@ public final class DirectorCommands {
         }
         say(ctx, given.size() + " ordered: " + order + (order == gscraft.war.entity.FighterState.Order.NONE ? "" : " at " + at.toShortString()));
         return given.size();
+    }
+
+    private static int squad(CommandContext<CommandSourceStack> ctx, String what, String arg) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        net.minecraft.world.entity.Entity e = net.minecraft.commands.arguments.EntityArgument.getEntity(ctx, "who");
+        ServerLevel level = ctx.getSource().getLevel();
+        if (!(e instanceof net.minecraft.world.entity.Mob mob) || !(e instanceof gscraft.war.entity.GunUser user)) {
+            say(ctx, "not a fighter");
+            return 0;
+        }
+        gscraft.war.entity.FighterState st = user.fighterState();
+        switch (what) {
+            case "form" -> {
+                java.util.UUID id = gscraft.war.entity.Squad.formAround(level, mob);
+                say(ctx, id == null ? "nobody to form with" : "squad formed: " + gscraft.war.entity.Squad.members(level, mob).size() + " fighters");
+                return id == null ? 0 : 1;
+            }
+            case "disband" -> {
+                for (net.minecraft.world.entity.Mob m : gscraft.war.entity.Squad.members(level, mob)) {
+                    gscraft.war.entity.FighterState s = ((gscraft.war.entity.GunUser) m).fighterState();
+                    s.squadId = null;
+                    s.route = new java.util.ArrayList<>();
+                    if (s.orderBySquad) {
+                        s.order = gscraft.war.entity.FighterState.Order.NONE;
+                        s.orderBySquad = false;
+                    }
+                }
+                say(ctx, "squad disbanded");
+                return 1;
+            }
+            case "formation" -> {
+                gscraft.war.entity.Squad.Formation f;
+                try {
+                    f = gscraft.war.entity.Squad.Formation.valueOf(arg.toUpperCase(java.util.Locale.ROOT));
+                } catch (IllegalArgumentException ex) {
+                    say(ctx, "formations: wedge, line, column");
+                    return 0;
+                }
+                for (net.minecraft.world.entity.Mob m : gscraft.war.entity.Squad.members(level, mob)) ((gscraft.war.entity.GunUser) m).fighterState().formation = f;
+                say(ctx, "formation " + f);
+                return 1;
+            }
+            case "route" -> {
+                java.util.List<BlockPos> route = new java.util.ArrayList<>();
+                String[] n = arg.replace("\"", " ").trim().split("\\s+");
+                for (int i = 0; i + 1 < n.length; i += 2) {
+                    try {
+                        route.add(new BlockPos(Integer.parseInt(n[i]), Integer.MIN_VALUE, Integer.parseInt(n[i + 1])));
+                    } catch (NumberFormatException ex) {
+                        say(ctx, "route: x z x z ...");
+                        return 0;
+                    }
+                }
+                net.minecraft.world.entity.Mob leader = gscraft.war.entity.Squad.leader(level, mob);
+                gscraft.war.entity.FighterState ls = ((gscraft.war.entity.GunUser) leader).fighterState();
+                ls.route = route;
+                ls.routeIndex = 0;
+                say(ctx, leader.getName().getString() + " patrols " + route.size() + " points");
+                return route.size();
+            }
+            case "patrol" -> {
+                net.minecraft.world.entity.Mob leader = gscraft.war.entity.Squad.leader(level, mob);
+                gscraft.war.entity.FighterState ls = ((gscraft.war.entity.GunUser) leader).fighterState();
+                ls.nextPatrolPickup = 0;
+                say(ctx, ls.route.isEmpty() ? "the leader picks up its zone's route on its next second, if the zone has one" : "already on a route of " + ls.route.size());
+                return 1;
+            }
+            default -> {
+                java.util.List<net.minecraft.world.entity.Mob> members = gscraft.war.entity.Squad.members(level, mob);
+                net.minecraft.world.entity.Mob leader = members.isEmpty() ? mob : members.get(0);
+                StringBuilder sb = new StringBuilder(mob.getName().getString()).append(": ");
+                if (st.squadId == null) {
+                    sb.append("no squad");
+                } else {
+                    sb.append("squad ").append(st.squadId.toString(), 0, 8).append(", slot ").append(st.slot).append(" of ").append(st.squadSize)
+                            .append(", leader ").append(leader.getName().getString()).append(leader == mob ? " (self)" : "")
+                            .append(", alive ").append(members.size()).append(", formation ").append(((gscraft.war.entity.GunUser) leader).fighterState().formation);
+                    gscraft.war.entity.FighterState ls = ((gscraft.war.entity.GunUser) leader).fighterState();
+                    if (!ls.route.isEmpty()) sb.append(", route ").append(ls.route.size()).append(" points at ").append(ls.routeIndex);
+                }
+                sb.append("; order ").append(st.order).append(st.orderBySquad ? " (squad)" : "");
+                say(ctx, sb.toString());
+                return 1;
+            }
+        }
     }
 
     private static BlockPos surface(CommandContext<CommandSourceStack> ctx) {

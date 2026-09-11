@@ -43,4 +43,8 @@ public final class GarrisonData extends SavedData {
         lastRefill.put(zone, gameTime);
         setDirty();
     }
+
+    public void clearRefill(String zone) {
+        if (lastRefill.remove(zone) != null) setDirty();
+    }
 }

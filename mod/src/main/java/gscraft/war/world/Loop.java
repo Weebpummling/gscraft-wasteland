@@ -79,6 +79,10 @@ public final class Loop {
     private static volatile boolean freeClock;
     private static int ticks;
     private static final Map<String, ServerBossEvent> bars = new HashMap<>();
+    /** nobody within this of the fight: the clocks freeze; after AWAY_TICKS the wave is taken back */
+    static final int AWAY_RANGE = 128;
+    static final int AWAY_TICKS = 1200;
+    private static final Map<String, Integer> awayTicks = new HashMap<>();
 
     private Loop() {}
 
@@ -209,7 +213,37 @@ public final class Loop {
 
     // ---- the assault
 
+    /**
+     * Nobody near the fight (players, or the director's phantoms): the phase's clocks move with the time, so nothing
+     * is missed, and a wave left ticking for a minute with nobody there is taken back - the next wave comes when
+     * someone does. A server with nobody on it at all is not "away": the clocks stop by themselves then.
+     */
+    private static boolean away(ServerLevel level, SiteData data, SiteDef site, Progress p, int cx, int cz) {
+        if (Director.presence(level).isEmpty() || Director.anyoneWithin(level, cx + 0.5D, cz + 0.5D, AWAY_RANGE)) {
+            awayTicks.remove(site.id());
+            return false;
+        }
+        p.deadline += 20;
+        p.nextWave += 20;
+        int t = awayTicks.merge(site.id(), 20, Integer::sum);
+        if (t >= AWAY_TICKS && waveCount(level, site) > 0) {
+            discardWave(level, site);
+            GscraftWar.LOG.info("[gscraft] {}: nobody within {} for a minute, the wave is taken back; the clock waits", site.id(), AWAY_RANGE);
+        }
+        return true;
+    }
+
+    private static int waveCount(ServerLevel level, SiteDef site) {
+        String tag = WAVE_TAG + "_" + site.id();
+        int n = 0;
+        for (Entity e : level.getAllEntities()) {
+            if (e.getTags().contains(tag)) n++;
+        }
+        return n;
+    }
+
     private static void assault(ServerLevel level, SiteData data, SiteDef site, Progress p) {
+        if (away(level, data, site, p, site.anchorX(), site.anchorZ())) return;
         if (p.wave < ASSAULT_WAVES && data.online >= p.nextWave) {
             int placed = sendWave(level, site, site.assault().get(p.wave), edgePoints(level, site), scaleInside(level, site));
             p.wave++;
@@ -260,6 +294,7 @@ public final class Loop {
     private static void counter(ServerLevel level, SiteData data, SiteDef site, Progress p) {
         CampDef camp = Sites.camp();
         if (camp == null) return;
+        if (away(level, data, site, p, (camp.sx0() + camp.sx1()) / 2, (camp.sz0() + camp.sz1()) / 2)) return;
         if (p.wave < DEFENCE_WAVES && data.online >= p.nextWave) {
             int[] at = camp.approaches().getOrDefault(site.approach(), camp.approaches().values().iterator().next());
             int placed = sendWave(level, site, site.defence().get(p.wave), List.of(new BlockPos(at[0], 0, at[1])), scaleOnline(level));
@@ -338,6 +373,7 @@ public final class Loop {
     private static int sendWave(ServerLevel level, SiteDef site, List<WaveEntry> wave, List<BlockPos> points, float scale) {
         RandomSource random = level.getRandom();
         int placed = 0;
+        java.util.List<Mob> fighters = new java.util.ArrayList<>();
         for (WaveEntry entry : wave) {
             int n = entry.count() <= 0 ? 0 : Math.max(1, Math.round(entry.count() * scale));
             EntityType<?> type = ForgeRegistries.ENTITY_TYPES.getValue(entry.entity());
@@ -356,8 +392,16 @@ public final class Loop {
                     pos = Director.legacyStand(level, x, y, z);
                 }
                 if (pos == null) continue;
-                if (placeWave(level, type, pos, entry.rank(), site) != null) placed++;
+                Mob mob = placeWave(level, type, pos, entry.rank(), site);
+                if (mob != null) {
+                    placed++;
+                    if (mob instanceof gscraft.war.entity.GunUser) fighters.add(mob);
+                }
             }
+        }
+        // a wave's soldiers arrive as squads of up to six
+        for (int i = 0; i < fighters.size(); i += gscraft.war.entity.Squad.MAX_SIZE) {
+            gscraft.war.entity.Squad.form(fighters.subList(i, Math.min(fighters.size(), i + gscraft.war.entity.Squad.MAX_SIZE)));
         }
         return placed;
     }

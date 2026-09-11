@@ -165,6 +165,81 @@ cover placement in real ruins need the WarTest client; the grenade block test is
   targeting is capped by it.
 - Readout: `/gscraft fighter` adds order, cover spot, and whether the fighter is hidden from its target.
 
-Next: step C (squads, formations, patrol routes, bounding overwatch, fall-back).
+**Step C built 2026-09-11** (`tools/war_phase9.py` 6 of 6; 8, 7, 6, 5, 4b, 4, 3, 2 as regression, see HANDOFF):
+
+- C1 squads (`entity/Squad.java`): a squad is a shared id and a slot on each body, nothing else stored (no SavedData -
+  the design's registry is not needed while the bodies carry it). Slot 0 goes to a Sergeant if there is one; the
+  leader is the lowest slot alive. Everything the director places together is a squad (a group, a garrison, a wave in
+  sixes). Out of a fight the members walk to their slots around the leader (`SquadFollowGoal`, priority 5, below the
+  gun, order and grenade goals): wedge (pairs two back and two out, alternating sides), line (2.5 apart abreast),
+  column (2.5 apart behind). Measured: three of three in the wedge within seven blocks behind the leader after an
+  advance, three of three abreast within eight seconds of `formation line`.
+- C2 patrol routes (`PatrolGoal`, zone `patrols` in `gscraft_zones/map.json` from `tools/war_zones.py`): an idle
+  leader in a zone with routes takes the nearest one from its nearest waypoint and loops it at speed 0.9; y is found
+  on arrival at each column. Routes on the two fronts (x -1200 and -940, z -1230 to -720), a loop round the town
+  centre and one round the switchyard. Measured: two waypoints reached in order at 11 and 22 s; a director group at
+  the switchyard picked up the route by itself.
+- C3 bounding overwatch (`Squad.leaderTick`, once a second): with a target beyond 1.2x the hold distance the leader
+  splits the squad by slot parity; one team gets ADVANCE eight blocks toward the target, the other HOLD where it is,
+  and the teams swap every four seconds. Measured against a target 45 blocks off: in 10 of 16 seconds some moved
+  while others held, and the squad's mean distance went 42 to 24.
+- C4 the fall-back: under half strength, or the leader at suppression 0.6 with half the squad at 0.5, everyone gets
+  ADVANCE to a point twenty blocks away from the target (which becomes HOLD on arrival) and the leader calls
+  "Fall back!"; a squad that fell back does not bound again for a minute. Measured: two of four killed, mean
+  distance to the target 40 to 52 in twelve seconds. Squad-issued orders are marked (`orderBySquad`) and released
+  when the target is gone; an operator's order is never overridden.
+- `/gscraft squad <who>` reads squad, slot, leader, alive, formation, route; `form` (allies within twenty),
+  `disband`, `formation wedge|line|column`, `route <x z x z ...>`, `patrol` (take the zone's route now).
+- Found by the regression run, both from step B: a fighter looked for cover as soon as the target was inside 1.2x its
+  range, so a Rifleman dug in forty blocks out and never advanced - cover is now taken only inside 1.2x the holding
+  distance (the squad bounds beyond it; the Marksman's hold is its whole range). And the pause between bursts only
+  counted down while the target was in sight, so a fighter whose pause outlasted its step back behind cover never
+  leaned out again (the Marksman, every time: pause 30-50 ticks, one shot). The pause is time now. A cover spot the
+  body cannot reach in five seconds, or is not actually hidden at once it stands there, is given up. The Marksman goes
+  flat in the open only: a cover's lean is judged from the crouched eye, and flat behind it he saw nothing and never
+  fired. A lean has to have room for the body (the search only asked for a line of sight, and a lean inside a bush
+  left the fighter pinned behind its cover); a lean not reached in two seconds drops the spot. A garrison is not
+  a squad: guards that followed a leader left their posts and the garrison refilled behind them.
+
+**Resource handling (owner, 2026-09-11: "run the improvements and test the performance cost")** - `tools/war_phase10.py`
+8 of 8, the rest as regression:
+
+- The ambient cap counts ambient creatures only: garrisons, lairs and waves are kept by their own rules and no longer
+  eat a zone's cap (the camp's garrison took 5 of 7, so ambient groups there were refused or arrived as pairs).
+- Two ceilings over the per-ground caps: at most 12 director creatures within 80 blocks of a player whatever the
+  ground types stack to, and at most 96 on the server. Both are counted on the sweep's walk, once a pass.
+- The sweep is 128 blocks (was 160) with one pass of grace: a placement has to be out of range on two passes
+  running (20 s) before it is taken back, so a player who sprints or falls back keeps the group behind them.
+- A garrison or lair with nobody within 256 blocks for three passes is taken back and its refill clock cleared, so
+  it is re-placed the moment someone comes within 128 again (measured: 4 -> 0 -> 4 in one pass on return).
+- An assault or counterattack with nobody within 128 of the fight freezes its clocks (deadline and next wave move
+  with the time) and after a minute takes the wave back; the next wave comes when someone is back (measured: clock
+  4:56 before and after 66 s away, wave 5 -> 0 -> 7 after the return).
+- A patrol only walks with a player within 96 blocks of the leader; otherwise the squad waits where it is instead of
+  walking its 500-block route into the sweep and being refilled behind.
+- Corpses: a creature killed in a chunk that is loaded but not ticking (the border ring of the simulation distance)
+  never finishes dying - the body sits there for good, invisible to `@e` selectors, and every count that did not ask
+  `isAlive` took it for a living one. Seventeen of them at the camp held the ambient cap at 17 of 7 for an
+  afternoon of tests. Every count asks `isAlive` now, horrors have their own tag and do not count against the
+  ambient cap either, and the sweep takes any dead director body back at once. `/gscraft director census <x y z>`
+  lists what the cap is counting.
+- Phantoms: `/gscraft director phantom set|add <x y z>|clear` stand in for players on a server with none (the
+  director, the sweep, the garrisons, the loop's away rule and the patrols all read them), and
+  `/gscraft director bench <passes>` runs full director passes for everyone present and times them.
+
+How it scales with players, measured on the bench (a pass is what the director does every 10 s; the fighters' own
+AI is not in these numbers):
+
+| present | ms per pass (mean / worst) | director creatures at the steady state |
+|---|---|---|
+| one player | 0.06 / 0.5 | 8 around them |
+| four together (within 6 blocks) | 0.09 / 0.3 | 7 around them - one shared count box |
+| four spread 250 apart | 0.12 / 1.2 | 29 across the four boxes, under the server ceiling of 96 |
+
+So the director's own cost is nothing; the entity count is what scales, and it scales with how far apart the
+players are, not how many there are: a party shares one cap, a spread-out server tops out at the ceiling.
+
+Next: step D (flanking, smoke) and E (doctrine as data) when the owner asks; the fold-in order continues with the
+quest-book stage bridge, survivors and vendors.
 
 Related: `gscraft-enemy-review-2026-09-10.md` §5 (behaviour by value and cost) and §11 (phase 5), `gscraft-war-mod-design.md` §5–6 (squads in SavedData), `gscraft-fold-in-review-2026-09-10.md`.

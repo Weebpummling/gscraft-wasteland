@@ -76,7 +76,21 @@ public final class Zones extends SimpleJsonResourceReloadListener {
         return new Zone(name, hasBox, x0, x1, z0, z1, GsonHelper.getAsBoolean(o, "exclude", false),
                 GsonHelper.getAsInt(o, "cap", 0), entries(o, "spawns"), entries(o, "indoor_spawns"),
                 entries(o, "underground_spawns"), List.copyOf(deadRanks), standing(o, "garrison", 4, 10),
-                standing(o, "lair", 1, 120), List.copyOf(horrors), group(o, 0), group(o, 1));
+                standing(o, "lair", 1, 120), List.copyOf(horrors), group(o, 0), group(o, 1), patrols(o));
+    }
+
+    /** optional "patrols": [[[x, z], ...], ...] - routes a squad leader walks (feasibility C2); y is found on arrival */
+    private static List<List<net.minecraft.core.BlockPos>> patrols(JsonObject o) {
+        List<List<net.minecraft.core.BlockPos>> routes = new ArrayList<>();
+        for (JsonElement r : GsonHelper.getAsJsonArray(o, "patrols", new JsonArray())) {
+            List<net.minecraft.core.BlockPos> route = new ArrayList<>();
+            for (JsonElement pt : r.getAsJsonArray()) {
+                JsonArray xz = pt.getAsJsonArray();
+                route.add(new net.minecraft.core.BlockPos(xz.get(0).getAsInt(), Integer.MIN_VALUE, xz.get(1).getAsInt()));
+            }
+            if (route.size() >= 2) routes.add(List.copyOf(route));
+        }
+        return List.copyOf(routes);
     }
 
     /** optional "group": [min, max] - how many arrive together in this zone */

@@ -17,7 +17,8 @@ import java.util.List;
  */
 public record Zone(String name, boolean hasBox, int x0, int x1, int z0, int z1, boolean exclude, int cap,
                    List<SpawnEntry> spawns, List<SpawnEntry> indoorSpawns, List<SpawnEntry> undergroundSpawns,
-                   List<String> deadRanks, GarrisonDef garrison, GarrisonDef lair, List<HorrorDef> horrors, int groupMin, int groupMax) {
+                   List<String> deadRanks, GarrisonDef garrison, GarrisonDef lair, List<HorrorDef> horrors, int groupMin, int groupMax,
+                   List<List<net.minecraft.core.BlockPos>> patrols) {
 
     /** how many arrive together: the zone's own range, or the ground's default (open 2-3, inside and below 2-4) */
     public int groupSize(Env env, net.minecraft.util.RandomSource random) {

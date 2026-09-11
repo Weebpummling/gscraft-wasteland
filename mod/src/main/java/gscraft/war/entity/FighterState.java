@@ -15,6 +15,20 @@ public final class FighterState {
 
     public Order order = Order.NONE;
     public BlockPos orderPos = BlockPos.ZERO;
+    /** an order the squad leader gave, which the leader may also take back; an operator's order is never touched */
+    public boolean orderBySquad;
+    /** the squad (feasibility C1): a shared id and this fighter's slot; slot 0 leads */
+    public java.util.UUID squadId;
+    public int slot;
+    public int squadSize;
+    public Squad.Formation formation = Squad.Formation.WEDGE;
+    /** the leader's patrol route (x/z points; y found on arrival) and where it is on it */
+    public java.util.List<BlockPos> route = new java.util.ArrayList<>();
+    public int routeIndex;
+    public long nextFallBack;
+    public long nextBound;
+    public int boundTeam;
+    public long nextPatrolPickup;
     public boolean kitIssued;
     public String rank = "";
     public Role role;
@@ -51,6 +65,19 @@ public final class FighterState {
         if (order != Order.NONE) {
             tag.putString("GscraftOrder", order.name());
             tag.putLong("GscraftOrderPos", orderPos.asLong());
+            tag.putBoolean("GscraftOrderBySquad", orderBySquad);
+        }
+        if (squadId != null) {
+            tag.putUUID("GscraftSquad", squadId);
+            tag.putInt("GscraftSlot", slot);
+            tag.putInt("GscraftSquadSize", squadSize);
+            tag.putString("GscraftFormation", formation.name());
+        }
+        if (!route.isEmpty()) {
+            long[] pts = new long[route.size()];
+            for (int i = 0; i < pts.length; i++) pts[i] = route.get(i).asLong();
+            tag.putLongArray("GscraftRoute", pts);
+            tag.putInt("GscraftRouteIndex", routeIndex);
         }
         tag.putBoolean("GscraftOutOfAmmo", outOfAmmo);
         if (homeRadius > 0) {
@@ -68,6 +95,18 @@ public final class FighterState {
         if (tag.contains("GscraftOrder")) {
             order = Order.valueOf(tag.getString("GscraftOrder"));
             orderPos = BlockPos.of(tag.getLong("GscraftOrderPos"));
+            orderBySquad = tag.getBoolean("GscraftOrderBySquad");
+        }
+        if (tag.hasUUID("GscraftSquad")) {
+            squadId = tag.getUUID("GscraftSquad");
+            slot = tag.getInt("GscraftSlot");
+            squadSize = tag.getInt("GscraftSquadSize");
+            if (tag.contains("GscraftFormation")) formation = Squad.Formation.valueOf(tag.getString("GscraftFormation"));
+        }
+        if (tag.contains("GscraftRoute")) {
+            route = new java.util.ArrayList<>();
+            for (long l : tag.getLongArray("GscraftRoute")) route.add(BlockPos.of(l));
+            routeIndex = tag.getInt("GscraftRouteIndex");
         }
         outOfAmmo = tag.getBoolean("GscraftOutOfAmmo");
         if (tag.contains("GscraftHomeRadius")) {

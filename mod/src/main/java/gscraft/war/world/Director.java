@@ -67,6 +67,8 @@ public final class Director {
     private static final int GARRISON_WAKE = 128;
     private static final String GARRISON_TAG = "gs_garrison_";
     private static final String LAIR_TAG = "gs_lair_";
+    /** a horror: placed on its own rule (one within 96), swept like the rest, not counted against the ambient cap */
+    public static final String HORROR_TAG = "gs_horror";
     /** marks a creature placed behind shut doors, out of the player's reach (owner, 2026-09-10: a small share) */
     public static final String SEALED_TAG = "gs_sealed";
     /** the share of indoor and underground placements allowed to skip the walk-to-the-player rule */
@@ -80,8 +82,24 @@ public final class Director {
     private static long placed;
     private static long refused;
     private static long swept;
-    /** an ambient placement further than this from every player is taken back */
-    private static final int SWEEP = 160;
+    /** an ambient placement further than this from every player is taken back - after a second pass still out of range */
+    private static final int SWEEP = 128;
+    /** director creatures of every kind allowed around one player, whatever the ground; and on the whole server */
+    public static final int PLAYER_CEILING = 12;
+    public static final int SERVER_CEILING = 96;
+    private static final int CEILING_BOX = 80;
+    private static final int CEILING_Y = 32;
+    /** a garrison or lair with nobody this close for three passes is taken back; the wake logic re-places it */
+    private static final int GARRISON_REST = 256;
+    private static final int REST_PASSES = 3;
+    /** the sweep's grace: ids seen out of range on the last pass */
+    private static Set<java.util.UUID> outLast = new HashSet<>();
+    private static final java.util.Map<String, Integer> restPasses = new java.util.HashMap<>();
+    /** stand-ins for players on a server with none (tests, the bench): positions the director treats as players */
+    private static final List<BlockPos> phantoms = new ArrayList<>();
+    private static int directorCount;
+    private static long directorCountAt = -1;
+    private static long lastPassNanos;
     private static long nanos;
     private static final Set<ResourceLocation> warnedIds = new HashSet<>();
 
@@ -94,40 +112,141 @@ public final class Director {
         MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
         if (server == null) return;
         ServerLevel level = server.overworld();
-        if (level.players().isEmpty()) return;
-        long t0 = System.nanoTime();
+        List<BlockPos> at = presence(level);
+        if (at.isEmpty()) return;
+        pass(level, at);
+    }
+
+    /** where the players are - or, with none online, the phantoms the tests and the bench stand in their place */
+    public static List<BlockPos> presence(ServerLevel level) {
+        List<BlockPos> at = new ArrayList<>();
         for (ServerPlayer player : level.players()) {
-            if (player.isSpectator()) continue;
-            ambient(level, player.blockPosition());
-            horrors(level, player.blockPosition(), false);
+            if (!player.isSpectator()) at.add(player.blockPosition());
+        }
+        if (at.isEmpty()) at.addAll(phantoms);
+        return at;
+    }
+
+    public static boolean anyoneWithin(ServerLevel level, double x, double z, double blocks) {
+        for (BlockPos p : presence(level)) {
+            double dx = p.getX() + 0.5D - x;
+            double dz = p.getZ() + 0.5D - z;
+            if (dx * dx + dz * dz <= blocks * blocks) return true;
+        }
+        return false;
+    }
+
+    public static void setPhantoms(List<BlockPos> at) {
+        phantoms.clear();
+        phantoms.addAll(at);
+    }
+
+    public static List<BlockPos> phantoms() {
+        return List.copyOf(phantoms);
+    }
+
+    /** one director pass for these players: placements around each, the garrisons, the sweep. Timed. */
+    public static void pass(ServerLevel level, List<BlockPos> players) {
+        long t0 = System.nanoTime();
+        for (BlockPos p : players) {
+            ambient(level, p);
+            horrors(level, p, false);
         }
         garrisons(level, null, false);
         swept += sweep(level);
-        nanos += System.nanoTime() - t0;
+        lastPassNanos = System.nanoTime() - t0;
+        nanos += lastPassNanos;
         passes++;
     }
 
-    /** the director's own despawn: ambient placements (not garrisons, lairs, waves or guards) beyond SWEEP of everyone */
+    public static long lastPassNanos() {
+        return lastPassNanos;
+    }
+
+    public static int directorCount() {
+        return directorCount;
+    }
+
+    /**
+     * The director's own despawn: ambient placements (not garrisons, lairs, waves or guards) beyond SWEEP of everyone
+     * on two passes running - a player who sprints or falls back does not lose the group behind them at once. The
+     * same walk counts every director creature left, for the server ceiling.
+     */
     static int sweep(ServerLevel level) {
         int n = 0;
+        int total = 0;
+        List<BlockPos> players = presence(level);
+        Set<java.util.UUID> outNow = new HashSet<>();
         java.util.List<Mob> doomed = new java.util.ArrayList<>();
         for (Entity e : level.getAllEntities()) {
             if (!(e instanceof Mob mob) || !mob.getTags().contains("gs_director")) continue;
-            if (mob.getTags().stream().anyMatch(t -> t.startsWith(GARRISON_TAG) || t.startsWith(LAIR_TAG) || t.startsWith("gs_wave"))) continue;
+            if (!mob.isAlive()) {
+                // killed in a chunk that is loaded but not ticking (the border of the simulation distance): its death
+                // never finishes, and the body would sit there forever, counted by everything that does not ask isAlive
+                doomed.add(mob);
+                continue;
+            }
+            total++;
+            if (kept(mob)) continue;
             boolean near = false;
-            for (ServerPlayer p : level.players()) {
-                if (p.distanceToSqr(mob) <= (double) SWEEP * SWEEP) {
+            for (BlockPos p : players) {
+                if (mob.distanceToSqr(p.getX() + 0.5D, mob.getY(), p.getZ() + 0.5D) <= (double) SWEEP * SWEEP) {
                     near = true;
                     break;
                 }
             }
-            if (!near) doomed.add(mob);
+            if (near) continue;
+            outNow.add(mob.getUUID());
+            if (outLast.contains(mob.getUUID())) doomed.add(mob);
         }
         for (Mob mob : doomed) {
             mob.discard();
             n++;
         }
+        outLast = outNow;
+        directorCount = total - n;
+        directorCountAt = level.getGameTime();
         return n;
+    }
+
+    /** garrisons, lairs and waves: kept by their own rules, never by the ambient sweep or the ambient cap */
+    private static boolean kept(Mob mob) {
+        for (String t : mob.getTags()) {
+            if (t.startsWith(GARRISON_TAG) || t.startsWith(LAIR_TAG) || t.startsWith(Loop.WAVE_TAG)) return true;
+        }
+        return false;
+    }
+
+    /** every director creature on the level, counted once a tick at most */
+    public static int countDirector(ServerLevel level) {
+        if (directorCountAt == level.getGameTime()) return directorCount;
+        int total = 0;
+        for (Entity e : level.getAllEntities()) {
+            if (e instanceof Mob mob && mob.isAlive() && mob.getTags().contains("gs_director")) total++;
+        }
+        directorCount = total;
+        directorCountAt = level.getGameTime();
+        return total;
+    }
+
+    /** what the ambient cap is counting around a point: type, ground, tags, position - the first twenty */
+    public static String census(ServerLevel level, BlockPos at, Env env) {
+        AABB box = new AABB(at).inflate(env.countBox, env.countY, env.countBox);
+        StringBuilder sb = new StringBuilder();
+        int n = 0;
+        for (Mob m : level.getEntitiesOfClass(Mob.class, box, m -> m instanceof FactionMember || m.getTags().contains(WarEvents.PLACED_TAG))) {
+            if (n++ >= 20) break;
+            sb.append(ForgeRegistries.ENTITY_TYPES.getKey(m.getType())).append(' ').append(Env.at(level, m.blockPosition()))
+                    .append(m.isAlive() ? "" : " dead").append(m.isRemoved() ? " removed" : "").append(' ').append(m.getTags())
+                    .append(" @").append(m.blockPosition().toShortString()).append("; ");
+        }
+        return n + " counted: " + sb;
+    }
+
+    /** director creatures of every kind and ground around a point */
+    public static int countAround(ServerLevel level, BlockPos at) {
+        AABB box = new AABB(at).inflate(CEILING_BOX, CEILING_Y, CEILING_BOX);
+        return level.getEntitiesOfClass(Mob.class, box, m -> m.isAlive() && m.getTags().contains("gs_director") && !kept(m)).size();
     }
 
     public static void setPaused(boolean value) {
@@ -136,8 +255,8 @@ public final class Director {
 
     public static String stats() {
         double ms = passes == 0 ? 0 : nanos / 1e6 / passes;
-        return String.format("director %s: %d passes, %d placed, %d refused by spawn checks, %d swept back, %.3f ms per pass",
-                paused ? "paused" : "running", passes, placed, refused, swept, ms);
+        return String.format("director %s: %d passes, %d placed, %d refused by spawn checks, %d swept back, %.3f ms per pass, %d creatures now (ceiling %d), %d phantoms",
+                paused ? "paused" : "running", passes, placed, refused, swept, ms, directorCount, SERVER_CEILING, phantoms.size());
     }
 
     // ---- ambient placement
@@ -150,6 +269,11 @@ public final class Director {
         int cap = capFor(zone, env);
         int room = cap - countOurs(level, at, env);
         if (room < Math.min(2, cap)) return false;    // never a lone straggler: wait until a group fits
+        // the ceilings: whatever the ground types stack to, no more than this around one player or on the server
+        int around = countAround(level, at);
+        if (around + 2 > PLAYER_CEILING) return false;
+        if (countDirector(level) + 2 > SERVER_CEILING) return false;
+        room = Math.min(room, Math.min(PLAYER_CEILING - around, SERVER_CEILING - directorCount));
         boolean sealed = rollSealed(level, env) && countSealed(level, at, env) < sealedCap(cap);
         Mob first = placeNear(level, at, env, null, sealed);
         if (first == null) return false;
@@ -157,10 +281,14 @@ public final class Director {
         int size = Math.min(room, zone.groupSize(env, level.getRandom()));
         ResourceLocation kind = ForgeRegistries.ENTITY_TYPES.getKey(first.getType());
         boolean rider = first.getVehicle() != null;
+        java.util.List<Mob> group = new java.util.ArrayList<>();
+        group.add(first);
         for (int i = 1; i < size; i++) {
             Mob next = placeBeside(level, first.blockPosition(), env, rider ? RIDER : kind, sealed);
             if (next == null) break;
+            group.add(next);
         }
+        gscraft.war.entity.Squad.form(group);   // fighters placed together fight together (feasibility C1)
         return true;
     }
 
@@ -199,19 +327,19 @@ public final class Director {
     public static int countSealed(ServerLevel level, BlockPos at, Env env) {
         AABB box = new AABB(at).inflate(env.countBox, env.countY, env.countBox);
         return level.getEntitiesOfClass(Mob.class, box,
-                m -> m.getTags().contains(SEALED_TAG) && Env.at(level, m.blockPosition()) == env).size();
+                m -> m.isAlive() && m.getTags().contains(SEALED_TAG) && Env.at(level, m.blockPosition()) == env).size();
     }
 
     public static int capFor(Zone zone, Env env) {
         return Math.max(1, (int) Math.round(zone.cap() * env.capScale));
     }
 
-    /** the director's own creatures near a point, on the same kind of ground only */
+    /** the director's own creatures near a point, on the same kind of ground only; garrisons, lairs and waves are not ambient and do not count */
     public static int countOurs(ServerLevel level, BlockPos at, Env env) {
         AABB box = new AABB(at).inflate(env.countBox, env.countY, env.countBox);
         return level.getEntitiesOfClass(Mob.class, box,
-                m -> (m instanceof FactionMember || m.getTags().contains(WarEvents.PLACED_TAG))
-                        && Env.at(level, m.blockPosition()) == env).size();
+                m -> m.isAlive() && (m instanceof FactionMember || m.getTags().contains(WarEvents.PLACED_TAG))
+                        && !kept(m) && !m.getTags().contains(HORROR_TAG) && Env.at(level, m.blockPosition()) == env).size();
     }
 
     /**
@@ -456,7 +584,11 @@ public final class Director {
             if (type == null) continue;
             AABB near = new AABB(at).inflate(HORROR_CLEAR);
             if (!level.getEntitiesOfClass(Entity.class, near, e -> e.getType() == type).isEmpty()) continue;
-            if (placeNear(level, at, env, horror.entity()) != null) n++;
+            Mob placed = placeNear(level, at, env, horror.entity());
+            if (placed != null) {
+                placed.addTag(HORROR_TAG);
+                n++;
+            }
         }
         return n;
     }
@@ -487,12 +619,28 @@ public final class Director {
         int cx = zone.centerX();
         int cz = zone.centerZ();
         if (!level.hasChunkAt(new BlockPos(cx, 64, cz))) return 0;
-        if (!force && level.players().stream().noneMatch(p -> p.distanceToSqr(cx, p.getY(), cz) <= GARRISON_WAKE * GARRISON_WAKE)) {
-            return 0;
-        }
         String tag = tagPrefix + zone.name();
         AABB box = new AABB(zone.x0(), level.getMinBuildHeight(), zone.z0(), zone.x1() + 1, level.getMaxBuildHeight(), zone.z1() + 1)
                 .inflate(16.0D, 0.0D, 16.0D);
+        if (!force && !anyoneWithin(level, cx + 0.5D, cz + 0.5D, GARRISON_WAKE)) {
+            // asleep; and with nobody within GARRISON_REST for three passes, taken back until someone comes
+            String key = dataPrefix + zone.name();
+            if (anyoneWithin(level, cx + 0.5D, cz + 0.5D, GARRISON_REST)) {
+                restPasses.remove(key);
+                return 0;
+            }
+            int away = restPasses.merge(key, 1, Integer::sum);
+            if (away < REST_PASSES) return 0;
+            restPasses.remove(key);
+            List<Mob> members = level.getEntitiesOfClass(Mob.class, box, m -> m.isAlive() && m.getTags().contains(tag));
+            for (Mob m : members) m.discard();
+            if (!members.isEmpty()) {
+                data.clearRefill(key);
+                GscraftWar.LOG.info("[gscraft] {}garrison of {} rests: {} taken back, nobody within {}", dataPrefix, zone.name(), members.size(), GARRISON_REST);
+            }
+            return 0;
+        }
+        restPasses.remove(dataPrefix + zone.name());
         int alive = level.getEntitiesOfClass(Mob.class, box, m -> m.isAlive() && m.getTags().contains(tag)).size();
         int missing = def.count() - alive;
         if (missing <= 0) return 0;
@@ -516,6 +664,7 @@ public final class Director {
             spawned++;
         }
         data.markRefill(dataPrefix + zone.name(), now);
+        // no squad for a garrison: guards keep their posts (a squad's members follow their leader)
         return spawned;
     }
 
