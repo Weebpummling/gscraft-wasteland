@@ -65,9 +65,19 @@ public final class WarEvents {
      * Mobs the mod does not own get a faction target goal when their faction asks for one - how the Dead come to
      * hunt soldiers and Scavengers. The predicate reads the faction data live, so a /reload changes who they hunt.
      */
+    /** armour DragonRise cannot draw: its renderer casts army07hat to another class and every client that sees it throws
+     *  (live, 2026-09-10). Stripped from any mob on load, so the ones already standing in unloaded chunks are safe too. */
+    private static final java.util.Set<String> UNDRAWABLE = java.util.Set.of("dragonrise_reforge:army07hat");
+
     @SubscribeEvent
     public static void injectTargeting(EntityJoinLevelEvent event) {
         if (event.getLevel().isClientSide()) return;
+        if (event.getEntity() instanceof Mob wearer) {
+            for (EquipmentSlot slot : EquipmentSlot.values()) {
+                net.minecraft.resources.ResourceLocation id = net.minecraftforge.registries.ForgeRegistries.ITEMS.getKey(wearer.getItemBySlot(slot).getItem());
+                if (id != null && UNDRAWABLE.contains(id.toString())) wearer.setItemSlot(slot, net.minecraft.world.item.ItemStack.EMPTY);
+            }
+        }
         if (!(event.getEntity() instanceof Mob mob) || mob instanceof FactionMember) return;
         FactionDef def = Factions.def(Factions.factionOf(mob));
         if (def == null || !def.injectTargeting() || def.hostile().isEmpty()) return;
