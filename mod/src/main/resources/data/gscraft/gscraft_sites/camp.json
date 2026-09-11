@@ -1,0 +1,35 @@
+{
+  "camp": {
+    "note": "the camp pocket (zone camp); the square is the paved junction, the claim's last line; approaches 48 blocks outside the perimeter, first cut [needs measurement]",
+    "perimeter": [
+      -978,
+      -770,
+      -1060,
+      -845
+    ],
+    "square": [
+      -962,
+      -918,
+      -996,
+      -962
+    ],
+    "approaches": {
+      "west": [
+        -1026,
+        -946
+      ],
+      "east": [
+        -722,
+        -950
+      ],
+      "north": [
+        -870,
+        -1108
+      ],
+      "south": [
+        -870,
+        -797
+      ]
+    }
+  }
+}

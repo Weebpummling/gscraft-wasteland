@@ -1,0 +1,129 @@
+{
+  "id": "turbine",
+  "name": "THE TURBINE HALL",
+  "note": "the plant's turbine hall (zone pl_turb); NATO's militia",
+  "box": [
+    -13,
+    824,
+    546,
+    634
+  ],
+  "anchor": [
+    400,
+    590
+  ],
+  "faction": "nato",
+  "approach": "south",
+  "assault": [
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 8,
+        "rank": "NATO Rifleman"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 8,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 2,
+        "rank": "NATO Gunner"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 8,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 2,
+        "rank": "NATO Gunner"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 8,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 2,
+        "rank": "NATO Gunner"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 8,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 2,
+        "rank": "NATO Gunner"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 1,
+        "rank": "NATO Shield"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 8,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 2,
+        "rank": "NATO Gunner"
+      }
+    ]
+  ],
+  "defence": [
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 12,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 4,
+        "rank": "NATO Gunner"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 3,
+        "rank": "NATO Shield"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 12,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 4,
+        "rank": "NATO Gunner"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 5,
+        "rank": "NATO Shield"
+      }
+    ]
+  ]
+}

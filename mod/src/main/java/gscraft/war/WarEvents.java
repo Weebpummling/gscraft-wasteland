@@ -58,6 +58,7 @@ public final class WarEvents {
         event.addListener(new gscraft.war.world.Zones());
         event.addListener(new gscraft.war.world.Locks());
         event.addListener(new gscraft.war.world.Drops());
+        event.addListener(new gscraft.war.world.Sites());
     }
 
     /**

@@ -1,0 +1,134 @@
+{
+  "id": "switchyard",
+  "name": "THE SWITCHYARD",
+  "note": "the plant's switchyard (zone pl_switch); NATO, organised",
+  "box": [
+    -957,
+    -708,
+    37,
+    184
+  ],
+  "anchor": [
+    -830,
+    110
+  ],
+  "faction": "nato",
+  "approach": "south",
+  "assault": [
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 8,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 4,
+        "rank": "NATO Marksman"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 8,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 4,
+        "rank": "NATO Marksman"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 8,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 4,
+        "rank": "NATO Marksman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 2,
+        "rank": "NATO Gunner"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 8,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 4,
+        "rank": "NATO Marksman"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 8,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 4,
+        "rank": "NATO Marksman"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 8,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 4,
+        "rank": "NATO Marksman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 2,
+        "rank": "NATO Gunner"
+      }
+    ]
+  ],
+  "defence": [
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 12,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 8,
+        "rank": "NATO Marksman"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 6,
+        "rank": "NATO Gunner"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 15,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 2,
+        "rank": "NATO Shield"
+      }
+    ]
+  ]
+}

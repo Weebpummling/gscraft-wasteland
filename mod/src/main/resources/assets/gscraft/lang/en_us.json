@@ -8,5 +8,12 @@
   "entity.gscraft.bloater": "Bloater",
   "entity.gscraft.matron": "The Matron",
   "item.gscraft.bloater_spawn_egg": "Bloater Spawn Egg",
-  "item.gscraft.matron_spawn_egg": "Matron Spawn Egg"
+  "item.gscraft.matron_spawn_egg": "Matron Spawn Egg",
+  "gscraft.title.hold": "hold five minutes",
+  "gscraft.title.coming": "THEY'RE COMING",
+  "gscraft.title.coming.sub": "the gate, two minutes",
+  "gscraft.title.held": "THE GATE HELD",
+  "gscraft.title.fell": "THE GATE FELL",
+  "gscraft.title.fell.sub": "nothing lost — they'll be back",
+  "gscraft.line.tune.warning": "[Tune] Ten minutes on the clock. Get home."
 }

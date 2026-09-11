@@ -140,6 +140,25 @@ In Control's three live rules, verbatim), `world/Drops` (R1: In Control's 65 loo
 the four KubeJS files the mod replaces, and `spawns_on`/`spawns_off`. The pack build still lists In Control and
 the old scripts; that is a pack change and waits for the deploy gate.
 
+**Step 2 done locally** (`tools/war_phase6.py`; phases 5, 4b, 4, 3, 2 as regression): the strongpoint loop is the
+mod's (`world/Sites`, `SiteData`, `Loop`, `Stages`, `SiteCommands`). Sites and the camp are data
+(`gscraft_sites/*.json`: box, anchor, faction, approach, six assault waves, three defence waves; the camp's perimeter,
+square and four approaches). The ladder unknown → scouted → looted → held → defended never skips a rung; `held` is
+the marker (for now the command) and starts the assault: five minutes, six waves every 45 s from the site's edges,
+scaled to the players inside (×0.4 … ×1.2); its end sets the stage, summons the site guard at the anchor's ground
+floor (two recruits, a bowman, a shieldman, two Guard Villagers, tag `gscraft_siteguard_<site>`, topped up like a
+garrison) and starts the fortify clock (40 minutes of online time; Tune's line at ten, THEY'RE COMING at two). The
+counterattack: three waves at the camp approach on the site's side, scaled to the players online; five attackers in
+the camp square for 30 s = lost (the wave withdraws, the site stays held, another clock); three waves beaten =
+defended, the guard doubles, the contested slot clears. One contested site at a time. A held site's ambient
+hostiles stop (F4). Stages are tags on every player, re-applied on join from the record. The wave tables are design
+§6.3 re-cut by enemy review §6: the hospital's Dead as The Infected with cave spiders and the Matron on wave 6; the
+plant's three sites NATO (Riflemen, Marksmen, Gunners, Shields) with the Dead and drowned at the intake. KROT waits
+on the builders. Commands: `/gscraft sites`, `site <id> [set <state>|clock <s>|guard]`, `clock free|online`,
+`stages`, `stage add|remove <name>`. Waves do not ask the Magnum Torches (the counterattack comes to the torches'
+ground by design) and skip the zone exclusions. Not yet: the claim marker item, the keeper, the component
+containers (F8), the boss bar's readout on the sign, FTB Teams scoping (the team is everyone online).
+
 ## 6. Documents to update once ruled
 
 Map design §6.1 (the `checkSpawn` line), §6.3 (the In Control column), §8 (tech stack), §9 Phase C–E; quests §9 (its

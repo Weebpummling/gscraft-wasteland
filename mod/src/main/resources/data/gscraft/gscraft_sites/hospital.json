@@ -1,0 +1,129 @@
+{
+  "id": "hospital",
+  "name": "THE HOSPITAL",
+  "note": "the Skadowsky hospital core; the dense Dead (design 6.3, re-cut by enemy review 6)",
+  "box": [
+    -865,
+    -698,
+    -1312,
+    -1242
+  ],
+  "anchor": [
+    -782,
+    -1277
+  ],
+  "faction": "dead",
+  "approach": "north",
+  "assault": [
+    [
+      {
+        "entity": "minecraft:zombie",
+        "count": 12,
+        "rank": "The Infected"
+      }
+    ],
+    [
+      {
+        "entity": "minecraft:zombie",
+        "count": 12,
+        "rank": "The Infected"
+      },
+      {
+        "entity": "minecraft:husk",
+        "count": 4,
+        "rank": "The Infected"
+      }
+    ],
+    [
+      {
+        "entity": "minecraft:zombie",
+        "count": 12,
+        "rank": "The Infected"
+      },
+      {
+        "entity": "minecraft:husk",
+        "count": 4,
+        "rank": "The Infected"
+      }
+    ],
+    [
+      {
+        "entity": "minecraft:zombie",
+        "count": 12,
+        "rank": "The Infected"
+      },
+      {
+        "entity": "minecraft:husk",
+        "count": 4,
+        "rank": "The Infected"
+      },
+      {
+        "entity": "minecraft:cave_spider",
+        "count": 6
+      }
+    ],
+    [
+      {
+        "entity": "minecraft:zombie",
+        "count": 12,
+        "rank": "The Infected"
+      },
+      {
+        "entity": "minecraft:husk",
+        "count": 4,
+        "rank": "The Infected"
+      },
+      {
+        "entity": "minecraft:cave_spider",
+        "count": 6
+      }
+    ],
+    [
+      {
+        "entity": "minecraft:zombie",
+        "count": 12,
+        "rank": "The Infected"
+      },
+      {
+        "entity": "minecraft:husk",
+        "count": 4,
+        "rank": "The Infected"
+      },
+      {
+        "entity": "minecraft:cave_spider",
+        "count": 6
+      },
+      {
+        "entity": "gscraft:matron",
+        "count": 1
+      }
+    ]
+  ],
+  "defence": [
+    [
+      {
+        "entity": "minecraft:zombie",
+        "count": 20,
+        "rank": "The Infected"
+      }
+    ],
+    [
+      {
+        "entity": "minecraft:zombie",
+        "count": 25,
+        "rank": "The Infected"
+      }
+    ],
+    [
+      {
+        "entity": "minecraft:zombie",
+        "count": 30,
+        "rank": "The Infected"
+      },
+      {
+        "entity": "minecraft:cave_spider",
+        "count": 8
+      }
+    ]
+  ]
+}

@@ -189,6 +189,12 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
         if (!level().isClientSide && !state.kitIssued) issueKit();
     }
 
+    /** the rank to issue on the first tick, for a wave or a test */
+    public void pinRank(String rank) {
+        state.rank = rank;
+        state.kitIssued = false;
+    }
+
     private void issueKit() {
         entityData.set(SKIN, random.nextInt(SKIN_COUNT));
         RankDef rank = Kit.issue(this, FACTION, random, state.rank);

@@ -1,0 +1,157 @@
+{
+  "id": "intake",
+  "name": "THE INTAKE WORKS",
+  "note": "the plant's intake works (zone pl_intake); wet ground, NATO armed",
+  "box": [
+    606,
+    1180,
+    -101,
+    413
+  ],
+  "anchor": [
+    890,
+    150
+  ],
+  "faction": "nato",
+  "approach": "south",
+  "assault": [
+    [
+      {
+        "entity": "minecraft:drowned",
+        "count": 8
+      },
+      {
+        "entity": "minecraft:zombie",
+        "count": 6,
+        "rank": "Plant Worker"
+      }
+    ],
+    [
+      {
+        "entity": "minecraft:drowned",
+        "count": 8
+      },
+      {
+        "entity": "minecraft:zombie",
+        "count": 6,
+        "rank": "Plant Worker"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 3,
+        "rank": "NATO Rifleman"
+      }
+    ],
+    [
+      {
+        "entity": "minecraft:drowned",
+        "count": 8
+      },
+      {
+        "entity": "minecraft:zombie",
+        "count": 6,
+        "rank": "Plant Worker"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 3,
+        "rank": "NATO Rifleman"
+      }
+    ],
+    [
+      {
+        "entity": "minecraft:drowned",
+        "count": 8
+      },
+      {
+        "entity": "minecraft:zombie",
+        "count": 6,
+        "rank": "Plant Worker"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 3,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 1,
+        "rank": "NATO Marksman"
+      }
+    ],
+    [
+      {
+        "entity": "minecraft:drowned",
+        "count": 8
+      },
+      {
+        "entity": "minecraft:zombie",
+        "count": 6,
+        "rank": "Plant Worker"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 3,
+        "rank": "NATO Rifleman"
+      }
+    ],
+    [
+      {
+        "entity": "minecraft:drowned",
+        "count": 8
+      },
+      {
+        "entity": "minecraft:zombie",
+        "count": 6,
+        "rank": "Plant Worker"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 3,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 1,
+        "rank": "NATO Marksman"
+      }
+    ]
+  ],
+  "defence": [
+    [
+      {
+        "entity": "minecraft:drowned",
+        "count": 12
+      },
+      {
+        "entity": "minecraft:zombie",
+        "count": 10,
+        "rank": "Plant Worker"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 6,
+        "rank": "NATO Rifleman"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 2,
+        "rank": "NATO Marksman"
+      }
+    ],
+    [
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 3,
+        "rank": "NATO Gunner"
+      },
+      {
+        "entity": "gscraft:nato_soldier",
+        "count": 1,
+        "rank": "NATO Shield"
+      }
+    ]
+  ]
+}

@@ -461,5 +461,13 @@ the hospital: `sk_out_w` x -784..-720, z -1148..-1100 (centre -752, -1124). The 
   Hordes player zombie is refused too, as before. `/gscraft hold off` lifts it for a test. The lock is the mast
   field only; add the NPC pads to `gscraft_locks/camp.json` when `camp.py` builds them. The v6 tower rect the old
   script locked (x 64..191 z -144..-17) protected nothing on v8. Test: `tools/war_phase5.py` first.
+- **Fold-in step 2 (2026-09-10): the strongpoint loop** is in the mod (`world/Loop`, sites as data in
+  `gscraft_sites/`). `/gscraft sites` shows every site's rung and clock; `/gscraft site <id> set scouted|looted|held`
+  climbs the ladder (held = the marker, starts the assault); `clock <seconds>` jumps the current phase's end;
+  `/gscraft clock free` lets the clocks run with nobody online (tests only - restore `online`). Quest stages are
+  player tags set by the mod and re-applied on join (`/gscraft stages`, `stage add|remove`). The wave tables live in
+  the site files; the camp's approaches are a first cut `[needs measurement]`. Test: `tools/war_phase6.py` first,
+  then 5, 4b, 4, 3, 2. TRAP: a site left held or contested by a broken test run suppresses its zone's ambient
+  placement and refuses other markers - `/gscraft site <id> set unknown` resets it.
 - Eyes in the Darkness natural spawn is off locally (`eyesinthedarkness-server.toml`, backup `.bak-director`); the
   director places the Eyes instead.

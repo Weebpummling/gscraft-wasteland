@@ -171,7 +171,7 @@ public final class Director {
             int x = Mth.floor(at.getX() + Math.cos(angle) * dist);
             int z = Mth.floor(at.getZ() + Math.sin(angle) * dist);
             Zone here = Zones.at(x, z);
-            if (here == null || here.exclude()) continue;
+            if (here == null || here.exclude() || Loop.suppressedAt(level, x, z)) continue;
             ResourceLocation id = forced != null ? forced : pick(here.spawnsFor(env), random, level.isDay());
             if (id == null) continue;
             boolean rider = RIDER.equals(id);
@@ -431,7 +431,7 @@ public final class Director {
         String tag = tagPrefix + zone.name();
         AABB box = new AABB(zone.x0(), level.getMinBuildHeight(), zone.z0(), zone.x1() + 1, level.getMaxBuildHeight(), zone.z1() + 1)
                 .inflate(16.0D, 0.0D, 16.0D);
-        int alive = level.getEntitiesOfClass(Mob.class, box, m -> m.getTags().contains(tag)).size();
+        int alive = level.getEntitiesOfClass(Mob.class, box, m -> m.isAlive() && m.getTags().contains(tag)).size();
         int missing = def.count() - alive;
         if (missing <= 0) return 0;
         long now = level.getGameTime();
@@ -463,15 +463,24 @@ public final class Director {
      */
     private static BlockPos groundIn(ServerLevel level, Zone zone) {
         RandomSource random = level.getRandom();
-        for (int t = 0; t < 16; t++) {
+        for (int t = 0; t < 48; t++) {
             int x = zone.x0() + random.nextInt(Math.max(1, zone.x1() - zone.x0()));
             int z = zone.z0() + random.nextInt(Math.max(1, zone.z1() - zone.z0()));
             if (!level.hasChunkAt(new BlockPos(x, 64, z))) continue;
-            int top = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
-            for (int y = Math.max(level.getMinBuildHeight() + 1, top - 60); y <= top; y++) {
-                BlockPos p = new BlockPos(x, y, z);
-                if (standable(level, p, false) && Env.at(level, p) != Env.UNDERGROUND) return p;
-            }
+            BlockPos p = groundAt(level, x, z);
+            if (p != null) return p;
+        }
+        // a zone of water and unloaded ground: the centre column, then nothing
+        if (level.hasChunkAt(new BlockPos(zone.centerX(), 64, zone.centerZ()))) return groundAt(level, zone.centerX(), zone.centerZ());
+        return null;
+    }
+
+    /** the lowest standing room in a column that is not underground: a building's ground floor, or the ground itself */
+    static BlockPos groundAt(ServerLevel level, int x, int z) {
+        int top = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z);
+        for (int y = Math.max(level.getMinBuildHeight() + 1, top - 60); y <= top; y++) {
+            BlockPos p = new BlockPos(x, y, z);
+            if (standable(level, p, false) && Env.at(level, p) != Env.UNDERGROUND) return p;
         }
         return null;
     }
