@@ -572,24 +572,8 @@ file = "kubejs/server_scripts/gscraft_fixes.js"
 hash = "4a4d57afdc9ed0b71621641f6211f61606eeea16131fe47222ea71648d640d32"
 
 [[files]]
-file = "kubejs/server_scripts/gscraft_projectiles.js"
-hash = "ca3226e77699af922f819ba8a3ba35beb0c2876aacf7d84a3e082fcc6e2dfc91"
-
-[[files]]
 file = "kubejs/server_scripts/gscraft_recipes.js"
 hash = "19e5e9f81e5469fe816b47a612af0fe1be2bedd430a5047541953b2097da24eb"
-
-[[files]]
-file = "kubejs/server_scripts/gscraft_tower_lock.js"
-hash = "78ac321cab689f7d32db598a1df4590a0b4ee79c3d56d3ed4da64ce2f5009f1f"
-
-[[files]]
-file = "kubejs/startup_scripts/gscraft_mech_griefing.js"
-hash = "ea213f0364f08b5d16ec41d35af21359e9e06e7403b4218889bef5a7892d59f3"
-
-[[files]]
-file = "kubejs/startup_scripts/gscraft_tower_lock_native.js"
-hash = "80bee6de9c48c41318963d8a3b04d027ae4bb939cfdd86857fb31555fae5626a"
 
 [[files]]
 file = "mods/ai-improvements-1-20-0-5-2.pw.toml"
