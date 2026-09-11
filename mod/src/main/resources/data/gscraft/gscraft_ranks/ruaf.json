@@ -32,11 +32,11 @@
       "legs": "dragonrise_reforge:msv_pants",
       "gun": [
         {
-          "item": "cib:ak24",
+          "item": "tacz:ak47",
           "weight": 5
         },
         {
-          "item": "tacz:ak47",
+          "item": "cib:ak105",
           "weight": 3
         },
         {

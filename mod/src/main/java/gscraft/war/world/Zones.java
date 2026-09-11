@@ -76,7 +76,14 @@ public final class Zones extends SimpleJsonResourceReloadListener {
         return new Zone(name, hasBox, x0, x1, z0, z1, GsonHelper.getAsBoolean(o, "exclude", false),
                 GsonHelper.getAsInt(o, "cap", 0), entries(o, "spawns"), entries(o, "indoor_spawns"),
                 entries(o, "underground_spawns"), List.copyOf(deadRanks), standing(o, "garrison", 4, 10),
-                standing(o, "lair", 1, 120), List.copyOf(horrors));
+                standing(o, "lair", 1, 120), List.copyOf(horrors), group(o, 0), group(o, 1));
+    }
+
+    /** optional "group": [min, max] - how many arrive together in this zone */
+    private static int group(JsonObject o, int i) {
+        if (!o.has("group")) return 0;
+        JsonArray g = GsonHelper.getAsJsonArray(o, "group");
+        return g.size() > i ? g.get(i).getAsInt() : 0;
     }
 
     private static List<SpawnEntry> entries(JsonObject o, String key) {

@@ -446,7 +446,7 @@ the hospital: `sk_out_w` x -784..-720, z -1148..-1100 (centre -752, -1124). The 
 - **Area creatures**: Bloater (plant), Matron (hospital lair, persistent, one), Riders (farm, farbank, open ground,
   night), cave spiders under the Woods, the town and open ground, Runners among the Dead.
 - **Kit**: every rank slot is a weighted choice. Scavengers roll each slot; NATO and RUAF wear their side's uniform at every rank
-  and vary the rifle. RUAF uses the CIBR gun pack (`cib:ak105`, `ak103`, `ak24`, `asval`, `pkp`, `svd`), which ships
+  and vary the rifle. RUAF uses the CIBR gun pack (`cib:ak105`, `ak103`, `asval`, `pkp`, `svd`; `cib:ak24` is broken (owner, 2026-09-10) - never issue it), which ships
   in the player pack's `tacz/` folder already.
 - **Commands** added: `/gscraft env <x y z>`, `director passat <x y z> <n>`, `director survey <x y z> <samples>`
   (first version against layered placement), `director room <x z> <radius>` (nearest ground-floor room).
@@ -469,5 +469,7 @@ the hospital: `sk_out_w` x -784..-720, z -1148..-1100 (centre -752, -1124). The 
   the site files; the camp's approaches are a first cut `[needs measurement]`. Test: `tools/war_phase6.py` first,
   then 5, 4b, 4, 3, 2. TRAP: a site left held or contested by a broken test run suppresses its zone's ambient
   placement and refuses other markers - `/gscraft site <id> set unknown` resets it.
+- **Armies hostile to Scavengers (owner, 2026-09-10):** `gscraft_factions/nato.json` and `ruaf.json` list `scavengers`; a
+  Scavenger only fights a soldier that struck it.
 - Eyes in the Darkness natural spawn is off locally (`eyesinthedarkness-server.toml`, backup `.bak-director`); the
   director places the Eyes instead.

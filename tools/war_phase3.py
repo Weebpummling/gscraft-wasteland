@@ -29,7 +29,7 @@ EXPECT = {   # each rank's allowed guns (a rank may vary its weapon) and the off
     "NATO Marksman": ({"tacz:mk14", "tacz:m700", "tacz:spr15hb"}, None),
     "NATO Gunner": ({"tacz:m249"}, None),
     "NATO Shield": ({"tacz:m9a4", "tacz:glock_17", "tacz:p320"}, "minecraft:shield"),
-    "RUAF Rifleman": ({"tacz:ak47", "cib:ak105", "cib:ak103"}, None), "RUAF Sergeant": ({"cib:ak24", "tacz:ak47", "cib:asval"}, None),
+    "RUAF Rifleman": ({"tacz:ak47", "cib:ak105", "cib:ak103"}, None), "RUAF Sergeant": ({"tacz:ak47", "cib:ak105", "cib:asval"}, None),
     "RUAF Marksman": ({"tacz:sks_tactical", "cib:svd", "tacz:kar98"}, None), "RUAF Gunner": ({"tacz:rpk", "cib:pkp"}, None),
     "RUAF Shield": ({"tacz:cz75", "tacz:glock_17"}, "minecraft:shield"),
 }

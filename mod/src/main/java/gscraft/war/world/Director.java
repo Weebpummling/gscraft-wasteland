@@ -121,9 +121,42 @@ public final class Director {
         if (zone == null || zone.exclude() || zone.cap() <= 0) return false;
         Env env = Env.at(level, at);
         int cap = capFor(zone, env);
-        if (countOurs(level, at, env) >= cap) return false;
+        int room = cap - countOurs(level, at, env);
+        if (room < Math.min(2, cap)) return false;    // never a lone straggler: wait until a group fits
         boolean sealed = rollSealed(level, env) && countSealed(level, at, env) < sealedCap(cap);
-        return placeNear(level, at, env, null, sealed) != null;
+        Mob first = placeNear(level, at, env, null, sealed);
+        if (first == null) return false;
+        // the rest of the group, the same kind, a few blocks from the first (owner, 2026-09-10: groups of 2-4)
+        int size = Math.min(room, zone.groupSize(env, level.getRandom()));
+        ResourceLocation kind = ForgeRegistries.ENTITY_TYPES.getKey(first.getType());
+        boolean rider = first.getVehicle() != null;
+        for (int i = 1; i < size; i++) {
+            Mob next = placeBeside(level, first.blockPosition(), env, rider ? RIDER : kind, sealed);
+            if (next == null) break;
+        }
+        return true;
+    }
+
+    /** one more of the same kind within a few blocks of a placed creature, on the same kind of ground */
+    static Mob placeBeside(ServerLevel level, BlockPos beside, Env env, ResourceLocation kind, boolean allowSealed) {
+        RandomSource random = level.getRandom();
+        for (int t = 0; t < TRIES; t++) {
+            int x = beside.getX() + random.nextInt(9) - 4;
+            int z = beside.getZ() + random.nextInt(9) - 4;
+            Zone here = Zones.at(x, z);
+            if (here == null || here.exclude() || Loop.suppressedAt(level, x, z)) continue;
+            boolean rider = RIDER.equals(kind);
+            EntityType<?> type = rider ? EntityType.ZOMBIE_HORSE : type(kind);
+            if (type == null) return null;
+            boolean aquatic = type == EntityType.DROWNED;
+            BlockPos pos = findStand(level, x, beside.getY(), z, env, aquatic);
+            if (pos == null) continue;
+            if (env != Env.OPEN && !aquatic && !allowSealed && !reaches(level, pos, beside)) continue;
+            if (type == EntityType.ZOMBIE && level.isDay() && env == Env.OPEN) type = EntityType.HUSK;
+            Mob mob = rider ? spawnRider(level, pos, here) : spawn(level, type, pos, here);
+            if (mob != null) return mob;
+        }
+        return null;
     }
 
     /** whether this placement may land behind shut doors: indoors or underground, one time in five */

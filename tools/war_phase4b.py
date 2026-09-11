@@ -212,6 +212,22 @@ with Site(-2000, -2600) as s:
                 wrong.append(f"{rank}: {got}")
     check("every NATO and RUAF rank wears its side's uniform", not wrong, wrong or "10 ranks as their Riflemen")
 
+# the ambient step places a group, never a lone straggler (owner, 2026-09-10: groups of 2-4)
+with Site(-2000, -600) as s:
+    y = surface_y(-2000, -600)
+    sizes = []
+    for i in range(4):
+        c(f"kill @e[tag=gs_director,{s.area()}]")
+        c(f"gscraft director ambient -2000 {y} -600 1")
+        time.sleep(1)
+        sizes.append(count(f"@e[tag=gs_director,{s.area()}]"))
+    # data get never returns an entity's id, so the kind is counted by type; a day zombie is placed as a husk
+    kinds = {k for k, types in (("dead", ("minecraft:zombie", "minecraft:husk")), ("scav", ("gscraft:scavenger",)),
+                                ("rider", ("minecraft:zombie_horse",)), ("spider", ("minecraft:cave_spider",)))
+             if sum(count(f"@e[type={t},tag=gs_director,{s.area()}]") for t in types) > 0}
+    check("the ambient step places a group of two or three in the open, all of one kind", all(2 <= n <= 3 for n in sizes) and len(kinds) == 1,
+          f"group sizes over four steps {sizes}; kinds in the last {kinds}")
+
 # a small share of indoor spawns waits behind shut doors, held to a quarter of the cap
 with Site(-752, -1124) as s:
     m = re.search(r"room at (-?\d+) (-?\d+) (-?\d+)", c("gscraft director room -752 -1124 48"))

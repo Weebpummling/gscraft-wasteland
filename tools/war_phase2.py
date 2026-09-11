@@ -5,7 +5,7 @@
 2. The Dead hunt soldiers: a zombie closes on a NoAI RUAF soldier and hurts it (the soldier cannot shoot back).
 3. The Dead hunt Scavengers: the same against a NoAI Scavenger.
 4. A Scavenger kills the Dead: a live Scavenger against two zombies.
-5. The armies leave Scavengers alone: a soldier and a Scavenger side by side, both untouched.
+5. The armies hunt Scavengers: a soldier shoots a NoAI Scavenger and takes nothing back.
 6. The Converted: a NoAI soldier killed by zombies rises as a zombie tagged gs_converted, wearing its helmet.
 7. A Scavenger ignores a player until struck: needs a player - in person, not here.
 """
@@ -124,12 +124,14 @@ for _ in range(6):
 check("the Scrapper's knife deals damage", hz is None or hz < 20.0, f"zombie health {hz}")
 clear()
 
-# 5. the armies and the Scavengers are neutral to each other
-c(at(-3, 0) + 'summon gscraft:nato_soldier ~ ~ ~ {Tags:["p2n"]}')
-c(at(3, 0) + 'summon gscraft:scavenger ~ ~ ~ {Tags:["p2m"]}')
+# 5. the armies hunt Scavengers (owner, 2026-09-10); a Scavenger only fights a soldier that struck it, so the
+#    NoAI Scavenger here never answers and the soldier stays whole
+c(at(-6, 0) + 'summon gscraft:nato_soldier ~ ~ ~ {Tags:["p2n"]}')
+c(at(6, 0) + 'summon gscraft:scavenger ~ ~ ~ {NoAI:1b,Tags:["p2m"]}')
 time.sleep(15)
 hn, hm = health("@e[tag=p2n,limit=1]"), health("@e[tag=p2m,limit=1]")
-check("soldier and Scavenger leave each other alone", hn == 24.0 and hm == 20.0, f"NATO {hn}, Scavenger {hm}")
+alive = count("@e[tag=p2m]")
+check("a soldier hunts a Scavenger", (alive == 0 or (hm is not None and hm < 20.0)) and hn == 24.0, f"NATO {hn}, Scavenger alive {alive}, health {hm}")
 clear()
 
 # 6. the Converted

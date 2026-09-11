@@ -17,7 +17,14 @@ import java.util.List;
  */
 public record Zone(String name, boolean hasBox, int x0, int x1, int z0, int z1, boolean exclude, int cap,
                    List<SpawnEntry> spawns, List<SpawnEntry> indoorSpawns, List<SpawnEntry> undergroundSpawns,
-                   List<String> deadRanks, GarrisonDef garrison, GarrisonDef lair, List<HorrorDef> horrors) {
+                   List<String> deadRanks, GarrisonDef garrison, GarrisonDef lair, List<HorrorDef> horrors, int groupMin, int groupMax) {
+
+    /** how many arrive together: the zone's own range, or the ground's default (open 2-3, inside and below 2-4) */
+    public int groupSize(Env env, net.minecraft.util.RandomSource random) {
+        int lo = groupMin > 0 ? groupMin : 2;
+        int hi = groupMax > 0 ? groupMax : (env == Env.OPEN ? 3 : 4);
+        return lo + random.nextInt(Math.max(1, hi - lo + 1));
+    }
 
     public boolean contains(double x, double z) {
         return !hasBox || (x >= x0 && x <= x1 + 1 && z >= z0 && z <= z1 + 1);

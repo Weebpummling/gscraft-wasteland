@@ -252,9 +252,9 @@ roster from the registry; the infection ladder; the builds-are-no-spawn ruling; 
 
 **RULED 2026-09-10 (owner): every recommendation below is accepted, W1 to W15, and the recommendations of §3
 (X1 to X7) with them.** Implementation starts locally at phase 2 of §11.
-One call the review left open is taken as a default and recorded here: NATO, RUAF and the Scavengers are
-**neutral to each other** (each retaliates when struck), so the Scavengers stay people between the armies
-rather than targets for both. It is one line in the faction data.
+One call the review left open was taken as a default: NATO, RUAF and the Scavengers neutral to each other.
+**Superseded 2026-09-10 (owner): the armies are hostile to the Scavengers.** The Scavengers do not hunt soldiers;
+a struck Scavenger fights back. It is one line in each army's faction file.
 
 | # | Decision | Recommendation |
 |---|---|---|
