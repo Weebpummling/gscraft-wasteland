@@ -409,6 +409,11 @@ release (gscraft-0.1.0.jar, GSCraft-Instance.zip) and `client-installer-2026-09-
 keeps `spawns_on`/`spawns_off`; they are inert without In Control. Rollback: the reverse renames in the script's
 docstring and `/server.properties.v8-live`.
 
+**2026-09-11 07:25, steps A and B live** (owner stopped the server by hand first): `put` of the new
+`gscraft-0.1.0.jar` into `/mods`, `put` of `/wasteland-v8/serverconfig/superbwarfare-server.toml` with
+`explosion_destroy = false` (done while stopped - Forge writes the file back on unload), `power start`, Done in
+1.9 s with the six `[gscraft]` load lines; pack 2026.09.11.1 pushed after the boot. Nothing else on the host changed.
+
 What live now runs that it did not: enemies (the hold in the mod refuses everything the director does not place),
 the strongpoint loop with the clocks on online time, groups of 2-4, the locks on the mast field. What live does not
 have: RCON (local only), creative (local only), `pauseEventServer = false` (local only).
