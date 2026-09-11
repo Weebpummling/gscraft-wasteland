@@ -128,6 +128,30 @@ public final class DirectorCommands {
                     say(ctx, ProjectileSweep.status());
                     return 1;
                 }))))
+                .then(Commands.literal("fighter").then(Commands.argument("who", net.minecraft.commands.arguments.EntityArgument.entity()).executes(ctx -> {
+                    net.minecraft.world.entity.Entity e = net.minecraft.commands.arguments.EntityArgument.getEntity(ctx, "who");
+                    if (!(e instanceof gscraft.war.entity.GunUser user) || !(e instanceof net.minecraft.world.entity.Mob mob)) {
+                        say(ctx, "not a fighter");
+                        return 0;
+                    }
+                    gscraft.war.entity.FighterState st = user.fighterState();
+                    say(ctx, String.format("%s: rank %s, role %s, magazines %d, grenades %d, suppression %.2f, pose %s, sprinting %s, target %s, ammo %s",
+                            mob.getName().getString(), st.rank, st.role, st.magazines, st.grenades, st.suppression, mob.getPose(),
+                            mob.isSprinting(), mob.getTarget() == null ? "none" : mob.getTarget().getName().getString(),
+                            st.outOfAmmo ? "out" : "yes"));
+                    return 1;
+                }).then(Commands.literal("goto").then(xyzThen(Commands.literal("now").executes(ctx -> {
+                    // an order to walk to a point (feasibility B2, first cut): the operator's, and the tests'
+                    net.minecraft.world.entity.Entity e = net.minecraft.commands.arguments.EntityArgument.getEntity(ctx, "who");
+                    BlockPos to = pos(ctx);
+                    if (!(e instanceof net.minecraft.world.entity.Mob mob)) {
+                        say(ctx, "not a mob");
+                        return 0;
+                    }
+                    boolean ok = mob.getNavigation().moveTo(to.getX() + 0.5D, to.getY(), to.getZ() + 0.5D, 1.0D);
+                    say(ctx, mob.getName().getString() + (ok ? " walks to " : " finds no path to ") + to.toShortString());
+                    return ok ? 1 : 0;
+                }))))))
                 .then(Commands.literal("garrison")
                         .then(Commands.argument("zone", StringArgumentType.word())
                                 .then(Commands.literal("fill").executes(ctx -> garrison(ctx, false)))

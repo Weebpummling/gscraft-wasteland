@@ -24,6 +24,10 @@ import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.OpenDoorGoal;
+import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
+import net.minecraft.world.entity.EntityDimensions;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
@@ -62,6 +66,11 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
 
     public Scavenger(EntityType<? extends Scavenger> type, Level level) {
         super(type, level);
+        setMaxUpStep(1.0F);
+        if (getNavigation() instanceof GroundPathNavigation ground) {
+            ground.setCanOpenDoors(true);
+            ground.setCanPassDoors(true);
+        }
         this.xpReward = 3;
     }
 
@@ -135,6 +144,8 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
     @Override
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
+        goalSelector.addGoal(1, new OpenDoorGoal(this, true));
+        goalSelector.addGoal(1, new GrenadeGoal(this));
         goalSelector.addGoal(2, new GunAttackGoal(this, 1.0D));
         goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.15D, false) {
             @Override
@@ -186,7 +197,23 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
     @Override
     public void tick() {
         super.tick();
+        if (!level().isClientSide) state.decaySuppression();
         if (!level().isClientSide && !state.kitIssued) issueKit();
+    }
+
+    @Override
+    public FighterState fighterState() {
+        return state;
+    }
+
+    /** crouched and flat stances (feasibility A3): the box follows the pose the way a player's does */
+    @Override
+    public EntityDimensions getDimensions(Pose pose) {
+        return switch (pose) {
+            case CROUCHING -> EntityDimensions.scalable(0.6F, 1.5F);
+            case SWIMMING -> EntityDimensions.scalable(0.6F, 0.6F);
+            default -> super.getDimensions(pose);
+        };
     }
 
     /** the rank to issue on the first tick, for a wave or a test */

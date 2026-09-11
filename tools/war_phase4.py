@@ -116,8 +116,10 @@ with Site(-2000, -600) as s:
     c(torch_at + "setblock ~ ~ ~ magnumtorch:diamond_magnum_torch")
     time.sleep(2)
     reply = c("gscraft director pass -2000 -600 20")
-    hostile = count(f"@e[type=minecraft:zombie,{s.area()}]") + count(f"@e[type=minecraft:husk,{s.area()}]")
-    check("a diamond Magnum Torch stops the director's Dead", hostile == 0, f"{reply}; Dead placed {hostile}")
+    # the torch reaches 64 blocks; placement now reaches 72, so only the Dead inside the torch's radius count
+    near = "x=-2000,y=64,z=-600,distance=..64"
+    hostile = count(f"@e[type=minecraft:zombie,{near}]") + count(f"@e[type=minecraft:husk,{near}]")
+    check("a diamond Magnum Torch stops the director's Dead", hostile == 0, f"{reply}; Dead placed inside its 64 blocks: {hostile}")
     c(torch_at + "execute if block ~ ~-1 ~ magnumtorch:diamond_magnum_torch run setblock ~ ~-1 ~ air")
     c(torch_at + "execute if block ~ ~ ~ magnumtorch:diamond_magnum_torch run setblock ~ ~ ~ air")
     time.sleep(2)

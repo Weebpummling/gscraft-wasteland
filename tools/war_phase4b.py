@@ -228,13 +228,22 @@ with Site(-2000, -600) as s:
     check("the ambient step places a group of two or three in the open, all of one kind", all(2 <= n <= 3 for n in sizes) and len(kinds) == 1,
           f"group sizes over four steps {sizes}; kinds in the last {kinds}")
 
-# a small share of indoor spawns waits behind shut doors, held to a quarter of the cap
+# a small share of indoor spawns waits behind shut doors, held to a quarter of the cap. One fill is only a few
+# ambient calls now that groups fill the cap, so the room is filled six times over
 with Site(-752, -1124) as s:
     m = re.search(r"room at (-?\d+) (-?\d+) (-?\d+)", c("gscraft director room -752 -1124 48"))
-    out = c(f"gscraft director ambient {m.group(1)} {m.group(2)} {m.group(3)} 300") if m else "no room found"
-    mm = re.search(r"counted here (\d+) of cap (\d+), behind shut doors (\d+) of (\d+)", out)
-    check("indoors, a few wait behind shut doors, never more than a quarter of the cap",
-          mm is not None and 1 <= int(mm.group(3)) <= int(mm.group(4)) and int(mm.group(1)) <= int(mm.group(2)), out)
+    sealed_seen, over, out = 0, False, ""
+    for rnd in range(6):
+        c(f"kill @e[tag=gs_director,{s.area()}]")
+        out = c(f"gscraft director ambient {m.group(1)} {m.group(2)} {m.group(3)} 300") if m else "no room found"
+        mm = re.search(r"counted here (\d+) of cap (\d+), behind shut doors (\d+) of (\d+)", out)
+        if not mm:
+            break
+        sealed_seen += int(mm.group(3))
+        if int(mm.group(3)) > int(mm.group(4)) or int(mm.group(1)) > int(mm.group(2)):
+            over = True
+    check("indoors, a few wait behind shut doors, never more than a quarter of the cap", m is not None and sealed_seen >= 1 and not over,
+          f"sealed over six fills {sealed_seen}, over the limit {over}; last: {out}")
 
 # 8. the sweep: first version against layered, by the kind of ground
 print("\n  sweep: where placement lands, by reference point")

@@ -41,6 +41,7 @@ public final class Ranks extends SimpleJsonResourceReloadListener {
                             choice(o, "head"), choice(o, "chest"), choice(o, "legs"), choice(o, "feet"),
                             choice(o, "gun"), choice(o, "melee"), choice(o, "offhand"),
                             GsonHelper.getAsInt(o, "magazines", 3),
+                            GsonHelper.getAsInt(o, "grenades", 0),
                             GsonHelper.getAsFloat(o, "speed", 1.0F),
                             GsonHelper.getAsFloat(o, "health", 1.0F)));
                 }

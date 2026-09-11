@@ -15,5 +15,9 @@
   "gscraft.title.held": "THE GATE HELD",
   "gscraft.title.fell": "THE GATE FELL",
   "gscraft.title.fell.sub": "nothing lost — they'll be back",
-  "gscraft.line.tune.warning": "[Tune] Ten minutes on the clock. Get home."
+  "gscraft.line.tune.warning": "[Tune] Ten minutes on the clock. Get home.",
+  "gscraft.callout.contact": "[%s] Contact!",
+  "gscraft.callout.reloading": "[%s] Reloading!",
+  "gscraft.callout.grenade": "[%s] Grenade!",
+  "gscraft.callout.pinned": "[%s] Pinned down!"
 }

@@ -487,5 +487,12 @@ the hospital: `sk_out_w` x -784..-720, z -1148..-1100 (centre -752, -1124). The 
   placement and refuses other markers - `/gscraft site <id> set unknown` resets it.
 - **Armies hostile to Scavengers (owner, 2026-09-10):** `gscraft_factions/nato.json` and `ruaf.json` list `scavengers`; a
   Scavenger only fights a soldier that struck it.
+- **Sharper fighters, step A (2026-09-10, feasibility doc §9):** doors, rubble, sprint, sidestep, crouch/prone stances,
+  suppression from TACZ's hit events, callouts, grenades (reflection on Superb Warfare), open range 36-72 with
+  persistent placements and the director's own despawn past 160. `wasteland-v8/serverconfig/superbwarfare-server.toml` (the world's - a Forge server config; `config/` is only the
+  template) has `explosion_destroy = false` locally (backup `.bak-explosion`) - **this must go to live's
+  `/wasteland-v8/serverconfig/` with the next deploy** or NPC grenades break blocks (two did, locally, before the
+  right file was found). Test: `tools/war_phase7.py` first, then 6, 5, 4b, 4, 3, 2. TRAP: a `Goal` must not read a
+  body's fields in its constructor - `Mob` registers goals before the subclass's fields exist (it crashed the server).
 - Eyes in the Darkness natural spawn is off locally (`eyesinthedarkness-server.toml`, backup `.bak-director`); the
   director places the Eyes instead.

@@ -24,7 +24,7 @@ import net.minecraftforge.common.Tags;
  * @param dyUp,dyDown how far above and below the player's feet standing room is looked for, nearest first
  */
 public enum Env {
-    OPEN(0.75D, 28, 52, 56, 12, 6, 16),
+    OPEN(1.0D, 36, 72, 80, 12, 6, 16),
     INDOOR(1.5D, 6, 24, 28, 6, 4, 4),
     UNDERGROUND(1.5D, 6, 24, 28, 8, 6, 8);
 

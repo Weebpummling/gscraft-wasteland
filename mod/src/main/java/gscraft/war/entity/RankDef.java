@@ -6,9 +6,10 @@ package gscraft.war.entity;
  * {@code tacz:m4a1}; when the gun roll comes up empty the melee slot is rolled instead.
  *
  * @param magazines spare magazines beyond the loaded one
+ * @param grenades  hand grenades carried (Superb Warfare's M67)
  * @param speed     multiplies movement speed (the Runner is 1.3)
  * @param health    multiplies maximum health (the Runner is 0.8)
  */
 public record RankDef(String name, int weight, Role role, Choice head, Choice chest, Choice legs, Choice feet,
-                      Choice gun, Choice melee, Choice offhand, int magazines, double speed, double health) {
+                      Choice gun, Choice melee, Choice offhand, int magazines, int grenades, double speed, double health) {
 }

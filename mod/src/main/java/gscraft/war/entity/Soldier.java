@@ -18,6 +18,10 @@ import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.OpenDoorGoal;
+import net.minecraft.world.entity.ai.navigation.GroundPathNavigation;
+import net.minecraft.world.entity.EntityDimensions;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
@@ -49,6 +53,11 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
 
     public Soldier(EntityType<? extends Soldier> type, Level level, String faction) {
         super(type, level);
+        setMaxUpStep(1.0F);
+        if (getNavigation() instanceof GroundPathNavigation ground) {
+            ground.setCanOpenDoors(true);
+            ground.setCanPassDoors(true);
+        }
         this.faction = faction;
         this.xpReward = 5;
     }
@@ -114,6 +123,8 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
     @Override
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
+        goalSelector.addGoal(1, new OpenDoorGoal(this, true));
+        goalSelector.addGoal(1, new GrenadeGoal(this));
         goalSelector.addGoal(2, new GunAttackGoal(this, 1.0D));
         goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.1D, false) {
             @Override
@@ -139,6 +150,7 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
     @Override
     protected void customServerAiStep() {
         super.customServerAiStep();
+        state.decaySuppression();
         if (state.role == Role.SERGEANT && tickCount % 20 == 0) Fighters.callTarget(this);
     }
 
@@ -169,6 +181,21 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
         super.tick();
         // /summon with any NBT skips finalizeSpawn, so a soldier that arrived that way dresses on its first tick
         if (!level().isClientSide && !state.kitIssued) issueKit();
+    }
+
+    @Override
+    public FighterState fighterState() {
+        return state;
+    }
+
+    /** crouched and flat stances (feasibility A3): the box follows the pose the way a player's does */
+    @Override
+    public EntityDimensions getDimensions(Pose pose) {
+        return switch (pose) {
+            case CROUCHING -> EntityDimensions.scalable(0.6F, 1.5F);
+            case SWIMMING -> EntityDimensions.scalable(0.6F, 0.6F);
+            default -> super.getDimensions(pose);
+        };
     }
 
     /** the rank to issue on the first tick, for a wave or a test */

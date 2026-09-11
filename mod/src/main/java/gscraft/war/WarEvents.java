@@ -2,7 +2,10 @@ package gscraft.war;
 
 import com.tacz.guns.api.GunProperties;
 import com.tacz.guns.api.entity.IGunOperator;
+import com.tacz.guns.api.event.common.EntityHurtByGunEvent;
 import com.tacz.guns.api.event.common.GunShootEvent;
+import com.tacz.guns.api.event.server.AmmoHitBlockEvent;
+import gscraft.war.entity.GunUser;
 import com.tacz.guns.resource.modifier.AttachmentCacheProperty;
 import gscraft.war.entity.Hearing;
 import gscraft.war.entity.RankDef;
@@ -150,6 +153,30 @@ public final class WarEvents {
             lastHearingLog = now;
             GscraftWar.LOG.info("[gscraft] shot by {} heard by {} within {} blocks",
                     shooter.getType().getDescriptionId(), heard, (int) radius);
+        }
+    }
+
+    /** a bullet into the ground or a wall beside a fighter: under fire (feasibility A4) */
+    @SubscribeEvent
+    public static void bulletHitBlock(AmmoHitBlockEvent event) {
+        if (!(event.getLevel() instanceof ServerLevel level) || event.getAmmo() == null) return;
+        Entity bullet = event.getAmmo();
+        Entity shooter = bullet instanceof net.minecraft.world.entity.projectile.Projectile p ? p.getOwner() : null;
+        for (Mob mob : level.getEntitiesOfClass(Mob.class, bullet.getBoundingBox().inflate(3.0D), m -> m instanceof GunUser)) {
+            if (shooter != null && Factions.allied(mob, shooter)) continue;
+            ((GunUser) mob).fighterState().suppress(0.3F);
+        }
+    }
+
+    /** a fighter hit, and its squadmates within eight blocks: under fire */
+    @SubscribeEvent
+    public static void hitByGun(EntityHurtByGunEvent event) {
+        if (!event.getLogicalSide().isServer()) return;
+        Entity hurt = event.getHurtEntity();
+        if (!(hurt instanceof Mob mob) || !(mob instanceof GunUser user) || !(mob.level() instanceof ServerLevel level)) return;
+        user.fighterState().suppress(0.5F);
+        for (Mob ally : level.getEntitiesOfClass(Mob.class, mob.getBoundingBox().inflate(8.0D), m -> m != mob && m instanceof GunUser && Factions.allied(m, mob))) {
+            ((GunUser) ally).fighterState().suppress(0.25F);
         }
     }
 

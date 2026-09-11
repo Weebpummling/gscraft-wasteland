@@ -30,7 +30,8 @@
           "weight": 2
         }
       ],
-      "magazines": 4
+      "magazines": 4,
+      "grenades": 1
     },
     {
       "name": "NATO Sergeant",
@@ -62,7 +63,8 @@
           "weight": 2
         }
       ],
-      "magazines": 4
+      "magazines": 4,
+      "grenades": 2
     },
     {
       "name": "NATO Marksman",

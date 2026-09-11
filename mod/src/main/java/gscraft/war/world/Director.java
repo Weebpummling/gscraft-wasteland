@@ -79,6 +79,9 @@ public final class Director {
     private static long passes;
     private static long placed;
     private static long refused;
+    private static long swept;
+    /** an ambient placement further than this from every player is taken back */
+    private static final int SWEEP = 160;
     private static long nanos;
     private static final Set<ResourceLocation> warnedIds = new HashSet<>();
 
@@ -99,8 +102,32 @@ public final class Director {
             horrors(level, player.blockPosition(), false);
         }
         garrisons(level, null, false);
+        swept += sweep(level);
         nanos += System.nanoTime() - t0;
         passes++;
+    }
+
+    /** the director's own despawn: ambient placements (not garrisons, lairs, waves or guards) beyond SWEEP of everyone */
+    static int sweep(ServerLevel level) {
+        int n = 0;
+        java.util.List<Mob> doomed = new java.util.ArrayList<>();
+        for (Entity e : level.getAllEntities()) {
+            if (!(e instanceof Mob mob) || !mob.getTags().contains("gs_director")) continue;
+            if (mob.getTags().stream().anyMatch(t -> t.startsWith(GARRISON_TAG) || t.startsWith(LAIR_TAG) || t.startsWith("gs_wave"))) continue;
+            boolean near = false;
+            for (ServerPlayer p : level.players()) {
+                if (p.distanceToSqr(mob) <= (double) SWEEP * SWEEP) {
+                    near = true;
+                    break;
+                }
+            }
+            if (!near) doomed.add(mob);
+        }
+        for (Mob mob : doomed) {
+            mob.discard();
+            n++;
+        }
+        return n;
     }
 
     public static void setPaused(boolean value) {
@@ -109,8 +136,8 @@ public final class Director {
 
     public static String stats() {
         double ms = passes == 0 ? 0 : nanos / 1e6 / passes;
-        return String.format("director %s: %d passes, %d placed, %d refused by spawn checks, %.3f ms per pass",
-                paused ? "paused" : "running", passes, placed, refused, ms);
+        return String.format("director %s: %d passes, %d placed, %d refused by spawn checks, %d swept back, %.3f ms per pass",
+                paused ? "paused" : "running", passes, placed, refused, swept, ms);
     }
 
     // ---- ambient placement
@@ -338,6 +365,8 @@ public final class Director {
         }
         mob.addTag(WarEvents.PLACED_TAG);
         mob.addTag("gs_director");
+        // vanilla would despawn it at random beyond 32 blocks; the director keeps it and sweeps it itself past SWEEP
+        mob.setPersistenceRequired();
         // the zombie family: never a baby, never a chicken jockey
         SpawnGroupData group = mob instanceof Zombie ? new Zombie.ZombieGroupData(false, false) : null;
         mob.finalizeSpawn(level, level.getCurrentDifficultyAt(pos), MobSpawnType.EVENT, group, null);

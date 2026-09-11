@@ -21,7 +21,8 @@
           "weight": 2
         }
       ],
-      "magazines": 4
+      "magazines": 4,
+      "grenades": 1
     },
     {
       "name": "RUAF Sergeant",
@@ -44,7 +45,8 @@
           "weight": 2
         }
       ],
-      "magazines": 4
+      "magazines": 4,
+      "grenades": 2
     },
     {
       "name": "RUAF Gunner",

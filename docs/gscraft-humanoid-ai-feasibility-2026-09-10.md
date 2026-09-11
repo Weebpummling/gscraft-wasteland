@@ -113,4 +113,38 @@ cover placement in real ruins need the WarTest client; the grenade block test is
 | H5 | No embedded scripting language; doctrine as JSON, behaviours in Java | yes |
 | H6 | Order A → B → C → D → E | confirm |
 
+## 9. Ruled and built (owner, 2026-09-10)
+
+**H1–H6 all yes; "grenades are definitely going in"; and widen the spawn range.** Step A plus D2 built the same night
+(`tools/war_phase7.py` 7 of 7; phases 6, 5, 4b, 4, 3, 2 as regression: 8, 9, 14, 13, 8, 8 of each):
+
+- A1 doors, rubble, sprint: `setCanOpenDoors`/`setCanPassDoors` + `OpenDoorGoal` on both bodies, `setMaxUpStep(1.0)`,
+  sprint when the target is well beyond the holding distance. Measured: a Rifleman ordered across a one-block wall
+  crossed in 3 s; ordered through a shut oak door, the door was open in 3 s.
+- A2 a sidestep of 12 ticks after each burst when standing still in the open (not the Marksman or the Shield).
+- A3 stances: crouched from a standstill beyond 16 blocks (the holding distance of every gun rank is past that) or
+  from suppression 0.4; flat (`Pose.SWIMMING`, box 0.6×0.6) and silent from 0.8; standing when moving. `[in person]`
+  the look.
+- A4 suppression: `AmmoHitBlockEvent` within 3 blocks +0.3, `EntityHurtByGunEvent` on the fighter +0.5 and on
+  squadmates within 8 +0.25, decaying 1.0 in 3 s; spread ×(1+2s), aim ticks ×(1+s). Measured: a Gunner under a
+  Gunner's fire reached 1.0; a fighter with nobody firing stayed at 0.
+- A5 callouts: contact, reloading, grenade, pinned - `gscraft.callout.*`, players within 24 blocks, one per key per
+  fighter per 5 s.
+- D2 grenades: `GrenadeGoal` on Superb Warfare's `HandGrenadeEntity(owner, level)` by reflection (the mod needs
+  neither the jar nor the mod), `setLife(100)` for the fuse the item sets, a lob at 8-28 blocks, one per 30 s, at a
+  target that went behind cover or one in four at a target in the open; Riflemen carry 1, Sergeants 2, the Scavenger
+  Captain 1 (`grenades` in the rank data). The W11 gate: Superb Warfare `explosion_destroy = false` in the
+  **world's** `serverconfig/superbwarfare-server.toml` - a Forge server config; the copy in `config/` is only the template,
+  and with it alone two grenades that fell off the test platform dug a 7-block crater in the Woods. With the world's
+  file set, a detonation on a rimmed platform must leave every block (`war_phase7.py` test 5). That line goes to live
+  with this build, into `/wasteland-v8/serverconfig/` - it also stops players' explosives breaking blocks, which the
+  builders' ruling wants anyway.
+- The range: open ground places 36-72 blocks out (was 28-52) in an 80-block count box at the full cap. Director
+  placements are persistent now and the director sweeps its own back past 160 blocks from every player; vanilla was
+  despawning anything beyond 32 blocks at random, which the wider ring would have made worse.
+- `/gscraft fighter <who>` reads rank, magazines, grenades, suppression, pose, sprint, target; `… goto <x y z> now`
+  orders a walk (the first piece of B2). The per-shot debug log line is gone.
+
+Next: step B (cover-seeking, peeking, hold/advance), then C (squads, patrols, bounding).
+
 Related: `gscraft-enemy-review-2026-09-10.md` §5 (behaviour by value and cost) and §11 (phase 5), `gscraft-war-mod-design.md` §5–6 (squads in SavedData), `gscraft-fold-in-review-2026-09-10.md`.

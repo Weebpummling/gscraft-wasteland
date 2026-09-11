@@ -4,6 +4,8 @@ package gscraft.war.entity;
 public interface GunUser {
     Role role();
 
+    FighterState fighterState();
+
     /** spend one spare magazine; false when none are left */
     boolean takeMagazine();
 
