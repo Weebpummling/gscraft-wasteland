@@ -397,13 +397,29 @@ elease\` (sizes verified before deletion). `build-v6-2026-09-03` (4 assets): the
 (ops, whitelist, user caches) are deliberately not published. `tools/release_upload.py` re-uploads a folder
 of zips to a tag, skipping what is already there.
 
+## The War mod goes live (2026-09-10, owner: "push the current version on live")
+
+Backup verified and no players online by the owner. The server side is `tools/deploy_war.py upload` then `swap`
+(hand-run, HANDOFF section 6 rules): `/mods_20260910` (108 jars: In Control, Improved Mobs and TenshiLib out,
+gscraft-0.1.0.jar in), `/config_20260910` (the local config without `*.bak*`, `pauseEventServer = true`), and
+`build/phase03/server.properties.war` (difficulty hard - the mod's bodies are Monsters and peaceful removes them;
+spawn-monsters stays false, the director places). No world files. The player side is pack 2026.09.10.1
+(`build/packwiz`, commit 23f0623, pushed after the swap so no client updates ahead of the server), the pack-files
+release (gscraft-0.1.0.jar, GSCraft-Instance.zip) and `client-installer-2026-09-10` (Latest). Live's world datapack
+keeps `spawns_on`/`spawns_off`; they are inert without In Control. Rollback: the reverse renames in the script's
+docstring and `/server.properties.v8-live`.
+
+What live now runs that it did not: enemies (the hold in the mod refuses everything the director does not place),
+the strongpoint loop with the clocks on online time, groups of 2-4, the locks on the mast field. What live does not
+have: RCON (local only), creative (local only), `pauseEventServer = false` (local only).
+
 ## Local test server differs from live (2026-09-09)
 
 - `server/config/hordes-common.toml`: `pauseEventServer = false` locally so headless tests tick (backup
   `hordes-common.toml.bak-pause-true`). Live keeps `true`. Never carry this file to live.
 - `server/config/improvedmobs/common.toml`: `gscraft` namespace excluded (backup `common.toml.bak-war-mod`).
-- `gscraft-0.1.0.jar` (GSCraft War, `mod/`) is on the local server only. Not in the packwiz pack, not on
-  live. Prism instance `GSCraft-WarTest` (local only, no packwiz sync, servers.dat = localhost:9150).
+- `gscraft-0.1.0.jar` (GSCraft War, `mod/`) is on the local server, in the pack and (from 2026-09-10) on live.
+  Prism instance `GSCraft-WarTest` (local only, no packwiz sync, servers.dat = localhost:9150) carries the jar under test.
 
 ## Old enemy stack retired locally (2026-09-09)
 
