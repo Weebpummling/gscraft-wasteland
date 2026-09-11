@@ -44,7 +44,7 @@
 
 [spawning]
 	#If false, the eyes entity will not spawn naturally during the night.
-	EnableNaturalSpawn = true
+	EnableNaturalSpawn = false
 	#Max block distance from a player at which the eyes will spawn.
 	# Default: 64
 	# Range: > 1

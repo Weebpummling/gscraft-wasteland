@@ -14,7 +14,11 @@ hash = "3a988cec262c3870fe0ed9be107c41a193ae12d6fe433eb97f84fb102343f449"
 
 [[files]]
 file = "config/PillagersGun-common.toml"
-hash = "57df8823231e2c6c5e7ed4d5913bdd061757dfbb3786b5aea09ec385e6870027"
+hash = "30f0124714445897d4d8a9c663d14271caaddbb7d6d6937726ed0813ad40c81a"
+
+[[files]]
+file = "config/PillagersGun-common.toml.bak-2026-09-09"
+hash = "f613ce0d15129c364e621532fb2a13c2c2f71b5252751292fec5d01477591f93"
 
 [[files]]
 file = "config/aiimprovements-common.toml"
@@ -110,7 +114,11 @@ hash = "11048d0c2bc600457cb8199fc1f31949f23de88f24b2bf83c7d9b713690b12ed"
 
 [[files]]
 file = "config/eyesinthedarkness-server.toml"
-hash = "a9a960858e189900fd6f7ea674d87ba0d3e8cf0d4d677fdaad09c78c76ba1c68"
+hash = "a4a74ea593ab3e63aa6ad3d25d345c577731b345dee98f29589831e5adcce0df"
+
+[[files]]
+file = "config/eyesinthedarkness-server.toml.bak-director"
+hash = "dde1442ef50fa80088fba0a4c487e8bb84f890099820d5fdbf7c9e6ea905b585"
 
 [[files]]
 file = "config/farmersdelight-common.toml"
@@ -210,7 +218,15 @@ hash = "b57bbfc0803df3c1a10194ea423c593b61824c5f3dea865ac5b87cf1f5855966"
 
 [[files]]
 file = "config/hordes-common.toml"
-hash = "4be7cb3fdfbe213ff092c9d3945f0fb33232874f9db0fea8f454650b4857cd97"
+hash = "097aab20d52147f2e2298c81c59f3dab5b47c3ee0ff4e09c3f71f738a1b2dfc6"
+
+[[files]]
+file = "config/hordes-common.toml.bak-2026-09-09"
+hash = "2edc09d8bc9c5fd71a22ff1392edf2b4e625a7b1664fee00eb3d47036a63b6c3"
+
+[[files]]
+file = "config/hordes-common.toml.bak-pause-true"
+hash = "32c3f32d1ffd6c2c5a08a986c80babe3f3256fae567e31be3db537502e61381f"
 
 [[files]]
 file = "config/hordes/data/hordes/horde_data/scripts/default.json"
@@ -246,7 +262,11 @@ hash = "bcef569f2bb2b70c5bef0ff821951fc5be1020053b2e8ade9b5b552221a88adb"
 
 [[files]]
 file = "config/hordes/data/hordes/infection/infection_entities.json"
-hash = "d03134ef7ab8065e080116710ac6db552e1c3e93daa5358b2cf2453370cad1cd"
+hash = "e07b9ba35d9d642a6f12cd541a2e408bdbc8ba4f67a2a46a09a5df0a4a156bf1"
+
+[[files]]
+file = "config/hordes/data/hordes/infection/infection_entities.json.bak-war-bodies"
+hash = "67a548d4577a952f860923b0e0b2c7f6a1c218db16111a53d9c007944fd9f492"
 
 [[files]]
 file = "config/hordes/data/hordes/infection/wearables_protection.json"
@@ -284,66 +304,6 @@ hash = "68550b1b9f85bb8b055e602c6178a9a7ff8ec90d226c739f8d8c5ca66e089e47"
 file = "config/improvedmobs/client.toml"
 hash = "13004d42c782ccc343b18d3840042344e741007b54b627a6eae095f1a2c53e8e"
 preserve = true
-
-[[files]]
-file = "config/improvedmobs/common.toml"
-hash = "12c58088d21d5e0c0a84e2dea195ec5a72db79a16973dbd73314cc3cd2d92d90"
-
-[[files]]
-file = "config/improvedmobs/equipment.json"
-hash = "a3326565f5f84442646146ed6d390f9e201b92f0501fa568471f8b511a0fa83a"
-
-[[files]]
-file = "config/incontrol/areas.json"
-hash = "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-
-[[files]]
-file = "config/incontrol/breakevents.json"
-hash = "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-
-[[files]]
-file = "config/incontrol/effects.json"
-hash = "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-
-[[files]]
-file = "config/incontrol/events.json"
-hash = "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-
-[[files]]
-file = "config/incontrol/experience.json"
-hash = "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-
-[[files]]
-file = "config/incontrol/leftclicks.json"
-hash = "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-
-[[files]]
-file = "config/incontrol/loot.json"
-hash = "f04096633ae8d3c1b6773bbed9242348c12f151b2aa626ae190e57788ff9b939"
-
-[[files]]
-file = "config/incontrol/phases.json"
-hash = "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-
-[[files]]
-file = "config/incontrol/placeevents.json"
-hash = "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-
-[[files]]
-file = "config/incontrol/rightclicks.json"
-hash = "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
-
-[[files]]
-file = "config/incontrol/spawn.json"
-hash = "30707129d5874b5b370dd0dced2bfdea8c6c12e220ad956669ac3a34e06bd22f"
-
-[[files]]
-file = "config/incontrol/spawner.json"
-hash = "4e870a0f9bf5e82baf689a32bd55e0012d37305975d00fb8b047394f4eb33b8d"
-
-[[files]]
-file = "config/incontrol/summonaid.json"
-hash = "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
 
 [[files]]
 file = "config/knocker.toml"
@@ -459,7 +419,15 @@ hash = "693d65d589cfd1b13d7139399c964c58111858fb7acb7d0468097003a5206e19"
 
 [[files]]
 file = "config/man_config.toml"
-hash = "7711302a38b6f3012c5262e10da73433436ffc2a09a03e95c0448a3f8f7e1c88"
+hash = "6b68efae5593bd9943120f34cf27c9399467039120db4813bec4e004a16f37f4"
+
+[[files]]
+file = "config/man_config.toml.bak-2026-09-09"
+hash = "68cb1ead128b0761754824704fa21fd5df22dd1bcb68107c41b59a0827e56c6d"
+
+[[files]]
+file = "config/man_config.toml.bak2"
+hash = "7b772441dc4cf0140b43f3897581a7842a380ded45208ce081d0dce610985931"
 
 [[files]]
 file = "config/modernfix-common.toml"
@@ -568,7 +536,11 @@ hash = "b772095b2fcac9b6f36976aa01007ae233b23d2678de71db3f8499cdeeebe0d8"
 
 [[files]]
 file = "config/zombieawareness/MobLists.toml"
-hash = "5da2b7082e47e8a182d00f84ba0ddb7819b6d5aea4bd88d964d2a7140395009d"
+hash = "1e7f635db72a1762aee0a7cf477b2d8a7c74e207823f28a65399f6dfc2875cd9"
+
+[[files]]
+file = "config/zombieawareness/MobLists.toml.bak-war-bodies"
+hash = "8151783c1e3d0df52d8f2d981cf3e3269cd1cfd5994572109bda9ac5bc9d6595"
 
 [[files]]
 file = "config/zombieawareness/PlayerRulesAndLists.toml"
@@ -601,7 +573,7 @@ hash = "4a4d57afdc9ed0b71621641f6211f61606eeea16131fe47222ea71648d640d32"
 
 [[files]]
 file = "kubejs/server_scripts/gscraft_projectiles.js"
-hash = "9453804b20918bba96cc44330af292831997fa6d1573428ce2dbe564e27ad116"
+hash = "ca3226e77699af922f819ba8a3ba35beb0c2876aacf7d84a3e082fcc6e2dfc91"
 
 [[files]]
 file = "kubejs/server_scripts/gscraft_recipes.js"
@@ -613,11 +585,11 @@ hash = "78ac321cab689f7d32db598a1df4590a0b4ee79c3d56d3ed4da64ce2f5009f1f"
 
 [[files]]
 file = "kubejs/startup_scripts/gscraft_mech_griefing.js"
-hash = "1ba4e976b799be07b1d28c18330a4110a6ee4a87bca3cba5c82e4d1523436130"
+hash = "ea213f0364f08b5d16ec41d35af21359e9e06e7403b4218889bef5a7892d59f3"
 
 [[files]]
 file = "kubejs/startup_scripts/gscraft_tower_lock_native.js"
-hash = "c0878b058377ca938b57aaa70ab6c5b21c3c07a00add9babec929863ea48ddbd"
+hash = "80bee6de9c48c41318963d8a3b04d027ae4bb939cfdd86857fb31555fae5626a"
 
 [[files]]
 file = "mods/ai-improvements-1-20-0-5-2.pw.toml"
@@ -865,6 +837,11 @@ hash = "823113b6d72c7fd89eb972baf9479bebee51c0f7b3e03d7ca3ffefe006693a98"
 metafile = true
 
 [[files]]
+file = "mods/gscraft-0-1-0.pw.toml"
+hash = "032cb1b9b6ea7c1ce7cfab06e80a86e159ddbda2d141f4a6013ae4a83ccb5fca"
+metafile = true
+
+[[files]]
 file = "mods/guardvillagers-1-20-1-1-6-19.pw.toml"
 hash = "a56047eb4bfb948d6e361547aacd94bf8f95824bd81289fa773fa37fb3f4b634"
 metafile = true
@@ -887,16 +864,6 @@ metafile = true
 [[files]]
 file = "mods/immersiveengineering-1-20-1-10-2-0-183.pw.toml"
 hash = "d5e45b861fe75c808df8ede3dc6d4452e76a2e4afb72cf4358bafc807663c544"
-metafile = true
-
-[[files]]
-file = "mods/improvedmobs-1-20-1-1-13-7-forge.pw.toml"
-hash = "2f36e180e24362831c8a8ddf209573dcb1a21486dba46f3a1459668913094d07"
-metafile = true
-
-[[files]]
-file = "mods/incontrol-1-20-9-5-0.pw.toml"
-hash = "4d1dec5459fbf1eece2670755c705b0463c079d935e74f492e92039c2e6b7fb0"
 metafile = true
 
 [[files]]
@@ -1120,11 +1087,6 @@ hash = "82943c9c6bb9623cc020df70535535a9cb8fbb57318d74f8990033dd19ec412f"
 metafile = true
 
 [[files]]
-file = "mods/tenshilib-1-20-1-1-7-6-forge.pw.toml"
-hash = "7fc850584e11028e9df3613a865f2dd67cf9b2c3d349b08da7e6ad3c890412da"
-metafile = true
-
-[[files]]
 file = "mods/the-hordes-1-20-1-1-6-3g.pw.toml"
 hash = "cedfda599318f60cb6c32447ac113e3c3e8cd0d41ca2d19ac13576ff6d935c41"
 metafile = true
@@ -1196,7 +1158,7 @@ preserve = true
 
 [[files]]
 file = "servers.dat"
-hash = "ad2485a86f1071c7f0a3f5d77f03dac95b2db241cc7aca6262f271ae1a1d0b5a"
+hash = "575feb600556d8a93720efb9b1ce183a2ec952aab6e4d9c39030727725e86ab4"
 preserve = true
 
 [[files]]

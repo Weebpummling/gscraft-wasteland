@@ -1,7 +1,7 @@
 
 ["Server and Client"]
 	#enable spawning of the man
-	enable_spawning = true
+	enable_spawning = false
 	#minimum duration of spawning in ticks
 	min_spawn_rate = 5000.0
 	#maximum duration of spawning in ticks
@@ -17,13 +17,13 @@
 	#minimum radius in blocks before it despawns
 	vanish_distance = 30.0
 	#if true, it can also spawn during the day
-	spawn_at_day = true
+	spawn_at_day = false
 	#if true, the player gets the darkness effect when starts getting chased
 	darkness_effect = true
 	#the duration in ticks of the darkness effect
 	darkness_effect_duration = 150.0
 	#if true, it can break doors and glass/glass panes while it chases the player
-	break_blocks = true
+	break_blocks = false
 	#if true, it will summon fake lightnings when despawning or spawning
 	lightnings = true
 	#if true, it will play one of five spawn sounds when spawning or getting closer

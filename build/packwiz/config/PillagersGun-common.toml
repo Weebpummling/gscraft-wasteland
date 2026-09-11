@@ -18,7 +18,7 @@
 #Range: 5.0 ~ 180.0
 "Laser Render Angle" = 15.0
 #Whether the gun will use the models in tacz and sbw.
-"Gun Model Switch" = false
+"Gun Model Switch" = true
 
 ["Shot Gun"]
 	#The chance of shotgun.

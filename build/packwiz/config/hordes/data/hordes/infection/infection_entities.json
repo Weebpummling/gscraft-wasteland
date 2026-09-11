@@ -38,5 +38,13 @@
 	{
 		"entity": "hordes:drowned_player",
 		"chance": 0.7
+	},
+	{
+		"entity": "gscraft:bloater",
+		"chance": 0.8
+	},
+	{
+		"entity": "gscraft:matron",
+		"chance": 0.9
 	}
 ]

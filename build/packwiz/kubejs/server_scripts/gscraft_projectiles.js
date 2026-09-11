@@ -1,5 +1,10 @@
 // GSCraft - projectiles never freeze at the edge of the simulated area.
 //
+// 2026-09-09: this had never run. It only ticks with a player online, and with one it threw every tick -
+// first "null is not iterable" because level.getEntities() returns null in KubeJS 2001, then
+// "redeclaration of var server" because const inside a handler throws in this Rhino. Both were silent
+// until a catch was added. Declarations inside the handler are var now, and the entity list is guarded.
+//
 // Why: the server only ticks entities inside the simulation distance around players. A rocket that
 // flies past that ring stops dead in a chunk that is still visible, then wakes up when a player
 // comes near and seems to "follow" them. Neither Superb Warfare nor TaCZ has a lifetime or range
@@ -28,20 +33,30 @@ function isProjectile(type) {
 }
 
 ServerEvents.tick(event => {
-  const server = event.server;
+ // PARKED 2026-09-09. This sweep has never run: with a player online it throws every tick, first
+ // "null is not iterable" (level.getEntities() returns null in KubeJS 2001) and then, once the
+ // declarations were fixed, still an iteration over a null collection. It is off until the entity
+ // accessor is replaced with one that works here. Nothing regresses by parking it, because it has
+ // never once executed - but projectiles at the edge of the simulated area are still unhandled.
+ if (true) return;
+ try {
+  var server = event.server;
   if (server.tickCount % EVERY !== 0) return;
-  const players = server.players;
+  var players = server.players;
   if (players.length === 0) return;
   // simulation distance in blocks, less the margin; never below 64 so short ranges still work
-  const simBlocks = Math.max(64, server.getPlayerList().getSimulationDistance() * 16 - EDGE_MARGIN);
-  const limitSq = simBlocks * simBlocks;
+  var simBlocks = Math.max(64, server.getPlayerList().getSimulationDistance() * 16 - EDGE_MARGIN);
+  var limitSq = simBlocks * simBlocks;
   for (const level of server.levels) {
-    const ents = level.getEntities();
+    // level.getEntities() returns null in KubeJS 2001, and `for (const e of null)` throws every tick.
+    // This handler only runs with a player online, which is why it went unseen until one joined.
+    var ents = level.getEntities();
+    if (!ents) continue;
     for (const e of ents) {
-      const type = String(e.type);
+      var type = String(e.type);
       if (!isProjectile(type)) continue;
       if (e.age > MAX_AGE) { e.discard(); continue; }
-      let near = false;
+      var near = false;
       for (const p of players) {
         if (p.level.dimension !== level.dimension) continue;
         if (e.distanceToSqr(p) <= limitSq) { near = true; break; }
@@ -49,6 +64,7 @@ ServerEvents.tick(event => {
       if (!near) e.discard();
     }
   }
+ } catch (err) { console.error('[gscraft] projectile sweep failed: ' + err); }
 });
 
 console.info('[gscraft] projectile sweep armed: retire gun-mod projectiles at the simulation edge or after ' + (MAX_AGE / 20) + ' s');

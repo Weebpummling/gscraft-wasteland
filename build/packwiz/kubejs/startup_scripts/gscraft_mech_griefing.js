@@ -6,16 +6,19 @@
 const Result = Java.loadClass('net.minecraftforge.eventbus.api.Event$Result');
 
 function prop(o, name) {
-  try { const v = o[name]; return (typeof v === 'function') ? v.call(o) : v; } catch (x) { return null; }
+  try { var v = o[name]; return (typeof v === 'function') ? v.call(o) : v; } catch (err) { return null; }
 }
 
 ForgeEvents.onEvent('net.minecraftforge.event.entity.EntityMobGriefingEvent', event => {
   try {
-    const entity = prop(event, 'entity');
+    // var, not const: Rhino re-enters this scope on every call and throws "redeclaration of var" from
+    // the second invocation onwards. With the silent catch below that made this handler look like it
+    // worked while denying nothing after the first mech. Proven in gscraft_terrorist_drops.js.
+    var entity = prop(event, 'entity');
     if (!entity) return;
-    const type = String(prop(entity, 'type') || '');
+    var type = String(prop(entity, 'type') || '');
     if (type.indexOf('pomkotsmechs') >= 0) event.setResult(Result.DENY);
-  } catch (x) { /* never let a handler fault reach the tick */ }
+  } catch (err) { console.error('[gscraft] mech griefing denial failed: ' + err); }
 });
 
 console.info('[gscraft] mech griefing denial armed (pomkotsmechs:*)');
