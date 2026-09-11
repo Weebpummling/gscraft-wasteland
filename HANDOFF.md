@@ -453,5 +453,13 @@ the hospital: `sk_out_w` x -784..-720, z -1148..-1100 (centre -752, -1124). The 
   `pass`/`passat`/`survey` were unreachable before this fix (Brigadier builds a child when it is attached).
 - **Tests**: `tools/war_phase4b.py`, then `war_phase4.py`, `war_phase3.py`, `war_phase2.py`. Needs a ticking world
   with nobody online (the 128-block despawn removes far-away test mobs).
+- **Fold-in step 1 (2026-09-10, owner: "fold in everything", "let In Control go"):** the hold, the locks, the mech
+  griefing rule, the Dead's drops and the projectile sweep are the mod's (`world/Hold`, `Locks`, `LockEvents`,
+  `Drops`, `ProjectileSweep`; data `gscraft_locks/`, `gscraft_drops/`). In Control and the four KubeJS files it
+  replaces are in `server/retired-mods-2026-09-10/` (not in the pack build yet - deploy gate). The hold is In
+  Control's three live rules verbatim: a bare `/summon` of a hostile is refused unless tagged `gs_placed`; the
+  Hordes player zombie is refused too, as before. `/gscraft hold off` lifts it for a test. The lock is the mast
+  field only; add the NPC pads to `gscraft_locks/camp.json` when `camp.py` builds them. The v6 tower rect the old
+  script locked (x 64..191 z -144..-17) protected nothing on v8. Test: `tools/war_phase5.py` first.
 - Eyes in the Darkness natural spawn is off locally (`eyesinthedarkness-server.toml`, backup `.bak-director`); the
   director places the Eyes instead.

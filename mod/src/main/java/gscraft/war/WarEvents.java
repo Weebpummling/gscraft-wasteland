@@ -40,7 +40,7 @@ import java.util.UUID;
 /** Game-bus hooks for the faction layer. */
 @Mod.EventBusSubscriber(modid = GscraftWar.MODID)
 public final class WarEvents {
-    /** Mod-placed Dead carry this tag; In Control's hold lets it through and refuses everything else hostile. */
+    /** Mod-placed Dead carry this tag; the hold ({@link gscraft.war.world.Hold}) lets it through and refuses everything else hostile. */
     public static final String PLACED_TAG = "gs_placed";
 
     /** how far an unsuppressed shot carries, and a suppressed one */
@@ -56,6 +56,8 @@ public final class WarEvents {
         event.addListener(new Factions());
         event.addListener(new Ranks());
         event.addListener(new gscraft.war.world.Zones());
+        event.addListener(new gscraft.war.world.Locks());
+        event.addListener(new gscraft.war.world.Drops());
     }
 
     /**

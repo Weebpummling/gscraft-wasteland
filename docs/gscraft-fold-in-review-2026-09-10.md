@@ -42,8 +42,8 @@ working: `function gscraft:tower_stage_N` as now, and `/gscraft site <id> <state
 
 One rule follows: tags live on players, so a team stage set while a member is offline would be missed. The mod keeps
 the team's state in SavedData as the record and re-applies the tags to every member on join; the tags are a projection,
-never the source. `[needs in-game check]` that KubeJS's own stage store on this pack is the same tags, so the existing
-`kubejs stage add` reward lines agree with the mod's.
+never the source. KubeJS's own stage store on this pack is the same tags (`TagWrapperStages`, read from its jar), so an
+existing `kubejs stage add` reward line and the mod agree.
 
 ## 3. The sort
 
@@ -123,6 +123,22 @@ never the source. `[needs in-game check]` that KubeJS's own stage store on this 
 | D3 | Survivors, keepers and vendors as a mod NPC with trade data, instead of villagers with rewritten NBT | **yes** |
 | D4 | Station, bulky rule and items in the mod (C1–C4) | **yes, after the loop**; plain material items may stay in KubeJS if the art pass prefers |
 | D5 | Elites and Captains native (W9), so Apotheosis keeps only the Salvaging Table | **confirm** |
+
+## 5a. Ruled and begun (owner, 2026-09-10)
+
+**D1–D5 all yes.** "Fold in everything." "Let In Control go. We're doing our own." On the quest book: no extra mod.
+FTB XMod Compat would only put KubeJS or Game Stages between the mod and the book; without it FTB Quests reads a
+stage as a player tag, and KubeJS's own store (`TagWrapperStages`, read from the jar) wraps the same tags, so the
+mod's tags and any leftover `kubejs stage add` line agree.
+
+**Step 1 done locally** (`tools/war_phase5.py`; phases 4b, 4, 3, 2 as regression): `world/Locks` + `LockEvents`
+(F16, data `gscraft_locks/camp.json`: the mast field; the mech griefing rule with it), `world/ProjectileSweep` (F17),
+`world/Hold` (R1: allow `gscraft:*`, allow `gs_placed`, deny every other hostile joining the overworld -
+In Control's three live rules, verbatim), `world/Drops` (R1: In Control's 65 loot rules as
+`gscraft_drops/dead.json`, unchanged until the loot design re-cuts them). Commands `/gscraft hold on|off|status`,
+`locks`, `drops <entity>`, `sweep`. Retired to `server/retired-mods-2026-09-10/`: the In Control jar and config,
+the four KubeJS files the mod replaces, and `spawns_on`/`spawns_off`. The pack build still lists In Control and
+the old scripts; that is a pack change and waits for the deploy gate.
 
 ## 6. Documents to update once ruled
 

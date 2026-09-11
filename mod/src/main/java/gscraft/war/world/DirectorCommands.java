@@ -20,7 +20,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.function.Function;
 
 /**
- * /gscraft zone|zones|env|director|garrison - how the director is inspected and exercised without a player standing
+ * /gscraft zone|zones|env|director|garrison|hold|locks|drops|sweep - how the director is inspected and exercised without a player standing
  * in the zone. Brigadier merges this with the other /gscraft subcommands.
  */
 @Mod.EventBusSubscriber(modid = GscraftWar.MODID)
@@ -92,6 +92,42 @@ public final class DirectorCommands {
                             say(ctx, "horrors placed " + n);
                             return n;
                         }))))
+                .then(Commands.literal("hold")
+                        .then(Commands.literal("on").executes(ctx -> {
+                            Hold.setEnabled(true);
+                            say(ctx, Hold.status());
+                            return 1;
+                        }))
+                        .then(Commands.literal("off").executes(ctx -> {
+                            Hold.setEnabled(false);
+                            say(ctx, Hold.status());
+                            return 1;
+                        }))
+                        .then(Commands.literal("status").executes(ctx -> {
+                            say(ctx, Hold.status());
+                            return 1;
+                        })))
+                .then(Commands.literal("locks").executes(ctx -> {
+                    say(ctx, Locks.all().isEmpty() ? "no locks" : Locks.all().stream()
+                            .map(l -> l.name() + " x " + l.x0() + ".." + l.x1() + " z " + l.z0() + ".." + l.z1())
+                            .reduce((a, b) -> a + "; " + b).orElse(""));
+                    return Locks.all().size();
+                }))
+                .then(Commands.literal("drops").then(Commands.argument("entity", StringArgumentType.greedyString()).executes(ctx -> {
+                    var rules = Drops.rulesFor(new net.minecraft.resources.ResourceLocation(StringArgumentType.getString(ctx, "entity")));
+                    say(ctx, rules.size() + " drop rules (" + Drops.types() + " entity types loaded): " + rules.stream()
+                            .map(d -> d.item().getPath() + " " + Math.round(d.chance() * 100) + "%")
+                            .reduce((a, b) -> a + ", " + b).orElse(""));
+                    return rules.size();
+                })))
+                .then(Commands.literal("sweep").executes(ctx -> {
+                    say(ctx, ProjectileSweep.status());
+                    return 1;
+                }).then(Commands.literal("age").then(Commands.argument("ticks", IntegerArgumentType.integer(1, 72000)).executes(ctx -> {
+                    ProjectileSweep.setMaxAge(IntegerArgumentType.getInteger(ctx, "ticks"));
+                    say(ctx, ProjectileSweep.status());
+                    return 1;
+                }))))
                 .then(Commands.literal("garrison")
                         .then(Commands.argument("zone", StringArgumentType.word())
                                 .then(Commands.literal("fill").executes(ctx -> garrison(ctx, false)))

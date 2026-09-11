@@ -1,0 +1,370 @@
+{
+  "note": "In Control's loot.json as it stood on 2026-09-10, moved here unchanged; the loot design re-cuts these into corpse tables (enemy review section 7)",
+  "drops": [
+    {
+      "entity": "minecraft:zombie",
+      "item": "minecraft:string",
+      "chance": 0.5
+    },
+    {
+      "entity": "minecraft:zombie",
+      "item": "minecraft:spider_eye",
+      "chance": 0.5
+    },
+    {
+      "entity": "minecraft:zombie",
+      "item": "minecraft:ender_pearl",
+      "chance": 0.04
+    },
+    {
+      "entity": "minecraft:zombie",
+      "item": "minecraft:gunpowder",
+      "chance": 0.4
+    },
+    {
+      "entity": "minecraft:zombie",
+      "item": "minecraft:bone",
+      "chance": 0.5
+    },
+    {
+      "entity": "minecraft:zombie",
+      "item": "superbwarfare:handgun_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie",
+      "item": "superbwarfare:rifle_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie",
+      "item": "superbwarfare:sniper_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie",
+      "item": "superbwarfare:shotgun_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie",
+      "item": "minecraft:bread",
+      "chance": 0.07,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie",
+      "item": "minecraft:baked_potato",
+      "chance": 0.05,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie",
+      "item": "minecraft:dried_kelp",
+      "chance": 0.05,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie",
+      "item": "minecraft:apple",
+      "chance": 0.05,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie_villager",
+      "item": "minecraft:string",
+      "chance": 0.5
+    },
+    {
+      "entity": "minecraft:zombie_villager",
+      "item": "minecraft:spider_eye",
+      "chance": 0.5
+    },
+    {
+      "entity": "minecraft:zombie_villager",
+      "item": "minecraft:ender_pearl",
+      "chance": 0.04
+    },
+    {
+      "entity": "minecraft:zombie_villager",
+      "item": "minecraft:gunpowder",
+      "chance": 0.6
+    },
+    {
+      "entity": "minecraft:zombie_villager",
+      "item": "minecraft:bone",
+      "chance": 0.3
+    },
+    {
+      "entity": "minecraft:zombie_villager",
+      "item": "superbwarfare:handgun_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie_villager",
+      "item": "superbwarfare:rifle_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie_villager",
+      "item": "superbwarfare:sniper_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie_villager",
+      "item": "superbwarfare:shotgun_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie_villager",
+      "item": "minecraft:bread",
+      "chance": 0.07,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie_villager",
+      "item": "minecraft:baked_potato",
+      "chance": 0.08,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie_villager",
+      "item": "minecraft:dried_kelp",
+      "chance": 0.05,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombie_villager",
+      "item": "minecraft:apple",
+      "chance": 0.08,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombified_piglin",
+      "item": "minecraft:string",
+      "chance": 0.5
+    },
+    {
+      "entity": "minecraft:zombified_piglin",
+      "item": "minecraft:spider_eye",
+      "chance": 0.5
+    },
+    {
+      "entity": "minecraft:zombified_piglin",
+      "item": "minecraft:ender_pearl",
+      "chance": 0.04
+    },
+    {
+      "entity": "minecraft:zombified_piglin",
+      "item": "minecraft:gunpowder",
+      "chance": 0.4
+    },
+    {
+      "entity": "minecraft:zombified_piglin",
+      "item": "minecraft:bone",
+      "chance": 0.5
+    },
+    {
+      "entity": "minecraft:zombified_piglin",
+      "item": "superbwarfare:handgun_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombified_piglin",
+      "item": "superbwarfare:rifle_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombified_piglin",
+      "item": "superbwarfare:sniper_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombified_piglin",
+      "item": "superbwarfare:shotgun_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombified_piglin",
+      "item": "minecraft:bread",
+      "chance": 0.12,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombified_piglin",
+      "item": "minecraft:baked_potato",
+      "chance": 0.05,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombified_piglin",
+      "item": "minecraft:dried_kelp",
+      "chance": 0.05,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:zombified_piglin",
+      "item": "minecraft:apple",
+      "chance": 0.05,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:husk",
+      "item": "minecraft:string",
+      "chance": 0.5
+    },
+    {
+      "entity": "minecraft:husk",
+      "item": "minecraft:spider_eye",
+      "chance": 0.25
+    },
+    {
+      "entity": "minecraft:husk",
+      "item": "minecraft:ender_pearl",
+      "chance": 0.04
+    },
+    {
+      "entity": "minecraft:husk",
+      "item": "minecraft:gunpowder",
+      "chance": 0.3
+    },
+    {
+      "entity": "minecraft:husk",
+      "item": "minecraft:bone",
+      "chance": 0.3
+    },
+    {
+      "entity": "minecraft:husk",
+      "item": "superbwarfare:handgun_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:husk",
+      "item": "superbwarfare:rifle_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:husk",
+      "item": "superbwarfare:sniper_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:husk",
+      "item": "superbwarfare:shotgun_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:husk",
+      "item": "minecraft:bread",
+      "chance": 0.05,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:husk",
+      "item": "minecraft:baked_potato",
+      "chance": 0.05,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:husk",
+      "item": "minecraft:dried_kelp",
+      "chance": 0.08,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:husk",
+      "item": "minecraft:apple",
+      "chance": 0.07,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:drowned",
+      "item": "minecraft:string",
+      "chance": 0.5
+    },
+    {
+      "entity": "minecraft:drowned",
+      "item": "minecraft:spider_eye",
+      "chance": 0.5
+    },
+    {
+      "entity": "minecraft:drowned",
+      "item": "minecraft:ender_pearl",
+      "chance": 0.04
+    },
+    {
+      "entity": "minecraft:drowned",
+      "item": "minecraft:gunpowder",
+      "chance": 0.25
+    },
+    {
+      "entity": "minecraft:drowned",
+      "item": "minecraft:bone",
+      "chance": 0.1
+    },
+    {
+      "entity": "minecraft:drowned",
+      "item": "superbwarfare:handgun_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:drowned",
+      "item": "superbwarfare:rifle_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:drowned",
+      "item": "superbwarfare:sniper_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:drowned",
+      "item": "superbwarfare:shotgun_ammo_box",
+      "chance": 0.02,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:drowned",
+      "item": "minecraft:bread",
+      "chance": 0.05,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:drowned",
+      "item": "minecraft:baked_potato",
+      "chance": 0.05,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:drowned",
+      "item": "minecraft:dried_kelp",
+      "chance": 0.08,
+      "count": 1
+    },
+    {
+      "entity": "minecraft:drowned",
+      "item": "minecraft:apple",
+      "chance": 0.05,
+      "count": 1
+    }
+  ]
+}

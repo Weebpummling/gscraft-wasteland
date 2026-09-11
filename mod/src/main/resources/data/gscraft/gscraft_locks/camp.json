@@ -1,0 +1,14 @@
+{
+  "locks": [
+    {
+      "name": "tower_compound",
+      "box": [
+        -840,
+        -770,
+        -1040,
+        -960
+      ],
+      "note": "the mast's field (skadowsky-camp section 3): the finale's fail rectangle; nothing changes a block here but a stage function or an op in creative"
+    }
+  ]
+}
