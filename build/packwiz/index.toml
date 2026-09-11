@@ -497,6 +497,10 @@ hash = "58d8d17d24f6651690abeb1535b4116f1d255b737541f6a6eba64e5b7da6aa3a"
 
 [[files]]
 file = "config/superbwarfare-server.toml"
+hash = "4e7a673dfebe106d503acc774efadf3a4d5d3f2588eb13a4084ef5c19af22d4e"
+
+[[files]]
+file = "config/superbwarfare-server.toml.bak-explosion"
 hash = "595ecb8acc60935faac10e9cf05f56a2b6702c5d2c26887648b22de084ad5f39"
 
 [[files]]
@@ -822,7 +826,7 @@ metafile = true
 
 [[files]]
 file = "mods/gscraft-0-1-0.pw.toml"
-hash = "4f83f78e0f8b83c5093b9f9d4e04a5e56702ddb03e43b5db56f54172fff4a063"
+hash = "735c789f2bbbc3d70c081d36b252d8e9d05630475e7e17107c166797de3ead6a"
 metafile = true
 
 [[files]]
@@ -1137,7 +1141,7 @@ metafile = true
 
 [[files]]
 file = "options.txt"
-hash = "708a4f17ea902ad99e5a637195145b44016c7590dac047fa14c4c271392b11ec"
+hash = "13654d4f98441ec5b6dcd3a2bf8356949e9bf06d0a5ea13536cabf4b679ef018"
 preserve = true
 
 [[files]]
