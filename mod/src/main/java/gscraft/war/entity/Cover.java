@@ -18,12 +18,12 @@ import net.minecraft.world.phys.Vec3;
  * works wins. About fifty raycasts per search, every second per fighter in a fight.
  */
 public final class Cover {
-    private static final int SAMPLES = 16;
-    private static final double MIN_R = 3.0D;
-    private static final double MAX_R = 10.0D;
+    public static int SAMPLES = 16;
+    public static double MIN_R = 3.0D;
+    public static double MAX_R = 10.0D;
     private static final double CHEST = 1.2D;
-    private static final double LEAN = 0.8D;
-    private static final double TOO_CLOSE = 5.0D;
+    public static double LEAN = 0.8D;
+    public static double TOO_CLOSE = 5.0D;
 
     /**
      * @param spot the block to stand on (feet)

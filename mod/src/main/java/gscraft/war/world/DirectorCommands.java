@@ -144,6 +144,8 @@ public final class DirectorCommands {
                             .reduce((a, b) -> a + ", " + b).orElse(""));
                     return rules.size();
                 })))
+                .then(Commands.literal("settings").executes(ctx -> settings(ctx, null))
+                        .then(Commands.argument("filter", StringArgumentType.greedyString()).executes(ctx -> settings(ctx, StringArgumentType.getString(ctx, "filter")))))
                 .then(Commands.literal("sweep").executes(ctx -> {
                     say(ctx, ProjectileSweep.status());
                     return 1;
@@ -428,6 +430,14 @@ public final class DirectorCommands {
                 return 1;
             }
         }
+    }
+
+    /** the settings in force (gscraft_settings/*.json over the code's defaults), filtered by a path prefix */
+    private static int settings(CommandContext<CommandSourceStack> ctx, String filter) {
+        java.util.List<String> lines = gscraft.war.world.Settings.describe(filter);
+        say(ctx, "settings from " + gscraft.war.world.Settings.applied() + (filter == null ? "" : ", " + filter + "*") + ": " + lines.size());
+        for (String l : lines) say(ctx, l);
+        return lines.size();
     }
 
     private static BlockPos surface(CommandContext<CommandSourceStack> ctx) {

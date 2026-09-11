@@ -239,6 +239,27 @@ AI is not in these numbers):
 So the director's own cost is nothing; the entity count is what scales, and it scales with how far apart the
 players are, not how many there are: a party shares one cap, a spread-out server tops out at the ceiling.
 
+**Settings as data (owner, 2026-09-11: "what else can go into settings instead of a jar update")** -
+`tools/war_phase11.py` 5 of 5:
+
+- `data/gscraft/gscraft_settings/*.json` (`world/Settings.java`, a reload listener like the zones). Every file is
+  applied in name order over the code's own numbers, so the jar's `defaults.json` documents the baseline and a
+  world datapack's `zz_live.json` carrying only the keys to change overrides it; `/reload` applies it, no jar.
+  Unknown keys are logged and ignored. `/gscraft settings [prefix]` prints what is in force, with the default
+  beside anything changed.
+- 117 values: the director (interval, sweep, both ceilings, the garrison wake and rest, horrors, the sealed share),
+  the three grounds (cap scale, radii, count box), the strongpoint loop's clocks and counts, the squads (size,
+  bounding, fall-back, patrol range), the fight (hold factor, reload, stances, cover timers), cover search,
+  grenades, callouts, how far a shot is heard, projectile age, and the whole role table (range, aim, bursts, pauses,
+  spread, hold-at for each of the six roles).
+- Not here: anything fixed on a body at spawn (follow range, health, kit) - those are attributes and rank data.
+- The server ceiling is 48 now (a five-player server on shared cores; 12 per player stays).
+
+The Bisect host, read from the panel: node la308, 8 GB, 8 vCPU threads (cpu limit 800 %), Java 17 image, Forge
+47.4.10 on live against 47.4.23 locally, 3.9 GB in use and 0.16 ms per tick with nobody on. The CPU model is not
+exposed by the panel; the per-fighter cost on the host is the number still to measure, with `forge tps` from the
+panel console during a busy evening.
+
 Next: step D (flanking, smoke) and E (doctrine as data) when the owner asks; the fold-in order continues with the
 quest-book stage bridge, survivors and vendors.
 

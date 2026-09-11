@@ -59,18 +59,18 @@ import java.util.Map;
 public final class Loop {
     public static final String WAVE_TAG = "gs_wave";
     public static final String GUARD_TAG = "gscraft_siteguard_";
-    static final int ASSAULT_TICKS = 6000;
-    static final int ASSAULT_WAVES = 6;
-    static final int WAVE_GAP = 900;
-    static final int FORTIFY_TICKS = 48000;
-    static final int WARNING_TICKS = 12000;
+    public static int ASSAULT_TICKS = 6000;
+    public static int ASSAULT_WAVES = 6;
+    public static int WAVE_GAP = 900;
+    public static int FORTIFY_TICKS = 48000;
+    public static int WARNING_TICKS = 12000;
     static final int TWO_MINUTES = 2400;
-    static final int DEFENCE_WAVES = 3;
-    static final int STRAGGLER_TICKS = 9600;
-    static final int LOSS_COUNT = 5;
-    static final int LOSS_TICKS = 600;
+    public static int DEFENCE_WAVES = 3;
+    public static int STRAGGLER_TICKS = 9600;
+    public static int LOSS_COUNT = 5;
+    public static int LOSS_TICKS = 600;
     static final int GUARD_EVERY = 600;
-    static final int GUARD_TARGET = 6;
+    public static int GUARD_TARGET = 6;
     /** the site guard: two recruits, a bowman, a shieldman, two Guard Villagers */
     private static final List<String> GUARD = List.of("recruits:recruit", "recruits:recruit", "recruits:bowman",
             "recruits:recruit_shieldman", "guardvillagers:guard", "guardvillagers:guard");
@@ -80,8 +80,8 @@ public final class Loop {
     private static int ticks;
     private static final Map<String, ServerBossEvent> bars = new HashMap<>();
     /** nobody within this of the fight: the clocks freeze; after AWAY_TICKS the wave is taken back */
-    static final int AWAY_RANGE = 128;
-    static final int AWAY_TICKS = 1200;
+    public static int AWAY_RANGE = 128;
+    public static int AWAY_TICKS = 1200;
     private static final Map<String, Integer> awayTicks = new HashMap<>();
 
     private Loop() {}

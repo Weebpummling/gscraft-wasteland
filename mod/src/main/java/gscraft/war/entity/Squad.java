@@ -29,14 +29,14 @@ public final class Squad {
     public enum Formation { WEDGE, LINE, COLUMN }
 
     private static final double REACH = 64.0D;
-    private static final int BOUND_EVERY = 80;
-    private static final double BOUND_STEP = 8.0D;
-    private static final double FALL_BACK_DIST = 20.0D;
-    private static final int FALL_BACK_EVERY = 1200;
+    public static int BOUND_EVERY = 80;
+    public static double BOUND_STEP = 8.0D;
+    public static double FALL_BACK_DIST = 20.0D;
+    public static int FALL_BACK_EVERY = 1200;
     private static final int PATROL_PICKUP_EVERY = 200;
     /** a patrol walks only with a player (or a phantom) this close; beyond it, it would only walk into the sweep */
-    public static final double PATROL_NEAR = 96.0D;
-    public static final int MAX_SIZE = 6;
+    public static double PATROL_NEAR = 96.0D;
+    public static int MAX_SIZE = 6;
 
     private Squad() {}
 
@@ -129,7 +129,7 @@ public final class Squad {
         Role role = ((GunUser) leader).role();
         double hold = role.range * role.holdAt;
         double dist = leader.distanceTo(target);
-        if (dist > hold * 1.2D && alive >= 2) {
+        if (dist > hold * GunAttackGoal.HOLD_FACTOR && alive >= 2) {
             // bounding overwatch: alternate teams by slot parity, swapping every four seconds
             if (now >= ls.nextBound) {
                 ls.boundTeam ^= 1;

@@ -47,8 +47,8 @@ public final class WarEvents {
     public static final String PLACED_TAG = "gs_placed";
 
     /** how far an unsuppressed shot carries, and a suppressed one */
-    private static final double LOUD = 64.0D;
-    private static final double SILENCED = 12.0D;
+    public static double LOUD = 64.0D;
+    public static double SILENCED = 12.0D;
     private static final Map<UUID, Long> LAST_SHOT_HEARD = new HashMap<>();
     private static long lastHearingLog;
 
@@ -62,6 +62,7 @@ public final class WarEvents {
         event.addListener(new gscraft.war.world.Locks());
         event.addListener(new gscraft.war.world.Drops());
         event.addListener(new gscraft.war.world.Sites());
+        event.addListener(new gscraft.war.world.Settings());
     }
 
     /**

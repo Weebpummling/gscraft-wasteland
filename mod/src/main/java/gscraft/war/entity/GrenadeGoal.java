@@ -19,12 +19,12 @@ import java.util.EnumSet;
  * on the bodies keeps its squad safe. Block damage is Superb Warfare's {@code explosion_destroy}, off on our servers.
  */
 public class GrenadeGoal extends Goal {
-    private static final double MIN_DIST = 8.0D;
-    private static final double MAX_DIST = 28.0D;
-    private static final int COOLDOWN = 600;
+    public static double MIN_DIST = 8.0D;
+    public static double MAX_DIST = 28.0D;
+    public static int COOLDOWN = 600;
     private static final int WINDUP = 15;
     private static final int FOLLOW_THROUGH = 25;
-    private static final float CHANCE_IN_THE_OPEN = 0.25F;
+    public static float CHANCE_IN_THE_OPEN = 0.25F;
     private static final Constructor<?> GRENADE = find();
     /** the fuse: the item calls this with 100 ticks after constructing the grenade; without it the grenade never detonates */
     private static final java.lang.reflect.Method SET_LIFE = findSetLife();

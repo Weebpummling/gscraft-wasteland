@@ -38,21 +38,23 @@ import java.util.EnumSet;
  * point and fires when it can. The Marksman goes flat to fire beyond 32 blocks (A3).
  */
 public class GunAttackGoal extends Goal {
-    private static final int RELOAD_TICKS = 50;
-    private static final int SUPPRESS_TICKS = 40;
+    public static int RELOAD_TICKS = 50;
+    /** cover is taken, and the squad stops bounding, inside range x hold_at x this */
+    public static double HOLD_FACTOR = 1.2D;
+    public static int SUPPRESS_TICKS = 40;
     private static final double RAD_TO_DEG = 180.0D / Math.PI;
-    private static final double MARKSMAN_MIN_DIST = 16.0D;
-    private static final double MARKSMAN_PRONE_DIST = 32.0D;
+    public static double MARKSMAN_MIN_DIST = 16.0D;
+    public static double MARKSMAN_PRONE_DIST = 32.0D;
     private static final double SHIELD_LOWER_DIST = 12.0D;
-    private static final double CROUCH_FIRE_DIST = 16.0D;
-    private static final float CROUCH_AT = 0.4F;
-    private static final float PINNED_AT = 0.8F;
+    public static double CROUCH_FIRE_DIST = 16.0D;
+    public static float CROUCH_AT = 0.4F;
+    public static float PINNED_AT = 0.8F;
     private static final int STRAFE_TICKS = 12;
     private static final int COVER_SEARCH_EVERY = 20;
-    private static final int COVER_LOST_TICKS = 40;
+    public static int COVER_LOST_TICKS = 40;
     private static final double COVER_ARRIVE = 1.6D;
     private static final int COVER_PATH_EVERY = 10;
-    private static final int COVER_TRAVEL_TICKS = 100;   // a spot not reached in five seconds is given up
+    public static int COVER_TRAVEL_TICKS = 100;   // a spot not reached in five seconds is given up
     private static final int LOW_BLOCKED_TICKS = 100;
     private static final double HOLD_COVER_REACH = 6.0D;
 
@@ -277,7 +279,7 @@ public class GunAttackGoal extends Goal {
         }
         // cover only once the fighter has closed to its holding distance (the squad bounds beyond it); a fighter that
         // dug in at forty blocks never advanced - the Marksman's hold is its full range, so it digs in where it stands
-        double hold = role.range * role.holdAt * 1.2D;
+        double hold = role.range * role.holdAt * HOLD_FACTOR;
         if (distSqr > hold * hold) return;
         if (--coverSearch > 0) return;
         coverSearch = COVER_SEARCH_EVERY;

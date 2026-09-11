@@ -5,7 +5,8 @@ import gscraft.war.GscraftWar;
 import java.util.Locale;
 
 /**
- * How a rank fights with its gun. The numbers are the behaviour; the rank data only names the role.
+ * How a rank fights with its gun. The numbers are the behaviour; the rank data only names the role, and
+ * gscraft_settings/*.json (roles.<role>.*) can change any of them without a jar.
  *
  * @param range     furthest a target is engaged, in blocks
  * @param aimTicks  line of sight needed before the first shot
@@ -24,14 +25,14 @@ public enum Role {
     /** looted guns, worse discipline */
     SCAVENGER(30.0F, 14, 2, 4, 25, 50, 4.0F, 0.6F);
 
-    public final float range;
-    public final int aimTicks;
-    public final int burstMin;
-    public final int burstMax;
-    public final int pauseMin;
-    public final int pauseMax;
-    public final float spread;
-    public final float holdAt;
+    public float range;
+    public int aimTicks;
+    public int burstMin;
+    public int burstMax;
+    public int pauseMin;
+    public int pauseMax;
+    public float spread;
+    public float holdAt;
 
     Role(float range, int aimTicks, int burstMin, int burstMax, int pauseMin, int pauseMax, float spread, float holdAt) {
         this.range = range;

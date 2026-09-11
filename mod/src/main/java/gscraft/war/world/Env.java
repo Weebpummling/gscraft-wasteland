@@ -34,11 +34,11 @@ public enum Env {
     private static final int LOOK_BURIED = 48;
     private static final int BURIED = 3;
 
-    public final double capScale;
-    public final int minR;
-    public final int maxR;
-    public final int countBox;
-    public final int countY;
+    public double capScale;
+    public int minR;
+    public int maxR;
+    public int countBox;
+    public int countY;
     public final int dyUp;
     public final int dyDown;
 

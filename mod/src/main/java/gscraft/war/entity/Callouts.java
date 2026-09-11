@@ -15,12 +15,12 @@ import java.util.Map;
  * with the fighter's name as its argument.
  */
 public final class Callouts {
-    private static final double EARSHOT = 24.0D;
+    public static double EARSHOT = 24.0D;
     /** the same line from the same fighter: once in thirty seconds (owner, 2026-09-10: they were too common) */
-    private static final int THROTTLE = 600;
+    public static int THROTTLE = 600;
     /** one voice per area: a callout within this of another in the last AREA_TICKS is dropped */
-    private static final double AREA = 20.0D;
-    private static final int AREA_TICKS = 60;
+    public static double AREA = 20.0D;
+    public static int AREA_TICKS = 60;
     private static final Map<String, Long> last = new HashMap<>();
     private static final java.util.List<Object[]> recent = new java.util.ArrayList<>();
 

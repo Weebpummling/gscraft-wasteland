@@ -26,8 +26,13 @@ import java.util.Set;
  */
 @Mod.EventBusSubscriber(modid = GscraftWar.MODID)
 public final class ProjectileSweep {
-    public static final int DEFAULT_MAX_AGE = 20 * 30;
+    public static int DEFAULT_MAX_AGE = 20 * 30;
     private static volatile int maxAge = DEFAULT_MAX_AGE;
+
+    public static void setDefaultMaxAge(int ticks) {
+        DEFAULT_MAX_AGE = Math.max(1, ticks);
+        maxAge = DEFAULT_MAX_AGE;
+    }
     private static final int EDGE_MARGIN = 40;
     private static final int EVERY = 5;
     private static final Set<String> SUPERBWARFARE = Set.of(

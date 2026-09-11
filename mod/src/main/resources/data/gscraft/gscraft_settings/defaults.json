@@ -1,0 +1,160 @@
+{
+  "_": "The numbers behind the war. Every file in gscraft_settings is applied in name order over the code's defaults; put a zz_live.json in the world datapack with only the keys to change, then /reload. /gscraft settings prints what is in force.",
+  "director": {
+    "interval_ticks": 200,
+    "sweep_blocks": 128,
+    "player_ceiling": 12,
+    "server_ceiling": 48,
+    "ceiling_box": 80,
+    "garrison_wake": 128,
+    "garrison_rest": 256,
+    "rest_passes": 3,
+    "horror_clear": 96,
+    "sealed_share": 0.2
+  },
+  "env": {
+    "open": {
+      "cap_scale": 1.0,
+      "min_r": 36,
+      "max_r": 72,
+      "count_box": 80,
+      "count_y": 12
+    },
+    "indoor": {
+      "cap_scale": 1.5,
+      "min_r": 6,
+      "max_r": 24,
+      "count_box": 28,
+      "count_y": 6
+    },
+    "underground": {
+      "cap_scale": 1.5,
+      "min_r": 6,
+      "max_r": 24,
+      "count_box": 28,
+      "count_y": 8
+    }
+  },
+  "loop": {
+    "assault_ticks": 6000,
+    "assault_waves": 6,
+    "wave_gap_ticks": 900,
+    "fortify_ticks": 48000,
+    "warning_ticks": 12000,
+    "defence_waves": 3,
+    "straggler_ticks": 9600,
+    "loss_count": 5,
+    "loss_ticks": 600,
+    "guard_target": 6,
+    "away_range": 128,
+    "away_ticks": 1200
+  },
+  "squads": {
+    "max_size": 6,
+    "bound_every_ticks": 80,
+    "bound_step": 8.0,
+    "fall_back_blocks": 20.0,
+    "fall_back_every_ticks": 1200,
+    "patrol_near": 96.0
+  },
+  "fight": {
+    "hold_factor": 1.2,
+    "reload_ticks": 50,
+    "marksman_prone_dist": 32.0,
+    "marksman_min_dist": 16.0,
+    "crouch_fire_dist": 16.0,
+    "crouch_at": 0.4,
+    "pinned_at": 0.8,
+    "cover_lost_ticks": 40,
+    "cover_travel_ticks": 100,
+    "suppress_ticks": 40
+  },
+  "cover": {
+    "samples": 16,
+    "min_r": 3.0,
+    "max_r": 10.0,
+    "lean": 0.8,
+    "too_close": 5.0
+  },
+  "grenades": {
+    "min_dist": 8.0,
+    "max_dist": 28.0,
+    "cooldown_ticks": 600,
+    "chance": 0.25
+  },
+  "callouts": {
+    "throttle_ticks": 600,
+    "earshot": 24.0,
+    "area": 20.0,
+    "area_ticks": 60
+  },
+  "sounds": {
+    "loud": 64.0,
+    "silenced": 12.0
+  },
+  "projectiles": {
+    "max_age_ticks": 600
+  },
+  "roles": {
+    "rifleman": {
+      "range": 40.0,
+      "aim_ticks": 12,
+      "burst_min": 3,
+      "burst_max": 6,
+      "pause_min": 20,
+      "pause_max": 45,
+      "spread": 2.5,
+      "hold_at": 0.6
+    },
+    "sergeant": {
+      "range": 40.0,
+      "aim_ticks": 12,
+      "burst_min": 3,
+      "burst_max": 6,
+      "pause_min": 20,
+      "pause_max": 45,
+      "spread": 2.0,
+      "hold_at": 0.6
+    },
+    "marksman": {
+      "range": 64.0,
+      "aim_ticks": 40,
+      "burst_min": 1,
+      "burst_max": 1,
+      "pause_min": 30,
+      "pause_max": 50,
+      "spread": 0.6,
+      "hold_at": 1.0
+    },
+    "gunner": {
+      "range": 40.0,
+      "aim_ticks": 16,
+      "burst_min": 8,
+      "burst_max": 15,
+      "pause_min": 30,
+      "pause_max": 60,
+      "spread": 4.0,
+      "hold_at": 0.7
+    },
+    "shield": {
+      "range": 24.0,
+      "aim_ticks": 10,
+      "burst_min": 1,
+      "burst_max": 3,
+      "pause_min": 15,
+      "pause_max": 30,
+      "spread": 3.0,
+      "hold_at": 0.4
+    },
+    "scavenger": {
+      "range": 30.0,
+      "aim_ticks": 14,
+      "burst_min": 2,
+      "burst_max": 4,
+      "pause_min": 25,
+      "pause_max": 50,
+      "spread": 4.0,
+      "hold_at": 0.6
+    }
+  }
+}

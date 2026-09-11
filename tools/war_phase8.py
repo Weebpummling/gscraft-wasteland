@@ -96,7 +96,7 @@ for i in range(24):
     trail.append((m.group(1)[:18] + "/" + m.group(2)) if m else "?")
 hp = health("@e[tag=p8t,limit=1]")
 check("a rifleman under fire takes cover behind the wall and keeps firing from the lean",
-      seen_cover != "none" and hidden_samples >= 8 and hp is not None and hp < 2000.0,
+      seen_cover != "none" and hidden_samples >= 6 and hp is not None and hp < 2000.0,   # the pause counts down behind cover now, so the lean comes sooner and the hidden share is lower
       f"cover chosen {seen_cover}; hidden in {hidden_samples} of 24 samples; target health {hp}; trail {' '.join(trail[-8:])}")
 clear()
 

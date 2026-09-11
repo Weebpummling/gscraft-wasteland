@@ -61,10 +61,10 @@ import java.util.Set;
  */
 @Mod.EventBusSubscriber(modid = GscraftWar.MODID)
 public final class Director {
-    public static final int INTERVAL = 200;
+    public static int INTERVAL = 200;
     private static final int TRIES = 10;
-    private static final int HORROR_CLEAR = 96;
-    private static final int GARRISON_WAKE = 128;
+    public static int HORROR_CLEAR = 96;
+    public static int GARRISON_WAKE = 128;
     private static final String GARRISON_TAG = "gs_garrison_";
     private static final String LAIR_TAG = "gs_lair_";
     /** a horror: placed on its own rule (one within 96), swept like the rest, not counted against the ambient cap */
@@ -72,7 +72,7 @@ public final class Director {
     /** marks a creature placed behind shut doors, out of the player's reach (owner, 2026-09-10: a small share) */
     public static final String SEALED_TAG = "gs_sealed";
     /** the share of indoor and underground placements allowed to skip the walk-to-the-player rule */
-    private static final float SEALED_SHARE = 0.2F;
+    public static float SEALED_SHARE = 0.2F;
     /** a zone entry naming this places a zombie horse with one of the Dead riding it */
     public static final ResourceLocation RIDER = new ResourceLocation(GscraftWar.MODID, "rider");
 
@@ -83,15 +83,15 @@ public final class Director {
     private static long refused;
     private static long swept;
     /** an ambient placement further than this from every player is taken back - after a second pass still out of range */
-    private static final int SWEEP = 128;
+    public static int SWEEP = 128;
     /** director creatures of every kind allowed around one player, whatever the ground; and on the whole server */
-    public static final int PLAYER_CEILING = 12;
-    public static final int SERVER_CEILING = 96;
-    private static final int CEILING_BOX = 80;
+    public static int PLAYER_CEILING = 12;
+    public static int SERVER_CEILING = 48;   // a five-player server on shared cores (owner, 2026-09-11)
+    public static int CEILING_BOX = 80;
     private static final int CEILING_Y = 32;
     /** a garrison or lair with nobody this close for three passes is taken back; the wake logic re-places it */
-    private static final int GARRISON_REST = 256;
-    private static final int REST_PASSES = 3;
+    public static int GARRISON_REST = 256;
+    public static int REST_PASSES = 3;
     /** the sweep's grace: ids seen out of range on the last pass */
     private static Set<java.util.UUID> outLast = new HashSet<>();
     private static final java.util.Map<String, Integer> restPasses = new java.util.HashMap<>();

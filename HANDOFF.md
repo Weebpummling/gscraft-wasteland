@@ -518,5 +518,11 @@ the hospital: `sk_out_w` x -784..-720, z -1148..-1100 (centre -752, -1124). The 
   shares one cap). TRAP: a mob killed in a loaded chunk that does not tick never finishes dying; the body is invisible
   to `@e` but counted by any Java count that skips `isAlive` - every count asks now and the sweep discards bodies.
   `/gscraft director census <x y z>` shows what a cap counts. Test: `tools/war_phase10.py`, then 9 and the rest.
+- **Settings as data (2026-09-11, local only):** `gscraft_settings/defaults.json` in the jar holds 117 numbers
+  (director, grounds, loop clocks, squads, fight, cover, grenades, callouts, sounds, projectiles, the role table);
+  a world datapack file `data/gscraft/gscraft_settings/zz_live.json` with only the keys to change overrides it on
+  `/reload` (panel console on live). `/gscraft settings [prefix]` shows what is in force. Server ceiling 48, player
+  ceiling 12. Test: `tools/war_phase11.py`. Bisect host from the panel: node la308, 8 GB, 8 vCPU threads, Forge
+  47.4.10 (local is 47.4.23), 0.16 ms per tick idle.
 - Eyes in the Darkness natural spawn is off locally (`eyesinthedarkness-server.toml`, backup `.bak-director`); the
   director places the Eyes instead.
