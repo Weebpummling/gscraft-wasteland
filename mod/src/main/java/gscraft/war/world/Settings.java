@@ -121,6 +121,14 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         i("fight.surprise_hold_ticks", () -> GunAttackGoal.SURPRISE_HOLD, v -> GunAttackGoal.SURPRISE_HOLD = (int) v, "a hit on a fighter with no target drops it flat this long");
         d("fight.slide_dist", () -> GunAttackGoal.SLIDE_DIST, v -> GunAttackGoal.SLIDE_DIST = v, "the last blocks into cover are a slide (the clip) at slide_speed x the walk");
         d("fight.slide_speed", () -> GunAttackGoal.SLIDE_SPEED, v -> GunAttackGoal.SLIDE_SPEED = v, "1.0 leaves the walk alone; more overshoots the stand spot");
+        d("armour.engage", () -> gscraft.war.armour.FightGoal.ENGAGE, v -> gscraft.war.armour.FightGoal.ENGAGE = v, "a crew fights what it sees inside this many blocks");
+        i("armour.lost_ticks", () -> gscraft.war.armour.FightGoal.LOST_TICKS, v -> gscraft.war.armour.FightGoal.LOST_TICKS = (int) v, "a target out of the turret's sight this long is dropped");
+        d("armour.friendly_radius", () -> gscraft.war.armour.FightGoal.FRIENDLY_RADIUS, v -> gscraft.war.armour.FightGoal.FRIENDLY_RADIUS = v, "fire is held while an ally stands this close to the line of fire");
+        d("armour.retreat_share", () -> gscraft.war.armour.FightGoal.RETREAT_SHARE, v -> gscraft.war.armour.FightGoal.RETREAT_SHARE = (float) v, "below this share of health the driver withdraws");
+        i("armour.retreat_ticks", () -> gscraft.war.armour.FightGoal.RETREAT_TICKS, v -> gscraft.war.armour.FightGoal.RETREAT_TICKS = (int) v, "how long the withdrawal drives");
+        i("armour.calm_ticks", () -> gscraft.war.armour.FightGoal.CALM_TICKS, v -> gscraft.war.armour.FightGoal.CALM_TICKS = (int) v, "no fighting for this long after a withdrawal");
+        d("armour.arrive", () -> gscraft.war.armour.DriveGoal.ARRIVE, v -> gscraft.war.armour.DriveGoal.ARRIVE = v, "a waypoint counts as reached inside this many blocks");
+        d("armour.sprint_beyond", () -> gscraft.war.armour.DriveGoal.SPRINT_BEYOND, v -> gscraft.war.armour.DriveGoal.SPRINT_BEYOND = v, "the drive sprints when the waypoint is further than this and the hull is lined up");
         i("fight.cover_lost_ticks", () -> GunAttackGoal.COVER_LOST_TICKS, v -> GunAttackGoal.COVER_LOST_TICKS = (int) v, "cover seen into for this long is dropped");
         i("fight.cover_travel_ticks", () -> GunAttackGoal.COVER_TRAVEL_TICKS, v -> GunAttackGoal.COVER_TRAVEL_TICKS = (int) v, "cover not reached in this long is dropped");
         i("fight.suppress_ticks", () -> GunAttackGoal.SUPPRESS_TICKS, v -> GunAttackGoal.SUPPRESS_TICKS = (int) v, "the Gunner keeps firing at a lost target for this long");

@@ -249,3 +249,38 @@ without movement, the waypoint skipped after three of those. Test `tools/war_pha
 80 x 40 route drove the loop in 22 s on the flat, no waypoint given up. The crew shows in `/gscraft fighter`-style
 readouts as a faction member, so fighters and players target it (and so shoot the immune hull - V3's business).
 
+## 11. V3 results (2026-09-12, local server)
+
+**The mod has the gunner already.** `baseTick` walks the seats: an entity that is a `Mob` with a mob target, whose
+seat has a weapon with ammunition, is turned to look at its target and, once the barrel is within four degrees of
+it, `vehicleShoot` fires at the weapon's own rate. The commander's station does the same for its seat. So the crew
+never fires anything: `armour/FightGoal` picks the target (nearest hostile within `armour.engage` with a line from
+the turret), gives it to the mod as the turret's or the station's aim target and as the crew's own mob target,
+halts the hull (the driver), picks the weapon (a missile for armour where the seat has one, else the cannon) and the
+mod does the rest. A tank with a commander's station gets two crews: the driver in seat 0 and a gunner in the
+station's seat, each with its own target.
+
+**Ammunition.** An empty vehicle fires nothing: `canShoot` reads the vehicle's own 54-slot inventory. `Armour.arm`
+loads it at spawn (`/gscraft vehicle arm` for one already there): tanks 64 HE and 16 AP large shells, rifle and
+heavy rounds for the two machine guns; IFVs 128 HE and 64 AP small shells, 8 anti-ground missiles, rifle rounds.
+HE first in the slots, so the gun fires HE at infantry.
+
+**The hold.** An ally within `armour.friendly_radius` of the line of fire and short of the target clears both the
+mob target and the aim target (the laid turret fires by itself at its aim target); with them cleared the target's
+health stayed flat for six seconds with the ally in the line. A halted hull coasts for a couple of seconds, so a
+hold declared while it coasts can release as the line moves - real, and right.
+
+**The retreat.** Below `armour.retreat_share` of health, or with the turret gone, the driver drives away from the
+last target at a sprint for `armour.retreat_ticks` and does not fight for `armour.calm_ticks` after; an engine that
+is gone means it sits and fights. A 900 explosion took a T-90A to 165 and it drove from 30 to 68 blocks off in ten
+seconds. A 1 800 explosion is a kill (the list is not linear: 100 → 23, 900 → 335, 1 800 → 712).
+
+**Both gun mods.** The override now zeroes `#tacz:bullets` and the four Superb Warfare gunfire types (plain,
+headshot, and the two armour-piercing "absolute" ones). TACZ's explosive rounds explode as `minecraft:explosion`
+(`ExplodeUtil` passes no damage source), so a 40 mm or an RPG-7 keeps its ×2 on the tanks and ×6 on the IFVs;
+Superb Warfare's grenades, rockets and mines have their own types and keep theirs. Confirmed by `tools/war_phase18.py`
+part 5 on a live T-90A: five gun types 0.0, three blast types 9 to 23.
+
+**Test traps.** `/fill` refuses more than 32 768 blocks and a script never sees it: three vehicle arenas left a
+two-block stone slab that the tank drove onto and that blocked the sight line. `localtest.fill` slices every fill.
+

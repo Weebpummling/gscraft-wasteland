@@ -162,3 +162,35 @@ def main(argv):
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv))
+
+
+FILL_LIMIT = 32768
+
+
+def fill(rcon, x0, y0, z0, x1, y1, z1, block, mode=""):
+    """/fill in slices that stay under the command's 32768-block limit (a bigger fill fails silently in a script).
+    mode "hollow" is done as the six faces so the limit holds for any size."""
+    x0, x1 = sorted((x0, x1)); y0, y1 = sorted((y0, y1)); z0, z1 = sorted((z0, z1))
+    if mode == "hollow":
+        fill(rcon, x0, y0, z0, x1, y0, z1, block)           # floor of the shell
+        if y1 > y0: fill(rcon, x0, y1, z0, x1, y1, z1, block)   # top
+        for y in range(y0 + 1, y1):
+            fill(rcon, x0, y, z0, x1, y, z0, block); fill(rcon, x0, y, z1, x1, y, z1, block)
+            fill(rcon, x0, y, z0, x0, y, z1, block); fill(rcon, x1, y, z0, x1, y, z1, block)
+        return
+    dx, dz = x1 - x0 + 1, z1 - z0 + 1
+    rows = max(1, FILL_LIMIT // (dx * dz))       # y-layers per command
+    y = y0
+    while y <= y1:
+        yy = min(y1, y + rows - 1)
+        if dx * dz > FILL_LIMIT:
+            step = max(1, FILL_LIMIT // dz)
+            x = x0
+            while x <= x1:
+                xx = min(x1, x + step - 1)
+                rcon.cmd(f"fill {x} {y} {z0} {xx} {yy} {z1} {block}", timeout=60)
+                x = xx + 1
+        else:
+            rcon.cmd(f"fill {x0} {y} {z0} {x1} {yy} {z1} {block}", timeout=60)
+        y = yy + 1
+

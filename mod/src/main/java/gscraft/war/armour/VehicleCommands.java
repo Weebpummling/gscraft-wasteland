@@ -107,6 +107,12 @@ public final class VehicleCommands {
                         .then(Commands.literal("spawn").then(Commands.argument("type", ResourceLocationArgument.id())
                                 .then(Commands.argument("faction", StringArgumentType.word()).executes(ctx -> spawn(ctx, ctx.getSource().getPosition()))
                                         .then(Commands.argument("pos", Vec3Argument.vec3()).executes(ctx -> spawn(ctx, Vec3Argument.getVec3(ctx, "pos")))))))
+                        .then(Commands.literal("arm").then(Commands.argument("vehicle", EntityArgument.entity()).executes(ctx -> {
+                            Entity v = vehicle(ctx);
+                            int n = Armour.arm(v);
+                            say(ctx, n + " stacks of ammunition into " + v.getName().getString() + "; slot 0 now " + Vehicles.getItem(v, 0).getHoverName().getString() + " x" + Vehicles.getItem(v, 0).getCount());
+                            return n;
+                        })))
                         .then(Commands.literal("crew").then(Commands.argument("vehicle", EntityArgument.entity())
                                 .then(Commands.argument("faction", StringArgumentType.word()).executes(ctx -> {
                                     Entity v = vehicle(ctx);

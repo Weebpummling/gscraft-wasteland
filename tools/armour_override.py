@@ -6,6 +6,9 @@ copied out of the jar with our damage-modifier changes, as a world datapack that
 
 Changes made to each vehicle's DamageModifiers, in front of the mod's own list (an immunity holds wherever it sits):
   "#tacz:bullets 0"    every TACZ bullet type does nothing (small-arms immunity)
+  "superbwarfare:gunfire* 0"  and every Superb Warfare gun round, plain, headshot or armour-piercing (owner: both gun mods)
+TACZ's explosive rounds explode as minecraft:explosion and Superb Warfare's grenades, rockets and mines have their
+own types, so every explosive keeps the mod's own multiplier.
 The explosive multipliers stay the mod's until the V1 numbers are settled; add them to CHANGES when they are.
 Rerun after a Superb Warfare update: the rest of each file is the jar's, so the mod's own changes come through.
 """
@@ -21,7 +24,8 @@ OUT = Path(__file__).resolve().parents[1] / "build" / "local-datapack" / "gscraf
 WORLD = Path("G:/GSCraft/server/wasteland-v8/datapacks/gscraft_armour")
 VEHICLES = ["bmp_2", "bradley", "t_90a", "m_1a_2"]
 CHANGES = {
-    "prepend": ["#tacz:bullets 0"],
+    "prepend": ["#tacz:bullets 0", "superbwarfare:gunfire 0", "superbwarfare:gunfire_headshot 0",
+                "superbwarfare:gunfire_absolute 0", "superbwarfare:gunfire_headshot_absolute 0"],
 }
 
 

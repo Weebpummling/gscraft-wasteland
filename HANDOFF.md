@@ -437,6 +437,14 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, armour V3 done (local):** `armour/FightGoal` + `RetreatGoal`, the gunner crew for tanks with a
+commander's station, `Armour.arm` (ammunition into the vehicle inventory at spawn; `/gscraft vehicle arm`), settings
+`armour.*` (engage, lost_ticks, friendly_radius, retreat_share, retreat_ticks, calm_ticks, arrive, sprint_beyond),
+the override now zeroes both gun mods' rounds and none of the explosives (owner: "make sure it works with both gun
+mods"). `tools/war_phase18.py` green (halt and fire, the hold, the resume, the withdrawal, the immunity table);
+design §11. `localtest.fill` slices fills under the 32 768-block limit - the old arenas' clears had been failing
+silently. Not on live. Next: V4, the players' chat messages and the bar from the vehicle's hurt event.
+
 **2026-09-12, armour V2 done (local):** `gscraft:crew` + `armour/DriveGoal`, `/gscraft vehicle spawn|crew|route`;
 `tools/war_phase17.py` green (a BMP-2 drives a four-corner loop by itself in 22 s; the crew is unhittable and goes
 with the vehicle). Design §10. Jar on the local server and WarTest, not on live; the crew type is new client-side

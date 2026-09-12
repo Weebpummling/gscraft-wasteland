@@ -19,24 +19,33 @@ import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The crew of a Superb Warfare vehicle (armour design §2, V2): an invisible, silent, unhittable mob that rides the
- * driver's seat and writes the vehicle's inputs. The vehicle only drives, aims and fires with a mob in that seat
- * (§9), so this is the passenger the mod wants. It is a faction member like a Soldier, so targeting, hearing, the
- * hold and the sweep already know it; it dies with the vehicle and never otherwise.
+ * The crew of a Superb Warfare vehicle (armour design §2, V2/V3): an invisible, silent, unhittable mob that rides
+ * a seat and works the vehicle. The vehicle only drives, aims and fires with a mob in the seat (§9), and the mod's
+ * own tick fires a seat's weapon at the mob's target once the turret is laid, so the crew's goals choose targets,
+ * halt, choose the weapon and withdraw; the mod does the rest. The driver sits in seat 0 and drives; a gunner (on
+ * a tank with a commander's station) sits in that station's seat and only fights. It is a faction member like a
+ * Soldier, so targeting, hearing, the hold and the sweep already know it; it dies with the vehicle and never
+ * otherwise.
  */
 public class Crew extends Mob implements FactionMember {
     private static final EntityDataAccessor<String> FACTION = SynchedEntityData.defineId(Crew.class, EntityDataSerializers.STRING);
+    private static final EntityDataAccessor<Boolean> GUNNER = SynchedEntityData.defineId(Crew.class, EntityDataSerializers.BOOLEAN);
     /** ticks without a vehicle under it before it is gone (a dismount by anything but us is a bug, not a state) */
     private static final int GRACE = 40;
 
     /** the route the drive goal follows, looped; empty = sit */
     public final List<BlockPos> route = new ArrayList<>();
     public int routeIndex;
+    /** the retreat: driving away from the threat until this tick, then no fighting until calmUntil */
+    public long retreatUntil;
+    public long calmUntil;
+    public Vec3 threat;
     private int unseated;
 
     public Crew(EntityType<? extends Crew> type, Level level) {
@@ -59,11 +68,14 @@ public class Crew extends Mob implements FactionMember {
     protected void defineSynchedData() {
         super.defineSynchedData();
         entityData.define(FACTION, "");
+        entityData.define(GUNNER, false);
     }
 
     @Override
     protected void registerGoals() {
-        goalSelector.addGoal(1, new DriveGoal(this));
+        goalSelector.addGoal(0, new RetreatGoal(this));
+        goalSelector.addGoal(1, new FightGoal(this));
+        goalSelector.addGoal(2, new DriveGoal(this));
     }
 
     public void setFaction(String faction) {
@@ -76,10 +88,36 @@ public class Crew extends Mob implements FactionMember {
         return f.isEmpty() ? null : f;
     }
 
+    public boolean gunner() {
+        return entityData.get(GUNNER);
+    }
+
+    public void setGunner(boolean gunner) {
+        entityData.set(GUNNER, gunner);
+        goalSelector.removeAllGoals(g -> true);
+        registerGoals();
+    }
+
     /** the vehicle under it, or null */
     public Entity vehicle() {
         Entity v = getVehicle();
         return v != null && Vehicles.isVehicle(v) ? v : null;
+    }
+
+    public boolean retreating(long now) {
+        return now < retreatUntil;
+    }
+
+    public boolean calm(long now) {
+        return now < calmUntil;
+    }
+
+    public void startRetreat(long now, Vec3 from) {
+        retreatUntil = now + FightGoal.RETREAT_TICKS;
+        calmUntil = retreatUntil + FightGoal.CALM_TICKS;
+        threat = from;
+        Entity v = vehicle();
+        GscraftWar.LOG.info("[gscraft] {} withdraws ({} health)", v == null ? "crew" : v.getName().getString(), v == null ? "?" : String.format("%.0f", Vehicles.health(v)));
     }
 
     @Override
@@ -143,6 +181,7 @@ public class Crew extends Mob implements FactionMember {
     public void addAdditionalSaveData(CompoundTag tag) {
         super.addAdditionalSaveData(tag);
         tag.putString("GscraftFaction", entityData.get(FACTION));
+        tag.putBoolean("GscraftGunner", gunner());
         ListTag list = new ListTag();
         for (BlockPos p : route) list.add(NbtUtils.writeBlockPos(p));
         tag.put("GscraftRoute", list);
@@ -153,6 +192,7 @@ public class Crew extends Mob implements FactionMember {
     public void readAdditionalSaveData(CompoundTag tag) {
         super.readAdditionalSaveData(tag);
         entityData.set(FACTION, tag.getString("GscraftFaction"));
+        setGunner(tag.getBoolean("GscraftGunner"));
         route.clear();
         for (Tag t : tag.getList("GscraftRoute", Tag.TAG_COMPOUND)) route.add(NbtUtils.readBlockPos((CompoundTag) t));
         routeIndex = tag.getInt("GscraftRouteIndex");

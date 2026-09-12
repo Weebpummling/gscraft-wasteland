@@ -158,9 +158,76 @@ public final class Vehicles {
         return r instanceof Float f ? f : Float.NaN;
     }
 
-    /** the AI turret: the target it lays on by itself; null clears it */
+    /** the AI turret: the target it lays on by itself; null clears it (the mod's own empty value is the word undefined) */
     public static boolean setTurretTarget(Entity v, UUID target) {
-        return setData(v, "AI_TURRET_TARGET_UUID", target == null ? "" : target.toString());
+        return setData(v, "AI_TURRET_TARGET_UUID", target == null ? "undefined" : target.toString());
+    }
+
+    // ---- seats and weapons
+
+    public static int seatIndex(Entity v, Entity passenger) {
+        Object r = call(v, "getSeatIndex", new Class<?>[] {Entity.class}, passenger);
+        return r instanceof Integer i ? i : -1;
+    }
+
+    public static boolean hasPassengerWeaponStation(Entity v) {
+        Object r = call(v, "hasPassengerWeaponStation", new Class<?>[0]);
+        return r instanceof Boolean b && b;
+    }
+
+    public static int passengerWeaponSeat(Entity v) {
+        Object r = call(v, "getPassengerWeaponStationControllerIndex", new Class<?>[0]);
+        return r instanceof Integer i ? i : -1;
+    }
+
+    public static int turretSeat(Entity v) {
+        Object r = call(v, "getTurretControllerIndex", new Class<?>[0]);
+        return r instanceof Integer i ? i : 0;
+    }
+
+    /** the names of a seat's weapons, from the vehicle's data (Cannon, MachineGun, Missile ...); null when unreadable */
+    @SuppressWarnings("unchecked")
+    public static java.util.List<String> seatWeapons(Entity v, int seat) {
+        try {
+            Object data = v.getClass().getMethod("computed").invoke(v);
+            java.util.List<Object> seats = (java.util.List<Object>) data.getClass().getMethod("seats").invoke(data);
+            if (seat < 0 || seat >= seats.size()) return null;
+            Object info = seats.get(seat);
+            Object weapons = info.getClass().getMethod("weapons").invoke(info);
+            return weapons instanceof java.util.List<?> l ? (java.util.List<String>) l : null;
+        } catch (ReflectiveOperationException | RuntimeException ex) {
+            return null;
+        }
+    }
+
+    public static int selectedWeapon(Entity v, int seat) {
+        Object r = call(v, "getSelectedWeapon", new Class<?>[] {int.class}, seat);
+        return r instanceof Integer i ? i : -1;
+    }
+
+    public static void changeWeapon(Entity v, int seat, int index) {
+        call(v, "changeWeapon", new Class<?>[] {int.class, int.class, boolean.class}, seat, index, true);
+    }
+
+    // ---- the inventory (ammunition)
+
+    public static int containerSize(Entity v) {
+        Object r = call(v, "getContainerSize", new Class<?>[0]);
+        return r instanceof Integer i ? i : 0;
+    }
+
+    public static boolean setItem(Entity v, int slot, net.minecraft.world.item.ItemStack stack) {
+        return hasMethod(v, "setItem", int.class, net.minecraft.world.item.ItemStack.class) && call(v, "setItem", new Class<?>[] {int.class, net.minecraft.world.item.ItemStack.class}, slot, stack) == null && true;
+    }
+
+    public static net.minecraft.world.item.ItemStack getItem(Entity v, int slot) {
+        Object r = call(v, "getItem", new Class<?>[] {int.class}, slot);
+        return r instanceof net.minecraft.world.item.ItemStack st ? st : net.minecraft.world.item.ItemStack.EMPTY;
+    }
+
+    public static String vehicleType(Entity v) {
+        Object r = call(v, "getVehicleType", new Class<?>[0]);
+        return r == null ? "?" : r.toString();
     }
 
     public static String turretTarget(Entity v) {
@@ -168,7 +235,7 @@ public final class Vehicles {
     }
 
     public static boolean setPassengerWeaponTarget(Entity v, UUID target) {
-        return setData(v, "AI_PASSENGER_WEAPON_TARGET_UUID", target == null ? "" : target.toString());
+        return setData(v, "AI_PASSENGER_WEAPON_TARGET_UUID", target == null ? "undefined" : target.toString());
     }
 
     /** what the mod's modifier list would make of this source and amount, without applying it */

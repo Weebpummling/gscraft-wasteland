@@ -465,6 +465,10 @@
   "Mass": 70,
   "DamageModifiers": [
     "#tacz:bullets 0",
+    "superbwarfare:gunfire 0",
+    "superbwarfare:gunfire_headshot 0",
+    "superbwarfare:gunfire_absolute 0",
+    "superbwarfare:gunfire_headshot_absolute 0",
     "minecraft:arrow 0",
     "minecraft:trident 0",
     "minecraft:mob_attack 0",

@@ -199,5 +199,15 @@
     "bandage_ticks": 40,
     "bandage_heal": 4.0,
     "debug": 0
+  },
+  "armour": {
+    "engage": 64.0,
+    "lost_ticks": 100,
+    "friendly_radius": 2.5,
+    "retreat_share": 0.33,
+    "retreat_ticks": 200,
+    "calm_ticks": 600,
+    "arrive": 5.0,
+    "sprint_beyond": 16.0
   }
 }

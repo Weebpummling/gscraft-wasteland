@@ -65,10 +65,10 @@ def moved_lines(mark):
 c(f"forceload add {X - 64} {Z - 64} {X + 64} {Z + 64}")
 time.sleep(5)
 clear()
-c(f"fill {X - 60} {Y - 1} {Z - 30} {X + 60} {Y + 6} {Z + 30} minecraft:air")
-c(f"fill {X - 60} {Y - 1} {Z - 30} {X + 60} {Y - 1} {Z + 30} minecraft:stone")
-c(f"fill {X - 61} {Y} {Z - 31} {X + 61} {Y + 1} {Z + 31} minecraft:stone hollow")
-c(f"fill {X - 60} {Y} {Z - 30} {X + 60} {Y + 5} {Z + 30} minecraft:air")
+L.fill(r, X - 60, Y - 1, Z - 30, X + 60, Y + 6, Z + 30, "minecraft:air")
+L.fill(r, X - 60, Y - 1, Z - 30, X + 60, Y - 1, Z + 30, "minecraft:stone")
+L.fill(r, X - 61, Y, Z - 31, X + 61, Y + 1, Z + 31, "minecraft:stone", "hollow")
+L.fill(r, X - 60, Y, Z - 30, X + 60, Y + 5, Z + 30, "minecraft:air")
 
 # 1. nobody aboard: no movement; a mob in seat 0: it drives
 c(f'summon superbwarfare:t_90a {X - 40} {Y} {Z - 10} {{Tags:["v1t"],Rotation:[-90f,0f],{PARTS}}}')
@@ -82,6 +82,7 @@ empty = moved_lines(mark)
 c(f'summon gscraft:ruaf_soldier {X - 40} {Y + 1} {Z - 10} {{Tags:["v1c"],NoAI:1b,GscraftRank:"RUAF Rifleman"}}')
 time.sleep(0.5)
 ride = c("ride @e[tag=v1c,limit=1] mount @e[tag=v1t,limit=1]")
+c("gscraft vehicle arm @e[tag=v1t,limit=1]")   # a summoned vehicle has an empty inventory: nothing to fire (V3)
 time.sleep(0.5)
 mark = LOG.stat().st_size
 c("gscraft vehicle drive @e[tag=v1t,limit=1] 60 sprint")
@@ -147,7 +148,7 @@ check("with a mob aboard the AI turret turns to its target and the fire input hu
       f"turret yaw {y0} -> {y1}; target health {h0} -> {h1}")
 
 clear()
-c(f"fill {X - 61} {Y - 1} {Z - 31} {X + 61} {Y + 6} {Z + 31} minecraft:air")
+L.fill(r, X - 61, Y - 1, Z - 31, X + 61, Y + 6, Z + 31, "minecraft:air")
 c(f"forceload remove {X - 64} {Z - 64} {X + 64} {Z + 64}")
 r.close()
 new = log_since(log_start)

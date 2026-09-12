@@ -50,10 +50,10 @@ def log_since(mark):
 c(f"forceload add {X - 80} {Z - 48} {X + 80} {Z + 48}")
 time.sleep(5)
 clear()
-c(f"fill {X - 70} {Y - 1} {Z - 40} {X + 70} {Y + 6} {Z + 40} minecraft:air")
-c(f"fill {X - 70} {Y - 1} {Z - 40} {X + 70} {Y - 1} {Z + 40} minecraft:stone")
-c(f"fill {X - 71} {Y} {Z - 41} {X + 71} {Y + 2} {Z + 41} minecraft:stone hollow")
-c(f"fill {X - 70} {Y} {Z - 40} {X + 70} {Y + 5} {Z + 40} minecraft:air")
+L.fill(r, X - 70, Y - 1, Z - 40, X + 70, Y + 6, Z + 40, "minecraft:air")
+L.fill(r, X - 70, Y - 1, Z - 40, X + 70, Y - 1, Z + 40, "minecraft:stone")
+L.fill(r, X - 71, Y, Z - 41, X + 71, Y + 2, Z + 41, "minecraft:stone", "hollow")
+L.fill(r, X - 70, Y, Z - 40, X + 70, Y + 5, Z + 40, "minecraft:air")
 
 # 1. the spawn
 out = c(f"execute positioned {X - 40} {Y} {Z - 20} run gscraft vehicle spawn superbwarfare:bmp_2 ruaf")
@@ -90,7 +90,7 @@ after = count(f"@e[type=gscraft:crew,{AREA}]")
 check("the crew cannot be hurt, and it is gone three seconds after its vehicle", "invulnerable" in hit.lower() and alive == 1 and after == 0, f"damage: {hit[:50]}; crews before {alive}, after the vehicle's death {after}")
 
 clear()
-c(f"fill {X - 71} {Y - 1} {Z - 41} {X + 71} {Y + 6} {Z + 41} minecraft:air")
+L.fill(r, X - 71, Y - 1, Z - 41, X + 71, Y + 6, Z + 41, "minecraft:air")
 c(f"forceload remove {X - 80} {Z - 48} {X + 80} {Z + 48}")
 r.close()
 new = log_since(log_start)
