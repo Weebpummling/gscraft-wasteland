@@ -1,0 +1,7 @@
+{
+  "_": "Live overrides over the jar's defaults.json (owner, 2026-09-11): the host measured 0.05 ms per fighter, so the ceiling is gameplay's, not the CPU's. Edit, then /reload.",
+  "director": {
+    "player_ceiling": 12,
+    "server_ceiling": 96
+  }
+}

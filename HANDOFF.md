@@ -428,6 +428,12 @@ Measured on the host (Bisect la308, 8 vCPU, shared): idle with a loaded platform
 them cost 4.4 ms of a 50 ms tick. The director's pass: 0.4 ms mean, 5 ms when it places a group of six (the kit
 issue). TRAP for any future headless test on live: flip `pauseEventServer` first, restart, and put it back after.
 
+**2026-09-11 19:35, live settings override:** world datapack `/wasteland-v8/datapacks/gscraft_settings`
+(copy in `build/live-datapack/`) with `zz_live.json` = `director.player_ceiling 12, director.server_ceiling 96`
+(the host measured 0.05 ms per fighter, so the ceiling is gameplay's); `/reload` from the panel console applied it:
+`settings: 119 values from [defaults (117), zz_live (2)]`. To change a number on live: edit that file, `/reload`.
+The local server stays on the jar's defaults (48) - the tests assume them.
+
 What live now runs that it did not: enemies (the hold in the mod refuses everything the director does not place),
 the strongpoint loop with the clocks on online time, groups of 2-4, the locks on the mast field. What live does not
 have: RCON (local only), creative (local only), `pauseEventServer = false` (local only).
