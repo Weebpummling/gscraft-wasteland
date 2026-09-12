@@ -74,6 +74,25 @@ public final class Drops extends SimpleJsonResourceReloadListener {
         return drops.getOrDefault(entity, List.of());
     }
 
+    /** the rules for an entity id rolled and dropped at a point: what a wreck leaves (armour design §6) */
+    public static int spawn(net.minecraft.server.level.ServerLevel level, net.minecraft.world.phys.Vec3 at, ResourceLocation entity) {
+        List<Drop> rules = rulesFor(entity);
+        RandomSource random = level.getRandom();
+        int n = 0;
+        for (Drop drop : rules) {
+            if (random.nextFloat() >= drop.chance) continue;
+            Item item = ForgeRegistries.ITEMS.getValue(drop.item);
+            if (item == null) continue;
+            int count = drop.min + (drop.max > drop.min ? random.nextInt(drop.max - drop.min + 1) : 0);
+            ItemEntity e = new ItemEntity(level, at.x + random.nextDouble() * 2.0D - 1.0D, at.y + 1.0D, at.z + random.nextDouble() * 2.0D - 1.0D, new ItemStack(item, count));
+            e.setDefaultPickUpDelay();
+            e.setInvulnerable(true);   // the wreck's own blast follows: the loot must ride it out
+            level.addFreshEntity(e);
+            n++;
+        }
+        return n;
+    }
+
     public static int types() {
         return drops.size();
     }

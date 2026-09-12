@@ -103,11 +103,12 @@ public class FightGoal extends Goal {
         ticks = 0;
         holding = false;
         if (v == null) return;
+        crew.engaged = target;
         if (!crew.gunner()) {
             Vehicles.allStop(v);   // halt to shoot
             chooseWeapon(v);
+            crew.dismount(v);
         }
-        crew.engaged = target;
         aim(v);
         GscraftWar.LOG.info("[gscraft] {} ({}) engages {} at {} blocks", v.getName().getString(), crew.gunner() ? "gunner" : "driver", target.getName().getString(), Math.round(v.distanceTo(target)));
     }

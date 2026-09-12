@@ -37,5 +37,6 @@
   "gscraft.dir.s": "south",
   "gscraft.dir.sw": "south-west",
   "gscraft.dir.w": "west",
-  "gscraft.dir.nw": "north-west"
+  "gscraft.dir.nw": "north-west",
+  "gscraft.armour.dismount": "[%s] Infantry dismounting"
 }

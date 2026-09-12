@@ -437,6 +437,11 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, armour riders and loot (local):** the patrol's infantry boards the APC's bay after placement and
+dismounts when the crew halts to fight (`Crew.board/mount/dismount`, the "Infantry dismounting" line); wrecks drop
+`gscraft_drops/armour.json` (invulnerable items, the wreck's blast follows). Phases 20 and 19 extended and green.
+Design §16. The convoy is out of scope per the design. Nothing armour is on live.
+
 **2026-09-12, armour V6 done (local):** armour in waves (a wave entry naming a vehicle; `Armour.wave`, the three
 NATO site files carry a Bradley in the last assault wave and an M1A2 + Bradley in the last counterattack wave),
 bosses (`"boss"`, `"name"` on the entry: named, holding, the bar, the stage on death), `/gscraft director wave`,

@@ -1,0 +1,131 @@
+{
+  "note": "what a wreck leaves (armour design \u00a76): the vehicle's ammunition and scrap; a boss's quest item is the quest's to add",
+  "drops": [
+    {
+      "entity": "superbwarfare:t_90a",
+      "item": "superbwarfare:large_shell_he",
+      "chance": 0.8,
+      "min": 2,
+      "max": 6
+    },
+    {
+      "entity": "superbwarfare:t_90a",
+      "item": "superbwarfare:rifle_ammo",
+      "chance": 0.7,
+      "min": 20,
+      "max": 60
+    },
+    {
+      "entity": "superbwarfare:t_90a",
+      "item": "superbwarfare:heavy_ammo",
+      "chance": 0.4,
+      "min": 10,
+      "max": 30
+    },
+    {
+      "entity": "superbwarfare:t_90a",
+      "item": "minecraft:iron_block",
+      "chance": 1.0,
+      "min": 1,
+      "max": 3
+    },
+    {
+      "entity": "superbwarfare:m_1a_2",
+      "item": "superbwarfare:large_shell_he",
+      "chance": 0.8,
+      "min": 2,
+      "max": 6
+    },
+    {
+      "entity": "superbwarfare:m_1a_2",
+      "item": "superbwarfare:rifle_ammo",
+      "chance": 0.7,
+      "min": 20,
+      "max": 60
+    },
+    {
+      "entity": "superbwarfare:m_1a_2",
+      "item": "superbwarfare:heavy_ammo",
+      "chance": 0.4,
+      "min": 10,
+      "max": 30
+    },
+    {
+      "entity": "superbwarfare:m_1a_2",
+      "item": "minecraft:iron_block",
+      "chance": 1.0,
+      "min": 1,
+      "max": 3
+    },
+    {
+      "entity": "superbwarfare:bmp_2",
+      "item": "superbwarfare:small_shell_he",
+      "chance": 0.8,
+      "min": 2,
+      "max": 6
+    },
+    {
+      "entity": "superbwarfare:bmp_2",
+      "item": "superbwarfare:rifle_ammo",
+      "chance": 0.7,
+      "min": 20,
+      "max": 60
+    },
+    {
+      "entity": "superbwarfare:bmp_2",
+      "item": "superbwarfare:heavy_ammo",
+      "chance": 0.4,
+      "min": 10,
+      "max": 30
+    },
+    {
+      "entity": "superbwarfare:bmp_2",
+      "item": "minecraft:iron_block",
+      "chance": 1.0,
+      "min": 1,
+      "max": 3
+    },
+    {
+      "entity": "superbwarfare:bmp_2",
+      "item": "superbwarfare:medium_anti_ground_missile",
+      "chance": 0.3,
+      "min": 1,
+      "max": 2
+    },
+    {
+      "entity": "superbwarfare:bradley",
+      "item": "superbwarfare:small_shell_he",
+      "chance": 0.8,
+      "min": 2,
+      "max": 6
+    },
+    {
+      "entity": "superbwarfare:bradley",
+      "item": "superbwarfare:rifle_ammo",
+      "chance": 0.7,
+      "min": 20,
+      "max": 60
+    },
+    {
+      "entity": "superbwarfare:bradley",
+      "item": "superbwarfare:heavy_ammo",
+      "chance": 0.4,
+      "min": 10,
+      "max": 30
+    },
+    {
+      "entity": "superbwarfare:bradley",
+      "item": "minecraft:iron_block",
+      "chance": 1.0,
+      "min": 1,
+      "max": 3
+    },
+    {
+      "entity": "superbwarfare:bradley",
+      "item": "superbwarfare:medium_anti_ground_missile",
+      "chance": 0.3,
+      "min": 1,
+      "max": 2
+    }
+  ]
+}

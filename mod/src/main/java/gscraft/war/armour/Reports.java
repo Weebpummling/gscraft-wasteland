@@ -35,6 +35,7 @@ public final class Reports {
             if (partsNow[i] && !partsBefore[i]) say(level, v, "gscraft.armour." + keys[i]);
         }
         if (wreckNow && !wreckBefore) {
+            gscraft.war.world.Drops.spawn(level, v.position(), net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getKey(v.getType()));
             Entity killer = lastAttacker(v);
             say(level, v, killer == null ? "gscraft.armour.destroyed" : "gscraft.armour.destroyed_by", killer == null ? Component.empty() : killer.getDisplayName());
             dropBar(v);
@@ -43,6 +44,10 @@ public final class Reports {
             contact(level, v);
             bar(level, crew, v, partsNow, wreckNow);
         }
+    }
+
+    public static void dismount(Entity v, int count) {
+        if (v.level() instanceof ServerLevel level) say(level, v, "gscraft.armour.dismount");
     }
 
     public static void withdrawing(Entity v) {

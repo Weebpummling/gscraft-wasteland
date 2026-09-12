@@ -3,7 +3,7 @@ that breaks). Headless, so the log copy of each line is what is checked.
 
 1. A module breaking is reported: the turret (set through the entity data), then the engine.
 2. The withdrawal is reported when the crew withdraws.
-3. Destruction is reported, with the killer's name.
+3. Destruction is reported, with the killer's name, and the wreck leaves loot (gscraft_drops/armour.json).
 4. No gscraft errors.
 """
 import re
@@ -30,6 +30,11 @@ def c(cmd, t=90):
 def check(name, ok, detail):
     results.append(bool(ok))
     print(f"  {'PASS' if ok else 'FAIL'}  {name}: {detail}")
+
+
+def num(text, pattern):
+    m = re.search(pattern, text)
+    return float(m.group(1)) if m else None
 
 
 def clear():
@@ -89,10 +94,14 @@ check("the withdrawal is reported", reported(mark, "withdrawing"), f"after {i + 
 
 # 3. destruction with the killer's name
 mark = LOG.stat().st_size
+st = c(f"gscraft vehicle status {T}")
+wx, wz = num(st, r"at ([-\d.]+) "), num(st, r"at [-\d.]+ [-\d.]+ ([-\d.]+)")   # it withdrew: the wreck is where it is now
 print("   ", c(f"gscraft vehicle hit {T} minecraft:explosion 3000 @e[tag=p19t,limit=1]")[:140])
 time.sleep(2.5)
 lines = [l for l in log_since(mark).splitlines() if "armour:" in l and "destroyed" in l]
-check("destruction is reported with the killer", len(lines) == 1 and "destroyed_by" in lines[0], f"{[l[l.find('armour:'):] for l in lines]}")
+loot = num(c(f"execute if entity @e[type=minecraft:item,x={wx - 20:.0f},y={Y - 5},z={wz - 20:.0f},dx=40,dy=20,dz=40]") + " count: 0", r"count: (\d+)")
+check("destruction is reported with the killer, and the wreck leaves loot", len(lines) == 1 and "destroyed_by" in lines[0] and loot and loot >= 1, f"{[l[l.find('armour:'):] for l in lines]}; item drops {loot}")
+c(f"kill @e[type=minecraft:item,x={wx - 20:.0f},y={Y - 5},z={wz - 20:.0f},dx=40,dy=20,dz=40]")
 
 clear()
 L.fill(r, X - 30, Y - 1, Z - 30, X + 30, Y + 4, Z + 30, "minecraft:air")

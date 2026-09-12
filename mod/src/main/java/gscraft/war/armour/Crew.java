@@ -61,6 +61,7 @@ public class Crew extends Mob implements FactionMember {
     private boolean wreckSeen;
     private net.minecraft.network.chat.Component vehicleName;
     private net.minecraft.network.chat.Component attackerName;
+    private net.minecraft.resources.ResourceLocation vehicleType;
     private boolean goneReported;
     private int unseated;
 
@@ -146,6 +147,7 @@ public class Crew extends Mob implements FactionMember {
             // an overkill removes the vehicle in the same tick, before any wreck flag: the loss is the report
             goneReported = true;
             Reports.destroyed((net.minecraft.server.level.ServerLevel) level(), position(), vehicleName, attackerName);
+            if (vehicleType != null) gscraft.war.world.Drops.spawn((net.minecraft.server.level.ServerLevel) level(), position(), vehicleType);
             bossDown();
         }
         if (v == null || Vehicles.wreck(v)) {
@@ -159,9 +161,11 @@ public class Crew extends Mob implements FactionMember {
             if (!Float.isNaN(lastHealth) && h < lastHealth - 0.01F) alertUntil = level().getGameTime() + FightGoal.ALERT_TICKS;
             lastHealth = h;
         }
+        if (!gunner() && v != null && tickCount == BOARD_TICK) board(v);
         if (!gunner() && v != null && tickCount % 40 == 0) escortTick(v);
         if (!gunner() && v != null) {
             vehicleName = v.getDisplayName();
+            vehicleType = net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getKey(v.getType());
             Entity attacker = Reports.lastAttacker(v);
             if (attacker != null) attackerName = attacker.getDisplayName();
             if (Vehicles.wreck(v)) {
@@ -194,6 +198,53 @@ public class Crew extends Mob implements FactionMember {
         return worst;
     }
 
+    /** the crew's boarding tick after placement: the vehicle's seats are set up by then */
+    public static final int BOARD_TICK = 30;
+
+    /** at placement: every escort beside the hull climbs in */
+    private void board(Entity v) {
+        if (escorts.isEmpty() || !(level() instanceof net.minecraft.server.level.ServerLevel level)) return;
+        int riding = 0;
+        for (java.util.UUID id : escorts) {
+            Entity e = level.getEntity(id);
+            if (e instanceof Mob m && m.isAlive() && m.getVehicle() == null && m.distanceToSqr(v) <= 8.0D * 8.0D && mount(v, m)) riding++;
+        }
+        if (riding > 0) GscraftWar.LOG.info("[gscraft] {} infantry boarded {}", riding, v.getName().getString());
+    }
+
+    /** a rider: an escort with a free bay seat climbs in and sits without AI until the dismount */
+    public boolean mount(Entity v, Mob m) {
+        if (v.getPassengers().size() >= Vehicles.maxPassengers(v)) return false;
+        if (!m.startRiding(v, true)) return false;
+        m.setNoAi(true);
+        m.getNavigation().stop();
+        return true;
+    }
+
+    /** the halt to fight: every rider out, beside the hull, with its AI back; told once */
+    public void dismount(Entity v) {
+        if (!(level() instanceof net.minecraft.server.level.ServerLevel level)) return;
+        double yaw = Math.toRadians(v.getYRot());
+        double rx = -Math.cos(yaw);
+        double rz = -Math.sin(yaw);
+        int out = 0;
+        for (Entity p : new ArrayList<>(v.getPassengers())) {
+            if (!(p instanceof Mob m) || p instanceof Crew) continue;
+            double side = (out % 2 == 0 ? 1.0D : -1.0D) * 3.5D;
+            BlockPos raw = BlockPos.containing(v.getX() + rx * side, v.getY(), v.getZ() + rz * side);
+            BlockPos stand = gscraft.war.world.Director.nearestStand(level, raw);
+            m.stopRiding();
+            m.setNoAi(false);
+            if (stand != null) m.teleportTo(stand.getX() + 0.5D, stand.getY(), stand.getZ() + 0.5D);
+            if (m instanceof gscraft.war.entity.GunUser g) {
+                g.fighterState().order = gscraft.war.entity.FighterState.Order.NONE;
+                if (engaged != null) m.setTarget(engaged);
+            }
+            out++;
+        }
+        if (out > 0) Reports.dismount(v, out);
+    }
+
     /** the escort's order: along behind the moving vehicle; free to fight (and take cover) when it halts to fight */
     private void escortTick(Entity v) {
         if (escorts.isEmpty() || !(level() instanceof net.minecraft.server.level.ServerLevel level)) return;
@@ -208,7 +259,10 @@ public class Crew extends Mob implements FactionMember {
                 continue;
             }
             gscraft.war.entity.FighterState s = g.fighterState();
+            if (m.getVehicle() == v) continue;   // riding: nothing to order
             if (moving) {
+                // an APC's bay: an escort beside a moving hull climbs in
+                if (m.distanceToSqr(v) <= 4.0D * 4.0D && mount(v, m)) continue;
                 if (m.distanceToSqr(v) > 4.0D * 4.0D) {
                     s.order = gscraft.war.entity.FighterState.Order.ADVANCE;
                     s.orderPos = behind;

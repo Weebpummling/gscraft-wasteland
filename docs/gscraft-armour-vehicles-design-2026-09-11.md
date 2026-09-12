@@ -347,3 +347,21 @@ places one for the site `test`; `tools/war_phase21.py`. Left of §6: the wreck's
 Trap found: on alternate ticks the goal selector ticks a running goal before re-checking it, so a goal that
 empties its own state must guard its tick (the drive goal crashed the server once on a cleared route).
 
+## 16. Riders and loot (2026-09-12, local server)
+
+**Riders.** A patrol's infantry boards the vehicle's bay a second and a half after placement (`Crew.board` on
+tick 30: a mount in the vehicle's first tick, before its seats are set up, displaces the crew) and rides without AI
+- hidden, and the BMP-2's firing-port seats silent - while the drive waits for the boarding and then goes at a
+sprint, since nobody is walking. When the driver halts to fight (`FightGoal.start`) the riders dismount
+(`Crew.dismount`): out beside the hull, alternating sides, AI back, the crew's target as theirs, and
+"[BMP-2] Infantry dismounting" to the players. An escort beside a moving hull climbs back in (`escortTick`). The
+BMP-2 and Bradley carry six; a tank has no bay. RCON truncates a vehicle's passenger NBT: the status line carries
+`passengers N, riders M` instead.
+
+**Loot.** `gscraft_drops/armour.json` keys the four vehicles: their shells, rifle and heavy rounds, missiles for the
+IFVs, iron as scrap. `Drops.spawn` drops them at the wreck (the wreck flag, or the crew's loss of the vehicle on an
+overkill), invulnerable so the wreck's own blast does not eat them. A boss's quest item is the quest's to add.
+
+**The convoy** stays out of scope, as §3 said; the road graph the census tool wrote (`incoming/census/roadnet/
+roadnet.json`: 17 255 nodes, 28 586 edges, a noisy skeleton) is what a convoy route would be planned on.
+

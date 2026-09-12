@@ -102,6 +102,7 @@ public final class Patrols {
         if (group.isEmpty()) return;
         Squad.form(group);
         Crew driver = Armour.crewOf(vehicle);
+        // the riders board on the crew's boarding tick, once the vehicle's seats are set up (a mount in the vehicle's first tick displaces the crew)
         if (driver != null) for (Mob m : group) driver.escorts.add(m.getUUID());
         GscraftWar.LOG.info("[gscraft] armour patrol: {} with {} infantry at {}", vehicle.getName().getString(), group.size(), vehicle.blockPosition().toShortString());
     }

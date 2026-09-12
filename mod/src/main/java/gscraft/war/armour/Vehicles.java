@@ -229,6 +229,11 @@ public final class Vehicles {
         return r instanceof net.minecraft.world.item.ItemStack st ? st : net.minecraft.world.item.ItemStack.EMPTY;
     }
 
+    public static int maxPassengers(Entity v) {
+        Object r = call(v, "getMaxPassengers", new Class<?>[0]);
+        return r instanceof Integer i ? i : 0;
+    }
+
     public static String vehicleType(Entity v) {
         Object r = call(v, "getVehicleType", new Class<?>[0]);
         return r == null ? "?" : r.toString();
@@ -261,8 +266,10 @@ public final class Vehicles {
 
     public static String describe(Entity v) {
         float[] p = parts(v);
-        return String.format(Locale.ROOT, "%s (tracked %d chunks): health %.1f/%.1f, wreck %s, energy %d/%d, turret %.0f (damaged %s), engine %.0f, wheels %.0f/%.0f, turret target '%s', turret yaw %.1f, body yaw %.1f, at %.1f %.1f %.1f, inputs f%s b%s l%s r%s sprint%s fire%s",
-                v.getName().getString(), v.getType().clientTrackingRange(), health(v), maxHealth(v), wreck(v), energy(v), maxEnergy(v), p[0], data(v, "TURRET_DAMAGED", false), p[1], p[2], p[3],
+        int riders = 0;
+        for (Entity rider : v.getPassengers()) if (!(rider instanceof Crew)) riders++;
+        return String.format(Locale.ROOT, "%s (tracked %d chunks, passengers %d, riders %d): health %.1f/%.1f, wreck %s, energy %d/%d, turret %.0f (damaged %s), engine %.0f, wheels %.0f/%.0f, turret target '%s', turret yaw %.1f, body yaw %.1f, at %.1f %.1f %.1f, inputs f%s b%s l%s r%s sprint%s fire%s",
+                v.getName().getString(), v.getType().clientTrackingRange(), v.getPassengers().size(), riders, health(v), maxHealth(v), wreck(v), energy(v), maxEnergy(v), p[0], data(v, "TURRET_DAMAGED", false), p[1], p[2], p[3],
                 turretTarget(v), turretYaw(v), v.getYRot(), v.getX(), v.getY(), v.getZ(),
                 flag(inputState(v, "forward")), flag(inputState(v, "back")), flag(inputState(v, "left")), flag(inputState(v, "right")), flag(inputState(v, "sprint")), flag(inputState(v, "fire")));
     }
