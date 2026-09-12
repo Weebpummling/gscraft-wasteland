@@ -60,9 +60,10 @@ public final class PlayerWounds {
         if (event.phase != TickEvent.Phase.END || event.player.level().isClientSide || !event.player.isAlive()) return;
         Player player = event.player;
         CompoundTag root = player.getPersistentData();
+        long now = player.level().getGameTime();
+        if (now % 20 == 5 && player instanceof net.minecraft.server.level.ServerPlayer sp) gscraft.war.Net.sendHud(sp, hud(player));
         if (!root.contains(TAG)) return;
         CompoundTag t = root.getCompound(TAG);
-        long now = player.level().getGameTime();
         boolean any = false;
         if (t.getLong("Leg") > now) {
             any = true;
@@ -83,6 +84,26 @@ public final class PlayerWounds {
             }
         }
         if (!any) root.remove(TAG);
+    }
+
+    /** the packet's worth: each piece's name, class, plate and full points (a known piece is written on first sight) */
+    public static gscraft.war.Net.HudPacket hud(Player player) {
+        CompoundTag t = tag(player);
+        long now = player.level().getGameTime();
+        Object[] head = piece(player, net.minecraft.world.entity.EquipmentSlot.HEAD);
+        Object[] chest = piece(player, net.minecraft.world.entity.EquipmentSlot.CHEST);
+        return new gscraft.war.Net.HudPacket((String) head[0], (Integer) head[1], (Integer) head[2], (Integer) head[3],
+                (String) chest[0], (Integer) chest[1], (Integer) chest[2], (Integer) chest[3],
+                (int) Math.max(0L, t.getLong("Leg") - now), (int) Math.max(0L, t.getLong("Arm") - now), Math.max(0, t.getInt("Bleed")));
+    }
+
+    private static Object[] piece(Player player, net.minecraft.world.entity.EquipmentSlot slot) {
+        net.minecraft.world.item.ItemStack stack = player.getItemBySlot(slot);
+        if (stack.isEmpty()) return new Object[] {"", -1, 0, 0};
+        String name = stack.getHoverName().getString();
+        ArmorData.Piece data = ArmorData.of(stack);
+        if (data == null) return new Object[] {name, -1, 0, 0};
+        return new Object[] {name, data.armorClass(), Damage.plate(stack, slot, data), data.points()};
     }
 
     @SubscribeEvent

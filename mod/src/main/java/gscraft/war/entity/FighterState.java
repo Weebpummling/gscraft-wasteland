@@ -46,6 +46,8 @@ public final class FighterState {
     public long armUntil;
     public int bleedTicks;
     public String lastHit = "";
+    /** the wound tick laid this body flat (a crawl or pinned), so the wound tick is the one to stand it up */
+    public boolean flatByWounds;
     public int homeRadius;
 
     public FighterState(Role defaultRole) {

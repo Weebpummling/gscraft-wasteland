@@ -43,10 +43,20 @@ public final class Fighters {
                 mob.refreshDimensions();
             }
         }
-        if (crawling) {
+        // flat whether or not the gun goal is running: a crawl, or pinned under fire (the gun goal agrees when it runs);
+        // only what this tick laid down does it stand up again, so the Marksman's own prone is left alone
+        boolean flat = crawling || s.suppression >= GunAttackGoal.PINNED_AT;
+        if (flat) {
             mob.setSprinting(false);
-            if (mob.getPose() != net.minecraft.world.entity.Pose.SWIMMING) {   // flat whether or not the gun goal is running
+            if (mob.getPose() != net.minecraft.world.entity.Pose.SWIMMING) {
                 mob.setPose(net.minecraft.world.entity.Pose.SWIMMING);
+                mob.refreshDimensions();
+            }
+            s.flatByWounds = true;
+        } else if (s.flatByWounds) {
+            s.flatByWounds = false;
+            if (mob.getPose() == net.minecraft.world.entity.Pose.SWIMMING && mob.getTarget() == null) {
+                mob.setPose(net.minecraft.world.entity.Pose.STANDING);
                 mob.refreshDimensions();
             }
         }

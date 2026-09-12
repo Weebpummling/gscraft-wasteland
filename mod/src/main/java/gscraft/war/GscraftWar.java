@@ -21,5 +21,6 @@ public class GscraftWar {
         ModItems.ITEMS.register(modBus);
         modBus.addListener(ModEntities::attributes);
         modBus.addListener(ModItems::creativeTabs);
+        Net.register();
     }
 }

@@ -29,6 +29,18 @@ public class FighterRenderer<T extends Mob & Skinned> extends HumanoidMobRendere
                 ctx.getModelManager()));
     }
 
+    /** a body in the flat pose lies down: the player renderer does this, the mob renderer never did */
+    @Override
+    protected void setupRotations(T entity, com.mojang.blaze3d.vertex.PoseStack pose, float ageInTicks, float yaw, float partialTick) {
+        super.setupRotations(entity, pose, ageInTicks, yaw, partialTick);
+        float swim = entity.getSwimAmount(partialTick);
+        if (swim > 0.0F) {
+            float xRot = entity.isInWater() ? -90.0F - entity.getXRot() : -90.0F;
+            pose.mulPose(com.mojang.math.Axis.XP.rotationDegrees(net.minecraft.util.Mth.lerp(swim, 0.0F, xRot)));
+            if (entity.isVisuallySwimming()) pose.translate(0.0F, -1.0F, 0.3F);
+        }
+    }
+
     @Override
     public ResourceLocation getTextureLocation(T e) {
         return SKINS[Math.floorMod(e.skin(), SKINS.length)];
