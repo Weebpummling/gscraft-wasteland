@@ -437,6 +437,14 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12 09:48, live** (owner: "its good now, push this to live"; server empty by the console's `list`): `power stop`,
+`put` of `gscraft-0.1.0.jar` (355 KB, sha256 128c0617...) into `/mods`, `power start`, Done in 1.6 s with
+`settings: 158 values from [defaults (156), zz_live (2)]`. Pack 2026.09.12.2 pushed after the boot (the jar on the
+`pack-files` release replaced with `--clobber`; a client on the older jar still joins). What went up: the stand-in
+renderer and the tactical clips (A1 + A2), the fire monitor, the uniform skins and the pants swap, and SW bullets
+reaching the reactions. Trap: `packwiz_build.py --help` is not a flag - it builds with the 2026-09-04 defaults; run it
+only with `--tag client-installer-2026-09-10 --version X --files-tag pack-files`.
+
 **2026-09-12, found by the monitor: the players fire Superb Warfare guns, and every reaction hook was TACZ-only**
 (local only). The monitor logged zero shots, impacts or hits from the owner in a whole session while soldiers died
 "gunned down by" / "assassinated by" him - Superb Warfare's death messages. SW posts no shoot or hit events, so the
