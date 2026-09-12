@@ -160,6 +160,7 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
     protected void customServerAiStep() {
         super.customServerAiStep();
         state.decaySuppression();
+        Fighters.tickWounds(this, state);
         if (state.role == Role.SERGEANT && tickCount % 20 == 0) Fighters.callTarget(this);
         if (tickCount % 20 == 10) Squad.leaderTick(this);
     }

@@ -156,5 +156,32 @@
       "spread": 4.0,
       "hold_at": 0.6
     }
+  },
+  "damage": {
+    "zone": {
+      "head": 3.5,
+      "thorax": 1.0,
+      "stomach": 1.1,
+      "arms": 0.6,
+      "legs": 0.5
+    },
+    "pen_keep": 0.85,
+    "blunt": 0.3,
+    "blast_per_class": 0.1,
+    "blast_plate_spend": 0.5,
+    "crawl_ticks": 300,
+    "arm_ticks": 400,
+    "bleed_ticks": 200,
+    "bleed_every": 40,
+    "bleed_damage": 1.0,
+    "player_leg_ticks": 2400,
+    "player_arm_ticks": 2400,
+    "player_bleed_ticks": 600,
+    "head_below_eyes": 0.2,
+    "thorax_bottom": 0.55,
+    "stomach_bottom": 0.4,
+    "arm_share": 0.3,
+    "bandage_ticks": 40,
+    "bandage_heal": 4.0
   }
 }

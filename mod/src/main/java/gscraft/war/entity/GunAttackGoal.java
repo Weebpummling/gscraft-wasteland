@@ -197,7 +197,7 @@ public class GunAttackGoal extends Goal {
         // pause outlasted its step back behind the cover never leaned out again (the Marksman, every time)
         if (burstPause > 0) burstPause--;
         Vec3 aim = null;
-        int aimTicks = Math.round(role.aimTicks * (1.0F + s));
+        int aimTicks = Math.round(role.aimTicks * (1.0F + s) * (state.armUntil > mob.level().getGameTime() ? 2.0F : 1.0F));
         if (canSee && seeTime >= aimTicks && distSqr <= role.range * role.range) {
             aim = lastSeen;
         } else if (!canSee && role == Role.GUNNER && sinceSeen < SUPPRESS_TICKS && lastSeen != null) {
@@ -348,7 +348,7 @@ public class GunAttackGoal extends Goal {
             if (moving) {
                 mob.getNavigation().moveTo(target, speed);
                 // ground to cover: sprint when the target is well beyond the holding distance
-                mob.setSprinting(distSqr > hold * hold * 2.25D);
+                mob.setSprinting(distSqr > hold * hold * 2.25D && state.crawlUntil <= mob.level().getGameTime());
             } else {
                 mob.getNavigation().stop();
                 mob.setSprinting(false);
@@ -364,7 +364,11 @@ public class GunAttackGoal extends Goal {
         // flat beyond 32; standing when moving
         float s = state.suppression;
         boolean mayLower = cover != null || mob.level().getGameTime() >= lowBlockedUntil;
-        if (moving || !mayLower) {
+        if (state.crawlUntil > mob.level().getGameTime()) {
+            stance(Pose.SWIMMING);   // a leg wound: flat and slow until it passes
+            mob.setSprinting(false);
+            strafeTicks = 0;
+        } else if (moving || !mayLower) {
             stance(Pose.STANDING);
             strafeTicks = 0;
         } else if (role == Role.MARKSMAN && cover == null && canSee && seeTime >= role.aimTicks && distSqr > MARKSMAN_PRONE_DIST * MARKSMAN_PRONE_DIST) {

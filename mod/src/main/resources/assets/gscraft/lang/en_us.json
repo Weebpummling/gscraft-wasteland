@@ -20,5 +20,6 @@
   "gscraft.callout.reloading": "[%s] Reloading!",
   "gscraft.callout.grenade": "[%s] Grenade!",
   "gscraft.callout.pinned": "[%s] Pinned down!",
-  "gscraft.callout.fall_back": "[%s] Fall back!"
+  "gscraft.callout.fall_back": "[%s] Fall back!",
+  "item.gscraft.bandage": "Bandage"
 }

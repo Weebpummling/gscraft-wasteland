@@ -23,6 +23,9 @@ public final class ModItems {
     public static final RegistryObject<Item> MATRON_EGG = ITEMS.register("matron_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.MATRON, 0xC2B280, 0x6E2C2C, new Item.Properties()));
 
+    public static final RegistryObject<Item> BANDAGE = ITEMS.register("bandage",
+            () -> new gscraft.war.combat.BandageItem(new Item.Properties().stacksTo(16)));
+
     private ModItems() {}
 
     static void creativeTabs(BuildCreativeModeTabContentsEvent event) {
@@ -33,5 +36,6 @@ public final class ModItems {
             event.accept(BLOATER_EGG);
             event.accept(MATRON_EGG);
         }
+        if (event.getTabKey() == CreativeModeTabs.COMBAT) event.accept(BANDAGE);
     }
 }

@@ -71,6 +71,7 @@ public class GrenadeGoal extends Goal {
     @Override
     public boolean canUse() {
         if (GRENADE == null || state().grenades <= 0 || state().suppression >= 0.8F) return false;
+        if (state().armUntil > mob.level().getGameTime()) return false;
         LivingEntity target = mob.getTarget();
         if (target == null || !target.isAlive()) return false;
         if (mob.level().getGameTime() < state().nextGrenade) return false;

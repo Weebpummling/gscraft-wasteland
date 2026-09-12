@@ -1,5 +1,6 @@
 package gscraft.war.world;
 
+import com.mojang.brigadier.arguments.DoubleArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.builder.ArgumentBuilder;
@@ -144,6 +145,16 @@ public final class DirectorCommands {
                             .reduce((a, b) -> a + ", " + b).orElse(""));
                     return rules.size();
                 })))
+                .then(Commands.literal("zone").then(Commands.argument("who", net.minecraft.commands.arguments.EntityArgument.entity())
+                        .then(Commands.argument("fx", DoubleArgumentType.doubleArg()).then(Commands.argument("fy", DoubleArgumentType.doubleArg()).then(Commands.argument("fz", DoubleArgumentType.doubleArg())
+                        .then(Commands.argument("tx", DoubleArgumentType.doubleArg()).then(Commands.argument("ty", DoubleArgumentType.doubleArg()).then(Commands.argument("tz", DoubleArgumentType.doubleArg())
+                                .executes(DirectorCommands::zone)))))))))
+                .then(Commands.literal("hit").then(Commands.argument("who", net.minecraft.commands.arguments.EntityArgument.entity())
+                        .then(Commands.argument("zone", StringArgumentType.word()).then(Commands.argument("damage", DoubleArgumentType.doubleArg(0.0D))
+                                .executes(ctx -> hit(ctx, 3)).then(Commands.argument("pen", IntegerArgumentType.integer(0, 9)).executes(ctx -> hit(ctx, IntegerArgumentType.getInteger(ctx, "pen"))))))))
+                .then(Commands.literal("wound").then(Commands.argument("who", net.minecraft.commands.arguments.EntityArgument.entity())
+                        .then(Commands.argument("kind", StringArgumentType.word()).executes(DirectorCommands::wound))))
+                .then(Commands.literal("armor").then(Commands.argument("who", net.minecraft.commands.arguments.EntityArgument.entity()).executes(DirectorCommands::armor)))
                 .then(Commands.literal("settings").executes(ctx -> settings(ctx, null))
                         .then(Commands.argument("filter", StringArgumentType.greedyString()).executes(ctx -> settings(ctx, StringArgumentType.getString(ctx, "filter")))))
                 .then(Commands.literal("sweep").executes(ctx -> {
@@ -165,11 +176,11 @@ public final class DirectorCommands {
                             : e instanceof gscraft.war.entity.Scavenger sc ? sc.cover() : null;
                     boolean hidden = mob.getTarget() != null && gscraft.war.entity.Cover.covered(ctx.getSource().getLevel(), mob, mob.getTarget(), mob.position());
                     say(ctx, String.format("%s: rank %s, role %s, magazines %d, grenades %d, suppression %.2f, pose %s, sprinting %s, target %s, ammo %s, "
-                                    + "order %s%s, cover %s, hidden from target %s",
+                                    + "order %s%s, cover %s, hidden from target %s, wounds %s, last hit %s",
                             mob.getName().getString(), st.rank, st.role, st.magazines, st.grenades, st.suppression, mob.getPose(),
                             mob.isSprinting(), mob.getTarget() == null ? "none" : mob.getTarget().getName().getString(),
                             st.outOfAmmo ? "out" : "yes", st.order, st.order == gscraft.war.entity.FighterState.Order.NONE ? "" : " at " + st.orderPos.toShortString(),
-                            cover == null ? "none" : cover.spot().toShortString(), hidden));
+                            cover == null ? "none" : cover.spot().toShortString(), hidden, wounds(st, mob.level().getGameTime()), st.lastHit.isEmpty() ? "none" : st.lastHit));
                     return 1;
                 }).then(Commands.literal("hold").then(xyzThen(Commands.literal("now").executes(ctx -> order(ctx, gscraft.war.entity.FighterState.Order.HOLD, false)))))
                 .then(Commands.literal("advance").then(xyzThen(Commands.literal("now").executes(ctx -> order(ctx, gscraft.war.entity.FighterState.Order.ADVANCE, false)))))
@@ -430,6 +441,118 @@ public final class DirectorCommands {
                 return 1;
             }
         }
+    }
+
+    private static String wounds(gscraft.war.entity.FighterState st, long now) {
+        StringBuilder sb = new StringBuilder();
+        if (st.crawlUntil > now) sb.append("crawling ").append((st.crawlUntil - now) / 20).append("s ");
+        if (st.armUntil > now) sb.append("arm ").append((st.armUntil - now) / 20).append("s ");
+        if (st.bleedTicks > 0) sb.append("bleeding ").append(st.bleedTicks / 20).append("s ");
+        return sb.length() == 0 ? "none" : sb.toString().trim();
+    }
+
+    private static net.minecraft.world.entity.LivingEntity living(CommandContext<CommandSourceStack> ctx) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        net.minecraft.world.entity.Entity e = net.minecraft.commands.arguments.EntityArgument.getEntity(ctx, "who");
+        if (!(e instanceof net.minecraft.world.entity.LivingEntity living)) {
+            say(ctx, "not a living entity");
+            return null;
+        }
+        return living;
+    }
+
+    /** the zone a segment lands in on a body: /gscraft zone <who> <from x y z> <to x y z> */
+    private static int zone(CommandContext<CommandSourceStack> ctx) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        net.minecraft.world.entity.LivingEntity target = living(ctx);
+        if (target == null) return 0;
+        net.minecraft.world.phys.Vec3 from = new net.minecraft.world.phys.Vec3(DoubleArgumentType.getDouble(ctx, "fx"), DoubleArgumentType.getDouble(ctx, "fy"), DoubleArgumentType.getDouble(ctx, "fz"));
+        net.minecraft.world.phys.Vec3 to = new net.minecraft.world.phys.Vec3(DoubleArgumentType.getDouble(ctx, "tx"), DoubleArgumentType.getDouble(ctx, "ty"), DoubleArgumentType.getDouble(ctx, "tz"));
+        net.minecraft.world.phys.Vec3 hit = gscraft.war.combat.Ballistics.clipTarget(target, from, to);
+        if (hit == null) {
+            say(ctx, "miss");
+            return 0;
+        }
+        gscraft.war.combat.Zone zone = gscraft.war.combat.Ballistics.zone(target, hit, to.subtract(from));
+        say(ctx, String.format(java.util.Locale.ROOT, "zone %s at %.2f %.2f %.2f (%.2f of height)", zone, hit.x, hit.y, hit.z, (hit.y - target.getY()) / target.getBbHeight()));
+        return zone.ordinal() + 1;
+    }
+
+    /** the model's answer to a hit, applied: /gscraft hit <who> <zone|blast> <damage> [pen] */
+    private static int hit(CommandContext<CommandSourceStack> ctx, int pen) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        net.minecraft.world.entity.LivingEntity target = living(ctx);
+        if (target == null) return 0;
+        String z = StringArgumentType.getString(ctx, "zone").toUpperCase(java.util.Locale.ROOT);
+        float amount = (float) DoubleArgumentType.getDouble(ctx, "damage");
+        gscraft.war.combat.Damage.Result r;
+        if (z.equals("BLAST")) {
+            r = gscraft.war.combat.Damage.blast(target, amount);
+        } else {
+            gscraft.war.combat.Zone zone;
+            try {
+                zone = gscraft.war.combat.Zone.valueOf(z);
+            } catch (IllegalArgumentException ex) {
+                say(ctx, "zones: head, thorax, stomach, arms, legs, blast");
+                return 0;
+            }
+            r = gscraft.war.combat.Damage.bullet(target, zone, amount, pen);
+            gscraft.war.combat.Damage.wound(target, zone);
+        }
+        gscraft.war.combat.Damage.record(target, r, "command");
+        float before = target.getHealth();
+        target.invulnerableTime = 0;
+        target.hurt(target.damageSources().magic(), r.damage());   // magic ignores vanilla armour: the model's number lands as is
+        say(ctx, String.format(java.util.Locale.ROOT, "%s: %s; health %.1f -> %.1f", target.getName().getString(), r.describe(), before, target.getHealth()));
+        return 1;
+    }
+
+    private static int wound(CommandContext<CommandSourceStack> ctx) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        net.minecraft.world.entity.LivingEntity target = living(ctx);
+        if (target == null) return 0;
+        String kind = StringArgumentType.getString(ctx, "kind").toLowerCase(java.util.Locale.ROOT);
+        if (kind.equals("clear")) {
+            if (target instanceof gscraft.war.entity.GunUser user) {
+                gscraft.war.entity.FighterState s = user.fighterState();
+                s.crawlUntil = 0;
+                s.armUntil = 0;
+                s.bleedTicks = 0;
+            } else if (target instanceof net.minecraft.world.entity.player.Player player) {
+                gscraft.war.combat.PlayerWounds.clear(player);
+            }
+            say(ctx, "wounds cleared");
+            return 1;
+        }
+        gscraft.war.combat.Zone zone = switch (kind) {
+            case "leg", "legs" -> gscraft.war.combat.Zone.LEGS;
+            case "arm", "arms" -> gscraft.war.combat.Zone.ARMS;
+            case "bleed", "stomach" -> gscraft.war.combat.Zone.STOMACH;
+            default -> null;
+        };
+        if (zone == null) {
+            say(ctx, "wounds: leg, arm, bleed, clear");
+            return 0;
+        }
+        gscraft.war.combat.Damage.wound(target, zone);
+        say(ctx, "wounded: " + zone);
+        return 1;
+    }
+
+    private static int armor(CommandContext<CommandSourceStack> ctx) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        net.minecraft.world.entity.LivingEntity target = living(ctx);
+        if (target == null) return 0;
+        StringBuilder sb = new StringBuilder(target.getName().getString()).append(": ");
+        for (net.minecraft.world.entity.EquipmentSlot slot : new net.minecraft.world.entity.EquipmentSlot[] {net.minecraft.world.entity.EquipmentSlot.HEAD, net.minecraft.world.entity.EquipmentSlot.CHEST}) {
+            net.minecraft.world.item.ItemStack piece = target.getItemBySlot(slot);
+            gscraft.war.combat.ArmorData.Piece data = gscraft.war.combat.ArmorData.of(piece);
+            sb.append(slot.getName()).append(' ');
+            if (piece.isEmpty()) sb.append("empty");
+            else if (data == null) sb.append(net.minecraftforge.registries.ForgeRegistries.ITEMS.getKey(piece.getItem())).append(" (not in the armour data)");
+            else sb.append(net.minecraftforge.registries.ForgeRegistries.ITEMS.getKey(piece.getItem())).append(" class ").append(data.armorClass())
+                    .append(" plate ").append(gscraft.war.combat.Damage.plate(piece, slot, data)).append('/').append(data.points());
+            sb.append("; ");
+        }
+        sb.append("modelled ").append(gscraft.war.combat.Damage.modelled(target));
+        if (target instanceof net.minecraft.world.entity.player.Player player) sb.append("; wounds ").append(gscraft.war.combat.PlayerWounds.describe(player));
+        say(ctx, sb.toString());
+        return 1;
     }
 
     /** the settings in force (gscraft_settings/*.json over the code's defaults), filtered by a path prefix */

@@ -206,7 +206,10 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
     @Override
     public void tick() {
         super.tick();
-        if (!level().isClientSide) state.decaySuppression();
+        if (!level().isClientSide) {
+            state.decaySuppression();
+            Fighters.tickWounds(this, state);
+        }
         if (!level().isClientSide && tickCount % 20 == 10) Squad.leaderTick(this);
         if (!level().isClientSide && !state.kitIssued) issueKit();
     }

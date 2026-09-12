@@ -170,3 +170,38 @@ when a gun pack updates.
   zone rule sees each pellet, so buckshot to the chest of a plate is many small blunt hits — right by design.
 - The Dead do not wear plates and keep vanilla health; the model applies to them only through zones (head ×3.5),
   which is the zombie rule everyone expects.
+
+## 8. Built (2026-09-11, local only)
+
+Steps A-E in one pass, `tools/war_phase12.py` 9 of 9 on the local server; the rest of the suite as regression.
+
+- `combat/Ballistics.java`: the impact from the projectile's step (position -> position + velocity, then the
+  previous position -> position, then a longer segment; the box's nearest point if nothing clips) and the zone
+  from it. The arms are judged sideways to the line of fire, not radially - the first cut measured the impact's
+  distance from the axis, and since an impact is always on the surface every chest hit read as an arm.
+- `combat/ArmorData.java` (`gscraft_armor/pack.json`, a reload listener): 24 pieces with a class and plate points,
+  21 calibres with a penetration class, a default of 3 for anything unlisted.
+- `combat/Damage.java`: the rule. Plate points live on the worn item - the chest under Superb Warfare's own
+  `ArmorPlate` key (a player's HUD shows it, their plate items refill it), the helmet under `GscraftPlate`; a piece
+  never hit carries its full points. A body wearing any known piece is judged by the model alone for bullets;
+  one wearing none keeps the zone multiplier and vanilla armour.
+- `combat/DamageEvents.java`: TACZ's pre-hurt event (amount replaced, head flag cleared, both sources set to the
+  piercing one for a modelled body); Superb Warfare bullets and blasts in `LivingHurtEvent` with the model's number
+  applied in `LivingDamageEvent`, after vanilla armour and in its place.
+- Wounds: `FighterState.crawlUntil / armUntil / bleedTicks` (saved); `Fighters.tickWounds` bleeds, slows (a
+  transient −60 % speed modifier) and lays the body flat whether or not the gun goal is running; the gun goal
+  doubles a wounded arm's aim and never sprints a crawler; the grenade goal sits out a wounded arm.
+  `combat/PlayerWounds.java` keeps a player's in persistent data: slowness and no sprint, weakness, a point of
+  bleeding every two seconds with hunger; death clears them. `gscraft:bandage` (paper + 2 string -> 2; two seconds
+  held) clears them and heals four.
+- Commands: `/gscraft zone <who> <from xyz> <to xyz>`, `/gscraft hit <who> <zone|blast> <damage> [pen]` (the rule
+  applied, by magic damage so vanilla armour stays out of it), `/gscraft wound <who> leg|arm|bleed|clear`,
+  `/gscraft armor <who>`; the fighter readout adds wounds and the last hit. 22 settings under `damage.*`.
+
+Measured (phase 12): 5.56 into an IOTV leaves 1.95 and costs 7 points; .308 through it 13.6; the plate at 0 lets
+the next round land in full; 5.56 through a PASGT 19.3, into a bare head 22.75; through leather 5.5; live AK fire
+judged hit by hit with the zone in the readout; a leg wound is flat and slow, a bleed 3 points in six seconds; TNT
+beside a vest 22.2 of 37 and the plate down 19, the fighter pinned.
+
+Not exercised without a player: the player's wounds, the bandage, and Superb Warfare's plate HUD reading our
+points - the first thing to look at in person. Melee is untouched. The Dead take the zone multiplier only.

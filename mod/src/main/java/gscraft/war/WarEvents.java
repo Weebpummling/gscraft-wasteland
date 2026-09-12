@@ -63,6 +63,7 @@ public final class WarEvents {
         event.addListener(new gscraft.war.world.Drops());
         event.addListener(new gscraft.war.world.Sites());
         event.addListener(new gscraft.war.world.Settings());
+        event.addListener(new gscraft.war.combat.ArmorData());
     }
 
     /**

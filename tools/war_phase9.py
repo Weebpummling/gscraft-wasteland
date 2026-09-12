@@ -174,26 +174,34 @@ clear()
 c(f"fill {X - 41} {Y - 1} {Z - 21} {X + 41} {Y + 4} {Z + 21} minecraft:air")
 c(f"forceload remove {X - 64} {Z - 64} {X + 64} {Z + 64}")
 
-# 5. the director's groups are squads: a pass in the plant (NATO) at the switchyard
-c("forceload add -990 20 -680 200")
+# 5. the director's groups are squads: passes at the western outpost (out_w1: RUAF 5, the Dead 2 - the switchyard's
+# mix is mostly the Dead, which are no squad, and six passes there missed a fighter group one run in five)
+OX, OZ = -1500, -1060
+OUT = f"x={OX - 100},y=-64,z={OZ - 100},dx=200,dy=400,dz=200"
+c(f"forceload add {OX - 64} {OZ - 64} {OX + 64} {OZ + 64}")
 time.sleep(10)
-c("kill @e[tag=gs_director,x=-1000,y=-64,z=0,dx=340,dy=400,dz=220]")
-# the switchyard's mix also places the dead and the horrors, which are no squad; pass until a fighter group is placed
+c(f'execute positioned {OX} 0 {OZ} positioned over motion_blocking_no_leaves run summon minecraft:armor_stand ~ ~ ~ {{Tags:["ymark9"],Invisible:1b}}')
+oy_text = c("data get entity @e[tag=ymark9,limit=1] Pos")
+c("kill @e[tag=ymark9]")
+oy_n = re.findall(r"-?[\d.]+(?=d)", oy_text)
+oy = int(float(oy_n[1])) if len(oy_n) == 3 else 66
+c(f"kill @e[tag=gs_director,{OUT}]")
+c(f"kill @e[tag=gs_garrison_out_w1,{OUT}]")
 placed, info, reply = 0, "none placed", ""
 for attempt in range(6):
-    reply = c("gscraft director ambient -830 66 110 1")
+    reply = c(f"gscraft director ambient {OX} {oy} {OZ} 1")
     time.sleep(1)
     for t in ("nato_soldier", "ruaf_soldier", "scavenger"):
-        placed = count(f"@e[type=gscraft:{t},tag=gs_director,x=-1000,y=-64,z=0,dx=340,dy=400,dz=220]")
+        placed = count(f"@e[type=gscraft:{t},tag=gs_director,{OUT}]")
         if placed:
-            info = c(f"gscraft squad @e[type=gscraft:{t},tag=gs_director,x=-1000,y=-64,z=0,dx=340,dy=400,dz=220,limit=1]")
+            info = c(f"gscraft squad @e[type=gscraft:{t},tag=gs_director,{OUT},limit=1]")
             break
     if placed:
         break
-    c("kill @e[tag=gs_director,x=-1000,y=-64,z=0,dx=340,dy=400,dz=220]")
+    c(f"kill @e[tag=gs_director,{OUT}]")
 check("the director's groups arrive as squads", placed >= 2 and "squad " in info and "slot" in info, f"{reply[:70]}; placed {placed}; {info[:140]}")
-c("kill @e[tag=gs_director,x=-1000,y=-64,z=0,dx=340,dy=400,dz=220]")
-c("forceload remove -990 20 -680 200")
+c(f"kill @e[tag=gs_director,{OUT}]")
+c(f"forceload remove {OX - 64} {OZ - 64} {OX + 64} {OZ + 64}")
 
 r.close()
 with LOG.open("rb") as f:

@@ -544,5 +544,12 @@ the hospital: `sk_out_w` x -784..-720, z -1148..-1100 (centre -752, -1124). The 
   `/reload` (panel console on live). `/gscraft settings [prefix]` shows what is in force. Server ceiling 48, player
   ceiling 12. Test: `tools/war_phase11.py`. Bisect host from the panel: node la308, 8 GB, 8 vCPU threads, Forge
   47.4.10 (local is 47.4.23), 0.16 ms per tick idle. On live from 2026-09-11 18:48 (see the deploy entry).
+- **The damage model (2026-09-11, local only, `docs/gscraft-damage-model-feasibility-2026-09-11.md` §8):** zones
+  from the bullet's step (head x3.5, thorax, stomach, arms x0.6, legs x0.5), armour classes and plate points per
+  piece (`gscraft_armor/pack.json`, points on the worn item's NBT - the chest under SW's `ArmorPlate`), penetration
+  by calibre; a stopped round leaves 30 %, one that goes through 85 %, the plate pays the base and at zero is cloth;
+  blasts reduced by the vest's class; wounds (crawl, slow aim, bleed) on fighters and players, `gscraft:bandage`.
+  TACZ in its pre-hurt event, SW bullets and blasts through LivingHurt + LivingDamage. `/gscraft zone|hit|wound|armor`.
+  Test: `tools/war_phase12.py`, then the rest. Untested without a player: player wounds, the bandage, SW's plate HUD.
 - Eyes in the Darkness natural spawn is off locally (`eyesinthedarkness-server.toml`, backup `.bak-director`); the
   director places the Eyes instead.

@@ -1,0 +1,39 @@
+{
+  "_": "Armour classes and plate points per piece; penetration class per calibre. A round at or above the piece's class goes through (the body keeps fight.pen_keep of the zone damage), below it the piece stops it (fight.blunt); either way the plate loses the round's base damage and at zero the piece is cloth. Merged with any later file by name in a world datapack.",
+  "default_penetration": 3,
+  "calibres": {
+    "tacz:9mm": 1, "tacz:45acp": 1, "tacz:22wmr": 1, "tacz:46x30": 1, "tacz:12g": 1,
+    "tacz:57x28": 2, "tacz:357mag": 2, "tacz:44mag": 2, "tacz:50ae": 2, "tacz:500mag": 2,
+    "tacz:545x39": 3, "tacz:556x45": 3, "tacz:762x39": 3,
+    "tacz:762x51": 4, "tacz:308": 4, "tacz:30_06": 4, "tacz:45_70": 4, "tacz:762x54": 4,
+    "tacz:338": 5,
+    "tacz:50bmg": 6, "tacz:40mm": 6
+  },
+  "guns": {},
+  "items": {
+    "superbwarfare:us_chest_iotv": {"class": 4, "points": 40},
+    "superbwarfare:ru_chest_6b43": {"class": 4, "points": 40},
+    "superbwarfare:us_helmet_pasgt": {"class": 3, "points": 25},
+    "superbwarfare:ru_helmet_6b47": {"class": 3, "points": 25},
+    "superbwarfare:ge_helmet_m_35": {"class": 2, "points": 15},
+    "dragonrise_reforge:fast_helmet": {"class": 3, "points": 25},
+    "dragonrise_reforge:msv_chest": {"class": 3, "points": 30},
+    "dragonrise_reforge:msv_helmet": {"class": 3, "points": 25},
+    "pomkotsmechs:wandererarmorhelmet": {"class": 2, "points": 15},
+    "pomkotsmechs:pomkotsarmorhelmet": {"class": 2, "points": 15},
+    "pomkotsmechs:wandererarmorchestplate": {"class": 1, "points": 15},
+    "pomkotsmechs:pomkotsarmorchestplate": {"class": 2, "points": 20},
+    "minecraft:leather_helmet": {"class": 1, "points": 10},
+    "minecraft:leather_chestplate": {"class": 1, "points": 15},
+    "minecraft:chainmail_helmet": {"class": 1, "points": 15},
+    "minecraft:chainmail_chestplate": {"class": 1, "points": 20},
+    "minecraft:iron_helmet": {"class": 2, "points": 20},
+    "minecraft:iron_chestplate": {"class": 2, "points": 25},
+    "minecraft:diamond_helmet": {"class": 3, "points": 25},
+    "minecraft:diamond_chestplate": {"class": 3, "points": 30},
+    "minecraft:netherite_helmet": {"class": 4, "points": 30},
+    "minecraft:netherite_chestplate": {"class": 4, "points": 40},
+    "create:cardboard_helmet": {"class": 0, "points": 0},
+    "create:cardboard_chestplate": {"class": 0, "points": 0}
+  }
+}

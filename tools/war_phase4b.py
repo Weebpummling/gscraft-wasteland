@@ -203,7 +203,8 @@ with Site(-2000, -2600) as s:
         chest, legs, heads = UNIFORM[side]
         for i, rank in enumerate(ranks):
             tag = f"uni_{side}{i}"
-            c(f'summon gscraft:{side}_soldier {-2000 + 2 * i} {sy} {-2600 + 4 * row} {{GscraftRank:"{rank}",Tags:["{tag}"]}}')
+            # inert: the sides are hostile, and with the damage model a head shot kills a rank inside the second before its kit is read
+            c(f'summon gscraft:{side}_soldier {-2000 + 2 * i} {sy} {-2600 + 4 * row} {{GscraftRank:"{rank}",Tags:["{tag}"],NoAI:1b}}')
         time.sleep(1)
         for i, rank in enumerate(ranks):
             sel = f"@e[tag=uni_{side}{i},limit=1]"

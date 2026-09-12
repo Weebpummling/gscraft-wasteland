@@ -41,6 +41,11 @@ public final class FighterState {
     public long nextGrenade;
     /** a garrison member's post; radius 0 means it roams */
     public BlockPos home = BlockPos.ZERO;
+    /** the damage model's wounds: crawling (legs), slow aim (arms), bleeding (stomach); the last hit for the readout */
+    public long crawlUntil;
+    public long armUntil;
+    public int bleedTicks;
+    public String lastHit = "";
     public int homeRadius;
 
     public FighterState(Role defaultRole) {
@@ -80,6 +85,9 @@ public final class FighterState {
             tag.putInt("GscraftRouteIndex", routeIndex);
         }
         tag.putBoolean("GscraftOutOfAmmo", outOfAmmo);
+        if (crawlUntil > 0) tag.putLong("GscraftCrawlUntil", crawlUntil);
+        if (armUntil > 0) tag.putLong("GscraftArmUntil", armUntil);
+        if (bleedTicks > 0) tag.putInt("GscraftBleed", bleedTicks);
         if (homeRadius > 0) {
             tag.putLong("GscraftHome", home.asLong());
             tag.putInt("GscraftHomeRadius", homeRadius);
@@ -88,6 +96,9 @@ public final class FighterState {
 
     public void load(CompoundTag tag) {
         kitIssued = tag.getBoolean("GscraftKitIssued");
+        crawlUntil = tag.getLong("GscraftCrawlUntil");
+        armUntil = tag.getLong("GscraftArmUntil");
+        bleedTicks = tag.getInt("GscraftBleed");
         rank = tag.getString("GscraftRank");
         if (tag.contains("GscraftRole")) role = Role.parse(tag.getString("GscraftRole"));
         if (tag.contains("GscraftMagazines")) magazines = tag.getInt("GscraftMagazines");
