@@ -46,6 +46,11 @@ public class Crew extends Mob implements FactionMember {
     public long retreatUntil;
     public long calmUntil;
     public Vec3 threat;
+    /** a hit on the vehicle: the crew looks all round until this tick */
+    public long alertUntil;
+    /** what this crew engages, for the other crew of the same vehicle */
+    public net.minecraft.world.entity.LivingEntity engaged;
+    private float lastHealth = Float.NaN;
     private int unseated;
 
     public Crew(EntityType<? extends Crew> type, Level level) {
@@ -132,6 +137,9 @@ public class Crew extends Mob implements FactionMember {
             }
         } else {
             unseated = 0;
+            float h = Vehicles.health(v);
+            if (!Float.isNaN(lastHealth) && h < lastHealth - 0.01F) alertUntil = level().getGameTime() + FightGoal.ALERT_TICKS;
+            lastHealth = h;
         }
     }
 

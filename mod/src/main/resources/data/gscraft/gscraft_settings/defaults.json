@@ -201,7 +201,12 @@
     "debug": 0
   },
   "armour": {
-    "engage": 64.0,
+    "engage": 96.0,
+    "acquire_ticks": 40,
+    "retarget_ticks": 60,
+    "view_cone_driver": 120.0,
+    "view_cone_gunner": 200.0,
+    "alert_ticks": 400,
     "lost_ticks": 100,
     "friendly_radius": 2.5,
     "retreat_share": 0.33,

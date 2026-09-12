@@ -437,6 +437,12 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, armour detection (owner: longer acquire, sight rechecks, limited cones, a priority, longer
+distances):** `armour.acquire_ticks 40`, `view_cone_driver 120` / `view_cone_gunner 200` about the hull's heading
+with `alert_ticks 400` opening it all round after a hit, `retarget_ticks 60`, the priority armour > players >
+gunners/marksmen > rest, `engage 96`. Distances: the mod already tracks its vehicles 512 chunks out - the server's view distance (10
+chunks, local and live) is the only cap on seeing a tank early. Design §12; phase 18 has the cone check. Local only.
+
 **2026-09-12, armour V3 done (local):** `armour/FightGoal` + `RetreatGoal`, the gunner crew for tanks with a
 commander's station, `Armour.arm` (ammunition into the vehicle inventory at spawn; `/gscraft vehicle arm`), settings
 `armour.*` (engage, lost_ticks, friendly_radius, retreat_share, retreat_ticks, calm_ticks, arrive, sprint_beyond),

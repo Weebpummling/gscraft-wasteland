@@ -284,3 +284,17 @@ part 5 on a live T-90A: five gun types 0.0, three blast types 9 to 23.
 **Test traps.** `/fill` refuses more than 32 768 blocks and a script never sees it: three vehicle arenas left a
 two-block stone slab that the tank drove onto and that blocked the sight line. `localtest.fill` slices every fill.
 
+## 12. Detection, priority and distances (owner, 2026-09-12)
+
+- **Acquire time** `armour.acquire_ticks` (40): a threat must stay in sight that long before the crew engages; a
+  target the other crew of the same vehicle already engages is taken at once.
+- **Cones** `armour.view_cone_driver` (120°) and `armour.view_cone_gunner` (200°) about the hull's heading: what
+  lies outside is not seen. A hit on the vehicle (`armour.alert_ticks`, 20 s) opens the cone all round. This is why
+  armour goes out with infantry (V5).
+- **Sight rechecked** every half second while engaged; out of sight for `armour.lost_ticks` and the target is
+  dropped. Every `armour.retarget_ticks` a better target in view replaces the current one.
+- **Priority**: enemy armour 3, players 2, gunners and marksmen 1.5, the rest 1, plus up to 0.4 for nearness.
+- **Distances**: `armour.engage` is 96 now. The mod registers its vehicles with a 512-chunk tracking range, so a
+  client is sent a tank as far as the server's view distance loads chunks (10 chunks, 160 blocks, locally and on
+  live); the vehicle renders out to about 250 blocks by its size. So the view distance is the one cap on seeing a
+  tank early, and raising it is a server-wide cost; nothing on the mod side limits it.

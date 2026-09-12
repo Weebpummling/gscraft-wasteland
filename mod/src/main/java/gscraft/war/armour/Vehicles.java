@@ -257,8 +257,8 @@ public final class Vehicles {
 
     public static String describe(Entity v) {
         float[] p = parts(v);
-        return String.format(Locale.ROOT, "%s: health %.1f/%.1f, wreck %s, energy %d/%d, turret %.0f (damaged %s), engine %.0f, wheels %.0f/%.0f, turret target '%s', turret yaw %.1f, body yaw %.1f, at %.1f %.1f %.1f, inputs f%s b%s l%s r%s sprint%s fire%s",
-                v.getName().getString(), health(v), maxHealth(v), wreck(v), energy(v), maxEnergy(v), p[0], data(v, "TURRET_DAMAGED", false), p[1], p[2], p[3],
+        return String.format(Locale.ROOT, "%s (tracked %d chunks): health %.1f/%.1f, wreck %s, energy %d/%d, turret %.0f (damaged %s), engine %.0f, wheels %.0f/%.0f, turret target '%s', turret yaw %.1f, body yaw %.1f, at %.1f %.1f %.1f, inputs f%s b%s l%s r%s sprint%s fire%s",
+                v.getName().getString(), v.getType().clientTrackingRange(), health(v), maxHealth(v), wreck(v), energy(v), maxEnergy(v), p[0], data(v, "TURRET_DAMAGED", false), p[1], p[2], p[3],
                 turretTarget(v), turretYaw(v), v.getYRot(), v.getX(), v.getY(), v.getZ(),
                 flag(inputState(v, "forward")), flag(inputState(v, "back")), flag(inputState(v, "left")), flag(inputState(v, "right")), flag(inputState(v, "sprint")), flag(inputState(v, "fire")));
     }

@@ -3,7 +3,8 @@ fighter, holds fire for an ally in the line, resumes its route when the target i
 immune to both gun mods' rounds while every explosive still hurts. Needs a ticking world and no player; installs the
 armour override datapack at the start.
 
-1. Spawned with a route, the T-90A (driver + gunner) halts and fires at a NATO soldier 30 blocks off its road.
+1. Spawned with a route, the T-90A (driver + gunner) halts and fires at a NATO soldier 30 blocks off its road, after the acquire time.
+1b. A target straight behind the halted hull is outside the driver's cone until a hit on the hull alerts the crew.
 2. An ally walked into the line of fire holds it.
 3. The target dead, the crew resumes the route.
 4. Blasted below a third of its health with a target in view, it withdraws away from the target (a 900 blast: 1800 kills it).
@@ -94,7 +95,7 @@ mark = LOG.stat().st_size
 engaged = False
 halted = False
 h_first = None
-for i in range(20):
+for i in range(25):
     time.sleep(1)
     h = health("@e[tag=p18t,limit=1]")
     if h is None or h < 20000.0:
@@ -108,6 +109,37 @@ for i in range(20):
         break
 check("the crew halts the tank and fires at a fighter 30 blocks off its road", crews == 2 and engaged and halted and h_first is not None,   # damaged or dead
       f"crews {crews}; engaged {engaged}; halted {halted}; target health after {i + 1} s: {h_first}; {re.search(r'turret target [^,]*', st).group(0) if re.search(r'turret target [^,]*', st) else '?'}")
+
+# 1b. the cone and the alert: a second target straight behind the halted hull is not engaged by the driver; a hit on the hull opens the cone
+tx, tz = tank_pos()
+yaw = num(tank(), r"body yaw ([-\d.]+)") or -90.0
+import math
+bx, bz = tx + 30 * math.sin(math.radians(yaw)), tz - 30 * math.cos(math.radians(yaw))   # behind: minus the forward vector (-sin, cos)
+c("kill @e[tag=p18t]")
+c("gscraft vehicle route @e[type=superbwarfare:t_90a,limit=1] clear")   # the hull stays put for the cone check
+time.sleep(1.5)
+tx, tz = tank_pos()
+yaw = num(tank(), r"body yaw ([-\d.]+)") or -90.0
+bx, bz = tx + 30 * math.sin(math.radians(yaw)), tz - 30 * math.cos(math.radians(yaw))
+c(f'summon gscraft:nato_soldier {bx:.1f} {Y} {bz:.1f} {{Tags:["p18b"],NoAI:1b,GscraftRank:"NATO Rifleman",Health:20000f,Attributes:[{{Name:"minecraft:generic.max_health",Base:20000}}]}}')
+mark_b = LOG.stat().st_size
+time.sleep(6)
+before_hit = [l for l in log_since(mark_b).splitlines() if "(driver) engages" in l]
+print("   ", c(f"gscraft vehicle hit @e[type=superbwarfare:t_90a,limit=1] superbwarfare:custom_explosion 60 @e[tag=p18b,limit=1]")[:110])
+engaged_after = False
+for i in range(8):
+    time.sleep(1)
+    if any("(driver) engages" in l for l in log_since(mark_b).splitlines()):
+        engaged_after = True
+        break
+check("a target behind the hull is outside the driver's cone until a hit on the hull alerts the crew", not before_hit and engaged_after,
+      f"engaged before the hit: {len(before_hit)}; after the hit: {engaged_after} ({i + 1} s); hull yaw {yaw}")
+c("kill @e[tag=p18b]")
+c(f"gscraft vehicle route @e[type=superbwarfare:t_90a,limit=1] add {X + 50} {Z}")
+c(f"gscraft vehicle route @e[type=superbwarfare:t_90a,limit=1] add {X - 50} {Z}")
+time.sleep(1)
+c(f'summon gscraft:nato_soldier {X - 20} {Y} {Z - 30} {{Tags:["p18t"],NoAI:1b,GscraftRank:"NATO Rifleman",Health:20000f,Attributes:[{{Name:"minecraft:generic.max_health",Base:20000}}]}}')
+time.sleep(5)
 
 # 2. an ally in the line holds fire (once the halted hull has stopped coasting: the line moves with it)
 tx, tz = tank_pos()

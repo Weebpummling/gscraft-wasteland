@@ -97,6 +97,12 @@ public final class Armour {
         return placed;
     }
 
+    /** a target one of the vehicle's crews already engages */
+    public static boolean engagedBy(Entity vehicle, Entity target) {
+        for (Entity p : vehicle.getPassengers()) if (p instanceof Crew c && c.engaged == target) return true;
+        return false;
+    }
+
     /** the driver */
     public static Crew crewOf(Entity vehicle) {
         for (Entity p : vehicle.getPassengers()) if (p instanceof Crew c && !c.gunner()) return c;

@@ -121,7 +121,12 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         i("fight.surprise_hold_ticks", () -> GunAttackGoal.SURPRISE_HOLD, v -> GunAttackGoal.SURPRISE_HOLD = (int) v, "a hit on a fighter with no target drops it flat this long");
         d("fight.slide_dist", () -> GunAttackGoal.SLIDE_DIST, v -> GunAttackGoal.SLIDE_DIST = v, "the last blocks into cover are a slide (the clip) at slide_speed x the walk");
         d("fight.slide_speed", () -> GunAttackGoal.SLIDE_SPEED, v -> GunAttackGoal.SLIDE_SPEED = v, "1.0 leaves the walk alone; more overshoots the stand spot");
-        d("armour.engage", () -> gscraft.war.armour.FightGoal.ENGAGE, v -> gscraft.war.armour.FightGoal.ENGAGE = v, "a crew fights what it sees inside this many blocks");
+        d("armour.engage", () -> gscraft.war.armour.FightGoal.ENGAGE, v -> gscraft.war.armour.FightGoal.ENGAGE = v, "a crew fights what it sees inside this many blocks (within the tracking range)");
+        i("armour.acquire_ticks", () -> gscraft.war.armour.FightGoal.ACQUIRE_TICKS, v -> gscraft.war.armour.FightGoal.ACQUIRE_TICKS = (int) v, "a threat must be in sight this long before it is engaged");
+        i("armour.retarget_ticks", () -> gscraft.war.armour.FightGoal.RETARGET_TICKS, v -> gscraft.war.armour.FightGoal.RETARGET_TICKS = (int) v, "how often a better target is looked for while engaged");
+        d("armour.view_cone_driver", () -> gscraft.war.armour.FightGoal.VIEW_CONE_DRIVER, v -> gscraft.war.armour.FightGoal.VIEW_CONE_DRIVER = v, "the driver detects inside this many degrees about the hull's heading");
+        d("armour.view_cone_gunner", () -> gscraft.war.armour.FightGoal.VIEW_CONE_GUNNER, v -> gscraft.war.armour.FightGoal.VIEW_CONE_GUNNER = v, "the commander's station detects inside this many degrees");
+        i("armour.alert_ticks", () -> gscraft.war.armour.FightGoal.ALERT_TICKS, v -> gscraft.war.armour.FightGoal.ALERT_TICKS = (int) v, "a hit on the vehicle opens the cone all round for this long");
         i("armour.lost_ticks", () -> gscraft.war.armour.FightGoal.LOST_TICKS, v -> gscraft.war.armour.FightGoal.LOST_TICKS = (int) v, "a target out of the turret's sight this long is dropped");
         d("armour.friendly_radius", () -> gscraft.war.armour.FightGoal.FRIENDLY_RADIUS, v -> gscraft.war.armour.FightGoal.FRIENDLY_RADIUS = v, "fire is held while an ally stands this close to the line of fire");
         d("armour.retreat_share", () -> gscraft.war.armour.FightGoal.RETREAT_SHARE, v -> gscraft.war.armour.FightGoal.RETREAT_SHARE = (float) v, "below this share of health the driver withdraws");
