@@ -49,7 +49,7 @@ public class FighterProxy extends RemotePlayer implements IGunOperator {
 
     @Override
     public ResourceLocation getSkinTextureLocation() {
-        return FighterRenderer.skin(((Skinned) link).skin());
+        return FighterRenderer.skin(link, ((Skinned) link).skin());
     }
 
     @Override

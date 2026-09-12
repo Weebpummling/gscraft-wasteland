@@ -45,8 +45,21 @@ public class FighterRenderer<T extends Mob & Skinned> extends HumanoidMobRendere
         return SKINS[Math.floorMod(index, SKINS.length)];
     }
 
+    /** the faction's uniform (assets/gscraft/textures/entity/skin/<faction>_<n>.png, made by tools/make_skins.py); vanilla's for a faction without one */
+    public static ResourceLocation skin(Mob mob, int index) {
+        String faction = mob instanceof gscraft.war.faction.FactionMember m ? m.factionId() : null;
+        ResourceLocation own = faction == null ? null : UNIFORMS.get(faction);
+        if (own == null) return skin(index);
+        return new ResourceLocation(own.getNamespace(), own.getPath() + "_" + Math.floorMod(index, Skinned.SKIN_COUNT) + ".png");
+    }
+
+    private static final java.util.Map<String, ResourceLocation> UNIFORMS = java.util.Map.of(
+            "nato", new ResourceLocation(gscraft.war.GscraftWar.MODID, "textures/entity/skin/nato"),
+            "ruaf", new ResourceLocation(gscraft.war.GscraftWar.MODID, "textures/entity/skin/ruaf"),
+            "scavengers", new ResourceLocation(gscraft.war.GscraftWar.MODID, "textures/entity/skin/scav"));
+
     @Override
     public ResourceLocation getTextureLocation(T e) {
-        return skin(e.skin());
+        return skin(e, e.skin());
     }
 }

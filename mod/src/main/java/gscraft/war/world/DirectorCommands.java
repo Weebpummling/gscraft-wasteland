@@ -155,6 +155,11 @@ public final class DirectorCommands {
                 .then(Commands.literal("wound").then(Commands.argument("who", net.minecraft.commands.arguments.EntityArgument.entity())
                         .then(Commands.argument("kind", StringArgumentType.word()).executes(DirectorCommands::wound))))
                 .then(Commands.literal("armor").then(Commands.argument("who", net.minecraft.commands.arguments.EntityArgument.entity()).executes(DirectorCommands::armor)))
+                .then(Commands.literal("monitor")
+                        .then(Commands.literal("on").executes(ctx -> monitor(ctx, 32))
+                                .then(Commands.argument("radius", IntegerArgumentType.integer(4, 128)).executes(ctx -> monitor(ctx, IntegerArgumentType.getInteger(ctx, "radius")))))
+                        .then(Commands.literal("off").executes(ctx -> monitor(ctx, 0)))
+                        .then(Commands.literal("status").executes(ctx -> monitor(ctx, -1))))
                 .then(Commands.literal("settings").executes(ctx -> settings(ctx, null))
                         .then(Commands.argument("filter", StringArgumentType.greedyString()).executes(ctx -> settings(ctx, StringArgumentType.getString(ctx, "filter")))))
                 .then(Commands.literal("sweep").executes(ctx -> {
@@ -581,6 +586,13 @@ public final class DirectorCommands {
     private static BlockPos pos(CommandContext<CommandSourceStack> ctx) {
         return new BlockPos(IntegerArgumentType.getInteger(ctx, "x"), IntegerArgumentType.getInteger(ctx, "y"),
                 IntegerArgumentType.getInteger(ctx, "z"));
+    }
+
+    /** the fire monitor: radius > 0 switches it on for the player, 0 off, -1 reads the counts */
+    private static int monitor(CommandContext<CommandSourceStack> ctx, int radius) throws com.mojang.brigadier.exceptions.CommandSyntaxException {
+        net.minecraft.server.level.ServerPlayer player = ctx.getSource().getPlayerOrException();
+        say(ctx, radius > 0 ? gscraft.war.combat.Monitor.start(player, radius) : radius == 0 ? gscraft.war.combat.Monitor.stop(player) : gscraft.war.combat.Monitor.status(player));
+        return 1;
     }
 
     private static void say(CommandContext<CommandSourceStack> ctx, String text) {

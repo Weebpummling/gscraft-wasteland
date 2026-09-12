@@ -15,7 +15,7 @@
         }
       ],
       "chest": "superbwarfare:us_chest_iotv",
-      "legs": "dragonrise_reforge:kr06_pants",
+      "legs": "dragonrise_reforge:msv_pants",
       "gun": [
         {
           "item": "tacz:m4a1",
@@ -48,7 +48,7 @@
         }
       ],
       "chest": "superbwarfare:us_chest_iotv",
-      "legs": "dragonrise_reforge:kr06_pants",
+      "legs": "dragonrise_reforge:msv_pants",
       "gun": [
         {
           "item": "tacz:m4a1",
@@ -81,7 +81,7 @@
         }
       ],
       "chest": "superbwarfare:us_chest_iotv",
-      "legs": "dragonrise_reforge:kr06_pants",
+      "legs": "dragonrise_reforge:msv_pants",
       "gun": [
         {
           "item": "tacz:mk14",
@@ -113,7 +113,7 @@
         }
       ],
       "chest": "superbwarfare:us_chest_iotv",
-      "legs": "dragonrise_reforge:kr06_pants",
+      "legs": "dragonrise_reforge:msv_pants",
       "gun": "tacz:m249",
       "magazines": 2
     },
@@ -132,7 +132,7 @@
         }
       ],
       "chest": "superbwarfare:us_chest_iotv",
-      "legs": "dragonrise_reforge:kr06_pants",
+      "legs": "dragonrise_reforge:msv_pants",
       "gun": [
         {
           "item": "tacz:m9a4",

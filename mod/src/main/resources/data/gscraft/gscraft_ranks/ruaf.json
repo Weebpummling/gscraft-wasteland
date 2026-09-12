@@ -6,7 +6,7 @@
       "role": "rifleman",
       "head": "superbwarfare:ru_helmet_6b47",
       "chest": "superbwarfare:ru_chest_6b43",
-      "legs": "dragonrise_reforge:msv_pants",
+      "legs": "dragonrise_reforge:gorka3_leggings",
       "gun": [
         {
           "item": "tacz:ak47",
@@ -30,7 +30,7 @@
       "role": "sergeant",
       "head": "superbwarfare:ru_helmet_6b47",
       "chest": "superbwarfare:ru_chest_6b43",
-      "legs": "dragonrise_reforge:msv_pants",
+      "legs": "dragonrise_reforge:gorka3_leggings",
       "gun": [
         {
           "item": "tacz:ak47",
@@ -54,7 +54,7 @@
       "role": "gunner",
       "head": "superbwarfare:ru_helmet_6b47",
       "chest": "superbwarfare:ru_chest_6b43",
-      "legs": "dragonrise_reforge:msv_pants",
+      "legs": "dragonrise_reforge:gorka3_leggings",
       "gun": [
         {
           "item": "tacz:rpk",
@@ -73,7 +73,7 @@
       "role": "marksman",
       "head": "superbwarfare:ru_helmet_6b47",
       "chest": "superbwarfare:ru_chest_6b43",
-      "legs": "dragonrise_reforge:msv_pants",
+      "legs": "dragonrise_reforge:gorka3_leggings",
       "gun": [
         {
           "item": "tacz:sks_tactical",
@@ -96,7 +96,7 @@
       "role": "shield",
       "head": "superbwarfare:ru_helmet_6b47",
       "chest": "superbwarfare:ru_chest_6b43",
-      "legs": "dragonrise_reforge:msv_pants",
+      "legs": "dragonrise_reforge:gorka3_leggings",
       "gun": [
         {
           "item": "tacz:cz75",

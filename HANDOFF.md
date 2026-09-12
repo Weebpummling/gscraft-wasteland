@@ -437,6 +437,21 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, the fire monitor and the uniform skins, local only** (owner: "NPCs are still not reacting to the
+shots that land near them from player bullets" - build a monitor; and "make their uniforms match their armor"):
+`/gscraft monitor on [radius]` tells the player, in chat and in the log, every shot the server registers, every
+bullet into a block with the impact point and the fighters that counted (suppression before and after) or the
+nearest one and its distance, every bullet into a fighter with the hold's doing, and once a second the fighters
+within the radius with suppression, pose, hold, target and move (`combat/Monitor`; `status`, `off`). Reading the
+bullet code: the block-hit event is posted for every server bullet, players' included, so the suspicion is the
+arithmetic (a near miss is 0.3, pinned at 0.8, a point drains in 5 s: three misses inside ~1.5 s), not the plumbing.
+Skins: `tools/make_skins.py` writes 27 deterministic 64x64 skins into `assets/gscraft/textures/entity/skin/`
+(nato_ OCP tan after the IOTV/PASGT, ruaf_ dark olive digital after the 6B43/6B47, scav_ civilian);
+`FighterRenderer.skin(mob, index)` picks by faction, vanilla's defaults for any other; NATO legs are now
+`msv_pants` (tan) and RUAF `gorka3_leggings` (olive) instead of the grey/tan mismatch - legs carry no armour class,
+so visual only. Jar 354 KB on the local server and WarTest, phases 13/14 green after the boot. Trap seen again:
+the local JVM hung after a clean `stop` (all saved, RCON thread stopped) and had to be killed before the restart.
+
 **2026-09-12, the stand-in renderer and the tactical moves (A1 + A2), local only:** fighters are drawn as
 player stand-ins so TACZ's third-person gun clips (shoulder, aim, reload, sprint, the lying poses) and PlayerAnimator
 reach them, and a synced byte plays our own clips - dive, slide, lean, throw, flinch - from
