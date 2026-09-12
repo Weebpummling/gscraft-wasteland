@@ -437,6 +437,15 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, armour V1 done (local):** the probe `/gscraft vehicle status|fuel|input|drive|target|hit`
+(`armour/Vehicles` by reflection, `armour/VehicleCommands`), `tools/war_phase16.py` green, the override datapack
+generator `tools/armour_override.py` (`--install` puts it in the local world; repo copy `build/local-datapack/
+gscraft_armour`). Findings in the design's new §9: a vehicle with nobody aboard does not drive; with any Mob in seat 0
+it drives, its AI turret lays on a target and the fire input shoots - so V2's crew mob is the passenger the mod
+wants; `/summon` needs the part health NBT or the parts arrive damaged; `hurt` needs an attacker; the damage table
+for both vehicles; `#tacz:bullets 0` makes every TACZ round exactly 0. The override is installed in the local world
+(not on live). Next: V2, `gscraft:crew` and the drive goal.
+
 **2026-09-12 10:08, live** (owner: "set this live"; server empty by the console's `list`): `power stop`, `put` of
 `gscraft-0.1.0.jar` (355 KB, sha256 5e74566e...) into `/mods`, `power start`, Done in 1.6 s, `ranks loaded: nato=5
 dead=9 ruaf=5 scavengers=6`. Pack 2026.09.12.3 pushed after the boot, the release jar replaced. What went up: the

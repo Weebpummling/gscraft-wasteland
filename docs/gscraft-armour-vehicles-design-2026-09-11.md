@@ -194,3 +194,45 @@ right, still no new model.
   to test in V3.
 - **Superb Warfare updates.** The crew touches the vehicle only through public setters, synced data and one
   method, all by reflection the way the grenade does, so a jar update breaks the crew, not the server.
+
+## 9. V1 results (2026-09-12, local server)
+
+Probe: `/gscraft vehicle status|fuel|input|drive|target|hit` (`armour/VehicleCommands`, on `armour/Vehicles`, all by
+reflection), test `tools/war_phase16.py`, override `tools/armour_override.py`.
+
+**The driver question.** A vehicle with nobody aboard does not move on the forward input, whatever its energy and
+however healthy its parts: `travel()` runs every tick, but the engine's power follows the passengers. With any
+`Mob` mounted in seat 0 (`/ride` in the test) the same T-90A drives 30 blocks in 80 ticks at a sprint and coasts on
+after. The AI turret is gated the same way, on the seat: `baseTick` lays the turret by `AI_TURRET_TARGET_UUID` only
+when the entity in the turret controller's seat is a `Mob` (a `Player` there gets manual control); with the mob
+aboard the target field takes and the turret turned 22 degrees in three seconds. The fire input with the mob aboard
+hurt the target (2000 → 1979 in three seconds - the coaxial MG; the cannon needs the weapon selected). So the crew
+of §2 is the passenger the mod checks for, not a fallback: V2 mounts the crew mob in seat 0 and writes the inputs.
+
+**Spawning.** `/summon` with no NBT arrives with the parts at a tenth (turret 10 of 100, engine 15 of 150) and the
+damaged flags set - the save-data read of an empty tag. Spawn with `TurretHealth:100f,MainEngineHealth:150f,
+LeftWheelHealth:100f,RightWheelHealth:100f` and the four `*Damaged:0b`, plus `Energy`, or set them after; the T-90A's
+maxima are 100 / 100 / 150 (`getTurretMaxHealth` and kin, per vehicle class). `Energy` is the fuel: 10 000 000 on
+the T-90A, and the drive above cost 6 272 of it.
+
+**The hit gate.** `hurt` refuses a source with no attacker (the friendly check against the last driver reads it as
+friendly), so `/damage` from the console says "invulnerable"; the probe's `hit` names an attacker.
+
+**The damage table** (the mod's own lists; what a hit of that amount takes off the vehicle):
+
+| source (amount) | BMP-2 | T-90A |
+|---|---|---|
+| `tacz:bullet` 6.5 (5.56) | 0 | 0 |
+| `tacz:bullet` 42 (.308) | 0.5 | 0 |
+| `tacz:bullet_ignore_armor` 42 | 3.5 | 0.5 |
+| `superbwarfare:custom_explosion` 120 (hand grenade) | 36.6 | 9.2 |
+| `superbwarfare:projectile_explosion` 200 (rocket) | 63.9 | 16.6 |
+| `minecraft:explosion` 100 | 89.2 | 22.7 |
+| `superbwarfare:mine` 300 | 34.3 | 19.9 |
+| `superbwarfare:projectile_hit` 65 (30 mm) | 12.0 | 8.3 |
+
+Against 300 and 500 health: a BMP-2 dies to eight grenades or five rockets, a T-90A to fifty-four grenades or
+thirty rockets. The override (`#tacz:bullets 0` in front of each list, world datapack `gscraft_armour`, `/reload`)
+makes every TACZ round exactly 0 on both, confirmed live. The explosive multipliers are the mod's until the §5
+table is settled; they go into `armour_override.py`'s CHANGES.
+
