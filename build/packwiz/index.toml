@@ -492,12 +492,16 @@ file = "config/sophisticatedcore-common.toml"
 hash = "6406f077d31a0fdb7cf93bd93c235b80085304fa285d04dcb43c615794ffd5e9"
 
 [[files]]
+file = "config/superbwarfare-client.toml"
+hash = "30ba796b3fbba7760c26999eabb7bd71ea85a3199adc61e867c7d1128f0be2f2"
+
+[[files]]
 file = "config/superbwarfare-common.toml"
 hash = "58d8d17d24f6651690abeb1535b4116f1d255b737541f6a6eba64e5b7da6aa3a"
 
 [[files]]
 file = "config/superbwarfare-server.toml"
-hash = "4e7a673dfebe106d503acc774efadf3a4d5d3f2588eb13a4084ef5c19af22d4e"
+hash = "d269cf1abb0e21c40c9f5328ee9b79dc0f0ae3c40ebdaa4e9d51c4b62d28a36b"
 
 [[files]]
 file = "config/superbwarfare-server.toml.bak-explosion"
@@ -505,7 +509,7 @@ hash = "595ecb8acc60935faac10e9cf05f56a2b6702c5d2c26887648b22de084ad5f39"
 
 [[files]]
 file = "config/tacz-common.toml"
-hash = "3e4bd40eacba8df674a92b8b1cce1d71728da4a4909a468fcd5275d11cd3d1a6"
+hash = "a445ca5beddc15b37975d205c8f9f7f7e1e02a437e75017d37a49ecda8aec3e3"
 
 [[files]]
 file = "config/torchmaster.toml"
@@ -826,7 +830,7 @@ metafile = true
 
 [[files]]
 file = "mods/gscraft-0-1-0.pw.toml"
-hash = "e53e31e3529ee1a91761c81d0afc833aa9c0b6e7ec68c3db8fcafffc38562da5"
+hash = "c8bda58dd8942117565036fde0cbc454aadb10ddde00a1e51d44cf977bc2a3f4"
 metafile = true
 
 [[files]]

@@ -437,6 +437,19 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12 14:42, live** (owner: "everything looks good, update to live"; server empty by the console's `list`
+at 14:40): `power stop`; `put` of `gscraft-0.1.0.jar` (416 KB, sha256 4df9336f...) into `/mods`, of
+`tacz-common.toml` (ExplosiveAmmoDestroysBlock false) and `superbwarfare-server.toml` (the tamed blasts) into
+`/config`, and of the override datapack `gscraft_armour` (pack.mcmeta, the four vehicle files, five gun files) into
+`/wasteland-v8/datapacks/` (folders made with `mkdir`; a datapack folder, not world data - deployguard is for region
+files); `power start`: "Found new data pack file/gscraft_armour, loading it automatically", `ranks loaded: nato=6
+ruaf=6` (the crewmen), `settings: 189 values from [defaults (187), zz_live (2)]`, the usual pre-existing mod
+errors only. Pack 2026.09.12.4 built after the boot (`pauseEventServer` toggled true for the build and restored),
+the release jar replaced (426045 bytes), `superbwarfare-client.toml` now shipped. What went up: armour V1-V6, the
+riders and loot, the damage pass and the flat TACZ explosives, the bail-out, the cannon-only crew, chat off, the
+blast pass. **Armour is live.** First live armour: the zones roll it at the fronts and outposts (6% a pass, 96-140
+out); `/gscraft director armour ~ ~ ~ <vehicle> <n>` places one by hand.
+
 **2026-09-12, the blasts' look (local):** the owner meant the visual strength. In Superb Warfare a blast's fireball
 is picked from its radius (a rocket under 2 mini, 2-4 small, 4-7 medium, 7 up large; grenades and shells under 4
 small, 4-10 medium, 10-16 huge), so the radius pass of the same day already shrinks them (the RPG round to small, its
