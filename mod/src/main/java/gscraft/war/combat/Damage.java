@@ -37,6 +37,8 @@ public final class Damage {
     public static int BLEED_EVERY = 40;
     public static float BLEED_DAMAGE = 1.0F;
     public static final String CHEST_PLATE_TAG = "ArmorPlate";
+    /** damage.debug 1: every hit, near miss and suppression change is logged (a diagnosis switch, off by default) */
+    public static int DEBUG = 0;
     public static final String HEAD_PLATE_TAG = "GscraftPlate";
 
     private Damage() {}

@@ -48,6 +48,11 @@ public final class WarEvents {
 
     /** how far an unsuppressed shot carries, and a suppressed one */
     public static double LOUD = 64.0D;
+    /** suppression: a hit on the body, a round striking within NEAR_RADIUS of the impact, a hit on a squadmate within eight */
+    public static float SUPPRESS_HIT = 0.5F;
+    public static float SUPPRESS_NEAR = 0.3F;
+    public static float SUPPRESS_ALLY = 0.25F;
+    public static double NEAR_RADIUS = 4.0D;
     public static double SILENCED = 12.0D;
     private static final Map<UUID, Long> LAST_SHOT_HEARD = new HashMap<>();
     private static long lastHearingLog;
@@ -164,10 +169,15 @@ public final class WarEvents {
         if (!(event.getLevel() instanceof ServerLevel level) || event.getAmmo() == null) return;
         Entity bullet = event.getAmmo();
         Entity shooter = bullet instanceof net.minecraft.world.entity.projectile.Projectile p ? p.getOwner() : null;
-        for (Mob mob : level.getEntitiesOfClass(Mob.class, bullet.getBoundingBox().inflate(3.0D), m -> m instanceof GunUser)) {
+        net.minecraft.world.phys.Vec3 at = event.getHitResult().getLocation();
+        net.minecraft.world.phys.AABB around = new net.minecraft.world.phys.AABB(at, at).inflate(NEAR_RADIUS);
+        int near = 0;
+        for (Mob mob : level.getEntitiesOfClass(Mob.class, around, m -> m instanceof GunUser)) {
             if (shooter != null && Factions.allied(mob, shooter)) continue;
-            ((GunUser) mob).fighterState().suppress(0.3F);
+            ((GunUser) mob).fighterState().suppress(SUPPRESS_NEAR);
+            near++;
         }
+        if (gscraft.war.combat.Damage.DEBUG > 0) GscraftWar.LOG.info("[gscraft] near miss by {} at {}: {} fighters within {}", shooter == null ? "?" : shooter.getName().getString(), net.minecraft.core.BlockPos.containing(at).toShortString(), near, NEAR_RADIUS);
     }
 
     /** a fighter hit, and its squadmates within eight blocks: under fire */
@@ -177,12 +187,13 @@ public final class WarEvents {
         Entity hurt = event.getHurtEntity();
         if (!(hurt instanceof Mob mob) || !(mob instanceof GunUser user) || !(mob.level() instanceof ServerLevel level)) return;
         gscraft.war.entity.FighterState st = user.fighterState();
-        st.suppress(0.5F);
+        st.suppress(SUPPRESS_HIT);
+        if (gscraft.war.combat.Damage.DEBUG > 0) GscraftWar.LOG.info("[gscraft] hit event ({}): {} hit by {} -> suppression {}, target {}, pinned {}", event.getClass().getSimpleName(), mob.getName().getString(), event.getAttacker() == null ? "?" : event.getAttacker().getName().getString(), st.suppression, mob.getTarget() == null ? "none" : mob.getTarget().getName().getString(), st.pinned(level.getGameTime()));
         long now = level.getGameTime();
         if (mob.getTarget() == null) st.holdFlat(now, gscraft.war.entity.GunAttackGoal.SURPRISE_HOLD);   // surprised: down first, look later
         else if (st.pinned(now)) st.holdFlat(now, gscraft.war.entity.GunAttackGoal.PINNED_HOLD);      // hit while flat: it stays flat
         for (Mob ally : level.getEntitiesOfClass(Mob.class, mob.getBoundingBox().inflate(8.0D), m -> m != mob && m instanceof GunUser && Factions.allied(m, mob))) {
-            ((GunUser) ally).fighterState().suppress(0.25F);
+            ((GunUser) ally).fighterState().suppress(SUPPRESS_ALLY);
         }
     }
 

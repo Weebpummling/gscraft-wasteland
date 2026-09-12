@@ -146,6 +146,7 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
     protected void registerGoals() {
         goalSelector.addGoal(0, new FloatGoal(this));
         goalSelector.addGoal(1, new OpenDoorGoal(this, true));
+        goalSelector.addGoal(1, new GrenadeEvadeGoal(this));
         goalSelector.addGoal(1, new GrenadeGoal(this));
         gunGoal = new GunAttackGoal(this, 1.0D);
         goalSelector.addGoal(2, gunGoal);

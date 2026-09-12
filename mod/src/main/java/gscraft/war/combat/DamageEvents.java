@@ -54,6 +54,7 @@ public final class DamageEvents {
         if (r.modelled()) event.setDamageSource(GunDamageSourcePart.NON_ARMOR_PIERCING, event.getDamageSource(GunDamageSourcePart.ARMOR_PIERCING));
         Damage.record(target, r, "bullet");
         Damage.wound(target, zone);
+        if (Damage.DEBUG > 0) GscraftWar.LOG.info("[gscraft] gun hit: {} -> {} by {} side {} zone {} base {} -> {}", event.getAttacker() == null ? "?" : event.getAttacker().getName().getString(), target.getName().getString(), event.getGunId(), event.getLogicalSide(), zone, event.getBaseAmount(), r.damage());
     }
 
     private static ResourceLocation ammoOf(ResourceLocation gunId) {

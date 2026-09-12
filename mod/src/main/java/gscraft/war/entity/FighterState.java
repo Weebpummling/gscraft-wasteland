@@ -39,6 +39,8 @@ public final class FighterState {
     public boolean outOfAmmo;
     /** under fire, 0 to 1; not saved - it decays in seconds (feasibility A4) */
     public float suppression;
+    /** a full point of suppression drains in this many ticks */
+    public static float DECAY_TICKS = 100.0F;
     /** game time the next grenade may be thrown */
     public long nextGrenade;
     /** a garrison member's post; radius 0 means it roams */
@@ -151,7 +153,7 @@ public final class FighterState {
     }
 
     public void decaySuppression() {
-        if (suppression > 0.0F) suppression = Math.max(0.0F, suppression - 1.0F / 60.0F);
+        if (suppression > 0.0F) suppression = Math.max(0.0F, suppression - 1.0F / DECAY_TICKS);
     }
 
     /** re-bind the mob to its post; restrictTo itself is not saved by vanilla */

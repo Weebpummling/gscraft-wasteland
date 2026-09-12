@@ -102,6 +102,14 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("squads.walk_speed", () -> Squad.WALK_SPEED, v -> Squad.WALK_SPEED = v, "the walk's pace (a zone patrol goes at 0.9)");
         d("squads.patrol_near", () -> Squad.PATROL_NEAR, v -> Squad.PATROL_NEAR = v, "a patrol walks only with someone this close");
         // the fight
+        d("fight.suppress_hit", () -> WarEvents.SUPPRESS_HIT, v -> WarEvents.SUPPRESS_HIT = (float) v, "suppression from a hit on the body");
+        d("fight.suppress_near", () -> WarEvents.SUPPRESS_NEAR, v -> WarEvents.SUPPRESS_NEAR = (float) v, "from a round striking near");
+        d("fight.suppress_ally", () -> WarEvents.SUPPRESS_ALLY, v -> WarEvents.SUPPRESS_ALLY = (float) v, "from a hit on a squadmate within eight");
+        d("fight.near_radius", () -> WarEvents.NEAR_RADIUS, v -> WarEvents.NEAR_RADIUS = v, "how near a strike has to land, from its impact");
+        d("fight.suppression_decay_ticks", () -> gscraft.war.entity.FighterState.DECAY_TICKS, v -> gscraft.war.entity.FighterState.DECAY_TICKS = (float) v, "a full point drains in this long");
+        d("fight.grenade_flee_radius", () -> gscraft.war.entity.GrenadeEvadeGoal.RADIUS, v -> gscraft.war.entity.GrenadeEvadeGoal.RADIUS = v, "a grenade this close is run from");
+        d("fight.grenade_flee_run", () -> gscraft.war.entity.GrenadeEvadeGoal.RUN, v -> gscraft.war.entity.GrenadeEvadeGoal.RUN = v, "how far");
+        i("fight.grenade_flee_ticks", () -> gscraft.war.entity.GrenadeEvadeGoal.MAX_TICKS, v -> gscraft.war.entity.GrenadeEvadeGoal.MAX_TICKS = (int) v, "for at most this long");
         d("fight.hold_factor", () -> GunAttackGoal.HOLD_FACTOR, v -> GunAttackGoal.HOLD_FACTOR = v, "cover is taken and bounding stops inside range x hold_at x this");
         i("fight.reload_ticks", () -> GunAttackGoal.RELOAD_TICKS, v -> GunAttackGoal.RELOAD_TICKS = (int) v, "a magazine change");
         d("fight.marksman_prone_dist", () -> GunAttackGoal.MARKSMAN_PRONE_DIST, v -> GunAttackGoal.MARKSMAN_PRONE_DIST = v, "the Marksman goes flat beyond this, in the open");
@@ -116,6 +124,7 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         i("fight.suppress_ticks", () -> GunAttackGoal.SUPPRESS_TICKS, v -> GunAttackGoal.SUPPRESS_TICKS = (int) v, "the Gunner keeps firing at a lost target for this long");
         i("cover.samples", () -> Cover.SAMPLES, v -> Cover.SAMPLES = (int) v, "spots tried per search");
         // the damage model
+        i("damage.debug", () -> Damage.DEBUG, v -> Damage.DEBUG = (int) v, "1: log every hit and near miss the fighters register");
         d("damage.zone.head", () -> Damage.HEAD, v -> Damage.HEAD = (float) v, "a head hit's multiplier");
         d("damage.zone.thorax", () -> Damage.THORAX, v -> Damage.THORAX = (float) v, "a thorax hit's");
         d("damage.zone.stomach", () -> Damage.STOMACH, v -> Damage.STOMACH = (float) v, "a stomach hit's (it bleeds)");
