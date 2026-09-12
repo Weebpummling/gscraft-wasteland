@@ -488,3 +488,16 @@ moving hull back in now waits `Crew.REBOARD_TICKS` (600) after a dismount and ne
 **Results (`tools/war_phase24.py`, 3/3).** A BMP-2 with four riders hit by a rocket type: out in half a second, the
 dismount logged. With no threat in reach they stay aboard; one rider hit in the bay puts the whole bay out. Phase
 20 rerun green.
+
+## 21. The bail-out as the usual end (owner, 2026-09-12: "are the crew bail out system working?")
+
+It worked in the test and would not have shown in play. §17 set the trigger at under a tenth of health (or the mod's
+burn share, whichever higher), and the flat rocket damage of §17 steps a vehicle over that window: a BMP-2 goes 300,
+140, dead; a T-90A 500, 370, 240, 110, dead. The two-module trigger (engine and turret both gone) needs two part
+hits on one hull.
+
+Now `armour.bail_share`, 0.6: at or under six tenths of health the crew bails. One rocket from the front (the mod
+scales a frontal hit by 0.85) leaves a BMP-2 at 166 and the crew climbs out; the hull sits abandoned to be finished
+or captured. A tank bails after its second rocket (240 of 500). The crew also bails when the turret is knocked out -
+a crew with no gun has nothing to do but leave - while a hull with only its engine gone still sits and fights (§2).
+Phase 22's bail check now fires the crew with one 450 `projectile_hit` (5/5); phase 24 green.

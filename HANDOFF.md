@@ -437,6 +437,14 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, the bail-out made the usual end of a fight (local):** owner asked whether the crews bail out. The
+code did (phase 22) but in play it never would: the trigger was under a tenth of health, and a rocket's 160 takes a
+300 BMP from 300 to 140 to dead without passing through 0-30; a tank's last rocket lands it at 110 of 500, above 50.
+Now `armour.bail_share` (0.6): the crew bails at or under six tenths of health - one rocket from the front (the mod's
+0.85 angle) leaves a BMP at 166 and the crew leaves; a tank bails after its second (240) - and also when the turret
+is knocked out (a crew with no gun); the engine-only case still sits and fights. Phase 22 updated (one 450 hit puts
+the crew out at 166) and green with 24. Design §21.
+
 **2026-09-12 15:01, live** (owner: "go ahead and update this on live"; server empty by the console's `list` at
 15:00): `power stop`, `put` of `gscraft-0.1.0.jar` (417 KB, sha256 47db7ca3...) into `/mods`, `power start`, Done
 in 1.5 s, `settings: 190 values`. Pack 2026.09.12.5 built after the boot (`pauseEventServer` toggled for the build

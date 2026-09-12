@@ -74,7 +74,8 @@ public class Crew extends Mob implements FactionMember {
     /** after a dismount the bay stays out this long before an escort beside a moving hull climbs back in */
     public static int REBOARD_TICKS = 600;
     private int lastDismount = -100000;
-    public static float DISABLED_SHARE = 0.1F;
+    /** at or under this share of health the crew bails (owner 2026-09-12: about a half - 0.6, so one rocket from the front (the mod scales a frontal hit by 0.85) still does it on light armour) */
+    public static float DISABLED_SHARE = 0.6F;
 
     public Crew(EntityType<? extends Crew> type, Level level) {
         super(type, level);
@@ -132,16 +133,17 @@ public class Crew extends Mob implements FactionMember {
         return v != null && Vehicles.isVehicle(v) ? v : null;
     }
 
-    /** disabled: burning down (under the mod's burn share or ours, whichever is higher) or without both engine and gun */
+    /** disabled: at or under the bail share of health (or the mod's burn share, whichever is higher), or the gun is
+     *  out (a crew with no gun has nothing to do but leave; with only the engine gone it sits and fights) */
     public static boolean disabled(Entity v) {
         if (Vehicles.wreck(v)) return false;   // the wreck is the end, not a bail
         float h = Vehicles.health(v);
         float max = Vehicles.maxHealth(v);
         float share = Vehicles.selfHurtShare(v);
         float limit = Math.max(Float.isNaN(share) ? 0.0F : share, DISABLED_SHARE);
-        boolean burning = !Float.isNaN(h) && !Float.isNaN(max) && h > 0.0F && h <= max * limit;
-        boolean gutted = Vehicles.data(v, "MAIN_ENGINE_DAMAGED", false) && Vehicles.data(v, "TURRET_DAMAGED", false);
-        return burning || gutted;
+        boolean low = !Float.isNaN(h) && !Float.isNaN(max) && h > 0.0F && h <= max * limit;
+        boolean gunOut = Vehicles.data(v, "TURRET_DAMAGED", false);
+        return low || gunOut;
     }
 
     /** the crew climbs out as crewmen (uniform and a pistol), the riders with them; the vehicle is left to burn;
