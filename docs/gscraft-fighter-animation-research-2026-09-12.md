@@ -131,6 +131,36 @@ A1 is the risk and the payoff, a day to a day and a half; A2–A4 a day each plu
 client-side rendering and one synced byte, so the server build stays what it is and a client on an older jar
 still joins (it sees the vanilla poses).
 
+## 8. Built (2026-09-12, local only)
+
+**A1, the stand-in.** `client/FighterProxy` (a `RemotePlayer` that answers every gun question from the fighter it is
+linked to - TACZ syncs a mob's gun state as it does a player's) and `client/FighterProxyRenderer` (every frame the
+stand-in is moved onto the fighter: position, both rotations, pose, sprint, crouch, the hurt and death timers; a
+player renderer draws it with the fighter's skin, no name tag; the stand-ins are ticked once a client tick for the
+walk cycle and the animation layers and dropped with the fighter). `-Dgscraft.proxy=false` on the client draws the
+old mob renderer. PlayerAnimator's jar sits in `mod/libs` next to TACZ's (compile only, ignored by git like it).
+
+**A2, our own moves.** One synced byte on Soldier and Scavenger (`entity/Anim`, `entity/Animated`: the move in the
+low four bits, a sequence in the high four so a repeat is seen), set on the server by the things that already
+happen: `Fighters.stance` plays **dive** on any drop to flat (the gun goal, the wound tick); the gun goal plays
+**slide** on the last three blocks into cover at 1.15x the walk (settings `fight.slide_dist`, `fight.slide_speed`; 1.35x overshot the stand spot and cost the cover - phase 8 caught it) and holds
+**lean_left / lean_right** while it leans (the side from the lean step against the body's facing); the grenade goal
+plays **throw** at its start (the release at its fifteenth tick); a hit that did not lay the body down plays
+**flinch**. `/gscraft fighter` reads it as `anim MOVE#seq`; `tools/war_phase14.py` checks the five.
+
+The client (`client/FighterAnims`) holds one PlayerAnimator layer per stand-in at priority 97, above TACZ's four
+(93-96), and plays the clip of the move's name from `assets/gscraft/player_animation/tactical.json` when the byte
+changes: loops until the byte changes, one-shots to their end with a six-tick blend back into whatever pose is
+under them (the clip's stop tick pushed past its end). A clip moves only the bones it names, so the rifle stays
+in TACZ's hands through a lean or a flinch. The file is Blockbench's GeckoLib format - the one TACZ's gun packs use -
+degrees, bones `head torso right_arm left_arm right_leg left_leg body`, seconds, `catmullrom` for a smooth key.
+The six clips are numeric first passes written by hand; the bar is "reads at fifty metres". The crawl needs no clip
+of ours: the stand-in lies down through the vanilla swim tilt and TACZ plays its own `lie` / `lie_move` on a
+lying player.
+
+Left of the plan: the visual check of A1 and A2 on WarTest (a headless test cannot see a clip), the lean as a body
+tilt instead of a sidestep, and A4 (the mantle: `Anim.MANTLE` is reserved).
+
 ## 7. For the players themselves
 
 Out of this brief, noted for the owner: Expressive Advanced's leaning and point-aim are the two things a player

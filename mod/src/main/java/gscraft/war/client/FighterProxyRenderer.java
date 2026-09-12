@@ -109,6 +109,7 @@ public class FighterProxyRenderer<T extends Mob & Skinned> extends FighterRender
                 }
                 p.walkAnimation.update(f.walkAnimation.speed(), 0.4F);
                 try {
+                    FighterAnims.tick(p);
                     PlayerAnimationAccess.getPlayerAnimLayer(p).tick();
                 } catch (RuntimeException ignored) {
                     // no animation data on this stand-in: the vanilla poses still draw

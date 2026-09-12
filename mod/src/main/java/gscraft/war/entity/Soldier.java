@@ -43,9 +43,11 @@ import javax.annotation.Nullable;
  * illagers the factions stood up as before carry no armour layer, so every kit was invisible. A Monster on
  * purpose: turrets, guards and recruits already treat monsters as the enemy, and the armies are.
  */
-public class Soldier extends Monster implements FactionMember, Skinned, GunUser, Hearing, Homed {
+public class Soldier extends Monster implements FactionMember, Skinned, GunUser, Hearing, Homed, Animated {
     private static final EntityDataAccessor<Integer> SKIN =
             SynchedEntityData.defineId(Soldier.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Byte> ANIM =
+            SynchedEntityData.defineId(Soldier.class, EntityDataSerializers.BYTE);
 
     private final String faction;
     private GunAttackGoal gunGoal;
@@ -119,6 +121,7 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
     protected void defineSynchedData() {
         super.defineSynchedData();
         entityData.define(SKIN, 0);
+        entityData.define(ANIM, (byte) 0);
     }
 
     @Override
@@ -193,6 +196,17 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
         super.tick();
         // /summon with any NBT skips finalizeSpawn, so a soldier that arrived that way dresses on its first tick
         if (!level().isClientSide && !state.kitIssued) issueKit();
+    }
+
+    @Override
+    public int animByte() {
+        return entityData.get(ANIM) & 0xFF;
+    }
+
+    @Override
+    public void play(Anim anim) {
+        if (level().isClientSide) return;
+        entityData.set(ANIM, Anim.pack(anim, Anim.seq(animByte()) + 1));
     }
 
     @Override

@@ -15,6 +15,7 @@ public final class ClientSetup {
 
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
+        FighterAnims.register();
         event.registerEntityRenderer(ModEntities.NATO_SOLDIER.get(), FighterProxyRenderer::new);
         event.registerEntityRenderer(ModEntities.RUAF_SOLDIER.get(), FighterProxyRenderer::new);
         event.registerEntityRenderer(ModEntities.SCAVENGER.get(), FighterProxyRenderer::new);

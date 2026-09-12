@@ -28,6 +28,8 @@ import java.util.function.Supplier;
  */
 public class FighterProxy extends RemotePlayer implements IGunOperator {
     public final Mob link;
+    /** the last animation byte played, -1 before the first look */
+    public int lastAnim = -1;
 
     public <T extends Mob & Skinned> FighterProxy(ClientLevel level, T link) {
         super(level, new GameProfile(link.getUUID(), "fighter"));

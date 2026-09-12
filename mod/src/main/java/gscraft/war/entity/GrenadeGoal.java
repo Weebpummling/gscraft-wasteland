@@ -95,6 +95,7 @@ public class GrenadeGoal extends Goal {
         mob.setSprinting(false);
         // the throw is never tried twice in a row: a miss still spends the cooldown
         state().nextGrenade = mob.level().getGameTime() + COOLDOWN;
+        Fighters.play(mob, Anim.THROW);
         Callouts.say(mob, "grenade");
     }
 

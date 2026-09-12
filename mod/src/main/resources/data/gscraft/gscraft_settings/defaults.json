@@ -73,6 +73,8 @@
     "suppress_ticks": 40,
     "pinned_hold_ticks": 160,
     "surprise_hold_ticks": 100,
+    "slide_dist": 3.0,
+    "slide_speed": 1.15,
     "suppress_hit": 0.5,
     "suppress_near": 0.3,
     "suppress_ally": 0.25,

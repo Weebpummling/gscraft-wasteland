@@ -54,11 +54,13 @@ import java.util.UUID;
  * A strike is remembered by the whole band, not only the one who was hit: every Scavenger within 24 blocks takes
  * the grudge, and keeps it through a save. Team standing (review W1) builds on this in a later phase.
  */
-public class Scavenger extends PathfinderMob implements FactionMember, Skinned, Grudging, GunUser, Hearing, Homed {
+public class Scavenger extends PathfinderMob implements FactionMember, Skinned, Grudging, GunUser, Hearing, Homed, Animated {
     public static final String FACTION = "scavengers";
     private static final double BAND_RADIUS = 24.0D;
     private static final EntityDataAccessor<Integer> SKIN =
             SynchedEntityData.defineId(Scavenger.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Byte> ANIM =
+            SynchedEntityData.defineId(Scavenger.class, EntityDataSerializers.BYTE);
 
     private final Set<UUID> grudges = new HashSet<>();
     private GunAttackGoal gunGoal;
@@ -140,6 +142,7 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
     protected void defineSynchedData() {
         super.defineSynchedData();
         entityData.define(SKIN, 0);
+        entityData.define(ANIM, (byte) 0);
     }
 
     @Override
@@ -213,6 +216,17 @@ public class Scavenger extends PathfinderMob implements FactionMember, Skinned, 
         }
         if (!level().isClientSide && tickCount % 20 == 10) Squad.leaderTick(this);
         if (!level().isClientSide && !state.kitIssued) issueKit();
+    }
+
+    @Override
+    public int animByte() {
+        return entityData.get(ANIM) & 0xFF;
+    }
+
+    @Override
+    public void play(Anim anim) {
+        if (level().isClientSide) return;
+        entityData.set(ANIM, Anim.pack(anim, Anim.seq(animByte()) + 1));
     }
 
     @Override

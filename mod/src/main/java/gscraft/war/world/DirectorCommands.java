@@ -176,11 +176,12 @@ public final class DirectorCommands {
                             : e instanceof gscraft.war.entity.Scavenger sc ? sc.cover() : null;
                     boolean hidden = mob.getTarget() != null && gscraft.war.entity.Cover.covered(ctx.getSource().getLevel(), mob, mob.getTarget(), mob.position());
                     say(ctx, String.format("%s: rank %s, role %s, magazines %d, grenades %d, suppression %.2f, pose %s, sprinting %s, target %s, ammo %s, "
-                                    + "order %s%s, cover %s, hidden from target %s, wounds %s, last hit %s",
+                                    + "order %s%s, cover %s, hidden from target %s, wounds %s, last hit %s, anim %s",
                             mob.getName().getString(), st.rank, st.role, st.magazines, st.grenades, st.suppression, mob.getPose(),
                             mob.isSprinting(), mob.getTarget() == null ? "none" : mob.getTarget().getName().getString(),
                             st.outOfAmmo ? "out" : "yes", st.order, st.order == gscraft.war.entity.FighterState.Order.NONE ? "" : " at " + st.orderPos.toShortString(),
-                            cover == null ? "none" : cover.spot().toShortString(), hidden, wounds(st, mob.level().getGameTime()), st.lastHit.isEmpty() ? "none" : st.lastHit));
+                            cover == null ? "none" : cover.spot().toShortString(), hidden, wounds(st, mob.level().getGameTime()), st.lastHit.isEmpty() ? "none" : st.lastHit,
+                            e instanceof gscraft.war.entity.Animated an ? gscraft.war.entity.Anim.unpack(an.animByte()) + "#" + gscraft.war.entity.Anim.seq(an.animByte()) : "-"));
                     return 1;
                 }).then(Commands.literal("hold").then(xyzThen(Commands.literal("now").executes(ctx -> order(ctx, gscraft.war.entity.FighterState.Order.HOLD, false)))))
                 .then(Commands.literal("advance").then(xyzThen(Commands.literal("now").executes(ctx -> order(ctx, gscraft.war.entity.FighterState.Order.ADVANCE, false)))))

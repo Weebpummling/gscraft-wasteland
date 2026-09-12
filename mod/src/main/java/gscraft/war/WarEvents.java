@@ -192,6 +192,7 @@ public final class WarEvents {
         long now = level.getGameTime();
         if (mob.getTarget() == null) st.holdFlat(now, gscraft.war.entity.GunAttackGoal.SURPRISE_HOLD);   // surprised: down first, look later
         else if (st.pinned(now)) st.holdFlat(now, gscraft.war.entity.GunAttackGoal.PINNED_HOLD);      // hit while flat: it stays flat
+        if (mob.getPose() != net.minecraft.world.entity.Pose.SWIMMING) gscraft.war.entity.Fighters.play(mob, gscraft.war.entity.Anim.FLINCH);
         for (Mob ally : level.getEntitiesOfClass(Mob.class, mob.getBoundingBox().inflate(8.0D), m -> m != mob && m instanceof GunUser && Factions.allied(m, mob))) {
             ((GunUser) ally).fighterState().suppress(SUPPRESS_ALLY);
         }

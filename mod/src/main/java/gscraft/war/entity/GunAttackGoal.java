@@ -60,6 +60,9 @@ public class GunAttackGoal extends Goal {
     public static int COVER_TRAVEL_TICKS = 100;   // a spot not reached in five seconds is given up
     private static final int LOW_BLOCKED_TICKS = 100;
     private static final double HOLD_COVER_REACH = 6.0D;
+    /** the last blocks into cover at a run (the slide), this much faster */
+    public static double SLIDE_DIST = 3.0D;
+    public static double SLIDE_SPEED = 1.15D;
 
     private final PathfinderMob mob;
     private final GunUser user;
@@ -85,6 +88,8 @@ public class GunAttackGoal extends Goal {
     private int coverPath;
     private int coverTravel;
     private int leanStuck;
+    private boolean slid;
+    private boolean leanShown;
     /** a lowered stance that lost the line of sight stands back up and stays up for a while */
     private long lowBlockedUntil;
 
@@ -130,6 +135,7 @@ public class GunAttackGoal extends Goal {
         mob.getNavigation().stop();
         mob.setSprinting(false);
         stance(Pose.STANDING);
+        showLean(false);
         lowerShield();
         seeTime = 0;
         cover = null;
@@ -293,6 +299,7 @@ public class GunAttackGoal extends Goal {
         if (state.order == FighterState.Order.HOLD && found.stand().distanceTo(Vec3.atBottomCenterOf(state.orderPos)) > HOLD_COVER_REACH) return;
         cover = found;
         leaning = false;
+        slid = false;
         coverLost = 0;
         coverTravel = 0;
     }
@@ -311,7 +318,13 @@ public class GunAttackGoal extends Goal {
             Vec3 want = leaning ? cover.lean() : stand;
             double away = mob.position().distanceTo(want);
             if (away > COVER_ARRIVE && !leaning) {
-                if (--coverPath <= 0) {
+                if (!slid && away <= SLIDE_DIST) {
+                    // the last three blocks at a run, sliding in
+                    slid = true;
+                    coverPath = COVER_PATH_EVERY;
+                    mob.getNavigation().moveTo(want.x, want.y, want.z, speed * SLIDE_SPEED);
+                    Fighters.play(mob, Anim.SLIDE);
+                } else if (--coverPath <= 0) {
                     coverPath = COVER_PATH_EVERY;
                     mob.getNavigation().moveTo(want.x, want.y, want.z, speed);
                 }
@@ -359,6 +372,7 @@ public class GunAttackGoal extends Goal {
                 mob.setSprinting(false);
             }
         }
+        showLean(cover != null && leaning);
         if (canSee) {
             mob.getLookControl().setLookAt(target, 30.0F, 30.0F);
         } else if (lastSeen != null) {
@@ -394,10 +408,23 @@ public class GunAttackGoal extends Goal {
     }
 
     private void stance(Pose pose) {
-        if (mob.getPose() != pose) {
-            mob.setPose(pose);
-            mob.refreshDimensions();
+        Fighters.stance(mob, pose);
+    }
+
+    /** the lean for the clients: the upper body out to the side the lean steps to, held while the lean lasts */
+    private void showLean(boolean want) {
+        if (want == leanShown) return;
+        leanShown = want;
+        if (!want || cover == null) {
+            Fighters.stopLoop(mob, Anim.LEAN_LEFT);
+            Fighters.stopLoop(mob, Anim.LEAN_RIGHT);
+            return;
         }
+        Vec3 out = cover.lean().subtract(cover.stand());
+        double yaw = Math.toRadians(mob.yBodyRot);
+        // the body's right-hand side: facing south (+z), west (-x) is to the right
+        double right = out.x * -Math.cos(yaw) + out.z * -Math.sin(yaw);
+        Fighters.play(mob, right > 0 ? Anim.LEAN_RIGHT : Anim.LEAN_LEFT);
     }
 
     private void raiseShield() {

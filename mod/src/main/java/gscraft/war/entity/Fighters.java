@@ -20,6 +20,24 @@ public final class Fighters {
         }
     }
 
+    /** a move for the clients, on a body that has the byte */
+    public static void play(Mob mob, Anim anim) {
+        if (mob instanceof Animated a) a.play(anim);
+    }
+
+    /** a loop that may be running is ended; a one-shot or another loop is left alone */
+    public static void stopLoop(Mob mob, Anim loop) {
+        if (mob instanceof Animated a && Anim.unpack(a.animByte()) == loop) a.play(Anim.NONE);
+    }
+
+    /** the pose, with the box to match; going flat plays the dive */
+    public static void stance(Mob mob, net.minecraft.world.entity.Pose pose) {
+        if (mob.getPose() == pose) return;
+        if (pose == net.minecraft.world.entity.Pose.SWIMMING) play(mob, Anim.DIVE);
+        mob.setPose(pose);
+        mob.refreshDimensions();
+    }
+
     private static final java.util.UUID CRAWL_ID = java.util.UUID.fromString("7f1c2b3e-4d5a-4f60-9a71-0b2c3d4e5f60");
 
     /** the damage model's wounds on a body: bleeding hurts, a crawling fighter is slow and flat, the rest is read by the goals */
@@ -38,10 +56,7 @@ public final class Fighters {
                     net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.MULTIPLY_TOTAL));
         } else if (!crawling && has) {
             speed.removeModifier(CRAWL_ID);
-            if (mob.getPose() == net.minecraft.world.entity.Pose.SWIMMING) {
-                mob.setPose(net.minecraft.world.entity.Pose.STANDING);
-                mob.refreshDimensions();
-            }
+            if (mob.getPose() == net.minecraft.world.entity.Pose.SWIMMING) stance(mob, net.minecraft.world.entity.Pose.STANDING);
         }
         // flat whether or not the gun goal is running: a crawl, or pinned under fire (the gun goal agrees when it runs);
         // only what this tick laid down does it stand up again, so the Marksman's own prone is left alone
@@ -49,17 +64,11 @@ public final class Fighters {
         boolean flat = crawling || s.pinned(now);
         if (flat) {
             mob.setSprinting(false);
-            if (mob.getPose() != net.minecraft.world.entity.Pose.SWIMMING) {
-                mob.setPose(net.minecraft.world.entity.Pose.SWIMMING);
-                mob.refreshDimensions();
-            }
+            stance(mob, net.minecraft.world.entity.Pose.SWIMMING);
             s.flatByWounds = true;
         } else if (s.flatByWounds) {
             s.flatByWounds = false;
-            if (mob.getPose() == net.minecraft.world.entity.Pose.SWIMMING && mob.getTarget() == null) {
-                mob.setPose(net.minecraft.world.entity.Pose.STANDING);
-                mob.refreshDimensions();
-            }
+            if (mob.getPose() == net.minecraft.world.entity.Pose.SWIMMING && mob.getTarget() == null) stance(mob, net.minecraft.world.entity.Pose.STANDING);
         }
     }
 }

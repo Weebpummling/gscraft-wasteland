@@ -437,6 +437,18 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, the stand-in renderer and the tactical moves (A1 + A2), local only:** fighters are drawn as
+player stand-ins so TACZ's third-person gun clips (shoulder, aim, reload, sprint, the lying poses) and PlayerAnimator
+reach them, and a synced byte plays our own clips - dive, slide, lean, throw, flinch - from
+`assets/gscraft/player_animation/tactical.json`. Research doc §8 has the shape. Jar on the local server and on
+WarTest (302 KB); `tools/war_phase14.py` green (the byte at the right moments), phases 13/12/11/9/8/7 rerun after (the slide's first speed, 1.35x, overshot the cover stand and failed phase 8; it is 1.15x now, `fight.slide_speed`).
+Not on live; nothing here changes a server without the client jar (an older client sees the vanilla poses). Owner's
+eye still owed: whether the fighters shoulder and reload like players and whether the six clips read; the lean
+clip's side (torso roll sign) is a guess to be checked. Build note: `mod/libs` needs
+`player-animation-lib-forge-1.0.2-rc1+1.20.jar` beside TACZ's jar (both git-ignored). Local server start from a
+script: launch `java @user_jvm_args.txt @libraries/.../win_args.txt nogui` detached from Python with
+`cwd=G:\GSCraft\server` - `cmd /c start.bat` finds nothing from here (`tools/localtest.py` says the same).
+
 **2026-09-11 22:44, the walking squads live** (server empty by `list`): `put` of the jar (275 KB, sha256 7d0989d8...),
 Done in 1.8 s, `settings: 147 values from [defaults (145), zz_live (2)]`; pack 2026.09.11.4 pushed after. Every
 squad the director places now walks a slow loop of its own (or its zone's route) instead of standing where it
