@@ -10,6 +10,8 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.commands.arguments.ResourceLocationArgument;
+import net.minecraft.commands.arguments.coordinates.Vec3Argument;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -102,6 +104,37 @@ public final class VehicleCommands {
                                     say(ctx, (ok ? "turret target " : "no turret target field; ") + t.getName().getString());
                                     return ok ? 1 : 0;
                                 }))))
+                        .then(Commands.literal("spawn").then(Commands.argument("type", ResourceLocationArgument.id())
+                                .then(Commands.argument("faction", StringArgumentType.word()).executes(ctx -> spawn(ctx, ctx.getSource().getPosition()))
+                                        .then(Commands.argument("pos", Vec3Argument.vec3()).executes(ctx -> spawn(ctx, Vec3Argument.getVec3(ctx, "pos")))))))
+                        .then(Commands.literal("crew").then(Commands.argument("vehicle", EntityArgument.entity())
+                                .then(Commands.argument("faction", StringArgumentType.word()).executes(ctx -> {
+                                    Entity v = vehicle(ctx);
+                                    Crew c = Armour.crew(ctx.getSource().getLevel(), v, StringArgumentType.getString(ctx, "faction"), null);
+                                    say(ctx, c == null ? "no crew could mount " + v.getName().getString() : "crew (" + c.factionId() + ") in " + v.getName().getString());
+                                    return c == null ? 0 : 1;
+                                }))))
+                        .then(Commands.literal("route").then(Commands.argument("vehicle", EntityArgument.entity())
+                                .then(Commands.literal("add").then(Commands.argument("x", IntegerArgumentType.integer()).then(Commands.argument("z", IntegerArgumentType.integer()).executes(ctx -> {
+                                    Crew c = crewOf(ctx);
+                                    c.route.add(new BlockPos(IntegerArgumentType.getInteger(ctx, "x"), 0, IntegerArgumentType.getInteger(ctx, "z")));
+                                    say(ctx, "route: " + c.route.size() + " waypoints");
+                                    return c.route.size();
+                                }))))
+                                .then(Commands.literal("clear").executes(ctx -> {
+                                    Crew c = crewOf(ctx);
+                                    c.route.clear();
+                                    c.routeIndex = 0;
+                                    say(ctx, "route cleared");
+                                    return 1;
+                                }))
+                                .then(Commands.literal("show").executes(ctx -> {
+                                    Crew c = crewOf(ctx);
+                                    StringBuilder sb = new StringBuilder(String.format(Locale.ROOT, "crew (%s) of %s: waypoint %d of %d:", c.factionId(), c.getVehicle() == null ? "nothing" : c.getVehicle().getName().getString(), c.routeIndex + 1, c.route.size()));
+                                    for (BlockPos p : c.route) sb.append(' ').append(p.getX()).append(',').append(p.getZ());
+                                    say(ctx, sb.toString());
+                                    return c.route.size();
+                                }))))
                         .then(Commands.literal("hit").then(Commands.argument("vehicle", EntityArgument.entity())
                                 .then(Commands.argument("type", ResourceLocationArgument.id()).then(Commands.argument("amount", FloatArgumentType.floatArg(0.0F))
                                         .executes(ctx -> hit(ctx, null))
@@ -112,6 +145,21 @@ public final class VehicleCommands {
         Entity v = EntityArgument.getEntity(ctx, "vehicle");
         if (!Vehicles.isVehicle(v)) throw new com.mojang.brigadier.exceptions.SimpleCommandExceptionType(Component.literal(v.getName().getString() + " is not a Superb Warfare vehicle")).create();
         return v;
+    }
+
+    private static Crew crewOf(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
+        Entity v = vehicle(ctx);
+        Crew c = Armour.crewOf(v);
+        if (c == null) throw new com.mojang.brigadier.exceptions.SimpleCommandExceptionType(Component.literal(v.getName().getString() + " has no crew; /gscraft vehicle crew <vehicle> <faction>")).create();
+        return c;
+    }
+
+    private static int spawn(CommandContext<CommandSourceStack> ctx, Vec3 at) {
+        ResourceLocation type = ResourceLocationArgument.getId(ctx, "type");
+        String faction = StringArgumentType.getString(ctx, "faction");
+        Entity v = Armour.spawn(ctx.getSource().getLevel(), type, at, ctx.getSource().getRotation().y, faction, null);
+        say(ctx, v == null ? "nothing placed (see the log)" : "placed " + v.getName().getString() + " with a " + faction + " crew; /gscraft vehicle route <vehicle> add <x> <z> gives it somewhere to go");
+        return v == null ? 0 : 1;
     }
 
     private static int drive(CommandContext<CommandSourceStack> ctx, boolean sprint) throws CommandSyntaxException {

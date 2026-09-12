@@ -437,6 +437,13 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, armour V2 done (local):** `gscraft:crew` + `armour/DriveGoal`, `/gscraft vehicle spawn|crew|route`;
+`tools/war_phase17.py` green (a BMP-2 drives a four-corner loop by itself in 22 s; the crew is unhittable and goes
+with the vehicle). Design §10. Jar on the local server and WarTest, not on live; the crew type is new client-side
+(a `NoopRenderer`), so a client on the old jar would see an unknown entity - live waits for the pack. Next: V3, the
+fight goal (targets, the AI turret, halt-to-shoot, retreat) - the T-90A's `getTurretControllerIndex` seat and the
+weapon selection (`SELECTED_WEAPON`) are the two things to read first.
+
 **2026-09-12, armour V1 done (local):** the probe `/gscraft vehicle status|fuel|input|drive|target|hit`
 (`armour/Vehicles` by reflection, `armour/VehicleCommands`), `tools/war_phase16.py` green, the override datapack
 generator `tools/armour_override.py` (`--install` puts it in the local world; repo copy `build/local-datapack/

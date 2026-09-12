@@ -236,3 +236,16 @@ thirty rockets. The override (`#tacz:bullets 0` in front of each list, world dat
 makes every TACZ round exactly 0 on both, confirmed live. The explosive multipliers are the mod's until the §5
 table is settled; they go into `armour_override.py`'s CHANGES.
 
+## 10. V2 results (2026-09-12, local server)
+
+`gscraft:crew` (`armour/Crew`): an invisible, silent, invulnerable, unpickable `Mob` of `MobCategory.MISC` with a
+synced faction, a looped route (NBT) and one goal, `armour/DriveGoal`. It sits in seat 0 and discards itself two
+seconds after its vehicle is gone or a wreck. `armour/Armour.spawn` places a vehicle whole (`Vehicles.whole`: every
+part at its maximum, no damaged flag, full health) and fuelled, and mounts the crew; `/gscraft vehicle spawn <type>
+<faction> [pos]`, `crew <vehicle> <faction>`, `route <vehicle> add <x> <z> | clear | show`. Steering (V1 probe): the
+left input turns the hull left about two degrees a tick, driving or standing, so the drive goal is heading error →
+steer, forward while the waypoint is ahead, sprint when far and lined up, a reverse-and-turn after two seconds
+without movement, the waypoint skipped after three of those. Test `tools/war_phase17.py`: a BMP-2 with a four-corner
+80 x 40 route drove the loop in 22 s on the flat, no waypoint given up. The crew shows in `/gscraft fighter`-style
+readouts as a faction member, so fighters and players target it (and so shoot the immune hull - V3's business).
+

@@ -138,6 +138,21 @@ public final class Vehicles {
         if (max > 0) call(v, "setEnergy", new Class<?>[] {int.class}, max);
     }
 
+    /** every part at its maximum and no damaged flag: what a vehicle fresh from the factory has (a /summon with no NBT does not) */
+    public static void whole(Entity v) {
+        for (String[] pair : new String[][] {{"setTurretHealth", "getTurretMaxHealth"}, {"setMainEngineHealth", "getEngineMaxHealth"},
+                {"setLeftWheelHealth", "getWheelMaxHealth"}, {"setRightWheelHealth", "getWheelMaxHealth"}}) {
+            if (!hasMethod(v, pair[0], float.class) || !hasMethod(v, pair[1])) continue;
+            Object max = call(v, pair[1], new Class<?>[0]);
+            if (max instanceof Float f) call(v, pair[0], new Class<?>[] {float.class}, f);
+        }
+        for (String flag : new String[] {"setTurretDamaged", "setMainEngineDamaged", "setLeftWheelDamaged", "setRightWheelDamaged"}) {
+            if (hasMethod(v, flag, boolean.class)) call(v, flag, new Class<?>[] {boolean.class}, false);
+        }
+        float max = maxHealth(v);
+        if (!Float.isNaN(max) && hasMethod(v, "setHealth", float.class)) call(v, "setHealth", new Class<?>[] {float.class}, max);
+    }
+
     public static float turretYaw(Entity v) {
         Object r = call(v, "getTurretYRot", new Class<?>[0]);
         return r instanceof Float f ? f : Float.NaN;

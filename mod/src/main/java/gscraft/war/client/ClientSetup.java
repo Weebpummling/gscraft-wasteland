@@ -21,5 +21,6 @@ public final class ClientSetup {
         event.registerEntityRenderer(ModEntities.SCAVENGER.get(), FighterProxyRenderer::new);
         event.registerEntityRenderer(ModEntities.BLOATER.get(), ctx -> new ScaledZombieRenderer(ctx, Bloater.RENDER_SCALE, false));
         event.registerEntityRenderer(ModEntities.MATRON.get(), ctx -> new ScaledZombieRenderer(ctx, Matron.RENDER_SCALE, true));
+        event.registerEntityRenderer(ModEntities.CREW.get(), NoopRenderer::new);
     }
 }

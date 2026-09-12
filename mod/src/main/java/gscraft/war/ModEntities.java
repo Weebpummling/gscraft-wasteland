@@ -1,5 +1,6 @@
 package gscraft.war;
 
+import gscraft.war.armour.Crew;
 import gscraft.war.entity.Bloater;
 import gscraft.war.entity.Matron;
 import gscraft.war.entity.Scavenger;
@@ -33,6 +34,11 @@ public final class ModEntities {
             () -> EntityType.Builder.of(Matron::new, MobCategory.MONSTER).sized(0.9F, 1.99F)
                     .clientTrackingRange(10).build(GscraftWar.MODID + ":matron"));
 
+    /** the crew of a Superb Warfare vehicle (armour design §2): invisible, in the driver's seat */
+    public static final RegistryObject<EntityType<Crew>> CREW = ENTITIES.register("crew",
+            () -> EntityType.Builder.of(Crew::new, MobCategory.MISC).sized(0.2F, 0.2F)
+                    .clientTrackingRange(10).build(GscraftWar.MODID + ":crew"));
+
     private ModEntities() {}
 
     private static RegistryObject<EntityType<Soldier>> soldier(String name, String faction) {
@@ -49,5 +55,6 @@ public final class ModEntities {
         event.put(SCAVENGER.get(), Scavenger.createAttributes().build());
         event.put(BLOATER.get(), Bloater.createAttributes().build());
         event.put(MATRON.get(), Matron.createAttributes().build());
+        event.put(CREW.get(), Crew.createAttributes().build());
     }
 }
