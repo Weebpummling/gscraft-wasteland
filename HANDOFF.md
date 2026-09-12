@@ -428,7 +428,9 @@ Measured on the host (Bisect la308, 8 vCPU, shared): idle with a loaded platform
 them cost 4.4 ms of a 50 ms tick. The director's pass: 0.4 ms mean, 5 ms when it places a group of six (the kit
 issue). TRAP for any future headless test on live: flip `pauseEventServer` first, restart, and put it back after.
 
-**2026-09-12 morning, local only:** near misses judged at the impact (the bullet's position at the event is the
+**2026-09-12 08:09, live** (server empty by `list`; jar 281 KB sha256 2efef123..., Done 1.6 s, `settings: 156 values`; pack 2026.09.12.1 pushed after): the near-miss fix, the suppression settings and the grenade evasion. Details:
+
+**2026-09-12 morning:** near misses judged at the impact (the bullet's position at the event is the
 start of its step - a player's fire from range never counted), suppression numbers and decay as settings
 (`fight.suppress_*`, `fight.near_radius`, `fight.suppression_decay_ticks` = 5 s), fighters run from grenades unless
 flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. Test `tools/war_phase13.py`. Not on
