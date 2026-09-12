@@ -62,6 +62,10 @@ def moved_lines(mark):
     return out
 
 
+import shutil
+shutil.rmtree("G:/GSCraft/server/wasteland-v8/datapacks/gscraft_armour", ignore_errors=True)   # the later phases leave the override installed
+c("reload", t=120)
+time.sleep(3)
 c(f"forceload add {X - 64} {Z - 64} {X + 64} {Z + 64}")
 time.sleep(5)
 clear()
