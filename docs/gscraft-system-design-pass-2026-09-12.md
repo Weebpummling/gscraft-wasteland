@@ -1,6 +1,6 @@
 # GSCraft Wasteland — the system as a whole, now with squads and armour
 
-*Design pass, 2026-09-12. Owner's ask: "do a design pass on the system as a whole now that we have AI squads and
+*Design pass, 2026-09-12. **Ruled 2026-09-12 (owner): S1, S2, S4–S10 approved as recommended; S3 rejected — armour near the start is fine, no `no_armour` gate; the fronts stay as mapped.** Owner's ask: "do a design pass on the system as a whole now that we have AI squads and
 vehicles." Companion to `gscraft-start-compound-2026-09-12.md` (the start moves into the south compound). Design
 only; nothing on either server has been touched.*
 
@@ -82,15 +82,15 @@ The land gates the acts (objectives §6); this table gates the *enemies* to the 
 
 | Act | Ground | Infantry | Armour | What answers it |
 |---|---|---|---|---|
-| **I — the town you woke in** | the compound, the pocket, the sector north to the hospital | the Dead dense, Scavengers in the streets, the two Skadowsky posts (RUAF `sk_out_w`, NATO `sk_out_e`) as the first squads seen — three each, garrisoned, never patrolling into the pocket | **none inside the sector** (`no_armour` until `skadowsky_held`); heard on the far bank | the pistol, the first rifle, the walls, the gate; no anti-armour and none needed |
+| **I — the town you woke in** | the compound, the pocket, the sector north to the hospital | the Dead dense, Scavengers in the streets, the two Skadowsky posts (RUAF `sk_out_w`, NATO `sk_out_e`) as the first squads seen — three each, garrisoned, never patrolling into the pocket | **as the map rolls it** (owner: armour near the start is fine): the NATO front and the farbank zone reach the compound, so an APC or a tank can patrol the bank road and the bridge road from the first night, placed 96–140 blocks out on a road stand; the compound's exclusion keeps it out of the walls | the walls and the gate — an early tank is a thing to hide from, not fight; the first answer to it arrives with Act II's RPG |
 | **II — over the bridge, down the bank** | the fronts either side of the river, the Line to the farm, KROT, the east bank to the plant's outer works | patrols with a Sergeant on the fronts; outposts of four; hearing makes the first firefights | **APC patrols** (BMP-2 on the RUAF side, Bradley on NATO's) with four riders, on the roads; the first counterattack with armour is the Skadowsky defence, wave 3, one APC | the RPG (Superb Warfare's, blueprint from the Line's depot — two rounds kill an APC), TNT and mines, the 40 mm; the crewmen who bail are a fight in themselves |
 | **III — the plant** | the switchyard, the turbine hall, the intake works | NATO organised: Marksmen and Gunners in the halls, Shields on the doors; the plant's ambient armour roll (0.04) | **tanks**: the T-90A at the plant gate as a named boss; M1A2 + Bradley in the last defence wave of each plant site; APC patrols on the bank road | the Javelin (two on a tank, one on an APC), C4 on a parked hull, the truck to carry it; the first gun on the mast field (G1–G4) as the long answer |
 | **IV — the reactor, the far bank, the finale** | the confinement hall, the town, the bridge road west | the Captains' waves; the Machines | a boss tank in the finale's last wave with the Sentinel; the M1A2 the NATO column lost at the bridge as the far bank's boss | everything above; the gun's range card; the battery |
 
 Rules the table implies, each one a line of data or a flag:
 
-- **`no_armour` on a zone, lifted by stage.** The Skadowsky sector zone gets it until `skadowsky_held`; the
-  compound's exclusion never rolls anything anyway.
+- **No armour gate on the sector** (owner, 2026-09-12): the rolls stand as mapped; the compound's exclusion is the
+  only line, and the start doc's §6 table is the truth of what a fresh team can meet.
 - **The armour roll respects the ceiling of the act.** Chance 0.06 on fronts and outposts is right for Act II
   ground; the plant's 0.04 should carry tanks only after `switchyard_scouted` (the players have seen the plant),
   else APCs. A composition entry gains an optional `stage`.
@@ -122,8 +122,7 @@ Rules the table implies, each one a line of data or a flag:
 
 Each is small; none is a new system.
 
-1. **Zone `no_armour` and a stage gate on it** (`"no_armour": "skadowsky_held"` — no armour rolls in the zone
-   until the stage exists). One field, one check in the roll.
+1. *(dropped — owner, 2026-09-12: no armour gate near the start.)*
 2. **Composition `stage`** on an armour entry, so tanks at the plant wait for `switchyard_scouted`.
 3. **Wave `stage`** on a site's wave entry, so the Skadowsky defence's APC waits for `line_depot`.
 4. **`camp.json` gate datum**: `"gate": [-948, -893]` as the counterattack's target, and the compound box as
@@ -166,7 +165,7 @@ before the live push: two APC patrols and a firefight with six players is the ca
 |---|---|---|
 | S1 | The start is the south compound; spawn (−956, 65, −876), radius 4 | **yes** (this pass) |
 | S2 | Act I is the pocket taken building by building (five small sites) | **yes** — it is the ladder at building scale and needs no new mechanism |
-| S3 | No armour inside the Skadowsky sector until `skadowsky_held` | **yes** |
+| S3 | No armour inside the Skadowsky sector until `skadowsky_held` | **rejected (owner, 2026-09-12): armour near the start is fine** |
 | S4 | The first armour the players fight is one APC in the Skadowsky defence's wave 3, after the RPG blueprint | **yes** |
 | S5 | Tanks at the plant only after `switchyard_scouted`; the T-90 boss at the gate placed on that stage | **yes** |
 | S6 | Bosses: the T-90 at the plant gate, the M1A2 at the bridge (Act IV), a tank in the finale's last wave | **yes**; names to the quest doc |
@@ -178,9 +177,8 @@ before the live push: two APC patrols and a firefight with six players is the ca
 ## 9. Order of work
 
 1. **The start** (data and datapack, small): the spawn at the deploy; `camp.json` gate; the compound and
-   building boxes in `map.json` with stage growth; `no_armour`; the torch functions by stage. Phase 24 test: a
-   fresh spawn lands in the yard, nothing rolls inside the compound, an armour roll refuses inside the sector
-   until the stage, the counterattack's wave walks to the gap.
+   building boxes in `map.json` with stage growth; the torch functions by stage. Phase 24 test: a fresh spawn
+   lands in the yard, nothing rolls inside the compound, the counterattack's wave walks to the gap.
 2. **The building takes** as site files, and the survivor summon functions (`camp.py`, Phase A/B of HANDOFF §5).
 3. **The stage gates** on compositions and waves (§5.2–5.3) and the placed bosses (§5.7).
 4. **The in-person pass** on local: a session from the yard through the square to the hospital with the armour

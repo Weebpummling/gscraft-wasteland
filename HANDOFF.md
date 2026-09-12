@@ -491,7 +491,7 @@ the layers and their state, the loop from the compound, the threat ladder by act
 `skadowsky_held`; one APC in the Skadowsky defence after the RPG blueprint; tanks at the plant after
 `switchyard_scouted`), stale rulings settled (the enemy review's "no NPC vehicles", In Control areas, Hordes waves,
 Improved Mobs' curve), the rules to add (`no_armour`, stage gates on compositions and waves, the gate datum, zone
-stage growth, bosses placed on `scouted`), the budget, decisions S1–S10, the order of work. Supersession notes on
+stage growth, bosses placed on `scouted`), the budget, decisions S1–S10, the order of work. **Ruled (owner, same day): S1, S2, S4–S10 approved; S3 rejected — armour near the start is fine, no `no_armour` gate.** Supersession notes on
 `gscraft-skadowsky-camp.md` and `gscraft-onboarding.md`. Nothing on either server touched.
 
 **2026-09-12, armour damage pass, TACZ griefing off, the crew bails out (local):** owner's play-test findings.

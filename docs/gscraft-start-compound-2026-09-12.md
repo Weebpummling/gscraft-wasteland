@@ -124,13 +124,12 @@ spawn:
 
 The `camp` exclusion (x −978…−770 × z −1060…−845) stops placement inside the pocket, but an armour roll is placed 96
 to 140 blocks from a player on a road stand, and the road east of the embankment and the bridge road are both inside
-that ring from the yard. A fresh team can therefore hear a Bradley on its first night. That is the intended feeling
-of the front — and unacceptable at minute five.
+that ring from the yard. A fresh team can therefore hear a Bradley on its first night. **Ruled 2026-09-12 (owner): that is fine.** The
+front stays as mapped; the walls are what a fresh team has, and an early tank is something to hide from.
 
 **Rules this asks for (the system pass, `gscraft-system-design-pass-2026-09-12.md` §5, has the whole set):**
 
-1. **No armour inside the Skadowsky sector until `skadowsky_held`** — a `no_armour` flag on the sector zone, read
-   by the roll, so Act I hears tanks on the far bank and never meets one.
+1. *(No armour gate near the start — rejected by the owner, 2026-09-12; the rolls stand.)*
 2. **The compound gate is the counterattack's target.** Design §6.2's rule stands — every counterattack comes to
    the base, never the site — and "the base" is now the compound: the wave's target point is the gap, (−948, −893),
    and the approaches are the ones the pocket already has (the bridge from the west, the road east over the
@@ -177,7 +176,7 @@ Nothing below has been applied except the two supersession notes named at the en
 | `gscraft-quests.md` §7, §8 | Marshall's first ask (the gap), the map wall's reveal (R1) on `square_taken`, Act I's opening paragraph |
 | `gscraft-finale.md` | unchanged in substance; add that the compound is the fall-back |
 | `gscraft_sites/camp.json` | `square` becomes the compound box; the approaches' target is the gap |
-| `gscraft_zones/map.json` | the `camp` exclusion shrinks to the compound box at the start and grows by stage (a zone with a `stage` gate — a new field), or stays and the `no_armour` flag carries the difference |
+| `gscraft_zones/map.json` | the `camp` exclusion shrinks to the compound box at the start and grows by stage (a zone with a `stage` gate — a new field) |
 | `tools/camp_torches.json` | two torches at the start, three by stage |
 | `buildmap/plan_v8/sectors_v8.json` | a `compound` rectangle |
 | level.dat, both worlds | the spawn (§3) — a console command at the deploy |
