@@ -437,6 +437,16 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, guns normalised (owner: a NATO gun and a RUAF gun rendered as the magenta missing-texture square on
+WarTest; every issued gun's index, display, model, textures, LOD, slot and HUD art are present and decode in the
+packs - the cause was not found in the files - so "normalize every other gun other than those two into the ak and
+the m4"): NATO Rifleman, Sergeant and Shield carry `tacz:m4a1`; RUAF Rifleman, Sergeant and Shield carry `tacz:ak47`;
+Gunners (m249; rpk/pkp) and Marksmen (mk14/m700/spr15hb; sks/svd/kar98) unchanged; Scavengers untouched. Verified by
+summoning three of every rank on the local server. Jar on the local server and WarTest, not on live. Tool kept for the
+next such report: `tools/guncheck.py` is not in the repo - the check lived in the session scratchpad; the WarTest client
+log had no TACZ texture error either, only a CIBR `cib:gun/slot/error` slot icon it could not load, from the pack's own
+placeholder `error_display.json`.
+
 **2026-09-12 09:48, live** (owner: "its good now, push this to live"; server empty by the console's `list`): `power stop`,
 `put` of `gscraft-0.1.0.jar` (355 KB, sha256 128c0617...) into `/mods`, `power start`, Done in 1.6 s with
 `settings: 158 values from [defaults (156), zz_live (2)]`. Pack 2026.09.12.2 pushed after the boot (the jar on the

@@ -7,20 +7,7 @@
       "head": "superbwarfare:ru_helmet_6b47",
       "chest": "superbwarfare:ru_chest_6b43",
       "legs": "dragonrise_reforge:gorka3_leggings",
-      "gun": [
-        {
-          "item": "tacz:ak47",
-          "weight": 5
-        },
-        {
-          "item": "cib:ak105",
-          "weight": 3
-        },
-        {
-          "item": "cib:ak103",
-          "weight": 2
-        }
-      ],
+      "gun": "tacz:ak47",
       "magazines": 4,
       "grenades": 1
     },
@@ -31,20 +18,7 @@
       "head": "superbwarfare:ru_helmet_6b47",
       "chest": "superbwarfare:ru_chest_6b43",
       "legs": "dragonrise_reforge:gorka3_leggings",
-      "gun": [
-        {
-          "item": "tacz:ak47",
-          "weight": 5
-        },
-        {
-          "item": "cib:ak105",
-          "weight": 3
-        },
-        {
-          "item": "cib:asval",
-          "weight": 2
-        }
-      ],
+      "gun": "tacz:ak47",
       "magazines": 4,
       "grenades": 2
     },
@@ -97,16 +71,7 @@
       "head": "superbwarfare:ru_helmet_6b47",
       "chest": "superbwarfare:ru_chest_6b43",
       "legs": "dragonrise_reforge:gorka3_leggings",
-      "gun": [
-        {
-          "item": "tacz:cz75",
-          "weight": 6
-        },
-        {
-          "item": "tacz:glock_17",
-          "weight": 2
-        }
-      ],
+      "gun": "tacz:ak47",
       "offhand": "minecraft:shield",
       "magazines": 3
     }
