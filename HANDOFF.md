@@ -428,6 +428,12 @@ Measured on the host (Bisect la308, 8 vCPU, shared): idle with a loaded platform
 them cost 4.4 ms of a 50 ms tick. The director's pass: 0.4 ms mean, 5 ms when it places a group of six (the kit
 issue). TRAP for any future headless test on live: flip `pauseEventServer` first, restart, and put it back after.
 
+**2026-09-11 21:32, the damage model, squads' prone hold and the body HUD live** (owner: "everything works
+great", the server empty by the console's `list`): `power stop`, `put` of `gscraft-0.1.0.jar` (274 KB, sha256
+83bd5df9...) into `/mods`, `power start`, Done in 1.8 s with `settings: 144 values from [defaults (142), zz_live (2)]`
+and `armour loaded: 24 pieces, 21 calibres`. Pack 2026.09.11.3 pushed after the boot (the HUD and the bandage
+need the client jar; a client on the older jar still joins - the channel accepts any).
+
 **2026-09-11 19:35, live settings override:** world datapack `/wasteland-v8/datapacks/gscraft_settings`
 (copy in `build/live-datapack/`) with `zz_live.json` = `director.player_ceiling 12, director.server_ceiling 96`
 (the host measured 0.05 ms per fighter, so the ceiling is gameplay's); `/reload` from the panel console applied it:
