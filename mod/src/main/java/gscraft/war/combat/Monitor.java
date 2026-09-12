@@ -83,10 +83,10 @@ public final class Monitor {
     }
 
     /** a bullet into a block: who counted and by how much, or how far the nearest fighter was */
-    public static void impact(ServerLevel level, Entity shooter, Vec3 at, double radius, List<Mob> near, List<Float> before) {
+    public static void impact(ServerLevel level, Entity shooter, String kind, Vec3 at, double radius, List<Mob> near, List<Float> before) {
         if (!on()) return;
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format("impact at %s by %s: %d fighter(s) within %.1f", pos(at), shooter == null ? "no owner" : shooter.getName().getString(), near.size(), radius));
+        sb.append(String.format("%s impact at %s by %s: %d fighter(s) within %.1f", kind, pos(at), shooter == null ? "no owner" : shooter.getName().getString(), near.size(), radius));
         for (int i = 0; i < near.size(); i++) {
             Mob m = near.get(i);
             FighterState st = ((GunUser) m).fighterState();

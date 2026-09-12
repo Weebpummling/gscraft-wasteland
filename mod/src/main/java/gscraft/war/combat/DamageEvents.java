@@ -81,6 +81,9 @@ public final class DamageEvents {
             int pen = source.getEntity() instanceof LivingEntity shooter ? ArmorData.gunPenetration(shooter.getMainHandItem()) : ArmorData.penetration(null);
             r = Damage.bullet(target, zone, event.getAmount(), pen);
             Damage.record(target, r, "sw bullet");
+            if (target instanceof net.minecraft.world.entity.Mob mob && target instanceof GunUser) {
+                gscraft.war.WarEvents.hitReaction((ServerLevel) target.level(), mob, source.getEntity() instanceof LivingEntity l ? l : null, "sw bullet");
+            }
         } else if (source.is(DamageTypeTags.IS_EXPLOSION)) {
             r = Damage.blast(target, event.getAmount());
             Damage.record(target, r, "blast");

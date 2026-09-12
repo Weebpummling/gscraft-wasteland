@@ -132,14 +132,51 @@ public final class WarEvents {
         if (!event.getLogicalSide().isServer()) return;
         LivingEntity shooter = event.getShooter();
         if (shooter == null || !(shooter.level() instanceof ServerLevel level)) return;
-        if (gscraft.war.combat.Monitor.on()) gscraft.war.combat.Monitor.shot(shooter, event.getGunItemStack().getHoverName().getString());
+        shotFired(level, shooter, event.getGunItemStack().getHoverName().getString(), hearingRadius(shooter));
+    }
+
+    private static final String SW_BULLET = "com.atsuishio.superbwarfare.entity.projectile.ProjectileEntity";
+
+    /** Superb Warfare's gun bullet (grenades, rockets and shells are other classes) */
+    static boolean isSwBullet(Entity e) {
+        return e instanceof net.minecraft.world.entity.projectile.Projectile && SW_BULLET.equals(e.getClass().getName());
+    }
+
+    /** who fired an SW bullet: its own shooter field (the vanilla owner is not always set) */
+    static Entity swShooter(Entity bullet) {
+        try {
+            Object s = bullet.getClass().getMethod("getShooter").invoke(bullet);
+            if (s instanceof Entity e) return e;
+        } catch (ReflectiveOperationException | RuntimeException ignored) {
+            // fall through to the vanilla owner
+        }
+        return bullet instanceof net.minecraft.world.entity.projectile.Projectile p ? p.getOwner() : null;
+    }
+
+    /** an SW bullet leaving a gun is the shot - SW posts no shoot event (owner, 2026-09-12: players fire SW guns) */
+    @SubscribeEvent
+    public static void swBulletFired(EntityJoinLevelEvent event) {
+        if (!(event.getLevel() instanceof ServerLevel level) || !isSwBullet(event.getEntity())) return;
+        if (!(swShooter(event.getEntity()) instanceof LivingEntity shooter)) return;
+        shotFired(level, shooter, shooter.getMainHandItem().getHoverName().getString(), LOUD);
+    }
+
+    /** an SW bullet gone from the world went into something: where it was is the impact, and a near miss for the fighters beside it */
+    @SubscribeEvent
+    public static void swBulletGone(net.minecraftforge.event.entity.EntityLeaveLevelEvent event) {
+        if (!(event.getLevel() instanceof ServerLevel level) || !isSwBullet(event.getEntity())) return;
+        nearMiss(level, swShooter(event.getEntity()), event.getEntity().position(), "sw");
+    }
+
+    /** a shot by anyone with anything: the monitor, then the hearing - one alert a second per shooter, however fast the gun cycles */
+    public static void shotFired(ServerLevel level, LivingEntity shooter, String gun, double radius) {
+        if (gscraft.war.combat.Monitor.on()) gscraft.war.combat.Monitor.shot(shooter, gun);
         long now = level.getGameTime();
         Long last = LAST_SHOT_HEARD.get(shooter.getUUID());
         if (last != null && now - last < 20) return;
         LAST_SHOT_HEARD.put(shooter.getUUID(), now);
         if (LAST_SHOT_HEARD.size() > 512) LAST_SHOT_HEARD.entrySet().removeIf(e -> now - e.getValue() > 200);
 
-        double radius = hearingRadius(shooter);
         Vec3 at = shooter.position();
         LivingEntity shooterTarget = shooter instanceof Mob m ? m.getTarget() : null;
         int heard = 0;
@@ -170,7 +207,11 @@ public final class WarEvents {
         if (!(event.getLevel() instanceof ServerLevel level) || event.getAmmo() == null) return;
         Entity bullet = event.getAmmo();
         Entity shooter = bullet instanceof net.minecraft.world.entity.projectile.Projectile p ? p.getOwner() : null;
-        net.minecraft.world.phys.Vec3 at = event.getHitResult().getLocation();
+        nearMiss(level, shooter, event.getHitResult().getLocation(), "tacz");
+    }
+
+    /** rounds into the ground or a wall: every fighter within near_radius of the impact is under fire, whoever fired and with whatever */
+    public static void nearMiss(ServerLevel level, Entity shooter, net.minecraft.world.phys.Vec3 at, String kind) {
         net.minecraft.world.phys.AABB around = new net.minecraft.world.phys.AABB(at, at).inflate(NEAR_RADIUS);
         int near = 0;
         List<Mob> counted = new java.util.ArrayList<>();
@@ -182,7 +223,7 @@ public final class WarEvents {
             counted.add(mob);
             near++;
         }
-        if (gscraft.war.combat.Monitor.on()) gscraft.war.combat.Monitor.impact(level, shooter, at, NEAR_RADIUS, counted, before);
+        if (gscraft.war.combat.Monitor.on()) gscraft.war.combat.Monitor.impact(level, shooter, kind, at, NEAR_RADIUS, counted, before);
         if (gscraft.war.combat.Damage.DEBUG > 0) GscraftWar.LOG.info("[gscraft] near miss by {} at {}: {} fighters within {}", shooter == null ? "?" : shooter.getName().getString(), net.minecraft.core.BlockPos.containing(at).toShortString(), near, NEAR_RADIUS);
     }
 
@@ -191,17 +232,22 @@ public final class WarEvents {
     public static void hitByGun(EntityHurtByGunEvent event) {
         if (!event.getLogicalSide().isServer()) return;
         Entity hurt = event.getHurtEntity();
-        if (!(hurt instanceof Mob mob) || !(mob instanceof GunUser user) || !(mob.level() instanceof ServerLevel level)) return;
-        gscraft.war.entity.FighterState st = user.fighterState();
+        if (!(hurt instanceof Mob mob) || !(mob instanceof GunUser) || !(mob.level() instanceof ServerLevel level)) return;
+        hitReaction(level, mob, event.getAttacker(), event.getClass().getSimpleName());
+    }
+
+    /** a fighter hit by a bullet of any make: under fire, the surprise or pinned hold, the flinch, and its squadmates within eight blocks under fire too */
+    public static void hitReaction(ServerLevel level, Mob mob, LivingEntity attacker, String kind) {
+        gscraft.war.entity.FighterState st = ((GunUser) mob).fighterState();
         float before = st.suppression;
         boolean flatBefore = st.pinned(level.getGameTime());
         st.suppress(SUPPRESS_HIT);
-        if (gscraft.war.combat.Damage.DEBUG > 0) GscraftWar.LOG.info("[gscraft] hit event ({}): {} hit by {} -> suppression {}, target {}, pinned {}", event.getClass().getSimpleName(), mob.getName().getString(), event.getAttacker() == null ? "?" : event.getAttacker().getName().getString(), st.suppression, mob.getTarget() == null ? "none" : mob.getTarget().getName().getString(), st.pinned(level.getGameTime()));
+        if (gscraft.war.combat.Damage.DEBUG > 0) GscraftWar.LOG.info("[gscraft] hit event ({}): {} hit by {} -> suppression {}, target {}, pinned {}", kind, mob.getName().getString(), attacker == null ? "?" : attacker.getName().getString(), st.suppression, mob.getTarget() == null ? "none" : mob.getTarget().getName().getString(), st.pinned(level.getGameTime()));
         long now = level.getGameTime();
         if (mob.getTarget() == null) st.holdFlat(now, gscraft.war.entity.GunAttackGoal.SURPRISE_HOLD);   // surprised: down first, look later
         else if (st.pinned(now)) st.holdFlat(now, gscraft.war.entity.GunAttackGoal.PINNED_HOLD);      // hit while flat: it stays flat
         if (mob.getPose() != net.minecraft.world.entity.Pose.SWIMMING) gscraft.war.entity.Fighters.play(mob, gscraft.war.entity.Anim.FLINCH);
-        if (gscraft.war.combat.Monitor.on()) gscraft.war.combat.Monitor.hit(level, mob, event.getAttacker(), event.getClass().getSimpleName(), before, flatBefore);
+        if (gscraft.war.combat.Monitor.on()) gscraft.war.combat.Monitor.hit(level, mob, attacker, kind, before, flatBefore);
         for (Mob ally : level.getEntitiesOfClass(Mob.class, mob.getBoundingBox().inflate(8.0D), m -> m != mob && m instanceof GunUser && Factions.allied(m, mob))) {
             ((GunUser) ally).fighterState().suppress(SUPPRESS_ALLY);
         }

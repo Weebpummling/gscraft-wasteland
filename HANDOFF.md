@@ -437,6 +437,17 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, found by the monitor: the players fire Superb Warfare guns, and every reaction hook was TACZ-only**
+(local only). The monitor logged zero shots, impacts or hits from the owner in a whole session while soldiers died
+"gunned down by" / "assassinated by" him - Superb Warfare's death messages. SW posts no shoot or hit events, so the
+fighters never heard a player's shot, never counted a near miss and were only suppressed by an SW hit through nothing
+(the damage model alone saw them). Now weapon-agnostic (`WarEvents`): an SW bullet (`superbwarfare:projectile`,
+its own `getShooter()` by reflection) joining the level is the shot (`shotFired`: monitor + hearing, LOUD radius), its
+leaving the level is the impact (`nearMiss` at its last position), and the damage model's SW hit path calls
+`hitReaction` (suppress_hit, the surprise/pinned hold, the flinch, allies within eight). TACZ's three events land in the
+same three routines. `tools/war_phase15.py` (SW bullets summoned beside and into a NoAI soldier) green, 13 and 7
+rerun green. Jar 355 KB on the local server and WarTest. Not on live.
+
 **2026-09-12, the fire monitor and the uniform skins, local only** (owner: "NPCs are still not reacting to the
 shots that land near them from player bullets" - build a monitor; and "make their uniforms match their armor"):
 `/gscraft monitor on [radius]` tells the player, in chat and in the log, every shot the server registers, every
