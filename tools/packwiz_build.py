@@ -51,7 +51,8 @@ CLIENT_EXTRA_JARS = [G / "client" / "instances" / "GSCraft" / ".minecraft" / "mo
 # "fusion:connecting"; without it every one of its models fails to bake and the blocks render as the magenta and black
 # missing-model checkerboard, which is what the desert city showed after the re-skin used lab_wall and industrial_steel.
 CONFIG_SKIP = {"QuantifiedAPI", "spark", "chunky", "worldedit", "xaero", "FML.VersionCheck.txt", "voicechat"}
-CLIENT_CONFIG_EXTRA = ["appleskin-client.toml", "lootr-client.toml", "recruits-client.toml", "pingwheel.server.json"]
+CLIENT_CONFIG_EXTRA = ["appleskin-client.toml", "lootr-client.toml", "recruits-client.toml", "pingwheel.server.json",
+                       "superbwarfare-client.toml"]   # explosion_screen_shake 40 (owner 2026-09-12: the blasts were visually too strong)
 # The player's interface (docs/gscraft-player-interface.md §1-§2), taken from the Prism instance and shipped
 # **preserve**: a fresh install gets the pack's key map and HUD, and nothing a player later changes is overwritten.
 CLIENT_UI = [

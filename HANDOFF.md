@@ -437,6 +437,18 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, the blasts' look (local):** the owner meant the visual strength. In Superb Warfare a blast's fireball
+is picked from its radius (a rocket under 2 mini, 2-4 small, 4-7 medium, 7 up large; grenades and shells under 4
+small, 4-10 medium, 10-16 huge), so the radius pass of the same day already shrinks them (the RPG round to small, its
+thermobaric round, the Javelin and the tank HE shell to medium). Two more knobs: the vehicles' wreck blasts are data
+("Huge"/"Giant", the ones with a 200-400 block screen shake) and `tools/armour_override.py` now writes them "Large";
+and the screen shake is the client's `superbwarfare-client.toml` `explosion_screen_shake`, set to 40 (of 100) in both
+Prism instances and shipped by the pack (`CLIENT_CONFIG_EXTRA` in `tools/packwiz_build.py`). The config tamer is now
+idempotent: it computes from the pack's pre-pass values (`superbwarfare-server.toml.bak-explosion`) or the mod's
+`# Default:` comments, so a rerun lands on the same numbers (a rerun had shrunk the config twice; caught and fixed).
+Override datapack reinstalled and `/reload` run on the local server; the server config values are the same ones it
+started with, so no restart. Design §19.
+
 **2026-09-12, armour: the cannon only, chat off, the explosive pass (local):** owner's second play-test.
 (1) APCs stood laid on each other without firing: the crew chose the APC's missile for an armour target, and the
 missile has a magazine of one that the mod only reloads for a player, so it fired once and never again.

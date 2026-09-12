@@ -446,3 +446,27 @@ it shrinks. TACZ's own rounds (the RPG-7's blast radius 3, the M320's 6) are in 
 **Results.** Phase 23 (3/3), phase 22 (5/5) and phase 20 (6/6) rerun green. The tests now remove wrecks by setting
 their health under minus the maximum: a wreck ignores `/kill` and would otherwise burn down for a minute, and a
 lingering one answered the next test's `limit=1` selector.
+
+## 19. The blasts' look (owner, 2026-09-12: "visually the explosions are very strong")
+
+**Where the look comes from.** Superb Warfare picks a blast's particle show from its radius, not from the weapon:
+a projectile's own blast (`FastThrowableProjectile.explosionParticleType`) is mini under 2, small from 2 to 4, medium
+from 4 to 7, large from 7 up; the shared routine grenades and shells use (`ProjectileTool.causeCustomExplode`) is small
+under 4, medium from 4 to 10, huge from 10 to 16, giant beyond. Huge and giant also shake every screen within 192 and
+384 blocks. Each blast further sends its own screen shake sized by its radius (4x the radius wide, amplitude 50 plus
+half the radius), which the client scales by `explosion_screen_shake`.
+
+**What the passes do.** The radius pass of §18 already moves most blasts down a band: the RPG's standard round from
+medium to small, its thermobaric round, the Javelin, C4, the mortar and the tank's HE shell from large/huge to
+medium. The vehicles' wreck blasts are data (`DestroyInfo.ParticleType`: the APCs "Huge", the tanks "Giant") and the
+override datapack now writes them "Large", the biggest show without the 200-400 block shake. The client's
+`superbwarfare-client.toml` gets `explosion_screen_shake = 40` (of 100), set in both Prism instances and shipped with
+the pack (`CLIENT_CONFIG_EXTRA` in `tools/packwiz_build.py`, so a player's own later change is kept).
+
+**The tamer is idempotent now.** The first version scaled whatever value it found, so a second run shrank the server
+config again (RPG 10 -> 5.8 -> 4.1). It now computes from the pack's pre-pass values (the
+`superbwarfare-server.toml.bak-explosion` backup an earlier session left; the AH-6 cannon's 4 is the one deliberate
+pack value there) or, failing that, the mod's `# Default:` comment above each value, and a rerun changes nothing.
+
+**Applied locally.** The override datapack reinstalled and reloaded; the server config holds the intended numbers
+(the same ones the running server started with). TACZ's vanilla-style blasts are unchanged.

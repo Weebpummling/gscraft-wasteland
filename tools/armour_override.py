@@ -13,12 +13,15 @@ armour: a Superb Warfare RPG round 160 (two), a Javelin one, a tank shell 280 (o
 a Javelin 300 with the top attack (two), a tank shell 215 (three), an ATGM 165 (three or four), a grenade 30,
 C4 300 (two), 30 mm AP 4. TACZ explosive rounds are a vanilla explosion and get a flat amount from the mod
 (armour/ArmourDamage.java: rocket 160 light, 130 heavy) - their type is left alone here on purpose.
-The explosive pass (owner 2026-09-12: "way off base, fun but off base"): every blast in the mod's data - the four
+The explosive pass (owner 2026-09-12: "way off base, fun but off base", then "visually very strong"): every blast in the mod's data - the four
 vehicles' weapons and wreck blasts, and every gun file's rounds (RPG, Javelin, M79, grenades) - has its radius and
 damage tamed by tame(): a radius over 3 keeps 40% of the excess (10 -> 5.8, 16 -> 8.2; TNT is 4), a blast damage over
 60 keeps 60% of the excess (160 -> 120). The same formulas go over the [explosion] section of the server's
 superbwarfare-server.toml (grenades, mortar, C4, the drone's RPG, the bombs), which the mod reads at start. The
-vehicles' direct-hit damage (the numbers above) is untouched: only the blast shrinks.
+vehicles' direct-hit damage (the numbers above) is untouched: only the blast shrinks. The blast's look follows its
+radius in the mod (under 2 mini, 2-4 small, 4-10 medium, over 10 large/huge), so the smaller radii also mean smaller
+fireballs; the wrecks' own "Huge"/"Giant" blasts (a 200-400 block screen shake) become "Large". The screen shake
+itself is the client's superbwarfare-client.toml (explosion_screen_shake, shipped in the pack at 40).
 Rerun after a Superb Warfare update: the rest of each file is the jar's, so the mod's own changes come through.
 """
 import json
@@ -73,14 +76,19 @@ def tame_damage(d):
     return d if d <= 60 else round(60 + (d - 60) * 0.6)
 
 
+PARTICLE = {"Giant": "Large", "Huge": "Large"}   # the wreck's blast: Large is the biggest without the 200-400 block screen shake
+
+
 def tame(obj):
-    """every ExplosionRadius / ExplosionDamage in a data tree, in place"""
+    """every ExplosionRadius / ExplosionDamage / ParticleType in a data tree, in place"""
     if isinstance(obj, dict):
         for k, v in list(obj.items()):
             if k == "ExplosionRadius" and isinstance(v, (int, float)):
                 obj[k] = tame_radius(v)
             elif k == "ExplosionDamage" and isinstance(v, (int, float)):
                 obj[k] = tame_damage(v)
+            elif k == "ParticleType" and isinstance(v, str) and v in PARTICLE:
+                obj[k] = PARTICLE[v]
             else:
                 tame(v)
     elif isinstance(obj, list):
@@ -90,25 +98,49 @@ def tame(obj):
 
 
 def tame_config():
-    """the [explosion] section of the server config: the same formulas on every *_explosion_radius / _explosion_damage"""
+    """the [explosion] section of the server config: the same formulas on every *_explosion_radius / _explosion_damage,
+    computed from the pack's pre-pass value (the .bak-explosion backup) or else the '# Default: N' comment the mod
+    writes above each value, so a rerun lands on the same numbers"""
     if not CONFIG.exists():
         print(f"no {CONFIG}: config untouched")
         return
-    text = CONFIG.read_text(encoding="utf-8")
+    lines = CONFIG.read_text(encoding="utf-8").splitlines()
+    # the pack's own values before the pass (the backup an earlier session left) win over the mod's defaults
+    base = {}
+    backup = CONFIG.with_name(CONFIG.name + ".bak-explosion")
+    if backup.exists():
+        for line in backup.read_text(encoding="utf-8").splitlines():
+            m = re.match(r"\s*(\w+_explosion_(?:radius|damage)) = ([\d.]+)\s*$", line)
+            if m:
+                base[m.group(1)] = float(m.group(2))
     changed = 0
-
-    def sub(m):
-        nonlocal changed
-        key, val = m.group(1), float(m.group(2))
-        new = tame_radius(val) if key.endswith("_radius") else tame_damage(val)
-        if new != val:
+    default = None
+    for i, line in enumerate(lines):
+        m = re.match(r"\s*#\s*Default:\s*([\d.]+)\s*$", line)
+        if m:
+            default = float(m.group(1))
+            continue
+        m = re.match(r"(\s*)(\w+_explosion_(?:radius|damage)) = ([\d.]+)\s*$", line)
+        if not m:
+            if line.strip() and not line.strip().startswith("#"):
+                default = None
+            continue
+        indent, key, cur = m.group(1), m.group(2), m.group(3)
+        if key in base:
+            default = base[key]
+        if default is None:
+            print(f"  {key}: no default comment, left at {cur}")
+            continue
+        new = tame_radius(default) if key.endswith("_radius") else tame_damage(default)
+        out = f"{int(new)}" if float(new).is_integer() and "." not in str(default).rstrip("0").rstrip(".") else f"{new}"
+        if "." in m.group(3) and "." not in out:
+            out = f"{float(out)}"
+        if out != cur:
             changed += 1
-        out = f"{int(new)}" if float(new).is_integer() and "." not in m.group(2) else f"{new}"
-        return f"{key} = {out}"
-    text = re.sub(r"(\w+_explosion_(?:radius|damage)) = ([\d.]+)", sub, text)
-    CONFIG.write_text(text, encoding="utf-8")
-    print(f"{CONFIG.name}: {changed} blast values tamed")
-
+        lines[i] = f"{indent}{key} = {out}"
+        default = None
+    CONFIG.write_text(chr(10).join(lines) + chr(10), encoding="utf-8")
+    print(f"{CONFIG.name}: {changed} blast values set from the defaults")
 
 
 def main():

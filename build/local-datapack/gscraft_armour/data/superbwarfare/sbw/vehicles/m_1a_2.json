@@ -502,7 +502,7 @@
     "superbwarfare:shock * 0.1"
   ],
   "DestroyInfo": {
-    "ParticleType": "Giant",
+    "ParticleType": "Large",
     "ExplosionDamage": 144,
     "ExplosionRadius": 8.2,
     "SympatheticDetonation": true,
