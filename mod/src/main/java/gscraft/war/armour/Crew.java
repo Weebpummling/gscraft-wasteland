@@ -48,6 +48,9 @@ public class Crew extends Mob implements FactionMember {
     public Vec3 threat;
     /** the infantry that walks with the vehicle (V5): ordered along behind it by the driver */
     public final List<java.util.UUID> escorts = new ArrayList<>();
+    /** a boss (V6): the stage set when the vehicle is destroyed, null for none */
+    public String bossStage;
+    private boolean stageDone;
     public static double ESCORT_BEHIND = 8.0D;
     /** a hit on the vehicle: the crew looks all round until this tick */
     public long alertUntil;
@@ -143,6 +146,7 @@ public class Crew extends Mob implements FactionMember {
             // an overkill removes the vehicle in the same tick, before any wreck flag: the loss is the report
             goneReported = true;
             Reports.destroyed((net.minecraft.server.level.ServerLevel) level(), position(), vehicleName, attackerName);
+            bossDown();
         }
         if (v == null || Vehicles.wreck(v)) {
             if (++unseated > GRACE || (v != null && Vehicles.wreck(v) && wreckSeen)) {
@@ -160,7 +164,10 @@ public class Crew extends Mob implements FactionMember {
             vehicleName = v.getDisplayName();
             Entity attacker = Reports.lastAttacker(v);
             if (attacker != null) attackerName = attacker.getDisplayName();
-            if (Vehicles.wreck(v)) goneReported = true;   // the wreck report below covers it
+            if (Vehicles.wreck(v)) {
+                goneReported = true;   // the wreck report below covers it
+                bossDown();
+            }
             boolean[] parts = {Vehicles.data(v, "TURRET_DAMAGED", false), Vehicles.data(v, "MAIN_ENGINE_DAMAGED", false),
                     Vehicles.data(v, "L_WHEEL_DAMAGED", false), Vehicles.data(v, "R_WHEEL_DAMAGED", false)};
             boolean wreck = Vehicles.wreck(v);
@@ -168,6 +175,12 @@ public class Crew extends Mob implements FactionMember {
             partsSeen = parts;
             wreckSeen = wreck;
         }
+    }
+
+    private void bossDown() {
+        if (bossStage == null || stageDone || level().getServer() == null) return;
+        stageDone = true;
+        gscraft.war.world.Stages.add(level().getServer(), bossStage);
     }
 
     /** how far the slowest living escort is behind the vehicle; 0 with no escort */
@@ -268,6 +281,7 @@ public class Crew extends Mob implements FactionMember {
         super.addAdditionalSaveData(tag);
         tag.putString("GscraftFaction", entityData.get(FACTION));
         tag.putBoolean("GscraftGunner", gunner());
+        if (bossStage != null) tag.putString("GscraftBoss", bossStage);
         ListTag list = new ListTag();
         for (BlockPos p : route) list.add(NbtUtils.writeBlockPos(p));
         tag.put("GscraftRoute", list);
@@ -279,6 +293,7 @@ public class Crew extends Mob implements FactionMember {
         super.readAdditionalSaveData(tag);
         entityData.set(FACTION, tag.getString("GscraftFaction"));
         setGunner(tag.getBoolean("GscraftGunner"));
+        bossStage = tag.contains("GscraftBoss") ? tag.getString("GscraftBoss") : null;
         route.clear();
         for (Tag t : tag.getList("GscraftRoute", Tag.TAG_COMPOUND)) route.add(NbtUtils.readBlockPos((CompoundTag) t));
         routeIndex = tag.getInt("GscraftRouteIndex");

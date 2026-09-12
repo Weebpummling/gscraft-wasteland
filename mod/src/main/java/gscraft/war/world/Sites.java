@@ -26,7 +26,8 @@ public final class Sites extends SimpleJsonResourceReloadListener {
     public static final String FOLDER = "gscraft_sites";
 
     /** one line of a wave: this many of this body, dressed as this rank when one is named */
-    public record WaveEntry(ResourceLocation entity, String rank, int count) {}
+    /** @param boss for a vehicle: the stage set on its death (site id + "_" + this), "" for none; @param name its name over it */
+    public record WaveEntry(ResourceLocation entity, String rank, int count, String boss, String name) {}
 
     public record SiteDef(String id, String name, int x0, int x1, int z0, int z1, int anchorX, int anchorZ, String faction,
                           String approach, List<List<WaveEntry>> assault, List<List<WaveEntry>> defence) {
@@ -91,7 +92,8 @@ public final class Sites extends SimpleJsonResourceReloadListener {
             for (JsonElement e : w.getAsJsonArray()) {
                 JsonObject s = e.getAsJsonObject();
                 wave.add(new WaveEntry(new ResourceLocation(GsonHelper.getAsString(s, "entity")),
-                        GsonHelper.getAsString(s, "rank", ""), GsonHelper.getAsInt(s, "count", 1)));
+                        GsonHelper.getAsString(s, "rank", ""), GsonHelper.getAsInt(s, "count", 1),
+                        GsonHelper.getAsString(s, "boss", ""), GsonHelper.getAsString(s, "name", "")));
             }
             waves.add(List.copyOf(wave));
         }

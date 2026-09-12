@@ -437,6 +437,14 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, armour V6 done (local):** armour in waves (a wave entry naming a vehicle; `Armour.wave`, the three
+NATO site files carry a Bradley in the last assault wave and an M1A2 + Bradley in the last counterattack wave),
+bosses (`"boss"`, `"name"` on the entry: named, holding, the bar, the stage on death), `/gscraft director wave`,
+`tools/war_phase21.py` green, phases 20/18/17/13/8 rerun. Design §15. V1-V6 are all local; nothing armour is on live.
+Before live: the pack must carry the crew entity (a client on the old jar sees an unknown entity), the override
+datapack `gscraft_armour` goes into the live world's datapacks (`tools/armour_override.py`, then `/reload`), and the
+zones file with the armour rolls ships in the jar. Open after V6: riders and the dismount, wreck loot, the convoy.
+
 **2026-09-12, armour V5 done (local):** the zone `armour` entries (`tools/war_zones.py` regenerates
 `gscraft_zones/map.json`), `armour/Patrols` (the roll, the road stand, the road route, the infantry escort, the
 weight of four), the crew's escort orders and the sweep taking the vehicle, `/gscraft director armour <x> <y> <z>

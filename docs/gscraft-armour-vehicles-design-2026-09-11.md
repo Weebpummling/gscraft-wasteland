@@ -330,3 +330,20 @@ the vehicle's driver counts as four against the ceilings. `/gscraft director arm
 Not yet: riders in the APC's bay and the dismount (the infantry walks behind instead), the road preference in
 the drive (routes are roads, so the hull stays on them by construction), the convoy.
 
+## 15. V6 results (2026-09-12, local server)
+
+A wave entry naming a vehicle (`{"entity": "superbwarfare:bradley", "count": 1}`) is armour in the wave:
+`Loop.sendWave` hands it to `Armour.wave`, which stands it beside the wave point (a road stand where there is one,
+else any stand with a hull's room), crewed and armed, tagged like the wave (so the sweep leaves it and the wave's
+end takes it), and drives it for the wave's target - the site's anchor for an assault, the camp square for the
+counterattack. A route of one point is a destination: no sprint inside forty blocks, coasting the last twelve (a
+hull at a sprint rolls twenty past), and it holds where it stops. The three NATO sites carry a Bradley in their
+last assault wave and an M1A2 with a Bradley in their last counterattack wave (the hospital is the Dead's: none).
+A **boss** is a wave entry with `"boss": "<stage>"` and a `"name"`: named over the hull, it holds where it is
+placed, its bar shows to players within earshot, and its destruction sets the stage `<site>_<stage>`
+(`Stages.add`, so the quest book reads it). `/gscraft director wave <x> <y> <z> <tx> <tz> <vehicle> <boss|none>`
+places one for the site `test`; `tools/war_phase21.py`. Left of §6: the wreck's loot entries.
+
+Trap found: on alternate ticks the goal selector ticks a running goal before re-checking it, so a goal that
+empties its own state must guard its tick (the drive goal crashed the server once on a cleared route).
+

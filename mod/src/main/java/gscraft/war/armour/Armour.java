@@ -97,6 +97,46 @@ public final class Armour {
         return placed;
     }
 
+    /** a vehicle in a site's wave (design §3, V6): on a road stand beside the wave point where there is one, else any
+     *  stand with a hull's room; driving for the target, or holding where it is as a boss (named, its stage set on
+     *  its death); tagged like the wave, so the sweep leaves it and the wave's end takes it. */
+    public static boolean wave(ServerLevel level, String siteId, String faction, ResourceLocation vehicleType, BlockPos point, BlockPos target, String boss, String name) {
+        int y = level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, point.getX(), point.getZ());
+        BlockPos stand = Patrols.roadStandAround(level, point.getX(), y, point.getZ());
+        for (int t = 0; t < 8 && stand == null; t++) {
+            int x = point.getX() + level.getRandom().nextInt(13) - 6;
+            int z = point.getZ() + level.getRandom().nextInt(13) - 6;
+            BlockPos p = gscraft.war.world.Director.legacyStand(level, x, level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z), z);
+            if (p != null && Patrols.hullRoom(level, p)) stand = p;
+        }
+        if (stand == null) {
+            GscraftWar.LOG.warn("[gscraft] {} wave: no stand with a hull's room near {}", siteId, point.toShortString());
+            return false;
+        }
+        boolean isBoss = boss != null && !boss.isEmpty();
+        List<BlockPos> route = isBoss || target == null ? List.of() : List.of(target);
+        float yaw = target == null ? 0.0F : (float) Math.toDegrees(Math.atan2(-(target.getX() - stand.getX()), target.getZ() - stand.getZ()));
+        Entity v = spawn(level, vehicleType, Vec3.atBottomCenterOf(stand), yaw, faction == null || faction.isEmpty() ? Patrols.factionOf(vehicleType) : faction, route);
+        if (v == null) return false;
+        String tag = gscraft.war.world.Loop.WAVE_TAG + "_" + siteId;
+        v.addTag(gscraft.war.world.Loop.WAVE_TAG);
+        v.addTag(tag);
+        v.addTag(gscraft.war.WarEvents.PLACED_TAG);
+        for (Entity p : v.getPassengers()) {
+            if (!(p instanceof Crew c)) continue;
+            c.addTag(gscraft.war.world.Loop.WAVE_TAG);
+            c.addTag(tag);
+            c.addTag(gscraft.war.WarEvents.PLACED_TAG);
+            if (isBoss && !c.gunner()) c.bossStage = siteId + "_" + boss;
+        }
+        if (isBoss) {
+            v.setCustomName(net.minecraft.network.chat.Component.literal(name == null || name.isEmpty() ? v.getName().getString() : name));
+            v.setCustomNameVisible(true);
+        }
+        GscraftWar.LOG.info("[gscraft] {} wave armour: {} at {}{}", siteId, v.getName().getString(), stand.toShortString(), isBoss ? " (boss " + boss + ")" : target == null ? "" : ", for " + target.toShortString());
+        return true;
+    }
+
     /** a target one of the vehicle's crews already engages */
     public static boolean engagedBy(Entity vehicle, Entity target) {
         for (Entity p : vehicle.getPassengers()) if (p instanceof Crew c && c.engaged == target) return true;

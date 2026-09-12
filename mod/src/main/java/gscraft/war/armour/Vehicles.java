@@ -36,6 +36,10 @@ public final class Vehicles {
         return VEHICLE != null && VEHICLE.isInstance(e);
     }
 
+    public static boolean isVehicleType(net.minecraft.world.entity.EntityType<?> type) {
+        return VEHICLE != null && VEHICLE.isAssignableFrom(type.getBaseClass());
+    }
+
     private static Object call(Entity v, String name, Class<?>[] types, Object... args) {
         try {
             Method m = v.getClass().getMethod(name, types);

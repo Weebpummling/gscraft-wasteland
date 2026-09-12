@@ -121,7 +121,7 @@ public final class Patrols {
     }
 
     /** a hull's worth of room: a 5 x 4 x 5 box of air over the stand, road under the middle */
-    private static boolean hullRoom(ServerLevel level, BlockPos stand) {
+    public static boolean hullRoom(ServerLevel level, BlockPos stand) {
         for (int dx = -2; dx <= 2; dx++) {
             for (int dz = -2; dz <= 2; dz++) {
                 for (int dy = 0; dy < 4; dy++) {

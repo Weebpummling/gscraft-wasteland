@@ -85,6 +85,10 @@
         "entity": "gscraft:nato_soldier",
         "count": 2,
         "rank": "NATO Gunner"
+      },
+      {
+        "entity": "superbwarfare:bradley",
+        "count": 1
       }
     ]
   ],
@@ -123,6 +127,14 @@
         "entity": "gscraft:nato_soldier",
         "count": 5,
         "rank": "NATO Shield"
+      },
+      {
+        "entity": "superbwarfare:m_1a_2",
+        "count": 1
+      },
+      {
+        "entity": "superbwarfare:bradley",
+        "count": 1
       }
     ]
   ]

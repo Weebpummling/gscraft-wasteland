@@ -72,7 +72,7 @@ public final class Reports {
     }
 
     private static void bar(ServerLevel level, Crew crew, Entity v, boolean[] parts, boolean wreck) {
-        boolean show = crew.engaged != null && !wreck;
+        boolean show = (crew.engaged != null || crew.bossStage != null) && !wreck;
         if (!show) {
             dropBar(v);
             return;

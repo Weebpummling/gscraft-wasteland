@@ -71,7 +71,8 @@ public class DriveGoal extends Goal {
     @Override
     public void tick() {
         Entity v = crew.vehicle();
-        if (v == null) return;
+        // on alternate ticks the selector ticks a running goal before re-checking it: an emptied route must not be read
+        if (v == null || crew.route.isEmpty()) return;
         if (crew.routeIndex >= crew.route.size()) crew.routeIndex = 0;
         BlockPos wp = crew.route.get(crew.routeIndex);
         double dx = wp.getX() + 0.5D - v.getX();
@@ -79,6 +80,11 @@ public class DriveGoal extends Goal {
         double dist = Math.sqrt(dx * dx + dz * dz);
         if (dist < ARRIVE) {
             GscraftWar.LOG.info("[gscraft] crew of {} reached waypoint {} of {} at {}", v.getName().getString(), crew.routeIndex + 1, crew.route.size(), wp.toShortString());
+            if (crew.route.size() == 1) {
+                crew.route.clear();   // a destination, not a loop: it has arrived and holds here
+                Vehicles.allStop(v);
+                return;
+            }
             crew.routeIndex = (crew.routeIndex + 1) % crew.route.size();
             stuckOnThis = 0;
             return;
@@ -94,6 +100,11 @@ public class DriveGoal extends Goal {
         boolean right = err > STEER_DEAD;
         boolean forward = Math.abs(err) < 90.0F;
         boolean sprint = forward && Math.abs(err) < SPRINT_WITHIN && dist > SPRINT_BEYOND;
+        // a destination (a route of one): no sprint inside forty blocks, and it coasts the last twelve - a hull at a sprint rolls twenty past
+        if (crew.route.size() == 1) {
+            if (dist < 40.0D) sprint = false;
+            if (dist < 12.0D) forward = false;
+        }
         // with infantry along, the hull keeps their pace: no sprint, and it waits when the slowest falls too far behind
         double lag = crew.escortLag(v);
         if (lag > 0.0D) {

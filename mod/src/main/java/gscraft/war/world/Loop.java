@@ -245,7 +245,7 @@ public final class Loop {
     private static void assault(ServerLevel level, SiteData data, SiteDef site, Progress p) {
         if (away(level, data, site, p, site.anchorX(), site.anchorZ())) return;
         if (p.wave < ASSAULT_WAVES && data.online >= p.nextWave) {
-            int placed = sendWave(level, site, site.assault().get(p.wave), edgePoints(level, site), scaleInside(level, site));
+            int placed = sendWave(level, site, site.assault().get(p.wave), edgePoints(level, site), scaleInside(level, site), new BlockPos(site.anchorX(), 0, site.anchorZ()));
             p.wave++;
             p.nextWave = data.online + WAVE_GAP;
             GscraftWar.LOG.info("[gscraft] {} assault wave {} of {}: {} placed", site.id(), p.wave, ASSAULT_WAVES, placed);
@@ -297,7 +297,8 @@ public final class Loop {
         if (away(level, data, site, p, (camp.sx0() + camp.sx1()) / 2, (camp.sz0() + camp.sz1()) / 2)) return;
         if (p.wave < DEFENCE_WAVES && data.online >= p.nextWave) {
             int[] at = camp.approaches().getOrDefault(site.approach(), camp.approaches().values().iterator().next());
-            int placed = sendWave(level, site, site.defence().get(p.wave), List.of(new BlockPos(at[0], 0, at[1])), scaleOnline(level));
+            int placed = sendWave(level, site, site.defence().get(p.wave), List.of(new BlockPos(at[0], 0, at[1])), scaleOnline(level),
+                    new BlockPos((camp.sx0() + camp.sx1()) / 2, 0, (camp.sz0() + camp.sz1()) / 2));
             p.wave++;
             p.nextWave = data.online + WAVE_GAP;
             if (p.wave == DEFENCE_WAVES) p.deadline = data.online + STRAGGLER_TICKS;
@@ -370,7 +371,8 @@ public final class Loop {
                 new BlockPos(site.x0() - 2, 0, site.z1() + 2), new BlockPos(site.x1() + 2, 0, site.z1() + 2));
     }
 
-    private static int sendWave(ServerLevel level, SiteDef site, List<WaveEntry> wave, List<BlockPos> points, float scale) {
+    /** @param target where the wave is going: the site's anchor for an assault, the camp square for the counterattack (armour drives there) */
+    private static int sendWave(ServerLevel level, SiteDef site, List<WaveEntry> wave, List<BlockPos> points, float scale, BlockPos target) {
         RandomSource random = level.getRandom();
         int placed = 0;
         java.util.List<Mob> fighters = new java.util.ArrayList<>();
@@ -379,6 +381,14 @@ public final class Loop {
             EntityType<?> type = ForgeRegistries.ENTITY_TYPES.getValue(entry.entity());
             if (type == null) {
                 GscraftWar.LOG.warn("[gscraft] wave entity {} is not registered", entry.entity());
+                continue;
+            }
+            if (gscraft.war.armour.Vehicles.isVehicleType(type)) {
+                // armour in the wave (design §3): crewed, on the edge, driving for the target; a boss holds where it is
+                int want = entry.boss().isEmpty() ? n : Math.max(1, entry.count());
+                for (int i = 0; i < want; i++) {
+                    placed += gscraft.war.armour.Armour.wave(level, site.id(), site.faction(), entry.entity(), points.get(random.nextInt(points.size())), target, entry.boss(), entry.name()) ? 1 : 0;
+                }
                 continue;
             }
             for (int i = 0; i < n; i++) {

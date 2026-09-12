@@ -111,6 +111,15 @@ public final class DirectorCommands {
                                     say(ctx, v == null ? "no road stand with room within 40 of " + at.toShortString() : "placed " + v.getName().getString() + " at " + v.blockPosition().toShortString());
                                     return v == null ? 0 : 1;
                                 })))))
+                        .then(Commands.literal("wave").then(xyzThen(Commands.argument("tx", IntegerArgumentType.integer()).then(Commands.argument("tz", IntegerArgumentType.integer())
+                                .then(Commands.argument("vehicle", net.minecraft.commands.arguments.ResourceLocationArgument.id()).then(Commands.argument("boss", StringArgumentType.word()).executes(ctx -> {
+                                    ServerLevel level = ctx.getSource().getLevel();
+                                    String boss = StringArgumentType.getString(ctx, "boss");
+                                    boolean ok = gscraft.war.armour.Armour.wave(level, "test", "", net.minecraft.commands.arguments.ResourceLocationArgument.getId(ctx, "vehicle"), pos(ctx),
+                                            new BlockPos(IntegerArgumentType.getInteger(ctx, "tx"), 0, IntegerArgumentType.getInteger(ctx, "tz")), boss.equals("none") ? "" : boss, boss.equals("none") ? "" : "The " + boss);
+                                    say(ctx, ok ? "wave armour placed (site test)" : "no stand with a hull's room there");
+                                    return ok ? 1 : 0;
+                                })))))))
                         .then(Commands.literal("ambient").then(xyzThen(passes(DirectorCommands::ambient))))
                         .then(Commands.literal("room").then(xzThen(Commands.argument("radius",
                                 IntegerArgumentType.integer(2, 128)).executes(ctx -> {

@@ -463,7 +463,7 @@ public final class Director {
     }
 
     /** the first version's search, kept only so {@link #survey} can measure what the layered one changed */
-    static BlockPos legacyStand(ServerLevel level, int x, int y0, int z) {
+    public static BlockPos legacyStand(ServerLevel level, int x, int y0, int z) {
         for (int dy = 10; dy >= -24; dy--) {
             BlockPos p = new BlockPos(x, y0 + dy, z);
             if (!level.hasChunkAt(p)) return null;
