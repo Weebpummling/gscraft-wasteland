@@ -14,11 +14,12 @@ import java.util.List;
  * @param deadRanks         which Dead ranks a zombie placed here is dressed as, weighted by the ranks file
  * @param garrison          a standing garrison of soldiers
  * @param lair              the zone's unique creature, kept at one while it lives and returned only after a long wait
+ * @param armour            the rare armour patrol on the roads here (design 2026-09-11 §3), or null
  */
 public record Zone(String name, boolean hasBox, int x0, int x1, int z0, int z1, boolean exclude, int cap,
                    List<SpawnEntry> spawns, List<SpawnEntry> indoorSpawns, List<SpawnEntry> undergroundSpawns,
                    List<String> deadRanks, GarrisonDef garrison, GarrisonDef lair, List<HorrorDef> horrors, int groupMin, int groupMax,
-                   List<List<net.minecraft.core.BlockPos>> patrols) {
+                   List<List<net.minecraft.core.BlockPos>> patrols, ArmourDef armour) {
 
     /** how many arrive together: the zone's own range, or the ground's default (open 2-3, inside and below 2-4) */
     public int groupSize(Env env, net.minecraft.util.RandomSource random) {

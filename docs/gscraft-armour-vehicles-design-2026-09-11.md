@@ -309,3 +309,24 @@ north" - to a player inside `armour.contact_range` of a crewed vehicle, once per
 Lines reach players inside `armour.earshot`. The bar (`ServerBossEvent`, notched) shows while a crew is engaged:
 the vehicle's name and the module letters T E L R, dimmed when gone, health as the fill. `tools/war_phase19.py`.
 
+## 14. V5 results (2026-09-12, local server)
+
+The zone file carries `armour` (`tools/war_zones.py`: the fronts and outposts each side, the plant, the town and
+the far bank at 4-6 % a pass, the open roads a 3 % mix; compositions an APC with four infantry, a tank alone, a
+tank and an APC with four, two APCs with six). `armour/Patrols.roll` runs in every director pass for every player:
+open ground, the zone's chance, no other armour within `armour.spacing` (400), the ceilings with a vehicle at
+`armour.weight` (4), then a road stand in the ring `armour.place_min`..`place_max` (96..140) from the player - a
+column whose block below is one of the road mod's surfaces (they are not full cubes, so the general standing test
+refuses them: the road stand has its own), with a 5 x 4 x 5 hull's room over it, found by scanning a small square
+round each ring point since a point seldom lands on a road - and never within the minimum of anyone. The route
+is the zone's patrol where it has one, else the road followed both ways up to 60 blocks (`roadRoute`); a stub
+under 24 long means it sits. The infantry is placed beside the lead vehicle, formed as a squad and listed on the
+driver as its escort: every two seconds the driver orders them to a point `armour.escort_behind` behind a moving
+hull and frees them when it halts to fight; the hull never sprints with infantry and waits when the slowest is
+more than `armour.escort_wait` behind. A crew swept by the director takes its vehicle with it (a wreck stays);
+the vehicle's driver counts as four against the ceilings. `/gscraft director armour <x> <y> <z> <vehicle>
+<infantry>` forces a placement within 40 of a point; `tools/war_phase20.py` on a laid road strip.
+
+Not yet: riders in the APC's bay and the dismount (the infantry walks behind instead), the road preference in
+the drive (routes are roads, so the hull stays on them by construction), the convoy.
+

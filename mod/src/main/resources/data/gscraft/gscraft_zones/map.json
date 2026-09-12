@@ -202,6 +202,41 @@
      "weight": 2
     }
    ],
+   "armour": {
+    "chance": 0.06,
+    "compositions": [
+     {
+      "weight": 6,
+      "vehicles": [
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 3,
+      "vehicles": [
+       "superbwarfare:t_90a"
+      ],
+      "infantry": 0
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:t_90a",
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:bmp_2",
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 6
+     }
+    ]
+   },
    "garrison": {
     "entity": "gscraft:ruaf_soldier",
     "count": 4,
@@ -228,6 +263,41 @@
      "weight": 2
     }
    ],
+   "armour": {
+    "chance": 0.06,
+    "compositions": [
+     {
+      "weight": 6,
+      "vehicles": [
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 3,
+      "vehicles": [
+       "superbwarfare:t_90a"
+      ],
+      "infantry": 0
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:t_90a",
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:bmp_2",
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 6
+     }
+    ]
+   },
    "garrison": {
     "entity": "gscraft:ruaf_soldier",
     "count": 4,
@@ -254,6 +324,41 @@
      "weight": 2
     }
    ],
+   "armour": {
+    "chance": 0.06,
+    "compositions": [
+     {
+      "weight": 6,
+      "vehicles": [
+       "superbwarfare:bradley"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 3,
+      "vehicles": [
+       "superbwarfare:m_1a_2"
+      ],
+      "infantry": 0
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:m_1a_2",
+       "superbwarfare:bradley"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:bradley",
+       "superbwarfare:bradley"
+      ],
+      "infantry": 6
+     }
+    ]
+   },
    "garrison": {
     "entity": "gscraft:nato_soldier",
     "count": 4,
@@ -280,6 +385,41 @@
      "weight": 2
     }
    ],
+   "armour": {
+    "chance": 0.06,
+    "compositions": [
+     {
+      "weight": 6,
+      "vehicles": [
+       "superbwarfare:bradley"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 3,
+      "vehicles": [
+       "superbwarfare:m_1a_2"
+      ],
+      "infantry": 0
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:m_1a_2",
+       "superbwarfare:bradley"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:bradley",
+       "superbwarfare:bradley"
+      ],
+      "infantry": 6
+     }
+    ]
+   },
    "garrison": {
     "entity": "gscraft:nato_soldier",
     "count": 4,
@@ -326,6 +466,41 @@
      ]
     ]
    ],
+   "armour": {
+    "chance": 0.06,
+    "compositions": [
+     {
+      "weight": 6,
+      "vehicles": [
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 3,
+      "vehicles": [
+       "superbwarfare:t_90a"
+      ],
+      "infantry": 0
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:t_90a",
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:bmp_2",
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 6
+     }
+    ]
+   },
    "underground_spawns": [
     {
      "entity": "minecraft:zombie",
@@ -360,7 +535,42 @@
      "entity": "minecraft:drowned",
      "weight": 2
     }
-   ]
+   ],
+   "armour": {
+    "chance": 0.06,
+    "compositions": [
+     {
+      "weight": 6,
+      "vehicles": [
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 3,
+      "vehicles": [
+       "superbwarfare:t_90a"
+      ],
+      "infantry": 0
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:t_90a",
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:bmp_2",
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 6
+     }
+    ]
+   }
   },
   {
    "name": "front_en",
@@ -401,7 +611,42 @@
       -1230
      ]
     ]
-   ]
+   ],
+   "armour": {
+    "chance": 0.06,
+    "compositions": [
+     {
+      "weight": 6,
+      "vehicles": [
+       "superbwarfare:bradley"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 3,
+      "vehicles": [
+       "superbwarfare:m_1a_2"
+      ],
+      "infantry": 0
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:m_1a_2",
+       "superbwarfare:bradley"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:bradley",
+       "superbwarfare:bradley"
+      ],
+      "infantry": 6
+     }
+    ]
+   }
   },
   {
    "name": "front_es",
@@ -426,7 +671,42 @@
      "entity": "minecraft:drowned",
      "weight": 2
     }
-   ]
+   ],
+   "armour": {
+    "chance": 0.06,
+    "compositions": [
+     {
+      "weight": 6,
+      "vehicles": [
+       "superbwarfare:bradley"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 3,
+      "vehicles": [
+       "superbwarfare:m_1a_2"
+      ],
+      "infantry": 0
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:m_1a_2",
+       "superbwarfare:bradley"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:bradley",
+       "superbwarfare:bradley"
+      ],
+      "infantry": 6
+     }
+    ]
+   }
   },
   {
    "name": "sk_hosp",
@@ -1016,6 +1296,41 @@
      "weight": 1
     }
    ],
+   "armour": {
+    "chance": 0.04,
+    "compositions": [
+     {
+      "weight": 6,
+      "vehicles": [
+       "superbwarfare:bradley"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 3,
+      "vehicles": [
+       "superbwarfare:m_1a_2"
+      ],
+      "infantry": 0
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:m_1a_2",
+       "superbwarfare:bradley"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:bradley",
+       "superbwarfare:bradley"
+      ],
+      "infantry": 6
+     }
+    ]
+   },
    "underground_spawns": [
     {
      "entity": "minecraft:zombie",
@@ -1075,6 +1390,41 @@
      ]
     ]
    ],
+   "armour": {
+    "chance": 0.04,
+    "compositions": [
+     {
+      "weight": 6,
+      "vehicles": [
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 3,
+      "vehicles": [
+       "superbwarfare:t_90a"
+      ],
+      "infantry": 0
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:t_90a",
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:bmp_2",
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 6
+     }
+    ]
+   },
    "indoor_spawns": [
     {
      "entity": "minecraft:zombie",
@@ -1216,6 +1566,41 @@
      "night": true
     }
    ],
+   "armour": {
+    "chance": 0.04,
+    "compositions": [
+     {
+      "weight": 6,
+      "vehicles": [
+       "superbwarfare:bradley"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 3,
+      "vehicles": [
+       "superbwarfare:m_1a_2"
+      ],
+      "infantry": 0
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:m_1a_2",
+       "superbwarfare:bradley"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 1,
+      "vehicles": [
+       "superbwarfare:bradley",
+       "superbwarfare:bradley"
+      ],
+      "infantry": 6
+     }
+    ]
+   },
    "dead_ranks": [
     "The Dead"
    ]
@@ -1251,7 +1636,40 @@
    "dead_ranks": [
     "Runner",
     "The Dead"
-   ]
+   ],
+   "armour": {
+    "chance": 0.03,
+    "compositions": [
+     {
+      "weight": 6,
+      "vehicles": [
+       "superbwarfare:bmp_2"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 3,
+      "vehicles": [
+       "superbwarfare:t_90a"
+      ],
+      "infantry": 0
+     },
+     {
+      "weight": 6,
+      "vehicles": [
+       "superbwarfare:bradley"
+      ],
+      "infantry": 4
+     },
+     {
+      "weight": 3,
+      "vehicles": [
+       "superbwarfare:m_1a_2"
+      ],
+      "infantry": 0
+     }
+    ]
+   }
   }
  ]
 }

@@ -150,6 +150,7 @@ public final class Director {
         long t0 = System.nanoTime();
         for (BlockPos p : players) {
             ambient(level, p);
+            gscraft.war.armour.Patrols.roll(level, p);
             horrors(level, p, false);
         }
         garrisons(level, null, false);
@@ -186,7 +187,7 @@ public final class Director {
                 doomed.add(mob);
                 continue;
             }
-            total++;
+            total += gscraft.war.armour.Patrols.weight(mob);
             if (kept(mob)) continue;
             boolean near = false;
             for (BlockPos p : players) {
@@ -222,7 +223,7 @@ public final class Director {
         if (directorCountAt == level.getGameTime()) return directorCount;
         int total = 0;
         for (Entity e : level.getAllEntities()) {
-            if (e instanceof Mob mob && mob.isAlive() && mob.getTags().contains("gs_director")) total++;
+            if (e instanceof Mob mob && mob.isAlive() && mob.getTags().contains("gs_director")) total += gscraft.war.armour.Patrols.weight(mob);
         }
         directorCount = total;
         directorCountAt = level.getGameTime();
@@ -294,7 +295,7 @@ public final class Director {
     }
 
     /** one more of the same kind within a few blocks of a placed creature, on the same kind of ground */
-    static Mob placeBeside(ServerLevel level, BlockPos beside, Env env, ResourceLocation kind, boolean allowSealed) {
+    public static Mob placeBeside(ServerLevel level, BlockPos beside, Env env, ResourceLocation kind, boolean allowSealed) {
         RandomSource random = level.getRandom();
         for (int t = 0; t < TRIES; t++) {
             int x = beside.getX() + random.nextInt(9) - 4;
@@ -428,7 +429,7 @@ public final class Director {
     }
 
     /** standing room nearest the reference height, on the same kind of ground; water only for the drowned */
-    static BlockPos findStand(ServerLevel level, int x, int y0, int z, Env env, boolean aquatic) {
+    public static BlockPos findStand(ServerLevel level, int x, int y0, int z, Env env, boolean aquatic) {
         int reach = Math.max(env.dyUp, env.dyDown);
         for (int d = 0; d <= reach; d++) {
             for (int sign = -1; sign <= 1; sign += 2) {

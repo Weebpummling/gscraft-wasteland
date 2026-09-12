@@ -132,6 +132,12 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("armour.retreat_share", () -> gscraft.war.armour.FightGoal.RETREAT_SHARE, v -> gscraft.war.armour.FightGoal.RETREAT_SHARE = (float) v, "below this share of health the driver withdraws");
         i("armour.retreat_ticks", () -> gscraft.war.armour.FightGoal.RETREAT_TICKS, v -> gscraft.war.armour.FightGoal.RETREAT_TICKS = (int) v, "how long the withdrawal drives");
         i("armour.calm_ticks", () -> gscraft.war.armour.FightGoal.CALM_TICKS, v -> gscraft.war.armour.FightGoal.CALM_TICKS = (int) v, "no fighting for this long after a withdrawal");
+        d("armour.place_min", () -> gscraft.war.armour.Patrols.PLACE_MIN, v -> gscraft.war.armour.Patrols.PLACE_MIN = v, "an armour group is placed no nearer than this to anyone (a tank should be heard first)");
+        d("armour.place_max", () -> gscraft.war.armour.Patrols.PLACE_MAX, v -> gscraft.war.armour.Patrols.PLACE_MAX = v, "and no further than this from the player it is rolled for");
+        d("armour.spacing", () -> gscraft.war.armour.Patrols.SPACING, v -> gscraft.war.armour.Patrols.SPACING = v, "no second armour group within this of the player");
+        i("armour.weight", () -> gscraft.war.armour.Patrols.WEIGHT, v -> gscraft.war.armour.Patrols.WEIGHT = (int) v, "what one vehicle counts for against the ceilings");
+        d("armour.escort_wait", () -> gscraft.war.armour.DriveGoal.ESCORT_WAIT, v -> gscraft.war.armour.DriveGoal.ESCORT_WAIT = v, "a vehicle with infantry waits when the slowest is further behind than this");
+        d("armour.escort_behind", () -> gscraft.war.armour.Crew.ESCORT_BEHIND, v -> gscraft.war.armour.Crew.ESCORT_BEHIND = v, "the infantry walks this far behind a moving vehicle");
         d("armour.earshot", () -> gscraft.war.armour.Reports.EARSHOT, v -> gscraft.war.armour.Reports.EARSHOT = v, "armour messages and the bar reach players within this many blocks");
         d("armour.contact_range", () -> gscraft.war.armour.Reports.CONTACT, v -> gscraft.war.armour.Reports.CONTACT = v, "a player this close to a crewed vehicle is told of the engine noise once");
         d("armour.arrive", () -> gscraft.war.armour.DriveGoal.ARRIVE, v -> gscraft.war.armour.DriveGoal.ARRIVE = v, "a waypoint counts as reached inside this many blocks");

@@ -101,6 +101,16 @@ public final class DirectorCommands {
                         .then(Commands.literal("passat").then(xyzThen(passes(ctx -> pass(ctx, standAt(ctx))))))
                         .then(Commands.literal("survey").then(xyzThen(Commands.argument("samples",
                                 IntegerArgumentType.integer(10, 1000)).executes(DirectorCommands::survey))))
+                        .then(Commands.literal("armour").then(xyzThen(Commands.argument("vehicle", net.minecraft.commands.arguments.ResourceLocationArgument.id())
+                                .then(Commands.argument("infantry", IntegerArgumentType.integer(0, 8)).executes(ctx -> {
+                                    ServerLevel level = ctx.getSource().getLevel();
+                                    BlockPos at = pos(ctx);
+                                    gscraft.war.world.ArmourDef.Composition c = new gscraft.war.world.ArmourDef.Composition(1,
+                                            java.util.List.of(net.minecraft.commands.arguments.ResourceLocationArgument.getId(ctx, "vehicle")), IntegerArgumentType.getInteger(ctx, "infantry"));
+                                    net.minecraft.world.entity.Entity v = gscraft.war.armour.Patrols.place(level, at, c, 0.0D, 40.0D);
+                                    say(ctx, v == null ? "no road stand with room within 40 of " + at.toShortString() : "placed " + v.getName().getString() + " at " + v.blockPosition().toShortString());
+                                    return v == null ? 0 : 1;
+                                })))))
                         .then(Commands.literal("ambient").then(xyzThen(passes(DirectorCommands::ambient))))
                         .then(Commands.literal("room").then(xzThen(Commands.argument("radius",
                                 IntegerArgumentType.integer(2, 128)).executes(ctx -> {

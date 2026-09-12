@@ -25,6 +25,7 @@ public class DriveGoal extends Goal {
     public static double STUCK_MOVE = 1.0D;
     public static int REVERSE_TICKS = 30;
     public static int STUCK_SKIP = 3;
+    public static double ESCORT_WAIT = 16.0D;
 
     private final Crew crew;
     private Vec3 lastPos;
@@ -93,12 +94,18 @@ public class DriveGoal extends Goal {
         boolean right = err > STEER_DEAD;
         boolean forward = Math.abs(err) < 90.0F;
         boolean sprint = forward && Math.abs(err) < SPRINT_WITHIN && dist > SPRINT_BEYOND;
+        // with infantry along, the hull keeps their pace: no sprint, and it waits when the slowest falls too far behind
+        double lag = crew.escortLag(v);
+        if (lag > 0.0D) {
+            sprint = false;
+            if (lag > ESCORT_WAIT) forward = false;
+        }
         set(v, forward, false, left, right, sprint);
         // stuck: driving and not moving
         if (++sinceCheck >= STUCK_CHECK) {
             sinceCheck = 0;
             Vec3 now = v.position();
-            if (forward && lastPos != null && now.distanceTo(lastPos) < STUCK_MOVE) {
+            if (forward && lag <= ESCORT_WAIT && lastPos != null && now.distanceTo(lastPos) < STUCK_MOVE) {
                 if (++stuckOnThis > STUCK_SKIP) {
                     GscraftWar.LOG.info("[gscraft] crew of {} gives up on waypoint {} at {} ({} blocks off)", v.getName().getString(), crew.routeIndex + 1, wp.toShortString(), Math.round(dist));
                     crew.routeIndex = (crew.routeIndex + 1) % crew.route.size();

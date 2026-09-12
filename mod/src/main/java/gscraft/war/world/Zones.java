@@ -76,7 +76,21 @@ public final class Zones extends SimpleJsonResourceReloadListener {
         return new Zone(name, hasBox, x0, x1, z0, z1, GsonHelper.getAsBoolean(o, "exclude", false),
                 GsonHelper.getAsInt(o, "cap", 0), entries(o, "spawns"), entries(o, "indoor_spawns"),
                 entries(o, "underground_spawns"), List.copyOf(deadRanks), standing(o, "garrison", 4, 10),
-                standing(o, "lair", 1, 120), List.copyOf(horrors), group(o, 0), group(o, 1), patrols(o));
+                standing(o, "lair", 1, 120), List.copyOf(horrors), group(o, 0), group(o, 1), patrols(o), armour(o));
+    }
+
+    /** optional "armour": {"chance": 0.06, "compositions": [{"weight": 6, "vehicles": ["superbwarfare:bmp_2"], "infantry": 4}, ...]} */
+    private static ArmourDef armour(JsonObject o) {
+        if (!o.has("armour")) return null;
+        JsonObject a = GsonHelper.getAsJsonObject(o, "armour");
+        List<ArmourDef.Composition> comps = new ArrayList<>();
+        for (JsonElement el : GsonHelper.getAsJsonArray(a, "compositions", new JsonArray())) {
+            JsonObject c = el.getAsJsonObject();
+            List<ResourceLocation> vehicles = new ArrayList<>();
+            for (JsonElement v : GsonHelper.getAsJsonArray(c, "vehicles", new JsonArray())) vehicles.add(new ResourceLocation(v.getAsString()));
+            comps.add(new ArmourDef.Composition(GsonHelper.getAsInt(c, "weight", 1), List.copyOf(vehicles), GsonHelper.getAsInt(c, "infantry", 0)));
+        }
+        return new ArmourDef(GsonHelper.getAsFloat(a, "chance", 0.0F), List.copyOf(comps));
     }
 
     /** optional "patrols": [[[x, z], ...], ...] - routes a squad leader walks (feasibility C2); y is found on arrival */

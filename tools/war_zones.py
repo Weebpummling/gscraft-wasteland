@@ -120,6 +120,24 @@ PATROLS = {
     "pl_switch": [[[-950, 50], [-720, 50], [-720, 170], [-950, 170]]],
 }
 
+# the rare armour patrol (armour design §3): the chance per director pass for a player in open ground here, and the
+# group - NATO zones the Bradley and the M1A2, RUAF zones the BMP-2 and the T-90A; the open roads a thin mix of both
+def armour(side, chance=0.06):
+    apc, tank = ("superbwarfare:bmp_2", "superbwarfare:t_90a") if side == "ruaf" else ("superbwarfare:bradley", "superbwarfare:m_1a_2")
+    return {"chance": chance, "compositions": [
+        {"weight": 6, "vehicles": [apc], "infantry": 4},
+        {"weight": 3, "vehicles": [tank], "infantry": 0},
+        {"weight": 1, "vehicles": [tank, apc], "infantry": 4},
+        {"weight": 1, "vehicles": [apc, apc], "infantry": 6}]}
+
+
+ARMOUR = {
+    "front_wn": armour("ruaf"), "front_ws": armour("ruaf"), "out_w1": armour("ruaf"), "out_w2": armour("ruaf"), "town": armour("ruaf", 0.04),
+    "front_en": armour("nato"), "front_es": armour("nato"), "out_e1": armour("nato"), "out_e2": armour("nato"), "plant": armour("nato", 0.04),
+    "farbank": armour("nato", 0.04),
+}
+OPEN_ARMOUR = {"chance": 0.03, "compositions": armour("ruaf")["compositions"][:2] + armour("nato")["compositions"][:2]}
+
 ORDER = (list(BUILDS)
          + ["sk_out_w", "sk_out_e", "out_w1", "out_w2", "out_e1", "out_e2",
             "front_wn", "front_ws", "front_en", "front_es",
@@ -148,12 +166,14 @@ def main(argv):
             zone.update({"cap": p["cap"], "spawns": p["open"]})
             if name in PATROLS:
                 zone["patrols"] = PATROLS[name]
+            if name in ARMOUR:
+                zone["armour"] = ARMOUR[name]
             for key, field in (("indoor", "indoor_spawns"), ("underground", "underground_spawns"),
                                ("dead", "dead_ranks"), ("garrison", "garrison"), ("lair", "lair"), ("horrors", "horrors")):
                 if p.get(key):
                     zone[field] = p[key]
         zones.append(zone)
-    zones.append(OPEN)
+    zones.append(dict(OPEN, armour=OPEN_ARMOUR))
     count = lambda key: sum(1 for z in zones if key in z)  # noqa: E731
     print(f"{len(zones)} zones: {len(BUILDS)} excluded, {count('garrison')} garrisons, {count('lair')} lairs, "
           f"{count('indoor_spawns')} with indoor pools, {count('underground_spawns')} with underground pools, "

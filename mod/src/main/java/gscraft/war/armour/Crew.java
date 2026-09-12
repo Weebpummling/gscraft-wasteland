@@ -46,6 +46,9 @@ public class Crew extends Mob implements FactionMember {
     public long retreatUntil;
     public long calmUntil;
     public Vec3 threat;
+    /** the infantry that walks with the vehicle (V5): ordered along behind it by the driver */
+    public final List<java.util.UUID> escorts = new ArrayList<>();
+    public static double ESCORT_BEHIND = 8.0D;
     /** a hit on the vehicle: the crew looks all round until this tick */
     public long alertUntil;
     /** what this crew engages, for the other crew of the same vehicle */
@@ -152,6 +155,7 @@ public class Crew extends Mob implements FactionMember {
             if (!Float.isNaN(lastHealth) && h < lastHealth - 0.01F) alertUntil = level().getGameTime() + FightGoal.ALERT_TICKS;
             lastHealth = h;
         }
+        if (!gunner() && v != null && tickCount % 40 == 0) escortTick(v);
         if (!gunner() && v != null) {
             vehicleName = v.getDisplayName();
             Entity attacker = Reports.lastAttacker(v);
@@ -164,6 +168,57 @@ public class Crew extends Mob implements FactionMember {
             partsSeen = parts;
             wreckSeen = wreck;
         }
+    }
+
+    /** how far the slowest living escort is behind the vehicle; 0 with no escort */
+    public double escortLag(Entity v) {
+        if (escorts.isEmpty() || !(level() instanceof net.minecraft.server.level.ServerLevel level)) return 0.0D;
+        double worst = 0.0D;
+        for (java.util.UUID id : escorts) {
+            Entity e = level.getEntity(id);
+            if (e != null && e.isAlive()) worst = Math.max(worst, e.distanceTo(v));
+        }
+        return worst;
+    }
+
+    /** the escort's order: along behind the moving vehicle; free to fight (and take cover) when it halts to fight */
+    private void escortTick(Entity v) {
+        if (escorts.isEmpty() || !(level() instanceof net.minecraft.server.level.ServerLevel level)) return;
+        boolean moving = engaged == null && !route.isEmpty();
+        double yaw = Math.toRadians(v.getYRot());
+        BlockPos behind = BlockPos.containing(v.getX() + Math.sin(yaw) * ESCORT_BEHIND, v.getY(), v.getZ() - Math.cos(yaw) * ESCORT_BEHIND);
+        java.util.Iterator<java.util.UUID> it = escorts.iterator();
+        while (it.hasNext()) {
+            Entity e = level.getEntity(it.next());
+            if (!(e instanceof Mob m) || !m.isAlive() || !(m instanceof gscraft.war.entity.GunUser g)) {
+                it.remove();
+                continue;
+            }
+            gscraft.war.entity.FighterState s = g.fighterState();
+            if (moving) {
+                if (m.distanceToSqr(v) > 4.0D * 4.0D) {
+                    s.order = gscraft.war.entity.FighterState.Order.ADVANCE;
+                    s.orderPos = behind;
+                    s.orderBySquad = true;
+                }
+            } else if (s.orderBySquad && s.order != gscraft.war.entity.FighterState.Order.NONE) {
+                s.order = gscraft.war.entity.FighterState.Order.NONE;
+            }
+        }
+    }
+
+    /** swept by the director (a discard, not a death): the vehicle goes with its driver; a wreck stays as loot */
+    @Override
+    public void remove(RemovalReason reason) {
+        if (reason == RemovalReason.DISCARDED && !gunner() && !level().isClientSide) {
+            Entity v = vehicle();
+            if (v != null && !Vehicles.wreck(v)) {
+                Reports.dropBar(v);
+                for (Entity p : new ArrayList<>(v.getPassengers())) if (p != this) p.discard();
+                v.discard();
+            }
+        }
+        super.remove(reason);
     }
 
     // ---- never hit, never seen, never pushed

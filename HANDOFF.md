@@ -437,6 +437,12 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, armour V5 done (local):** the zone `armour` entries (`tools/war_zones.py` regenerates
+`gscraft_zones/map.json`), `armour/Patrols` (the roll, the road stand, the road route, the infantry escort, the
+weight of four), the crew's escort orders and the sweep taking the vehicle, `/gscraft director armour <x> <y> <z>
+<vehicle> <infantry>`; settings `armour.place_min/place_max/spacing/weight/escort_wait/escort_behind`.
+`tools/war_phase20.py` green; design §14. Not on live. Next: V6 (waves and bosses).
+
 **2026-09-12, armour V4 done (local):** `armour/Reports` - module losses, withdrawal, destruction with the killer,
 contact (engine noise + compass point), the engaged vehicle's bar with T E L R; no hit numbers, no gunfire message
 (owner). Lang keys `gscraft.armour.*`, `gscraft.dir.*`; settings `armour.earshot`, `armour.contact_range`.
