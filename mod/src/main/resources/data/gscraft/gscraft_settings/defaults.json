@@ -230,6 +230,7 @@
     "blast_light": 30.0,
     "blast_heavy": 8.0,
     "splash": 0.5,
-    "bail_watch_ticks": 2400
+    "bail_watch_ticks": 2400,
+    "chat": 0
   }
 }

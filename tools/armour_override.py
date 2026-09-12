@@ -13,6 +13,12 @@ armour: a Superb Warfare RPG round 160 (two), a Javelin one, a tank shell 280 (o
 a Javelin 300 with the top attack (two), a tank shell 215 (three), an ATGM 165 (three or four), a grenade 30,
 C4 300 (two), 30 mm AP 4. TACZ explosive rounds are a vanilla explosion and get a flat amount from the mod
 (armour/ArmourDamage.java: rocket 160 light, 130 heavy) - their type is left alone here on purpose.
+The explosive pass (owner 2026-09-12: "way off base, fun but off base"): every blast in the mod's data - the four
+vehicles' weapons and wreck blasts, and every gun file's rounds (RPG, Javelin, M79, grenades) - has its radius and
+damage tamed by tame(): a radius over 3 keeps 40% of the excess (10 -> 5.8, 16 -> 8.2; TNT is 4), a blast damage over
+60 keeps 60% of the excess (160 -> 120). The same formulas go over the [explosion] section of the server's
+superbwarfare-server.toml (grenades, mortar, C4, the drone's RPG, the bombs), which the mod reads at start. The
+vehicles' direct-hit damage (the numbers above) is untouched: only the blast shrinks.
 Rerun after a Superb Warfare update: the rest of each file is the jar's, so the mod's own changes come through.
 """
 import json
@@ -56,6 +62,53 @@ HEAVY = IMMUNE + [
     "superbwarfare:laser * 0.3", "superbwarfare:burn * 0.3", "superbwarfare:phosphorus_fire * 0.3", "superbwarfare:shock * 0.1",
 ]
 WEIGHT = {"bmp_2": LIGHT, "bradley": LIGHT, "t_90a": HEAVY, "m_1a_2": HEAVY}
+CONFIG = Path("G:/GSCraft/server/config/superbwarfare-server.toml")
+
+
+def tame_radius(r):
+    return r if r <= 3 else round(3 + (r - 3) * 0.4, 1)
+
+
+def tame_damage(d):
+    return d if d <= 60 else round(60 + (d - 60) * 0.6)
+
+
+def tame(obj):
+    """every ExplosionRadius / ExplosionDamage in a data tree, in place"""
+    if isinstance(obj, dict):
+        for k, v in list(obj.items()):
+            if k == "ExplosionRadius" and isinstance(v, (int, float)):
+                obj[k] = tame_radius(v)
+            elif k == "ExplosionDamage" and isinstance(v, (int, float)):
+                obj[k] = tame_damage(v)
+            else:
+                tame(v)
+    elif isinstance(obj, list):
+        for v in obj:
+            tame(v)
+    return obj
+
+
+def tame_config():
+    """the [explosion] section of the server config: the same formulas on every *_explosion_radius / _explosion_damage"""
+    if not CONFIG.exists():
+        print(f"no {CONFIG}: config untouched")
+        return
+    text = CONFIG.read_text(encoding="utf-8")
+    changed = 0
+
+    def sub(m):
+        nonlocal changed
+        key, val = m.group(1), float(m.group(2))
+        new = tame_radius(val) if key.endswith("_radius") else tame_damage(val)
+        if new != val:
+            changed += 1
+        out = f"{int(new)}" if float(new).is_integer() and "." not in m.group(2) else f"{new}"
+        return f"{key} = {out}"
+    text = re.sub(r"(\w+_explosion_(?:radius|damage)) = ([\d.]+)", sub, text)
+    CONFIG.write_text(text, encoding="utf-8")
+    print(f"{CONFIG.name}: {changed} blast values tamed")
+
 
 
 def main():
@@ -69,8 +122,24 @@ def main():
         data = json.loads(re.sub(r"//[^\r\n]*", "", raw))
         mods = list(WEIGHT[v])
         data["DamageModifiers"] = mods
+        tame(data)
         (target / f"{v}.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"{v}: {len(mods)} modifiers, first {mods[:2]}")
+    guns = OUT / "data" / "superbwarfare" / "sbw" / "guns"
+    guns.mkdir(parents=True, exist_ok=True)
+    tamed = 0
+    for name in zf.namelist():
+        if not name.startswith("data/superbwarfare/sbw/guns/") or not name.endswith(".json"):
+            continue
+        raw = zf.read(name).decode("utf-8-sig")
+        data = json.loads(re.sub(r"//[^\r\n]*", "", raw))
+        before = json.dumps(data)
+        tame(data)
+        if json.dumps(data) != before:
+            (guns / name.rsplit("/", 1)[1]).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            tamed += 1
+    print(f"{tamed} gun files with blasts tamed")
+    tame_config()
     print(f"written to {OUT} from {jar.name}")
     if "--install" in sys.argv:
         if WORLD.exists():

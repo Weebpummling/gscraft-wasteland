@@ -384,7 +384,7 @@
             "Velocity": 15,
             "Damage": 15,
             "ExplosionDamage": 18,
-            "ExplosionRadius": 5,
+            "ExplosionRadius": 3.8,
             "Name": "weapon.superbwarfare.30mm_2a42_he"
           }
         },
@@ -476,7 +476,7 @@
       "EmptyReloadTime": 120,
       "Damage": 600,
       "ExplosionDamage": 60,
-      "ExplosionRadius": 8,
+      "ExplosionRadius": 5.0,
       "Velocity": 3,
       "RecoilTime": 18,
       "RecoilForce": 0.05,
@@ -721,8 +721,8 @@
   "VehicleContainerType": "Medium",
   "DestroyInfo": {
     "ParticleType": "Huge",
-    "ExplosionDamage": 160,
-    "ExplosionRadius": 8,
+    "ExplosionDamage": 120,
+    "ExplosionRadius": 5.0,
     "SympatheticDetonation": true,
     "SympatheticDetonationForce": 2.5,
     "SympatheticDetonationChance": 0.65

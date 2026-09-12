@@ -182,8 +182,8 @@
       "Gravity": 0.03,
       "ApDurability": 100,
       "Damage": 700,
-      "ExplosionDamage": 80,
-      "ExplosionRadius": 4,
+      "ExplosionDamage": 72,
+      "ExplosionRadius": 3.4,
       "RecoilTime": 42,
       "RecoilForce": 1.0,
       "ShootShake": [
@@ -205,8 +205,8 @@
             "ShellType": "HE",
             "Velocity": 17,
             "Damage": 250,
-            "ExplosionDamage": 120,
-            "ExplosionRadius": 10,
+            "ExplosionDamage": 96,
+            "ExplosionRadius": 5.8,
             "Name": "weapon.superbwarfare.cannon_he"
           }
         },
@@ -433,8 +433,8 @@
   ],
   "DestroyInfo": {
     "ParticleType": "Giant",
-    "ExplosionDamage": 200,
-    "ExplosionRadius": 16,
+    "ExplosionDamage": 144,
+    "ExplosionRadius": 8.2,
     "SympatheticDetonation": true,
     "SympatheticDetonationForce": 2.2,
     "SympatheticDetonationChance": 0.6

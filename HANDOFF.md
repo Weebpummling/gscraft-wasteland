@@ -437,6 +437,23 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, armour: the cannon only, chat off, the explosive pass (local):** owner's second play-test.
+(1) APCs stood laid on each other without firing: the crew chose the APC's missile for an armour target, and the
+missile has a magazine of one that the mod only reloads for a player, so it fired once and never again.
+`FightGoal.chooseWeapon` now always takes the seat's first weapon (the cannon, fed from the container);
+`tools/war_phase23.py` (3/3) has a BMP-2 and a Bradley 50 apart wreck each other inside 30 s on the cannon.
+(2) The armour chat lines (contact, module hits, dismount, withdrawing, bail, destroyed) are off by default -
+`armour.chat 0`; 1 turns them back on - and still go to the log; the bar stays. (3) The explosive pass: no mod
+called "immersive explosions" is in the pack, so this went at the blasts themselves (Superb Warfare's radii of 9-16
+against TNT's 4). `tools/armour_override.py` now also tames every blast in the mod's data - the four vehicles'
+weapons and wreck blasts, and every gun file's rounds (RPG, Javelin, M79, the grenade launcher; 5 files) - and the
+`[explosion]` section of the server's `superbwarfare-server.toml` (39 values): a radius over 3 keeps 40% of the
+excess (RPG 10 -> 5.8, a tank wreck 16 -> 8.2), a blast damage over 60 keeps 60% of the excess. Direct-hit damage
+is untouched. **The live server's `superbwarfare-server.toml` and `tacz-common.toml` both need to go up with the
+next mod/config deploy**, and the override datapack with them. The status line now shows the selected weapon.
+Phases 22 and 20 rerun green (the tests now remove wrecks, which ignore /kill, by setting their health under minus
+the maximum). Design §18. Nothing armour is on live.
+
 **2026-09-12, armour damage pass, TACZ griefing off, the crew bails out (local):** owner's play-test findings.
 (1) The four vehicles' Superb Warfare damage lists are replaced whole by weight in `tools/armour_override.py`
 (LIGHT for the BMP-2/Bradley, HEAVY for the T-90A/M1A2; the mod's list took 13 off, then a fifth, so a rocket left

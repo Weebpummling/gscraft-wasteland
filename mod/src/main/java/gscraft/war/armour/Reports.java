@@ -20,6 +20,8 @@ import java.util.Map;
  */
 public final class Reports {
     public static double EARSHOT = 64.0D;
+    /** the chat lines (contact, module hits, dismount, withdrawing, bail, destroyed); off by owner's word 2026-09-12 */
+    public static boolean CHAT = false;
     public static double CONTACT = 96.0D;
     private static final int CONTACT_AGAIN = 6000;
     private static final Map<String, Long> contacts = new HashMap<>();
@@ -66,7 +68,7 @@ public final class Reports {
             Long prev = contacts.get(id);
             if (prev != null && now - prev < CONTACT_AGAIN) continue;
             contacts.put(id, now);
-            p.sendSystemMessage(Component.translatable("gscraft.armour.contact", v.getDisplayName(), Component.translatable("gscraft.dir." + compass(p, v))));
+            if (CHAT) p.sendSystemMessage(Component.translatable("gscraft.armour.contact", v.getDisplayName(), Component.translatable("gscraft.dir." + compass(p, v))));
         }
         if (contacts.size() > 1024) contacts.entrySet().removeIf(e -> now - e.getValue() > CONTACT_AGAIN);
     }
@@ -107,7 +109,7 @@ public final class Reports {
     /** the vehicle is gone without a wreck (an overkill removes it at once): reported from what the crew last saw */
     public static void destroyed(ServerLevel level, net.minecraft.world.phys.Vec3 at, Component vehicle, Component killer) {
         Component line = killer == null ? Component.translatable("gscraft.armour.destroyed", vehicle) : Component.translatable("gscraft.armour.destroyed_by", vehicle, killer);
-        for (ServerPlayer p : level.players()) {
+        if (CHAT) for (ServerPlayer p : level.players()) {
             if (p.position().distanceToSqr(at) <= EARSHOT * EARSHOT) p.sendSystemMessage(line);
         }
         GscraftWar.LOG.info("[gscraft] armour: {} {}", vehicle.getString(), killer == null ? "destroyed" : "destroyed_by");
@@ -127,7 +129,7 @@ public final class Reports {
         args[0] = v.getDisplayName();
         System.arraycopy(extra, 0, args, 1, extra.length);
         Component line = Component.translatable(key, (Object[]) args);
-        for (ServerPlayer p : level.players()) {
+        if (CHAT) for (ServerPlayer p : level.players()) {
             if (p.distanceToSqr(v) <= EARSHOT * EARSHOT) p.sendSystemMessage(line);
         }
         GscraftWar.LOG.info("[gscraft] armour: {} {}", v.getName().getString(), key.substring("gscraft.armour.".length()));

@@ -182,18 +182,15 @@ public class FightGoal extends Goal {
         return (!Float.isNaN(health) && !Float.isNaN(max) && health < max * RETREAT_SHARE) || turret;
     }
 
-    /** the weapon for the target: a missile for armour where the seat has one, else the first (the cannon) */
+    /** the weapon: always the seat's first (the cannon). The APC's missile has a magazine of one and the mod only
+     *  reloads a magazine for a player, so a crew that chose it fired once and then sat laid on its target for good
+     *  (owner 2026-09-12: "the APCs seem not to engage each other"). The cannon feeds from the container. */
     private void chooseWeapon(Entity v) {
         int seat = Vehicles.seatIndex(v, crew);
         if (seat < 0) return;
         List<String> weapons = Vehicles.seatWeapons(v, seat);
         if (weapons == null || weapons.isEmpty()) return;
-        boolean armour = target instanceof Crew;
-        int want = 0;
-        if (armour) {
-            for (int i = 0; i < weapons.size(); i++) if (weapons.get(i).toLowerCase().contains("missile")) want = i;
-        }
-        if (Vehicles.selectedWeapon(v, seat) != want) Vehicles.changeWeapon(v, seat, want);
+        if (Vehicles.selectedWeapon(v, seat) != 0) Vehicles.changeWeapon(v, seat, 0);
     }
 
     // ---- choosing

@@ -310,7 +310,7 @@
             "Velocity": 15,
             "Damage": 15,
             "ExplosionDamage": 18,
-            "ExplosionRadius": 5,
+            "ExplosionRadius": 3.8,
             "Name": "weapon.superbwarfare.25mm_cannon_he"
           }
         },
@@ -402,7 +402,7 @@
       "EmptyReloadTime": 200,
       "Damage": 450,
       "ExplosionDamage": 55,
-      "ExplosionRadius": 7,
+      "ExplosionRadius": 4.6,
       "RPM": 30,
       "Velocity": 3,
       "RecoilTime": 18,
@@ -588,8 +588,8 @@
   "VehicleContainerType": "Medium",
   "DestroyInfo": {
     "ParticleType": "Huge",
-    "ExplosionDamage": 160,
-    "ExplosionRadius": 8,
+    "ExplosionDamage": 120,
+    "ExplosionRadius": 5.0,
     "SympatheticDetonation": true,
     "SympatheticDetonationForce": 2.2,
     "SympatheticDetonationChance": 0.3

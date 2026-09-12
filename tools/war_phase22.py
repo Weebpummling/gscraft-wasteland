@@ -39,6 +39,9 @@ def check(name, ok, detail):
 def clear():
     for t in ("superbwarfare:bmp_2", "superbwarfare:bradley", "superbwarfare:t_90a", "superbwarfare:m_1a_2", "gscraft:crew", "gscraft:nato_soldier", "gscraft:ruaf_soldier"):
         c(f"kill @e[type={t},tag=!p22k,{AREA}]")
+    # a wreck ignores /kill and burns down on its own: its health set under minus the maximum removes it next tick
+    for t in ("superbwarfare:bmp_2", "superbwarfare:bradley", "superbwarfare:t_90a", "superbwarfare:m_1a_2"):
+        c(f"execute as @e[type={t},{AREA}] run data modify entity @s Health set value -9999f")
     time.sleep(1)
     c(f"kill @e[type=minecraft:item,{AREA}]")   # a killed vehicle's loot lands a tick later
 

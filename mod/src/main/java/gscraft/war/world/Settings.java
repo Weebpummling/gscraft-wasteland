@@ -150,6 +150,7 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("armour.blast_light", () -> gscraft.war.armour.ArmourDamage.OTHER_LIGHT, v -> gscraft.war.armour.ArmourDamage.OTHER_LIGHT = v, "any other TACZ explosive round (HE rifle rounds) hitting light armour does this");
         d("armour.blast_heavy", () -> gscraft.war.armour.ArmourDamage.OTHER_HEAVY, v -> gscraft.war.armour.ArmourDamage.OTHER_HEAVY = v, "and this to heavy armour");
         d("armour.splash", () -> gscraft.war.armour.ArmourDamage.SPLASH, v -> gscraft.war.armour.ArmourDamage.SPLASH = v, "a TACZ blast beside (not on) a vehicle does this share of the flat amount");
+        i("armour.chat", () -> gscraft.war.armour.Reports.CHAT ? 1 : 0, v -> gscraft.war.armour.Reports.CHAT = v >= 0.5D, "1 sends the armour chat lines (contact, module hits, dismount, withdrawing, bail, destroyed) to players in earshot; 0 keeps them to the log");
         i("armour.bail_watch_ticks", () -> gscraft.war.armour.Crew.BAIL_WATCH, v -> gscraft.war.armour.Crew.BAIL_WATCH = (int) v, "a bailed crew watches its vehicle for the wreck this long, then is gone");
         i("fight.cover_lost_ticks", () -> GunAttackGoal.COVER_LOST_TICKS, v -> GunAttackGoal.COVER_LOST_TICKS = (int) v, "cover seen into for this long is dropped");
         i("fight.cover_travel_ticks", () -> GunAttackGoal.COVER_TRAVEL_TICKS, v -> GunAttackGoal.COVER_TRAVEL_TICKS = (int) v, "cover not reached in this long is dropped");

@@ -416,3 +416,33 @@ loot. Phases 16, 20 (the off-road placement check updated), 21 rerun green.
 
 **Tooling.** Superb Warfare is Kotlin; ForgeFlower crashes on it and Vineflower refuses some classes. CFR
 (`G:/GSCraft/tooling/cfr-0.152.jar`) decompiles them all; Vineflower (`vineflower-1.10.1.jar`) is there for the rest.
+
+## 18. The cannon only, chat off, the explosive pass (owner's second play-test, 2026-09-12)
+
+**APCs not engaging each other.** They were: both crews logged the engagement and laid their turrets. They did not
+fire because `chooseWeapon` picked the APC's missile for an armour target, and the missile has a magazine of one. The
+mod's reload lives in the gun data and is started for a player (the reload key, or the empty-magazine reload on the
+player's tick); a mob in the seat never starts one, so `canShoot` stayed false after the first missile and the crew sat
+laid on its target for good. The crew now always uses the seat's first weapon, the cannon, which feeds straight from
+the container (`superbwarfare:small_shell_ap/he`; the tanks' `large_shell_*`). Phase 23: a RUAF BMP-2 and a NATO
+Bradley placed 50 blocks apart facing each other wreck each other inside 30 s, the cannon selected throughout.
+
+**Chat.** All the armour chat lines are off by default (`armour.chat 0`): contact, module hits, dismount,
+withdrawing, bail, destroyed. They still go to the log at the same points; the boss bar is not chat and stays.
+
+**The explosive pass.** There is no "immersive explosions" mod in the pack (the immersive-named mods are Vehicles,
+Engineering and Weathering), so this went at the blasts themselves, whose radii in Superb Warfare's data run 5 to 16
+blocks against TNT's 4. `tools/armour_override.py` tames every `ExplosionRadius` and `ExplosionDamage` it copies out
+of the jar: a radius over 3 keeps 40% of the excess (5 -> 3.8, 8 -> 5, 10 -> 5.8, 16 -> 8.2), a blast damage over 60
+keeps 60% of the excess (120 -> 96, 160 -> 120). That covers the four vehicles' weapons (the tank HE shell 10 -> 5.8,
+the ATGM 8 -> 5) and wreck blasts (the tanks 16 -> 8.2, the APCs 8 -> 5), and every gun file whose rounds carry a
+blast (the RPG's thermobaric round 11 -> 6.2, the standard 5 -> 3.8, the Javelin 9 -> 5.4, the M79 5 -> 3.8, the
+grenade launcher). The same two formulas go over the `[explosion]` section of the server's
+`superbwarfare-server.toml` (the hand grenades 5/6 -> 3.8/4.2, the mortar 9 -> 5.4, C4 10 -> 5.8, the drone's RPG
+10 -> 5.8, the aircraft bombs 11 -> 6.2), which the mod reads at start. Direct-hit damage is untouched, and the
+armour lists of §17 work on the direct hit, so a rocket still does what §17 says to a vehicle; only the blast around
+it shrinks. TACZ's own rounds (the RPG-7's blast radius 3, the M320's 6) are in the gun pack and left alone.
+
+**Results.** Phase 23 (3/3), phase 22 (5/5) and phase 20 (6/6) rerun green. The tests now remove wrecks by setting
+their health under minus the maximum: a wreck ignores `/kill` and would otherwise burn down for a minute, and a
+lingering one answered the next test's `limit=1` selector.
