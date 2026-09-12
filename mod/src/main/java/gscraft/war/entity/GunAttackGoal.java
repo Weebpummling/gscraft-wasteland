@@ -49,6 +49,9 @@ public class GunAttackGoal extends Goal {
     public static double CROUCH_FIRE_DIST = 16.0D;
     public static float CROUCH_AT = 0.4F;
     public static float PINNED_AT = 0.8F;
+    /** once pinned a fighter stays flat this long, and a hit while flat extends it; a hit on an unaware fighter drops it flat for SURPRISE_HOLD */
+    public static int PINNED_HOLD = 160;
+    public static int SURPRISE_HOLD = 100;
     private static final int STRAFE_TICKS = 12;
     private static final int COVER_SEARCH_EVERY = 20;
     public static int COVER_LOST_TICKS = 40;
@@ -158,8 +161,10 @@ public class GunAttackGoal extends Goal {
             if (sinceSeen < Integer.MAX_VALUE) sinceSeen++;
         }
 
-        if (s >= PINNED_AT) {
-            // head down: nothing is fired and nothing moves until the fire lifts
+        long now = mob.level().getGameTime();
+        if (s >= PINNED_AT) state.holdFlat(now, PINNED_HOLD);
+        if (state.pinned(now)) {
+            // head down: nothing is fired and nothing moves until the hold passes and the fire lifts
             mob.getNavigation().stop();
             mob.setSprinting(false);
             stance(Pose.SWIMMING);

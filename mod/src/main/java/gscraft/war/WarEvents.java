@@ -176,7 +176,11 @@ public final class WarEvents {
         if (!event.getLogicalSide().isServer()) return;
         Entity hurt = event.getHurtEntity();
         if (!(hurt instanceof Mob mob) || !(mob instanceof GunUser user) || !(mob.level() instanceof ServerLevel level)) return;
-        user.fighterState().suppress(0.5F);
+        gscraft.war.entity.FighterState st = user.fighterState();
+        st.suppress(0.5F);
+        long now = level.getGameTime();
+        if (mob.getTarget() == null) st.holdFlat(now, gscraft.war.entity.GunAttackGoal.SURPRISE_HOLD);   // surprised: down first, look later
+        else if (st.pinned(now)) st.holdFlat(now, gscraft.war.entity.GunAttackGoal.PINNED_HOLD);      // hit while flat: it stays flat
         for (Mob ally : level.getEntitiesOfClass(Mob.class, mob.getBoundingBox().inflate(8.0D), m -> m != mob && m instanceof GunUser && Factions.allied(m, mob))) {
             ((GunUser) ally).fighterState().suppress(0.25F);
         }

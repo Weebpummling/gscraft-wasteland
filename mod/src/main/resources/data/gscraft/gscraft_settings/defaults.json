@@ -67,7 +67,9 @@
     "pinned_at": 0.8,
     "cover_lost_ticks": 40,
     "cover_travel_ticks": 100,
-    "suppress_ticks": 40
+    "suppress_ticks": 40,
+    "pinned_hold_ticks": 160,
+    "surprise_hold_ticks": 100
   },
   "cover": {
     "samples": 16,

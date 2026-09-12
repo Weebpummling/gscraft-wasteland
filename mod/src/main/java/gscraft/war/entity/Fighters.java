@@ -45,7 +45,8 @@ public final class Fighters {
         }
         // flat whether or not the gun goal is running: a crawl, or pinned under fire (the gun goal agrees when it runs);
         // only what this tick laid down does it stand up again, so the Marksman's own prone is left alone
-        boolean flat = crawling || s.suppression >= GunAttackGoal.PINNED_AT;
+        if (s.suppression >= GunAttackGoal.PINNED_AT) s.holdFlat(now, GunAttackGoal.PINNED_HOLD);
+        boolean flat = crawling || s.pinned(now);
         if (flat) {
             mob.setSprinting(false);
             if (mob.getPose() != net.minecraft.world.entity.Pose.SWIMMING) {

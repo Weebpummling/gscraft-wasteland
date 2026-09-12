@@ -48,6 +48,17 @@ public final class FighterState {
     public String lastHit = "";
     /** the wound tick laid this body flat (a crawl or pinned), so the wound tick is the one to stand it up */
     public boolean flatByWounds;
+    /** flat until this tick: set when pinned (and extended while the fire keeps coming) or surprised by a hit */
+    public long flatUntil;
+
+    /** pinned: head down. Fire that reaches PINNED_AT lays the body flat for PINNED_HOLD, and every hit while it lies there extends it. */
+    public boolean pinned(long now) {
+        return now < flatUntil || suppression >= gscraft.war.entity.GunAttackGoal.PINNED_AT;
+    }
+
+    public void holdFlat(long now, int ticks) {
+        flatUntil = Math.max(flatUntil, now + ticks);
+    }
     public int homeRadius;
 
     public FighterState(Role defaultRole) {
@@ -90,6 +101,7 @@ public final class FighterState {
         if (crawlUntil > 0) tag.putLong("GscraftCrawlUntil", crawlUntil);
         if (armUntil > 0) tag.putLong("GscraftArmUntil", armUntil);
         if (bleedTicks > 0) tag.putInt("GscraftBleed", bleedTicks);
+        if (flatUntil > 0) tag.putLong("GscraftFlatUntil", flatUntil);
         if (homeRadius > 0) {
             tag.putLong("GscraftHome", home.asLong());
             tag.putInt("GscraftHomeRadius", homeRadius);
@@ -101,6 +113,7 @@ public final class FighterState {
         crawlUntil = tag.getLong("GscraftCrawlUntil");
         armUntil = tag.getLong("GscraftArmUntil");
         bleedTicks = tag.getInt("GscraftBleed");
+        flatUntil = tag.getLong("GscraftFlatUntil");
         rank = tag.getString("GscraftRank");
         if (tag.contains("GscraftRole")) role = Role.parse(tag.getString("GscraftRole"));
         if (tag.contains("GscraftMagazines")) magazines = tag.getInt("GscraftMagazines");

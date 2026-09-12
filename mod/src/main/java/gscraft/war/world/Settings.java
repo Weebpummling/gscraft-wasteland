@@ -106,6 +106,8 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("fight.crouch_fire_dist", () -> GunAttackGoal.CROUCH_FIRE_DIST, v -> GunAttackGoal.CROUCH_FIRE_DIST = v, "crouched to fire beyond this");
         d("fight.crouch_at", () -> GunAttackGoal.CROUCH_AT, v -> GunAttackGoal.CROUCH_AT = (float) v, "suppression that puts a fighter on one knee");
         d("fight.pinned_at", () -> GunAttackGoal.PINNED_AT, v -> GunAttackGoal.PINNED_AT = (float) v, "suppression that pins it flat");
+        i("fight.pinned_hold_ticks", () -> GunAttackGoal.PINNED_HOLD, v -> GunAttackGoal.PINNED_HOLD = (int) v, "once pinned it stays flat this long, and a hit extends it");
+        i("fight.surprise_hold_ticks", () -> GunAttackGoal.SURPRISE_HOLD, v -> GunAttackGoal.SURPRISE_HOLD = (int) v, "a hit on a fighter with no target drops it flat this long");
         i("fight.cover_lost_ticks", () -> GunAttackGoal.COVER_LOST_TICKS, v -> GunAttackGoal.COVER_LOST_TICKS = (int) v, "cover seen into for this long is dropped");
         i("fight.cover_travel_ticks", () -> GunAttackGoal.COVER_TRAVEL_TICKS, v -> GunAttackGoal.COVER_TRAVEL_TICKS = (int) v, "cover not reached in this long is dropped");
         i("fight.suppress_ticks", () -> GunAttackGoal.SUPPRESS_TICKS, v -> GunAttackGoal.SUPPRESS_TICKS = (int) v, "the Gunner keeps firing at a lost target for this long");
