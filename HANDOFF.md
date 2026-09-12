@@ -437,6 +437,12 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, armour V4 done (local):** `armour/Reports` - module losses, withdrawal, destruction with the killer,
+contact (engine noise + compass point), the engaged vehicle's bar with T E L R; no hit numbers, no gunfire message
+(owner). Lang keys `gscraft.armour.*`, `gscraft.dir.*`; settings `armour.earshot`, `armour.contact_range`.
+`tools/war_phase19.py` green. Design §13. Not on live. Next: V5 (the zone armour roll, road stands, riders, the
+ceiling weight, the sweep).
+
 **2026-09-12, armour detection (owner: longer acquire, sight rechecks, limited cones, a priority, longer
 distances):** `armour.acquire_ticks 40`, `view_cone_driver 120` / `view_cone_gunner 200` about the hull's heading
 with `alert_ticks 400` opening it all round after a hit, `retarget_ticks 60`, the priority armour > players >

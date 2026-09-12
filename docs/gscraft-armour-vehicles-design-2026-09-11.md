@@ -298,3 +298,14 @@ two-block stone slab that the tank drove onto and that blocked the sight line. `
   client is sent a tank as far as the server's view distance loads chunks (10 chunks, 160 blocks, locally and on
   live); the vehicle renders out to about 250 blocks by its size. So the view distance is the one cap on seeing a
   tank early, and raising it is a server-wide cost; nothing on the mod side limits it.
+
+## 13. V4 results (2026-09-12, local server)
+
+Owner: no hit numbers, only a module that breaks; no "rifle fire does nothing". `armour/Reports`, from the driver's
+tick: the turret, the engine, a track (the mod's damaged flags flipping), the withdrawal, the destruction with the
+killer's name (the vehicle's own last attacker; an overkill removes the vehicle in the same tick before any wreck
+flag, so the crew's loss of its vehicle is the report then), and the first contact - "[T-90A MBT] Engine noise to the
+north" - to a player inside `armour.contact_range` of a crewed vehicle, once per player and vehicle per five minutes.
+Lines reach players inside `armour.earshot`. The bar (`ServerBossEvent`, notched) shows while a crew is engaged:
+the vehicle's name and the module letters T E L R, dimmed when gone, health as the fill. `tools/war_phase19.py`.
+

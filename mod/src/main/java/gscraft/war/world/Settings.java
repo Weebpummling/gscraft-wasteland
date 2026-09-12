@@ -132,6 +132,8 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("armour.retreat_share", () -> gscraft.war.armour.FightGoal.RETREAT_SHARE, v -> gscraft.war.armour.FightGoal.RETREAT_SHARE = (float) v, "below this share of health the driver withdraws");
         i("armour.retreat_ticks", () -> gscraft.war.armour.FightGoal.RETREAT_TICKS, v -> gscraft.war.armour.FightGoal.RETREAT_TICKS = (int) v, "how long the withdrawal drives");
         i("armour.calm_ticks", () -> gscraft.war.armour.FightGoal.CALM_TICKS, v -> gscraft.war.armour.FightGoal.CALM_TICKS = (int) v, "no fighting for this long after a withdrawal");
+        d("armour.earshot", () -> gscraft.war.armour.Reports.EARSHOT, v -> gscraft.war.armour.Reports.EARSHOT = v, "armour messages and the bar reach players within this many blocks");
+        d("armour.contact_range", () -> gscraft.war.armour.Reports.CONTACT, v -> gscraft.war.armour.Reports.CONTACT = v, "a player this close to a crewed vehicle is told of the engine noise once");
         d("armour.arrive", () -> gscraft.war.armour.DriveGoal.ARRIVE, v -> gscraft.war.armour.DriveGoal.ARRIVE = v, "a waypoint counts as reached inside this many blocks");
         d("armour.sprint_beyond", () -> gscraft.war.armour.DriveGoal.SPRINT_BEYOND, v -> gscraft.war.armour.DriveGoal.SPRINT_BEYOND = v, "the drive sprints when the waypoint is further than this and the hull is lined up");
         i("fight.cover_lost_ticks", () -> GunAttackGoal.COVER_LOST_TICKS, v -> GunAttackGoal.COVER_LOST_TICKS = (int) v, "cover seen into for this long is dropped");

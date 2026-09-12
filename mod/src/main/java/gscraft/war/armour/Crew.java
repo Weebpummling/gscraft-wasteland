@@ -51,6 +51,11 @@ public class Crew extends Mob implements FactionMember {
     /** what this crew engages, for the other crew of the same vehicle */
     public net.minecraft.world.entity.LivingEntity engaged;
     private float lastHealth = Float.NaN;
+    private boolean[] partsSeen;
+    private boolean wreckSeen;
+    private net.minecraft.network.chat.Component vehicleName;
+    private net.minecraft.network.chat.Component attackerName;
+    private boolean goneReported;
     private int unseated;
 
     public Crew(EntityType<? extends Crew> type, Level level) {
@@ -123,6 +128,7 @@ public class Crew extends Mob implements FactionMember {
         threat = from;
         Entity v = vehicle();
         GscraftWar.LOG.info("[gscraft] {} withdraws ({} health)", v == null ? "crew" : v.getName().getString(), v == null ? "?" : String.format("%.0f", Vehicles.health(v)));
+        if (v != null) Reports.withdrawing(v);
     }
 
     @Override
@@ -130,8 +136,13 @@ public class Crew extends Mob implements FactionMember {
         super.tick();
         if (level().isClientSide) return;
         Entity v = vehicle();
+        if (v == null && !gunner() && vehicleName != null && !goneReported) {
+            // an overkill removes the vehicle in the same tick, before any wreck flag: the loss is the report
+            goneReported = true;
+            Reports.destroyed((net.minecraft.server.level.ServerLevel) level(), position(), vehicleName, attackerName);
+        }
         if (v == null || Vehicles.wreck(v)) {
-            if (++unseated > GRACE || (v != null && Vehicles.wreck(v))) {
+            if (++unseated > GRACE || (v != null && Vehicles.wreck(v) && wreckSeen)) {
                 GscraftWar.LOG.info("[gscraft] crew of {} gone: {}", v == null ? "nothing" : v.getName().getString(), v == null ? "no vehicle" : "wreck");
                 discard();
             }
@@ -140,6 +151,18 @@ public class Crew extends Mob implements FactionMember {
             float h = Vehicles.health(v);
             if (!Float.isNaN(lastHealth) && h < lastHealth - 0.01F) alertUntil = level().getGameTime() + FightGoal.ALERT_TICKS;
             lastHealth = h;
+        }
+        if (!gunner() && v != null) {
+            vehicleName = v.getDisplayName();
+            Entity attacker = Reports.lastAttacker(v);
+            if (attacker != null) attackerName = attacker.getDisplayName();
+            if (Vehicles.wreck(v)) goneReported = true;   // the wreck report below covers it
+            boolean[] parts = {Vehicles.data(v, "TURRET_DAMAGED", false), Vehicles.data(v, "MAIN_ENGINE_DAMAGED", false),
+                    Vehicles.data(v, "L_WHEEL_DAMAGED", false), Vehicles.data(v, "R_WHEEL_DAMAGED", false)};
+            boolean wreck = Vehicles.wreck(v);
+            if (partsSeen != null) Reports.tick(this, v, partsSeen, parts, wreckSeen, wreck);
+            partsSeen = parts;
+            wreckSeen = wreck;
         }
     }
 

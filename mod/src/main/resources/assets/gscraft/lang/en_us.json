@@ -21,5 +21,21 @@
   "gscraft.callout.grenade": "[%s] Grenade!",
   "gscraft.callout.pinned": "[%s] Pinned down!",
   "gscraft.callout.fall_back": "[%s] Fall back!",
-  "item.gscraft.bandage": "Bandage"
+  "item.gscraft.bandage": "Bandage",
+  "gscraft.armour.turret": "[%s] Turret hit - the gun is out",
+  "gscraft.armour.engine": "[%s] Engine hit - it is burning",
+  "gscraft.armour.track_left": "[%s] Left track hit - it is slowing",
+  "gscraft.armour.track_right": "[%s] Right track hit - it is slowing",
+  "gscraft.armour.withdrawing": "[%s] Withdrawing",
+  "gscraft.armour.destroyed": "[%s] Destroyed",
+  "gscraft.armour.destroyed_by": "[%s] Destroyed by %s",
+  "gscraft.armour.contact": "[%s] Engine noise to the %s",
+  "gscraft.dir.n": "north",
+  "gscraft.dir.ne": "north-east",
+  "gscraft.dir.e": "east",
+  "gscraft.dir.se": "south-east",
+  "gscraft.dir.s": "south",
+  "gscraft.dir.sw": "south-west",
+  "gscraft.dir.w": "west",
+  "gscraft.dir.nw": "north-west"
 }
