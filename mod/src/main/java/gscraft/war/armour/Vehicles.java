@@ -229,6 +229,23 @@ public final class Vehicles {
         return r instanceof net.minecraft.world.item.ItemStack st ? st : net.minecraft.world.item.ItemStack.EMPTY;
     }
 
+    /** a tank, by health (the flat explosive damage's two weights) */
+    public static boolean heavy(Entity v) {
+        float m = maxHealth(v);
+        return !Float.isNaN(m) && m >= ArmourDamage.HEAVY_HEALTH;
+    }
+
+    /** the share of health under which the mod burns the vehicle down by itself (NaN where it cannot be read) */
+    public static float selfHurtShare(Entity v) {
+        try {
+            Object computed = v.getClass().getMethod("computed").invoke(v);
+            Object r = computed.getClass().getMethod("getSelfHurtPercent").invoke(computed);
+            return r instanceof Float f ? f : Float.NaN;
+        } catch (ReflectiveOperationException | RuntimeException ex) {
+            return Float.NaN;
+        }
+    }
+
     public static int maxPassengers(Entity v) {
         Object r = call(v, "getMaxPassengers", new Class<?>[0]);
         return r instanceof Integer i ? i : 0;

@@ -221,6 +221,15 @@
     "earshot": 64.0,
     "contact_range": 96.0,
     "arrive": 5.0,
-    "sprint_beyond": 16.0
+    "sprint_beyond": 16.0,
+    "heavy_health": 400.0,
+    "rocket_light": 160.0,
+    "rocket_heavy": 130.0,
+    "grenade_light": 60.0,
+    "grenade_heavy": 20.0,
+    "blast_light": 30.0,
+    "blast_heavy": 8.0,
+    "splash": 0.5,
+    "bail_watch_ticks": 2400
   }
 }

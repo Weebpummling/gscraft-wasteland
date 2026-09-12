@@ -365,3 +365,54 @@ overkill), invulnerable so the wreck's own blast does not eat them. A boss's que
 **The convoy** stays out of scope, as §3 said; the road graph the census tool wrote (`incoming/census/roadnet/
 roadnet.json`: 17 255 nodes, 28 586 edges, a noisy skeleton) is what a convoy route would be planned on.
 
+## 17. The damage pass and the bail-out (owner's play-test, 2026-09-12)
+
+The owner's findings on the first play-test: rockets did too little to a BMP-2, the TACZ rocket cratered the ground,
+the bar showed health after "destroying" a vehicle, and a disabled vehicle should lose its crew.
+
+**Why rockets did too little.** Superb Warfare's own lists take 13 off every hit, then a fifth of the rest, then the
+type multipliers; an RPG round (450 direct, `projectile_hit` x1.35) left a BMP-2 at two thirds. Worse, TACZ explosive
+rounds are a vanilla explosion whose damage falls with the distance from the blast to the entity's *feet*: a rocket into
+the side of a hull, three blocks from its centre, did a fifth of its blast (and the round's own bullet damage is a
+TACZ bullet type, which the list makes nothing).
+
+**The lists (`tools/armour_override.py`).** Replaced whole, by weight: LIGHT (BMP-2, Bradley, 300 health) and HEAVY
+(T-90A, M1A2, 500). Immunities first (both gun mods' bullets, arrows, melee, fire, fall), then a plain multiplier per
+source, applied in order. Final shares of the raw damage - light: `projectile_hit` 0.35 (an SW RPG 160, a Javelin
+230-330, a tank shell 245, an ATGM 210), explosions 0.4 (a hand grenade 50, C4 180 with `@c4 * 1.5`, a mortar round
+100), a 30 mm AP round 11 (`@small_cannon_shell * 0.5`), TNT x2, a ram x2.5; heavy: `projectile_hit` 0.28 (an RPG
+125, a shell 195), explosions 0.25, `@javelin_missile * 1.3` (a top attack ~300: two Javelins kill a tank), 30 mm AP
+4, C4 300 (`@c4 * 4`). The mod's own code then scales by the angle of the hit (0.85 from the front on the BMP), which
+is why phase 22 reads 134 for a 160 hit. `minecraft:player_explosion` is left alone on purpose - see next.
+
+**TACZ explosives (`armour/ArmourDamage.java`).** A direct hit on a vehicle by an explosive round does a flat amount
+by the round's class and the vehicle's weight, sent in as a player explosion by the shooter (so the list, the angle and
+the last-attacker record see it): rocket (a blast of 100 or more: the RPG-7) 160 light / 130 heavy; grenade (a blast
+radius of four or more: the M320) 60 / 20; other (HE rifle rounds) 30 / 8. The blast that follows adds nothing to a
+vehicle it hit directly; a blast that only lands beside a vehicle does the splash share (0.5). The vehicle is removed
+from the explosion's own entity list either way. Settings `armour.rocket_*`, `grenade_*`, `blast_*`, `splash`,
+`heavy_health`.
+
+**Griefing.** TACZ's `ExplosiveAmmoDestroysBlock` is now false in the server's `tacz-common.toml` (the mod's rocket
+file also asks to destroy; the config wins). Superb Warfare's `explosion_destroy` was already false.
+
+**The bar and the burn.** A Superb Warfare vehicle under its self-hurt share bleeds health every tick until the wreck
+(then on to minus its maximum, when the wreck goes). That was the "health winding down from fire" - not destroyed yet.
+Now a vehicle that is *disabled* - burning (under a tenth of health, or the mod's share where higher) or with engine
+and turret both gone - loses its crew (`Crew.disabled/bail`): a crewman per crew seat climbs out beside the hull, a
+faction soldier in the crewman's kit (`NATO Crewman` / `RUAF Crewman`: trousers, a Glock 17, no armour; weight 0 so
+the director never rolls one), on the crew's last target; the riders dismount with them; the seat empties; "Crew
+bailing out" is told within earshot and the bar drops. The driver crew stays by the hull unseen (`bailed`, watching
+the vehicle by id) only to report the wreck and drop the loot, and gives up after `armour.bail_watch_ticks` (2400).
+
+**Placing anywhere.** `/gscraft director armour <x y z> <vehicle> <infantry>` takes a block position (`~ ~ ~`) and
+places at that point: on a road it patrols the road, on open ground it holds (`Patrols.placeAt`). The old form
+wanted a road stand 96 blocks from every player, so it never worked from where a player stood.
+
+**Results (`tools/war_phase22.py`, 5/5).** Light: 300 -> 166 on a 450 `projectile_hit` (134: 157 x the front angle),
+nothing on a TACZ bullet type. Heavy: 500 -> 412. A BMP-2 hit to 11 health: one crewman with a Glock and no helmet,
+rank "NATO Crewman", the seat empty, "bails out" logged; the finishing blast still logged "destroyed" and dropped
+loot. Phases 16, 20 (the off-road placement check updated), 21 rerun green.
+
+**Tooling.** Superb Warfare is Kotlin; ForgeFlower crashes on it and Vineflower refuses some classes. CFR
+(`G:/GSCraft/tooling/cfr-0.152.jar`) decompiles them all; Vineflower (`vineflower-1.10.1.jar`) is there for the rest.

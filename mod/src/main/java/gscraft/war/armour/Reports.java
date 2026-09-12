@@ -50,6 +50,10 @@ public final class Reports {
         if (v.level() instanceof ServerLevel level) say(level, v, "gscraft.armour.dismount");
     }
 
+    public static void bail(Entity v) {
+        if (v.level() instanceof ServerLevel level) say(level, v, "gscraft.armour.bail");
+    }
+
     public static void withdrawing(Entity v) {
         if (v.level() instanceof ServerLevel level) say(level, v, "gscraft.armour.withdrawing");
     }

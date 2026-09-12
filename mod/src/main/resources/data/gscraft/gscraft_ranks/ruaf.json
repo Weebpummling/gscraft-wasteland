@@ -74,6 +74,14 @@
       "gun": "tacz:ak47",
       "offhand": "minecraft:shield",
       "magazines": 3
+    },
+    {
+      "name": "RUAF Crewman",
+      "weight": 0,
+      "role": "rifleman",
+      "legs": "dragonrise_reforge:gorka3_leggings",
+      "gun": "tacz:glock_17",
+      "magazines": 2
     }
   ]
 }

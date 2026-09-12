@@ -41,7 +41,7 @@ public class DriveGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        return crew.vehicle() != null && !crew.route.isEmpty() && crew.tickCount > Crew.BOARD_TICK + 10;   // the riders board first
+        return crew.vehicle() != null && !crew.bailed && !crew.route.isEmpty() && crew.tickCount > Crew.BOARD_TICK + 10;   // the riders board first
     }
 
     @Override

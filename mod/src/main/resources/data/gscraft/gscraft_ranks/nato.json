@@ -110,6 +110,14 @@
       "gun": "tacz:m4a1",
       "offhand": "minecraft:shield",
       "magazines": 3
+    },
+    {
+      "name": "NATO Crewman",
+      "weight": 0,
+      "role": "rifleman",
+      "legs": "dragonrise_reforge:msv_pants",
+      "gun": "tacz:glock_17",
+      "magazines": 2
     }
   ]
 }

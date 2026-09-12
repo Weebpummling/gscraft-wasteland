@@ -2,6 +2,7 @@
 Needs a ticking world and no player. A road strip of the road mod's block is laid on the platform at y 200.
 
 1. `/gscraft director armour <x> <y> <z> superbwarfare:bmp_2 3` places a BMP-2 on the road with a crew and three
+   (off a road the same command places a holding vehicle on open ground; with no ground, nothing);
    infantry formed as a squad; nothing is placed where there is no road.
 2. The vehicle drives the road both ways (its route is the road's two ends) with the infantry riding in its bay;
    a hostile beside the road halts it and the riders dismount with their AI back.
@@ -81,10 +82,18 @@ soldiers = count(f"@e[type=gscraft:ruaf_soldier,{AREA}]")
 riders = int(num(c("gscraft vehicle status @e[type=superbwarfare:bmp_2,limit=1]"), r"riders (\d+)") or 0)
 vx, vz = vpos()
 on_road = vx is not None and abs(vz - Z) <= 3.0
-off = c(f"gscraft director armour {X} {Y} {Z + 60} superbwarfare:bmp_2 0")
-check("the forced roll places a crewed BMP-2 on the road with three infantry in a squad, and nothing off the road",
-      road_ok and vehicles == 1 and crews == 1 and soldiers == 3 and riders == 3 and on_road and "no road stand" in off,
-      f"road block {road_ok}; {out[:40]}; vehicles {vehicles}, crews {crews}, soldiers {soldiers}, riding {riders}, at z {vz}; off the road: {off[:30]}")
+# off the road (open stone) the command still places, holding where it stands; beyond the platform there is no ground
+off = c(f"gscraft director armour {X} {Y} {Z + 30} superbwarfare:bmp_2 0")
+time.sleep(1)
+off_count = count(f"@e[type=superbwarfare:bmp_2,x={X},y={Y},z={Z + 30},distance=..8]")
+c(f"kill @e[type=superbwarfare:bmp_2,x={X},y={Y},z={Z + 30},distance=..8]")
+c(f"kill @e[type=gscraft:crew,x={X},y={Y},z={Z + 30},distance=..8]")
+time.sleep(1)
+c(f"kill @e[type=minecraft:item,x={X},y={Y},z={Z + 30},distance=..12]")
+nowhere = c(f"gscraft director armour {X} {Y} {Z + 60} superbwarfare:bmp_2 0")
+check("the forced roll places a crewed BMP-2 on the road with three infantry in a squad; off the road it holds; off the ground nothing",
+      road_ok and vehicles == 1 and crews == 1 and soldiers == 3 and riders == 3 and on_road and "holding" in off and off_count == 1 and "no ground" in nowhere,
+      f"road block {road_ok}; {out[:40]}; vehicles {vehicles}, crews {crews}, soldiers {soldiers}, riding {riders}, at z {vz}; off the road: {off[-32:]} ({off_count}); off the ground: {nowhere[:12]}")
 print("    status:", c("gscraft vehicle status @e[type=superbwarfare:bmp_2,limit=1]")[:160])
 
 # 2. the drive along the road and the escort behind

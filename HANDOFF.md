@@ -437,6 +437,29 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, armour damage pass, TACZ griefing off, the crew bails out (local):** owner's play-test findings.
+(1) The four vehicles' Superb Warfare damage lists are replaced whole by weight in `tools/armour_override.py`
+(LIGHT for the BMP-2/Bradley, HEAVY for the T-90A/M1A2; the mod's list took 13 off, then a fifth, so a rocket left
+a BMP at two thirds): an SW RPG round is now 160 on light armour, a Javelin one-shots it, a tank shell 280; heavy
+takes an RPG at 125, a Javelin at 300, a shell at 215; small arms and melee stay nothing. The mod then scales by the
+angle of the hit (its own rule, 0.85 from the front). TACZ explosive rounds are a vanilla explosion measured to the
+vehicle's feet (a rocket into a hull's side did a fifth of its blast), so `armour/ArmourDamage.java` gives a direct hit
+a flat amount by class and weight (`armour.rocket_light 160/rocket_heavy 130`, `grenade_* 60/20`, `blast_* 30/8`,
+`splash 0.5` for a blast beside the hull, `heavy_health 400`) and drops the vehicle from the explosion's own list.
+(2) `ExplosiveAmmoDestroysBlock = false` in `G:/GSCraft/server/config/tacz-common.toml` (TACZ rockets were
+cratering the ground); **the live server's copy still says true - put it up with the next mod/config deploy**.
+(3) The health the owner saw winding down was the mod's own burn: under its self-hurt share a vehicle bleeds
+health by itself until the wreck. Now a vehicle that is disabled - burning (under a tenth of health, or the mod's
+share if higher) or with engine and turret both gone - loses its crew: `Crew.bail` spawns a crewman per crew seat
+(`NATO Crewman`/`RUAF Crewman` ranks, weight 0: trousers, a Glock, no armour; `Armour.crewman`), the riders
+dismount, the seat empties, "Crew bailing out" is told, the bar drops; the driver stays by the hull unseen only to
+report the wreck and drop the loot (`bailed`, `watching`, `armour.bail_watch_ticks 2400`). (4) `/gscraft director
+armour <x y z> <vehicle> <infantry>` now takes a block position (`~ ~ ~`) and places anywhere: on a road it
+patrols, on open ground it holds (`Patrols.placeAt`); the old form needed a road stand 96 from every player.
+`tools/war_phase22.py` (5/5) covers the lists, the bail-out and the wreck report after it; phases 16/20/21 rerun
+green. Decompiled Superb Warfare/TACZ with `G:/GSCraft/tooling/{vineflower-1.10.1,cfr-0.152}.jar` (CFR handles the
+Kotlin classes Vineflower refuses). Design §17. Nothing armour is on live.
+
 **2026-09-12, armour riders and loot (local):** the patrol's infantry boards the APC's bay after placement and
 dismounts when the crew halts to fight (`Crew.board/mount/dismount`, the "Infantry dismounting" line); wrecks drop
 `gscraft_drops/armour.json` (invulnerable items, the wreck's blast follows). Phases 20 and 19 extended and green.

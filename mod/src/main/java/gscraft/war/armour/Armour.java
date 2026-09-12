@@ -145,6 +145,21 @@ public final class Armour {
     }
 
     /** the driver */
+    /** a crewman out of a disabled vehicle: the faction's soldier in the crewman's kit (uniform and a pistol),
+     *  beside the hull, on the crew's last target */
+    public static boolean crewman(ServerLevel level, Entity v, String faction, net.minecraft.world.entity.LivingEntity target) {
+        if (faction == null) return false;
+        ResourceLocation kind = new ResourceLocation(GscraftWar.MODID, faction + "_soldier");
+        net.minecraft.world.entity.Mob m = gscraft.war.world.Director.placeBeside(level, v.blockPosition(), gscraft.war.world.Env.OPEN, kind, false);
+        if (m == null) return false;
+        for (net.minecraft.world.entity.EquipmentSlot slot : net.minecraft.world.entity.EquipmentSlot.values()) m.setItemSlot(slot, net.minecraft.world.item.ItemStack.EMPTY);
+        if (m instanceof gscraft.war.entity.Soldier s) s.pinRank(faction.toUpperCase(java.util.Locale.ROOT) + " Crewman");
+        m.addTag("gs_director");
+        m.addTag(gscraft.war.WarEvents.PLACED_TAG);
+        if (target != null) m.setTarget(target);
+        return true;
+    }
+
     public static Crew crewOf(Entity vehicle) {
         for (Entity p : vehicle.getPassengers()) if (p instanceof Crew c && !c.gunner()) return c;
         return null;

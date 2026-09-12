@@ -64,6 +64,12 @@ public class Crew extends Mob implements FactionMember {
     private net.minecraft.resources.ResourceLocation vehicleType;
     private boolean goneReported;
     private int unseated;
+    /** bailed out of a disabled vehicle: the driver stands by unseen and watches it for the wreck (the report, the loot) */
+    public boolean bailed;
+    private java.util.UUID watching;
+    private int bailedTicks;
+    public static int BAIL_WATCH = 2400;
+    public static float DISABLED_SHARE = 0.1F;
 
     public Crew(EntityType<? extends Crew> type, Level level) {
         super(type, level);
@@ -115,10 +121,46 @@ public class Crew extends Mob implements FactionMember {
         registerGoals();
     }
 
-    /** the vehicle under it, or null */
+    /** the vehicle under it (or, bailed, the one it watches), or null */
     public Entity vehicle() {
-        Entity v = getVehicle();
+        Entity v = bailed ? (watching != null && level() instanceof net.minecraft.server.level.ServerLevel sl ? sl.getEntity(watching) : null) : getVehicle();
         return v != null && Vehicles.isVehicle(v) ? v : null;
+    }
+
+    /** disabled: burning down (under the mod's burn share or ours, whichever is higher) or without both engine and gun */
+    public static boolean disabled(Entity v) {
+        if (Vehicles.wreck(v)) return false;   // the wreck is the end, not a bail
+        float h = Vehicles.health(v);
+        float max = Vehicles.maxHealth(v);
+        float share = Vehicles.selfHurtShare(v);
+        float limit = Math.max(Float.isNaN(share) ? 0.0F : share, DISABLED_SHARE);
+        boolean burning = !Float.isNaN(h) && !Float.isNaN(max) && h > 0.0F && h <= max * limit;
+        boolean gutted = Vehicles.data(v, "MAIN_ENGINE_DAMAGED", false) && Vehicles.data(v, "TURRET_DAMAGED", false);
+        return burning || gutted;
+    }
+
+    /** the crew climbs out as crewmen (uniform and a pistol), the riders with them; the vehicle is left to burn;
+     *  the driver stays by it unseen, only to report the wreck */
+    public void bail(Entity v) {
+        if (!(level() instanceof net.minecraft.server.level.ServerLevel level)) return;
+        int out = 0;
+        for (Entity p : new ArrayList<>(v.getPassengers())) {
+            if (p instanceof Crew c && Armour.crewman(level, v, c.factionId(), engaged)) out++;
+        }
+        dismount(v);
+        for (Entity p : new ArrayList<>(v.getPassengers())) if (p instanceof Crew c && c != this) c.discard();
+        Vehicles.allStop(v);
+        Vehicles.setTurretTarget(v, null);
+        Vehicles.setPassengerWeaponTarget(v, null);
+        setTarget(null);
+        engaged = null;
+        watching = v.getUUID();
+        bailed = true;
+        bailedTicks = 0;
+        stopRiding();
+        Reports.dropBar(v);
+        Reports.bail(v);
+        GscraftWar.LOG.info("[gscraft] crew of {} bails out ({} crewmen) at {} health", v.getName().getString(), out, String.format("%.0f", Vehicles.health(v)));
     }
 
     public boolean retreating(long now) {
@@ -161,8 +203,14 @@ public class Crew extends Mob implements FactionMember {
             if (!Float.isNaN(lastHealth) && h < lastHealth - 0.01F) alertUntil = level().getGameTime() + FightGoal.ALERT_TICKS;
             lastHealth = h;
         }
-        if (!gunner() && v != null && tickCount == BOARD_TICK) board(v);
-        if (!gunner() && v != null && tickCount % 40 == 0) escortTick(v);
+        if (!gunner() && !bailed && v != null && tickCount % 10 == 0 && disabled(v)) bail(v);
+        if (bailed && ++bailedTicks > BAIL_WATCH) {
+            GscraftWar.LOG.info("[gscraft] bailed crew of {} gives up the watch", v == null ? "nothing" : v.getName().getString());
+            discard();
+            return;
+        }
+        if (!gunner() && !bailed && v != null && tickCount == BOARD_TICK) board(v);
+        if (!gunner() && !bailed && v != null && tickCount % 40 == 0) escortTick(v);
         if (!gunner() && v != null) {
             vehicleName = v.getDisplayName();
             vehicleType = net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getKey(v.getType());
@@ -277,7 +325,7 @@ public class Crew extends Mob implements FactionMember {
     /** swept by the director (a discard, not a death): the vehicle goes with its driver; a wreck stays as loot */
     @Override
     public void remove(RemovalReason reason) {
-        if (reason == RemovalReason.DISCARDED && !gunner() && !level().isClientSide) {
+        if (reason == RemovalReason.DISCARDED && !gunner() && !bailed && !level().isClientSide) {
             Entity v = vehicle();
             if (v != null && !Vehicles.wreck(v)) {
                 Reports.dropBar(v);
@@ -340,6 +388,8 @@ public class Crew extends Mob implements FactionMember {
         for (BlockPos p : route) list.add(NbtUtils.writeBlockPos(p));
         tag.put("GscraftRoute", list);
         tag.putInt("GscraftRouteIndex", routeIndex);
+        tag.putBoolean("GscraftBailed", bailed);
+        if (watching != null) tag.putUUID("GscraftWatching", watching);
     }
 
     @Override
@@ -351,5 +401,7 @@ public class Crew extends Mob implements FactionMember {
         route.clear();
         for (Tag t : tag.getList("GscraftRoute", Tag.TAG_COMPOUND)) route.add(NbtUtils.readBlockPos((CompoundTag) t));
         routeIndex = tag.getInt("GscraftRouteIndex");
+        bailed = tag.getBoolean("GscraftBailed");
+        watching = tag.hasUUID("GscraftWatching") ? tag.getUUID("GscraftWatching") : null;
     }
 }

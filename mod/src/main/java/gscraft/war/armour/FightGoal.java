@@ -63,7 +63,7 @@ public class FightGoal extends Goal {
     @Override
     public boolean canUse() {
         Entity v = crew.vehicle();
-        if (v == null) return false;
+        if (v == null || crew.bailed) return false;
         long now = crew.level().getGameTime();
         if (!crew.gunner() && (crew.retreating(now) || crew.calm(now))) return false;
         if (crew.tickCount % 5 != 0) return false;
@@ -87,7 +87,7 @@ public class FightGoal extends Goal {
     @Override
     public boolean canContinueToUse() {
         Entity v = crew.vehicle();
-        return v != null && target != null && target.isAlive() && lost < LOST_TICKS && v.distanceTo(target) < ENGAGE * 1.25D
+        return v != null && !crew.bailed && target != null && target.isAlive() && lost < LOST_TICKS && v.distanceTo(target) < ENGAGE * 1.25D
                 && (crew.gunner() || !crew.retreating(crew.level().getGameTime()));
     }
 

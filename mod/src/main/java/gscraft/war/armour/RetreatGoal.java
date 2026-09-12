@@ -18,7 +18,7 @@ public class RetreatGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        return !crew.gunner() && crew.vehicle() != null && crew.retreating(crew.level().getGameTime()) && crew.threat != null
+        return !crew.gunner() && !crew.bailed && crew.vehicle() != null && crew.retreating(crew.level().getGameTime()) && crew.threat != null
                 && !Vehicles.data(crew.vehicle(), "MAIN_ENGINE_DAMAGED", false);
     }
 
