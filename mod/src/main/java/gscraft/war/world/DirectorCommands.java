@@ -101,14 +101,20 @@ public final class DirectorCommands {
                         .then(Commands.literal("passat").then(xyzThen(passes(ctx -> pass(ctx, standAt(ctx))))))
                         .then(Commands.literal("survey").then(xyzThen(Commands.argument("samples",
                                 IntegerArgumentType.integer(10, 1000)).executes(DirectorCommands::survey))))
-                        .then(Commands.literal("armour").then(xyzThen(Commands.argument("vehicle", net.minecraft.commands.arguments.ResourceLocationArgument.id())
+                        .then(Commands.literal("armour").then(Commands.argument("at", net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos())
+                                .then(Commands.argument("vehicle", net.minecraft.commands.arguments.ResourceLocationArgument.id())
                                 .then(Commands.argument("infantry", IntegerArgumentType.integer(0, 8)).executes(ctx -> {
                                     ServerLevel level = ctx.getSource().getLevel();
-                                    BlockPos at = pos(ctx);
+                                    BlockPos at = net.minecraft.commands.arguments.coordinates.BlockPosArgument.getLoadedBlockPos(ctx, "at");
                                     gscraft.war.world.ArmourDef.Composition c = new gscraft.war.world.ArmourDef.Composition(1,
                                             java.util.List.of(net.minecraft.commands.arguments.ResourceLocationArgument.getId(ctx, "vehicle")), IntegerArgumentType.getInteger(ctx, "infantry"));
-                                    net.minecraft.world.entity.Entity v = gscraft.war.armour.Patrols.place(level, at, c, 0.0D, 40.0D);
-                                    say(ctx, v == null ? "no road stand with room within 40 of " + at.toShortString() : "placed " + v.getName().getString() + " at " + v.blockPosition().toShortString());
+                                    net.minecraft.world.entity.Entity v = gscraft.war.armour.Patrols.placeAt(level, at, c, ctx.getSource().getRotation().y);
+                                    if (v == null) say(ctx, "no ground with a hull's room within 4 of " + at.toShortString());
+                                    else {
+                                        gscraft.war.armour.Crew d = gscraft.war.armour.Armour.crewOf(v);
+                                        boolean road = d != null && !d.route.isEmpty();
+                                        say(ctx, "placed " + v.getName().getString() + " at " + v.blockPosition().toShortString() + (road ? ", patrolling the road" : ", holding (no road under it)"));
+                                    }
                                     return v == null ? 0 : 1;
                                 })))))
                         .then(Commands.literal("wave").then(xyzThen(Commands.argument("tx", IntegerArgumentType.integer()).then(Commands.argument("tz", IntegerArgumentType.integer())

@@ -88,6 +88,60 @@ public final class Patrols {
         return first;
     }
 
+    /** a group at a point, road or not (the command): the lead vehicle stands on the point itself - the road stand
+     *  there if the point is on a road, else the nearest open ground with a hull's room - and patrols the road under
+     *  it or, off the roads, holds where it is; the others within a dozen blocks; the infantry beside the lead. */
+    public static Entity placeAt(ServerLevel level, BlockPos at, ArmourDef.Composition composition, float yaw) {
+        RandomSource random = level.getRandom();
+        Entity first = null;
+        for (int i = 0; i < composition.vehicles().size(); i++) {
+            ResourceLocation id = composition.vehicles().get(i);
+            BlockPos want = first == null ? at : at.offset(random.nextInt(25) - 12, 0, random.nextInt(25) - 12);
+            BlockPos stand = roadStandAround(level, want.getX(), want.getY(), want.getZ());
+            if (stand == null) stand = openStand(level, want);
+            if (stand == null) {
+                if (first == null) return null;
+                break;
+            }
+            List<BlockPos> route = roadUnder(level, stand) ? roadRoute(level, stand) : new ArrayList<>();
+            Entity v = Armour.spawn(level, id, Vec3.atBottomCenterOf(stand), route.isEmpty() ? yaw : bearing(stand, route.get(0)), factionOf(id), route);
+            if (v == null) continue;
+            v.addTag("gs_armour");
+            for (Entity p : v.getPassengers()) {
+                if (p instanceof Crew c) {
+                    c.addTag("gs_director");
+                    c.addTag(WarEvents.PLACED_TAG);
+                }
+            }
+            if (first == null) first = v;
+        }
+        if (first == null) return null;
+        infantry(level, first, composition.infantry());
+        return first;
+    }
+
+    /** open ground within a few blocks of a column, up or down six: something solid under, a hull's room over */
+    private static BlockPos openStand(ServerLevel level, BlockPos at) {
+        for (int r = 0; r <= 4; r++) {
+            for (int dx = -r; dx <= r; dx++) {
+                for (int dz = -r; dz <= r; dz++) {
+                    if (Math.max(Math.abs(dx), Math.abs(dz)) != r) continue;
+                    for (int d = 0; d <= 6; d++) {
+                        for (int sign = -1; sign <= 1; sign += 2) {
+                            if (d == 0 && sign == 1) continue;
+                            BlockPos stand = at.offset(dx, d * sign, dz);
+                            if (!level.hasChunkAt(stand)) return null;
+                            BlockPos below = stand.below();
+                            if (level.getBlockState(below).getCollisionShape(level, below).isEmpty()) continue;
+                            if (hullRoom(level, stand)) return stand;
+                        }
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
     /** the infantry: a squad beside the lead vehicle, ordered along behind it by the driver */
     private static void infantry(ServerLevel level, Entity vehicle, int count) {
         if (count <= 0) return;
