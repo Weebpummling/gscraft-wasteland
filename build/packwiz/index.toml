@@ -826,7 +826,7 @@ metafile = true
 
 [[files]]
 file = "mods/gscraft-0-1-0.pw.toml"
-hash = "058c51be4710c189699381d24f7c0ed1084b9daa21d5d1e83e2af5ec3c913dc6"
+hash = "c8a0583b62476d891916a7738c91c3953c457bd08f37effea2d4d777957c3d09"
 metafile = true
 
 [[files]]

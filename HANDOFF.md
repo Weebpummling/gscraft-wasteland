@@ -428,6 +428,12 @@ Measured on the host (Bisect la308, 8 vCPU, shared): idle with a loaded platform
 them cost 4.4 ms of a 50 ms tick. The director's pass: 0.4 ms mean, 5 ms when it places a group of six (the kit
 issue). TRAP for any future headless test on live: flip `pauseEventServer` first, restart, and put it back after.
 
+**2026-09-11 22:44, the walking squads live** (server empty by `list`): `put` of the jar (275 KB, sha256 7d0989d8...),
+Done in 1.8 s, `settings: 147 values from [defaults (145), zz_live (2)]`; pack 2026.09.11.4 pushed after. Every
+squad the director places now walks a slow loop of its own (or its zone's route) instead of standing where it
+was placed. Session closed here; next: the armour design (`docs/gscraft-armour-vehicles-design-2026-09-11.md`),
+V1 first - an hour that settles whether a Superb Warfare vehicle drives on inputs with no player aboard.
+
 **2026-09-11 21:32, the damage model, squads' prone hold and the body HUD live** (owner: "everything works
 great", the server empty by the console's `list`): `power stop`, `put` of `gscraft-0.1.0.jar` (274 KB, sha256
 83bd5df9...) into `/mods`, `power start`, Done in 1.8 s with `settings: 144 values from [defaults (142), zz_live (2)]`
