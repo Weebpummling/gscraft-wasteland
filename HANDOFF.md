@@ -437,6 +437,11 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12 10:08, live** (owner: "set this live"; server empty by the console's `list`): `power stop`, `put` of
+`gscraft-0.1.0.jar` (355 KB, sha256 5e74566e...) into `/mods`, `power start`, Done in 1.6 s, `ranks loaded: nato=5
+dead=9 ruaf=5 scavengers=6`. Pack 2026.09.12.3 pushed after the boot, the release jar replaced. What went up: the
+normalised guns (M4A1 / AK-47 for the line ranks).
+
 **2026-09-12, guns normalised (owner: a NATO gun and a RUAF gun rendered as the magenta missing-texture square on
 WarTest; every issued gun's index, display, model, textures, LOD, slot and HUD art are present and decode in the
 packs - the cause was not found in the files - so "normalize every other gun other than those two into the ak and
