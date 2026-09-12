@@ -76,6 +76,10 @@ public class Crew extends Mob implements FactionMember {
     private int lastDismount = -100000;
     /** at or under this share of health the crew bails (owner 2026-09-12: about a half - 0.6, so one rocket from the front (the mod scales a frontal hit by 0.85) still does it on light armour) */
     public static float DISABLED_SHARE = 0.6F;
+    /** the share of crews that bail when the hull is low (owner 2026-09-12: not every time); rolled once per crew, kept.
+     *  A knocked-out turret always bails. */
+    public static double BAIL_CHANCE = 0.5D;
+    private int bailRoll;   // 0 not rolled, 1 will bail, 2 fights to the end
 
     public Crew(EntityType<? extends Crew> type, Level level) {
         super(type, level);
@@ -146,6 +150,16 @@ public class Crew extends Mob implements FactionMember {
         return low || gunOut;
     }
 
+    /** this crew's answer to a low hull: rolled once against the bail chance and kept; the turret out is not a question */
+    private boolean willBail(Entity v) {
+        if (Vehicles.data(v, "TURRET_DAMAGED", false)) return true;
+        if (bailRoll == 0) {
+            bailRoll = random.nextDouble() < BAIL_CHANCE ? 1 : 2;
+            if (bailRoll == 2) GscraftWar.LOG.info("[gscraft] crew of {} will fight to the end", v.getName().getString());
+        }
+        return bailRoll == 1;
+    }
+
     /** the crew climbs out as crewmen (uniform and a pistol), the riders with them; the vehicle is left to burn;
      *  the driver stays by it unseen, only to report the wreck */
     public void bail(Entity v) {
@@ -210,7 +224,7 @@ public class Crew extends Mob implements FactionMember {
             if (!Float.isNaN(lastHealth) && h < lastHealth - 0.01F) alertUntil = level().getGameTime() + FightGoal.ALERT_TICKS;
             lastHealth = h;
         }
-        if (!gunner() && !bailed && v != null && tickCount % 10 == 0 && disabled(v)) bail(v);
+        if (!gunner() && !bailed && v != null && tickCount % 10 == 0 && disabled(v) && willBail(v)) bail(v);
         if (bailed && ++bailedTicks > BAIL_WATCH) {
             GscraftWar.LOG.info("[gscraft] bailed crew of {} gives up the watch", v == null ? "nothing" : v.getName().getString());
             discard();
@@ -416,6 +430,7 @@ public class Crew extends Mob implements FactionMember {
         tag.put("GscraftRoute", list);
         tag.putInt("GscraftRouteIndex", routeIndex);
         tag.putBoolean("GscraftBailed", bailed);
+        tag.putInt("GscraftBailRoll", bailRoll);
         if (watching != null) tag.putUUID("GscraftWatching", watching);
     }
 
@@ -429,6 +444,7 @@ public class Crew extends Mob implements FactionMember {
         for (Tag t : tag.getList("GscraftRoute", Tag.TAG_COMPOUND)) route.add(NbtUtils.readBlockPos((CompoundTag) t));
         routeIndex = tag.getInt("GscraftRouteIndex");
         bailed = tag.getBoolean("GscraftBailed");
+        bailRoll = tag.getInt("GscraftBailRoll");
         watching = tag.hasUUID("GscraftWatching") ? tag.getUUID("GscraftWatching") : null;
     }
 }

@@ -501,3 +501,7 @@ scales a frontal hit by 0.85) leaves a BMP-2 at 166 and the crew climbs out; the
 or captured. A tank bails after its second rocket (240 of 500). The crew also bails when the turret is knocked out -
 a crew with no gun has nothing to do but leave - while a hull with only its engine gone still sits and fights (§2).
 Phase 22's bail check now fires the crew with one 450 `projectile_hit` (5/5); phase 24 green.
+
+**A coin toss (owner, 2026-09-12: "not every time").** `armour.bail_chance` (0.5): when the hull first goes under
+the bail share the crew rolls once against it and keeps the answer, so a crew that chose to fight does not bail on
+the next check. A knocked-out turret always bails. Phase 22 spawns up to six hulls until one bails.

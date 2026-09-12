@@ -437,6 +437,12 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, the bail-out is a coin toss (local):** owner: "set the bail out chance to lower so it does not happen
+every time". `armour.bail_chance` (0.5): when the hull first goes under the bail share the crew rolls once and keeps
+the answer (`GscraftBailRoll` on the crew) - half bail, half fight to the end ("will fight to the end" in the log);
+a knocked-out turret always bails. Phase 22's bail check spawns up to six hulls until one bails (5/5). **Not on
+live** (live has the 15:09 jar: every low crew bails).
+
 **2026-09-12 15:09, live** (owner: "go ahead and update"; server empty by the console's `list` at 15:08): `power
 stop`, `put` of `gscraft-0.1.0.jar` (417 KB, sha256 e779e34a...) into `/mods`, `power start`, Done in 1.5 s,
 `settings: 191 values`. Pack 2026.09.12.6 built after the boot, the release jar replaced (427442 bytes). What went

@@ -5,7 +5,8 @@ no player, and the override datapack installed (tools/armour_override.py --insta
    mod then scales by the angle: 0.85 from the front, more from behind), so two finish it; a TACZ bullet type does
    nothing.
 2. The heavy list: the same on a T-90A takes about 125; a Javelin's type on it is by the heavy share.
-3. The bail-out: a BMP-2 hit to about half its health (one rocket) loses its crew - a crewman soldier appears beside it
+3. The bail-out: a BMP-2 hit to about half its health (one rocket) loses its crew (half of them, rolled once per crew;
+   the test spawns up to six until one bails) - a crewman soldier appears beside it
    in the crewman's kit (no helmet, a pistol), the crew entity is out of the seat, the message is logged - and
    the driver still reports the wreck (destroyed, loot) when the hull is finished.
 4. No gscraft errors.
@@ -100,13 +101,20 @@ h1 = health("superbwarfare:t_90a")
 check("heavy: the same hit takes about 125", h0 is not None and h1 is not None and 80 <= h0 - h1 <= 170, f"health {h0} -> {h1}")
 clear()
 
-# 3. the bail-out
-c(f"gscraft vehicle spawn superbwarfare:bmp_2 nato {X} {Y} {Z}")
-time.sleep(2)
-crews0 = count(f"@e[type=gscraft:crew,{AREA}]")
-mark = LOG.stat().st_size
-c("gscraft vehicle hit @e[type=superbwarfare:bmp_2,limit=1] superbwarfare:projectile_hit 450 @e[tag=p22k,limit=1]")   # one rocket: 300 -> ~166, under the bail share (0.6)
-time.sleep(3)
+# 3. the bail-out (half the crews, rolled once: up to six hulls until one bails; the refusals are logged)
+refused = 0
+for attempt in range(6):
+    c(f"gscraft vehicle spawn superbwarfare:bmp_2 nato {X} {Y} {Z}")
+    time.sleep(2)
+    crews0 = count(f"@e[type=gscraft:crew,{AREA}]")
+    mark = LOG.stat().st_size
+    c("gscraft vehicle hit @e[type=superbwarfare:bmp_2,limit=1] superbwarfare:projectile_hit 450 @e[tag=p22k,limit=1]")   # one rocket: 300 -> ~166, under the bail share (0.6)
+    time.sleep(3)
+    if "bails out" in log_since(mark):
+        break
+    refused += 1
+    print(f"    crew {attempt + 1} fights to the end ({'logged' if 'fight to the end' in log_since(mark) else 'not logged'})")
+    clear()
 h = health("superbwarfare:bmp_2")
 st = c("gscraft vehicle status @e[type=superbwarfare:bmp_2,limit=1]")
 crewmen = count(f"@e[type=gscraft:nato_soldier,{AREA}]")
@@ -117,7 +125,7 @@ bailed = "bails out" in log_since(mark)
 seat_empty = "passengers 0" in st
 check("a BMP-2 at about half health (one rocket) loses its crew: a crewman with a pistol and no helmet, the seat empty, told",
       h is not None and 0 < h <= 200 and crewmen >= 1 and "glock" in kit and ("air" in helmet.lower() or "no elements" in helmet.lower()) and "Crewman" in rank and bailed and seat_empty,
-      f"health {h}; crews before {crews0}; crewmen {crewmen}; gun [{kit[-24:]}]; helmet [{helmet[-30:]}]; rank [{rank[-30:]}]; bailed {bailed}; seat empty {seat_empty}")
+      f"health {h}; crews before {crews0}; refused first {refused}; crewmen {crewmen}; gun [{kit[-24:]}]; helmet [{helmet[-30:]}]; rank [{rank[-30:]}]; bailed {bailed}; seat empty {seat_empty}")
 mark2 = LOG.stat().st_size
 c("gscraft vehicle hit @e[type=superbwarfare:bmp_2,limit=1] minecraft:explosion 3000 @e[tag=p22k,limit=1]")
 time.sleep(3)
