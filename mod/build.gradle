@@ -134,6 +134,7 @@ dependencies {
 
     // TACZ: IGunOperator lets any LivingEntity draw, aim, shoot and reload a TACZ gun
     compileOnly fg.deobf("blank:tacz-1.20.1:1.1.8-hotfix")
+    compileOnly fg.deobf("blank:player-animation-lib-forge:1.0.2-rc1+1.20")   // the fighters' player stand-ins tick its layers
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

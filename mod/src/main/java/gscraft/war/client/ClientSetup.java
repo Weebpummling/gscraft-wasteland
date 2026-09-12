@@ -15,9 +15,9 @@ public final class ClientSetup {
 
     @SubscribeEvent
     public static void renderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(ModEntities.NATO_SOLDIER.get(), FighterRenderer::new);
-        event.registerEntityRenderer(ModEntities.RUAF_SOLDIER.get(), FighterRenderer::new);
-        event.registerEntityRenderer(ModEntities.SCAVENGER.get(), FighterRenderer::new);
+        event.registerEntityRenderer(ModEntities.NATO_SOLDIER.get(), FighterProxyRenderer::new);
+        event.registerEntityRenderer(ModEntities.RUAF_SOLDIER.get(), FighterProxyRenderer::new);
+        event.registerEntityRenderer(ModEntities.SCAVENGER.get(), FighterProxyRenderer::new);
         event.registerEntityRenderer(ModEntities.BLOATER.get(), ctx -> new ScaledZombieRenderer(ctx, Bloater.RENDER_SCALE, false));
         event.registerEntityRenderer(ModEntities.MATRON.get(), ctx -> new ScaledZombieRenderer(ctx, Matron.RENDER_SCALE, true));
     }

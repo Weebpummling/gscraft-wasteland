@@ -41,8 +41,12 @@ public class FighterRenderer<T extends Mob & Skinned> extends HumanoidMobRendere
         }
     }
 
+    public static ResourceLocation skin(int index) {
+        return SKINS[Math.floorMod(index, SKINS.length)];
+    }
+
     @Override
     public ResourceLocation getTextureLocation(T e) {
-        return SKINS[Math.floorMod(e.skin(), SKINS.length)];
+        return skin(e.skin());
     }
 }
