@@ -59,7 +59,7 @@ public class PatrolGoal extends Goal {
         }
         if (--repath > 0) return;
         repath = 20;
-        mob.getNavigation().moveTo(waypoint.getX() + 0.5D, waypoint.getY(), waypoint.getZ() + 0.5D, 0.9D);
+        mob.getNavigation().moveTo(waypoint.getX() + 0.5D, waypoint.getY(), waypoint.getZ() + 0.5D, s.routeSpeed);
     }
 
     private BlockPos resolve(BlockPos xz) {

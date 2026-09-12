@@ -55,7 +55,10 @@
     "bound_step": 8.0,
     "fall_back_blocks": 20.0,
     "fall_back_every_ticks": 1200,
-    "patrol_near": 96.0
+    "patrol_near": 96.0,
+    "walk_points": 4,
+    "walk_radius": 28.0,
+    "walk_speed": 0.65
   },
   "fight": {
     "hold_factor": 1.2,

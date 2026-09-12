@@ -97,6 +97,9 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("squads.bound_step", () -> Squad.BOUND_STEP, v -> Squad.BOUND_STEP = v, "blocks a bounding team advances");
         d("squads.fall_back_blocks", () -> Squad.FALL_BACK_DIST, v -> Squad.FALL_BACK_DIST = v, "how far the fall-back goes");
         i("squads.fall_back_every_ticks", () -> Squad.FALL_BACK_EVERY, v -> Squad.FALL_BACK_EVERY = (int) v, "a squad falls back at most this often");
+        i("squads.walk_points", () -> Squad.WALK_POINTS, v -> Squad.WALK_POINTS = (int) v, "points in a placed squad's own walk");
+        d("squads.walk_radius", () -> Squad.WALK_RADIUS, v -> Squad.WALK_RADIUS = v, "how far out those points lie");
+        d("squads.walk_speed", () -> Squad.WALK_SPEED, v -> Squad.WALK_SPEED = v, "the walk's pace (a zone patrol goes at 0.9)");
         d("squads.patrol_near", () -> Squad.PATROL_NEAR, v -> Squad.PATROL_NEAR = v, "a patrol walks only with someone this close");
         // the fight
         d("fight.hold_factor", () -> GunAttackGoal.HOLD_FACTOR, v -> GunAttackGoal.HOLD_FACTOR = v, "cover is taken and bounding stops inside range x hold_at x this");

@@ -200,6 +200,21 @@ for attempt in range(6):
         break
     c(f"kill @e[tag=gs_director,{OUT}]")
 check("the director's groups arrive as squads", placed >= 2 and "squad " in info and "slot" in info, f"{reply[:70]}; placed {placed}; {info[:140]}")
+# ...and are walking: the leader has a route and the squad moves once someone is near (the outpost has no patrol route of its own)
+c(f"gscraft director phantom set {OX} {oy} {OZ}")
+sel = None
+for t in ("nato_soldier", "ruaf_soldier", "scavenger"):
+    if count(f"@e[type=gscraft:{t},tag=gs_director,{OUT}]"):
+        sel = f"@e[type=gscraft:{t},tag=gs_director,{OUT},sort=arbitrary,limit=1]"
+        break
+walk_info = c(f"gscraft squad {sel}") if sel else "none"
+w0 = pos_of(sel) if sel else None
+time.sleep(10)
+w1 = pos_of(sel) if sel else None
+moved = dist(w0, w1) if w0 and w1 else None
+c("gscraft director phantom clear")
+check("a placed squad is on a walk of its own and moving", "route " in walk_info and moved is not None and moved > 4.0,
+      f"{walk_info[walk_info.find('route'):][:30] if 'route' in walk_info else walk_info[:60]}; a member moved {moved and round(moved, 1)} blocks in 10 s")
 c(f"kill @e[tag=gs_director,{OUT}]")
 c(f"forceload remove {OX - 64} {OZ - 64} {OX + 64} {OZ + 64}")
 

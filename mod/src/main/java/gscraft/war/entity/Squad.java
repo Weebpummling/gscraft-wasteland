@@ -37,6 +37,10 @@ public final class Squad {
     /** a patrol walks only with a player (or a phantom) this close; beyond it, it would only walk into the sweep */
     public static double PATROL_NEAR = 96.0D;
     public static int MAX_SIZE = 6;
+    /** a placed squad's own walk: this many points, this far out, at this pace (owner, 2026-09-11: never standing still when met) */
+    public static int WALK_POINTS = 4;
+    public static double WALK_RADIUS = 28.0D;
+    public static double WALK_SPEED = 0.65D;
 
     private Squad() {}
 
@@ -202,6 +206,40 @@ public final class Squad {
 
     public static boolean someoneNear(ServerLevel level, Mob mob) {
         return Director.anyoneWithin(level, mob.getX(), mob.getZ(), PATROL_NEAR);
+    }
+
+    /**
+     * Every squad the director places is walking when a player meets it: the leader gets a loop of WALK_POINTS
+     * standing spots around where it was placed, at WALK_SPEED, unless its zone has a patrol route (then the zone's
+     * pickup gives it that instead). Nothing to do for a squad of one, a garrison, or a wave.
+     */
+    public static void walk(ServerLevel level, List<? extends Mob> fighters) {
+        Mob leader = null;
+        for (Mob m : fighters) {
+            if (m instanceof GunUser g && g.fighterState().squadId != null && g.fighterState().slot == 0) leader = m;
+        }
+        if (leader == null) return;
+        FighterState ls = ((GunUser) leader).fighterState();
+        Zone zone = Zones.at(leader.getX(), leader.getZ());
+        if (zone != null && !zone.patrols().isEmpty()) return;
+        List<BlockPos> route = new ArrayList<>();
+        BlockPos at = leader.blockPosition();
+        double start = leader.getRandom().nextDouble() * Math.PI * 2.0D;
+        for (int i = 0; i < WALK_POINTS; i++) {
+            double angle = start + i * (Math.PI * 2.0D / WALK_POINTS);
+            double r = WALK_RADIUS * (0.6D + 0.4D * leader.getRandom().nextDouble());
+            BlockPos raw = new BlockPos((int) Math.round(at.getX() + Math.cos(angle) * r), at.getY(), (int) Math.round(at.getZ() + Math.sin(angle) * r));
+            BlockPos stand = Director.nearestStand(level, raw);
+            if (stand == null) {
+                int y = level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, raw.getX(), raw.getZ());
+                stand = Director.nearestStand(level, new BlockPos(raw.getX(), y, raw.getZ()));
+            }
+            if (stand != null) route.add(stand);
+        }
+        if (route.size() < 2) return;
+        ls.route = route;
+        ls.routeIndex = 0;
+        ls.routeSpeed = WALK_SPEED;
     }
 
     /** the fighter's own squad, or a new one with every ally within twenty blocks */

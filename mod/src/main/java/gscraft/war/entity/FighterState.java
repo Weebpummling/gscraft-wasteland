@@ -25,6 +25,8 @@ public final class FighterState {
     /** the leader's patrol route (x/z points; y found on arrival) and where it is on it */
     public java.util.List<BlockPos> route = new java.util.ArrayList<>();
     public int routeIndex;
+    /** the pace on the route: a zone's patrol at 0.9, a placed squad's own walk slower */
+    public double routeSpeed = 0.9D;
     public long nextFallBack;
     public long nextBound;
     public int boundTeam;
@@ -96,6 +98,7 @@ public final class FighterState {
             for (int i = 0; i < pts.length; i++) pts[i] = route.get(i).asLong();
             tag.putLongArray("GscraftRoute", pts);
             tag.putInt("GscraftRouteIndex", routeIndex);
+            tag.putDouble("GscraftRouteSpeed", routeSpeed);
         }
         tag.putBoolean("GscraftOutOfAmmo", outOfAmmo);
         if (crawlUntil > 0) tag.putLong("GscraftCrawlUntil", crawlUntil);
@@ -133,6 +136,7 @@ public final class FighterState {
             route = new java.util.ArrayList<>();
             for (long l : tag.getLongArray("GscraftRoute")) route.add(BlockPos.of(l));
             routeIndex = tag.getInt("GscraftRouteIndex");
+            if (tag.contains("GscraftRouteSpeed")) routeSpeed = tag.getDouble("GscraftRouteSpeed");
         }
         outOfAmmo = tag.getBoolean("GscraftOutOfAmmo");
         if (tag.contains("GscraftHomeRadius")) {

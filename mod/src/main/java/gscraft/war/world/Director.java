@@ -289,6 +289,7 @@ public final class Director {
             group.add(next);
         }
         gscraft.war.entity.Squad.form(group);   // fighters placed together fight together (feasibility C1)
+        gscraft.war.entity.Squad.walk(level, group);   // and are walking when met, never standing about
         return true;
     }
 
