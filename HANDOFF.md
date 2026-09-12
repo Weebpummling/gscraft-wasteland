@@ -414,6 +414,20 @@ docstring and `/server.properties.v8-live`.
 `explosion_destroy = false` (done while stopped - Forge writes the file back on unload), `power start`, Done in
 1.9 s with the six `[gscraft]` load lines; pack 2026.09.11.1 pushed after the boot. Nothing else on the host changed.
 
+**2026-09-11 18:48, step C + resource handling + settings live** (owner: server confirmed empty, players warned
+off): `power stop`, `put` of `gscraft-0.1.0.jar` (231 KB, sha256 d8ef8b64...) into `/mods`, `power start`, Done
+in 1.8 s with the seven `[gscraft]` load lines (`settings: 117 values from [defaults (117)]`). Then the load test
+(`tools/live_loadtest.py`, results in `docs/notes/live-loadtest-2026-09-11.md`): the host does not tick entities
+with nobody online because Hordes' `pauseEventServer = true` pauses the world, so the value was set to false on
+live for the test (a restart is needed for it to take: Forge did not hot-reload it), the test run, the original
+file put back byte for byte and the server restarted at 19:20 - `pauseEventServer = true` confirmed after the boot,
+no forceloaded chunks left, nothing in the test area, 3.2 GB in use. Pack 2026.09.11.2 pushed after.
+
+Measured on the host (Bisect la308, 8 vCPU, shared): idle with a loaded platform 1.6 ms per tick; 24 idle fighters
++0.7 ms; 48 in a firefight 3.9 ms; 96 in a firefight 5.1-6.0 ms. So about 0.05 ms per fighter fighting - 96 of
+them cost 4.4 ms of a 50 ms tick. The director's pass: 0.4 ms mean, 5 ms when it places a group of six (the kit
+issue). TRAP for any future headless test on live: flip `pauseEventServer` first, restart, and put it back after.
+
 What live now runs that it did not: enemies (the hold in the mod refuses everything the director does not place),
 the strongpoint loop with the clocks on online time, groups of 2-4, the locks on the mast field. What live does not
 have: RCON (local only), creative (local only), `pauseEventServer = false` (local only).
@@ -523,6 +537,6 @@ the hospital: `sk_out_w` x -784..-720, z -1148..-1100 (centre -752, -1124). The 
   a world datapack file `data/gscraft/gscraft_settings/zz_live.json` with only the keys to change overrides it on
   `/reload` (panel console on live). `/gscraft settings [prefix]` shows what is in force. Server ceiling 48, player
   ceiling 12. Test: `tools/war_phase11.py`. Bisect host from the panel: node la308, 8 GB, 8 vCPU threads, Forge
-  47.4.10 (local is 47.4.23), 0.16 ms per tick idle.
+  47.4.10 (local is 47.4.23), 0.16 ms per tick idle. On live from 2026-09-11 18:48 (see the deploy entry).
 - Eyes in the Darkness natural spawn is off locally (`eyesinthedarkness-server.toml`, backup `.bak-director`); the
   director places the Eyes instead.

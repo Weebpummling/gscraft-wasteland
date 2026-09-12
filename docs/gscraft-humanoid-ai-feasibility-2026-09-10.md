@@ -257,8 +257,21 @@ players are, not how many there are: a party shares one cap, a spread-out server
 
 The Bisect host, read from the panel: node la308, 8 GB, 8 vCPU threads (cpu limit 800 %), Java 17 image, Forge
 47.4.10 on live against 47.4.23 locally, 3.9 GB in use and 0.16 ms per tick with nobody on. The CPU model is not
-exposed by the panel; the per-fighter cost on the host is the number still to measure, with `forge tps` from the
-panel console during a busy evening.
+exposed by the panel.
+
+**Measured on the host, 2026-09-11 19:11** (`tools/live_loadtest.py`, the server empty, Hordes' pause off for the
+run and restored after):
+
+| on the platform | ms per tick (overworld) |
+|---|---|
+| idle, platform loaded | 1.6 |
+| 24 fighters standing, no enemy | 2.25 |
+| 24 v 24 in a firefight | 3.8 - 4.0 |
+| 48 v 48 in a firefight | 5.1 - 6.0 |
+
+About 0.05 ms per fighter in combat, 0.03 idle: the whole server ceiling of 96 fighting at once is 4-5 ms of the
+50 ms tick. The enemy layer is not what will lag the host; chunk loading and the players' own traffic are. The
+ceiling can be set by gameplay, not by the CPU.
 
 Next: step D (flanking, smoke) and E (doctrine as data) when the owner asks; the fold-in order continues with the
 quest-book stage bridge, survivors and vendors.
