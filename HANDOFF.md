@@ -428,6 +428,13 @@ Measured on the host (Bisect la308, 8 vCPU, shared): idle with a loaded platform
 them cost 4.4 ms of a 50 ms tick. The director's pass: 0.4 ms mean, 5 ms when it places a group of six (the kit
 issue). TRAP for any future headless test on live: flip `pauseEventServer` first, restart, and put it back after.
 
+**2026-09-12 morning, local only:** near misses judged at the impact (the bullet's position at the event is the
+start of its step - a player's fire from range never counted), suppression numbers and decay as settings
+(`fight.suppress_*`, `fight.near_radius`, `fight.suppression_decay_ticks` = 5 s), fighters run from grenades unless
+flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. Test `tools/war_phase13.py`. Not on
+live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
+client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
+
 **2026-09-11 22:44, the walking squads live** (server empty by `list`): `put` of the jar (275 KB, sha256 7d0989d8...),
 Done in 1.8 s, `settings: 147 values from [defaults (145), zz_live (2)]`; pack 2026.09.11.4 pushed after. Every
 squad the director places now walks a slow loop of its own (or its zone's route) instead of standing where it
