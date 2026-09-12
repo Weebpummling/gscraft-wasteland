@@ -454,6 +454,21 @@ next mod/config deploy**, and the override datapack with them. The status line n
 Phases 22 and 20 rerun green (the tests now remove wrecks, which ignore /kill, by setting their health under minus
 the maximum). Design §18. Nothing armour is on live.
 
+**2026-09-12, the start moves into the south compound; the system design pass (design only):** owner's two asks
+after the armour play-test. `docs/gscraft-start-compound-2026-09-12.md`: the team starts inside Skadowsky's south
+compound (the yard x −972…−938 × z −895…−858 at y 64, the deepslate hall, the brick block, the quays; compound box
+x −980…−920 × z −897…−818), world spawn **(−956, 65, −876)** with `spawnRadius 4`, one open corner (the L at z −895 /
+x −937) as the gate the players build; the pocket is taken building by building in Act I (five small sites, a torch
+and a survivor each). **Finding:** `level.dat` (local copy of v8) still holds the pack's spawn (−2555, 80, −2539);
+the 2026-09-07 junction decision was never applied — at the deploy, `/setworldspawn -956 65 -876` and
+`/gamerule spawnRadius 4` on the console (commands, no world upload). `docs/gscraft-system-design-pass-2026-09-12.md`:
+the layers and their state, the loop from the compound, the threat ladder by act (no armour in the sector until
+`skadowsky_held`; one APC in the Skadowsky defence after the RPG blueprint; tanks at the plant after
+`switchyard_scouted`), stale rulings settled (the enemy review's "no NPC vehicles", In Control areas, Hordes waves,
+Improved Mobs' curve), the rules to add (`no_armour`, stage gates on compositions and waves, the gate datum, zone
+stage growth, bosses placed on `scouted`), the budget, decisions S1–S10, the order of work. Supersession notes on
+`gscraft-skadowsky-camp.md` and `gscraft-onboarding.md`. Nothing on either server touched.
+
 **2026-09-12, armour damage pass, TACZ griefing off, the crew bails out (local):** owner's play-test findings.
 (1) The four vehicles' Superb Warfare damage lists are replaced whole by weight in `tools/armour_override.py`
 (LIGHT for the BMP-2/Bradley, HEAVY for the T-90A/M1A2; the mod's list took 13 off, then a fifth, so a rocket left

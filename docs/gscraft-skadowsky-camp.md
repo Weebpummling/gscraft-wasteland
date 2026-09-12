@@ -15,6 +15,8 @@ been corrected in place: the bridge deck height and its clearance, the north com
 the south complex, and the hospital's glass and bone counts. Everything else re-measured as written, including
 the mast's whole column and the hospital roof at y 115.*
 
+> **Superseded in part, 2026-09-12:** the start is the south compound, not the pocket, and the world spawn is (−956, 65, −876) in its yard — `gscraft-start-compound-2026-09-12.md`. §3's spawn and torch count and §5's "the team holds the pocket" are stale; the rest stands.
+
 ---
 
 ## 1. Why now, and what it costs

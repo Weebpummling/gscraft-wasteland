@@ -8,6 +8,8 @@ This document describes how they learn it **by playing** rather than by reading:
 first met, what is said at that moment, and what is deliberately left unsaid. It applies to any team
 size, from one player to a full server; nothing below depends on how many people are online.
 
+> **Superseded in part, 2026-09-12:** §2's opening (the junction, six lit buildings, the map wall on the square) is replaced by the compound start of `gscraft-start-compound-2026-09-12.md` §4–§5; the beats and the lines stand, the places move.
+
 ## 1. The rule
 
 **A player meets every rule as a situation before reading its name.** They do the thing, see the
