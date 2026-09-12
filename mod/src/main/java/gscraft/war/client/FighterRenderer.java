@@ -11,6 +11,15 @@ import net.minecraft.world.entity.Mob;
 
 /** HumanoidMobRenderer plus the armour layer the illager renderers never had. Soldiers and Scavengers alike. */
 public class FighterRenderer<T extends Mob & Skinned> extends HumanoidMobRenderer<T, FighterModel<T>> {
+    /** a rider in a vehicle's bay is not drawn: the mod hides its own seated passengers, and a soldier drawn at its seat
+     *  showed through the hull (owner 2026-09-12: "phasing through") */
+    @Override
+    public boolean shouldRender(T mob, net.minecraft.client.renderer.culling.Frustum frustum, double x, double y, double z) {
+        net.minecraft.world.entity.Entity v = mob.getVehicle();
+        if (v != null && gscraft.war.armour.Vehicles.isVehicle(v)) return false;
+        return super.shouldRender(mob, frustum, x, y, z);
+    }
+
     // vanilla's default player skins, referenced where they already are; nothing is copied into the mod
     private static final String[] NAMES = {"steve", "alex", "ari", "efe", "kai", "makena", "noor", "sunny", "zuri"};
     private static final ResourceLocation[] SKINS = new ResourceLocation[NAMES.length];

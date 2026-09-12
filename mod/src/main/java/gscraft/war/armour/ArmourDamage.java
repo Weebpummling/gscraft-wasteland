@@ -57,6 +57,16 @@ public final class ArmourDamage {
         GscraftWar.LOG.info("[gscraft] armour hit: {} by {} ({}, {}) for {}", v.getName().getString(), event.getAttacker() == null ? "?" : event.getAttacker().getName().getString(), b.getGunId(), kind(x), Math.round(dmg));
     }
 
+    /** a rider hit in the bay: the whole bay dismounts (a rider has no AI while it rides) */
+    @SubscribeEvent
+    public static void riderHit(net.minecraftforge.event.entity.living.LivingHurtEvent event) {
+        if (event.getEntity().level().isClientSide || event.getEntity() instanceof Crew) return;
+        Entity v = event.getEntity().getVehicle();
+        if (v == null || !Vehicles.isVehicle(v)) return;
+        Crew driver = Armour.crewOf(v);
+        if (driver != null) driver.dismount(v);
+    }
+
     @SubscribeEvent
     public static void detonate(ExplosionEvent.Detonate event) {
         Explosion x = event.getExplosion();

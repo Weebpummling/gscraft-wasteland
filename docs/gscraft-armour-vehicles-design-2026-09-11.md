@@ -470,3 +470,21 @@ pack value there) or, failing that, the mod's `# Default:` comment above each va
 
 **Applied locally.** The override datapack reinstalled and reloaded; the server config holds the intended numbers
 (the same ones the running server started with). TACZ's vanilla-style blasts are unchanged.
+
+## 20. Riders in the bay (owner on live, 2026-09-12)
+
+**Phasing.** The mod's seats carry `HidePassenger`, and the mod hides a seated *player*; our soldiers are our own
+entities with our own renderer, drawn at the seat position inside the hull, so a full bay showed four men sunk in
+the armour. `FighterRenderer.shouldRender` returns false for a fighter riding a Superb Warfare vehicle. Client side:
+players see it with the next pack.
+
+**Late dismount.** The bay came out only in `FightGoal.start`, when the crew itself had acquired a target: inside
+its cone, seen for two seconds. Infantry taking fire from outside the cone sat in the bay without AI. The driver now
+also dismounts them when the fight reaches them (`Crew.fightReachesRiders`, once a second): the hull was hit (the
+crew's alert), the crew is engaged, or a hostile survival player is within `armour.dismount_range` (32 blocks); and
+at once when a rider is hit in the bay (`ArmourDamage.riderHit`). The escort logic that puts an escort beside a
+moving hull back in now waits `Crew.REBOARD_TICKS` (600) after a dismount and never while the fight is still on.
+
+**Results (`tools/war_phase24.py`, 3/3).** A BMP-2 with four riders hit by a rocket type: out in half a second, the
+dismount logged. With no threat in reach they stay aboard; one rider hit in the bay puts the whole bay out. Phase
+20 rerun green.

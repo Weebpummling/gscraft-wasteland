@@ -231,6 +231,7 @@
     "blast_heavy": 8.0,
     "splash": 0.5,
     "bail_watch_ticks": 2400,
-    "chat": 0
+    "chat": 0,
+    "dismount_range": 32.0
   }
 }

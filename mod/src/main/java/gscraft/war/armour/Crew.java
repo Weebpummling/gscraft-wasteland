@@ -69,6 +69,11 @@ public class Crew extends Mob implements FactionMember {
     private java.util.UUID watching;
     private int bailedTicks;
     public static int BAIL_WATCH = 2400;
+    /** riders dismount when a hostile player is this close, the hull is hit, or a rider is hit (not only on the crew's engage) */
+    public static double DISMOUNT_RANGE = 32.0D;
+    /** after a dismount the bay stays out this long before an escort beside a moving hull climbs back in */
+    public static int REBOARD_TICKS = 600;
+    private int lastDismount = -100000;
     public static float DISABLED_SHARE = 0.1F;
 
     public Crew(EntityType<? extends Crew> type, Level level) {
@@ -211,6 +216,7 @@ public class Crew extends Mob implements FactionMember {
         }
         if (!gunner() && !bailed && v != null && tickCount == BOARD_TICK) board(v);
         if (!gunner() && !bailed && v != null && tickCount % 40 == 0) escortTick(v);
+        if (!gunner() && !bailed && v != null && tickCount % 20 == 10 && ridersAboard(v) && fightReachesRiders(v)) dismount(v);
         if (!gunner() && v != null) {
             vehicleName = v.getDisplayName();
             vehicleType = net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getKey(v.getType());
@@ -269,6 +275,21 @@ public class Crew extends Mob implements FactionMember {
         return true;
     }
 
+    public boolean ridersAboard(Entity v) {
+        for (Entity p : v.getPassengers()) if (p instanceof Mob && !(p instanceof Crew)) return true;
+        return false;
+    }
+
+    /** the fight has reached the riders: the crew is alert (the hull was hit), engaged, or a hostile player is close */
+    private boolean fightReachesRiders(Entity v) {
+        if (!(level() instanceof net.minecraft.server.level.ServerLevel level)) return false;
+        if (engaged != null || alertUntil > level.getGameTime()) return true;
+        for (net.minecraft.server.level.ServerPlayer p : level.players()) {
+            if (!p.isSpectator() && !p.isCreative() && p.distanceToSqr(v) <= DISMOUNT_RANGE * DISMOUNT_RANGE && gscraft.war.faction.Factions.hostileToPlayer(this, p)) return true;
+        }
+        return false;
+    }
+
     /** the halt to fight: every rider out, beside the hull, with its AI back; told once */
     public void dismount(Entity v) {
         if (!(level() instanceof net.minecraft.server.level.ServerLevel level)) return;
@@ -290,13 +311,17 @@ public class Crew extends Mob implements FactionMember {
             }
             out++;
         }
-        if (out > 0) Reports.dismount(v, out);
+        if (out > 0) {
+            lastDismount = tickCount;
+            Reports.dismount(v, out);
+        }
     }
 
     /** the escort's order: along behind the moving vehicle; free to fight (and take cover) when it halts to fight */
     private void escortTick(Entity v) {
         if (escorts.isEmpty() || !(level() instanceof net.minecraft.server.level.ServerLevel level)) return;
         boolean moving = engaged == null && !route.isEmpty();
+        boolean canBoard = tickCount - lastDismount > REBOARD_TICKS && !fightReachesRiders(v);
         double yaw = Math.toRadians(v.getYRot());
         BlockPos behind = BlockPos.containing(v.getX() + Math.sin(yaw) * ESCORT_BEHIND, v.getY(), v.getZ() - Math.cos(yaw) * ESCORT_BEHIND);
         java.util.Iterator<java.util.UUID> it = escorts.iterator();
@@ -310,7 +335,7 @@ public class Crew extends Mob implements FactionMember {
             if (m.getVehicle() == v) continue;   // riding: nothing to order
             if (moving) {
                 // an APC's bay: an escort beside a moving hull climbs in
-                if (m.distanceToSqr(v) <= 4.0D * 4.0D && mount(v, m)) continue;
+                if (canBoard && m.distanceToSqr(v) <= 4.0D * 4.0D && mount(v, m)) continue;
                 if (m.distanceToSqr(v) > 4.0D * 4.0D) {
                     s.order = gscraft.war.entity.FighterState.Order.ADVANCE;
                     s.orderPos = behind;

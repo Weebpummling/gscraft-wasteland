@@ -437,6 +437,19 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, riders: hidden in the bay, out when the fight reaches them (local):** owner on live: riders "phasing
+through" the BMP and not dismounting "until much later even in active combat". (1) Superb Warfare hides its own
+seated passengers only for players; our soldiers were drawn at their seat positions inside the hull.
+`FighterRenderer.shouldRender` now skips a fighter riding a Superb Warfare vehicle (client side: it reaches players
+with the next pack). (2) The riders dismounted only when the crew itself acquired a target (the cone, two seconds).
+Now the driver also dismounts them when the fight reaches them: the hull was hit (the crew's alert), the crew is
+engaged, or a hostile survival player is within `armour.dismount_range` (32) - checked every second - and at once
+when a rider is hit in the bay (`ArmourDamage.riderHit`, riders have no AI while riding). After a dismount the bay
+stays out for `Crew.REBOARD_TICKS` (600) and while the fight is on, so the escort logic does not put them straight
+back in. `tools/war_phase24.py` (3/3): a hit on the hull has them out in half a second; with no threat in reach they
+stay; a rider hit puts the bay out. Phase 20 rerun green. Jar on the local server and WarTest; **not on live yet**
+(the server-side dismount and the client-side hiding go up together with a pack).
+
 **2026-09-12 14:42, live** (owner: "everything looks good, update to live"; server empty by the console's `list`
 at 14:40): `power stop`; `put` of `gscraft-0.1.0.jar` (416 KB, sha256 4df9336f...) into `/mods`, of
 `tacz-common.toml` (ExplosiveAmmoDestroysBlock false) and `superbwarfare-server.toml` (the tamed blasts) into
