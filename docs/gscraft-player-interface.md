@@ -157,7 +157,7 @@ A chat line is a survivor speaking. Format, fixed for every line in the game:
   collapses to the newest per speaker. A line never plays during a title, and never while a look-at readout is
   showing (the readout sits one line above the hunger row, chat one line above that; the mockups showed the two
   colliding). Chat is capped at four visible lines; the voice icons stay on the hotbar's baseline below it.
-- `tellraw` from the loop script (`gscraft:say <npc> <key>` — the text lives in a lang file, not in the script).
+- `tellraw` from the loop script (`gscraft:say <npc> <key>` — the text lives in a lang file, not in the script). *Built in the mod 2026-09-13 (slice build 6): `/gscraft say <npc> <key> [players]`, the click, the shape, the 20-second queue and the collapse to the newest per speaker (`say.spacing_ticks`, `say.collapse`); the title/readout exclusions are not implemented.*
 
 ### 3.5 Title — the four moments
 Titles are the loudest thing on screen and are used exactly four times in the game, with fade 10/60/20 ticks:

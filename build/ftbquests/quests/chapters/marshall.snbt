@@ -1,0 +1,14 @@
+{
+	id: "E67E58949533EA40"
+	group: ""
+	order_index: 5
+	filename: "marshall"
+	title: "Marshall"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	tags: [
+		"marshall"
+	]
+	quests: [ ]
+	quest_links: [ ]
+}

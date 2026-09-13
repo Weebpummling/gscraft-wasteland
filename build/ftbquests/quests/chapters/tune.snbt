@@ -1,0 +1,14 @@
+{
+	id: "BDE2656E95A66C18"
+	group: ""
+	order_index: 3
+	filename: "tune"
+	title: "Tune"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	tags: [
+		"tune"
+	]
+	quests: [ ]
+	quest_links: [ ]
+}

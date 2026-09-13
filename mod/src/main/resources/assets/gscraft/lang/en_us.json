@@ -160,5 +160,18 @@
   "item.gscraft.claim_marker": "Claim marker",
   "item.gscraft.claim_marker.tip": "4 steel frames, a circuit assembly, a wiring harness, a white banner. Plant it at a strongpoint's anchor to claim it.",
   "gscraft.item.bulky": "Bulky: slow to carry, cannot sprint",
-  "block.gscraft.station": "Work station"
+  "block.gscraft.station": "Work station",
+  "gscraft.say.tune.join_1": "You're up. Six of us out here — the gate's west, on the bridge.",
+  "gscraft.say.tune.join_2": "Walker's in the hall. He'll want bolts before he wants your name.",
+  "gscraft.say.tune.join_3": "Night's ten minutes off. Stay inside the torches till you've a gun that works.",
+  "gscraft.say.tune.map": "Press M for the map. Middle-mouse pings a spot for everyone.",
+  "gscraft.say.walker.hello": "Bring me anything with a thread on it. Bolts, nuts — the town's full of them.",
+  "gscraft.say.tony.hello": "Bandages first, and painkillers if you find any. The shelves here are bare.",
+  "gscraft.say.michael.hello": "Wire. Spools of it, and a cord that still bends. Then we get lights.",
+  "gscraft.say.tune.hello": "Boards, capacitors, and a radio somebody dropped. I can hear the town from here.",
+  "gscraft.say.james.hello": "The station and the crossing. Walk them and I'll put them on your map.",
+  "gscraft.say.marshall.hello": "Close that corner first. Sandbags — then we talk.",
+  "gscraft.say.walker.station": "Good. Set your station down somewhere inside the wire. It'll only ever answer to you.",
+  "gscraft.say.michael.lights": "There. Now we can see what's coming.",
+  "gscraft.say.marshall.speaks": "We're squatting in someone's town. Clear it and it's ours. Start north — there's a hospital up that road. Ask James what's in it first."
 }

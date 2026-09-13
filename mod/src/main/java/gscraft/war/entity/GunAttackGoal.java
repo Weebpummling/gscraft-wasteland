@@ -436,7 +436,7 @@ public class GunAttackGoal extends Goal {
     }
 
     /** Fill the magazine to the gun's own capacity, from TACZ's gun index. */
-    static void refill(ItemStack stack) {
+    public static void refill(ItemStack stack) {
         IGun gun = IGun.getIGunOrNull(stack);
         if (gun == null) return;
         ResourceLocation id = gun.getGunId(stack);

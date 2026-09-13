@@ -136,7 +136,7 @@ and a picture. That is the entire written manual of the game.
 
 ## 8. What this asks of the build (Phase C)
 
-- **First-join script** (KubeJS): the title card, Tune's three lines twenty seconds apart, the notebook
+- **First-join script** ~~(KubeJS)~~ **in the mod** (2026-09-13, slice build 6: `gscraft.war.survivor`, the kit from the mod - system doc R19; the notebook is not in the slice): the title card, Tune's three lines twenty seconds apart, the notebook
   and the starting kit (Custom Starting Gear config: personal station, pistol + magazine, flashlight +
   battery, bandage, notebook). It runs for every new player, whenever they join, at the world spawn ~~on the paved junction (−940, −979)~~ in the south compound's yard, (−956, 65, −876), `spawnRadius` 4 (2026-09-13, reconciliation).
 - **Signs and the board** in `camp.py` tier templates; board and banner colour functions

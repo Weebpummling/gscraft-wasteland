@@ -413,6 +413,30 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, slice build 6 - the survivors as the book (in the mod):** `gscraft.war.survivor`: `Survivors` (`data/gscraft/
+gscraft_survivors/survivors.json`: six survivors with colour, profession and chapter tag; `first_join`: the title, Tune's three
+lines, the kit - the station, a loaded glock + one magazine of its ammo by TACZ's index, the flashlight and battery, a bandage;
+ruling R19), `Say` (the radio line: click + `♪ [TUNE]  text`, lang `gscraft.say.<npc>.<key>`, one per player per 20 s, queue,
+collapse to the newest per speaker; `say.spacing_ticks`/`say.collapse`), `SurvivorEvents` (right-click on a tagged villager
+cancels the trade and runs `/ftbquests open_book #<chapter>` as the player, hello line once per player with the `seen_<id>`
+tag + advancement; first join = tag `joined` + advancement, title WASTELAND, kit, Tune's lines from 5 s; `/gscraft say|survivors|
+kit|join`), `ResetCommands` (the owner's test resets: `/gscraft reset quests|players|all`, see below). `tools/chapters.py`
+writes `build/ftbquests/quests/{data.snbt,chapters/<id>.snbt}` with stable ids and the tag, `--install` copies them to the
+local server's `config/ftbquests/quests` (FTB Quests reads that folder; **live gets it with the slice push - put the folder
+by `bisectpanel.py`**). `tools/camp.py` now reads the profession from survivors.json (IE machinist/engineer/electrician,
+cleric, cartographer, armorer), level 2, `Offers:{Recipes:[]}` - the six functions re-issued into the local world's datapack.
+Lines are placeholders in each voice for the owner's pass (R21). `tools/war_phase33.py` (7/7). In-game check on WarTest:
+`/gscraft join @s` (the title, the kit, three lines 20 s apart), right-click Walker (his hello, the book on his chapter).
+Open: the vanilla join message is not replaced; the title/readout exclusions of the queue are not built; the notebook is
+not in the slice.
+
+**The test resets** (`/gscraft reset ...`, op, run with everyone online - offline players keep their tags and inventory):
+`quests` wipes the quest sequence (FTB Quests' progress for everyone online via `ftbquests change_progress <name> reset 1`,
+every stage in the world record, the site ladder, every player's stage tags and `gscraft:stage/*` advancements);
+`players` puts everyone online at the start (survival, empty inventory, healed, spawn point cleared to the world spawn,
+teleported there, station record dropped, the first join again: title, kit, lines); `all` = both, then `lootr clear <name>`
+for everyone online (chests glow again). Plain equivalents: `/tp @a -956 65 -876`, `/clear @a`, `/gscraft kit <player>`.
+
 **2026-09-13, slice build 5 - the station (in the mod; the KubeJS spike skipped on the owner's word, ruling R16):**
 `gscraft.war.station`: `StationBlock` (lit while an order runs or the output waits), `StationBlockEntity` (slot 0 the card, 1 the
 tool, 2 the output, 3-11 the inputs; every second the card's orders and the quick recipes are checked against the inputs, the

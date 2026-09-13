@@ -1,0 +1,14 @@
+{
+	id: "E4F1B6A0C48BBB5C"
+	group: ""
+	order_index: 1
+	filename: "tony"
+	title: "Tony"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	tags: [
+		"tony"
+	]
+	quests: [ ]
+	quest_links: [ ]
+}

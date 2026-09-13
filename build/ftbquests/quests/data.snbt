@@ -1,0 +1,7 @@
+{
+	version: 13
+	default_quest_shape: "circle"
+	default_reward_team: false
+	disable_gui: false
+	drop_loot_crates: false
+}

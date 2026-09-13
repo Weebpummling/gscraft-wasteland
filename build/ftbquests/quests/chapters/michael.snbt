@@ -1,0 +1,14 @@
+{
+	id: "3D905E296DC1E25A"
+	group: ""
+	order_index: 2
+	filename: "michael"
+	title: "Michael"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	tags: [
+		"michael"
+	]
+	quests: [ ]
+	quest_links: [ ]
+}

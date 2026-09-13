@@ -1,0 +1,14 @@
+{
+	id: "6A8C22A3C1E3B021"
+	group: ""
+	order_index: 4
+	filename: "james"
+	title: "James"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	tags: [
+		"james"
+	]
+	quests: [ ]
+	quest_links: [ ]
+}

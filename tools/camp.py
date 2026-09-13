@@ -4,8 +4,8 @@
     python camp.py <world dir>   -> functions/camp_npc_<npc>.mcfunction (six), functions/camp_npcs.mcfunction, tools/camp_npcs.json
 
 Each `camp_npc_<npc>` kills the survivor by tag and summons it again on its spot: a villager with no AI, invulnerable,
-persistent, silent, named, tagged `gscraft_npc` and `gscraft_npc_<npc>` (a nitwit: no trades - the right-click is Phase
-C's, the quest book). `camp_npcs` runs all six (a respawn of everything). The site loop runs a building's `held` list -
+persistent, silent, named, tagged `gscraft_npc` and `gscraft_npc_<npc>`, with the profession survivors.json gives them
+(slice build 6), level 2 and no offers: the right-click is the mod's (the quest book at their chapter). `camp_npcs` runs all six (a respawn of everything). The site loop runs a building's `held` list -
 `camp_npc_marshall` on the gatehouse, Tony and Tune on the north complex, James on the crossing; Walker and Michael are
 in the compound from the start (`camp_torches` at the deploy runs beside them: run `camp_npcs` once at the deploy too).
 
@@ -20,6 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from camp_ruins import Ground  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
+SURVIVORS = ROOT / "mod/src/main/resources/data/gscraft/gscraft_survivors/survivors.json"   # the profession per survivor (slice build 6)
 FN = ROOT / "build" / "datapacks" / "gscraft" / "data" / "gscraft" / "functions"
 
 # npc -> (name, lock rectangle x0, z0, x1, z1 (skadowsky-camp §3), the floor level to prefer)
@@ -62,6 +63,7 @@ def main(argv):
     g = Ground(Path(argv[1]))
     FN.mkdir(parents=True, exist_ok=True)
     placed = {}
+    professions = {d["id"]: d["profession"] for d in json.loads(SURVIVORS.read_text(encoding="utf-8"))["survivors"]}
     for npc, (name, rect, floor) in NPCS.items():
         s = spot(g, rect, floor)
         if s is None:
@@ -70,7 +72,7 @@ def main(argv):
         _, x, y, z, ground = s
         nbt = ('{NoAI:1b,Invulnerable:1b,PersistenceRequired:1b,Silent:1b,CustomNameVisible:1b,'
                f'CustomName:\'{{"text":"{name}"}}\',Tags:["gscraft_npc","gscraft_npc_{npc}"],'
-               'VillagerData:{profession:"minecraft:nitwit",level:1,type:"minecraft:plains"}}')
+               f'VillagerData:{{profession:"{professions.get(npc, "minecraft:nitwit")}",level:2,type:"minecraft:plains"}},Offers:{{Recipes:[]}}}}')
         lines = [f"kill @e[type=minecraft:villager,tag=gscraft_npc_{npc}]", f"summon minecraft:villager {x} {y} {z} {nbt}"]
         (FN / f"camp_npc_{npc}.mcfunction").write_text("\n".join(lines) + "\n", encoding="utf-8")
         placed[npc] = {"name": name, "x": x, "y": y, "z": z, "ground": ground}
