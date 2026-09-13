@@ -153,13 +153,25 @@ OPEN = {"name": "open", "cap": 4, "spawns": pool(dead=5, scav=2, rider=1),
 # the camp by stage (next-steps plan §1c, start-compound doc §2/§4, skadowsky-camp §2-3): each box counts only while its
 # stage is set, so the director's denial grows with the ground the players take. First in the list: Zones.at takes the
 # first zone in force, and a staged box whose stage is unset is passed over to the sector beneath.
+# a taken building keeps its Dead and scavenger spawns (owner 2026-09-12: "keep the zombies and scavenger spawns in held
+# areas") - only the military leaves with the front: the box, once its stage is set, has the pocket's thin pool and no
+# armour; before the stage it is passed over to the sector's front zone beneath it, military and all
+TAKEN = dict(cap=3, spawns=pool(dead=5, scav=2), dead_ranks=["Runner", "The Dead"])
 CAMP_STAGED = [
-    {"name": "camp_compound", "box": [-980, -920, -897, -818], "exclude": True, "note": "the south compound: the start, always held"},
-    {"name": "camp_square", "box": [-966, -914, -1000, -958], "exclude": True, "stage": "square_taken", "note": "the paved junction and the streets off it"},
-    {"name": "camp_gatehouse", "box": [-982, -950, -960, -936], "exclude": True, "stage": "gatehouse_taken", "note": "the bridge's east end, Marshall's"},
-    {"name": "camp_north", "box": [-970, -894, -1094, -996], "exclude": True, "stage": "clinic_taken", "note": "the north complex: the clinic and the shack"},
-    {"name": "camp_crossing", "box": [-912, -878, -988, -958], "exclude": True, "stage": "crossing_taken", "note": "the signal box and the level crossing, James's"},
+    {"name": "camp_compound", "box": [-980, -920, -897, -818], "exclude": True, "note": "the south compound: the start, always denied - the waves attack towards it"},
+    dict({"name": "camp_square", "box": [-966, -914, -1000, -958], "stage": "square_taken", "note": "the paved junction and the streets off it; taken: the Dead and scavengers only"}, **TAKEN),
+    dict({"name": "camp_gatehouse", "box": [-982, -950, -960, -936], "stage": "gatehouse_taken", "note": "the bridge's east end, Marshall's; taken: the Dead and scavengers only"}, **TAKEN),
+    dict({"name": "camp_north", "box": [-970, -894, -1094, -996], "stage": "clinic_taken", "note": "the north complex: the clinic and the shack; taken: the Dead and scavengers only"}, **TAKEN),
+    dict({"name": "camp_crossing", "box": [-912, -878, -988, -958], "stage": "crossing_taken", "note": "the signal box and the level crossing, James's; taken: the Dead and scavengers only"}, **TAKEN),
 ]
+# no tank in the Skadowsky sector at all (owner 2026-09-12): the zones that overlap it roll APCs only; tanks are the
+# plant's (step 3 gates them on switchyard_scouted) and the finale's last wave
+NO_TANKS = ("front_en", "out_e2", "farbank")
+
+
+def apc_only(a):
+    comps = [c for c in a["compositions"] if not any("t_90a" in v or "m_1a_2" in v for v in c["vehicles"])]
+    return {"chance": a["chance"], "compositions": comps}
 
 
 def main(argv):
@@ -174,15 +186,18 @@ def main(argv):
         if name in BUILDS:
             zone["exclude"] = True
             if name == "camp":
-                zone["stage"] = "skadowsky_held"   # the whole pocket is camp ground only once the sector is held
-                zone["note"] += "; the pocket, camp ground on skadowsky_held (the camp_* boxes before it grow by stage)"
+                # the whole pocket on skadowsky_held: the Dead and scavengers stay, the military goes (the camp_* boxes before it grow by stage)
+                zone.pop("exclude")
+                zone["stage"] = "skadowsky_held"
+                zone.update(TAKEN)
+                zone["note"] += "; on skadowsky_held the pocket keeps the Dead and scavengers only"
         else:
             p = PLACES[name]
             zone.update({"cap": p["cap"], "spawns": p["open"]})
             if name in PATROLS:
                 zone["patrols"] = PATROLS[name]
             if name in ARMOUR:
-                zone["armour"] = ARMOUR[name]
+                zone["armour"] = apc_only(ARMOUR[name]) if name in NO_TANKS else ARMOUR[name]
             for key, field in (("indoor", "indoor_spawns"), ("underground", "underground_spawns"),
                                ("dead", "dead_ranks"), ("garrison", "garrison"), ("lair", "lair"), ("horrors", "horrors")):
                 if p.get(key):

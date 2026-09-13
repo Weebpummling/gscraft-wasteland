@@ -1,0 +1,6 @@
+function gscraft:camp_npc_walker
+function gscraft:camp_npc_michael
+function gscraft:camp_npc_marshall
+function gscraft:camp_npc_tony
+function gscraft:camp_npc_tune
+function gscraft:camp_npc_james

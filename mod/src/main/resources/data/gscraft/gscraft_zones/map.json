@@ -9,7 +9,7 @@
     -818
    ],
    "exclude": true,
-   "note": "the south compound: the start, always held"
+   "note": "the south compound: the start, always denied - the waves attack towards it"
   },
   {
    "name": "camp_square",
@@ -19,9 +19,23 @@
     -1000,
     -958
    ],
-   "exclude": true,
    "stage": "square_taken",
-   "note": "the paved junction and the streets off it"
+   "note": "the paved junction and the streets off it; taken: the Dead and scavengers only",
+   "cap": 3,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "Runner",
+    "The Dead"
+   ]
   },
   {
    "name": "camp_gatehouse",
@@ -31,9 +45,23 @@
     -960,
     -936
    ],
-   "exclude": true,
    "stage": "gatehouse_taken",
-   "note": "the bridge's east end, Marshall's"
+   "note": "the bridge's east end, Marshall's; taken: the Dead and scavengers only",
+   "cap": 3,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "Runner",
+    "The Dead"
+   ]
   },
   {
    "name": "camp_north",
@@ -43,9 +71,23 @@
     -1094,
     -996
    ],
-   "exclude": true,
    "stage": "clinic_taken",
-   "note": "the north complex: the clinic and the shack"
+   "note": "the north complex: the clinic and the shack; taken: the Dead and scavengers only",
+   "cap": 3,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "Runner",
+    "The Dead"
+   ]
   },
   {
    "name": "camp_crossing",
@@ -55,9 +97,23 @@
     -988,
     -958
    ],
-   "exclude": true,
    "stage": "crossing_taken",
-   "note": "the signal box and the level crossing, James's"
+   "note": "the signal box and the level crossing, James's; taken: the Dead and scavengers only",
+   "cap": 3,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "Runner",
+    "The Dead"
+   ]
   },
   {
    "name": "camp",
@@ -67,9 +123,23 @@
     -1060,
     -845
    ],
-   "note": "the camp in Skadowsky (sectors_v8); the pocket, camp ground on skadowsky_held (the camp_* boxes before it grow by stage)",
-   "exclude": true,
-   "stage": "skadowsky_held"
+   "note": "the camp in Skadowsky (sectors_v8); on skadowsky_held the pocket keeps the Dead and scavengers only",
+   "stage": "skadowsky_held",
+   "cap": 3,
+   "spawns": [
+    {
+     "entity": "minecraft:zombie",
+     "weight": 5
+    },
+    {
+     "entity": "gscraft:scavenger",
+     "weight": 2
+    }
+   ],
+   "dead_ranks": [
+    "Runner",
+    "The Dead"
+   ]
   },
   {
    "name": "krot",
@@ -456,21 +526,6 @@
       "infantry": 4
      },
      {
-      "weight": 3,
-      "vehicles": [
-       "superbwarfare:m_1a_2"
-      ],
-      "infantry": 0
-     },
-     {
-      "weight": 1,
-      "vehicles": [
-       "superbwarfare:m_1a_2",
-       "superbwarfare:bradley"
-      ],
-      "infantry": 4
-     },
-     {
       "weight": 1,
       "vehicles": [
        "superbwarfare:bradley",
@@ -678,21 +733,6 @@
      {
       "weight": 6,
       "vehicles": [
-       "superbwarfare:bradley"
-      ],
-      "infantry": 4
-     },
-     {
-      "weight": 3,
-      "vehicles": [
-       "superbwarfare:m_1a_2"
-      ],
-      "infantry": 0
-     },
-     {
-      "weight": 1,
-      "vehicles": [
-       "superbwarfare:m_1a_2",
        "superbwarfare:bradley"
       ],
       "infantry": 4
@@ -1632,21 +1672,6 @@
      {
       "weight": 6,
       "vehicles": [
-       "superbwarfare:bradley"
-      ],
-      "infantry": 4
-     },
-     {
-      "weight": 3,
-      "vehicles": [
-       "superbwarfare:m_1a_2"
-      ],
-      "infantry": 0
-     },
-     {
-      "weight": 1,
-      "vehicles": [
-       "superbwarfare:m_1a_2",
        "superbwarfare:bradley"
       ],
       "infantry": 4

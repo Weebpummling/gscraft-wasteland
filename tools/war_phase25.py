@@ -1,9 +1,9 @@
 """Phase 25, the start (next-steps plan 2026-09-12 §1) on the LOCAL server. Needs a ticking world and no player.
 
-1. Zone growth by stage: the yard is camp_compound (always); the square is not camp ground until `square_taken`
-   is set, and is camp_square once it is; the stage removed, it is open again.
-2. The director places nothing inside the compound with a phantom in the yard, and nothing on the square once
-   `square_taken` is set (before it, the square is the sector's ground).
+1. Zone growth by stage: the yard is camp_compound (always); the square is the front's ground until `square_taken`
+   is set, and camp_square once it is; the stage removed, it is the front's again.
+2. The director places nothing inside the compound; on the square it places the front's military until
+   `square_taken` is set and the Dead and scavengers only after (owner: a taken building keeps those).
 3. The gate datum: a NATO counterattack's wave (soldiers) leaves the south approach for the gate at (-948, -893).
 4. The torches: `gscraft:camp_torches` places the two of the start; `gscraft:torch_square` places its own, twice
    without harm; the test takes the square's back down.
@@ -109,9 +109,10 @@ c("gscraft stage remove square_taken")
 c("kill @e[tag=gs_director,x=-1000,y=40,z=-1120,dx=140,dy=80,dz=290]")
 placed_open = int((re.search(r"placed (\d+)", open_reply) or [0, 0])[1])
 placed_taken = int((re.search(r"placed (\d+)", taken_reply) or [0, 0])[1])
-check("nothing is placed in the compound; the square takes placements until square_taken, none after",
-      in_compound == 0 and placed_open > 0 and placed_taken == 0 and on_square_taken == 0,
-      f"in the compound {in_compound}; at the square open: placed {placed_open}, taken: placed {placed_taken} (in the square {on_square_taken})")
+soldiers_taken = count("@e[type=gscraft:nato_soldier]") + count("@e[type=gscraft:ruaf_soldier]")
+check("nothing is placed in the compound; the square places the front's military until square_taken, then the Dead and scavengers only",
+      in_compound == 0 and placed_open > 0 and placed_taken > 0 and soldiers_taken == 0,
+      f"in the compound {in_compound}; at the square open: placed {placed_open}, taken: placed {placed_taken} with {soldiers_taken} soldiers")
 
 # 3. the gate: the switchyard's (NATO) counterattack from the south approach heads for the gate
 c("kill @e[tag=gs_wave]")

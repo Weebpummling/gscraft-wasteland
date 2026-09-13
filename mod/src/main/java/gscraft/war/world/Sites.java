@@ -29,10 +29,18 @@ public final class Sites extends SimpleJsonResourceReloadListener {
     /** @param boss for a vehicle: the stage set on its death (site id + "_" + this), "" for none; @param name its name over it */
     public record WaveEntry(ResourceLocation entity, String rank, int count, String boss, String name) {}
 
+    /** a site file; a building take (next-steps plan §2) has no assault waves and is held by a clear, and may carry
+     *  `held` / `lost` function lists, an `alias` stage (the readable name), `keep_ambient` (the Dead stay) and `guard` (0: no site guard) */
     public record SiteDef(String id, String name, int x0, int x1, int z0, int z1, int anchorX, int anchorZ, String faction,
-                          String approach, List<List<WaveEntry>> assault, List<List<WaveEntry>> defence) {
+                          String approach, List<List<WaveEntry>> assault, List<List<WaveEntry>> defence,
+                          List<String> held, List<String> lost, String alias, boolean keepAmbient, int guard) {
         public boolean contains(int x, int z) {
             return x >= x0 && x <= x1 && z >= z0 && z <= z1;
+        }
+
+        /** a building take: no assault waves; scouted on entry, held by a clear */
+        public boolean building() {
+            return assault.isEmpty();
         }
     }
 
@@ -91,7 +99,15 @@ public final class Sites extends SimpleJsonResourceReloadListener {
         JsonArray a = GsonHelper.getAsJsonArray(o, "anchor");
         return new SiteDef(GsonHelper.getAsString(o, "id"), GsonHelper.getAsString(o, "name"), b[0], b[1], b[2], b[3],
                 a.get(0).getAsInt(), a.get(1).getAsInt(), GsonHelper.getAsString(o, "faction"),
-                GsonHelper.getAsString(o, "approach"), waves(o, "assault"), waves(o, "defence"));
+                GsonHelper.getAsString(o, "approach"), waves(o, "assault"), waves(o, "defence"),
+                strings(o, "held"), strings(o, "lost"), o.has("alias") ? GsonHelper.getAsString(o, "alias") : null,
+                GsonHelper.getAsBoolean(o, "keep_ambient", false), GsonHelper.getAsInt(o, "guard", -1));
+    }
+
+    private static List<String> strings(JsonObject o, String key) {
+        List<String> out = new ArrayList<>();
+        for (JsonElement el : GsonHelper.getAsJsonArray(o, key, new JsonArray())) out.add(el.getAsString());
+        return List.copyOf(out);
     }
 
     private static List<List<WaveEntry>> waves(JsonObject o, String key) {

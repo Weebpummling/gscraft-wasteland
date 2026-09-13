@@ -94,16 +94,84 @@ public final class Loop {
         return freeClock;
     }
 
-    /** a held or defended site keeps its ambient hostiles off (F4) */
+    /** a held or defended site keeps its ambient hostiles off (F4) - unless the file says keep_ambient (a taken building:
+     *  the Dead and the scavengers stay, owner 2026-09-12) */
     public static boolean suppressedAt(ServerLevel level, int x, int z) {
         if (Sites.all().isEmpty()) return false;
         SiteData data = SiteData.get(level);
         for (SiteDef site : Sites.all().values()) {
-            if (!site.contains(x, z)) continue;
+            if (!site.contains(x, z) || site.keepAmbient()) continue;
             State s = data.progress(site.id()).state;
             return s == State.HELD || s == State.DEFENDED;
         }
         return false;
+    }
+
+    // ---- the building take (next-steps plan §2): scouted on entry, held by a clear
+
+    public static int CLEAR_TICKS = 1200;
+    private static final Map<String, Integer> clearTicks = new HashMap<>();
+
+    private static void building(ServerLevel level, SiteData data, SiteDef site, Progress p) {
+        if (p.phase != Phase.NONE) return;
+        boolean inside = false;
+        for (BlockPos at : Director.presence(level)) {
+            if (site.contains(at.getX(), at.getZ())) {
+                inside = true;
+                break;
+            }
+        }
+        if (p.state == State.UNKNOWN) {
+            if (inside) {
+                setState(level, data, site, p, State.SCOUTED);
+                GscraftWar.LOG.info("[gscraft] {} scouted: someone inside", site.id());
+            }
+            return;
+        }
+        if (p.state != State.SCOUTED && p.state != State.LOOTED) return;
+        int hostile = inside ? level.getEntitiesOfClass(Mob.class, around(site, 0), m -> m.isAlive() && m instanceof net.minecraft.world.entity.monster.Monster).size() : -1;
+        int t = inside && hostile == 0 ? clearTicks.merge(site.id(), 20, Integer::sum) : 0;
+        if (!(inside && hostile == 0)) clearTicks.remove(site.id());
+        if (t < CLEAR_TICKS) return;
+        clearTicks.remove(site.id());
+        take(level, data, site, p);
+    }
+
+    /** the building is held: the stage and its readable alias, the held functions, the guard (if any), the clock */
+    private static void take(ServerLevel level, SiteData data, SiteDef site, Progress p) {
+        setState(level, data, site, p, State.HELD);
+        if (site.alias() != null) Stages.add(level.getServer(), site.alias());
+        p.lost = false;
+        p.guardTarget = guardFor(site, 1);
+        p.phase = Phase.FORTIFY;
+        p.deadline = data.online + FORTIFY_TICKS;
+        p.warned = false;
+        p.twoMinutes = false;
+        data.setDirty();
+        run(level, site.held());
+        keepGuard(level, site, p);
+        title(level.getServer(), Component.literal(site.name()), Component.translatable("gscraft.title.taken"));
+        GscraftWar.LOG.info("[gscraft] {} taken (held by a clear); {} functions; the fortify clock runs {} minutes of online time", site.id(), site.held().size(), FORTIFY_TICKS / 1200);
+    }
+
+    /** the site guard's size: the file's `guard` (0: none) or the default, doubled on defended */
+    private static int guardFor(SiteDef site, int times) {
+        return (site.guard() >= 0 ? site.guard() : GUARD_TARGET) * times;
+    }
+
+    /** the file's functions, run as the server */
+    static void run(ServerLevel level, List<String> functions) {
+        MinecraftServer server = level.getServer();
+        for (String id : functions) {
+            ResourceLocation key = ResourceLocation.tryParse(id);
+            if (key == null) continue;
+            var fn = server.getFunctions().get(key);
+            if (fn.isEmpty()) {
+                GscraftWar.LOG.warn("[gscraft] site function {} is not loaded", id);
+                continue;
+            }
+            server.getFunctions().execute(fn.get(), server.createCommandSourceStack().withSuppressedOutput().withPermission(2));
+        }
     }
 
     @SubscribeEvent
@@ -120,6 +188,7 @@ public final class Loop {
         data.setDirty();
         for (SiteDef site : Sites.all().values()) {
             Progress p = data.progress(site.id());
+            if (site.building()) building(level, data, site, p);
             switch (p.phase) {
                 case ASSAULT -> assault(level, data, site, p);
                 case FORTIFY -> fortify(level, data, site, p);
@@ -311,7 +380,7 @@ public final class Loop {
         if (away(level, data, site, p, camp.targetX(), camp.targetZ())) return;
         if (p.wave < DEFENCE_WAVES && data.online >= p.nextWave) {
             int[] at = camp.approaches().getOrDefault(site.approach(), camp.approaches().values().iterator().next());
-            int placed = sendWave(level, site, site.defence().get(p.wave), List.of(new BlockPos(at[0], 0, at[1])), scaleOnline(level),
+            int placed = sendWave(level, site, site.defence().get(Math.min(p.wave, site.defence().size() - 1)), List.of(new BlockPos(at[0], 0, at[1])), scaleOnline(level),
                     new BlockPos(camp.targetX(), 0, camp.targetZ()), true);   // the gate: where the wave goes
             p.wave++;
             p.nextWave = data.online + WAVE_GAP;
@@ -329,6 +398,20 @@ public final class Loop {
             Stages.add(level.getServer(), site.id() + "_lost");
             discardWave(level, site);
             dropBar(site);
+            if (site.building()) {
+                // a taken building is lost: back to scouted, its stages down, the lost functions; retaken by another clear
+                p.state = State.SCOUTED;
+                Stages.remove(level.getServer(), site.id() + "_held");
+                if (site.alias() != null) Stages.remove(level.getServer(), site.alias());
+                p.phase = Phase.NONE;
+                p.lossTicks = 0;
+                p.guardTarget = 0;
+                data.setDirty();
+                run(level, site.lost());
+                title(level.getServer(), Component.translatable("gscraft.title.fell"), Component.translatable("gscraft.title.fell.sub"));
+                GscraftWar.LOG.info("[gscraft] {}: the building fell; scouted again", site.id());
+                return;
+            }
             p.phase = Phase.FORTIFY;
             p.deadline = data.online + FORTIFY_TICKS;
             p.warned = false;
@@ -351,7 +434,7 @@ public final class Loop {
         dropBar(site);
         p.lost = false;
         p.phase = Phase.NONE;
-        p.guardTarget = GUARD_TARGET * 2;
+        p.guardTarget = guardFor(site, 2);
         data.contested = "";
         setState(level, data, site, p, State.DEFENDED);
         keepGuard(level, site, p);

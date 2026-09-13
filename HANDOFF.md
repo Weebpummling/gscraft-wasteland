@@ -438,6 +438,29 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, step 2 of the next-steps plan - the building takes (local), with two owner rulings:** "keep the
+zombies and scavenger spawns in held areas still, obviously not the starting depot" and "don't spawn the tank in
+the skadowsky area at all, leave it for just the final wave defense". (a) The zones: only `camp_compound` is an
+exclusion; the four staged boxes and the pocket on `skadowsky_held` carry the pocket's thin pool (`TAKEN` in
+`war_zones.py`: cap 3, the Dead 5 / scavengers 2, no armour) once their stage is set, and are passed over to the
+front zone beneath before it - a take moves the front, the Dead stay. The zones overlapping the Skadowsky sector
+(`front_en`, `out_e2`, `farbank`) roll APCs only (`NO_TANKS`, `apc_only`); tanks remain the plant's (step 3 gates
+them) and the finale's last wave. (b) Five site files - `square`, `gatehouse`, `north` (the clinic and the shack),
+`crossing`, `mast` - with no assault, faction dead, one defence wave, `keep_ambient`, `guard 0`, an `alias` stage
+(`square_taken` ...) and `held` function lists. `SiteDef` gained `held/lost/alias/keepAmbient/guard` and
+`building()`; `Loop.building`: scouted when someone (the director's presence: players or the phantom) is inside,
+held after `site.clear_ticks` (1200) with someone inside and no Monster in the box; `Loop.take` sets the stage and
+the alias, runs the `held` functions (`Loop.run`, as the server), starts the fortify clock; the counterattack's one
+wave repeats (`min(wave, size-1)`); a building lost (five attackers in the compound) goes back to scouted, its
+stages down, the `lost` functions, retaken by another clear; `suppressedAt` skips `keep_ambient` sites. (c)
+`tools/camp.py` writes `camp_npc_<npc>` (six) and `camp_npcs`: a no-AI, invulnerable, named nitwit villager tagged
+`gscraft_npc_<npc>` on the lowest hard floor near its lock rectangle's middle (`tools/camp_npcs.json`; a first cut
+for the visual pass); Walker and Michael summoned on local now (the deploy runs those two, not `camp_npcs`).
+`tools/war_phase26.py` (6/6): the sites load; the square scouted on entry, held after the clear, its stage, torch,
+no guard, `camp_square`, the Dead still placed there and no soldier; the gatehouse's take summons Marshall; the
+square lost by five in the compound is scouted again with the front's ground back. Phases 25 (its denial check
+now expects the Dead after the take) and 6 green. Not on live.
+
 **2026-09-12, step 1 of the next-steps plan - the start (local):** owner: "recommendation approved, begin".
 (1a) Local spawn set by console: `/setworldspawn -956 65 -876`, `/gamerule spawnRadius 4` (live gets the same two
 commands in the step 5 window). (1b) `camp.json`: `square` is the compound box `[-980, -920, -897, -818]` (the loss

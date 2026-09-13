@@ -79,6 +79,12 @@ place their blocks and are idempotent.
 
 ## 2. The building takes as sites
 
+*Built 2026-09-12, phase 26 green (6/6), phases 25 and 6 green. Two rulings on the day changed §1c: a taken building
+keeps its Dead and scavenger spawns (the staged boxes carry the pocket's thin pool, not an exclusion; only the compound
+is denied), and no tank rolls in the Skadowsky sector (the overlapping zones are APC-only; tanks are the plant's, gated
+in step 3, and the finale's last wave). The clear counts Monsters in the box; presence is the director's (players, or the
+phantom for tests). The survivors' spots are a first cut from the lock rectangles (`tools/camp_npcs.json`).*
+
 **2a. Five site files** (`gscraft_sites/`): `square`, `gatehouse`, `north` (the clinic and the shack together —
 one take, two survivors), `crossing`, and `mast` (the gun pit and the field; its `held` is the pocket's). Each:
 box, anchor, faction, `approach`, no assault waves, one defence wave. The occupiers are the Dead (the home
@@ -155,7 +161,7 @@ chapter is its own session with the quest book opened on WarTest as the gate. Ku
 |---|---|---|
 | D1 | Who occupies the pocket's buildings at the start | **the Dead**, as `gscraft-entities-v8.md` §4's home row has it for the whole sector (the site files' `faction: dead`; the defence wave and the counterattack from the Dead's tables); the living factions arrive with the sites beyond the pocket |
 | D2 | How `compound_closed` is set | by the quest hand-in in Phase C; until then a `/gscraft stage add` — no block detector |
-| D3 | The clear timer for a building take | 60 s of online time with a player inside and no hostile; a setting `site.clear_ticks` |
+| D3 | The clear timer for a building take | 60 s of online time with a player inside and no hostile; a setting `site.clear_ticks` — **built** |
 | D4 | The clinic and the shack as one take or two | **one** (`north`): one clear, two survivors, one torch |
 | D5 | Step 4 before step 5 | **yes** for this push — the data goes live after the owner has walked it once |
 

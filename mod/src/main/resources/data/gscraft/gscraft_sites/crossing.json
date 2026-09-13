@@ -1,0 +1,35 @@
+{
+  "id": "crossing",
+  "name": "THE CROSSING",
+  "note": "the signal box and the level crossing (step 5): James moves in; a building take: no assault, held by a clear, the Dead and scavengers stay",
+  "box": [
+    -912,
+    -878,
+    -988,
+    -958
+  ],
+  "anchor": [
+    -890,
+    -975
+  ],
+  "faction": "dead",
+  "approach": "east",
+  "assault": [],
+  "defence": [
+    [
+      {
+        "entity": "minecraft:zombie",
+        "count": 12,
+        "rank": "The Infected"
+      }
+    ]
+  ],
+  "held": [
+    "gscraft:torch_crossing",
+    "gscraft:camp_npc_james"
+  ],
+  "lost": [],
+  "alias": "crossing_taken",
+  "keep_ambient": true,
+  "guard": 0
+}

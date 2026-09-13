@@ -39,5 +39,6 @@
   "gscraft.dir.w": "west",
   "gscraft.dir.nw": "north-west",
   "gscraft.armour.dismount": "[%s] Infantry dismounting",
-  "gscraft.armour.bail": "[%s] Crew bailing out"
+  "gscraft.armour.bail": "[%s] Crew bailing out",
+  "gscraft.title.taken": "taken"
 }

@@ -235,5 +235,8 @@
     "dismount_range": 32.0,
     "bail_share": 0.6,
     "bail_chance": 0.5
+  },
+  "site": {
+    "clear_ticks": 1200
   }
 }

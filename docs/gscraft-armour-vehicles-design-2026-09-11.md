@@ -505,3 +505,10 @@ Phase 22's bail check now fires the crew with one 450 `projectile_hit` (5/5); ph
 **A coin toss (owner, 2026-09-12: "not every time").** `armour.bail_chance` (0.5): when the hull first goes under
 the bail share the crew rolls once against it and keeps the answer, so a crew that chose to fight does not bail on
 the next check. A knocked-out turret always bails. Phase 22 spawns up to six hulls until one bails.
+
+## 22. No tanks in the Skadowsky sector (owner, 2026-09-12)
+
+"Don't spawn the tank in the Skadowsky area at all. Leave it for just the final wave defense." The zones whose boxes
+overlap the sector (`front_en`, `out_e2`, `farbank`) roll APC compositions only (`NO_TANKS` / `apc_only` in
+`tools/war_zones.py`); the T-90A and the M1A2 roll at the plant and the western fronts as before (step 3 of the
+next-steps plan gates the plant's on `switchyard_scouted`) and come to the sector only in the finale's last wave.
