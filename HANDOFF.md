@@ -310,6 +310,7 @@ do not, but they are fully generated so it no longer matters there).
 
 ## 4. The design documents
 
+- `docs/gscraft-design-review-2026-09-13.md` - the design set reviewed against the build (2026-09-13): findings, the next steps A-E, the rulings R1-R5.
 - `docs/gscraft-next-steps-plan-2026-09-12.md` - the next steps planned (2026-09-12): the start, the building takes, the stage gates, the in-person pass, live, Phase C.
 - `docs/gscraft-mod-capabilities.md` - what each mod supplies to the design; the config changes made (§5b, §5c).
 - `docs/gscraft-structure-plan.md` - the generated-structure prune (67 of 964 kept) behind world build v7.
@@ -437,6 +438,18 @@ start of its step - a player's fire from range never counted), suppression numbe
 flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. Test `tools/war_phase13.py`. Not on
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
+
+**2026-09-13, the design set reviewed (design only):** `docs/gscraft-design-review-2026-09-13.md` - every design
+document read against the mod and the data. Findings: the enemy layer is built and live while its documents still
+describe In Control/Improved Mobs/Recruits and "no custom mod"; the player layer has nothing built (no startup
+script, no item, no quest) and its documents disagree on the stage vocabulary (quests §9 vs everyone else vs the mod's
+ids), the camp's rectangles (four sources), the board (six vs seven columns, gatehouse vs hall) and the create doc
+(never rehomed); four unproven hooks (stage -> quest, the station's BlockEntityBuilder, right-click -> chapter,
+per-player stages); the plan's step 4 overdue and step 5 waiting. Next steps in order: A step 4 then the live push;
+B five rulings (R1-R5: the mod's ids, an advancement per stage, the station spike, the hall for the board, KROT as a
+strongpoint); C a doc pass to the build; D the enemy data Phase C points at (drops and dog tags, KROT's file, the
+placed garrisons, the Grenadier, the fog man); E Phase C in five chunks with gates (items, Act I loot, the station,
+the survivors and the first quests, the takes and the board). Nothing on either server touched.
 
 **2026-09-12, step 3 of the next-steps plan - the stage gates and the placed bosses (local), and the capture tied
 to quests (owner):** (a) `ArmourDef.Composition` gained `stage`; `pick` weighs only the compositions in force
