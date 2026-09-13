@@ -413,6 +413,14 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, the director in front of the players and the compound (ruling R28):** `Director.seen` (a placement any
+player within `director.hidden_from` = 64 can see is refused, checked per try in `placeNear`), `Zones.nearExcluded` (map.json
+`margin` on an excluded zone: the compound 32, `tools/war_zones.py`), `SurvivorEvents.target` (nothing ever targets a
+`gscraft_npc`), `env.indoor.min_r` 10 / `env.underground.min_r` 8. `tools/war_phase36.py` (4/4: from the yard nothing within
+the box + 32; from the square placements within 120, none within 30, none in the margin); phase 10 green. The sight rule is
+the owner's in-game check (phantoms have no eyes). TRAP: `localtest.Rcon` loses sync on long multi-entity replies
+(`execute as @e[...] run data get`): use `execute if entity` counts.
+
 **2026-09-13, the polish pass on the slice's first hour (ruling R27):** the login - title + subtitle (`first_join.subtitle`),
 the book opened on `first_join.open_chapter` (`compound`) 5.5 s in by `SurvivorEvents.later`; a new chapter **The compound**
 (`tools/chapters.py`: one quest, "Wake up", the page that says where you are and what a right-click does; chapter icons; the

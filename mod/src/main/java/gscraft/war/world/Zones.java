@@ -43,6 +43,7 @@ public final class Zones extends SimpleJsonResourceReloadListener {
                 GscraftWar.LOG.error("[gscraft] zone file {} is invalid: {}", file.getKey(), ex.toString());
             }
         });
+        margins.clear();
         zones = List.copyOf(list);
         long excluded = list.stream().filter(Zone::exclude).count();
         long garrisons = list.stream().filter(z -> z.garrison() != null).count();
@@ -73,6 +74,7 @@ public final class Zones extends SimpleJsonResourceReloadListener {
             horrors.add(new HorrorDef(new ResourceLocation(GsonHelper.getAsString(h, "entity")),
                     GsonHelper.getAsBoolean(h, "night", true), GsonHelper.getAsFloat(h, "chance", 0.02F), Set.copyOf(envs)));
         }
+        if (o.has("margin")) margins.put(name, GsonHelper.getAsInt(o, "margin", 0));
         return new Zone(name, hasBox, x0, x1, z0, z1, GsonHelper.getAsBoolean(o, "exclude", false),
                 GsonHelper.getAsInt(o, "cap", 0), entries(o, "spawns"), entries(o, "indoor_spawns"),
                 entries(o, "underground_spawns"), List.copyOf(deadRanks), standing(o, "garrison", 4, 10),
@@ -140,6 +142,18 @@ public final class Zones extends SimpleJsonResourceReloadListener {
             if (zone.contains(x, z) && zone.active()) return zone;
         }
         return null;
+    }
+
+    /** excluded zones with a margin (map.json "margin"): nothing ambient is placed within it either */
+    private static final java.util.Map<String, Integer> margins = new java.util.HashMap<>();
+
+    public static boolean nearExcluded(double x, double z) {
+        for (Zone zone : zones) {
+            int m = margins.getOrDefault(zone.name(), 0);
+            if (m <= 0 || !zone.exclude() || !zone.hasBox()) continue;
+            if (x >= zone.x0() - m && x <= zone.x1() + m && z >= zone.z0() - m && z <= zone.z1() + m) return true;
+        }
+        return false;
     }
 
     public static Zone named(String name) {

@@ -9,7 +9,8 @@
     -818
    ],
    "exclude": true,
-   "note": "the south compound: the start, always denied - the waves attack towards it"
+   "margin": 32,
+   "note": "the south compound: the start, always denied, and nothing placed within 32 of its wall - the waves attack towards it"
   },
   {
    "name": "camp_square",

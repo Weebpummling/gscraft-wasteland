@@ -61,6 +61,7 @@ public final class Settings extends SimpleJsonResourceReloadListener {
     static {
         // the director
         i("director.interval_ticks", () -> Director.INTERVAL, v -> Director.INTERVAL = (int) v, "ticks between director passes");
+        i("director.hidden_from", () -> Director.HIDDEN_FROM, v -> Director.HIDDEN_FROM = (int) v, "a placement must be out of the sight of every player this close (0 = off)");
         i("director.sweep_blocks", () -> Director.SWEEP, v -> Director.SWEEP = (int) v, "an ambient placement further than this from everyone, on two passes running, is taken back");
         i("director.player_ceiling", () -> Director.PLAYER_CEILING, v -> Director.PLAYER_CEILING = (int) v, "director creatures allowed within ceiling_box of one player, whatever the ground");
         i("director.server_ceiling", () -> Director.SERVER_CEILING, v -> Director.SERVER_CEILING = (int) v, "director creatures allowed on the whole server");

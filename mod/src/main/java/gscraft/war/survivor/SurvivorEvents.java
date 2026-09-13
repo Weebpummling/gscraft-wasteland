@@ -64,6 +64,12 @@ public final class SurvivorEvents {
         }
     }
 
+    /** nothing hunts a survivor: the Dead would path into the compound after the villagers otherwise */
+    @SubscribeEvent
+    public static void target(net.minecraftforge.event.entity.living.LivingChangeTargetEvent event) {
+        if (event.getNewTarget() != null && event.getNewTarget().getTags().contains("gscraft_npc")) event.setCanceled(true);
+    }
+
     @SubscribeEvent
     public static void interact(PlayerInteractEvent.EntityInteract event) {
         if (event.getHand() != InteractionHand.MAIN_HAND) return;

@@ -361,7 +361,7 @@ public final class Director {
             int x = Mth.floor(at.getX() + Math.cos(angle) * dist);
             int z = Mth.floor(at.getZ() + Math.sin(angle) * dist);
             Zone here = Zones.at(x, z);
-            if (here == null || here.exclude() || Loop.suppressedAt(level, x, z)) continue;
+            if (here == null || here.exclude() || Zones.nearExcluded(x, z) || Loop.suppressedAt(level, x, z)) continue;
             ResourceLocation id = forced != null ? forced : pick(here.spawnsFor(env), random, level.isDay());
             if (id == null) continue;
             boolean rider = RIDER.equals(id);
@@ -371,6 +371,7 @@ public final class Director {
             boolean aquatic = type == EntityType.DROWNED;
             BlockPos pos = findStand(level, x, at.getY(), z, env, aquatic);
             if (pos == null) continue;
+            if (seen(level, pos)) continue;   // never in front of anyone: the horror starts round the corner
             boolean shut = env != Env.OPEN && !aquatic && !reaches(level, pos, at);
             if (shut && !allowSealed) continue;
             // a zombie under open sky by day burns; the husk is the same body that does not
@@ -382,6 +383,20 @@ public final class Director {
             }
         }
         return null;
+    }
+
+    /** blocks within which a placement must be out of every player's sight (0 turns the rule off) */
+    public static int HIDDEN_FROM = 64;
+
+    /** can any player this close see the spot? (a clip from their eyes to the stand's chest height) */
+    static boolean seen(ServerLevel level, BlockPos pos) {
+        if (HIDDEN_FROM <= 0) return false;
+        Vec3 target = Vec3.atBottomCenterOf(pos).add(0, 1.2D, 0);
+        for (ServerPlayer player : level.players()) {
+            if (player.isSpectator() || player.distanceToSqr(target) > (double) HIDDEN_FROM * HIDDEN_FROM) continue;
+            if (level.clip(new ClipContext(player.getEyePosition(), target, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, player)).getType() == HitResult.Type.MISS) return true;
+        }
+        return false;
     }
 
     private static EntityType<?> type(ResourceLocation id) {

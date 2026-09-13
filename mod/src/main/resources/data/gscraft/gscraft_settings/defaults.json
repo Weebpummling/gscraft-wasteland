@@ -10,7 +10,8 @@
     "garrison_rest": 256,
     "rest_passes": 3,
     "horror_clear": 96,
-    "sealed_share": 0.2
+    "sealed_share": 0.2,
+    "hidden_from": 64
   },
   "env": {
     "open": {
@@ -22,14 +23,14 @@
     },
     "indoor": {
       "cap_scale": 1.5,
-      "min_r": 6,
+      "min_r": 10,
       "max_r": 24,
       "count_box": 28,
       "count_y": 6
     },
     "underground": {
       "cap_scale": 1.5,
-      "min_r": 6,
+      "min_r": 8,
       "max_r": 24,
       "count_box": 28,
       "count_y": 8
