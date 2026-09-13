@@ -243,7 +243,8 @@ switchyard's, `plant_*` the intake works', `fr06_*` the turbine hall's — and `
 
 | # | Quest | Act | Area | Tasks | Gate | Reward |
 |---|---|---|---|---|---|---|
-| R1 | Muster | I | camp | checkmark; read the strongpoint board | the five introductions | the board and the map wall revealed, the camp's outline lit (B9); the claim-marker blueprint (trip-length order; re-crafted after a failed assault) |
+| R0 | The gap | I | the compound's open corner | hand in the sandbags and the gate of the W-kit (crafting §4); the corner closed | Walker's introduction | `compound_closed`: the gap torch lights, the counterattack rule arms (2026-09-12, the compound start) — Marshall's first ask, moved here from the parts rack |
+| R1 | Muster | I | camp | checkmark; read the strongpoint board | the five introductions | the board and the map wall revealed on `square_taken` (the wall stands on the hall's ground floor (2026-09-12, the compound start)), the camp's outline lit (B9); the claim-marker blueprint (trip-length order; re-crafted after a failed assault) |
 | R2 | The hospital | I | the Skadowsky hospital, 0.34 km due N of the square | place the marker; win the assault (stage `hospital_held`) | R1, `hospital_looted` | the hospital's site guard and its keeper (Vera) appear; the fortify clock starts; Tony T4 opens; the first counterattack is the lightest and is fought at the bridge (enemies §5's Matron leads it) |
 | R3 | The compound | II | KROT, 2.30 km W over the bridge | place the marker; win the assault (stage `novo_held`) | R2, `hospital_defended`, `novo_looted` | the compound's site guard and Kessler appear; Walker W6 opens |
 | R4 | The switchyard | III | the plant's switchyard and admin block, 1.09 km S | place the marker; win the assault (stage `financial_held`) | R3, `financial_looted` | Ilya appears; Tune U5 opens |
@@ -421,6 +422,8 @@ hospital is held by its site guard and Vera, its fortify clock runs, and its cou
 — arrives at the bridge on schedule. Clearing the sector itself runs alongside on the site ladder
 (`skadowsky_scouted` → `looted` → `held` → `defended`): holding it extends spawn suppression to the whole sector and
 makes the mast's field camp ground.
+
+> (2026-09-12, the compound start): Act I opens in the south compound, not on the square — the first hour is the gap closed, the square cleared, the gatehouse, the clinic and the shack, the signal box, each taken as a small site with a torch and a survivor (`gscraft-start-compound-2026-09-12.md` §5); the walk north to the hospital follows.
 
 **Act II (sessions 3–5).** West over the bridge and south down the bank. The Line is walked out along the pylons to
 the collective farm at (−2112, −896), 1.17 km, and its depot hands out the motor-assembly blueprint, so the first car

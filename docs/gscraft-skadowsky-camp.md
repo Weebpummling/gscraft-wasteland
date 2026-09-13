@@ -58,7 +58,7 @@ Walker's yard and Michael's plant outside to the south — three of the eight re
 their own perimeter. The box above is the bounding box of all eight, and it is 99.3 % dry: 308 water columns
 of 45,144, all of them the river edge on the west.)*
 
-**World spawn:** the paved junction, (−940, −979). It is already hard surface and it faces the bridge.
+**World spawn:** ~~the paved junction, (−940, −979)~~ **(−956, 65, −876), the south compound's yard** (2026-09-12, the compound start); the junction, 104 m north through the gap, is Act I's first take. It is hard surface and faces the gap.
 
 | Function | Where | Why there |
 |---|---|---|
@@ -73,7 +73,7 @@ of 45,144, all of them the river edge on the west.)*
 
 The lock rectangles above are first cut and are for the visual pass to adjust, exactly as design §2.2's were.
 
-**Neutral ground.** The Magnum Torches keep their job but not their count. Five cover the pocket at 64-block
+**Neutral ground.** The Magnum Torches keep their job but not their count. (2026-09-12, the compound start): two cover the compound at the start (`yard`, `gap`) and four light by stage as each building is taken (`square`, `gatehouse`, `clinic`, `crossing`, each its own datapack function run by the site loop). Before that change: five cover the pocket at 64-block
 radius; they do **not** cover the sector. That is deliberate and is the whole of section 5.
 
 **`camp_ruins.py` is retired.** It exists only because the plateau had nothing to loot inside 300 m. Skadowsky
@@ -106,8 +106,7 @@ single defended box and the team is not split between a gate and a mast 144 m aw
 The best part of this change is that the starting location becomes the home base by player action instead of
 being handed over.
 
-At the start the team holds the pocket and nothing else. The torches suppress spawns inside 64 blocks of the
-square; the rest of Skadowsky is hostile and is where the loot is. The players are squatting in their own town.
+At the start the team holds **the south compound** and nothing else (2026-09-12, the compound start); the pocket is taken building by building in Act I (`gscraft-start-compound-2026-09-12.md` §5) and is camp ground whole on `skadowsky_held` (the `camp_*` zones by stage). The torches suppress spawns inside the compound; the rest of Skadowsky is hostile and is where the loot is. The players are squatting in their own town.
 
 The existing site ladder (design §6.1) runs the clearance without modification, but it pays out **perimeter**
 rather than a keeper:

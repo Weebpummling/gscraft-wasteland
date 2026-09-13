@@ -165,7 +165,7 @@ Nothing changes act. The plant gets 100 m nearer, the hospital 100 m further; bo
 
 ## 8. Corrections other documents need
 
-Nothing below has been applied except the two supersession notes named at the end.
+**Applied 2026-09-12 (plan step 1):** every row below is done - the documents carry dated in-place corrections, `camp.json` has the compound box and the gate, `map.json` the six `camp_*` boxes by stage, `camp_torches.json` two at the start and four by stage, `sectors_v8.json` a `compound` rectangle, and the local world's spawn is set by console (live's at the step 5 window).
 
 | Document | What is now wrong |
 |---|---|

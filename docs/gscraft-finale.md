@@ -88,6 +88,8 @@ seeing the Captains; Marshall's line should not promise more than that.
 
 ## 4. Win, fail, retry, afterwards
 
+> (2026-09-12, the compound start): the south compound (the yard and the hall, x −980…−920 × z −897…−818) is the fall-back when the mast's field falls — the one ground the players hold from the first minute, walled on three sides with the gate they built on the fourth.
+
 - **Win:** the Sleeper dies → stage `finale_won`; X8 completes (kill task on `minecraft:warden` with tag
   `gscraft_boss`, or a stage set by the script's death hook); the finale chest appears at the mast's
   foot, (−808, −1008): the season flag item, a **Warium** decoration set. X9 opens (free play; the board stays live).

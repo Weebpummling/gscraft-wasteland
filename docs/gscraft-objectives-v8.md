@@ -31,7 +31,9 @@ bridge from the west, up the main road east, or along the rail corridor north an
 
 ### Distances from the camp square (−940, −979)
 
-Straight-line figures are measured from the world spawn at the paved junction. The road network was never re-measured
+(2026-09-12, the compound start): the start is the south compound's yard at (−956, −876), 104 m south of the junction through the gap; `gscraft-start-compound-2026-09-12.md` §7 re-measures from the yard, and the figures below stand from the junction, which is Act I's first take.
+
+Straight-line figures are measured from the paved junction (the 2026-09-07 spawn). The road network was never re-measured
 from this camp — every "by road" and travel-time figure in draft 2 was taken from the dead plateau, so they are open.
 
 | Objective | Straight | By road today | Walk / car (design §2.5) | Note |
@@ -65,7 +67,7 @@ works 1.71 km.
 
 | Act | Land | Objectives | Strongpoint taken | What the act is about |
 |---|---|---|---|---|
-| **I — The town you woke in** | the pocket, then the sector; foot | the buildings around the camp square (the introductions), **Skadowsky** itself scouted, looted, held and defended — the rungs pay perimeter, not a keeper — and north 0.34 km to the **hospital** (J1's first walk, W3's scrap) | **the Skadowsky hospital** | learning the loop inside your own town; the first counterattack, the lightest, fought at the bridge |
+| **I — The town you woke in** | the compound, the pocket building by building, then the sector; foot | (2026-09-12, the compound start) the compound's gap closed (Marshall's first ask), then the pocket taken a building at a time — the square, the gatehouse, the north complex, the crossing, each a small site with a torch and a survivor (start-compound doc §5) — ~~the buildings around the camp square (the introductions)~~, **Skadowsky** itself scouted, looted, held and defended — the rungs pay perimeter, not a keeper — and north 0.34 km to the **hospital** (J1's first walk, W3's scrap) | **the Skadowsky hospital** | learning the loop inside your own town; the first counterattack, the lightest, fought at the bridge |
 | **II — Over the bridge, and down the bank** | west over the bridge; the east bank south; car | **the Line** west over the bridge to the collective farm (1.17 km), the town's landmarks (the re-targeted structure quests: the palace of culture, the tallest block, the central square, the stadium), the **KROT**; south down the east bank, the rail line and road to the plant's outer works. The runway and the library, which draft 2 put here, are deferred to a later quest line | **KROT** | the first car (the town at 1.52–2.46 km is a car's range, not a walk); the first gun (G1–G4) cast, bored and fired in the camp |
 | **III — The plant complex** | the home bank south, truck and the marsh channels | the plant proper: the **switchyard and admin block** (1.09 km), the **turbine hall** (2.06 km), the **cooling intake works** (2.16 km); the plant's four storage halls at (−888, 167), (−743, 167), (−890, 54) and (−775, 54); the rail line as the bank's spine (James's J-T1–3). The waterworks and FR-06, which draft 2 put here, are deferred to a later quest line | **the switchyard**, then **the turbine hall**, then **the intake works** | one industrial landscape, its three sites 0.66 to 1.71 km apart from each other; the truck and the marsh channels are the gate |
 | **IV — The reactor, and the far bank** | the confinement hall; the bridge west; air | **the confinement hall** (−642, 518, roof y 198): the reactor control module for the gatehouse tier 3 and the antenna array for tower stage 5, 1.53 km away on the camp's own bank, reached by road or by helicopter from the mast field inside the perimeter; then the bridge road west. The hub, with the rest of the district, is deferred to a later quest line | — | the tower's last parts; the beacon; the finale on the mast's field |

@@ -18,6 +18,17 @@
    "note": "2026-09-07: moved off the plateau into Skadowsky. The old rectangle x -1792..-1409, z -2492..-2109 is dead and nothing was ever built there. This rectangle sits inside the skad sector on purpose: the camp is part of the town. See docs/gscraft-skadowsky-camp.md."
   },
   {
+   "id": "compound",
+   "name": "South compound (the start)",
+   "x0": -980,
+   "z0": -897,
+   "x1": -920,
+   "z1": -818,
+   "group": "camp",
+   "source": "the walled yard and hall at the pocket's south end, Walker's yard and Michael's block; the world spawn (-956, 65, -876)",
+   "note": "2026-09-12: the start moved here (docs/gscraft-start-compound-2026-09-12.md); the pocket outside it is taken building by building in Act I"
+  },
+  {
    "id": "hub",
    "name": "Novo Expograd (expanded)",
    "x0": -3568,
