@@ -75,8 +75,8 @@ place their blocks and are idempotent.
 
 **2a. Five site files** (`gscraft_sites/`): `square`, `gatehouse`, `north` (the clinic and the shack together —
 one take, two survivors), `crossing`, and `mast` (the gun pit and the field; its `held` is the pocket's). Each:
-box, anchor, faction, `approach`, no assault waves, one defence wave. The pocket's occupiers are the faction
-`gscraft-entities-v8.md` §4 gives the camp pocket (decision D1 below if that row is stale).
+box, anchor, faction, `approach`, no assault waves, one defence wave. The occupiers are the Dead (the home
+sector's faction in `gscraft-entities-v8.md` §4; D1).
 
 **2b. The loop with no assault** (`Loop`): today the ladder climbs by assault waves. A site whose `assault` is
 empty goes `scouted` when a player is inside (as now) and `held` when its box has held no hostile fighter for 60 s
@@ -147,7 +147,7 @@ chapter is its own session with the quest book opened on WarTest as the gate. Ku
 
 | # | Decision | Recommendation |
 |---|---|---|
-| D1 | Who occupies the pocket's buildings at the start | what `gscraft-entities-v8.md` §4 says for the pocket; if that row is stale, **scavengers** (provoked, not hostile on sight) for the square and the north complex, the **dead** in the hospital as designed |
+| D1 | Who occupies the pocket's buildings at the start | **the Dead**, as `gscraft-entities-v8.md` §4's home row has it for the whole sector (the site files' `faction: dead`; the defence wave and the counterattack from the Dead's tables); the living factions arrive with the sites beyond the pocket |
 | D2 | How `compound_closed` is set | by the quest hand-in in Phase C; until then a `/gscraft stage add` — no block detector |
 | D3 | The clear timer for a building take | 60 s of online time with a player inside and no hostile; a setting `site.clear_ticks` |
 | D4 | The clinic and the shack as one take or two | **one** (`north`): one clear, two survivors, one torch |
