@@ -109,7 +109,7 @@ c("gscraft stage remove square_taken")
 c("kill @e[tag=gs_director,x=-1000,y=40,z=-1120,dx=140,dy=80,dz=290]")
 placed_open = int((re.search(r"placed (\d+)", open_reply) or [0, 0])[1])
 placed_taken = int((re.search(r"placed (\d+)", taken_reply) or [0, 0])[1])
-soldiers_taken = count("@e[type=gscraft:nato_soldier]") + count("@e[type=gscraft:ruaf_soldier]")
+soldiers_taken = count(f"@e[type=gscraft:nato_soldier,{SQUARE}]") + count(f"@e[type=gscraft:ruaf_soldier,{SQUARE}]")   # inside the taken box only: the placement lands up to 70 from the point
 check("nothing is placed in the compound; the square places the front's military until square_taken, then the Dead and scavengers only",
       in_compound == 0 and placed_open > 0 and placed_taken > 0 and soldiers_taken == 0,
       f"in the compound {in_compound}; at the square open: placed {placed_open}, taken: placed {placed_taken} with {soldiers_taken} soldiers")

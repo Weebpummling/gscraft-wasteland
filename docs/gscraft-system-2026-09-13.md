@@ -59,7 +59,7 @@ below either writes a stage or reads one; that is what makes it one system rathe
 | **Damage** (the body model, the vehicles' lists, the flat TACZ explosives) | the world datapack `gscraft_armour`, settings | wounds and bleeding on players; modules on vehicles | `combat/*`, `ArmourDamage` |
 | **Drops** (`gscraft_drops`: the Dead, wrecks) | the entity type | what a body leaves | `Drops` |
 | **The tower lock** (`gscraft_locks/camp.json`) | the tower rectangle | blocks the mast's ground until the chapter opens it | `Locks` |
-| **Stages** | - | player tags today; advancements per stage (R2, to build) | `Stages` |
+| **Stages** | - | player tags and, since build 1, an advancement per stage (`gscraft:stage/<name>`, the registry in `tools/stages.py`) | `Stages` |
 | **Functions** (torches ×6, survivors ×6, tower stages ×6, dossiers) | run by the loop's `held`/`lost` lists or by hand | the world changes: a torch, a survivor, a tower stage | `build/datapacks/gscraft` |
 | **Settings** (`gscraft_settings`, ~130 keys) | a datapack overlay per server | every tunable above | `Settings` |
 | **Commands** (`/gscraft director|site|stage|vehicle|squad|fighter|monitor|settings`) | - | the operator's and the tests' hands | `*Commands` |
@@ -154,7 +154,7 @@ on the local server and WarTest first.
 | # | Build | Done when |
 |---|---|---|
 | 0 | **Cut the takes down** (§6 step 2): the alias stage takes a building, runs its functions, flips its zone; no per-building counterattack, loss, guard or clear timer; phase 26 rewritten | `/gscraft stage add square_taken` lights the torch and flips the zone; nothing else moves; phase 25/26/6 green  **Built 2026-09-13.** |
-| 1 | **R2: an advancement per stage** in the mod, generated from the registry (§5) plus any `bp_*` the recipes list; `/gscraft stage add` grants it | an FTB Quests advancement task on `gscraft:stage/square_taken` completes when the stage is set; survives a relogin |
+| 1 | **R2: an advancement per stage** in the mod, generated from the registry (§5) plus any `bp_*` the recipes list; `/gscraft stage add` grants it | an FTB Quests advancement task on `gscraft:stage/square_taken` completes when the stage is set; survives a relogin  **Built 2026-09-13** (`tools/stages.py`, 50 advancements, `/gscraft stage check`); the FTB Quests task is the in-game check. |
 | 2 | **Drop tables** per faction with dog tags and low-rate armour; `dead.json` re-cut from In Control's file | a killed rifleman leaves materials and a tag, never a gun; a wreck's table unchanged |
 | 3 | **Items** (~25 for the slice, of the ~85) with stack sizes, the bulky tag, one tooltip each; `build/kubejs/startup_scripts/` created | every id gives; a bulky item slows and refuses the pack |
 | 4 | **Act I loot**: five `building/*` tables; chests bound by `LootTable` NBT in the compound and the square; the dead `ruins/*` deleted | a fresh player covers W1/T1/M1/U1's lists inside 20 minutes; Lootr instancing holds |

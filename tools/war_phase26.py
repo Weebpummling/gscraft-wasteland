@@ -90,8 +90,8 @@ c("kill @e[tag=gs_director]")
 time.sleep(1)
 ambient = c("gscraft director ambient -940 66 -979 6")
 placed = int((re.search(r"placed (\d+)", ambient) or [0, 0])[1])
-soldiers = count(f"@e[type=gscraft:nato_soldier,{POCKET}]") + count(f"@e[type=gscraft:ruaf_soldier,{POCKET}]")
-check("the Dead still come to the taken square, no soldiers", placed > 0 and soldiers == 0, f"placed {placed}, soldiers {soldiers}")
+soldiers = count(f"@e[type=gscraft:nato_soldier,{SQUARE}]") + count(f"@e[type=gscraft:ruaf_soldier,{SQUARE}]")   # the placement lands up to 70 from the point: only the taken box is the thin pool
+check("the Dead still come to the taken square, no soldier inside it", placed > 0 and soldiers == 0, f"placed {placed}, soldiers {soldiers}")
 clear_hostiles(POCKET)
 
 # 3. the loss by the stage alone, and the retake

@@ -413,6 +413,16 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, slice build 1 - an advancement per stage (ruling R2):** `Stages.add/remove` grant and revoke
+`gscraft:stage/<name>` on every online player (and on join, with the tag), so FTB Quests' native advancement task reads
+a stage with no compat mod and no script; a stage without a file is still a tag and is logged once. `tools/stages.py`
+is the registry (system doc §5) and writes the 50 hidden advancements (an impossible criterion; only the mod grants)
+into `data/gscraft/advancements/stage/`; the `bp_*` recipe stages join when the crafting build lists them.
+`/gscraft stage check [name]` reports the advancements the server knows. `tools/war_phase28.py` (4/4); 26 and 25 green
+(their soldier counts bounded to the taken box: the director's placement lands up to 70 blocks from its point, and a
+soldier standing in the untaken north complex is the front's, not a fault). The award to a player and the FTB Quests
+task are the owner's in-game check.
+
 **2026-09-13, slice build 0 - the building takes cut down (owner: "approved on all, go ahead and initiate"):** a
 building take is its alias stage and nothing else. `Loop.building`: the alias set (`square_taken` … by the quest's reward,
 or by hand) takes the building - held, `<id>_held`, the `held` functions (the torch, the survivor), the zone flips; the

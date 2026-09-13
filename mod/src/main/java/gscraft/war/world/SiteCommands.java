@@ -78,6 +78,18 @@ public final class SiteCommands {
                             say(ctx, (Stages.add(ctx.getSource().getServer(), name) ? "stage set: " : "stage already set: ") + name);
                             return 1;
                         })))
+                        .then(Commands.literal("check").executes(ctx -> {
+                            // the stage advancements the server knows (tools/stages.py; ruling R2)
+                            long n = ctx.getSource().getServer().getAdvancements().getAllAdvancements().stream()
+                                    .filter(a -> a.getId().getNamespace().equals(gscraft.war.GscraftWar.MODID) && a.getId().getPath().startsWith("stage/")).count();
+                            say(ctx, "stage advancements known: " + n);
+                            return (int) n;
+                        }).then(Commands.argument("name", StringArgumentType.word()).executes(ctx -> {
+                            String name = StringArgumentType.getString(ctx, "name");
+                            boolean known = ctx.getSource().getServer().getAdvancements().getAdvancement(new net.minecraft.resources.ResourceLocation(gscraft.war.GscraftWar.MODID, "stage/" + name)) != null;
+                            say(ctx, "stage " + name + ": advancement " + (known ? "known" : "UNKNOWN (add it to tools/stages.py)"));
+                            return known ? 1 : 0;
+                        })))
                         .then(Commands.literal("remove").then(Commands.argument("name", StringArgumentType.word()).executes(ctx -> {
                             String name = StringArgumentType.getString(ctx, "name");
                             say(ctx, (Stages.remove(ctx.getSource().getServer(), name) ? "stage removed: " : "stage was not set: ") + name);
