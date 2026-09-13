@@ -1,0 +1,85 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": {
+        "min": 3,
+        "max": 5
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "gscraft:metal_scrap",
+          "weight": 20,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "gscraft:nail",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "gscraft:screw",
+          "weight": 15,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 2,
+                "max": 4
+              }
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "gscraft:insulating_tape",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "name": "gscraft:pliers",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "gscraft:screwdriver_set",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "gscraft:welding_torch",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "gscraft:pressure_gauge",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "gscraft:corrugated_hose",
+          "weight": 4
+        }
+      ]
+    }
+  ]
+}

@@ -413,6 +413,17 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, slice build 4 - Act I's loot:** the five building tables (`data/gscraft/loot_tables/building/
+apartment|garage|workshop|office|hospital.json`, loot doc §3 with R13/R14) in the mod; the dead `ruins/*` tables deleted.
+`tools/chests.py <world> --place --apply`: the compound and the square held **eight** containers between them, so the
+tool also places Lootr chests on interior floor spots (a solid floor, air over it, a roof above, against a wall where it
+can, four apart; per rectangle: the hall 8 apartment, the brick block 6 garage, the west sheds 1 workshop - they are
+two-high and mostly open - the annex 4 office, the square 14 office/apartment) and binds every container by console
+`setblock lootr:lootr_chest{LootTable:...}` (a world edit by commands, no upload; the same commands go to live);
+`tools/chests.json` is the record (41). `tools/war_phase31.py` (4/4): each table rolls its own items by `/loot spawn`, the
+bound containers stand, the tables cover the introductions' hand-ins. A player's instanced contents are the owner's
+in-game check. Open: the workshop table has one chest; the north complex (hospital) binds with its take.
+
 **2026-09-13, slice build 3 - the items (in the mod, not KubeJS - ruling R12):** `gscraft_items/items.json` lists 60
 items (hardware, mechanical, electrical, filters, medical, tools, the six intermediates, casings/powder/concrete, eleven
 blueprint cards, the claim marker - stack sizes per design §4.2, the claim marker bulky) and `gscraft.war.item.SliceItems`
