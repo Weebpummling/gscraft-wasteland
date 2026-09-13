@@ -41,6 +41,8 @@ public final class SiteData extends SavedData {
         public int guardTarget;
         /** the site's boss has been placed (or refused); the reset clears it */
         public boolean bossPlaced;
+        /** the claim marker's banner, while the assault runs and after; null when none was placed (the console's claim) */
+        public BlockPos marker;
 
         CompoundTag save() {
             CompoundTag t = new CompoundTag();
@@ -55,6 +57,7 @@ public final class SiteData extends SavedData {
             t.putInt("LossTicks", lossTicks);
             t.putInt("GuardTarget", guardTarget);
             t.putBoolean("BossPlaced", bossPlaced);
+            if (marker != null) t.putIntArray("Marker", new int[]{marker.getX(), marker.getY(), marker.getZ()});
             return t;
         }
 
@@ -71,6 +74,10 @@ public final class SiteData extends SavedData {
             p.lossTicks = t.getInt("LossTicks");
             p.guardTarget = t.getInt("GuardTarget");
             p.bossPlaced = t.getBoolean("BossPlaced");
+            if (t.contains("Marker")) {
+                int[] m = t.getIntArray("Marker");
+                if (m.length == 3) p.marker = new BlockPos(m[0], m[1], m[2]);
+            }
             return p;
         }
     }

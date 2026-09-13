@@ -221,6 +221,7 @@ public final class Loop {
                 p.nextWave = data.online;
                 p.wave = 0;
                 data.setDirty();
+                Board.lamp(level, true);
                 title(level.getServer(), Component.literal(site.name()), Component.translatable("gscraft.title.hold"));
                 return site.id() + ": the assault begins, five minutes, " + ASSAULT_WAVES + " waves";
             }
@@ -238,6 +239,7 @@ public final class Loop {
         p.state = to;
         data.setDirty();
         Stages.add(level.getServer(), site.id() + "_" + to.name().toLowerCase(Locale.ROOT));
+        Board.apply(level, site.id(), to.name().toLowerCase(Locale.ROOT));
     }
 
     private static void reset(ServerLevel level, SiteData data, SiteDef site, Progress p) {
@@ -248,6 +250,10 @@ public final class Loop {
         discardWave(level, site);
         for (Mob m : level.getEntitiesOfClass(Mob.class, around(site, 64), m -> m.getTags().contains(GUARD_TAG + site.id()))) m.discard();
         dropBar(site);
+        if (p.marker != null && level.getBlockState(p.marker).is(net.minecraft.tags.BlockTags.BANNERS)) level.removeBlock(p.marker, false);
+        p.marker = null;
+        Board.lamp(level, false);
+        Board.apply(level, site.id(), "unknown");
         Progress fresh = new Progress();
         p.state = fresh.state;
         p.lost = false;
@@ -278,6 +284,49 @@ public final class Loop {
         }
         data.setDirty();
         return site.id() + ": " + p.phase.name().toLowerCase(Locale.ROOT) + " clock set to " + seconds + " s";
+    }
+
+    /**
+     * The claim marker set at a site (the item, or {@code /gscraft site <id> marker}): the assault begins if the rung allows;
+     * the banner stands at the anchor and must survive, with a player inside at the end (map-design §6.1). Returns the message.
+     */
+    public static String claim(ServerLevel level, SiteDef site) {
+        String msg = advance(level, site, State.HELD);
+        if (!msg.contains("the assault begins")) return msg;
+        BlockPos top = level.getHeightmapPos(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING, new BlockPos(site.anchorX(), 0, site.anchorZ()));
+        level.setBlock(top, net.minecraft.world.level.block.Blocks.WHITE_BANNER.defaultBlockState(), 3);
+        SiteData data = SiteData.get(level);
+        Progress p = data.progress(site.id());
+        p.marker = top;
+        data.setDirty();
+        GscraftWar.LOG.info("[gscraft] {}: the marker stands at {}", site.id(), top.toShortString());
+        return msg + "; the marker stands at " + top.toShortString();
+    }
+
+    /** the marker still stands and somebody is inside the site */
+    private static boolean markerHolds(ServerLevel level, SiteDef site, Progress p) {
+        boolean standing = level.getBlockState(p.marker).is(net.minecraft.tags.BlockTags.BANNERS);
+        AABB box = new AABB(site.x0(), level.getMinBuildHeight(), site.z0(), site.x1() + 1, level.getMaxBuildHeight(), site.z1() + 1);
+        boolean inside = !level.getEntitiesOfClass(net.minecraft.server.level.ServerPlayer.class, box, pl -> pl.isAlive() && !pl.isSpectator()).isEmpty();
+        if (!standing) GscraftWar.LOG.info("[gscraft] {}: the marker is down", site.id());
+        if (!inside) GscraftWar.LOG.info("[gscraft] {}: nobody inside at the end", site.id());
+        return standing && inside;
+    }
+
+    /** the assault lost: the site stays looted, the marker is gone and re-crafted, Marshall says so */
+    private static void assaultLost(ServerLevel level, SiteData data, SiteDef site, Progress p) {
+        discardWave(level, site);
+        if (p.marker != null && level.getBlockState(p.marker).is(net.minecraft.tags.BlockTags.BANNERS)) level.removeBlock(p.marker, false);
+        p.marker = null;
+        p.phase = Phase.NONE;
+        p.wave = 0;
+        if (data.contested.equals(site.id())) data.contested = "";
+        data.setDirty();
+        Board.lamp(level, false);
+        Board.apply(level, site.id(), "looted");
+        title(level.getServer(), Component.literal(site.name() + " — LOST"), Component.empty());
+        for (net.minecraft.server.level.ServerPlayer pl : level.getServer().getPlayerList().getPlayers()) gscraft.war.survivor.Say.queue(pl, "marshall", "assault_lost", false);
+        GscraftWar.LOG.info("[gscraft] {}: the assault is lost; the site stays looted", site.id());
     }
 
     // ---- the assault
@@ -323,6 +372,11 @@ public final class Loop {
         bar(level.getServer(), site, site.name() + " — hold — " + mmss(left), (float) left / ASSAULT_TICKS, BossEvent.BossBarColor.RED);
         if (left <= 0) {
             dropBar(site);
+            if (p.marker != null && !markerHolds(level, site, p)) {
+                assaultLost(level, data, site, p);
+                return;
+            }
+            Board.lamp(level, false);
             setState(level, data, site, p, State.HELD);
             p.phase = Phase.FORTIFY;
             p.deadline = data.online + FORTIFY_TICKS;
@@ -395,6 +449,7 @@ public final class Loop {
         if (p.lossTicks >= LOSS_TICKS) {
             p.lost = true;
             Stages.add(level.getServer(), site.id() + "_lost");
+            Board.apply(level, site.id(), "lost");
             discardWave(level, site);
             dropBar(site);
             p.phase = Phase.FORTIFY;

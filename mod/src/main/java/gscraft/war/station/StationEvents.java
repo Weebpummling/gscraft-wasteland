@@ -39,7 +39,13 @@ public final class StationEvents {
         if (event.phase != TickEvent.Phase.END || !(event.player instanceof ServerPlayer p) || p.tickCount % 10 != 0) return;
         HitResult hit = p.pick(5.0, 0f, false);
         if (hit.getType() != HitResult.Type.BLOCK) return;
-        if (p.level().getBlockEntity(((BlockHitResult) hit).getBlockPos()) instanceof StationBlockEntity st) p.displayClientMessage(Component.literal(st.readout(p)), true);
+        BlockPos at = ((BlockHitResult) hit).getBlockPos();
+        if (p.level().getBlockEntity(at) instanceof StationBlockEntity st) {
+            p.displayClientMessage(Component.literal(st.readout(p)), true);
+            return;
+        }
+        String column = gscraft.war.world.Board.column(at);
+        if (column != null && p.level() instanceof ServerLevel sl) p.displayClientMessage(Component.literal(gscraft.war.world.Board.readout(sl, column)), true);
     }
 
     @SubscribeEvent

@@ -413,6 +413,21 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, slice build 8 - the hospital as the first strongpoint, the marker and the board:** `item/ClaimMarkerItem`
+(`useOn` inside a strongpoint's box → `Loop.claim`; refused = Marshall's `marker_refused` line and the message on the action
+bar, the marker kept; accepted = consumed, `marker_set`), `Loop.claim` (advance to HELD + a white banner at the anchor's
+surface, `Progress.marker`), `markerHolds`/`assaultLost` at the assault's end (banner standing + a player inside, else back to
+looted, the banner removed, `assault_lost` to everyone; the console's claim without a marker keeps the old always-hold rule -
+ruling R25), `world/Board` (`gscraft_board/board.json`; `apply` on every `setState`, reset (unknown) and the gate's loss
+(lost); `lamp` on the claim, off at the end; `readout` for the look-at in `StationEvents.look`), `/gscraft site <id> marker`,
+`/gscraft board`. `tools/board.py <world> [--apply]` scans the hall for the wall (R26), writes board.json + 45 functions,
+`--apply` installs them in the world's datapack, reloads and places the board (done locally: the hall's north wall, origin
+(-952, 65, -857), facing south). `tools/war_phase35.py` (6/6, ~40 s: the assault cut to 8 s by `site hospital clock`).
+Phases 10, 25, 26, 27 still green. In-game: `/give @s gscraft:claim_marker`, walk to the hospital (scouted + looted by
+`/gscraft site hospital set scouted|looted` until J-S2/T3 exist), right-click the ground inside it, hold five minutes inside
+the box; look at the board in the hall. Open: the clock and composition signs; the banner's post at the anchor (the site's
+dressing); live gets the board by the same tool at the deploy (a world edit by commands).
+
 **2026-09-13, slice build 7 - the first quests:** `tools/chapters.py` is now the book: `QUESTS` is the table (key, chapter,
 title, the voice line as the subtitle, the task line as the description, tasks - `item` consumes, `show` does not, `loc` a
 site's box at y 40-110, `adv` a stage's advancement, the checkmark - and rewards - `give` an item, `stage` = a command reward

@@ -53,9 +53,14 @@ public final class SiteCommands {
                                 }))))
                         .then(Commands.literal("clock").then(Commands.argument("seconds", IntegerArgumentType.integer(0, 36000)).executes(ctx ->
                                 withSite(ctx, (level, site) -> Loop.clock(level, site, IntegerArgumentType.getInteger(ctx, "seconds"))))))
+                        .then(Commands.literal("marker").executes(ctx -> withSite(ctx, (level, site) -> Loop.claim(level, site))))
                         .then(Commands.literal("guard").executes(ctx -> withSite(ctx, (level, site) ->
                                 site.id() + " site guard: " + Loop.keepGuard(level, site, SiteData.get(level).progress(site.id())) + " summoned, "
                                         + Loop.guardCount(level, site) + " standing")))))
+                .then(Commands.literal("board").executes(ctx -> {
+                    ctx.getSource().sendSuccess(() -> net.minecraft.network.chat.Component.literal(Board.describe()), false);
+                    return Board.loaded() ? 1 : 0;
+                }))
                 .then(Commands.literal("clock")
                         .then(Commands.literal("free").executes(ctx -> {
                             Loop.setFreeClock(true);

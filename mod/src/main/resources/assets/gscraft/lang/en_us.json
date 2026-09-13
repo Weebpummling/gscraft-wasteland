@@ -173,5 +173,9 @@
   "gscraft.say.marshall.hello": "Close that corner first. Sandbags — then we talk.",
   "gscraft.say.walker.station": "Good. Set your station down somewhere inside the wire. It'll only ever answer to you.",
   "gscraft.say.michael.lights": "There. Now we can see what's coming.",
-  "gscraft.say.marshall.speaks": "We're squatting in someone's town. Clear it and it's ours. Start north — there's a hospital up that road. Ask James what's in it first."
+  "gscraft.say.marshall.speaks": "We're squatting in someone's town. Clear it and it's ours. Start north — there's a hospital up that road. Ask James what's in it first.",
+  "gscraft.say.marshall.marker_set": "Marker's in. Five minutes — hold it, and stay inside.",
+  "gscraft.say.marshall.marker_refused": "James hasn't been. Neither have you.",
+  "gscraft.say.marshall.nobody": "That's nobody's ground. The marker goes down at a strongpoint.",
+  "gscraft.say.marshall.assault_lost": "The marker's down. Craft another and we go again."
 }
