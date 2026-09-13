@@ -244,7 +244,7 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
         } else {
             state.kitIssued = true;
         }
-        for (EquipmentSlot slot : EquipmentSlot.values()) setDropChance(slot, 0.0F);
+        for (EquipmentSlot slot : EquipmentSlot.values()) setDropChance(slot, slot.getType() == EquipmentSlot.Type.ARMOR ? gscraft.war.world.Drops.ARMOUR_CHANCE : 0.0F);   // the review's one lever: armour at a low rate, the gun never
     }
 
     @Override

@@ -413,6 +413,14 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, slice build 2 - the drop tables (enemy review §7: materials, never products):** `gscraft_drops/nato.json`
+and `ruaf.json` (a dog tag 60%, rifle and handgun ammunition, an armour plate 15%, scrap and powder), `scavengers.json`
+(scrap, coal, a little handgun ammunition, no dog tag), `dead.json` re-cut (flesh, string, bone, a little powder and scrap;
+In Control's ender pearls, ammunition boxes and food gone), `horrors.json` (the Bloater's powder and flesh, the Rider's
+scrap; the Matron's is the quest's). The kit's armour drops at `drops.armour_chance` (0.05, the review's one lever); the
+gun never. `/gscraft drops roll <entity> <n>` rolls a table (a drop lands only on a player's kill, so the headless test
+rolls). `tools/war_phase29.py` (5/5). The kill itself is the owner's in-game check.
+
 **2026-09-13, slice build 1 - an advancement per stage (ruling R2):** `Stages.add/remove` grant and revoke
 `gscraft:stage/<name>` on every online player (and on join, with the tag), so FTB Quests' native advancement task reads
 a stage with no compat mod and no script; a stage without a file is still a tag and is logged once. `tools/stages.py`

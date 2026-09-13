@@ -183,7 +183,13 @@ public final class DirectorCommands {
                             .reduce((a, b) -> a + "; " + b).orElse(""));
                     return Locks.all().size();
                 }))
-                .then(Commands.literal("drops").then(Commands.argument("entity", StringArgumentType.greedyString()).executes(ctx -> {
+                .then(Commands.literal("drops").then(Commands.literal("roll").then(Commands.argument("entity", net.minecraft.commands.arguments.ResourceLocationArgument.id()).then(Commands.argument("n", IntegerArgumentType.integer(1, 10000)).executes(ctx -> {
+                    // the table rolled n times (the tests: a drop lands only on a player's kill)
+                    var id = net.minecraft.commands.arguments.ResourceLocationArgument.getId(ctx, "entity");
+                    var rolled = Drops.roll(ctx.getSource().getLevel(), id, IntegerArgumentType.getInteger(ctx, "n"));
+                    say(ctx, id + " x" + IntegerArgumentType.getInteger(ctx, "n") + ": " + rolled);
+                    return rolled.size();
+                })))).then(Commands.argument("entity", StringArgumentType.greedyString()).executes(ctx -> {
                     var rules = Drops.rulesFor(new net.minecraft.resources.ResourceLocation(StringArgumentType.getString(ctx, "entity")));
                     say(ctx, rules.size() + " drop rules (" + Drops.types() + " entity types loaded): " + rules.stream()
                             .map(d -> d.item().getPath() + " " + Math.round(d.chance() * 100) + "%")

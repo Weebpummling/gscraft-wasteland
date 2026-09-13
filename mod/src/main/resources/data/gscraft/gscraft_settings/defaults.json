@@ -235,5 +235,8 @@
     "dismount_range": 32.0,
     "bail_share": 0.6,
     "bail_chance": 0.5
+  },
+  "drops": {
+    "armour_chance": 0.05
   }
 }

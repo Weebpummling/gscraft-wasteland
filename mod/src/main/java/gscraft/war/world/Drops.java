@@ -93,6 +93,23 @@ public final class Drops extends SimpleJsonResourceReloadListener {
         return n;
     }
 
+    /** the kit's armour drop chance per piece (enemy review §7: the one open lever); the hands never drop */
+    public static float ARMOUR_CHANCE = 0.05F;
+
+    /** the table rolled n times, for the tests: item id -> count */
+    public static java.util.Map<String, Integer> roll(net.minecraft.server.level.ServerLevel level, ResourceLocation entity, int n) {
+        java.util.Map<String, Integer> out = new java.util.TreeMap<>();
+        RandomSource random = level.getRandom();
+        for (int i = 0; i < n; i++) {
+            for (Drop drop : rulesFor(entity)) {
+                if (random.nextFloat() >= drop.chance) continue;
+                int count = drop.min + (drop.max > drop.min ? random.nextInt(drop.max - drop.min + 1) : 0);
+                out.merge(drop.item.toString(), count, Integer::sum);
+            }
+        }
+        return out;
+    }
+
     public static int types() {
         return drops.size();
     }
