@@ -1,0 +1,840 @@
+{
+ "chapters": [
+  {
+   "tag": "walker",
+   "title": "Walker",
+   "id": "2738C5E7FCA0B0F8"
+  },
+  {
+   "tag": "tony",
+   "title": "Tony",
+   "id": "E4F1B6A0C48BBB5C"
+  },
+  {
+   "tag": "michael",
+   "title": "Michael",
+   "id": "3D905E296DC1E25A"
+  },
+  {
+   "tag": "tune",
+   "title": "Tune",
+   "id": "BDE2656E95A66C18"
+  },
+  {
+   "tag": "james",
+   "title": "James",
+   "id": "6A8C22A3C1E3B021"
+  },
+  {
+   "tag": "marshall",
+   "title": "Marshall",
+   "id": "E67E58949533EA40"
+  },
+  {
+   "tag": "pocket",
+   "title": "The pocket",
+   "id": "5D227572CD0BCBA8"
+  }
+ ],
+ "quests": [
+  {
+   "key": "meet_walker",
+   "chapter": "walker",
+   "title": "Meet Walker",
+   "voice": "",
+   "task": "Right-click them.",
+   "x": 0,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "seen_walker"
+    }
+   ],
+   "rewards": [],
+   "deps": [],
+   "invisible": true,
+   "id": "FBE6BDDCB8D785C1"
+  },
+  {
+   "key": "W1",
+   "chapter": "walker",
+   "title": "Nuts and bolts",
+   "voice": "Bring me anything with a thread on it.",
+   "task": "Hand in eight bolts and eight nuts.",
+   "x": 2,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:bolt",
+     "count": 8,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:nut",
+     "count": 8,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "meet_walker"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:wrench",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "gscraft:card_fastener_kit",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "gscraft:card_hand_tools",
+     "count": 1
+    },
+    {
+     "type": "stage",
+     "stage": "bp_fastener_kit"
+    },
+    {
+     "type": "stage",
+     "stage": "bp_hand_tools"
+    },
+    {
+     "type": "say",
+     "npc": "walker",
+     "key": "station"
+    }
+   ],
+   "id": "0016A4AE37CD6D15"
+  },
+  {
+   "key": "W2",
+   "chapter": "walker",
+   "title": "A place for everything",
+   "voice": "You'll need somewhere to put it all.",
+   "task": "Order two fastener kits at your station and bring them.",
+   "x": 4,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:fastener_kit",
+     "count": 2,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "W1"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "sophisticatedbackpacks:backpack",
+     "count": 1
+    },
+    {
+     "type": "stage",
+     "stage": "storage_1"
+    }
+   ],
+   "id": "B61B131210590940"
+  },
+  {
+   "key": "W3",
+   "chapter": "walker",
+   "title": "Frame of mind",
+   "voice": "Scrap is only scrap till it's welded.",
+   "task": "Bring twelve metal scrap and show me a welding torch.",
+   "x": 6,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:metal_scrap",
+     "count": 12,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:welding_torch",
+     "count": 1,
+     "consume": false
+    }
+   ],
+   "deps": [
+    "W2"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:card_steel_frame",
+     "count": 1
+    },
+    {
+     "type": "stage",
+     "stage": "bp_steel_frame"
+    },
+    {
+     "type": "stage",
+     "stage": "workshop_1"
+    }
+   ],
+   "id": "ED8D7105876E6B1C"
+  },
+  {
+   "key": "meet_tony",
+   "chapter": "tony",
+   "title": "Meet Tony",
+   "voice": "",
+   "task": "Right-click them.",
+   "x": 0,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "seen_tony"
+    }
+   ],
+   "rewards": [],
+   "deps": [],
+   "invisible": true,
+   "id": "CC8C6FEF50EC1831"
+  },
+  {
+   "key": "T1",
+   "chapter": "tony",
+   "title": "Field dressing",
+   "voice": "The shelves here are bare.",
+   "task": "Hand in four bandages and two painkillers.",
+   "x": 2,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:bandage",
+     "count": 4,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:painkillers",
+     "count": 2,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "meet_tony"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:card_med_kit",
+     "count": 1
+    },
+    {
+     "type": "stage",
+     "stage": "bp_med_kit"
+    }
+   ],
+   "id": "7B637596EC041BC1"
+  },
+  {
+   "key": "T2",
+   "chapter": "tony",
+   "title": "Stock the clinic",
+   "voice": "Two for the shelf, and you get more back.",
+   "task": "Order two med kits and bring them.",
+   "x": 4,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:med_kit",
+     "count": 2,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "T1"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:med_kit",
+     "count": 4
+    },
+    {
+     "type": "stage",
+     "stage": "medical_1"
+    }
+   ],
+   "id": "7E3A7A7A5C44B2B0"
+  },
+  {
+   "key": "meet_michael",
+   "chapter": "michael",
+   "title": "Meet Michael",
+   "voice": "",
+   "task": "Right-click them.",
+   "x": 0,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "seen_michael"
+    }
+   ],
+   "rewards": [],
+   "deps": [],
+   "invisible": true,
+   "id": "B197DA86940AABFE"
+  },
+  {
+   "key": "M1",
+   "chapter": "michael",
+   "title": "Sparks",
+   "voice": "Wire first. Everything else is wire with a job.",
+   "task": "Hand in three wire spools, a power cord and a water filter.",
+   "x": 2,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:wire_spool",
+     "count": 3,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:power_cord",
+     "count": 1,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:water_filter",
+     "count": 1,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "meet_michael"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:card_wiring_harness",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "gscraft:card_filter_cartridge",
+     "count": 1
+    },
+    {
+     "type": "stage",
+     "stage": "bp_wiring_harness"
+    },
+    {
+     "type": "stage",
+     "stage": "bp_filter_cartridge"
+    }
+   ],
+   "id": "44D246950C7B83C4"
+  },
+  {
+   "key": "M2",
+   "chapter": "michael",
+   "title": "Lights on",
+   "voice": "There's a generator under that tarp.",
+   "task": "Order two wiring harnesses and find a light bulb.",
+   "x": 4,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:wiring_harness",
+     "count": 2,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:light_bulb",
+     "count": 1,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "M1"
+   ],
+   "rewards": [
+    {
+     "type": "stage",
+     "stage": "generator_1"
+    },
+    {
+     "type": "say",
+     "npc": "michael",
+     "key": "lights"
+    }
+   ],
+   "id": "3E696D1A279CE198"
+  },
+  {
+   "key": "meet_tune",
+   "chapter": "tune",
+   "title": "Meet Tune",
+   "voice": "",
+   "task": "Right-click them.",
+   "x": 0,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "seen_tune"
+    }
+   ],
+   "rewards": [],
+   "deps": [],
+   "invisible": true,
+   "id": "72E6981B6BA1DC1A"
+  },
+  {
+   "key": "U1",
+   "chapter": "tune",
+   "title": "Static",
+   "voice": "I can hear the town from here. I'd like to hear further.",
+   "task": "Hand in a circuit board, two capacitors and a broken radio.",
+   "x": 2,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:circuit_board",
+     "count": 1,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:capacitor",
+     "count": 2,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:broken_radio",
+     "count": 1,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "meet_tune"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:card_circuit_assembly",
+     "count": 1
+    },
+    {
+     "type": "stage",
+     "stage": "bp_circuit_assembly"
+    }
+   ],
+   "id": "CBEAB3D0BF7F532E"
+  },
+  {
+   "key": "U2",
+   "chapter": "tune",
+   "title": "The map",
+   "voice": "Two of those and the map talks.",
+   "task": "Order two circuit assemblies and bring them.",
+   "x": 4,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:circuit_assembly",
+     "count": 2,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "U1"
+   ],
+   "rewards": [
+    {
+     "type": "stage",
+     "stage": "radio_1"
+    },
+    {
+     "type": "say",
+     "npc": "tune",
+     "key": "map"
+    }
+   ],
+   "id": "CCC3254FA145A448"
+  },
+  {
+   "key": "meet_james",
+   "chapter": "james",
+   "title": "Meet James",
+   "voice": "",
+   "task": "Right-click them.",
+   "x": 0,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "seen_james"
+    }
+   ],
+   "rewards": [],
+   "deps": [],
+   "invisible": true,
+   "id": "D74CFA3B64761D9A"
+  },
+  {
+   "key": "J1",
+   "chapter": "james",
+   "title": "Get your bearings",
+   "voice": "Walk it before you trust it.",
+   "task": "Reach the level crossing and the mast's field.",
+   "x": 2,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "location",
+     "name": "the level crossing",
+     "box": [
+      -912,
+      -878,
+      -988,
+      -958
+     ]
+    },
+    {
+     "type": "location",
+     "name": "the mast's field",
+     "box": [
+      -846,
+      -770,
+      -1040,
+      -960
+     ]
+    }
+   ],
+   "deps": [
+    "meet_james"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "minecraft:compass",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "minecraft:map",
+     "count": 1
+    }
+   ],
+   "id": "90041807678DFDB1"
+  },
+  {
+   "key": "R1",
+   "chapter": "marshall",
+   "title": "Muster",
+   "voice": "We're squatting in someone's town.",
+   "task": "Read the board in the hall, then come back.",
+   "x": 0,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "checkmark"
+    }
+   ],
+   "deps": [
+    "W1",
+    "T1",
+    "M1",
+    "U1",
+    "J1"
+   ],
+   "hide_until_deps": true,
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:card_claim_marker",
+     "count": 1
+    },
+    {
+     "type": "stage",
+     "stage": "bp_claim_marker"
+    },
+    {
+     "type": "stage",
+     "stage": "marshall_speaks"
+    },
+    {
+     "type": "say",
+     "npc": "marshall",
+     "key": "speaks"
+    }
+   ],
+   "id": "B210B848C9E6E4CB"
+  },
+  {
+   "key": "R0",
+   "chapter": "pocket",
+   "title": "The gap",
+   "voice": "Marshall wants that corner shut before dark.",
+   "task": "Order sandbags at your station and hand in eight.",
+   "x": 0,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "superbwarfare:sandbag",
+     "count": 8,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "W1"
+   ],
+   "rewards": [
+    {
+     "type": "stage",
+     "stage": "compound_closed"
+    }
+   ],
+   "id": "03F608F813A19429"
+  },
+  {
+   "key": "square",
+   "chapter": "pocket",
+   "title": "The junction",
+   "voice": "The square is ours if we say it is.",
+   "task": "Walk the square and bring back eight scrap from its streets.",
+   "x": 2,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "location",
+     "name": "the square",
+     "box": [
+      -966,
+      -914,
+      -1000,
+      -958
+     ]
+    },
+    {
+     "type": "item",
+     "item": "gscraft:metal_scrap",
+     "count": 8,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "R0"
+   ],
+   "rewards": [
+    {
+     "type": "stage",
+     "stage": "square_taken"
+    },
+    {
+     "type": "stage",
+     "stage": "skadowsky_scouted"
+    }
+   ],
+   "id": "FF6BE292AA63A3F0"
+  },
+  {
+   "key": "gatehouse",
+   "chapter": "pocket",
+   "title": "The gatehouse",
+   "voice": "The bridge's east end. Bar the doors and Marshall moves in.",
+   "task": "Reach the gatehouse; hand in a fastener kit and eight scrap.",
+   "x": 4,
+   "y": -2,
+   "tasks": [
+    {
+     "type": "location",
+     "name": "the gatehouse",
+     "box": [
+      -982,
+      -950,
+      -960,
+      -936
+     ]
+    },
+    {
+     "type": "item",
+     "item": "gscraft:fastener_kit",
+     "count": 1,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:metal_scrap",
+     "count": 8,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "square"
+   ],
+   "rewards": [
+    {
+     "type": "stage",
+     "stage": "gatehouse_taken"
+    }
+   ],
+   "id": "A8661C3DC1C47CB3"
+  },
+  {
+   "key": "clinic",
+   "chapter": "pocket",
+   "title": "The north complex",
+   "voice": "Twenty-four beds, and a shack with an aerial.",
+   "task": "Reach the clinic; hand in a fastener kit and eight scrap.",
+   "x": 4,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "location",
+     "name": "the north complex",
+     "box": [
+      -970,
+      -894,
+      -1094,
+      -996
+     ]
+    },
+    {
+     "type": "item",
+     "item": "gscraft:fastener_kit",
+     "count": 1,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:metal_scrap",
+     "count": 8,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "square"
+   ],
+   "rewards": [
+    {
+     "type": "stage",
+     "stage": "clinic_taken"
+    }
+   ],
+   "id": "408CF436570458C9"
+  },
+  {
+   "key": "crossing",
+   "chapter": "pocket",
+   "title": "The crossing",
+   "voice": "The east gate is a railway crossing.",
+   "task": "Reach the signal box; hand in a fastener kit and eight scrap.",
+   "x": 4,
+   "y": 2,
+   "tasks": [
+    {
+     "type": "location",
+     "name": "the crossing",
+     "box": [
+      -912,
+      -878,
+      -988,
+      -958
+     ]
+    },
+    {
+     "type": "item",
+     "item": "gscraft:fastener_kit",
+     "count": 1,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:metal_scrap",
+     "count": 8,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "square"
+   ],
+   "rewards": [
+    {
+     "type": "stage",
+     "stage": "crossing_taken"
+    }
+   ],
+   "id": "65DE32B280852DE6"
+  },
+  {
+   "key": "mast",
+   "chapter": "pocket",
+   "title": "The mast's field",
+   "voice": "The mast is dead. The field under it doesn't have to be.",
+   "task": "Reach the field; hand in two fastener kits and sixteen scrap.",
+   "x": 6,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "location",
+     "name": "the mast's field",
+     "box": [
+      -846,
+      -770,
+      -1040,
+      -960
+     ]
+    },
+    {
+     "type": "item",
+     "item": "gscraft:fastener_kit",
+     "count": 2,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:metal_scrap",
+     "count": 16,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "gatehouse",
+    "clinic",
+    "crossing"
+   ],
+   "rewards": [
+    {
+     "type": "stage",
+     "stage": "mast_taken"
+    },
+    {
+     "type": "stage",
+     "stage": "skadowsky_held"
+    }
+   ],
+   "id": "7BF4278C81041457"
+  }
+ ]
+}

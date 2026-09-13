@@ -9,6 +9,73 @@
 	tags: [
 		"james"
 	]
-	quests: [ ]
+	quests: [
+		{
+			id: "D74CFA3B64761D9A"
+			x: 0.0d
+			y: 0.0d
+			title: "Meet James"
+			description: [
+				"Right-click them."
+			]
+			invisible: true
+			tasks: [
+				{
+					id: "A44E93C860827ACB"
+					type: "advancement"
+					advancement: "gscraft:stage/seen_james"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "90041807678DFDB1"
+			x: 2.0d
+			y: 0.0d
+			title: "Get your bearings"
+			subtitle: "Walk it before you trust it."
+			description: [
+				"Reach the level crossing and the mast's field."
+			]
+			dependencies: [
+				"D74CFA3B64761D9A"
+			]
+			tasks: [
+				{
+					id: "8928AA958FEA2D1E"
+					type: "location"
+					title: "Reach the level crossing"
+					dimension: "minecraft:overworld"
+					ignore_dimension: false
+					position: [I;-912, 40, -988]
+					size: [I;35, 70, 31]
+				}
+				{
+					id: "A1539C533715A4B9"
+					type: "location"
+					title: "Reach the mast's field"
+					dimension: "minecraft:overworld"
+					ignore_dimension: false
+					position: [I;-846, 40, -1040]
+					size: [I;77, 70, 81]
+				}
+			]
+			rewards: [
+				{
+					id: "36300B16A27338AB"
+					type: "item"
+					item: "minecraft:compass"
+					count: 1
+				}
+				{
+					id: "F1E4ADD724ACFF59"
+					type: "item"
+					item: "minecraft:map"
+					count: 1
+				}
+			]
+		}
+	]
 	quest_links: [ ]
 }

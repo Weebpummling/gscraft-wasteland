@@ -292,6 +292,13 @@ public final class WarEvents {
                     ctx.getSource().sendSuccess(() -> net.minecraft.network.chat.Component.literal(line), false);
                     return known;
                 }))
+                .then(Commands.literal("item").then(Commands.argument("id", net.minecraft.commands.arguments.ResourceLocationArgument.id()).executes(ctx -> {
+                    // is an item id registered? (the quest book's hand-ins and rewards, tools/war_phase34.py)
+                    net.minecraft.resources.ResourceLocation id = net.minecraft.commands.arguments.ResourceLocationArgument.getId(ctx, "id");
+                    boolean known = net.minecraftforge.registries.ForgeRegistries.ITEMS.containsKey(id);
+                    ctx.getSource().sendSuccess(() -> net.minecraft.network.chat.Component.literal("item " + id + ": " + (known ? "registered" : "UNKNOWN")), false);
+                    return known ? 1 : 0;
+                })))
                 .then(Commands.literal("ranks").executes(ctx -> {
                     Ranks.all().forEach((faction, ranks) -> {
                         StringBuilder line = new StringBuilder(faction).append(':');

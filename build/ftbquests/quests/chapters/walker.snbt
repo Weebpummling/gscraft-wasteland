@@ -9,6 +9,196 @@
 	tags: [
 		"walker"
 	]
-	quests: [ ]
+	quests: [
+		{
+			id: "FBE6BDDCB8D785C1"
+			x: 0.0d
+			y: 0.0d
+			title: "Meet Walker"
+			description: [
+				"Right-click them."
+			]
+			invisible: true
+			tasks: [
+				{
+					id: "719B19B4371477D0"
+					type: "advancement"
+					advancement: "gscraft:stage/seen_walker"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "0016A4AE37CD6D15"
+			x: 2.0d
+			y: 0.0d
+			title: "Nuts and bolts"
+			subtitle: "Bring me anything with a thread on it."
+			description: [
+				"Hand in eight bolts and eight nuts."
+			]
+			dependencies: [
+				"FBE6BDDCB8D785C1"
+			]
+			tasks: [
+				{
+					id: "6E3079147DED44FF"
+					type: "item"
+					item: "gscraft:bolt"
+					count: 8
+					consume_items: true
+				}
+				{
+					id: "87E17298B7FF2A12"
+					type: "item"
+					item: "gscraft:nut"
+					count: 8
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "99E0D6570C869356"
+					type: "item"
+					item: "gscraft:wrench"
+					count: 1
+				}
+				{
+					id: "6DB44ED20F921F06"
+					type: "item"
+					item: "gscraft:card_fastener_kit"
+					count: 1
+				}
+				{
+					id: "E7D49C8E1D1591C1"
+					type: "item"
+					item: "gscraft:card_hand_tools"
+					count: 1
+				}
+				{
+					id: "4A33CD1D3172863E"
+					type: "command"
+					title: "the stage bp_fastener_kit"
+					command: "/gscraft stage add bp_fastener_kit"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "12739BF170F4D60D"
+					type: "command"
+					title: "the stage bp_hand_tools"
+					command: "/gscraft stage add bp_hand_tools"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "0B12F71C1794D87F"
+					type: "command"
+					title: "walker speaks"
+					command: "/gscraft say walker station @s"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "B61B131210590940"
+			x: 4.0d
+			y: 0.0d
+			title: "A place for everything"
+			subtitle: "You'll need somewhere to put it all."
+			description: [
+				"Order two fastener kits at your station and bring them."
+			]
+			dependencies: [
+				"0016A4AE37CD6D15"
+			]
+			tasks: [
+				{
+					id: "4512B7851696B4B6"
+					type: "item"
+					item: "gscraft:fastener_kit"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "FD53A363744CCC8B"
+					type: "item"
+					item: "sophisticatedbackpacks:backpack"
+					count: 1
+				}
+				{
+					id: "3CC82F0E9BF29E25"
+					type: "command"
+					title: "the stage storage_1"
+					command: "/gscraft stage add storage_1"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "ED8D7105876E6B1C"
+			x: 6.0d
+			y: 0.0d
+			title: "Frame of mind"
+			subtitle: "Scrap is only scrap till it's welded."
+			description: [
+				"Bring twelve metal scrap and show me a welding torch."
+			]
+			dependencies: [
+				"B61B131210590940"
+			]
+			tasks: [
+				{
+					id: "D9FE82E69E129DFA"
+					type: "item"
+					item: "gscraft:metal_scrap"
+					count: 12
+					consume_items: true
+				}
+				{
+					id: "5A35C56880BB3766"
+					type: "item"
+					item: "gscraft:welding_torch"
+					count: 1
+					title: "Show welding torch"
+				}
+			]
+			rewards: [
+				{
+					id: "53FCD9FC185D272D"
+					type: "item"
+					item: "gscraft:card_steel_frame"
+					count: 1
+				}
+				{
+					id: "A54B41E2D2541ECE"
+					type: "command"
+					title: "the stage bp_steel_frame"
+					command: "/gscraft stage add bp_steel_frame"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "7654B72652173573"
+					type: "command"
+					title: "the stage workshop_1"
+					command: "/gscraft stage add workshop_1"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+	]
 	quest_links: [ ]
 }

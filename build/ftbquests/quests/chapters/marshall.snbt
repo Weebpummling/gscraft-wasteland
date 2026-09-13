@@ -9,6 +9,66 @@
 	tags: [
 		"marshall"
 	]
-	quests: [ ]
+	quests: [
+		{
+			id: "B210B848C9E6E4CB"
+			x: 0.0d
+			y: 0.0d
+			title: "Muster"
+			subtitle: "We're squatting in someone's town."
+			description: [
+				"Read the board in the hall, then come back."
+			]
+			dependencies: [
+				"0016A4AE37CD6D15"
+				"7B637596EC041BC1"
+				"44D246950C7B83C4"
+				"CBEAB3D0BF7F532E"
+				"90041807678DFDB1"
+			]
+			hide_until_deps_complete: true
+			tasks: [
+				{
+					id: "5663E77E78BA4396"
+					type: "checkmark"
+				}
+			]
+			rewards: [
+				{
+					id: "BBB8E66FB0EE3808"
+					type: "item"
+					item: "gscraft:card_claim_marker"
+					count: 1
+				}
+				{
+					id: "CB4E910D17DAB58E"
+					type: "command"
+					title: "the stage bp_claim_marker"
+					command: "/gscraft stage add bp_claim_marker"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "04F3CE65B846A90B"
+					type: "command"
+					title: "the stage marshall_speaks"
+					command: "/gscraft stage add marshall_speaks"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "4A14E16DA8A75C9A"
+					type: "command"
+					title: "marshall speaks"
+					command: "/gscraft say marshall speaks @s"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+	]
 	quest_links: [ ]
 }

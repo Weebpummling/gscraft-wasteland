@@ -413,6 +413,19 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, slice build 7 - the first quests:** `tools/chapters.py` is now the book: `QUESTS` is the table (key, chapter,
+title, the voice line as the subtitle, the task line as the description, tasks - `item` consumes, `show` does not, `loc` a
+site's box at y 40-110, `adv` a stage's advancement, the checkmark - and rewards - `give` an item, `stage` = a command reward
+`/gscraft stage add`, `say` = `/gscraft say <npc> <key> @s`, both elevated, silent, auto-claimed invisibly); ids are stable
+hashes of the keys. Seven chapters (the six survivors + "The pocket", ruling R22), 22 quests: W1-3, T1-2, M1-2, U1-2, J1,
+R1 (Marshall, hidden until the five introductions), R0 and the five takes (R23), five hidden meet quests (the per-player
+`seen_<id>` advancement). `tools/quests.json` is the record; `--install` copies to the local server's config/ftbquests/quests
+and `/ftbquests reload` picks it up (the log says `Loaded 1 chapter groups, 7 chapters, 22 quests`). `tools/stages.py` adds
+the function levels (66 advancements). `/gscraft item <id>` for the tests. `tools/war_phase34.py` (7/7). In-game: WarTest,
+`/gscraft reset all`, play the yard to Marshall's line; a party of five needs an FTB Teams party (`/ftbteams party create`)
+for shared progress. Open: the railway station's coordinates (J1 uses the mast's field, R24); the backpack as an item (R24);
+no chapter icons; live gets `config/ftbquests/quests` with the slice push.
+
 **2026-09-13, slice build 6 - the survivors as the book (in the mod):** `gscraft.war.survivor`: `Survivors` (`data/gscraft/
 gscraft_survivors/survivors.json`: six survivors with colour, profession and chapter tag; `first_join`: the title, Tune's three
 lines, the kit - the station, a loaded glock + one magazine of its ammo by TACZ's index, the flashlight and battery, a bandage;

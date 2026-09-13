@@ -9,6 +9,111 @@
 	tags: [
 		"tony"
 	]
-	quests: [ ]
+	quests: [
+		{
+			id: "CC8C6FEF50EC1831"
+			x: 0.0d
+			y: 0.0d
+			title: "Meet Tony"
+			description: [
+				"Right-click them."
+			]
+			invisible: true
+			tasks: [
+				{
+					id: "4168AB9460C74033"
+					type: "advancement"
+					advancement: "gscraft:stage/seen_tony"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "7B637596EC041BC1"
+			x: 2.0d
+			y: 0.0d
+			title: "Field dressing"
+			subtitle: "The shelves here are bare."
+			description: [
+				"Hand in four bandages and two painkillers."
+			]
+			dependencies: [
+				"CC8C6FEF50EC1831"
+			]
+			tasks: [
+				{
+					id: "E8A241FF02E5F45D"
+					type: "item"
+					item: "gscraft:bandage"
+					count: 4
+					consume_items: true
+				}
+				{
+					id: "01A93FAC6D9A8689"
+					type: "item"
+					item: "gscraft:painkillers"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "385FF82781E7B40A"
+					type: "item"
+					item: "gscraft:card_med_kit"
+					count: 1
+				}
+				{
+					id: "7E5F8833D8951E3F"
+					type: "command"
+					title: "the stage bp_med_kit"
+					command: "/gscraft stage add bp_med_kit"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "7E3A7A7A5C44B2B0"
+			x: 4.0d
+			y: 0.0d
+			title: "Stock the clinic"
+			subtitle: "Two for the shelf, and you get more back."
+			description: [
+				"Order two med kits and bring them."
+			]
+			dependencies: [
+				"7B637596EC041BC1"
+			]
+			tasks: [
+				{
+					id: "DBC785C8AB1A37E8"
+					type: "item"
+					item: "gscraft:med_kit"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "1A3AB20D126B1650"
+					type: "item"
+					item: "gscraft:med_kit"
+					count: 4
+				}
+				{
+					id: "733EED2E5EEA0AD0"
+					type: "command"
+					title: "the stage medical_1"
+					command: "/gscraft stage add medical_1"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+	]
 	quest_links: [ ]
 }

@@ -9,6 +9,143 @@
 	tags: [
 		"michael"
 	]
-	quests: [ ]
+	quests: [
+		{
+			id: "B197DA86940AABFE"
+			x: 0.0d
+			y: 0.0d
+			title: "Meet Michael"
+			description: [
+				"Right-click them."
+			]
+			invisible: true
+			tasks: [
+				{
+					id: "855B163280D3F5F0"
+					type: "advancement"
+					advancement: "gscraft:stage/seen_michael"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "44D246950C7B83C4"
+			x: 2.0d
+			y: 0.0d
+			title: "Sparks"
+			subtitle: "Wire first. Everything else is wire with a job."
+			description: [
+				"Hand in three wire spools, a power cord and a water filter."
+			]
+			dependencies: [
+				"B197DA86940AABFE"
+			]
+			tasks: [
+				{
+					id: "663299C48AB63EC4"
+					type: "item"
+					item: "gscraft:wire_spool"
+					count: 3
+					consume_items: true
+				}
+				{
+					id: "8CC0F19859F0C78F"
+					type: "item"
+					item: "gscraft:power_cord"
+					count: 1
+					consume_items: true
+				}
+				{
+					id: "6057F93633618D43"
+					type: "item"
+					item: "gscraft:water_filter"
+					count: 1
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "CECC710ED2694506"
+					type: "item"
+					item: "gscraft:card_wiring_harness"
+					count: 1
+				}
+				{
+					id: "D84D58B8F1A45F24"
+					type: "item"
+					item: "gscraft:card_filter_cartridge"
+					count: 1
+				}
+				{
+					id: "52902240C42F85B0"
+					type: "command"
+					title: "the stage bp_wiring_harness"
+					command: "/gscraft stage add bp_wiring_harness"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "A0ABB87E87F628FC"
+					type: "command"
+					title: "the stage bp_filter_cartridge"
+					command: "/gscraft stage add bp_filter_cartridge"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "3E696D1A279CE198"
+			x: 4.0d
+			y: 0.0d
+			title: "Lights on"
+			subtitle: "There's a generator under that tarp."
+			description: [
+				"Order two wiring harnesses and find a light bulb."
+			]
+			dependencies: [
+				"44D246950C7B83C4"
+			]
+			tasks: [
+				{
+					id: "6E34ED48CF25C05E"
+					type: "item"
+					item: "gscraft:wiring_harness"
+					count: 2
+					consume_items: true
+				}
+				{
+					id: "4E10BE3944F38DBC"
+					type: "item"
+					item: "gscraft:light_bulb"
+					count: 1
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "2E1C82D58CAA6F19"
+					type: "command"
+					title: "the stage generator_1"
+					command: "/gscraft stage add generator_1"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "F86BF83D6DEEAF14"
+					type: "command"
+					title: "michael speaks"
+					command: "/gscraft say michael lights @s"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+	]
 	quest_links: [ ]
 }

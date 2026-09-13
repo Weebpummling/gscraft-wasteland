@@ -9,6 +9,121 @@
 	tags: [
 		"tune"
 	]
-	quests: [ ]
+	quests: [
+		{
+			id: "72E6981B6BA1DC1A"
+			x: 0.0d
+			y: 0.0d
+			title: "Meet Tune"
+			description: [
+				"Right-click them."
+			]
+			invisible: true
+			tasks: [
+				{
+					id: "DACAD27FB3775B8D"
+					type: "advancement"
+					advancement: "gscraft:stage/seen_tune"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "CBEAB3D0BF7F532E"
+			x: 2.0d
+			y: 0.0d
+			title: "Static"
+			subtitle: "I can hear the town from here. I'd like to hear further."
+			description: [
+				"Hand in a circuit board, two capacitors and a broken radio."
+			]
+			dependencies: [
+				"72E6981B6BA1DC1A"
+			]
+			tasks: [
+				{
+					id: "7BF456F6B2AB0928"
+					type: "item"
+					item: "gscraft:circuit_board"
+					count: 1
+					consume_items: true
+				}
+				{
+					id: "8D39CB52A5DBE6A9"
+					type: "item"
+					item: "gscraft:capacitor"
+					count: 2
+					consume_items: true
+				}
+				{
+					id: "D9DD088D0309901F"
+					type: "item"
+					item: "gscraft:broken_radio"
+					count: 1
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "70834ED09D998D6A"
+					type: "item"
+					item: "gscraft:card_circuit_assembly"
+					count: 1
+				}
+				{
+					id: "CBC34472FBD1C562"
+					type: "command"
+					title: "the stage bp_circuit_assembly"
+					command: "/gscraft stage add bp_circuit_assembly"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "CCC3254FA145A448"
+			x: 4.0d
+			y: 0.0d
+			title: "The map"
+			subtitle: "Two of those and the map talks."
+			description: [
+				"Order two circuit assemblies and bring them."
+			]
+			dependencies: [
+				"CBEAB3D0BF7F532E"
+			]
+			tasks: [
+				{
+					id: "842EC2E7ECA73F86"
+					type: "item"
+					item: "gscraft:circuit_assembly"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "1CD962EEF259EBB3"
+					type: "command"
+					title: "the stage radio_1"
+					command: "/gscraft stage add radio_1"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "24BC8F5603A49F8D"
+					type: "command"
+					title: "tune speaks"
+					command: "/gscraft say tune map @s"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+	]
 	quest_links: [ ]
 }

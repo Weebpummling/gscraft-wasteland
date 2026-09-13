@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
-"""The quest book's chapters, one per survivor (system doc 2026-09-13 §7 build 6; onboarding §4).
+"""The quest book (system doc 2026-09-13 §7 builds 6-7; quests §2-§7, onboarding §4, start-compound §5).
 
-    python chapters.py             -> build/ftbquests/quests/data.snbt and chapters/<id>.snbt from
-                                      mod/src/main/resources/data/gscraft/gscraft_survivors/survivors.json
+    python chapters.py             -> build/ftbquests/quests/data.snbt, chapters/<chapter>.snbt and tools/quests.json
     python chapters.py --install   -> also copied to G:/GSCraft/server/config/ftbquests/quests (the local server;
-                                      FTB Quests reads config/ftbquests/quests, file version 13); existing chapter
-                                      files with the same name are overwritten, others left alone
+                                      FTB Quests reads config/ftbquests/quests, file version 13; then `/ftbquests reload`)
 
-Each chapter carries the tag the survivor's right-click opens it by (`/ftbquests open_book #<chapter>`, a tag
-lookup over every quest object) and a stable id from the chapter name. The quests themselves are build 7's; a
-chapter written by that build keeps its id and tag from here.
+Seven chapters: one per survivor (tagged with the survivor's id, which the right-click opens by:
+`/ftbquests open_book #<chapter>`), hidden behind a "meet" quest that completes on the per-player seen_<id> advancement,
+and "The pocket" for the gap and the five building takes, whose askers arrive with them. Every quest is a line of the
+QUESTS table: title (four words, the survivor's phrasing), the voice line, the task line, tasks (hand-ins consume;
+"show" does not; locations are the sites' boxes; stages are advancement tasks) and rewards (items; stages and lines as
+command rewards, claimed on their own). Ids are stable hashes of the keys, so a rewrite keeps progress.
 """
 import hashlib
 import json
@@ -18,8 +19,11 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SURVIVORS = ROOT / "mod/src/main/resources/data/gscraft/gscraft_survivors/survivors.json"
+RES = ROOT / "mod/src/main/resources/data/gscraft"
+SURVIVORS = RES / "gscraft_survivors/survivors.json"
+SITES = RES / "gscraft_sites"
 OUT = ROOT / "build/ftbquests/quests"
+RECORD = ROOT / "tools/quests.json"
 SERVER = Path("G:/GSCraft/server/config/ftbquests/quests")
 VERSION = 13
 
@@ -28,49 +32,226 @@ def hex_id(name):
     return hashlib.sha1(("gscraft:" + name).encode()).hexdigest()[:16].upper()
 
 
-def chapter(d, index):
-    return (
-        "{\n"
-        f'\tid: "{hex_id(d["chapter"])}"\n'
-        '\tgroup: ""\n'
-        f"\torder_index: {index}\n"
-        f'\tfilename: "{d["chapter"]}"\n'
-        f'\ttitle: "{d["name"].split(" ")[0]}"\n'
-        '\tdefault_quest_shape: ""\n'
-        "\tdefault_hide_dependency_lines: false\n"
-        "\ttags: [\n"
-        f'\t\t"{d["chapter"]}"\n'
-        "\t]\n"
-        "\tquests: [ ]\n"
-        "\tquest_links: [ ]\n"
-        "}\n"
-    )
+def site_box(site):
+    return json.loads((SITES / f"{site}.json").read_text(encoding="utf-8"))["box"]
 
 
-DATA = (
-    "{\n"
-    f"\tversion: {VERSION}\n"
-    '\tdefault_quest_shape: "circle"\n'
-    "\tdefault_reward_team: false\n"
-    "\tdisable_gui: false\n"
-    "\tdrop_loot_crates: false\n"
-    "}\n"
-)
+# ---- the task and reward shapes
+def item(id_, count=1, consume=True):
+    return {"type": "item", "item": id_, "count": count, "consume": consume}
+
+
+def show(id_):
+    return item(id_, 1, consume=False)
+
+
+def loc(name, box):
+    return {"type": "location", "name": name, "box": box}
+
+
+def adv(stage):
+    return {"type": "advancement", "stage": stage}
+
+
+CHECK = {"type": "checkmark"}
+
+
+def give(id_, count=1):
+    return {"type": "item", "item": id_, "count": count}
+
+
+def stage(name):
+    return {"type": "stage", "stage": name}
+
+
+def say(npc, key):
+    return {"type": "say", "npc": npc, "key": key}
+
+
+def meet(npc):
+    return {"key": f"meet_{npc}", "chapter": npc, "title": "Meet " + npc.capitalize(), "voice": "", "task": "Right-click them.",
+            "x": 0, "y": 0, "tasks": [adv(f"seen_{npc}")], "rewards": [], "deps": [], "invisible": True}
+
+
+CHAPTERS = [
+    # (chapter tag, title, order); the six survivors come from survivors.json in that order, then the pocket
+    ("pocket", "The pocket", 6),
+]
+
+QUESTS = [
+    # Walker
+    meet("walker"),
+    {"key": "W1", "chapter": "walker", "title": "Nuts and bolts", "voice": "Bring me anything with a thread on it.", "task": "Hand in eight bolts and eight nuts.",
+     "x": 2, "y": 0, "tasks": [item("gscraft:bolt", 8), item("gscraft:nut", 8)], "deps": ["meet_walker"],
+     "rewards": [give("gscraft:wrench"), give("gscraft:card_fastener_kit"), give("gscraft:card_hand_tools"), stage("bp_fastener_kit"), stage("bp_hand_tools"), say("walker", "station")]},
+    {"key": "W2", "chapter": "walker", "title": "A place for everything", "voice": "You'll need somewhere to put it all.", "task": "Order two fastener kits at your station and bring them.",
+     "x": 4, "y": 0, "tasks": [item("gscraft:fastener_kit", 2)], "deps": ["W1"],
+     "rewards": [give("sophisticatedbackpacks:backpack"), stage("storage_1")]},
+    {"key": "W3", "chapter": "walker", "title": "Frame of mind", "voice": "Scrap is only scrap till it's welded.", "task": "Bring twelve metal scrap and show me a welding torch.",
+     "x": 6, "y": 0, "tasks": [item("gscraft:metal_scrap", 12), show("gscraft:welding_torch")], "deps": ["W2"],
+     "rewards": [give("gscraft:card_steel_frame"), stage("bp_steel_frame"), stage("workshop_1")]},
+    # Tony
+    meet("tony"),
+    {"key": "T1", "chapter": "tony", "title": "Field dressing", "voice": "The shelves here are bare.", "task": "Hand in four bandages and two painkillers.",
+     "x": 2, "y": 0, "tasks": [item("gscraft:bandage", 4), item("gscraft:painkillers", 2)], "deps": ["meet_tony"],
+     "rewards": [give("gscraft:card_med_kit"), stage("bp_med_kit")]},
+    {"key": "T2", "chapter": "tony", "title": "Stock the clinic", "voice": "Two for the shelf, and you get more back.", "task": "Order two med kits and bring them.",
+     "x": 4, "y": 0, "tasks": [item("gscraft:med_kit", 2)], "deps": ["T1"],
+     "rewards": [give("gscraft:med_kit", 4), stage("medical_1")]},
+    # Michael
+    meet("michael"),
+    {"key": "M1", "chapter": "michael", "title": "Sparks", "voice": "Wire first. Everything else is wire with a job.", "task": "Hand in three wire spools, a power cord and a water filter.",
+     "x": 2, "y": 0, "tasks": [item("gscraft:wire_spool", 3), item("gscraft:power_cord", 1), item("gscraft:water_filter", 1)], "deps": ["meet_michael"],
+     "rewards": [give("gscraft:card_wiring_harness"), give("gscraft:card_filter_cartridge"), stage("bp_wiring_harness"), stage("bp_filter_cartridge")]},
+    {"key": "M2", "chapter": "michael", "title": "Lights on", "voice": "There's a generator under that tarp.", "task": "Order two wiring harnesses and find a light bulb.",
+     "x": 4, "y": 0, "tasks": [item("gscraft:wiring_harness", 2), item("gscraft:light_bulb", 1)], "deps": ["M1"],
+     "rewards": [stage("generator_1"), say("michael", "lights")]},
+    # Tune
+    meet("tune"),
+    {"key": "U1", "chapter": "tune", "title": "Static", "voice": "I can hear the town from here. I'd like to hear further.", "task": "Hand in a circuit board, two capacitors and a broken radio.",
+     "x": 2, "y": 0, "tasks": [item("gscraft:circuit_board", 1), item("gscraft:capacitor", 2), item("gscraft:broken_radio", 1)], "deps": ["meet_tune"],
+     "rewards": [give("gscraft:card_circuit_assembly"), stage("bp_circuit_assembly")]},
+    {"key": "U2", "chapter": "tune", "title": "The map", "voice": "Two of those and the map talks.", "task": "Order two circuit assemblies and bring them.",
+     "x": 4, "y": 0, "tasks": [item("gscraft:circuit_assembly", 2)], "deps": ["U1"],
+     "rewards": [stage("radio_1"), say("tune", "map")]},
+    # James
+    meet("james"),
+    {"key": "J1", "chapter": "james", "title": "Get your bearings", "voice": "Walk it before you trust it.", "task": "Reach the level crossing and the mast's field.",
+     "x": 2, "y": 0, "tasks": [loc("the level crossing", site_box("crossing")), loc("the mast's field", site_box("mast"))], "deps": ["meet_james"],
+     "rewards": [give("minecraft:compass"), give("minecraft:map")]},
+    # Marshall: only after the five introductions
+    {"key": "R1", "chapter": "marshall", "title": "Muster", "voice": "We're squatting in someone's town.", "task": "Read the board in the hall, then come back.",
+     "x": 0, "y": 0, "tasks": [CHECK], "deps": ["W1", "T1", "M1", "U1", "J1"], "hide_until_deps": True,
+     "rewards": [give("gscraft:card_claim_marker"), stage("bp_claim_marker"), stage("marshall_speaks"), say("marshall", "speaks")]},
+    # The pocket: the gap, then the five takes (start-compound §5; ruling R22/R23)
+    {"key": "R0", "chapter": "pocket", "title": "The gap", "voice": "Marshall wants that corner shut before dark.", "task": "Order sandbags at your station and hand in eight.",
+     "x": 0, "y": 0, "tasks": [item("superbwarfare:sandbag", 8)], "deps": ["W1"],
+     "rewards": [stage("compound_closed")]},
+    {"key": "square", "chapter": "pocket", "title": "The junction", "voice": "The square is ours if we say it is.", "task": "Walk the square and bring back eight scrap from its streets.",
+     "x": 2, "y": 0, "tasks": [loc("the square", site_box("square")), item("gscraft:metal_scrap", 8)], "deps": ["R0"],
+     "rewards": [stage("square_taken"), stage("skadowsky_scouted")]},
+    {"key": "gatehouse", "chapter": "pocket", "title": "The gatehouse", "voice": "The bridge's east end. Bar the doors and Marshall moves in.", "task": "Reach the gatehouse; hand in a fastener kit and eight scrap.",
+     "x": 4, "y": -2, "tasks": [loc("the gatehouse", site_box("gatehouse")), item("gscraft:fastener_kit", 1), item("gscraft:metal_scrap", 8)], "deps": ["square"],
+     "rewards": [stage("gatehouse_taken")]},
+    {"key": "clinic", "chapter": "pocket", "title": "The north complex", "voice": "Twenty-four beds, and a shack with an aerial.", "task": "Reach the clinic; hand in a fastener kit and eight scrap.",
+     "x": 4, "y": 0, "tasks": [loc("the north complex", site_box("north")), item("gscraft:fastener_kit", 1), item("gscraft:metal_scrap", 8)], "deps": ["square"],
+     "rewards": [stage("clinic_taken")]},
+    {"key": "crossing", "chapter": "pocket", "title": "The crossing", "voice": "The east gate is a railway crossing.", "task": "Reach the signal box; hand in a fastener kit and eight scrap.",
+     "x": 4, "y": 2, "tasks": [loc("the crossing", site_box("crossing")), item("gscraft:fastener_kit", 1), item("gscraft:metal_scrap", 8)], "deps": ["square"],
+     "rewards": [stage("crossing_taken")]},
+    {"key": "mast", "chapter": "pocket", "title": "The mast's field", "voice": "The mast is dead. The field under it doesn't have to be.", "task": "Reach the field; hand in two fastener kits and sixteen scrap.",
+     "x": 6, "y": 0, "tasks": [loc("the mast's field", site_box("mast")), item("gscraft:fastener_kit", 2), item("gscraft:metal_scrap", 16)], "deps": ["gatehouse", "clinic", "crossing"],
+     "rewards": [stage("mast_taken"), stage("skadowsky_held")]},
+]
+
+
+# ---- snbt writing (FTB Library's shape: one key per line, tabs, no commas)
+def q(s):
+    return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
+def snbt(value, depth=0):
+    pad = "\t" * depth
+    if isinstance(value, bool):
+        return "true" if value else "false"
+    if isinstance(value, int):
+        return str(value)
+    if isinstance(value, float):
+        return f"{value}d"
+    if isinstance(value, str):
+        return q(value)
+    if isinstance(value, tuple):   # an int array
+        return "[I;" + ", ".join(str(v) for v in value) + "]"
+    if isinstance(value, list):
+        if not value:
+            return "[ ]"
+        inner = "".join(pad + "\t" + snbt(v, depth + 1) + "\n" for v in value)
+        return "[\n" + inner + pad + "]"
+    if isinstance(value, dict):
+        if not value:
+            return "{ }"
+        inner = "".join(pad + "\t" + k + ": " + snbt(v, depth + 1) + "\n" for k, v in value.items())
+        return "{\n" + inner + pad + "}"
+    raise TypeError(type(value))
+
+
+def task_nbt(qkey, i, t):
+    base = {"id": hex_id(f"task:{qkey}:{i}")}
+    if t["type"] == "item":
+        base.update({"type": "item", "item": t["item"], "count": t["count"]})
+        if t["consume"]:
+            base["consume_items"] = True
+        else:
+            base["title"] = "Show " + t["item"].split(":")[1].replace("_", " ")
+    elif t["type"] == "location":
+        x0, x1, z0, z1 = t["box"]
+        base.update({"type": "location", "title": "Reach " + t["name"], "dimension": "minecraft:overworld", "ignore_dimension": False,
+                     "position": (min(x0, x1), 40, min(z0, z1)), "size": (abs(x1 - x0) + 1, 70, abs(z1 - z0) + 1)})
+    elif t["type"] == "advancement":
+        base.update({"type": "advancement", "advancement": f"gscraft:stage/{t['stage']}", "criterion": "set"})
+    elif t["type"] == "checkmark":
+        base.update({"type": "checkmark"})
+    return base
+
+
+def reward_nbt(qkey, i, r):
+    base = {"id": hex_id(f"reward:{qkey}:{i}")}
+    if r["type"] == "item":
+        base.update({"type": "item", "item": r["item"], "count": r["count"]})
+    elif r["type"] == "stage":
+        base.update({"type": "command", "title": "the stage " + r["stage"], "command": f"/gscraft stage add {r['stage']}", "elevate_perms": True, "silent": True, "auto": "invisible"})
+    elif r["type"] == "say":
+        base.update({"type": "command", "title": r["npc"] + " speaks", "command": f"/gscraft say {r['npc']} {r['key']} @s", "elevate_perms": True, "silent": True, "auto": "invisible"})
+    return base
+
+
+def quest_nbt(d):
+    nbt = {"id": hex_id("quest:" + d["key"]), "x": float(d["x"]), "y": float(d["y"]), "title": d["title"]}
+    if d.get("voice"):
+        nbt["subtitle"] = d["voice"]
+    if d.get("task"):
+        nbt["description"] = [d["task"]]
+    if d.get("deps"):
+        nbt["dependencies"] = [hex_id("quest:" + k) for k in d["deps"]]
+    if d.get("invisible"):
+        nbt["invisible"] = True
+    if d.get("hide_until_deps"):
+        nbt["hide_until_deps_complete"] = True
+    nbt["tasks"] = [task_nbt(d["key"], i, t) for i, t in enumerate(d["tasks"])]
+    nbt["rewards"] = [reward_nbt(d["key"], i, r) for i, r in enumerate(d["rewards"])]
+    return nbt
+
+
+def chapter_nbt(tag, title, index, quests):
+    return {"id": hex_id(tag), "group": "", "order_index": index, "filename": tag, "title": title, "default_quest_shape": "",
+            "default_hide_dependency_lines": False, "tags": [tag], "quests": [quest_nbt(d) for d in quests], "quest_links": []}
+
+
+DATA = {"version": VERSION, "default_quest_shape": "circle", "default_reward_team": False, "disable_gui": False, "drop_loot_crates": False}
 
 
 def main(argv):
     survivors = json.loads(SURVIVORS.read_text(encoding="utf-8"))["survivors"]
+    chapters = [(d["chapter"], d["name"].split(" ")[0], i) for i, d in enumerate(survivors)] + CHAPTERS
+    keys = [d["key"] for d in QUESTS]
+    assert len(keys) == len(set(keys)), "duplicate quest keys"
+    for d in QUESTS:
+        for k in d.get("deps", []):
+            assert k in keys, f"{d['key']} depends on unknown {k}"
+        assert d["chapter"] in [c[0] for c in chapters], f"{d['key']} in unknown chapter {d['chapter']}"
     (OUT / "chapters").mkdir(parents=True, exist_ok=True)
-    (OUT / "data.snbt").write_text(DATA, encoding="utf-8")
-    for i, d in enumerate(survivors):
-        (OUT / "chapters" / f'{d["chapter"]}.snbt').write_text(chapter(d, i), encoding="utf-8")
-    print(f"{len(survivors)} chapters and data.snbt written to {OUT}")
+    (OUT / "data.snbt").write_text(snbt(DATA) + "\n", encoding="utf-8")
+    for tag, title, index in chapters:
+        quests = [d for d in QUESTS if d["chapter"] == tag]
+        (OUT / "chapters" / f"{tag}.snbt").write_text(snbt(chapter_nbt(tag, title, index, quests)) + "\n", encoding="utf-8")
+    RECORD.write_text(json.dumps({"chapters": [{"tag": t, "title": ti, "id": hex_id(t)} for t, ti, _ in chapters],
+                                  "quests": [dict(d, id=hex_id("quest:" + d["key"])) for d in QUESTS]}, indent=1), encoding="utf-8")
+    print(f"{len(chapters)} chapters, {len(QUESTS)} quests written to {OUT}; record {RECORD.name}")
     if "--install" in argv:
         (SERVER / "chapters").mkdir(parents=True, exist_ok=True)
-        if not (SERVER / "data.snbt").exists():
-            shutil.copy(OUT / "data.snbt", SERVER / "data.snbt")
-        for d in survivors:
-            shutil.copy(OUT / "chapters" / f'{d["chapter"]}.snbt', SERVER / "chapters" / f'{d["chapter"]}.snbt')
+        shutil.copy(OUT / "data.snbt", SERVER / "data.snbt")
+        for tag, _, _ in chapters:
+            shutil.copy(OUT / "chapters" / f"{tag}.snbt", SERVER / "chapters" / f"{tag}.snbt")
         print(f"installed to {SERVER}")
 
 
