@@ -3,7 +3,7 @@
 *Design doc, 2026-09-04 (owner: "a vendor system for firearms, ammunition and gear in general, with
 access unlocked by quest progress"). Companion to design §3 (the NPCs), §3.6 (building tiers),
 crafting draft 1 (the station-only rule) and `gscraft-loot-tables.md`. Mechanism checked against
-the jars: no trade mod is in the pack and KubeJS 2001.6.5 has no villager-trade events (no MoreJS),
+the jars: no trade mod is in the pack and KubeJS 2001.6.5 has no villager-trade events (no MoreJS), *(2026-09-13, reconciliation: a mod body can implement `Merchant`, so a mod-side vendor with restock and caps is open — `gscraft-mod-capabilities.md`)*
 so the vendors run on **vanilla merchant offers** written onto the NPC villagers by the loop script —
 no mod added.*
 
@@ -57,12 +57,12 @@ what Tarkov shows: a trader whose stock grows as the relationship does, and a fe
 **The site keepers (Create chapter §3, adopted 2026-09-05).** Each held strongpoint's keeper is a counter too; their
 loyalty level is the **site's tier** (S-<site>-1…3, quests §7B), and they sell what the site makes. A keeper's
 counter **closes while his site is not held** and reopens on the re-take (design §6.1); his stock list is his chain's
-quest page, not a separate counter quest (quests §7C):
+quest page, not a separate counter quest (quests §7C). Site ids per ruling R1 (2026-09-13, reconciliation): `hospital`, `krot`, `switchyard`, `turbine`, `intake`; KROT's box below is to be re-measured before its site file is written (R5):
 
 | Keeper | Site | Buys | Tier 1 sells | Tier 2 adds | Tier 3 adds |
 |---|---|---|---|---|---|
 | **Vera** — the hospital | the Skadowsky hospital, x −865…−698 × z −1312…−1242, 0.34 km north of the camp square (Act I) | blood bags, medical items | the gunner's manual pages, poultice | bandages, painkillers (a second clinic; the cure is free here too) | train tickets: nothing — the train is a hauler, not fast travel (owner default E12) |
-| **Kessler** — the foundry | KROT, x −3392…−3073 × z −1344…−1025, 2.30 km west over the bridge (Act II) | scrap, cast iron | casting sand, cast-iron nuggets | cast-iron ingots (4 a day), blaze cakes | bronze ingots |
+| **Kessler** — the foundry | KROT, ~~x −3392…−3073 × z −1344…−1025~~ [needs re-measurement — R5 (2026-09-13, reconciliation)], 2.30 km west over the bridge (Act II) | scrap, cast iron | casting sand, cast-iron nuggets | cast-iron ingots (4 a day), blaze cakes | bronze ingots |
 | **Ilya** — the fuze lab | the plant's switchyard and admin block, centre (−815, 105), 1.09 km (Act III) | valuables, redstone | redstone dust, quartz | impact and timed fuzes | proximity fuzes (2 a day) |
 | **Rook** — the steel works | the plant's turbine hall, centre (400, 590), 2.06 km (Act III) | steel scrap, plates | steel plates | big cartridges (empty) | autocannon barrels (1 a day) |
 | **Oksana** — the power house | the plant's cooling intake works, centre (895, 155), 2.16 km (Act III) | filters, chemicals | boiler water, packed gunpowder | nitrate (H8's input), drill bits | coolant, boiler parts |
@@ -124,7 +124,7 @@ weapon light, no thermal scope.
 
 - **Flashlight:** a real dynamic-light flashlight needs a mod (`notes/gscraft-flashlight-and-nvg.md`
   has the candidates; *Dynamic Flashlight 2.1.0* was added 2026-09-04 (camp spec §5), no
-  dependencies). Until it is added the KubeJS Night-Vision flashlight of the camp spec stands.
+  dependencies). ~~Until it is added the KubeJS Night-Vision flashlight of the camp spec stands.~~ Dynamic Flashlight 2.1.0 is in the pack; the KubeJS night-vision item is not needed (2026-09-13, reconciliation).
 - **Night-vision goggles:** a KubeJS Curios/helmet item (`gscraft:nvg`) giving Night Vision while
   worn, draining a battery bar; sold by Tune at LL2 for 60, never crafted, never looted — the one
   item that is vendor-only, so Tune's counter has a reason to exist.
@@ -137,7 +137,7 @@ weapon light, no thermal scope.
   item, price or barter, LL, unlock stage, daily cap) and writes the villager's `Offers` NBT from it
   with `/data merge entity @e[tag=gscraft_npc_<npc>,limit=1] {Offers:{Recipes:[…]}}` — `buy`, `buyB`,
   `sell`, `maxUses` = the daily cap, `priceMultiplier:0`, `demand:0`, `rewardExp:0b`. A sink offer is
-  the same record reversed (`buy` = 8 metal scrap, `sell` = 1 emerald).
+  the same record reversed (`buy` = 8 metal scrap, `sell` = 1 emerald). **The built summons** (2026-09-13, reconciliation): the six `camp_npc_*` functions summon nitwits with no `Offers`; they must be re-issued with a profession, `level` 2 and an empty `Offers` list before any offer writer runs.
 - **Opening the counter:** right-click on an NPC keeps opening the quest book (design §3); **sneak +
   right-click** lets the vanilla villager interaction through, which opens the trade screen. A NoAI
   villager trades normally; it never restocks on its own, so —

@@ -11,7 +11,7 @@ measured on the road network as it stands today (`incoming/census/v8_routes.json
 transplants' own, **without** the thirteen step-8 connectors or the camp's gate road, so they are the ceiling, not the
 floor. This was a proposal; §7's decisions were all taken, and the camp move of 2026-09-07 replaced its geography
 wholesale, so §0 to §6 were realigned onto the Skadowsky camp on that date - see the banner above. The render itself
-still draws the plateau camp and its rings and has not been redrawn.
+still draws the plateau camp and its rings and has not been redrawn. **The render is dead** (2026-09-13, reconciliation): `docs/renders/v8_geography.png` shows the plateau camp and must not be read for any camp, spawn or distance question.
 
 ## 0. The map in three lands
 
@@ -68,7 +68,7 @@ works 1.71 km.
 | Act | Land | Objectives | Strongpoint taken | What the act is about |
 |---|---|---|---|---|
 | **I — The town you woke in** | the compound, the pocket building by building, then the sector; foot | (2026-09-12, the compound start) the compound's gap closed (Marshall's first ask), then the pocket taken a building at a time — the square, the gatehouse, the north complex, the crossing, each a small site with a torch and a survivor (start-compound doc §5) — ~~the buildings around the camp square (the introductions)~~, **Skadowsky** itself scouted, looted, held and defended — the rungs pay perimeter, not a keeper — and north 0.34 km to the **hospital** (J1's first walk, W3's scrap) | **the Skadowsky hospital** | learning the loop inside your own town; the first counterattack, the lightest, fought at the bridge |
-| **II — Over the bridge, and down the bank** | west over the bridge; the east bank south; car | **the Line** west over the bridge to the collective farm (1.17 km), the town's landmarks (the re-targeted structure quests: the palace of culture, the tallest block, the central square, the stadium), the **KROT**; south down the east bank, the rail line and road to the plant's outer works. The runway and the library, which draft 2 put here, are deferred to a later quest line | **KROT** | the first car (the town at 1.52–2.46 km is a car's range, not a walk); the first gun (G1–G4) cast, bored and fired in the camp |
+| **II — Over the bridge, and down the bank** | west over the bridge; the east bank south; car | **the Line** west over the bridge to the collective farm (1.17 km), the town's landmarks (the re-targeted structure quests: the palace of culture, the tallest block, the central square, the stadium), the **KROT**; south down the east bank, the rail line and road to the plant's outer works. The runway and the library, which draft 2 put here, are deferred to a later quest line | **KROT** | the first car (the town at 1.52–2.46 km is a car's range, not a walk); the first gun (G1–G4) cast, bored and fired in the camp — G1's gate must be rehomed: `krot_looted` in place of `novo_looted` (create §4) (2026-09-13, reconciliation) |
 | **III — The plant complex** | the home bank south, truck and the marsh channels | the plant proper: the **switchyard and admin block** (1.09 km), the **turbine hall** (2.06 km), the **cooling intake works** (2.16 km); the plant's four storage halls at (−888, 167), (−743, 167), (−890, 54) and (−775, 54); the rail line as the bank's spine (James's J-T1–3). The waterworks and FR-06, which draft 2 put here, are deferred to a later quest line | **the switchyard**, then **the turbine hall**, then **the intake works** | one industrial landscape, its three sites 0.66 to 1.71 km apart from each other; the truck and the marsh channels are the gate |
 | **IV — The reactor, and the far bank** | the confinement hall; the bridge west; air | **the confinement hall** (−642, 518, roof y 198): the reactor control module for the gatehouse tier 3 and the antenna array for tower stage 5, 1.53 km away on the camp's own bank, reached by road or by helicopter from the mast field inside the perimeter; then the bridge road west. The hub, with the rest of the district, is deferred to a later quest line | — | the tower's last parts; the beacon; the finale on the mast's field |
 
@@ -151,13 +151,10 @@ beyond a bunker.
 
 ## 6. What this does to the systems
 
-- **Difficulty by land, not by ring.** The sites now run from 0.34 km (the hospital) to 2.30 km (the hempcrete
-  compound), but that spread still cannot carry four acts: three of the five strongpoints sit inside the plant complex
+- **Difficulty by land, not by ring.** The sites now run from 0.34 km (the hospital) to 2.30 km (~~the hempcrete compound~~ KROT (2026-09-13, reconciliation)), but that spread still cannot carry four acts: three of the five strongpoints sit inside the plant complex
   between 1.09 and 2.16 km, and Act IV's confinement hall at 1.53 km is nearer than two Act III sites. So Improved
   Mobs' distance rings cannot separate the acts. Difficulty follows the land: the home sector light, the east bank
-  south and the far bank over the bridge medium, the plant complex hard, the confinement hall hardest — In Control
-  `areas.json` per land (mod audit win 3), with Improved Mobs' distance curve flattened to two steps (inside 1.5 km,
-  beyond).
+  south and the far bank over the bridge medium, the plant complex hard, the confinement hall hardest — ~~In Control `areas.json` per land (mod audit win 3), with Improved Mobs' distance curve flattened to two steps (inside 1.5 km, beyond)~~ the `gscraft` director's zones by ground and by stage (`gscraft_zones/map.json`) (2026-09-13, reconciliation).
 - **The counterattacks' entry points** are the bridge from the west, the main road east, and the rail corridor north
   and south; the wave's origin tells the players which approach is live before the board does. All three are inside
   the camp perimeter's own ground, so the fight is at the gate rather than out in the fields.

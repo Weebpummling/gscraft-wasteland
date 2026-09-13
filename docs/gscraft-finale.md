@@ -88,12 +88,12 @@ seeing the Captains; Marshall's line should not promise more than that.
 
 ## 4. Win, fail, retry, afterwards
 
-> (2026-09-12, the compound start): the south compound (the yard and the hall, x −980…−920 × z −897…−818) is the fall-back when the mast's field falls — the one ground the players hold from the first minute, walled on three sides with the gate they built on the fourth.
+> (2026-09-12, the compound start): the south compound (the yard and the hall, x −980…−920 × z −897…−818) is the fall-back when the mast's field falls — the one ground the players hold from the first minute, walled on three sides with the gate they built on the fourth. **One fail line** (2026-09-13, reconciliation): the finale fails when the mast's field falls; the compound is where the survivors regroup and the retry (X6b) begins, not a second fail line.
 
 - **Win:** the Sleeper dies → stage `finale_won`; X8 completes (kill task on `minecraft:warden` with tag
-  `gscraft_boss`, or a stage set by the script's death hook); the finale chest appears at the mast's
+  `gscraft_boss`, or a stage set by ~~the script's~~ the mod's death hook (the site file's `boss` block (2026-09-13, reconciliation))); the finale chest appears at the mast's
   foot, (−808, −1008): the season flag item, a **Warium** decoration set. X9 opens (free play; the board stays live).
-- **Fail** (B30): a wave **overruns the tower compound — the mast's field, x −840…−770 × z −1040…−960** (five or more attackers inside that rectangle for 30 s, the script's check — the base has no claim marker, its claim is FTB Chunks'), or every player online is
+- **Fail** (B30): a wave **overruns the tower compound — the mast's field, x −840…−770 × z −1040…−960** (five or more attackers inside that rectangle for 30 s, the script's check — ~~the base has no claim marker, its claim is FTB Chunks'~~ the check is the `gscraft` mod's loss check on `camp.json`, and FTB Chunks has no part in it (2026-09-13, reconciliation)), or every player online is
   dead at once → the script kills every `gscraft_boss`-tagged entity and the remaining wave, the beacon
   beam goes dark (stage 5's beacon block swapped for the unlit variant), stage `finale_failed`.
 - **Retry:** one in-game day later Marshall's **X6b Relight** (a repeatable, no hand-in) restarts the

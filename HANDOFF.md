@@ -310,35 +310,9 @@ do not, but they are fully generated so it no longer matters there).
 
 ## 4. The design documents
 
-- `docs/gscraft-design-review-2026-09-13.md` - the design set reviewed against the build (2026-09-13): findings, the next steps A-E, the rulings R1-R5.
-- `docs/gscraft-next-steps-plan-2026-09-12.md` - the next steps planned (2026-09-12): the start, the building takes, the stage gates, the in-person pass, live, Phase C.
-- `docs/gscraft-mod-capabilities.md` - what each mod supplies to the design; the config changes made (§5b, §5c).
-- `docs/gscraft-structure-plan.md` - the generated-structure prune (67 of 964 kept) behind world build v7.
-- `docs/gscraft-woods-plan.md` - the Woods: where, what is in it, how it is built, the adopted quest hooks.
-- `docs/gscraft-map-design.md` - THE design (draft 6): the game in one paragraph, the map's three ranges,
-  the camp and its six NPCs, strongpoints, the item ladder, storage, hideout functions, the loop and
-  timers, the tower, tech stack, build order with test gates.
-- `docs/gscraft-crafting.md` - stations and timed orders, the vehicle roster and recipes, equipment crafting, the capability audit (draft 1 + the 2026-09-04 sheet §5.6–§5.7).
-- `docs/gscraft-quests.md` - all 138 quests, seven NPC chapters (Teddy the Hermit at the Woods outpost: explosives), what FTB Quests needs from KubeJS.
-- `docs/gscraft-modpack-review.md` - the mod set against the design (2026-09-04): everything the design names is installed; two updates required (Dynamic Flashlight 2.1.0 to add, EMI to sync locally); twelve manifest conditional-libraries are reference only; nothing removed.
-- `docs/gscraft-vendors.md` - the vendor system (2026-09-04): seven counters (Teddy's loyalty = his quests), loyalty = building tier for the camp six, prices, barters, night vision, the merchant-offers mechanism.
-- `docs/notes/gscraft-one-click-install.md` - the one-click client install (research + **built 2026-09-04**): `tools/packwiz_build.py` writes `build/packwiz/` (the pack manifest, served raw from main — the pack self-updates on every launch) and the release assets; GitHub release `client-installer-2026-09-04` (marked Latest) carries ONE asset, `GSCraft-Installer-<date>.zip` (the two setup cmds, `GSCraft-Instance.zip`, `GSCraft.mrpack`, README); the prerelease `pack-files-2026-09-04` hosts what the pack downloads by itself (the 28 non-Modrinth jars, the TaCZ packs, the bootstrap, the import files) — players never open it. **Acceptance test passed by the owner on 2026-09-04** (fresh machine, `GSCraft-Setup.cmd`, sign-in, first Play). **Official-launcher route** added the same day: `GSCraft-VanillaLauncher.cmd` (private Temurin 17 JRE into `%LOCALAPPDATA%\GSCraft\java`, Forge 47.4.10 `--installClient`, packwiz into `.minecraft`, forge profile renamed GSCraft with 6 GB) — tested against a scratch `.minecraft` (97 mods, 115 configs, profile set); its players re-run the file for updates. The bundle `GSCraft-Installer-2026-09-04.zip` holds the two cmds, the instance zip, the mrpack and a README. **Any pack change now = edit the sources, run the tool, commit `build/packwiz`, re-upload changed assets to `pack-files-*`** (a changed jar → that release; a changed cmd/instance → rebuild the bundle on the installer release).
-- `docs/notes/gscraft-pomkots-mechs.md` - Pomkot's Mechs (2026-09-04): **added** after the isolated server test — hub ambient (In Control rules), the PMB01 Custodian (J-H1), one PMV01B (W-M2), dormant units at FR-06 and the hub, griefing denied by `gscraft_mech_griefing.js`; Leawind's Third Person on every client. Hosted `/mods` needs both jars, `/kubejs/startup_scripts` the new script, `/config/incontrol` the two rule files — by hand (§6).
-- `docs/notes/gscraft-flashlight-and-nvg.md` - flashlight / night vision / thermal research; recommends adding Dynamic Flashlight 2.1.0 (owner's call).
-- `docs/gscraft-loot-tables.md` - every loot table by building type and site, the hub economy, the reward containers (2026-09-04).
-- `docs/gscraft-camp-spec.md` - camp.py's spec: function names, the board's blocks and colours, the rack, signs, guards, runway lights, flashlight, notebook (2026-09-04).
-- `docs/gscraft-finale.md` - the finale (2026-09-04): candidates checked against the jars, the Sleeper (named Warden) + Captains design, fail/retry, the Phase E build and test list.
-- `docs/gscraft-design-gaps.md` - the cross-document audit (2026-09-04): 18 stale facts fixed, 40 owner decisions with defaults, 18 items assigned to phases.
-- `docs/gscraft-onboarding.md` - how the game teaches itself: the first session minute by minute, each system's
-  teaching moment, the book as a journal, the survivor's notebook (Patchouli), what Phase C must build for it.
-- `docs/gscraft-map-layout-v6.md` - every rectangle, offset, vertical shift and pad level as built; the
-  tower lock; roads.
-- `docs/gscraft-map-review-v6.md` - the audit, the issues raised and the decisions taken.
-- `docs/notes/gscraft-scale-and-travel.md` - speeds, travel times, why 10 km.
-- `docs/notes/gscraft-foreign-worlds.md` and `gscraft-foreign-builds-plan.md` - the 1.12.2 saves and how
-  they were brought across.
-- `docs/wasteland-server-blueprint.html` - the original design record; `docs/gscraft-server-audit.html` -
-  the server as found; `docs/wasteland-district-map.html` - the map page.
+The index is `docs/README.md` (2026-09-13): start with `docs/gscraft-system-2026-09-13.md`, the living description of the game as
+one system; the living specifications by layer, the research records (`docs/research/`) and the archive (`docs/archive/`) are
+listed there, with the moved files' old paths. Older entries below refer to documents by their old paths.
 
 ## 5. Systems still to build (the next sessions' work)
 
@@ -438,6 +412,21 @@ start of its step - a player's fire from range never counted), suppression numbe
 flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. Test `tools/war_phase13.py`. Not on
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
+
+**2026-09-13, the reassessment (owner: "don't close it… reassess the plan and close out design contradictions and
+better integration of all the mechanics… I consider the project losing focus"):** `docs/gscraft-system-2026-09-13.md`
+is now **the living description of the game as one system** - the loop rung by rung with which half of each is built
+(the enemy's half everywhere, the player's half nowhere), every mechanic with what it reads and writes on the one bus
+(the stage set), the contradictions closed by rulings R1–R10 (the mod's ids; an advancement per stage for the quests;
+the station spiked before commitment; the board in the hall; KROT held by assault; the data is the truth of the enemy
+layer; the live data is the registry of the camp's rectangles; the finale's fail is one line; the create doc rehomed;
+the building take as a rung shape), the stage registry, and the reassessment: step 1 right, **step 2 over-built** (a
+strongpoint ladder at building scale, before any quest could ask for a building - to be cut down to "the alias stage
+takes it, runs its functions, flips its zone"), step 3 right; the direction corrected to a **vertical slice** (one
+playable hour from the yard with the smallest player layer, §7's nine builds) with the enemy layer **frozen** (bugs
+and the drop tables only). The live push is **withdrawn**; live keeps the armour build of 2026-09-12 15:15. The
+contradictions were applied to the design set as dated in-place notes (the reconciliation pass, same day). Decisions
+S1–S5 for the owner in §8.
 
 **2026-09-13, the design set reviewed (design only):** `docs/gscraft-design-review-2026-09-13.md` - every design
 document read against the mod and the data. Findings: the enemy layer is built and live while its documents still

@@ -32,10 +32,9 @@ What is **still** true, and shapes everything below:
 - **Other mods' brains stay theirs.** Recruits, Guard Villagers, Pomkot's mechs, the three horror mods and Hordes
   infection run their own AI. The mod can steer who they target; it cannot rewrite how they fight.
 - **Unloaded chunks do not simulate.** A war that happens where no player is must be bookkeeping, not entities.
-- **There is no art pipeline.** Faction skins, voice lines and animated models are new work that nobody has
-  done yet. Vanilla's nine default skins carry phase 1.
+- ~~**There is no art pipeline.** Faction skins, voice lines and animated models are new work that nobody has done yet. Vanilla's nine default skins carry phase 1.~~ Skins exist: `tools/make_skins.py` writes 27 by faction (2026-09-13, reconciliation); voice lines and animated models remain unmade.
 - **The server budget is real and unmeasured.** Every headless tick figure before 2026-09-09 was taken on a
-  paused world (The Hordes' `pauseEventServer`). The only standing number is ~0.5 ms per placement.
+  paused world (The Hordes' `pauseEventServer`). The only standing number is ~0.5 ms per placement. Measured 2026-09-11 without armour: 0.05 ms per fighting fighter; unmeasured with armour (2026-09-13, reconciliation).
 - **Mob griefing is off by ruling** until the builders finish, so any enemy role built around doors and walls is
   inert for now.
 
@@ -194,7 +193,7 @@ mod's own soldier body — visible kit, real TACZ guns — is possible later and
 | Outposts changing hands offscreen | the war moves while you are away | medium | **later** |
 | Custom faction skins | faces and patches instead of Steve in a helmet | art, not code | **later**; commission 6–10 |
 | Voice callouts | "reloading", "grenade" | audio assets | **later**; chat subtitles (E1) now |
-| NPC-driven vehicles | armour on the front | high; no vehicle in the pack has AI | **no** |
+| NPC-driven vehicles | armour on the front | ~~high; no vehicle in the pack has AI~~ built — the mod's armour vehicles have crews, patrols with riders, waves and bail-out (2026-09-13, reconciliation) | ~~**no**~~ **yes** (2026-09-13) |
 | Diplomacy with NATO or RUAF | a truce chapter | a season of design | **no** (E3, season two) |
 
 ## 6. Waves, re-expressed
@@ -226,6 +225,8 @@ ladder already rates the military helmets and vests at 0.15 (E3). So:
 - **Corpse tables** become `gscraft:entities/<rank>` in the mod's own data, materials only.
 
 ## 8. Performance budget — to measure, not assume
+
+> **Reconciled 2026-09-13:** measured 2026-09-11 without armour — 0.05 ms per fighting fighter; unmeasured with armour.
 
 On a **ticking** local server (the lesson of 2026-09-09), with spark:
 

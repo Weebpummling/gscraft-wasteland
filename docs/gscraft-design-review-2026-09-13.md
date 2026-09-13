@@ -94,6 +94,8 @@ from the compound, no zone stages, no building takes, no gate, tanks ungated.
 
 ## 2. The logical next steps, in order
 
+> **Superseded the same day** by `gscraft-system-2026-09-13.md` §6–§7: the owner withdrew the live push and asked for the reassessment first; the order below (A–E) is replaced by the vertical slice, with the building takes cut down and the enemy layer frozen. §1's findings and §3's rulings stand and were applied to the documents on 2026-09-13.
+
 ### A. Close the plan: step 4, then step 5 (the owner; one empty window)
 
 The in-person pass from the yard through the square to the hospital with the armour on, and spark's tick report

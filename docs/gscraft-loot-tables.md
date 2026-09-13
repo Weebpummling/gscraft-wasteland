@@ -78,7 +78,7 @@ and so on. The old table id is given so the datapack rename is traceable.
 | Site (role, keeper, act) | Was | Base table | Signature items added (weight) | Component container `gscraft:components/<site>` |
 |---|---|---|---|---|
 | `hospital` — the Skadowsky hospital (medical, Vera, I) | `residential` | apartment + hospital | blood bag 12, syringe 12, antiseptic 10 | medical analyzer 1 |
-| `hempcrete` — KROT (heavy industry, Kessler, II) | `novo` | garage + factory | spark plug 15, motor oil 12, bolt/nut 10 each, car battery 4 | heavy anchor cable 1, heavy diesel engine 1 (one each per refresh) |
+| ~~`hempcrete`~~ `krot` (2026-09-13, reconciliation) — KROT (heavy industry, Kessler, II) | `novo` | garage + factory | spark plug 15, motor oil 12, bolt/nut 10 each, car battery 4 | heavy anchor cable 1, heavy diesel engine 1 (one each per refresh) |
 | `switchyard` — the plant's switchyard and admin block (electronics, Ilya, III) | `financial` | office + military | circuit board 15, computer parts 12, hard drive 8, emerald 6 | military circuit board 1, encrypted radio 1 |
 | `turbine` — the plant's turbine hall (power, Rook, III) | `fr06` | military + office | relay 12, electric motor 8, car battery 6, circuit board 8 | transformer core 1, avionics module 1 (the reactor control module is the confinement hall's, §6) |
 | `intake` — the plant's cooling intake works (fuel and water, Oksana, III) | `plant` | factory + workshop | corrugated hose 15, radiator fin 15, fuel can 8, antifreeze 6 | industrial pump 1, purification membrane 1 |
@@ -86,7 +86,7 @@ and so on. The old table id is given so the datapack rename is traceable.
 Novo, Financial Plaza and FR-06 are deferred to a later quest line and carry no strongpoint table in
 this design; the tables above are their content re-homed, not new work. The site stages follow the
 same rename — `residential_*` becomes `hospital_*`, and `novo_*`, `financial_*`, `fr06_*` and
-`plant_*` become `hempcrete_*`, `switchyard_*`, `turbine_*` and `intake_*`.
+`plant_*` become ~~`hempcrete_*`~~ `krot_*`, `switchyard_*`, `turbine_*` and `intake_*`. Ruling R1 (2026-09-13, reconciliation): the five site ids are `hospital`, `switchyard`, `intake`, `turbine`, `krot`; there is no `hempcrete` id, and the `sites/novo` and `sites/financial` files are dead.
 
 Dossier chests (`gscraft:dossier/<site>`) hold exactly the dossier item and nothing else, at the
 coordinates in `tools/dossiers.json`.
@@ -101,7 +101,7 @@ Positions are `gscraft-map-layout-v6.md` §3.1. Rolls 2–4 unless noted.
 | **The town's east avenue** (1.52 km, west over the bridge; the acacia hall's role) | the first blocks past the crossing | Act II's hardware and the first mechanical items | workshop + spark plug 6, silicone tube 8 |
 | **The telephone exchange** (the town; the copper tower's role) | the wired building | **electrical**: Act II's wire and relays for the harnesses; Tune's U-C1 | office + wire spool 20, relay 12, capacitor 10, electric motor 3 |
 | **The swimming pool** (the town; the prismarine hall's role) | the wet hall; sculk on its floor | **filters and chemicals** (Michael's M-P1); and the story's first sign of the Sleeper (finale §3) | store + water filter 12, bleach 10, antifreeze 8, solvent 8, computer parts 4 |
-| **KROT** (2.30 km, west over the bridge; x −3392…−3073 × z −1344…−1025) | a walled survivor holdout | **medical, hardware and the first seeds** (D3); and, since 2026-09-07, Walker's heavy-industry strongpoint — see §4's `hempcrete` | apartment + hospital, canned goods 15, duct tape 10, Farmer's Delight seeds 6 each, bowl 6, rare tools (wrench, pliers 2 each) |
+| **KROT** (2.30 km, west over the bridge; ~~x −3392…−3073 × z −1344…−1025~~ [needs re-measurement] — ruling R5 (2026-09-13, reconciliation)) | a walled survivor holdout | **medical, hardware and the first seeds** (D3); and, since 2026-09-07, Walker's heavy-industry strongpoint — see §4's ~~`hempcrete`~~ `krot` | apartment + hospital, canned goods 15, duct tape 10, Farmer's Delight seeds 6 each, bowl 6, rare tools (wrench, pliers 2 each) |
 | **Library** (3.16 km) — **deferred to a later quest line** | the reading room | **valuables**: J3's folders, U3's hard drive — held with the site, so J3 and U3 take their valuables from the town's offices and the bunkers instead | library table as is |
 | **The bus depot** (the town's south edge; the stone complex's role) | the spawner dungeon | **the ammunition dump**: gunpowder and salvage (Walker's W-A5) | military + gunpowder 15, rifle ammo 12, salvage rifle 4, salvage shotgun 3, welding torch 1; rolls 3–5 |
 | **The collective farm** (1.17 km, west over the bridge; the fields south of the town with the farmstead at (−2112, −896); the mud village's role, design §2.7, owner 2026-09-05; the Line's west end) | farm hamlet | **food and the farm**: D3's seeds and bowls, D5's crops; emeralds | canned goods 20, Farmer's Delight rice, tomato seeds, cabbage seeds and onions 10 each, bowl 10, bandage 8, emerald 5 |
@@ -132,7 +132,7 @@ The confinement hall is never held either, so its component containers are share
 | `hub/rare` (ordinary chests) — **deferred with the hub** | many | office + military, computer parts 12, hard drive 8, emerald 8 | J9's four microdistricts share it |
 | `plant/reactor_control` (the confinement hall) | 1 | 1 reactor control module | 3 (M11, R-B3, W-M2) — objectives §4 |
 | `plant/antenna_array` (the confinement hall) | 1 | 1 antenna array | tower stage 5 (X6) |
-| `plant/power_filter` (moved here from the hub) | 2 | 1 each | 6 (T9, M13, T-B3, M-B3, and S-hempcrete-3 / S-intake-3) |
+| `plant/power_filter` (moved here from the hub) | 2 | 1 each | 6 (T9, M13, T-B3, M-B3, and ~~S-hempcrete-3~~ S-krot-3 (2026-09-13) / S-intake-3) |
 
 The Act IV component run is now the confinement hall rather than the hub: 1.53 km from the camp
 square, reached by air from the mast field inside the camp perimeter or by the bridge road, and about
@@ -157,5 +157,5 @@ components the game asks for are re-split once the hub's two yields have a new h
 - `tools/camp_ruins.json` and the §2 binding are **retired with `camp_ruins`** (2026-09-07): Act I's
   chests are Skadowsky's own and roll the §3 building tables. The site rectangles still bind to §4 by
   a KubeJS `LootEvents` hook (chest inside rect → site table) or by placing the chests' `LootTable`
-  NBT at world build, on the five rectangles of `docs/gscraft-skadowsky-camp.md` §11.4.
+  NBT at world build, on the five rectangles of `docs/gscraft-skadowsky-camp.md` §11.4. **Chosen** (2026-09-13, reconciliation): Act I's chests (the compound and the square) are bound by `LootTable` NBT at world build; the `LootEvents` hook is deferred.
 - Lootr config as in mod-capabilities §5b (already set).

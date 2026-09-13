@@ -1,5 +1,7 @@
 # GSCraft Wasteland — What the pack can do that the design does not use yet
 
+> **Reconciled 2026-09-13:** the `gscraft` mod replaced what this document leaned on for the enemy layer — Improved Mobs' distance curve (§3, §5b), In Control's ambient rules and areas (§3, §5c) and Mob Factions (§1) — with fighters, factions in `gscraft_factions`, the director's zones by ground and by stage, and site waves as data; those rows are dead. "Vendors on vanilla offers because KubeJS has no trade events" (§5c) is no longer a constraint: a mod body can implement `Merchant`, so the counters can be the mod's.
+
 Draft 1, 2026-09-03. Every gameplay mod in the pinned set (95 jars, 78 with gameplay content) was
 opened and read for blocks, items, entities, structures and recipe types. The design (draft 6),
 quests (draft 3) and crafting (draft 1) use about a third of what is there. This is the rest,
@@ -14,7 +16,7 @@ ordered by how much it would add for how little it costs, with a recommendation 
 | **Recruits** (10 entities, 6 tables) | hireable soldiers with ranks — recruit, shieldman, bowman, crossbowman, horseman, nomad, scout, captain, commander — plus **claim and siege** mechanics | parked for a later "Walls" level | this is the standing force the design keeps writing by hand. Marshall's D2 "guards" become Recruits hired at the gatehouse; **every held strongpoint's site guard is four script-summoned Recruits** (design §6.1, owner 2026-09-04); the mod's siege logic stays off |
 | **Guard Villagers** | armed villager guards that patrol and fight | D2 reward; two per held strongpoint in the site guard (design §6.1) | the NPCs' own protection at tiers 2–3 (a guard at each building) so the six survivors read as a community, not six statues |
 | **Zombie Awareness** | mobs hear gunfire and smell blood; noise draws hordes | config carried, not designed with | make it a stated rule: every shot at a site pulls its ambient garrison in. That is why the loot trips are quiet work and the take is loud, and why a suppressor (W-A4) is worth crafting |
-| **Mob Factions** | any mobs can be set as factions that fight each other | config carried (mech references stripped) | bandits vs zombies at every site: the ambient garrison fights itself, so a patient team can watch a site thin out before going in. One config file |
+| **Mob Factions** (dead (2026-09-13, reconciliation): `gscraft_factions`) | any mobs can be set as factions that fight each other | config carried (mech references stripped) | bandits vs zombies at every site: the ambient garrison fights itself, so a patient team can watch a site thin out before going in. One config file |
 | **The Hordes — infection** | zombie hits infect; infection kills unless cured (the horde event ships disabled and stays off, B6) | not designed with | the medical function's reason to exist: Tony cures infection at the clinic from T1, the med kit cures in the field from Medical 2. Ties the Skadowsky hospital (blood bags; "the residential block" before 2026-09-07) to the mechanic |
 | **Lukis Grand Capitals** (269 structure files) + **Hostile Villages** | replaces vanilla villages, outposts, mansions with large versions; villages spawn hostile | generated in the 10 km box already; never used | the generated capitals are ready-made bandit settlements. James's J9 "every city" should point at them; the loot-site list gains them for free |
 | **Underground Bunkers** (50 templates, SCP-themed) | randomly generated bunkers under the world | generated already; never used | dungeons that are not the sewers: mark the ones inside the box on the map page and give U-chapter side quests a reason to go down (a hard drive in a bunker) |
@@ -40,8 +42,8 @@ ordered by how much it would add for how little it costs, with a recommendation 
 | **Custom Starting Gear** | hands the personal station and the starting sidearm to every new player — the first-join moment |
 | **PlayerRevive** | revives are Tony's whole chapter (T8 counts three) |
 | **Lootr** | per-player loot in every ordinary chest (component and dossier containers are shared, B29); its refresh interval is the reason a site can be looted on three trips |
-| **In Control!** | the ambient garrison rules of §6.3 |
-| **Improved Mobs** | garrisons harden with distance from spawn — the difficulty curve across the three ranges comes for free |
+| **In Control!** | ~~the ambient garrison rules of §6.3~~ dead — the director's zones (2026-09-13, reconciliation) |
+| **Improved Mobs** | ~~garrisons harden with distance from spawn — the difficulty curve across the three ranges comes for free~~ dead — ranks per stage are the mod's (2026-09-13, reconciliation) |
 | **Let Me Despawn, Get It Together Drops, chunksending, ModernFix, Canary, FerriteCore** | keep five players and 100 mods playable on 8 GB |
 | **FTB Chunks + Teams** | the claim, the team, the shared stage state |
 | **Xaero** | the only map; every "reach the site" task assumes waypoints |
@@ -76,7 +78,7 @@ ordered by how much it would add for how little it costs, with a recommendation 
   defence items (Walls 1-3 station orders later), the Superb Warfare explosives and side-arms (Teddy's station orders or gone for good, section 2b, 2026-09-04), every Frontline Combat Pack / DragonRise vehicle assembling recipe and the seventeen Superb Warfare
   vehicles outside the roster, plus TaCZ's gun smith table, Apotheosis' five tables and every Sophisticated Backpacks
   recipe (packs and upgrades are Storage 1-4 orders). The inert crafting table (block interaction) and the station block are Phase C.
-- **Improved Mobs by distance:** `Difficulty type = DISTANCESPAWN`, difficulty 0 inside 1.5 km of the camp, 3 from 1.5 km,
+- **Improved Mobs by distance** (dead (2026-09-13, reconciliation): the mod's ranks per stage; the spawn is the compound yard, not the junction)**:** `Difficulty type = DISTANCESPAWN`, difficulty 0 inside 1.5 km of the camp, 3 from 1.5 km,
   6 from 2.5 km, 10 from 4 km (v8: there is no air ring; the far band is the plant complex) - the ranges of the design, measured from the world spawn, which since 2026-09-07 is the paved junction in the Skadowsky camp at (−940, −979) — the Warium plaza on the plateau is dead. The ring radii below have not been re-cut against the new spawn `[needs measurement]`. It was
   GLOBAL (time-based) before, so the "hardens with distance" line in §3 was not true until now.
 - **sedparties:** `useFTBTeams = true` - the party is the FTB team; xp share was already on.
@@ -97,7 +99,7 @@ each is now written (§5c).
 ## 5c. Done on 2026-09-04 (the gap audit's phase items, design side)
 
 - **Mod set reviewed against the design** (`gscraft-modpack-review.md`): two updates required, nothing removed.
-- **Vendors** on vanilla merchant offers (no trade mod, KubeJS has no villager-trade events): `gscraft-vendors.md`.
+- **Vendors** on vanilla merchant offers (~~no trade mod, KubeJS has no villager-trade events~~ no longer the constraint — a mod body can implement `Merchant` (2026-09-13, reconciliation)): `gscraft-vendors.md`.
 - **Flashlight / NVG / thermal** audit: nothing for players in the pack. The vehicle NVG and thermal keybinds
   were the Vintage Vehicle Pack's and went with it on 2026-09-06; the Frontline Combat Pack has three keybinds
   and no night-vision or thermal entries, DragonRise has none. A mod is

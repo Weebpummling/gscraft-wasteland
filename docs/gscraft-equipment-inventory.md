@@ -103,6 +103,8 @@ The roster below (`tools/spawn_rules.py`) spends **39 of the 57** non-vanilla pi
 | | Raider | ge M35 | Gorka 3 | Gorka 3 | wanderer | crowbar |
 | | Elder | bandana | rags | rags | rags | — |
 
+> **Note, 2026-09-13 (reconciliation):** two groups are missing from the tables above — the armour crews (crewmen: trousers and a Glock; ranks NATO Crewman and RUAF Crewman, weight 0, filled only by a vehicle) and the Bloater and the Matron of the Dead. Neither is in `spawn_rules.py`'s assignment.
+
 Two decisions worth recording. **NATO's two detachments** wear different kit on purpose: the
 spine's checkpoint is in US gear with a Type 81, the plant's garrison in Russian gear with an AK. They
 are one army in whatever the plant's armoury held, not two armies — and crossing from one to the other

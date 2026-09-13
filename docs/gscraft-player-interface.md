@@ -121,7 +121,7 @@ one exception that lists things: its needs (§4.3), because that list *is* the r
 The strongpoint board (six columns, six colours, each column's gloss four words or fewer — the full sentence is the
 notebook's), the clock sign, the composition sign, the contested lamp, the parts rack's five hooks, the tower's stages, the watchtower banners, the door signs, the road signs, the map wall,
 the Lootr glow, a station's lit texture while it works. Rebuilt by function on the change; never animated,
-never blinking. A player who wants to know where the game stands walks to the gatehouse and looks.
+never blinking. A player who wants to know where the game stands walks to ~~the gatehouse~~ the hall's ground floor inside the compound (ruling R4: the board and the map wall stand there in Act I, and the gatehouse gets the board only when taken (2026-09-13, reconciliation)) and looks.
 
 ### 3.3 Action bar — the readout, only while looking
 KubeJS server tick, every 10 ticks, for the block under the crosshair within 5 blocks; the text vanishes when the
@@ -131,7 +131,7 @@ player looks away. This is how a screen-less block answers a question without a 
 |---|---|
 | a station with an order running | `STEEL FRAME — 1:58` (then `STEEL FRAME — done` until taken) |
 | a station missing something | `steel frame — needs: welding torch` / `— needs: 2 more iron plate` (when some are loaded) |
-| a board column | `NOVO — held — garrison 3/5` (the clock joins the readout from Radio 2: `— clock 31:20`; design §6.2) |
+| a board column | `NOVO — held — garrison 3/5` (a worked example on a dead site; live: `HOSPITAL — held — garrison 6/6` (2026-09-13, reconciliation)) (the clock joins the readout from Radio 2: `— clock 31:20`; design §6.2) |
 | the clock sign or the lamp | `next attack: 09:40 — the gate` (Radio 2+; before that, the sign alone) |
 | a rack hook | `COOLING — Michael's kit, not yet` |
 | a survivor | `WALKER — sneak + right-click to trade` (once the counter exists) |
@@ -166,7 +166,7 @@ Titles are the loudest thing on screen and are used exactly four times in the ga
 |---|---|---|
 | **WASTELAND** | — | first join, before Tune's first line |
 | **THEY'RE COMING** | *the gate, two minutes* | the two-minute mark of every counterattack clock |
-| **NOVO IS OURS** (the site's name) / **THE GATE HELD** / **THE GATE FELL** | *hold five minutes* / *nothing lost — they'll be back* | the assault won; the counterattack won; the counterattack lost |
+| **NOVO IS OURS** (the site's name; a dead-site example — live: **HOSPITAL IS OURS** (2026-09-13, reconciliation)) / **THE GATE HELD** / **THE GATE FELL** | *hold five minutes* / *nothing lost — they'll be back* | the assault won; the counterattack won; the counterattack lost |
 | **THE SLEEPER** | *sixty minutes* | the beacon lit (finale) |
 
 Nothing else is a title. Not a stage, not a tier, not a quest, not a death. FTB Quests' own completion toasts are switched
@@ -174,7 +174,7 @@ off in the shipped client config: a completed quest is read in the book, and its
 screen: the two-minute title fires before the gate bar exists, the result title after the bar is removed.
 
 ### 3.6 Boss bar — the clock you cannot look away from
-Three bars, one at a time, coloured to match the board: the assault (blue, `NOVO — hold — 4:12`), the gate (red,
+Three bars, one at a time, coloured to match the board: the assault (blue, `NOVO — hold — 4:12` — a dead-site example; live: `HOSPITAL — hold — 4:12` (2026-09-13, reconciliation)), the gate (red,
 `THE GATE — wave 2 of 3`), the finale (purple, the Sleeper's health). The fortify clock is **not** a boss bar; it
 lives on the clock sign and the board readout, because forty minutes of bar is a bar nobody sees.
 
@@ -198,8 +198,7 @@ Where things are, and (new) **Driving**, which appears with Garage 1. Under sixt
 - **Opening it:** `J`, or right-click any survivor (KubeJS entity interact → `/ftbquests open_book` on that
   survivor's chapter; the subcommand exists in 2001.4.22). There is **no quest book item**: the survivors are
   the book, and the kit's five slots stay for tools.
-- **Chapters, in order:** Walker, Tony, Michael, Tune, James, Marshall, The tower, Field notes, Counters. The
-  first five are visible from the start (their NPC is on the rim); Marshall's and the tower's appear after the
+- **Chapters, in order:** Walker, Tony, Michael, Tune, James, Marshall, The tower, Field notes, Counters. ~~The first five are visible from the start (their NPC is on the rim);~~ Walker's and Michael's are visible at 0:00 — theirs are the survivors in the compound — and Tony's, Tune's and James's appear with the takes that summon them (2026-09-13, reconciliation); Marshall's and the tower's appear after the
   five introductions; Field notes appears with its first entry; Counters with the first vendor tier.
 - **What a page shows:** the title (≤ 4 words, the NPC's phrasing), the body (one voice sentence, one task
   sentence), the tasks as FTB draws them, the reward line naming the change in the world. Dependencies are
@@ -214,7 +213,7 @@ Where things are, and (new) **Driving**, which appears with Garage 1. Under sixt
 - The **world map** (`M`) fills as the team walks; the roads draw themselves. The **map wall** at Tune's is the
   view of the parts nobody has walked to — the two never disagree because the wall shows sites and roads only.
 - **Waypoints from the game:** James's quests (J1, J-S1…) and Radio 1 push waypoints to every team member with
-  Xaero's chat protocol: a `tellraw` whose text is `xaero-waypoint:NOVO:N:-2808:65:-736:9:false:0:Internal-overworld-waypoints`
+  Xaero's chat protocol: a `tellraw` whose text is `xaero-waypoint:NOVO:N:-2808:65:-736:9:false:0:Internal-overworld-waypoints` (a dead-site example; live: `xaero-waypoint:HOSPITAL:H:-782:65:-1277:9:false:0:Internal-overworld-waypoints` (2026-09-13, reconciliation))
   arrives on the client as a clickable *add waypoint* line (the client parses `xaero-waypoint:` messages; **verify
   in Phase C on the Prism instance**, fallback: the coordinates in the quest body and Tune's line). Waypoint
   colour follows the board: scouted yellow, held blue, defended lime, lost red — the loop script re-sends the
@@ -317,7 +316,7 @@ hidden by default, Freecam unbound, FTB Ultimine by hand) is researched in `docs
 | **Stations / orders** | §4.3 | §4.3 | §4.3 | KubeJS block entity |
 | **Blueprints** | a card item in the reward line and the inventory, tooltip = the needs | keeps it in a station | no card, no recipe; nothing to say | KubeJS items + team stage `bp_<recipe>` (the stage stays for the vendors' gates) |
 | **Infection** | the Hordes potion icon (top-right) from the hit; at each 5-minute stage the icon's amplifier rises (Hordes) ; at the last stage the action bar says `you're burning up — Tony's clinic` every 30 s; Tony's T1 line the first time; Field note | walks to the clinic (T1) or uses the med kit (Medical 2) | death by infection respawns at the camp with the Field note already written | Hordes config (as shipped) + KubeJS effect watch |
-| **Revive / death** | PlayerRevive's downed overlay; a teammate's action bar `hold right-click — 40 %`; inside the camp outline the ground itself revives after 10 s (Medical 1) and the action bar says `the camp has you`; Field note the first time | holds right-click on a downed friend | five-minute bleed-out → respawn at spawn, inventory dropped except the everlasting pack; no title, no chat line — death is not an event the radio reports | PlayerRevive (as configured) + KubeJS |
+| **Revive / death** | PlayerRevive's downed overlay; a teammate's action bar `hold right-click — 40 %`; inside ~~the camp outline~~ the compound box (x −980…−920, z −897…−818, growing with the takes (2026-09-13, reconciliation)) the ground itself revives after 10 s (Medical 1) and the action bar says `the camp has you`; Field note the first time | holds right-click on a downed friend | five-minute bleed-out → respawn at spawn, inventory dropped except the everlasting pack; no title, no chat line — death is not an event the radio reports | PlayerRevive (as configured) + KubeJS |
 | **Noise** (Zombie Awareness) | the garrison converges; nothing on screen | uses a suppressor | one loud run | config as shipped |
 | **Loot** | Lootr glow on unopened chests; shared containers do not glow | opens | an emptied shared container stays open-lidded (a block state) until it refreshes | Lootr + loop script |
 | **Carrying** | §4.4 | | | KubeJS |

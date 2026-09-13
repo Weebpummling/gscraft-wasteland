@@ -21,7 +21,7 @@ the mast's whole column and the hospital roof at y 115.*
 
 ## 1. Why now, and what it costs
 
-Nothing has been built. `tools/camp.py` was never written, and the plateau tower pad at x −1560…−1433 ×
+Nothing has been built. ~~`tools/camp.py` was never written~~ `tools/camp.py` exists and writes only the six survivor summons (`camp_npc_<npc>`) and `camp_npcs`; the 24 building-tier templates are unwritten and unassigned to a tool (2026-09-13, reconciliation), and the plateau tower pad at x −1560…−1433 ×
 z −2460…−2333 is bare ground at y 57 to 88. The only camp tooling that exists is `camp_ruins.py`,
 `camp_torches.py`, `tower.py` and `theline.py`, none of which has been run against the world.
 
@@ -191,7 +191,7 @@ served. The bridge is the way out to everything else. That is the Pripyat story 
 | the runway (deferred) | 1.54 km | 2.85 km |
 | the library (deferred) | 1.88 km | 3.16 km |
 
-*(Re-measured 2026-09-07 from the world spawn at the paved junction, (−940, −979). The first draft's
+*(Re-measured 2026-09-07 from ~~the world spawn at~~ the paved junction, (−940, −979) — the junction is Act I's first take, not the spawn; the spawn is the compound yard, from which the hospital is 438 m (2026-09-13, reconciliation). The first draft's
 right-hand column was a few tens of metres out because it never named its anchor, and its settlement row
 has been replaced by the collective farm: the settlement sector is group `removed` and the ground there is
 bare grass.)*
@@ -219,6 +219,8 @@ acts, and difficulty was moved onto the land. Under land gating the shape holds.
 | Fuel and water | Michael | the plant's cooling intake works | 2.14 km |
 | Heavy industry | Walker | KROT | 2.31 km |
 
+> The "Straight from camp" column above (0.36 / 1.06 / 2.04 / 2.14 / 2.31) is superseded: the one set for the five strongpoints from the junction is **0.34 / 1.09 / 2.06 / 2.16 / 2.30 km** (hospital, switchyard, turbine, intake, KROT), as the first table of this section has it (2026-09-13, reconciliation).
+
 The tower's five parts follow the same order: mast repair from Skadowsky, transmitter from the switchyard,
 generator from the turbine hall, cooling loop from the intake works, array from the confinement hall, with the
 reactor control module still the gatehouse tier 3's input from the reactor block.
@@ -239,8 +241,9 @@ reactor control module still the gatehouse tier 3's input from the reactor block
 
 ## 10. Corrections other documents need
 
-Nothing below has been applied. This is the list a future session must work through before treating any other
-document as current.
+~~Nothing below has been applied. This is the list a future session must work through before treating any other document as current.~~
+
+> **Reconciled 2026-09-13:** map-design §2.2, §2.6 and §7, objectives §0–§6 and finale §3–§4 carry 2026-09-07 realignment banners; every other row below is now covered by the 2026-09-13 reconciliation notes in the documents themselves. Read this table as a record of what needed correcting, not as open work.
 
 | Document | What is now wrong |
 |---|---|
@@ -328,6 +331,8 @@ cooling water.
 | Power | Michael | Rook | the plant's turbine hall | 400, 590 | 2.04 km | III |
 | Fuel and water | Michael | Oksana | the plant's cooling intake works | 895, 155 | 2.14 km | III |
 | Heavy industry | Walker | Kessler | KROT | −3233, −1185 | 2.31 km | II |
+
+> The "Straight from camp" column above is superseded by the one set 0.34 / 1.09 / 2.06 / 2.16 / 2.30 km (hospital, switchyard, turbine, intake, KROT) from the junction; KROT's box must be re-measured before its site file is written (ruling R5) (2026-09-13, reconciliation).
 
 The confinement hall at (−642, 518), roof y 198, is **not** a strongpoint. It is Act IV's prize: the
 reactor control module for the gatehouse tier 3 and the antenna array for tower stage 5. That keeps the

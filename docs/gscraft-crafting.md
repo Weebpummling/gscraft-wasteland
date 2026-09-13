@@ -32,7 +32,7 @@ them the way to make it. Five holes and one loop, all fixed in quests draft 2; t
 | Fuel | every vehicle | M5 → W8 (biodiesel chain, fuel cans) | fine; fuel cans also drop at the plant as before |
 | A truck | W10 (truck cargo), the bulky hauls | W9, Garage 2 | fine |
 | A boat | W12 ("reach the settlement by water"), J5 | **J5 handed out a boat as a gift; no recipe anywhere** | **fixed:** J5 hands out the boat blueprint and W-V1 "Put a motor on it" the speedboat (Garage 1); J5's reward is now the speedboat blueprint |
-| Aircraft | J7 (reach the hub **by air**), W13 (aircraft recipe) | **W13 was gated on J7 and J7 on W13 — a loop nobody could enter** | **fixed:** W13 gates on W9 and M11. **J6's runway is deferred to a later quest line and is no longer a gate** (2026-09-07): the aircraft is rotary and lifts from the mast field inside the camp perimeter, so no airfield is needed. J7 ("reach the hub by air") is deferred with the hub |
+| Aircraft | J7 (reach the hub **by air**), W13 (aircraft recipe) | **W13 was gated on J7 and J7 on W13 — a loop nobody could enter** | **fixed:** W13 gates on W9 and M11. **J6's runway is deferred to a later quest line and is no longer a gate** (2026-09-07): the aircraft is rotary and lifts from the mast field inside the camp perimeter, so no airfield is needed. ~~J7 ("reach the hub by air") is deferred with the hub~~ J7 is the confinement hall by air (`hub_by_air` reads the confinement hall, quests §9) and is live (2026-09-13, reconciliation) |
 | Firearms, ammunition, attachments | from the first night; the assaults and defences | **nothing taught them; the pack's own gun-smith and reforge tables were the implied route** | **fixed:** Walker's armoury line W-A1…W-A4 (§5), plus a starting sidearm and 30 rounds from Custom Starting Gear |
 | Body armour | the assaults | nothing | **fixed:** W-A2 |
 | The claim marker | R2 and every re-take after a failed assault or a broken marker | R1 handed out one item | **fixed:** R1 gives the marker *blueprint*; a marker lost in a failed assault is re-crafted, not begged from Marshall |
@@ -144,7 +144,7 @@ the result appears in the output slots. The player leaves; the station works.
 
 The lengths are set from the trip table (design §2.5 and §3.5). A round trip with looting is
 about 20 minutes in every act — 1.5 km on foot in Act I, 2.5 km by car in Act II, the far ring by
-truck in Act III, the hub by air in Act IV all land there — so a "trip-length" order is 20 min,
+truck in Act III, ~~the hub by air~~ the confinement hall by air (2026-09-13, reconciliation) in Act IV all land there — so a "trip-length" order is 20 min,
 and the results are waiting when the team comes home.
 
 | Class | What | Time at a personal station | Feel |
@@ -171,7 +171,7 @@ sites, ordered as intermediates, never crafted at a bench — §2.1):
 
 | Station | How many | Where | Who |
 |---|---|---|---|
-| **Personal work station** | one per player, bound to that player by W1's reward | anywhere inside the camp outline or the team's claim | given on first join by Custom Starting Gear (already in the pack), re-issued by Walker if lost; a second one cannot be placed while the first exists |
+| **Personal work station** | one per player, bound to that player by W1's reward | anywhere inside ~~the camp outline~~ the compound box (x −980…−920, z −897…−818) at the start, growing with the takes (2026-09-13, reconciliation), or the team's claim | given on first join by Custom Starting Gear (already in the pack), re-issued by Walker if lost; a second one cannot be placed while the first exists |
 | **Workshop benches** | tier 1: 1, tier 2: 2, tier 3: 3 | Walker's yard | shared; anyone on the team may place or collect an order |
 | **Vehicle benches** | the IV bench (tier 1) and the SW assembling table (tier 2) | Walker's yard | shared; vehicle orders only |
 
@@ -350,6 +350,8 @@ but Teddy's counter.
 | TBG rocket (`superbwarfare:rpg_rocket_tbg`) | 1 standard rocket + 1 solvent + 2 antifreeze | Intermediate | H6 |
 | High-energy explosives (`superbwarfare:high_energy_explosives`) ×2 | 4 powder + 1 solvent + 1 bleach | Intermediate | H7 — Marshall's C4 order then takes 1 of these instead of its 4 powder, and the mortar-shell order 1 instead of 2 powder for ×4 shells (the claymore uses gunpowder and is unchanged) |
 
+*(The **Propellants (H8, Teddy)** row — nitropowder, guncotton — belongs to this table; it sits orphaned after the rule below, before §6, because it lacks the Class column and is not a clean cut/paste (2026-09-13, reconciliation).)*
+
 The javelin, the TOW, the mines, the aerial bombs, the rockets and shells of the vehicles' own weapons, the bow, the taser
 and the Glocks are stripped for good in `gscraft_recipes.js` (section 2b): nothing on the map is a target for them, or the
 pack's TaCZ guns cover them. Section 2b also removes the jar's own recipes for every item above and the Cataclysm and Igla
@@ -360,6 +362,8 @@ materialises, the fallback is that the station order for an IV vehicle yields th
 (KubeJS gives it on completion) and the IV bench is removed from the yard.
 
 ---
+
+*(Orphaned row of §5.8's table — see the pointer there (2026-09-13, reconciliation).)*
 
 | **Propellants (H8, Teddy)** | CBC's nitropowder ×2: 2 gunpowder + 1 nitrate (the plant's loot) and guncotton ×2: 2 cotton + 1 nitrate + 1 solvent — the better charges for the long gun; **H8 The better powder** (Act IV, after H5) is Teddy's eighth quest and his counter's fourth level | Teddy, H8 |
 

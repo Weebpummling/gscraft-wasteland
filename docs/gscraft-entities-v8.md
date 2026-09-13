@@ -9,19 +9,18 @@ differ, this document wins. Nothing here needs a mod the pack does not carry.
 ## 0. Rules
 
 1. **Nothing spawns by accident.** `doMobSpawning` stays off. Every living thing is placed by a template or a
-   function, ruled by In Control per area, or summoned by the loop. The wasteland is authored, like the map.
+   function, ~~ruled by In Control per area~~ ruled by the `gscraft` director's zones by ground and by stage (`gscraft_zones/map.json`) (2026-09-13, reconciliation), or summoned by the loop. The wasteland is authored, like the map.
 2. **Every faction owns a land.** The Dead own the home sector and, over the bridge, the town and the farm; the
    Scavengers the roads and the Woods; NATO the east-bank spine and the plant complex's gates; the Machines the
    plant complex; the Horrors own the dark between fights and no ground.
 3. **A site's occupiers are its faction; a site's counterattack is its faction plus the one it hates.** The faction
-   war (Mob Factions) is real: an unclaimed site thins itself, and a held site's ambient stops.
+   war (~~Mob Factions~~ `gscraft_factions` (2026-09-13, reconciliation)) is real: an unclaimed site thins itself, and a held site's ambient stops.
 4. **People are villagers with a name; soldiers are Recruits; guards are Guard Villagers.** No mod gives a talking
    NPC, so the survivors and keepers speak through the radio lines and the book (interface doc §3), face their door,
    and sit on a chair so nothing pushes them.
-5. **One horror per land at a time, never in a wave.** The horror mods keep their own timers; In Control decides
+5. **One horror per land at a time, never in a wave.** The horror mods keep their own timers; ~~In Control~~ the director's zones (horrors per zone (2026-09-13, reconciliation)) decide
    where each is allowed.
-6. **Names are earned.** A named enemy is an Apotheosis boss definition or an In Control `customname`, summoned by
-   the loop at a designed moment; ordinary mobs are anonymous.
+6. **Names are earned.** ~~A named enemy is an Apotheosis boss definition or an In Control `customname`, summoned by the loop at a designed moment;~~ A named enemy is a site file's `boss` block or a wave entry's name, placed by the mod at a designed moment (2026-09-13, reconciliation); ordinary mobs are anonymous.
 
 ## 1. The people (allies and neutrals)
 
@@ -230,11 +229,11 @@ dog-tag bounty (enemies §9 E2) is a vendor barter: 10 dog tags for a claymore.
 
 | # | Change | File |
 |---|---|---|
-| C1 | `MobFactions.toml`: add `militia` (the three IE ids) and `machine` (every `pomkotsmechs:` combat id); add all thirteen `recruits:` ids to `civilian`; drop the unregistered `knockerdeadanimal` | `config/MobFactions.toml` |
-| C2 | In Control: `areas.json` with `home`, `town`, `river`, `district`, `farbank`, `hub`, `plant`, `woods` (box areas as redefined in §4, the camp box from `docs/gscraft-skadowsky-camp.md` §3); every `minx/maxx` rule rewritten on `area`; spawner rules per area with the caps of §4; deny each horror id outside its areas; deny `pomkotsmechs:*` outside `hub`/`plant`/the district's drone sphere; the `hostile → deny` `onjoin` rule narrowed to `spawntype natural` so summons, waves and bosses pass (**test T1** first) | `config/incontrol/*.json` |
-| C3 | Improved Mobs: `Difficulty Increase` two steps (`0-0`, `1500-6`); add `pomkotsmechs:` ids to the exclusion list (the mod must not arm a mech); keep the Knocker's stalk forms excluded | `config/improvedmobs/common.toml` |
-| C4 | Hordes: per-site wave tables `gscraft_<site>.json`; remove `bogged` from `skeletons.json`; keep the event off | `config/hordes/data/hordes/horde_data/tables/` |
-| C5 | Apotheosis: `gscraft:elite_<site>`, `gscraft:captain_<n>` boss definitions; minibosses overridden to empty | `data/gscraft/bosses/`, `data/apotheosis/minibosses/` |
+| C1 | `MobFactions.toml`: add `militia` (the three IE ids) and `machine` (every `pomkotsmechs:` combat id); add all thirteen `recruits:` ids to `civilian`; drop the unregistered `knockerdeadanimal` | `config/MobFactions.toml` — dead mechanism: factions are `gscraft_factions` (2026-09-13, reconciliation) |
+| C2 | In Control: `areas.json` with `home`, `town`, `river`, `district`, `farbank`, `hub`, `plant`, `woods` (box areas as redefined in §4, the camp box from `docs/gscraft-skadowsky-camp.md` §3); every `minx/maxx` rule rewritten on `area`; spawner rules per area with the caps of §4; deny each horror id outside its areas; deny `pomkotsmechs:*` outside `hub`/`plant`/the district's drone sphere; the `hostile → deny` `onjoin` rule narrowed to `spawntype natural` so summons, waves and bosses pass (**test T1** first) | `config/incontrol/*.json` — dead mechanism: zones are the director's `gscraft_zones/map.json` (2026-09-13, reconciliation) |
+| C3 | Improved Mobs: `Difficulty Increase` two steps (`0-0`, `1500-6`); add `pomkotsmechs:` ids to the exclusion list (the mod must not arm a mech); keep the Knocker's stalk forms excluded | `config/improvedmobs/common.toml` — dead mechanism: ranks per stage are the mod's (2026-09-13, reconciliation) |
+| C4 | Hordes: per-site wave tables `gscraft_<site>.json`; remove `bogged` from `skeletons.json`; keep the event off | `config/hordes/data/hordes/horde_data/tables/` — dead mechanism: waves are `gscraft_sites/*.json` (2026-09-13, reconciliation) |
+| C5 | Apotheosis: `gscraft:elite_<site>`, `gscraft:captain_<n>` boss definitions; minibosses overridden to empty | `data/gscraft/bosses/`, `data/apotheosis/minibosses/` — superseded: elites are the mod's, a site file's `boss` block or a named wave entry (2026-09-13, reconciliation) |
 | C6 | Recruits: `ShouldRecruitPatrolsSpawn=false`; `MountWhitelist` keeps `boat`; hire prices as §1.3; `AllowClaiming=false` | `serverconfig/recruits-server.toml` |
 | C7 | Guard Villagers: `Villager Spawn With Gun=true`; Pillagers Gun: `Bazooka Chance` 0 | `config/guardvillagers-common.toml`, `config/PillagersGun-common.toml` |
 | C8 | The Man From The Fog: `break_blocks=false` (the camp's buildings are locked but the farmsteads are not) | `config/man_config.toml` |

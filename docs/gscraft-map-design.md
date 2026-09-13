@@ -6,7 +6,7 @@ One build, one border; everything with a plan behind it is in it; seasons stay a
 
 **Decision log (owner):** draft 3 — strongpoints are player-built structures, radio tower custom;
 medical at the residential block (realigned 2026-09-07: the medical strongpoint is the Skadowsky hospital), Bio Gen a loot site (deferred 2026-09-07); sewers are dungeons; water pad re-cut; air
-ring expedition-only; tower second-closest; vehicle speeds as shipped; no custom mod. Draft 4 — item
+ring expedition-only; tower second-closest; vehicle speeds as shipped; ~~no custom mod~~ a custom Forge mod `gscraft` (`G:/GSCraft/repo/mod`) carries the enemy layer, the sites, the director, the drops and the tower lock — §8 (2026-09-13, reconciliation). Draft 4 — item
 catalogue, bulky rule, storage as a base function, the five tower recipes, crafting at the IE
 workbench with blueprints: all accepted. Draft 5 — the contacts are **NPCs living in the starting
 area, each with a building**: Walker the Foreman, Tony the Medic, Michael the Engineer, Tune the
@@ -105,22 +105,15 @@ whose level crossing becomes the east gate. It sits inside the skad sector on pu
 crater, no crater lake and no crater ramp: the old plateau rectangles — x −1690…−1290 × z −2480…−2080 and plan
 §4's sector row x −1792…−1409 × z −2492…−2109 — are **both dead**, nothing was ever built on either, and neither
 is a live "which one is right" question. The perimeter is about a third of the plateau camp's 400 × 400 because
-the buildings already exist and do not need spacing out. The **world spawn is the paved junction,
-(−940, −979)**, ground y 65: already hard surface, and it faces the bridge (every distance-based rule, Improved
-Mobs included, measures from this spawn). The old world spawn (−1490, −2230) is dead.
+the buildings already exist and do not need spacing out. ~~The **world spawn is the paved junction, (−940, −979)**, ground y 65: already hard surface, and it faces the bridge (every distance-based rule, Improved Mobs included, measures from this spawn).~~ The world spawn is **(−956, 65, −876)** in the yard of Skadowsky's south compound, `spawnRadius` 4 (`docs/gscraft-start-compound-2026-09-12.md`); the paved junction is Act I's first take, not the spawn (2026-09-13, reconciliation). The old world spawn (−1490, −2230) is dead.
 
 **The bridge is the camp's west gate** — x −1104…−981, deck z −957…−936, deck level **y 89**, stone-brick
 masonry with iron railings and truss sides reaching y 94; water sits at y 53, so the deck stands 36 blocks above
 it. It is the only crossing on Skadowsky's west side, which is why the pocket is a stronger defensive position
 than the plateau ever was: water and one bridge to the west, a rail embankment to the east, two solid building
 groups north and south. The camp is
-**neutral ground**: the NPC buildings are protected, spawns are suppressed by **five
-diamond Magnum Torches** (64-block ellipsoid each — `tools/camp_torches.py`, placed by
-`gscraft:camp_torches`), and the players' own hideout is
-wherever they claim. The five cover **the pocket, not the sector**, and that is deliberate: extending suppression
-to the whole sector is the reward for `skadowsky_held` (§6.1). The torches are the visible reason the camp is safe; each NPC's tier-1 rebuild
-keeps its torch inside the building. The recommended claim is the pocket itself: a one-bridge isthmus
-is the best wave-defence ground on the map, and it is where they woke up.
+**neutral ground**: the NPC buildings are protected, ~~spawns are suppressed by **five diamond Magnum Torches** (64-block ellipsoid each — `tools/camp_torches.py`, placed by `gscraft:camp_torches`), and the players' own hideout is wherever they claim. The five cover **the pocket, not the sector**, and that is deliberate: extending suppression to the whole sector is the reward for `skadowsky_held` (§6.1).~~ Two Magnum Torches stand at the start (the yard, the gap) and four more come by stage (the square, the gatehouse, the clinic, the crossing), each a datapack function `gscraft:torch_<name>` run by the site loop when that building is taken; a taken area keeps its Dead and scavenger spawns — only the compound is denied — and the old pocket (x −978…−770, z −1060…−845) becomes camp ground on `skadowsky_held` (2026-09-13, reconciliation). The torches are the visible reason the camp is safe; each NPC's tier-1 rebuild
+keeps its torch inside the building. ~~The recommended claim is the pocket itself: a one-bridge isthmus is the best wave-defence ground on the map, and it is where they woke up.~~ The players start inside the south compound (the box x −980…−920, z −897…−818) and grow the camp by the takes; the pocket is camp ground only from `skadowsky_held` (2026-09-13, reconciliation).
 
 **The camp's ruins are retired.** `tools/camp_ruins.py` existed only because the plateau had nothing to loot
 within 300 m. Skadowsky is a 464 × 752 town with a hospital, a station and a level crossing, so Act I has plenty
@@ -143,7 +136,7 @@ Positions are first cut, to be adjusted on the visual pass:
 | **James the Scout** | the lookout | 9×9 tower, 20 tall | the rail embankment's signal box, x −905…−897 × z −975…−967 | the expedition board, a view that already overlooks both approaches |
 | **The gun pit** (Create chapter, G4) | a 12×12 emplacement | 12×12 | the mast field's west edge, x −846…−835 × z −1000…−989, locked like the buildings | tier 0: a dead barrel on blocks and an empty mount ring, visible from minute 2; G4 places the cannon mount, the loader and the pit board; it fires east over 70 blocks of open grass |
 
-Each building is a structure template placed by a generator (Phase C, on the positions above; `camp.py`, to write) in
+Each building is a structure template placed by a generator (Phase C, on the positions above; ~~`camp.py`, to write~~ `tools/camp.py` exists but writes only the six survivor summons `camp_npc_<npc>` and `camp_npcs` — the template generator is unwritten and unassigned to a tool (2026-09-13, reconciliation)) in
 the style of `tools/tower.py`, so the camp can be re-cut without hand building; the gun pit is its 25th template pair
 (tier 0 and the G4 emplacement). What is
 placed is **tier 0** of four: every building has three upgrade tiers, each its own template on
@@ -357,8 +350,7 @@ Hand-ins scale with the acts and reuse what the loop already produces: tier 1 is
 first intermediates; tier 2 needs bulk building material (concrete, steel frames) plus **one more**
 of the strongpoint's loot-only components — a second item of the same site (the engine, the membrane, the encrypted radio,
 the analyzer), respawning while the site is held, so each upgrade is another trip to a site the players already own; tier 3 needs
-one Act IV item from the confinement hall (the gatehouse's R-B3 takes its reactor control module). `camp.py` generates the 24 templates (six buildings × four tiers) and their placement
-functions `gscraft:camp_<npc>_<tier>`; tier 0 is placed first, by `camp.py` after the visual pass (Phase C).
+one Act IV item from the confinement hall (the gatehouse's R-B3 takes its reactor control module). ~~`camp.py` generates the 24 templates (six buildings × four tiers) and their placement functions `gscraft:camp_<npc>_<tier>`; tier 0 is placed first, by `camp.py` after the visual pass (Phase C).~~ `tools/camp.py` exists and writes only the six survivor summons (`camp_npc_<npc>`) and `camp_npcs`; the 24 building-tier templates are unwritten and unassigned to a tool (2026-09-13, reconciliation).
 
 **Every building is locked the way the tower is.** The tower lock (`gscraft_tower_lock.js` and its
 native startup twin) refuses block breaking, placing, explosions and fluid flow inside one rectangle
@@ -493,7 +485,7 @@ part's shopping list is 6–10 different items, so the budget is spent on **vari
 - Small items stack 4–8; intermediates 4; complete parts and components **stack 1 and are bulky**:
   no backpack, Slowness and no sprint while carried (KubeJS item + player tick; backpack exclusion
   through the backpack mod's config if it has one, else a KubeJS insert check).
-- Death drops everything except the secure pack (keepInventory off; PlayerRevive makes it rare). **Rules of play (owner defaults, 2026-09-04):** respawn is the camp (world spawn on the paved junction, (−940, −979), ground y 65; a bed at the clinic from T-B1 moves it); a downed player bleeds out in 5 minutes unless revived (PlayerRevive `bleedTime` 6000 and `maxDistance` 6 — one global value each, the mod has no runtime config command, so Medical 1 and the clinic tiers act through the script instead: the camp revive point at Medical 1, a 3-second clinic revive at T-B2, full health at T-B3 — C18, 2026-09-04); infection kills 20 minutes after the bite (Hordes: four 5-minute phases, `ticksForEffectStage` 6000) unless cured at the clinic (T1) or by a med kit (Medical 2), and that death is a real death, not a bleed-out (`hordes:infection` bypasses PlayerRevive); a late joiner receives the team's stages (all progress stages are **team** stages via FTB Teams; only the first-time onboarding lines and `revives_3` are per player), the starting kit and the introductions as a tour; the fortify clock, warning and defence tick while **at least one** team member is online (owner, 2026-09-04: no assumption about team size — a solo player's clocks run too, and the waves scale to who is present); a restart mid-assault keeps the contested slot, the clocks and the marker, and the interrupted wave restarts from its beginning; pvp and friendly fire are off; the sleep percentage is 100 so nights are never skipped; hunger stays on and is fed from Marshall's kitchen (D3) and canned goods in the loot tables; the world border warns at 200 blocks and does no damage.
+- Death drops everything except the secure pack (keepInventory off; PlayerRevive makes it rare). **Rules of play (owner defaults, 2026-09-04):** respawn is the camp (world spawn on the ~~paved junction~~ compound's yard, (−956, 65, −876) (2026-09-13, reconciliation), (−940, −979), ground y 65; a bed at the clinic from T-B1 moves it); a downed player bleeds out in 5 minutes unless revived (PlayerRevive `bleedTime` 6000 and `maxDistance` 6 — one global value each, the mod has no runtime config command, so Medical 1 and the clinic tiers act through the script instead: the camp revive point at Medical 1, a 3-second clinic revive at T-B2, full health at T-B3 — C18, 2026-09-04); infection kills 20 minutes after the bite (Hordes: four 5-minute phases, `ticksForEffectStage` 6000) unless cured at the clinic (T1) or by a med kit (Medical 2), and that death is a real death, not a bleed-out (`hordes:infection` bypasses PlayerRevive); a late joiner receives the team's stages (all progress stages are **team** stages via FTB Teams; only the first-time onboarding lines and `revives_3` are per player), the starting kit and the introductions as a tour; the fortify clock, warning and defence tick while **at least one** team member is online (owner, 2026-09-04: no assumption about team size — a solo player's clocks run too, and the waves scale to who is present); a restart mid-assault keeps the contested slot, the clocks and the marker, and the interrupted wave restarts from its beginning; pvp and friendly fire are off; the sleep percentage is 100 so nights are never skipped; hunger stays on and is fed from Marshall's kitchen (D3) and canned goods in the loot tables; the world border warns at 200 blocks and does no damage.
 - **Storage is Walker's function**, on Sophisticated Backpacks in the Curios slot:
 
 | Storage | Unlocks | Carried |
@@ -526,7 +518,9 @@ Marshall's chapter, with James (scouting) and the owning NPC (looting, holding) 
 
 ### 6.1 The site ladder
 
-Every strongpoint climbs the same five states, each a KubeJS stage the quest book reads. Nothing
+> **Reconciled 2026-09-13:** the ladder below is data in the `gscraft` mod (`gscraft_sites/*.json`: unknown/scouted/looted/held/defended, the assault and defence waves, the fortify clock, the counterattack marching to the camp's gate at (−948, −893), the loss check in the compound box, the site guard). Stages are player tags written by `/gscraft stage add`, read by the quests through the advancement `gscraft:stage/<name>` (ruling R2), and the site ids are `hospital`, `switchyard`, `intake`, `turbine`, `krot` (ruling R1). In Control ambient rules, `EntityEvents.checkSpawn`, Improved Mobs and Mob Factions are retired; Recruits and Guard Villagers remain only as the site guard summoned at a held site's anchor.
+
+Every strongpoint climbs the same five states, ~~each a KubeJS stage the quest book reads~~ each a stage written as a player tag by `/gscraft stage add` and read by the book through the advancement `gscraft:stage/<name>` (2026-09-13, reconciliation). Nothing
 skips a rung: the marker cannot be placed on a site that has not been scouted and looted.
 
 **Skadowsky climbs the ladder too, and that is Act I** (2026-09-07): `skadowsky_scouted` → `skadowsky_looted` →
@@ -534,7 +528,7 @@ skips a rung: the marker cannot be placed on a site that has not been scouted an
 ground and unlocks the NPC buildings' tier 2 → `skadowsky_defended`, the first counterattack, fought at the bridge.
 It runs unmodified except that it pays out **perimeter** rather than a keeper: clearance grows the perimeter, quests
 improve the interior, both run at once and neither gates the other. The starting location becomes the home base by
-player action instead of being handed over.
+player action instead of being handed over. **Act I's building takes are not this ladder** (2026-09-13, reconciliation): the square, the gatehouse, the north complex, the crossing and the mast have no assault — the clear sets `<id>_cleared` and the quest's stage `<id>_taken` takes it; each take is a held/lost function list with `keep_ambient`.
 
 | State | Stage | What the players do | Trips | Quest |
 |---|---|---|---|---|
@@ -542,10 +536,9 @@ player action instead of being handed over.
 | **Looted** | `<site>_looted` | the owning NPC's hand-ins of items that drop **only at that site's building types** (KROT: hardware, spark plugs; the intake works: hoses, fins, fuel cans; the hospital: blood bags; the turbine hall: electrical; the switchyard: valuables and circuit boards). Two or three trips with the loot budget of §4.5; Lootr refreshes the containers between visits | 2–3 | owning NPC |
 | **Cleared → Held** | `<site>_held` | Marshall's take. The team places the **claim marker** at the site's anchor point. That starts the **assault**: the garrison spawns in waves from the site's edges for 5 minutes; the marker must survive and at least one player must be inside the site rectangle when the 5 minutes end. Win → held, the fortify clock starts, the component container arms. Fail → the marker breaks, the garrison respawns, try again | 1, repeatable | Marshall, `R*` |
 | **Defended** | `<site>_defended` | the site's counterattack (§6.2) — fought **at the base**, not at the site: when the fortify clock ends the site's defence table marches on the camp gate. Win → the site is safe for good, its site guard doubles, and its components keep respawning | 0 (nobody travels) | owning NPC |
-| **Attack lost** | `<site>_lost` set (the site stays `held`) | the base was overrun during that site's counterattack: five or more attackers inside the **camp square** (the paved junction, x −962…−918 × z −996…−962, the claim's last line; the plateau plaza rectangle x −1522…−1459 × z −2262…−2199 is dead, as is the v6 crater) for 30 s. (The finale's own check is the mast's field, x −840…−770 × z −1040…−960 — finale §4.) Nothing is taken away: the wave withdraws and returns after another fortify clock; the board column turns red until it is won. A site leaves `held` only if a player breaks its marker | — | — |
+| **Attack lost** | `<site>_lost` set (the site stays `held`) | the base was overrun during that site's counterattack: ~~five or more attackers inside the **camp square** (the paved junction, x −962…−918 × z −996…−962, the claim's last line; the plateau plaza rectangle x −1522…−1459 × z −2262…−2199 is dead, as is the v6 crater) for 30 s.~~ the mod's loss check runs in the compound box x −980…−920, z −897…−818 (`camp.json`), and the counterattack's target is the gate at (−948, −893) (2026-09-13, reconciliation). (The finale's own check is the mast's field, x −840…−770 × z −1040…−960 — finale §4.) Nothing is taken away: the wave withdraws and returns after another fortify clock; the board column turns red until it is won. A site leaves `held` only if a player breaks its marker | — | — |
 
-The garrison before the take is In Control!'s ambient spawn for the site, thin enough to loot
-through with care; the assault is the fight. One player dying does not lose a site.
+~~The garrison before the take is In Control!'s ambient spawn for the site, thin enough to loot through with care;~~ The garrison before the take is the director's ambient for the site's zone (`gscraft_zones/map.json`, by ground and by stage), thin enough to loot through with care (2026-09-13, reconciliation); the assault is the fight. One player dying does not lose a site.
 
 **The site guard and the keeper (owner, 2026-09-04; keeper 2026-09-05).** Winning the assault runs
 `gscraft:siteguard_<site>`, which summons the site's defenders at its anchor point, and `gscraft:sitekeeper_<site>`,
@@ -554,10 +547,8 @@ guard doubles once, on `defended`; the keeper's tier 2 adds two Recruits to it i
 their `Owner` set to the player who placed the marker so the mod treats them as the team's) and two **Guard
 Villagers**, all tagged `gscraft_siteguard_<site>`. The script re-runs the function whenever the count drops below the
 site's target (six; +2 Recruits per hideout Walls level D1/D2/D4; doubled on `defended`). The site's ambient hostiles
-stop on `held`: the In Control! rules are static, so the script cancels hostile spawns inside a held rectangle
-(KubeJS `EntityEvents.checkSpawn`) and the guard mops up the stragglers. The players never have to be there again
-except to collect components. Recruits hired at the gatehouse (D2) can be walked to a site and ordered to stay, on
-top of the script's own. **If a player breaks the marker** the guard is removed (`gscraft:siteguard_<site>_clear`),
+stop on `held`: ~~the In Control! rules are static, so the script cancels hostile spawns inside a held rectangle (KubeJS `EntityEvents.checkSpawn`) and the guard mops up the stragglers.~~ the director's zone reads the stage and the site file's held list runs, and the guard mops up the stragglers (2026-09-13, reconciliation). The players never have to be there again
+except to collect components. ~~Recruits hired at the gatehouse (D2) can be walked to a site and ordered to stay, on top of the script's own.~~ Hireable Recruits are retired; Recruits and Guard Villagers exist only as the site guard summoned at a held site's anchor (2026-09-13, reconciliation). **If a player breaks the marker** the guard is removed (`gscraft:siteguard_<site>_clear`),
 the component container disarms, the ambient rule returns, a pending counterattack is cancelled, and the site drops
 to *looted* — re-take it from the marker step. **The keeper stays** (2026-09-06): the buildings the site chain paid
 for are not unbuilt, the `site_<site>_<n>` stages hold, and the completed S-quests stay completed — but the keeper's
@@ -593,13 +584,14 @@ line; a component container arms on `held` and refills on its timer while the si
 
 ### 6.3 Garrisons — the mob tables Phase D builds from
 
+> **Reconciled 2026-09-13:** the enemy layer is the `gscraft` mod — fighters with ranks, kits and skins, factions in `gscraft_factions`, squads, the director's zones by ground and by stage with caps, ceilings, garrisons, sweeps and horrors, and each site's assault and defence waves as data in `gscraft_sites/*.json`; a boss is a site file's `boss` block. In Control ambient rules, Improved Mobs' distance scaling, Mob Factions and the Apotheosis elite definitions below are retired; the counts in the table remain the shape of each fight until the site files supersede them.
+
 > **Who they are, what they carry: `gscraft-enemies.md` (draft 1, 2026-09-04).** The counts below are the
 > shape of each fight; the five factions, their ranks and equipment, the four roles a wave is built from,
 > the elites' definitions, the mob drop tables and the config changes are in that document. Where the two
 > differ on a mob's identity or gear, the enemies sheet wins.
 
-Three layers per site, all from mobs the pack already has. **Ambient** is what In Control! spawns
-inside the site rectangle before the take (thin enough to loot through with care, per §6.1);
+Three layers per site~~, all from mobs the pack already has~~. **Ambient** is ~~what In Control! spawns inside the site rectangle before the take~~ what the director's zone spawns inside the site before the take (2026-09-13, reconciliation) (thin enough to loot through with care, per §6.1);
 **assault** is the six 45-second waves after the marker goes down; **defence** is that site's counterattack
 on the base at the end of the fortify clock (three waves at the camp gate). Counts are the baseline for five players and the script scales them to the actual number (×0.4 for one, ×0.6 for
 two, ×0.8 for three or four, ×1.2 for six or more) — for the assault the players inside the site rectangle, for a
@@ -608,16 +600,13 @@ buildings; counterattack waves enter 48 blocks outside the camp perimeter, on th
 "bandits" and "gun pillagers" are vanilla **pillagers and vindicators**, which Pillagers Gun arms;
 Hordes adds only the zombie-player variants, so zombies, husks and drowned are vanilla; IE's Fusilier /
 Commando / Bulwark (`immersiveengineering:*`), The Knocker (`the_knocker:knocker`), The Man From The
-Fog, Eyes in the Darkness, spiders and cave spiders. Improved Mobs' scaling stays on so garrisons harden
-with distance. **Mob Factions** makes the illager faction and the zombie faction enemies of each other
-(the carried `MobFactions.toml` already does; the Knocker rides with the zombies), so a site's ambient
-garrison fights itself and a patient team can watch it thin. **The Bandits mod's own random raids are
+Fog, Eyes in the Darkness, spiders and cave spiders. ~~Improved Mobs' scaling stays on so garrisons harden with distance. **Mob Factions** makes the illager faction and the zombie faction enemies of each other (the carried `MobFactions.toml` already does; the Knocker rides with the zombies), so a site's ambient garrison fights itself and a patient team can watch it thin.~~ Difficulty and the faction war are the mod's: ranks per stage and factions in `gscraft_factions` (2026-09-13, reconciliation). **The Bandits mod's own random raids are
 switched off** (`bandits.json`, `enableMod: false`): they attack players anywhere on a 5–15 day roll,
 which is exactly what §6.2 forbids. **Zombie Awareness** stays on at sound strength 10: gunfire and
 block-breaking draw the ambient garrison, which is why loot trips are quiet work, the take is loud,
 and the suppressor of W-A4 is worth its price.
 
-| Site | Theme | Ambient (In Control! rule inside the rect) | Assault, six waves (at the site) | Counterattack, three waves (at the base; "defence" below) | Elite |
+| Site | Theme | Ambient (~~In Control! rule inside the rect~~ the director's zone — 2026-09-13, reconciliation) | Assault, six waves (at the site) | Counterattack, three waves (at the base; "defence" below) | Elite |
 |---|---|---|---|---|---|
 | **KROT** (Act II) | industrial squatters | zombies 6, bandits 2 at a time | zombies 8 → 10 → 12, bandits 2 per wave from wave 3 | zombies 15, then bandits 4 + zombies 10, then bandits 6 | a bandit captain with a shotgun (wave 6, defence 3) |
 | **The Skadowsky hospital** (Act I) | the dense dead | zombies 10, husks 4, Eyes at night | zombies 12 per wave, husks 4 from wave 2, spiders 6 on waves 4–6 | zombies 20, then 25, then 30 with 8 spiders | The Man From The Fog stalks the hospital from the take onward |
@@ -629,17 +618,12 @@ and the suppressor of W-A4 is worth its price.
 The rows are the strongpoints' new sites (§2.3); the four 2026-09-05 sites — Novo, the residential block, FR-06, Financial Plaza — and the
 industrial district carry these same three layers into the deferred quest line, each under the role it kept.
 
-Ambient rules are In Control! `spawn.json` entries keyed to the site rectangle (`minx/maxx/minz/maxz`)
-with a `maxcount` cap; assault waves are the loop script summoning at the site's edge points and counterattack waves at the camp's four approaches above, with
-the Hordes wave types for the zombie mixes. The camp's own suppression rule (no hostile spawns inside
+~~Ambient rules are In Control! `spawn.json` entries keyed to the site rectangle (`minx/maxx/minz/maxz`) with a `maxcount` cap; assault waves are the loop script summoning at the site's edge points and counterattack waves at the camp's four approaches above, with the Hordes wave types for the zombie mixes.~~ Ambient is the director's zone (`gscraft_zones/map.json`, caps and ceilings per zone and stage); assault and counterattack waves are the site file's wave data (2026-09-13, reconciliation). The camp's own suppression rule (no hostile spawns inside
 the outline) stays, but it covers the pocket only until `skadowsky_held` extends it to the whole sector (§6.1); the
 rest of Skadowsky is hostile at the start, which is where Act I's loot is. The finale's waves at the base are §7.1.
 
-**Elites (C14, 2026-09-04).** Each site's elite is an Apotheosis boss definition `gscraft:elite_<site>` in the datapack
-(the site's mob type, a TaCZ gear set, rarity rare–epic, +40…+80 HP, knockback resistance 0.5), summoned by the loop
-script with `/apoth spawn_boss gscraft:elite_<site> <rarity>` at the wave the table names — the same call the Boss
-Spawner block makes, with no block to place. Natural bosses stay off (`Boss Spawn Cooldown` at its maximum), so an
-affixed mob is always a designed moment. **The Woods** (v8: the named area x −2450…−1600, z −1350…100) has its own In Control! rule:
+**Elites (C14, 2026-09-04).** ~~Each site's elite is an Apotheosis boss definition `gscraft:elite_<site>` in the datapack (the site's mob type, a TaCZ gear set, rarity rare–epic, +40…+80 HP, knockback resistance 0.5), summoned by the loop script with `/apoth spawn_boss gscraft:elite_<site> <rarity>` at the wave the table names — the same call the Boss Spawner block makes, with no block to place.~~ An elite or boss is the site file's `boss` block or a named wave entry (e.g. `switchyard_gatekeeper`), placed by the mod (2026-09-13, reconciliation). Natural bosses stay off (`Boss Spawn Cooldown` at its maximum), so an
+affixed mob is always a designed moment. **The Woods** (v8: the named area x −2450…−1600, z −1350…100) has its own ~~In Control! rule~~ director zone (2026-09-13, reconciliation):
 zombies capped at 4, no husks, drowned 2 at water, bandits only inside the outpost's rectangle until R-W1, spiders
 below y 40 (the bunkers), the fog man and the eyes at night as their mods spawn them (the Woods quests sit in the NPC chapters of `gscraft-quests.md`).
 
@@ -682,12 +666,13 @@ Phase E's to confirm.
 
 ---
 
-## 8. Tech stack (no custom mod)
+## 8. Tech stack ~~(no custom mod)~~
+
+> **Reconciled 2026-09-13:** a custom Forge mod `gscraft` (`G:/GSCraft/repo/mod`) carries the enemy layer, the sites and their ladder, the director, the building takes, the bosses, the armour vehicles, the drops (`gscraft_drops`) and the tower lock (`gscraft_locks`); stages are player tags set by `/gscraft stage add` and read by FTB Quests through one advancement per stage (`gscraft:stage/<name>`, ruling R2). In Control and Hordes as the wave engine are retired from the list below.
 
 KubeJS (items, the blueprint cards, the work-station block and its timer, stages, the loop, the bulky rule, NPC interaction, the look-at readouts and radio lines of `gscraft-player-interface.md`), EMI (recipe viewer, client side, added 2026-09-03), **Create 6.0.8, Create Big Cannons 5.11.4 and Ritchie's Projectile Library 2.1.1** (kinetic machines, the artillery, display links for the board; installed and booted 2026-09-05), FTB Quests
 (chapters, tasks, rewards), FTB Chunks and Teams (claim, per-team state), Immersive Engineering (power and
-machines), Sophisticated Backpacks and Curios (storage), In Control! and Hordes
-(waves), Lootr (instanced loot), datapacks (loot tables, tower and camp templates, NPC summons). All
+machines), Sophisticated Backpacks and Curios (storage), ~~In Control! and Hordes (waves)~~ the `gscraft` mod (waves (2026-09-13, reconciliation)), Lootr (instanced loot), datapacks (loot tables, tower and camp templates, NPC summons). All
 of it edits live on the server without a client reinstall.
 
 ---
@@ -697,7 +682,7 @@ of it edits live on the server without a client reinstall.
 Each phase ends in a test with a pass condition; nothing in a later phase starts until the earlier
 test passes.
 
-**Phase A — Visual pass on the v7 world (after the v7 build; gaps C16).** Local server, `start-visual.bat`, five players or
+**Phase A — Visual pass on the ~~v7~~ v8 world (after the ~~v7~~ v8 build; gaps C16) (2026-09-13, reconciliation).** Local server, `start-visual.bat`, five players or
 one. Walk the pocket and mark the six building sites inside the perimeter x −978…−770 × z −1060…−845;
 drive the bridge and the level crossing, the camp's west and east gates; walk the Line west to the
 collective farm and note every water crossing; check the mast field's fit as the helicopter pad; walk
