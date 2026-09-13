@@ -310,6 +310,7 @@ do not, but they are fully generated so it no longer matters there).
 
 ## 4. The design documents
 
+- `docs/gscraft-next-steps-plan-2026-09-12.md` - the next steps planned (2026-09-12): the start, the building takes, the stage gates, the in-person pass, live, Phase C.
 - `docs/gscraft-mod-capabilities.md` - what each mod supplies to the design; the config changes made (§5b, §5c).
 - `docs/gscraft-structure-plan.md` - the generated-structure prune (67 of 964 kept) behind world build v7.
 - `docs/gscraft-woods-plan.md` - the Woods: where, what is in it, how it is built, the adopted quest hooks.
@@ -436,6 +437,14 @@ start of its step - a player's fire from range never counted), suppression numbe
 flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. Test `tools/war_phase13.py`. Not on
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
+
+**2026-09-12, the next steps planned (design only):** `docs/gscraft-next-steps-plan-2026-09-12.md` turns the
+system pass's order of work into sessions with files, tests and gates: (1) the start - spawn commands, the gate
+datum in `camp.json`, zone growth by a `stage` field (six boxes for the pocket), the torches by stage, phase 25;
+(2) the five building takes as site files with no assault (held on a 60 s clear), a `held`/`lost` function hook on
+a site, `tools/camp.py` for the survivor summons and torches, phase 26; (3) `stage` on compositions and wave
+entries, a `boss` block placed by the loop on `scouted`, phase 27; (4) the owner's in-person pass; (5) the data
+push to live; (6) Phase C, Act I's chain first. Five decisions listed (D1-D5) with recommendations.
 
 **2026-09-12 15:15, live** (owner: "update this on live"; server empty by the console's `list` at 15:14): `power
 stop`, `put` of `gscraft-0.1.0.jar` (418 KB, sha256 641463e9...) into `/mods`, `power start`, Done in 1.6 s,
