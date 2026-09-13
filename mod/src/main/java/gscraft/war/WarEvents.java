@@ -279,6 +279,19 @@ public final class WarEvents {
                     }
                     return Factions.all().size();
                 }))
+                .then(Commands.literal("items").executes(ctx -> {
+                    // the mod's items against items.json (slice build 3): the count, and any listed id that is not registered
+                    java.util.List<String> missing = new java.util.ArrayList<>();
+                    int known = 0;
+                    for (gscraft.war.item.SliceItems.Def d : gscraft.war.item.SliceItems.DEFS) {
+                        if (net.minecraftforge.registries.ForgeRegistries.ITEMS.containsKey(new net.minecraft.resources.ResourceLocation(GscraftWar.MODID, d.id()))) known++;
+                        else missing.add(d.id());
+                    }
+                    long registered = net.minecraftforge.registries.ForgeRegistries.ITEMS.getKeys().stream().filter(k -> k.getNamespace().equals(GscraftWar.MODID)).count();
+                    String line = registered + " items registered under gscraft; " + known + " of " + gscraft.war.item.SliceItems.DEFS.size() + " listed known; missing: " + missing;
+                    ctx.getSource().sendSuccess(() -> net.minecraft.network.chat.Component.literal(line), false);
+                    return known;
+                }))
                 .then(Commands.literal("ranks").executes(ctx -> {
                     Ranks.all().forEach((faction, ranks) -> {
                         StringBuilder line = new StringBuilder(faction).append(':');

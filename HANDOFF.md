@@ -413,6 +413,18 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, slice build 3 - the items (in the mod, not KubeJS - ruling R12):** `gscraft_items/items.json` lists 60
+items (hardware, mechanical, electrical, filters, medical, tools, the six intermediates, casings/powder/concrete, eleven
+blueprint cards, the claim marker - stack sizes per design §4.2, the claim marker bulky) and `gscraft.war.item.SliceItems`
+registers every line at start (`ModItems` static init; the INGREDIENTS tab); a tooltip line per item from the lang file;
+the bulky rule (Slowness, no sprint, every second) on a player carrying one. `tools/items.py` writes the flat models, a
+placeholder texture per item (a coloured tile by role with the id's initials, until art) and the names. `/gscraft items`
+counts and lists any listed id not registered. `tools/war_phase30.py` (3/3). The textures and tooltips on screen and the
+bulky rule on a player are the owner's in-game check. Rulings taken for the slice (the extraction of the quest/crafting
+docs found these gaps): R13 the broken radio joins `building/office` (U1 had no Act I source); R14 solvent joins
+`building/garage` (powder had none); R15 R0 asks for sandbags only (a quick recipe, 2 cloth + 4 sand, no blueprint), the
+gate item waits for the steel frame; cloth is both loot and a quick craft. The bandage stays the mod's own item.
+
 **2026-09-13, slice build 2 - the drop tables (enemy review §7: materials, never products):** `gscraft_drops/nato.json`
 and `ruaf.json` (a dog tag 60%, rifle and handgun ammunition, an armour plate 15%, scrap and powder), `scavengers.json`
 (scrap, coal, a little handgun ammunition, no dog tag), `dead.json` re-cut (flesh, string, bone, a little powder and scrap;

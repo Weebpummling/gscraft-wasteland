@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "gscraft:item/card_filter_cartridge"
+  }
+}

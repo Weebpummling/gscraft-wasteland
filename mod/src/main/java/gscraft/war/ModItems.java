@@ -26,6 +26,10 @@ public final class ModItems {
     public static final RegistryObject<Item> BANDAGE = ITEMS.register("bandage",
             () -> new gscraft.war.combat.BandageItem(new Item.Properties().stacksTo(16)));
 
+    static {
+        gscraft.war.item.SliceItems.register();   // the player layer's items, from items.json
+    }
+
     private ModItems() {}
 
     static void creativeTabs(BuildCreativeModeTabContentsEvent event) {
@@ -37,5 +41,6 @@ public final class ModItems {
             event.accept(MATRON_EGG);
         }
         if (event.getTabKey() == CreativeModeTabs.COMBAT) event.accept(BANDAGE);
+        if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) for (var item : gscraft.war.item.SliceItems.REGISTERED) event.accept(item);
     }
 }
