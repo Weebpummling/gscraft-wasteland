@@ -438,6 +438,26 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, step 1 of the next-steps plan - the start (local):** owner: "recommendation approved, begin".
+(1a) Local spawn set by console: `/setworldspawn -956 65 -876`, `/gamerule spawnRadius 4` (live gets the same two
+commands in the step 5 window). (1b) `camp.json`: `square` is the compound box `[-980, -920, -897, -818]` (the loss
+check), new `gate: [-948, -893]` (`CampDef.gate`, `targetX/Z()`) - the counterattack's target for armour and now
+for the infantry too: `Loop.sendWave(..., advance)` orders the counterattack's soldiers to march to the gate (found:
+the counterattack's infantry had never been ordered anywhere; it stood at the approach), and `Loop.march` walks the
+Dead's waves (no order of their own) a leg at a time; the defended check counts the standing wave within 400 of the
+gate (128 round the square's centre missed the north approach and read a wave just placed as beaten). (1c) Zones:
+a `stage` field - `Zones.at` passes over a zone whose stage is unset (`Stages.isSet`, a live set refreshed by the
+loop every second and at once by add/remove); `war_zones.py` puts six camp boxes first: `camp_compound` (always),
+`camp_square` (`square_taken`), `camp_gatehouse` (`gatehouse_taken`), `camp_north` (`clinic_taken`), `camp_crossing`
+(`crossing_taken`), the old pocket `camp` on `skadowsky_held` - 45 zones. (1d) `camp_torches.py`: `camp_torches`
+places the start's two (`yard` (-957, 66, -862), `gap` (-947, 66, -890) - the doc's (-945, -890) is a button by the
+prismarine), every torch has its own `torch_<name>` function for the site loop's held hook (step 2); the local
+world had no torches standing, the start's two are placed now. `tools/war_phase25.py` (5/5): the zones flip with
+the stage, nothing placed in the compound, the square denied once taken, the switchyard's counterattack marches
+120 -> 16 blocks from the gate in 30 s, the torch functions idempotent. Phase 6 updated (the loss check's five
+attackers stand in the yard now) and green with 20 and 21. The doc pass of the compound doc's §8 follows. Live has
+none of this yet (step 5).
+
 **2026-09-12, the next steps planned (design only):** `docs/gscraft-next-steps-plan-2026-09-12.md` turns the
 system pass's order of work into sessions with files, tests and gates: (1) the start - spawn commands, the gate
 datum in `camp.json`, zone growth by a `stage` field (six boxes for the pocket), the torches by stage, phase 25;

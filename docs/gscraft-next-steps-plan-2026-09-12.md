@@ -29,6 +29,12 @@ Five pieces of work, in order, each with its test gate:
 
 ## 1. The start
 
+*Built 2026-09-12, phase 25 green (5/5), phases 6/20/21 green. Two findings on the way: the counterattack's infantry
+had never been ordered to walk anywhere (it stood at the approach) - `sendWave` now marches it to the gate and the
+Dead's waves are walked a leg at a time; and the defended check counted the wave within 128 of the square's centre,
+which misses the north approach from the compound - it counts within 400 of the gate now. Boxes measured from the
+skadowsky-camp §2-3 rectangles with a few blocks' margin; the gap torch sits at (-947, -890) on the paving.*
+
 **1a. The spawn.** Console commands, no world upload, on each server: `/setworldspawn -956 65 -876` and
 `/gamerule spawnRadius 4`. Local first; live in the step 5 window. Checked by `cat level.dat` is not possible
 through the panel, so the check is the command's own reply and a fresh join by the owner (step 4).

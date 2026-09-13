@@ -1,32 +1,44 @@
 {
- "gatehouse": {
-  "x": -966,
-  "y": 70,
-  "z": -947,
-  "ground": "minecraft:gravel"
+ "yard": {
+  "x": -957,
+  "y": 66,
+  "z": -862,
+  "ground": "minecraft:gravel",
+  "start": true
+ },
+ "gap": {
+  "x": -947,
+  "y": 66,
+  "z": -890,
+  "ground": "minecraft:andesite",
+  "start": true
  },
  "square": {
   "x": -940,
   "y": 67,
   "z": -979,
-  "ground": "minecraft:diorite"
+  "ground": "minecraft:diorite",
+  "start": false
+ },
+ "gatehouse": {
+  "x": -966,
+  "y": 70,
+  "z": -947,
+  "ground": "minecraft:gravel",
+  "start": false
  },
  "clinic": {
   "x": -948,
   "y": 73,
   "z": -1026,
-  "ground": "minecraft:smooth_stone_slab"
- },
- "yard": {
-  "x": -957,
-  "y": 66,
-  "z": -862,
-  "ground": "minecraft:gravel"
+  "ground": "minecraft:smooth_stone_slab",
+  "start": false
  },
  "crossing": {
   "x": -890,
   "y": 67,
   "z": -975,
-  "ground": "minecraft:stone_bricks"
+  "ground": "minecraft:stone_bricks",
+  "start": false
  }
 }

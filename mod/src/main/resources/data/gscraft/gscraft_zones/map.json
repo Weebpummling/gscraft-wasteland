@@ -1,6 +1,65 @@
 {
  "zones": [
   {
+   "name": "camp_compound",
+   "box": [
+    -980,
+    -920,
+    -897,
+    -818
+   ],
+   "exclude": true,
+   "note": "the south compound: the start, always held"
+  },
+  {
+   "name": "camp_square",
+   "box": [
+    -966,
+    -914,
+    -1000,
+    -958
+   ],
+   "exclude": true,
+   "stage": "square_taken",
+   "note": "the paved junction and the streets off it"
+  },
+  {
+   "name": "camp_gatehouse",
+   "box": [
+    -982,
+    -950,
+    -960,
+    -936
+   ],
+   "exclude": true,
+   "stage": "gatehouse_taken",
+   "note": "the bridge's east end, Marshall's"
+  },
+  {
+   "name": "camp_north",
+   "box": [
+    -970,
+    -894,
+    -1094,
+    -996
+   ],
+   "exclude": true,
+   "stage": "clinic_taken",
+   "note": "the north complex: the clinic and the shack"
+  },
+  {
+   "name": "camp_crossing",
+   "box": [
+    -912,
+    -878,
+    -988,
+    -958
+   ],
+   "exclude": true,
+   "stage": "crossing_taken",
+   "note": "the signal box and the level crossing, James's"
+  },
+  {
    "name": "camp",
    "box": [
     -978,
@@ -8,8 +67,9 @@
     -1060,
     -845
    ],
-   "note": "the camp in Skadowsky (sectors_v8)",
-   "exclude": true
+   "note": "the camp in Skadowsky (sectors_v8); the pocket, camp ground on skadowsky_held (the camp_* boxes before it grow by stage)",
+   "exclude": true,
+   "stage": "skadowsky_held"
   },
   {
    "name": "krot",

@@ -17,9 +17,22 @@ import net.minecraftforge.fml.common.Mod;
 public final class Stages {
     private Stages() {}
 
+    /** the set as last read from the world's record: for the zones, which have no server in hand (refreshed every
+     *  second by the loop and at once by add/remove) */
+    private static volatile java.util.Set<String> live = java.util.Set.of();
+
+    public static boolean isSet(String stage) {
+        return live.contains(stage);
+    }
+
+    public static void refresh(MinecraftServer server) {
+        live = java.util.Set.copyOf(SiteData.get(server.overworld()).stages());
+    }
+
     public static boolean add(MinecraftServer server, String stage) {
         SiteData data = SiteData.get(server.overworld());
         boolean fresh = data.addStage(stage);
+        live = java.util.Set.copyOf(data.stages());
         for (ServerPlayer p : server.getPlayerList().getPlayers()) p.addTag(stage);
         if (fresh) GscraftWar.LOG.info("[gscraft] stage {} set", stage);
         return fresh;
@@ -28,6 +41,7 @@ public final class Stages {
     public static boolean remove(MinecraftServer server, String stage) {
         SiteData data = SiteData.get(server.overworld());
         boolean had = data.removeStage(stage);
+        live = java.util.Set.copyOf(data.stages());
         for (ServerPlayer p : server.getPlayerList().getPlayers()) p.removeTag(stage);
         return had;
     }

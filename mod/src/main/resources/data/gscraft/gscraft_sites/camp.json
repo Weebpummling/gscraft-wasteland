@@ -1,6 +1,6 @@
 {
   "camp": {
-    "note": "the camp pocket (zone camp); the square is the paved junction, the claim's last line; approaches 48 blocks outside the perimeter, first cut [needs measurement]",
+    "note": "the camp (zone camp_* boxes by stage); the square is the compound box (start-compound doc \u00a72) - the loss check; the gate is the compound's open corner, where a counterattack goes; approaches 48 blocks outside the old perimeter",
     "perimeter": [
       -978,
       -770,
@@ -8,10 +8,10 @@
       -845
     ],
     "square": [
-      -962,
-      -918,
-      -996,
-      -962
+      -980,
+      -920,
+      -897,
+      -818
     ],
     "approaches": {
       "west": [
@@ -30,6 +30,10 @@
         -870,
         -797
       ]
-    }
+    },
+    "gate": [
+      -948,
+      -893
+    ]
   }
 }

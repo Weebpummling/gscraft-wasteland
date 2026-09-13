@@ -150,6 +150,18 @@ OPEN = {"name": "open", "cap": 4, "spawns": pool(dead=5, scav=2, rider=1),
         "underground_spawns": pool(spider=3, dead=4), "dead_ranks": ["Runner", "The Dead"]}
 
 
+# the camp by stage (next-steps plan §1c, start-compound doc §2/§4, skadowsky-camp §2-3): each box counts only while its
+# stage is set, so the director's denial grows with the ground the players take. First in the list: Zones.at takes the
+# first zone in force, and a staged box whose stage is unset is passed over to the sector beneath.
+CAMP_STAGED = [
+    {"name": "camp_compound", "box": [-980, -920, -897, -818], "exclude": True, "note": "the south compound: the start, always held"},
+    {"name": "camp_square", "box": [-966, -914, -1000, -958], "exclude": True, "stage": "square_taken", "note": "the paved junction and the streets off it"},
+    {"name": "camp_gatehouse", "box": [-982, -950, -960, -936], "exclude": True, "stage": "gatehouse_taken", "note": "the bridge's east end, Marshall's"},
+    {"name": "camp_north", "box": [-970, -894, -1094, -996], "exclude": True, "stage": "clinic_taken", "note": "the north complex: the clinic and the shack"},
+    {"name": "camp_crossing", "box": [-912, -878, -988, -958], "exclude": True, "stage": "crossing_taken", "note": "the signal box and the level crossing, James's"},
+]
+
+
 def main(argv):
     missing = [n for n in ORDER if n not in BOXES]
     unplaced = [n for n in BOXES if n not in ORDER]
@@ -161,6 +173,9 @@ def main(argv):
         zone = {"name": name, "box": [x0, x1, z0, z1], "note": why}
         if name in BUILDS:
             zone["exclude"] = True
+            if name == "camp":
+                zone["stage"] = "skadowsky_held"   # the whole pocket is camp ground only once the sector is held
+                zone["note"] += "; the pocket, camp ground on skadowsky_held (the camp_* boxes before it grow by stage)"
         else:
             p = PLACES[name]
             zone.update({"cap": p["cap"], "spawns": p["open"]})
@@ -174,6 +189,7 @@ def main(argv):
                     zone[field] = p[key]
         zones.append(zone)
     zones.append(dict(OPEN, armour=OPEN_ARMOUR))
+    zones = CAMP_STAGED + zones
     count = lambda key: sum(1 for z in zones if key in z)  # noqa: E731
     print(f"{len(zones)} zones: {len(BUILDS)} excluded, {count('garrison')} garrisons, {count('lair')} lairs, "
           f"{count('indoor_spawns')} with indoor pools, {count('underground_spawns')} with underground pools, "

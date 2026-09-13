@@ -7,6 +7,7 @@ import java.util.List;
  * a point wins, so builds come first, then the small places, then the big ones, then the open ground (no box).
  *
  * @param exclude           nothing is ever placed here (the camp, KROT, every player build)
+ * @param stage             the zone counts only while this stage is set (null: always); the camp's boxes grow with the players' ground
  * @param cap               most director-placed creatures near a player here, before the ground's scale
  * @param spawns            what open ground here draws, and every kind of ground that has no list of its own
  * @param indoorSpawns      what the insides of buildings draw
@@ -19,7 +20,12 @@ import java.util.List;
 public record Zone(String name, boolean hasBox, int x0, int x1, int z0, int z1, boolean exclude, int cap,
                    List<SpawnEntry> spawns, List<SpawnEntry> indoorSpawns, List<SpawnEntry> undergroundSpawns,
                    List<String> deadRanks, GarrisonDef garrison, GarrisonDef lair, List<HorrorDef> horrors, int groupMin, int groupMax,
-                   List<List<net.minecraft.core.BlockPos>> patrols, ArmourDef armour) {
+                   List<List<net.minecraft.core.BlockPos>> patrols, ArmourDef armour, String stage) {
+
+    /** the zone is in force: no stage, or its stage set */
+    public boolean active() {
+        return stage == null || Stages.isSet(stage);
+    }
 
     /** how many arrive together: the zone's own range, or the ground's default (open 2-3, inside and below 2-4) */
     public int groupSize(Env env, net.minecraft.util.RandomSource random) {

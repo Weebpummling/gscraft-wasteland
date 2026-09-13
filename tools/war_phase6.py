@@ -9,7 +9,7 @@ Run war_phase5.py, war_phase4b.py, war_phase4.py, war_phase3.py and war_phase2.p
 4. Held: the assault's end sets the stage, summons the site guard at the anchor, starts the fortify clock, and
    the site's ambient hostiles stop.
 5. The counterattack: the clock's end sends the first wave at the north approach.
-6. Lost: five attackers in the camp square for thirty seconds; the wave withdraws, the site stays held, another
+6. Lost: five attackers in the camp square (the compound box, the yard) for thirty seconds; the wave withdraws, the site stays held, another
    clock runs.
 7. Defended: three waves sent and beaten; the guard doubles; the contested slot clears.
 """
@@ -115,7 +115,7 @@ check("the clock's end sends the first wave at the north approach", "counteratta
 
 # 6. lost
 for i in range(5):
-    c(f'summon minecraft:zombie {-940 + i} 66 -979 {{NoAI:1b,Tags:["gs_placed","gs_wave","gs_wave_hospital"]}}')
+    c(f'summon minecraft:zombie {-956 + i} 65 -876 {{NoAI:1b,Tags:["gs_placed","gs_wave","gs_wave_hospital"]}}')   # the yard: the loss box is the compound since 2026-09-12
 time.sleep(34)
 info = c("gscraft site hospital")
 left = count("@e[tag=gs_wave_hospital]")

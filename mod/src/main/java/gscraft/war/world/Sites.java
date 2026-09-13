@@ -36,7 +36,16 @@ public final class Sites extends SimpleJsonResourceReloadListener {
         }
     }
 
-    public record CampDef(int x0, int x1, int z0, int z1, int sx0, int sx1, int sz0, int sz1, Map<String, int[]> approaches) {
+    /** the camp: perimeter, the square (the compound box now: the loss check), the approaches (the wave points) and
+     *  the gate the counterattack goes for (null: the square's centre) */
+    public record CampDef(int x0, int x1, int z0, int z1, int sx0, int sx1, int sz0, int sz1, Map<String, int[]> approaches, int[] gate) {
+        public int targetX() {
+            return gate != null ? gate[0] : (sx0 + sx1) / 2;
+        }
+
+        public int targetZ() {
+            return gate != null ? gate[1] : (sz0 + sz1) / 2;
+        }
         public boolean inSquare(double x, double z) {
             return x >= sx0 && x <= sx1 + 1 && z >= sz0 && z <= sz1 + 1;
         }
@@ -109,7 +118,12 @@ public final class Sites extends SimpleJsonResourceReloadListener {
             JsonArray xz = ap.getAsJsonArray(name);
             approaches.put(name, new int[] {xz.get(0).getAsInt(), xz.get(1).getAsInt()});
         }
-        return new CampDef(p[0], p[1], p[2], p[3], s[0], s[1], s[2], s[3], Map.copyOf(approaches));
+        int[] gate = null;
+        if (o.has("gate")) {
+            JsonArray g = GsonHelper.getAsJsonArray(o, "gate");
+            gate = new int[] {g.get(0).getAsInt(), g.get(1).getAsInt()};
+        }
+        return new CampDef(p[0], p[1], p[2], p[3], s[0], s[1], s[2], s[3], Map.copyOf(approaches), gate);
     }
 
     public static Map<String, SiteDef> all() {

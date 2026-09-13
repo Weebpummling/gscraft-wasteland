@@ -76,7 +76,8 @@ public final class Zones extends SimpleJsonResourceReloadListener {
         return new Zone(name, hasBox, x0, x1, z0, z1, GsonHelper.getAsBoolean(o, "exclude", false),
                 GsonHelper.getAsInt(o, "cap", 0), entries(o, "spawns"), entries(o, "indoor_spawns"),
                 entries(o, "underground_spawns"), List.copyOf(deadRanks), standing(o, "garrison", 4, 10),
-                standing(o, "lair", 1, 120), List.copyOf(horrors), group(o, 0), group(o, 1), patrols(o), armour(o));
+                standing(o, "lair", 1, 120), List.copyOf(horrors), group(o, 0), group(o, 1), patrols(o), armour(o),
+                o.has("stage") ? GsonHelper.getAsString(o, "stage") : null);
     }
 
     /** optional "armour": {"chance": 0.06, "compositions": [{"weight": 6, "vehicles": ["superbwarfare:bmp_2"], "infantry": 4}, ...]} */
@@ -131,10 +132,11 @@ public final class Zones extends SimpleJsonResourceReloadListener {
                 GsonHelper.getAsInt(g, "count", defaultCount), GsonHelper.getAsInt(g, "refill_minutes", defaultMinutes) * 1200);
     }
 
-    /** the first zone containing the point, or null when not even open ground is defined */
+    /** the first zone in force containing the point (a staged zone whose stage is unset is passed over), or null when
+     *  not even open ground is defined */
     public static Zone at(double x, double z) {
         for (Zone zone : zones) {
-            if (zone.contains(x, z)) return zone;
+            if (zone.contains(x, z) && zone.active()) return zone;
         }
         return null;
     }

@@ -112,6 +112,7 @@ public final class Loop {
         MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
         if (server == null || Sites.all().isEmpty()) return;
         ServerLevel level = server.overworld();
+        if (server.getTickCount() % 20 == 0) Stages.refresh(server);   // the zones read the stages from here
         if (!freeClock && server.getPlayerList().getPlayers().isEmpty()) return;
         SiteData data = SiteData.get(level);
         data.online++;
@@ -245,7 +246,7 @@ public final class Loop {
     private static void assault(ServerLevel level, SiteData data, SiteDef site, Progress p) {
         if (away(level, data, site, p, site.anchorX(), site.anchorZ())) return;
         if (p.wave < ASSAULT_WAVES && data.online >= p.nextWave) {
-            int placed = sendWave(level, site, site.assault().get(p.wave), edgePoints(level, site), scaleInside(level, site), new BlockPos(site.anchorX(), 0, site.anchorZ()));
+            int placed = sendWave(level, site, site.assault().get(p.wave), edgePoints(level, site), scaleInside(level, site), new BlockPos(site.anchorX(), 0, site.anchorZ()), false);
             p.wave++;
             p.nextWave = data.online + WAVE_GAP;
             GscraftWar.LOG.info("[gscraft] {} assault wave {} of {}: {} placed", site.id(), p.wave, ASSAULT_WAVES, placed);
@@ -291,14 +292,27 @@ public final class Loop {
 
     // ---- the counterattack
 
+    /** the wave's bodies that carry no order of their own (the Dead: vanilla mobs) are walked to the gate a leg at a time:
+     *  every second, one without a target and with nothing to walk is pointed at it again (a target beyond the follow range
+     *  gets a partial path, so the march is in legs) */
+    private static void march(ServerLevel level, String tag, int gx, int gz) {
+        int gy = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, gx, gz);
+        for (Mob m : level.getEntitiesOfClass(Mob.class, new AABB(gx - 400, level.getMinBuildHeight(), gz - 400, gx + 400, level.getMaxBuildHeight(), gz + 400),
+                m -> m.isAlive() && !(m instanceof gscraft.war.entity.GunUser) && m.getTags().contains(tag))) {
+            if (m.getTarget() != null || !m.getNavigation().isDone()) continue;
+            if (m.blockPosition().distSqr(new BlockPos(gx, gy, gz)) < 16.0D) continue;
+            m.getNavigation().moveTo(gx + 0.5D, gy, gz + 0.5D, 1.0D);
+        }
+    }
+
     private static void counter(ServerLevel level, SiteData data, SiteDef site, Progress p) {
         CampDef camp = Sites.camp();
         if (camp == null) return;
-        if (away(level, data, site, p, (camp.sx0() + camp.sx1()) / 2, (camp.sz0() + camp.sz1()) / 2)) return;
+        if (away(level, data, site, p, camp.targetX(), camp.targetZ())) return;
         if (p.wave < DEFENCE_WAVES && data.online >= p.nextWave) {
             int[] at = camp.approaches().getOrDefault(site.approach(), camp.approaches().values().iterator().next());
             int placed = sendWave(level, site, site.defence().get(p.wave), List.of(new BlockPos(at[0], 0, at[1])), scaleOnline(level),
-                    new BlockPos((camp.sx0() + camp.sx1()) / 2, 0, (camp.sz0() + camp.sz1()) / 2));
+                    new BlockPos(camp.targetX(), 0, camp.targetZ()), true);   // the gate: where the wave goes
             p.wave++;
             p.nextWave = data.online + WAVE_GAP;
             if (p.wave == DEFENCE_WAVES) p.deadline = data.online + STRAGGLER_TICKS;
@@ -306,6 +320,7 @@ public final class Loop {
         }
         bar(level.getServer(), site, "THE GATE — wave " + Math.max(1, p.wave) + " of " + DEFENCE_WAVES, (float) p.wave / DEFENCE_WAVES, BossEvent.BossBarColor.RED);
         String tag = WAVE_TAG + "_" + site.id();
+        march(level, tag, camp.targetX(), camp.targetZ());
         AABB square = new AABB(camp.sx0(), level.getMinBuildHeight(), camp.sz0(), camp.sx1() + 1, level.getMaxBuildHeight(), camp.sz1() + 1);
         int inSquare = level.getEntitiesOfClass(Mob.class, square, m -> m.isAlive() && m.getTags().contains(tag)).size();
         p.lossTicks = inSquare >= LOSS_COUNT ? p.lossTicks + 20 : 0;
@@ -325,9 +340,11 @@ public final class Loop {
             return;
         }
         if (p.wave < DEFENCE_WAVES) return;
-        int cx = (camp.sx0() + camp.sx1()) / 2;
-        int cz = (camp.sz0() + camp.sz1()) / 2;
-        AABB near = new AABB(cx - 128, level.getMinBuildHeight(), cz - 128, cx + 128, level.getMaxBuildHeight(), cz + 128);
+        // the wave still standing anywhere between the approaches and the gate (the north approach is 230 from the gate now
+        // that the target is the compound's corner; 128 round the square's centre missed it, and a wave just placed read as beaten)
+        int cx = camp.targetX();
+        int cz = camp.targetZ();
+        AABB near = new AABB(cx - 400, level.getMinBuildHeight(), cz - 400, cx + 400, level.getMaxBuildHeight(), cz + 400);
         int alive = level.getEntitiesOfClass(Mob.class, near, m -> m.isAlive() && m.getTags().contains(tag)).size();
         if (alive > 0 && data.online < p.deadline) return;
         if (alive > 0) discardWave(level, site);
@@ -371,8 +388,10 @@ public final class Loop {
                 new BlockPos(site.x0() - 2, 0, site.z1() + 2), new BlockPos(site.x1() + 2, 0, site.z1() + 2));
     }
 
-    /** @param target where the wave is going: the site's anchor for an assault, the camp square for the counterattack (armour drives there) */
-    private static int sendWave(ServerLevel level, SiteDef site, List<WaveEntry> wave, List<BlockPos> points, float scale, BlockPos target) {
+    /** @param target where the wave is going: the site's anchor for an assault, the camp's gate for the counterattack (armour drives there)
+     *  @param advance the infantry is ordered to the target too (the counterattack: it walks from the approach to the gate; found
+     *                 standing at the approach for good, 2026-09-12 - an assault's infantry is placed on the site's edges and fights) */
+    private static int sendWave(ServerLevel level, SiteDef site, List<WaveEntry> wave, List<BlockPos> points, float scale, BlockPos target, boolean advance) {
         RandomSource random = level.getRandom();
         int placed = 0;
         java.util.List<Mob> fighters = new java.util.ArrayList<>();
@@ -412,6 +431,18 @@ public final class Loop {
         // a wave's soldiers arrive as squads of up to six
         for (int i = 0; i < fighters.size(); i += gscraft.war.entity.Squad.MAX_SIZE) {
             gscraft.war.entity.Squad.form(fighters.subList(i, Math.min(fighters.size(), i + gscraft.war.entity.Squad.MAX_SIZE)));
+        }
+        if (advance && !fighters.isEmpty()) {
+            // the march: an order of its own (not the squad's, which would release it out of a fight), re-pathed by the order goal
+            // every second, so a target beyond the follow range is reached in legs
+            int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, target.getX(), target.getZ());
+            BlockPos to = new BlockPos(target.getX(), y, target.getZ());
+            for (Mob m : fighters) {
+                gscraft.war.entity.FighterState st = ((gscraft.war.entity.GunUser) m).fighterState();
+                st.order = gscraft.war.entity.FighterState.Order.ADVANCE;
+                st.orderPos = to;
+                st.orderBySquad = false;
+            }
         }
         return placed;
     }
