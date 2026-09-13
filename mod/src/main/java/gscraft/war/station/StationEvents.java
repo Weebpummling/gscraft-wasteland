@@ -37,6 +37,18 @@ public final class StationEvents {
     @SubscribeEvent
     public static void look(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END || !(event.player instanceof ServerPlayer p) || p.tickCount % 10 != 0) return;
+        net.minecraft.world.phys.Vec3 eye = p.getEyePosition();
+        net.minecraft.world.phys.Vec3 look = p.getViewVector(1f);
+        for (net.minecraft.world.entity.Entity e : p.level().getEntities(p, p.getBoundingBox().inflate(6), en -> en.getTags().contains("gscraft_npc"))) {
+            net.minecraft.world.phys.Vec3 to = e.getBoundingBox().getCenter().subtract(eye);
+            double d = to.length();
+            if (d <= 6 && to.normalize().dot(look) > 0.985) {
+                gscraft.war.survivor.Survivors.Def def = gscraft.war.survivor.Survivors.byTag(e);
+                String who = def != null ? def.name().toUpperCase(java.util.Locale.ROOT) : e.getName().getString().toUpperCase(java.util.Locale.ROOT);
+                p.displayClientMessage(Component.literal(who + " — ").append(Component.translatable("gscraft.survivor.talk")), true);
+                return;
+            }
+        }
         HitResult hit = p.pick(5.0, 0f, false);
         if (hit.getType() != HitResult.Type.BLOCK) return;
         BlockPos at = ((BlockHitResult) hit).getBlockPos();

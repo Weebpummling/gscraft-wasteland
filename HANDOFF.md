@@ -413,6 +413,16 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, the polish pass on the slice's first hour (ruling R27):** the login - title + subtitle (`first_join.subtitle`),
+the book opened on `first_join.open_chapter` (`compound`) 5.5 s in by `SurvivorEvents.later`; a new chapter **The compound**
+(`tools/chapters.py`: one quest, "Wake up", the page that says where you are and what a right-click does; chapter icons; the
+pocket hidden until W1; W1/W2/R0/square texts say how the card and the sandbags work; 8 chapters, 23 quests). The lines
+rewritten to the compound start (lang `gscraft.say.*`; still placeholders for the owner's voice). A survivor in the crosshair
+within six blocks reads `NAME — right-click to talk` (`StationEvents.look`, before the block pick); `tools/camp.py` puts a
+sign beside each survivor on their floor (name, place, want, right-click) - re-issued locally. The station's empty readout
+says where the card goes (`gscraft.station.no_card`); the station item has a tooltip. Phases 32, 33, 34 green. Still open
+from the same complaint: the vanilla join message, the notebook, the survivors' own voice lines.
+
 **2026-09-13, slice build 8 - the hospital as the first strongpoint, the marker and the board:** `item/ClaimMarkerItem`
 (`useOn` inside a strongpoint's box → `Loop.claim`; refused = Marshall's `marker_refused` line and the message on the action
 bar, the marker kept; accepted = consumed, `marker_set`), `Loop.claim` (advance to HELD + a white banner at the anchor's

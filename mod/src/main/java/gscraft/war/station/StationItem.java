@@ -19,6 +19,11 @@ public class StationItem extends BlockItem {
     }
 
     @Override
+    public void appendHoverText(net.minecraft.world.item.ItemStack stack, net.minecraft.world.level.Level level, java.util.List<Component> lines, net.minecraft.world.item.TooltipFlag flag) {
+        lines.add(Component.translatable("item.gscraft.station.tip").withStyle(net.minecraft.ChatFormatting.GRAY));
+    }
+
+    @Override
     public InteractionResult place(BlockPlaceContext ctx) {
         Player p = ctx.getPlayer();
         if (p != null && ctx.getLevel() instanceof ServerLevel sl) {

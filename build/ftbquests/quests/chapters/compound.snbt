@@ -1,0 +1,33 @@
+{
+	id: "B084A3F9F0A3CED3"
+	group: ""
+	order_index: -1
+	filename: "compound"
+	title: "The compound"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	tags: [
+		"compound"
+	]
+	quests: [
+		{
+			id: "AF24D0F7F02E123D"
+			x: 0.0d
+			y: 0.0d
+			title: "Wake up"
+			subtitle: "Skadowsky. Somebody's town."
+			description: [
+				"You woke in the yard of a walled compound on the river: the hall to the south, the brick block to the east, the sheds to the north, and the corner between the sheds and the block open. Walker is in the hall and Michael in the brick block. Right-click a survivor to hear what they need; their chapter opens here. Your work station is in your pack: put it down inside the wire."
+			]
+			tasks: [
+				{
+					id: "27EB43080DA5DE54"
+					type: "checkmark"
+				}
+			]
+			rewards: [ ]
+		}
+	]
+	quest_links: [ ]
+	icon: "gscraft:station"
+}

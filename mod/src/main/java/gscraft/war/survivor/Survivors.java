@@ -51,6 +51,8 @@ public final class Survivors {
     public static final List<String[]> JOIN_LINES = new ArrayList<>();
     public static final List<KitEntry> KIT = new ArrayList<>();
     public static String TITLE = "WASTELAND";
+    public static String SUBTITLE = "";
+    public static String OPEN_CHAPTER = "";
 
     static {
         load();
@@ -71,6 +73,8 @@ public final class Survivors {
             if (root.has("first_join")) {
                 JsonObject fj = root.getAsJsonObject("first_join");
                 if (fj.has("title")) TITLE = fj.get("title").getAsString();
+                if (fj.has("subtitle")) SUBTITLE = fj.get("subtitle").getAsString();
+                if (fj.has("open_chapter")) OPEN_CHAPTER = fj.get("open_chapter").getAsString();
                 if (fj.has("lines")) for (JsonElement el : fj.getAsJsonArray("lines")) {
                     JsonArray a = el.getAsJsonArray();
                     JOIN_LINES.add(new String[]{a.get(0).getAsString(), a.get(1).getAsString()});

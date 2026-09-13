@@ -24,6 +24,15 @@ SURVIVORS = ROOT / "mod/src/main/resources/data/gscraft/gscraft_survivors/surviv
 FN = ROOT / "build" / "datapacks" / "gscraft" / "data" / "gscraft" / "functions"
 
 # npc -> (name, lock rectangle x0, z0, x1, z1 (skadowsky-camp §3), the floor level to prefer)
+# the sign beside each survivor: the place and what they want, four lines of fifteen characters (onboarding §2, 0:02)
+SIGNS = {
+    "walker": ["WALKER", "the yard", "bolts and nuts", "right-click"],
+    "michael": ["MICHAEL", "the block", "wire and cord", "right-click"],
+    "marshall": ["MARSHALL", "the gatehouse", "the strongpoints", "right-click"],
+    "tony": ["TONY", "the clinic", "bandages", "right-click"],
+    "tune": ["TUNE", "the shack", "boards, radios", "right-click"],
+    "james": ["JAMES", "the signal box", "the map", "right-click"],
+}
 NPCS = {
     "walker": ("Walker the Foreman", (-975, -880, -940, -845), 64),      # the yard (the compound's hall side)
     "michael": ("Michael the Engineer", (-938, -900, -910, -870), 64),   # the brick block
@@ -74,6 +83,13 @@ def main(argv):
                f'CustomName:\'{{"text":"{name}"}}\',Tags:["gscraft_npc","gscraft_npc_{npc}"],'
                f'VillagerData:{{profession:"{professions.get(npc, "minecraft:nitwit")}",level:2,type:"minecraft:plains"}},Offers:{{Recipes:[]}}}}')
         lines = [f"kill @e[type=minecraft:villager,tag=gscraft_npc_{npc}]", f"summon minecraft:villager {x} {y} {z} {nbt}"]
+        # the sign: on the same floor beside them, the first free side
+        for dx, dz in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            ty, _ = g.top(x + dx, z + dz)
+            if ty == y - 1:
+                msgs = ",".join(f"'{{\"text\":\"{t}\"}}'" for t in SIGNS[npc])
+                lines.append(f"setblock {x + dx} {y} {z + dz} minecraft:oak_sign{{front_text:{{messages:[{msgs}]}}}}")
+                break
         (FN / f"camp_npc_{npc}.mcfunction").write_text("\n".join(lines) + "\n", encoding="utf-8")
         placed[npc] = {"name": name, "x": x, "y": y, "z": z, "ground": ground}
         print(f"  {npc:9} ({x:5}, {y:3}, {z:5}) on {ground}")

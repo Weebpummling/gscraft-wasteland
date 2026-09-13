@@ -71,4 +71,5 @@
 		}
 	]
 	quest_links: [ ]
+	icon: "gscraft:claim_marker"
 }

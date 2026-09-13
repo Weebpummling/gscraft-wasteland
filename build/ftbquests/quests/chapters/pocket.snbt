@@ -17,11 +17,12 @@
 			title: "The gap"
 			subtitle: "Marshall wants that corner shut before dark."
 			description: [
-				"Order sandbags at your station and hand in eight."
+				"Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the corner is a gate."
 			]
 			dependencies: [
 				"0016A4AE37CD6D15"
 			]
+			hide_until_deps_complete: true
 			tasks: [
 				{
 					id: "E3AA876D2949B0F6"
@@ -50,7 +51,7 @@
 			title: "The junction"
 			subtitle: "The square is ours if we say it is."
 			description: [
-				"Walk the square and bring back eight scrap from its streets."
+				"Walk the square north of the hall and bring back eight metal scrap from its streets. That lights its torch and the map wall."
 			]
 			dependencies: [
 				"03F608F813A19429"
@@ -303,4 +304,5 @@
 		}
 	]
 	quest_links: [ ]
+	icon: "superbwarfare:sandbag"
 }

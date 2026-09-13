@@ -69,22 +69,29 @@ def say(npc, key):
 
 
 def meet(npc):
-    return {"key": f"meet_{npc}", "chapter": npc, "title": "Meet " + npc.capitalize(), "voice": "", "task": "Right-click them.",
+    return {"key": f"meet_{npc}", "chapter": npc, "title": "Meet " + npc.capitalize(), "voice": "", "task": f"You spoke to {npc.capitalize()}. Their chapter is open.",
             "x": 0, "y": 0, "tasks": [adv(f"seen_{npc}")], "rewards": [], "deps": [], "invisible": True}
 
 
 CHAPTERS = [
-    # (chapter tag, title, order); the six survivors come from survivors.json in that order, then the pocket
+    # (chapter tag, title, order); the compound first, the six survivors from survivors.json, then the pocket
+    ("compound", "The compound", -1),
     ("pocket", "The pocket", 6),
 ]
+ICONS = {"compound": "gscraft:station", "walker": "gscraft:wrench", "tony": "gscraft:bandage", "michael": "gscraft:wire_spool", "tune": "gscraft:circuit_board",
+         "james": "minecraft:compass", "marshall": "gscraft:claim_marker", "pocket": "superbwarfare:sandbag"}
 
 QUESTS = [
+    # The compound: the one page that says where you are (always visible)
+    {"key": "wake", "chapter": "compound", "title": "Wake up", "voice": "Skadowsky. Somebody's town.",
+     "task": "You woke in the yard of a walled compound on the river: the hall to the south, the brick block to the east, the sheds to the north, and the corner between the sheds and the block open. Walker is in the hall and Michael in the brick block. Right-click a survivor to hear what they need; their chapter opens here. Your work station is in your pack: put it down inside the wire.",
+     "x": 0, "y": 0, "tasks": [CHECK], "rewards": [], "deps": []},
     # Walker
     meet("walker"),
-    {"key": "W1", "chapter": "walker", "title": "Nuts and bolts", "voice": "Bring me anything with a thread on it.", "task": "Hand in eight bolts and eight nuts.",
+    {"key": "W1", "chapter": "walker", "title": "Nuts and bolts", "voice": "Bring me anything with a thread on it.", "task": "Hand in eight bolts and eight nuts from the town's rooms. The reward is a wrench and two blueprint cards: a card in your station's top-left slot is an order.",
      "x": 2, "y": 0, "tasks": [item("gscraft:bolt", 8), item("gscraft:nut", 8)], "deps": ["meet_walker"],
      "rewards": [give("gscraft:wrench"), give("gscraft:card_fastener_kit"), give("gscraft:card_hand_tools"), stage("bp_fastener_kit"), stage("bp_hand_tools"), say("walker", "station")]},
-    {"key": "W2", "chapter": "walker", "title": "A place for everything", "voice": "You'll need somewhere to put it all.", "task": "Order two fastener kits at your station and bring them.",
+    {"key": "W2", "chapter": "walker", "title": "A place for everything", "voice": "You'll need somewhere to put it all.", "task": "Put the fastener-kit card in your station, four bolts, nuts, screws and nails under it, and wait two minutes. Bring me two kits.",
      "x": 4, "y": 0, "tasks": [item("gscraft:fastener_kit", 2)], "deps": ["W1"],
      "rewards": [give("sophisticatedbackpacks:backpack"), stage("storage_1")]},
     {"key": "W3", "chapter": "walker", "title": "Frame of mind", "voice": "Scrap is only scrap till it's welded.", "task": "Bring twelve metal scrap and show me a welding torch.",
@@ -124,10 +131,10 @@ QUESTS = [
      "x": 0, "y": 0, "tasks": [CHECK], "deps": ["W1", "T1", "M1", "U1", "J1"], "hide_until_deps": True,
      "rewards": [give("gscraft:card_claim_marker"), stage("bp_claim_marker"), stage("marshall_speaks"), say("marshall", "speaks")]},
     # The pocket: the gap, then the five takes (start-compound §5; ruling R22/R23)
-    {"key": "R0", "chapter": "pocket", "title": "The gap", "voice": "Marshall wants that corner shut before dark.", "task": "Order sandbags at your station and hand in eight.",
-     "x": 0, "y": 0, "tasks": [item("superbwarfare:sandbag", 8)], "deps": ["W1"],
+    {"key": "R0", "chapter": "pocket", "title": "The gap", "voice": "Marshall wants that corner shut before dark.", "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the corner is a gate.",
+     "x": 0, "y": 0, "tasks": [item("superbwarfare:sandbag", 8)], "deps": ["W1"], "hide_until_deps": True,
      "rewards": [stage("compound_closed")]},
-    {"key": "square", "chapter": "pocket", "title": "The junction", "voice": "The square is ours if we say it is.", "task": "Walk the square and bring back eight scrap from its streets.",
+    {"key": "square", "chapter": "pocket", "title": "The junction", "voice": "The square is ours if we say it is.", "task": "Walk the square north of the hall and bring back eight metal scrap from its streets. That lights its torch and the map wall.",
      "x": 2, "y": 0, "tasks": [loc("the square", site_box("square")), item("gscraft:metal_scrap", 8)], "deps": ["R0"],
      "rewards": [stage("square_taken"), stage("skadowsky_scouted")]},
     {"key": "gatehouse", "chapter": "pocket", "title": "The gatehouse", "voice": "The bridge's east end. Bar the doors and Marshall moves in.", "task": "Reach the gatehouse; hand in a fastener kit and eight scrap.",
@@ -223,8 +230,11 @@ def quest_nbt(d):
 
 
 def chapter_nbt(tag, title, index, quests):
-    return {"id": hex_id(tag), "group": "", "order_index": index, "filename": tag, "title": title, "default_quest_shape": "",
+    nbt = {"id": hex_id(tag), "group": "", "order_index": index, "filename": tag, "title": title, "default_quest_shape": "",
             "default_hide_dependency_lines": False, "tags": [tag], "quests": [quest_nbt(d) for d in quests], "quest_links": []}
+    if tag in ICONS:
+        nbt["icon"] = ICONS[tag]
+    return nbt
 
 
 DATA = {"version": VERSION, "default_quest_shape": "circle", "default_reward_team": False, "disable_gui": False, "drop_loot_crates": False}
@@ -232,7 +242,7 @@ DATA = {"version": VERSION, "default_quest_shape": "circle", "default_reward_tea
 
 def main(argv):
     survivors = json.loads(SURVIVORS.read_text(encoding="utf-8"))["survivors"]
-    chapters = [(d["chapter"], d["name"].split(" ")[0], i) for i, d in enumerate(survivors)] + CHAPTERS
+    chapters = sorted([(d["chapter"], d["name"].split(" ")[0], i) for i, d in enumerate(survivors)] + CHAPTERS, key=lambda c: c[2])
     keys = [d["key"] for d in QUESTS]
     assert len(keys) == len(set(keys)), "duplicate quest keys"
     for d in QUESTS:

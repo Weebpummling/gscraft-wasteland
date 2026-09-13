@@ -16,7 +16,7 @@
 			y: 0.0d
 			title: "Meet Tony"
 			description: [
-				"Right-click them."
+				"You spoke to Tony. Their chapter is open."
 			]
 			invisible: true
 			tasks: [
@@ -116,4 +116,5 @@
 		}
 	]
 	quest_links: [ ]
+	icon: "gscraft:bandage"
 }

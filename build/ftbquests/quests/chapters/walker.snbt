@@ -16,7 +16,7 @@
 			y: 0.0d
 			title: "Meet Walker"
 			description: [
-				"Right-click them."
+				"You spoke to Walker. Their chapter is open."
 			]
 			invisible: true
 			tasks: [
@@ -36,7 +36,7 @@
 			title: "Nuts and bolts"
 			subtitle: "Bring me anything with a thread on it."
 			description: [
-				"Hand in eight bolts and eight nuts."
+				"Hand in eight bolts and eight nuts from the town's rooms. The reward is a wrench and two blueprint cards: a card in your station's top-left slot is an order."
 			]
 			dependencies: [
 				"FBE6BDDCB8D785C1"
@@ -112,7 +112,7 @@
 			title: "A place for everything"
 			subtitle: "You'll need somewhere to put it all."
 			description: [
-				"Order two fastener kits at your station and bring them."
+				"Put the fastener-kit card in your station, four bolts, nuts, screws and nails under it, and wait two minutes. Bring me two kits."
 			]
 			dependencies: [
 				"0016A4AE37CD6D15"
@@ -201,4 +201,5 @@
 		}
 	]
 	quest_links: [ ]
+	icon: "gscraft:wrench"
 }

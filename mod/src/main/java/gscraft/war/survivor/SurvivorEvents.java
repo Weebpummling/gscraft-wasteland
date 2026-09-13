@@ -24,8 +24,11 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * The survivors as the book (system doc 2026-09-13 §7 build 6): right-click on one opens the quest book at their
@@ -37,9 +40,28 @@ import java.util.List;
 public final class SurvivorEvents {
     private SurvivorEvents() {}
 
+    private record Later(UUID player, long at, java.util.function.Consumer<ServerPlayer> action) {}
+
+    private static final List<Later> LATER = new ArrayList<>();
+
+    /** something done to the player this many ticks from now, if they are still on */
+    public static void later(ServerPlayer p, int ticks, java.util.function.Consumer<ServerPlayer> action) {
+        LATER.add(new Later(p.getUUID(), p.server.getTickCount() + ticks, action));
+    }
+
     @SubscribeEvent
     public static void tick(TickEvent.ServerTickEvent event) {
-        if (event.phase == TickEvent.Phase.END) Say.tick(event.getServer());
+        if (event.phase != TickEvent.Phase.END) return;
+        Say.tick(event.getServer());
+        if (LATER.isEmpty()) return;
+        long now = event.getServer().getTickCount();
+        for (Iterator<Later> it = LATER.iterator(); it.hasNext(); ) {
+            Later l = it.next();
+            if (l.at() > now) continue;
+            it.remove();
+            ServerPlayer p = event.getServer().getPlayerList().getPlayer(l.player());
+            if (p != null) l.action().accept(p);
+        }
     }
 
     @SubscribeEvent
@@ -72,6 +94,9 @@ public final class SurvivorEvents {
         Stages.grant(p.server, p, "joined", true);
         p.connection.send(new ClientboundSetTitlesAnimationPacket(10, 70, 20));
         p.connection.send(new ClientboundSetTitleTextPacket(Component.literal(Survivors.TITLE)));
+        if (!Survivors.SUBTITLE.isEmpty()) p.connection.send(new net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket(Component.literal(Survivors.SUBTITLE)));
+        // the book opens on its first chapter once the title has faded: the one page that says where you are
+        if (!Survivors.OPEN_CHAPTER.isEmpty()) later(p, 110, pl -> pl.server.getCommands().performPrefixedCommand(pl.createCommandSourceStack().withSuppressedOutput(), "ftbquests open_book #" + Survivors.OPEN_CHAPTER));
         for (ItemStack s : Survivors.kit()) if (!p.getInventory().add(s)) p.drop(s, false);
         Say.hold(p, 100);
         for (String[] l : Survivors.JOIN_LINES) Say.queue(p, l[0], l[1], false);

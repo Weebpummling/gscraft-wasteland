@@ -1,22 +1,84 @@
 {
   "__comment": "The six survivors (system doc 2026-09-13 §7 build 6; onboarding §2/§8, interface §3.4, entities-v8 §2). A survivor is a villager tagged gscraft_npc_<id> (summoned by the datapack's camp_npc_<id>, tools/camp.py, which reads the profession from here); right-click opens the quest book at the chapter tagged <chapter> (`/ftbquests open_book #<chapter>`) and plays the hello line once per player. Lines live in the lang file as gscraft.say.<id>.<key>. first_join: the title, Tune's lines (queued 20 s apart) and the kit a new player gets.",
   "survivors": [
-    {"id": "walker", "name": "Walker the Foreman", "colour": "gold", "profession": "immersiveengineering:machinist", "chapter": "walker"},
-    {"id": "tony", "name": "Tony the Medic", "colour": "red", "profession": "minecraft:cleric", "chapter": "tony"},
-    {"id": "michael", "name": "Michael the Engineer", "colour": "yellow", "profession": "immersiveengineering:engineer", "chapter": "michael"},
-    {"id": "tune", "name": "Tune the Technician", "colour": "aqua", "profession": "immersiveengineering:electrician", "chapter": "tune"},
-    {"id": "james", "name": "James the Scout", "colour": "green", "profession": "minecraft:cartographer", "chapter": "james"},
-    {"id": "marshall", "name": "Marshall", "colour": "white", "profession": "minecraft:armorer", "chapter": "marshall"}
+    {
+      "id": "walker",
+      "name": "Walker the Foreman",
+      "colour": "gold",
+      "profession": "immersiveengineering:machinist",
+      "chapter": "walker"
+    },
+    {
+      "id": "tony",
+      "name": "Tony the Medic",
+      "colour": "red",
+      "profession": "minecraft:cleric",
+      "chapter": "tony"
+    },
+    {
+      "id": "michael",
+      "name": "Michael the Engineer",
+      "colour": "yellow",
+      "profession": "immersiveengineering:engineer",
+      "chapter": "michael"
+    },
+    {
+      "id": "tune",
+      "name": "Tune the Technician",
+      "colour": "aqua",
+      "profession": "immersiveengineering:electrician",
+      "chapter": "tune"
+    },
+    {
+      "id": "james",
+      "name": "James the Scout",
+      "colour": "green",
+      "profession": "minecraft:cartographer",
+      "chapter": "james"
+    },
+    {
+      "id": "marshall",
+      "name": "Marshall",
+      "colour": "white",
+      "profession": "minecraft:armorer",
+      "chapter": "marshall"
+    }
   ],
   "first_join": {
     "title": "WASTELAND",
-    "lines": [["tune", "join_1"], ["tune", "join_2"], ["tune", "join_3"]],
+    "lines": [
+      [
+        "tune",
+        "join_1"
+      ],
+      [
+        "tune",
+        "join_2"
+      ],
+      [
+        "tune",
+        "join_3"
+      ]
+    ],
     "kit": [
-      {"item": "gscraft:station"},
-      {"gun": "tacz:glock_17", "magazines": 1},
-      {"item": "flashlight:flashlight"},
-      {"item": "flashlight:battery"},
-      {"item": "gscraft:bandage"}
-    ]
+      {
+        "item": "gscraft:station"
+      },
+      {
+        "gun": "tacz:glock_17",
+        "magazines": 1
+      },
+      {
+        "item": "flashlight:flashlight"
+      },
+      {
+        "item": "flashlight:battery"
+      },
+      {
+        "item": "gscraft:bandage"
+      }
+    ],
+    "subtitle": "Skadowsky",
+    "open_chapter": "compound"
   }
 }

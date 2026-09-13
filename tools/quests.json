@@ -1,6 +1,11 @@
 {
  "chapters": [
   {
+   "tag": "compound",
+   "title": "The compound",
+   "id": "B084A3F9F0A3CED3"
+  },
+  {
    "tag": "walker",
    "title": "Walker",
    "id": "2738C5E7FCA0B0F8"
@@ -38,11 +43,28 @@
  ],
  "quests": [
   {
+   "key": "wake",
+   "chapter": "compound",
+   "title": "Wake up",
+   "voice": "Skadowsky. Somebody's town.",
+   "task": "You woke in the yard of a walled compound on the river: the hall to the south, the brick block to the east, the sheds to the north, and the corner between the sheds and the block open. Walker is in the hall and Michael in the brick block. Right-click a survivor to hear what they need; their chapter opens here. Your work station is in your pack: put it down inside the wire.",
+   "x": 0,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "checkmark"
+    }
+   ],
+   "rewards": [],
+   "deps": [],
+   "id": "AF24D0F7F02E123D"
+  },
+  {
    "key": "meet_walker",
    "chapter": "walker",
    "title": "Meet Walker",
    "voice": "",
-   "task": "Right-click them.",
+   "task": "You spoke to Walker. Their chapter is open.",
    "x": 0,
    "y": 0,
    "tasks": [
@@ -61,7 +83,7 @@
    "chapter": "walker",
    "title": "Nuts and bolts",
    "voice": "Bring me anything with a thread on it.",
-   "task": "Hand in eight bolts and eight nuts.",
+   "task": "Hand in eight bolts and eight nuts from the town's rooms. The reward is a wrench and two blueprint cards: a card in your station's top-left slot is an order.",
    "x": 2,
    "y": 0,
    "tasks": [
@@ -118,7 +140,7 @@
    "chapter": "walker",
    "title": "A place for everything",
    "voice": "You'll need somewhere to put it all.",
-   "task": "Order two fastener kits at your station and bring them.",
+   "task": "Put the fastener-kit card in your station, four bolts, nuts, screws and nails under it, and wait two minutes. Bring me two kits.",
    "x": 4,
    "y": 0,
    "tasks": [
@@ -192,7 +214,7 @@
    "chapter": "tony",
    "title": "Meet Tony",
    "voice": "",
-   "task": "Right-click them.",
+   "task": "You spoke to Tony. Their chapter is open.",
    "x": 0,
    "y": 0,
    "tasks": [
@@ -281,7 +303,7 @@
    "chapter": "michael",
    "title": "Meet Michael",
    "voice": "",
-   "task": "Right-click them.",
+   "task": "You spoke to Michael. Their chapter is open.",
    "x": 0,
    "y": 0,
    "tasks": [
@@ -391,7 +413,7 @@
    "chapter": "tune",
    "title": "Meet Tune",
    "voice": "",
-   "task": "Right-click them.",
+   "task": "You spoke to Tune. Their chapter is open.",
    "x": 0,
    "y": 0,
    "tasks": [
@@ -486,7 +508,7 @@
    "chapter": "james",
    "title": "Meet James",
    "voice": "",
-   "task": "Right-click them.",
+   "task": "You spoke to James. Their chapter is open.",
    "x": 0,
    "y": 0,
    "tasks": [
@@ -595,7 +617,7 @@
    "chapter": "pocket",
    "title": "The gap",
    "voice": "Marshall wants that corner shut before dark.",
-   "task": "Order sandbags at your station and hand in eight.",
+   "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the corner is a gate.",
    "x": 0,
    "y": 0,
    "tasks": [
@@ -609,6 +631,7 @@
    "deps": [
     "W1"
    ],
+   "hide_until_deps": true,
    "rewards": [
     {
      "type": "stage",
@@ -622,7 +645,7 @@
    "chapter": "pocket",
    "title": "The junction",
    "voice": "The square is ours if we say it is.",
-   "task": "Walk the square and bring back eight scrap from its streets.",
+   "task": "Walk the square north of the hall and bring back eight metal scrap from its streets. That lights its torch and the map wall.",
    "x": 2,
    "y": 0,
    "tasks": [

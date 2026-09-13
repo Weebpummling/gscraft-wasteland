@@ -219,7 +219,7 @@ public class StationBlockEntity extends BlockEntity implements MenuProvider {
         }
         ItemStack out = items.getStackInSlot(OUT);
         if (!out.isEmpty()) return out.getHoverName().getString().toUpperCase(Locale.ROOT) + " — done";
-        return why.isEmpty() || why.equals("no card") ? title() + " — no card" : why;
+        return why.isEmpty() || why.equals("no card") ? title() + " — " + Component.translatable("gscraft.station.no_card").getString() : why;
     }
 
     // ---- nbt, menu

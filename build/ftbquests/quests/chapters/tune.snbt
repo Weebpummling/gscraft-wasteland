@@ -16,7 +16,7 @@
 			y: 0.0d
 			title: "Meet Tune"
 			description: [
-				"Right-click them."
+				"You spoke to Tune. Their chapter is open."
 			]
 			invisible: true
 			tasks: [
@@ -126,4 +126,5 @@
 		}
 	]
 	quest_links: [ ]
+	icon: "gscraft:circuit_board"
 }
