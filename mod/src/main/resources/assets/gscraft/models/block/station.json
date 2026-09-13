@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "gscraft:block/station_top",
+    "bottom": "gscraft:block/station_side",
+    "side": "gscraft:block/station_side"
+  }
+}

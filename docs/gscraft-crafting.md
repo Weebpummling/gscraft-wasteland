@@ -206,6 +206,12 @@ volume over a session rather than in cheaper single crafts. The bonuses apply to
 the team owns, personal ones included, because the tier is a property of the team's workshop
 stage, not of the block.
 
+> **2026-09-13 (slice build 5):** the station is **in the mod**, not KubeJS (system doc R16): `gscraft:station`, the orders in
+> `data/gscraft/gscraft_recipes/recipes.json`, the readout on the action bar from the mod's player tick, `/gscraft station` for the
+> console. The screen, the slots, the timers and the owner rule are as this paragraph describes; the yard's speed is the
+> `station.speed` setting; the one-per-player rule is the item refusing to place while the first stands. The paragraph below is the
+> record of the KubeJS plan.
+
 **Implementation, no custom mod.** The station is a KubeJS custom block with a block entity
 (KubeJS 2001.6.5 ships `BlockEntityBuilder`, an inventory attachment, `rightClickOpensInventory` and a server ticker —
 verified in the jar): a 3×4 container screen — card slot, tool slot, take-only output on the top row, nine inputs

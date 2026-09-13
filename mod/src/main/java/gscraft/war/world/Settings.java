@@ -131,6 +131,7 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("armour.friendly_radius", () -> gscraft.war.armour.FightGoal.FRIENDLY_RADIUS, v -> gscraft.war.armour.FightGoal.FRIENDLY_RADIUS = v, "fire is held while an ally stands this close to the line of fire");
         d("armour.retreat_share", () -> gscraft.war.armour.FightGoal.RETREAT_SHARE, v -> gscraft.war.armour.FightGoal.RETREAT_SHARE = (float) v, "below this share of health the driver withdraws");
         i("armour.retreat_ticks", () -> gscraft.war.armour.FightGoal.RETREAT_TICKS, v -> gscraft.war.armour.FightGoal.RETREAT_TICKS = (int) v, "how long the withdrawal drives");
+        d("station.speed", () -> gscraft.war.station.Orders.SPEED, v -> gscraft.war.station.Orders.SPEED = v, "multiplies every station order's time (the yard's tiers: 0.85, 0.7, 0.5)");
         i("armour.calm_ticks", () -> gscraft.war.armour.FightGoal.CALM_TICKS, v -> gscraft.war.armour.FightGoal.CALM_TICKS = (int) v, "no fighting for this long after a withdrawal");
         d("armour.place_min", () -> gscraft.war.armour.Patrols.PLACE_MIN, v -> gscraft.war.armour.Patrols.PLACE_MIN = v, "an armour group is placed no nearer than this to anyone (a tank should be heard first)");
         d("armour.place_max", () -> gscraft.war.armour.Patrols.PLACE_MAX, v -> gscraft.war.armour.Patrols.PLACE_MAX = v, "and no further than this from the player it is rolled for");

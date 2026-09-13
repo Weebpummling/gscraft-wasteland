@@ -40,6 +40,7 @@ public final class SliceItems {
 
     public static final List<Def> DEFS = load();
     public static final List<RegistryObject<Item>> REGISTERED = new ArrayList<>();
+    public static int TOOL_USES = 64;
 
     private static List<Def> load() {
         List<Def> out = new ArrayList<>();
@@ -72,8 +73,14 @@ public final class SliceItems {
     public static class SliceItem extends Item {
         public final Def def;
 
+        private static Item.Properties props(Def def) {
+            Item.Properties p = new Item.Properties().stacksTo(def.bulky() ? 1 : def.stack());
+            if (def.role().equals("tool")) p = p.durability(TOOL_USES);   // a tool loses one point per order in the station's tool slot
+            return p;
+        }
+
         public SliceItem(Def def) {
-            super(new Item.Properties().stacksTo(def.bulky() ? 1 : def.stack()));
+            super(props(def));
             this.def = def;
         }
 
@@ -83,6 +90,10 @@ public final class SliceItems {
             Component tip = Component.translatable(key);
             if (!tip.getString().equals(key)) lines.add(tip.copy().withStyle(ChatFormatting.GRAY));
             if (def.bulky()) lines.add(Component.translatable("gscraft.item.bulky").withStyle(ChatFormatting.GOLD));
+            if (def.role().equals("card")) for (gscraft.war.station.Orders.Order o : gscraft.war.station.Orders.forCard(def.id())) {
+                // the card's tooltip is the recipe (interface §4.3)
+                lines.add(Component.literal(o.name() + ": " + o.needs() + "; " + gscraft.war.station.Orders.mmss(o.ticks()) + " at a station").withStyle(ChatFormatting.YELLOW));
+            }
         }
     }
 

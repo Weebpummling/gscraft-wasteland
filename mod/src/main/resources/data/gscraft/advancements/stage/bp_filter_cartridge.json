@@ -1,0 +1,13 @@
+{
+  "criteria": {
+    "set": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "requirements": [
+    [
+      "set"
+    ]
+  ],
+  "__comment": "the stage bp_filter_cartridge; granted and revoked by the gscraft mod with the stage (tools/stages.py)"
+}

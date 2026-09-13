@@ -1,5 +1,5 @@
 {
-  "note": "the player layer's items (system doc 2026-09-13 \u00a77 build 3; design \u00a74.2 stack sizes, crafting \u00a75, loot \u00a73). The mod registers every entry (gscraft.war.item.SliceItems); tools/items.py writes the models, placeholder textures and names. gscraft:bandage is the mod's own item and is not listed here.",
+  "note": "the player layer's items (system doc 2026-09-13 §7 build 3; design §4.2 stack sizes, crafting §5, loot §3). The mod registers every entry (gscraft.war.item.SliceItems); tools/items.py writes the models, placeholder textures and names. gscraft:bandage is the mod's own item and is not listed here.",
   "items": [
     {
       "id": "bolt",
@@ -453,14 +453,6 @@
       "id": "card_powder",
       "name": "Blueprint: powder",
       "tip": "Put it in a station's card slot; the station lists what the powder needs.",
-      "role": "card",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "card_sandbags",
-      "name": "Blueprint: sandbags",
-      "tip": "Put it in a station's card slot; the station lists what the sandbags needs.",
       "role": "card",
       "stack": 1,
       "bulky": false

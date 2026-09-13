@@ -413,6 +413,21 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, slice build 5 - the station (in the mod; the KubeJS spike skipped on the owner's word, ruling R16):**
+`gscraft.war.station`: `StationBlock` (lit while an order runs or the output waits), `StationBlockEntity` (slot 0 the card, 1 the
+tool, 2 the output, 3-11 the inputs; every second the card's orders and the quick recipes are checked against the inputs, the
+most-consuming match starts, the parts go, the countdown runs, the result lands with a chime; the first to place or open it owns
+it; `readout(viewer)` is the action bar line), `StationMenu`/`StationScreen` (vanilla's chest background at four rows; a
+non-owner's slots refuse), `StationItem` (one per player: refuses to place while the first stands, `SiteData.stations`),
+`Orders` (`data/gscraft/gscraft_recipes/recipes.json`: 19 orders, 10 cards, `#tags`, classes quick 20 s / intermediate 120 /
+equipment 300 / trip 1200, `station.speed`), `StationEvents` (the look-at readout every 10 ticks within 5 blocks;
+`/gscraft station show|bind|load|take|clear|list`). Tools wear one point per order (`SliceItems.TOOL_USES` 64); a card's tooltip
+lists its orders' needs and time. `tools/stages.py` now derives `bp_<card>` from the recipe file (60 advancements). Rulings R16-R18
+(bandage = 2 cloth quick; the most-consuming match; hand tools 5:00). `tools/war_phase32.py` (7/7, ~3 min: the real 2:00 timer).
+In-game check on WarTest: `/give @s gscraft:station`, place it, a card + parts, the action bar while looking, the chime, the lit
+top, a second account refused at the slots. Open: placement is not yet limited to the compound box (crafting §4); the yard's
+benches (shared, queues) are not built; FTB Quests' item tasks for the kits are build 7's.
+
 **2026-09-13, slice build 4 - Act I's loot:** the five building tables (`data/gscraft/loot_tables/building/
 apartment|garage|workshop|office|hospital.json`, loot doc §3 with R13/R14) in the mod; the dead `ruins/*` tables deleted.
 `tools/chests.py <world> --place --apply`: the compound and the square held **eight** containers between them, so the

@@ -1,6 +1,9 @@
 package gscraft.war.world;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.core.BlockPos;
+import java.util.LinkedHashMap;
+import java.util.UUID;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
@@ -74,6 +77,7 @@ public final class SiteData extends SavedData {
 
     private final Map<String, Progress> sites = new HashMap<>();
     private final Set<String> stages = new LinkedHashSet<>();
+    private final Map<UUID, BlockPos> stations = new LinkedHashMap<>();   // a player's work station (crafting §4: one each)
     public long online;
     public String contested = "";
 
@@ -88,6 +92,10 @@ public final class SiteData extends SavedData {
         CompoundTag sites = tag.getCompound("Sites");
         for (String id : sites.getAllKeys()) data.sites.put(id, Progress.load(sites.getCompound(id)));
         for (Tag t : tag.getList("Stages", Tag.TAG_STRING)) data.stages.add(t.getAsString());
+        for (Tag t : tag.getList("Stations", Tag.TAG_COMPOUND)) {
+            CompoundTag c = (CompoundTag) t;
+            if (c.hasUUID("Owner")) data.stations.put(c.getUUID("Owner"), new BlockPos(c.getInt("X"), c.getInt("Y"), c.getInt("Z")));
+        }
         return data;
     }
 
@@ -101,6 +109,16 @@ public final class SiteData extends SavedData {
         ListTag list = new ListTag();
         for (String stage : stages) list.add(StringTag.valueOf(stage));
         tag.put("Stages", list);
+        ListTag st = new ListTag();
+        stations.forEach((id, pos) -> {
+            CompoundTag c = new CompoundTag();
+            c.putUUID("Owner", id);
+            c.putInt("X", pos.getX());
+            c.putInt("Y", pos.getY());
+            c.putInt("Z", pos.getZ());
+            st.add(c);
+        });
+        tag.put("Stations", st);
         return tag;
     }
 
@@ -126,5 +144,25 @@ public final class SiteData extends SavedData {
         boolean removed = stages.remove(stage);
         if (removed) setDirty();
         return removed;
+    }
+
+    public BlockPos station(UUID owner) {
+        return stations.get(owner);
+    }
+
+    public Map<UUID, BlockPos> stations() {
+        return stations;
+    }
+
+    public void bindStation(UUID owner, BlockPos pos) {
+        stations.put(owner, pos.immutable());
+        setDirty();
+    }
+
+    public void unbindStation(UUID owner, BlockPos pos) {
+        if (pos.equals(stations.get(owner))) {
+            stations.remove(owner);
+            setDirty();
+        }
     }
 }

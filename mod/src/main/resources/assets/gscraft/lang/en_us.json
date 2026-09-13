@@ -155,11 +155,10 @@
   "item.gscraft.card_casings.tip": "Put it in a station's card slot; the station lists what the casings needs.",
   "item.gscraft.card_powder": "Blueprint: powder",
   "item.gscraft.card_powder.tip": "Put it in a station's card slot; the station lists what the powder needs.",
-  "item.gscraft.card_sandbags": "Blueprint: sandbags",
-  "item.gscraft.card_sandbags.tip": "Put it in a station's card slot; the station lists what the sandbags needs.",
   "item.gscraft.card_claim_marker": "Blueprint: claim marker",
   "item.gscraft.card_claim_marker.tip": "Put it in a station's card slot; the station lists what the claim marker needs.",
   "item.gscraft.claim_marker": "Claim marker",
   "item.gscraft.claim_marker.tip": "4 steel frames, a circuit assembly, a wiring harness, a white banner. Plant it at a strongpoint's anchor to claim it.",
-  "gscraft.item.bulky": "Bulky: slow to carry, cannot sprint"
+  "gscraft.item.bulky": "Bulky: slow to carry, cannot sprint",
+  "block.gscraft.station": "Work station"
 }

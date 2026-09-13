@@ -25,7 +25,9 @@ SECTOR = ("compound_closed", "skadowsky_scouted", "skadowsky_held", "skadowsky_d
 BOSSES = ("switchyard_gatekeeper",)
 GATES = ("line_depot",)
 PER_PLAYER = ("joined", "marshall_speaks", "revives_3", "seen_walker", "seen_tony", "seen_michael", "seen_tune", "seen_james", "seen_marshall")
-RECIPES = ()   # bp_<recipe>: the crafting build fills this from its recipe file
+RECIPES_FILE = ROOT / "mod/src/main/resources/data/gscraft/gscraft_recipes/recipes.json"
+# bp_<card>: one per blueprint card in the station's recipe file (slice build 5); the card's id without its card_ prefix
+RECIPES = tuple(dict.fromkeys(o["card"].removeprefix("card_") for o in json.loads(RECIPES_FILE.read_text(encoding="utf-8"))["orders"] if o.get("card")))
 
 
 def registry():

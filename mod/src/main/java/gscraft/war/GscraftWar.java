@@ -19,6 +19,7 @@ public class GscraftWar {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         ModEntities.ENTITIES.register(modBus);
         ModItems.ITEMS.register(modBus);
+        gscraft.war.station.ModStation.register(modBus);   // the work station: block, item, block entity, menu
         modBus.addListener(ModEntities::attributes);
         modBus.addListener(ModItems::creativeTabs);
         Net.register();

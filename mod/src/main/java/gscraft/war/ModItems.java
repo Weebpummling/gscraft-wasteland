@@ -41,6 +41,7 @@ public final class ModItems {
             event.accept(MATRON_EGG);
         }
         if (event.getTabKey() == CreativeModeTabs.COMBAT) event.accept(BANDAGE);
+        if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) event.accept(gscraft.war.station.ModStation.STATION_ITEM);
         if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) for (var item : gscraft.war.item.SliceItems.REGISTERED) event.accept(item);
     }
 }

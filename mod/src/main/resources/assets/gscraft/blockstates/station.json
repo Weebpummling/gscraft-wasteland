@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "gscraft:block/station"
+    },
+    "lit=true": {
+      "model": "gscraft:block/station_lit"
+    }
+  }
+}
