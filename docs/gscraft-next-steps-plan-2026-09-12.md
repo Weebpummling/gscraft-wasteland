@@ -114,6 +114,16 @@ defence wave and the loss put it back; the zone box opens and closes with it (ti
 
 ## 3. Stage gates and placed bosses
 
+*Built 2026-09-12, phase 27 green (4/4). Every tank composition is gated on `switchyard_scouted` (not only the plant's:
+the ladder makes Act II APC patrols everywhere). The M1A2 at the bridge waits for a bridge site. Found and fixed: no
+site wave had ever placed its vehicle (the type check read a base class the mod's types do not carry), and a wave point
+with y 0 was trusted as a height.*
+
+*Owner, the same day: **territory capture is tied to quests.** §2's take is now two steps - the clear sets
+`<id>_cleared` (takeable), the quest's hand-in sets the alias stage (`square_taken`; a command reward, or by hand until
+Phase C) and that takes it; the first take is the quest's to give even without a clear; a building lost afterwards is
+retaken by the clear alone. Phase 26 rewritten to that ladder (7/7).*
+
 - **`stage` on a composition** (`ArmourDef.Composition`, `Patrols.roll`, `war_zones.py`): a composition whose
   stage is unset is skipped when the roll picks. The plant's zones get the tank compositions gated on
   `switchyard_scouted`; the APC-only ones stay open (S3: armour near the start is fine).
@@ -160,7 +170,7 @@ chapter is its own session with the quest book opened on WarTest as the gate. Ku
 | # | Decision | Recommendation |
 |---|---|---|
 | D1 | Who occupies the pocket's buildings at the start | **the Dead**, as `gscraft-entities-v8.md` §4's home row has it for the whole sector (the site files' `faction: dead`; the defence wave and the counterattack from the Dead's tables); the living factions arrive with the sites beyond the pocket |
-| D2 | How `compound_closed` is set | by the quest hand-in in Phase C; until then a `/gscraft stage add` — no block detector |
+| D2 | How `compound_closed` is set | by the quest hand-in in Phase C; until then a `/gscraft stage add` — no block detector. **Widened (owner):** every take is the quest's - the clear only makes a building takeable |
 | D3 | The clear timer for a building take | 60 s of online time with a player inside and no hostile; a setting `site.clear_ticks` — **built** |
 | D4 | The clinic and the shack as one take or two | **one** (`north`): one clear, two survivors, one torch |
 | D5 | Step 4 before step 5 | **yes** for this push — the data goes live after the owner has walked it once |

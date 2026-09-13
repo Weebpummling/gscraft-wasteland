@@ -107,7 +107,8 @@ public final class Loop {
         return false;
     }
 
-    // ---- the building take (next-steps plan §2): scouted on entry, held by a clear
+    // ---- the building take (next-steps plan §2): scouted on entry; the clear makes it takeable; the quest takes it
+    // (owner 2026-09-12: "territory capture should be tied to quests"); lost after that, the clear alone retakes it
 
     public static int CLEAR_TICKS = 1200;
     private static final Map<String, Integer> clearTicks = new HashMap<>();
@@ -129,12 +130,27 @@ public final class Loop {
             return;
         }
         if (p.state != State.SCOUTED && p.state != State.LOOTED) return;
+        String cleared = site.id() + "_cleared";
+        // the quest's word: the alias stage set (by its command reward, or by hand) takes a cleared building - and, the
+        // first time, an uncleared one too (the quest decides); once taken by the quest, the clear alone retakes it
+        if (site.alias() != null && Stages.isSet(site.alias())) {
+            if (!p.questTaken) p.questTaken = true;
+            take(level, data, site, p);
+            return;
+        }
+        if (Stages.isSet(cleared) && p.questTaken) {
+            take(level, data, site, p);
+            return;
+        }
+        if (Stages.isSet(cleared)) return;   // takeable: waiting on the quest
         int hostile = inside ? level.getEntitiesOfClass(Mob.class, around(site, 0), m -> m.isAlive() && m instanceof net.minecraft.world.entity.monster.Monster).size() : -1;
         int t = inside && hostile == 0 ? clearTicks.merge(site.id(), 20, Integer::sum) : 0;
         if (!(inside && hostile == 0)) clearTicks.remove(site.id());
         if (t < CLEAR_TICKS) return;
         clearTicks.remove(site.id());
-        take(level, data, site, p);
+        Stages.add(level.getServer(), cleared);
+        title(level.getServer(), Component.literal(site.name()), Component.translatable("gscraft.title.cleared"));
+        GscraftWar.LOG.info("[gscraft] {} cleared: takeable{}", site.id(), p.questTaken ? "" : " - the quest takes it");
     }
 
     /** the building is held: the stage and its readable alias, the held functions, the guard (if any), the clock */
@@ -152,6 +168,21 @@ public final class Loop {
         keepGuard(level, site, p);
         title(level.getServer(), Component.literal(site.name()), Component.translatable("gscraft.title.taken"));
         GscraftWar.LOG.info("[gscraft] {} taken (held by a clear); {} functions; the fortify clock runs {} minutes of online time", site.id(), site.held().size(), FORTIFY_TICKS / 1200);
+    }
+
+    /** the site's boss (system pass §3: placed, not rolled): once the site is scouted and the boss's stage (if any) is set,
+     *  with its chunk loaded, the named vehicle is placed holding at its point; remembered, so a restart or a reload does not
+     *  place a second; the site's reset takes it with the wave */
+    private static void boss(ServerLevel level, SiteData data, SiteDef site, Progress p) {
+        Sites.BossDef b = site.boss();
+        if (p.state == State.UNKNOWN) return;
+        if (!b.stage().isEmpty() && !Stages.isSet(b.stage())) return;
+        BlockPos at = new BlockPos(b.x(), b.y(), b.z());
+        if (!level.hasChunkAt(at)) return;
+        boolean ok = gscraft.war.armour.Armour.wave(level, site.id(), site.faction(), b.vehicle(), at, new BlockPos(b.tx(), 0, b.tz()), b.id(), b.name());
+        p.bossPlaced = true;   // placed or refused (no stand): the loop does not try every second for good
+        data.setDirty();
+        GscraftWar.LOG.info("[gscraft] {} boss {} ({}) {} at {}", site.id(), b.id(), b.vehicle(), ok ? "placed" : "NOT placed - no stand with a hull's room", at.toShortString());
     }
 
     /** the site guard's size: the file's `guard` (0: none) or the default, doubled on defended */
@@ -189,6 +220,7 @@ public final class Loop {
         for (SiteDef site : Sites.all().values()) {
             Progress p = data.progress(site.id());
             if (site.building()) building(level, data, site, p);
+            if (site.boss() != null && !p.bossPlaced) boss(level, data, site, p);
             switch (p.phase) {
                 case ASSAULT -> assault(level, data, site, p);
                 case FORTIFY -> fortify(level, data, site, p);
@@ -246,6 +278,9 @@ public final class Loop {
     private static void reset(ServerLevel level, SiteData data, SiteDef site, Progress p) {
         for (State s : State.values()) Stages.remove(level.getServer(), site.id() + "_" + s.name().toLowerCase(Locale.ROOT));
         Stages.remove(level.getServer(), site.id() + "_lost");
+        Stages.remove(level.getServer(), site.id() + "_cleared");
+        if (site.alias() != null) Stages.remove(level.getServer(), site.alias());
+        p.questTaken = false;
         if (data.contested.equals(site.id())) data.contested = "";
         discardWave(level, site);
         for (Mob m : level.getEntitiesOfClass(Mob.class, around(site, 64), m -> m.getTags().contains(GUARD_TAG + site.id()))) m.discard();
@@ -259,6 +294,7 @@ public final class Loop {
         p.twoMinutes = false;
         p.lossTicks = 0;
         p.guardTarget = 0;
+        p.bossPlaced = false;
         data.setDirty();
     }
 
@@ -402,6 +438,7 @@ public final class Loop {
                 // a taken building is lost: back to scouted, its stages down, the lost functions; retaken by another clear
                 p.state = State.SCOUTED;
                 Stages.remove(level.getServer(), site.id() + "_held");
+                Stages.remove(level.getServer(), site.id() + "_cleared");
                 if (site.alias() != null) Stages.remove(level.getServer(), site.alias());
                 p.phase = Phase.NONE;
                 p.lossTicks = 0;
@@ -479,17 +516,18 @@ public final class Loop {
         int placed = 0;
         java.util.List<Mob> fighters = new java.util.ArrayList<>();
         for (WaveEntry entry : wave) {
+            if (!entry.stage().isEmpty() && !Stages.isSet(entry.stage())) continue;   // the answer before the question (system pass §3)
             int n = entry.count() <= 0 ? 0 : Math.max(1, Math.round(entry.count() * scale));
             EntityType<?> type = ForgeRegistries.ENTITY_TYPES.getValue(entry.entity());
             if (type == null) {
                 GscraftWar.LOG.warn("[gscraft] wave entity {} is not registered", entry.entity());
                 continue;
             }
-            if (gscraft.war.armour.Vehicles.isVehicleType(type)) {
+            if (gscraft.war.armour.Vehicles.isVehicleType(type, level)) {
                 // armour in the wave (design §3): crewed, on the edge, driving for the target; a boss holds where it is
                 int want = entry.boss().isEmpty() ? n : Math.max(1, entry.count());
                 for (int i = 0; i < want; i++) {
-                    placed += gscraft.war.armour.Armour.wave(level, site.id(), site.faction(), entry.entity(), points.get(random.nextInt(points.size())), target, entry.boss(), entry.name()) ? 1 : 0;
+                    placed += gscraft.war.armour.Armour.wave(level, site.id(), entry.faction().isEmpty() ? site.faction() : entry.faction(), entry.entity(), points.get(random.nextInt(points.size())), target, entry.boss(), entry.name()) ? 1 : 0;
                 }
                 continue;
             }

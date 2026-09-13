@@ -101,17 +101,26 @@ public final class Armour {
      *  stand with a hull's room; driving for the target, or holding where it is as a boss (named, its stage set on
      *  its death); tagged like the wave, so the sweep leaves it and the wave's end takes it. */
     public static boolean wave(ServerLevel level, String siteId, String faction, ResourceLocation vehicleType, BlockPos point, BlockPos target, String boss, String name) {
-        // a wave point carries no height (the site's edges are x/z): the heightmap gives it; a given height is trusted
-        int y = point.getY() > level.getMinBuildHeight() + 1 ? point.getY() : level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, point.getX(), point.getZ());
+        // a wave point carries no height (the site's edges are x/z, a boss block's "at" may say 0): the heightmap gives it; a height above 0 is trusted
+        int y = point.getY() > 0 ? point.getY() : level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, point.getX(), point.getZ());
         BlockPos stand = Patrols.roadStandAround(level, point.getX(), y, point.getZ());
         for (int t = 0; t < 8 && stand == null; t++) {
             int x = point.getX() + level.getRandom().nextInt(13) - 6;
             int z = point.getZ() + level.getRandom().nextInt(13) - 6;
-            BlockPos p = gscraft.war.world.Director.legacyStand(level, x, point.getY() > level.getMinBuildHeight() + 1 ? point.getY() : level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z), z);
+            BlockPos p = gscraft.war.world.Director.legacyStand(level, x, point.getY() > 0 ? point.getY() : level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, x, z), z);
             if (p != null && Patrols.hullRoom(level, p)) stand = p;
         }
+        // wider: open ground with a hull's room in rings out to 24 (an approach on a verge or a gate in a fence has no room at the point itself)
+        for (int ring = 8; ring <= 24 && stand == null; ring += 8) {
+            for (int dir = 0; dir < 8 && stand == null; dir++) {
+                double a = Math.toRadians(dir * 45.0D);
+                BlockPos want = new BlockPos(point.getX() + (int) Math.round(Math.cos(a) * ring), y, point.getZ() + (int) Math.round(Math.sin(a) * ring));
+                stand = Patrols.roadStandAround(level, want.getX(), y, want.getZ());
+                if (stand == null) stand = Patrols.openStand(level, want);
+            }
+        }
         if (stand == null) {
-            GscraftWar.LOG.warn("[gscraft] {} wave: no stand with a hull's room near {}", siteId, point.toShortString());
+            GscraftWar.LOG.warn("[gscraft] {} wave: no stand with a hull's room within 24 of {}", siteId, point.toShortString());
             return false;
         }
         boolean isBoss = boss != null && !boss.isEmpty();

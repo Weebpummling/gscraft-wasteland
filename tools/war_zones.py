@@ -122,12 +122,16 @@ PATROLS = {
 
 # the rare armour patrol (armour design §3): the chance per director pass for a player in open ground here, and the
 # group - NATO zones the Bradley and the M1A2, RUAF zones the BMP-2 and the T-90A; the open roads a thin mix of both
+# a tank rolls only once the players have seen the plant (system pass §3: Act II is APC patrols, Act III the tanks)
+TANK_STAGE = "switchyard_scouted"
+
+
 def armour(side, chance=0.06):
     apc, tank = ("superbwarfare:bmp_2", "superbwarfare:t_90a") if side == "ruaf" else ("superbwarfare:bradley", "superbwarfare:m_1a_2")
     return {"chance": chance, "compositions": [
         {"weight": 6, "vehicles": [apc], "infantry": 4},
-        {"weight": 3, "vehicles": [tank], "infantry": 0},
-        {"weight": 1, "vehicles": [tank, apc], "infantry": 4},
+        {"weight": 3, "vehicles": [tank], "infantry": 0, "stage": TANK_STAGE},
+        {"weight": 1, "vehicles": [tank, apc], "infantry": 4, "stage": TANK_STAGE},
         {"weight": 1, "vehicles": [apc, apc], "infantry": 6}]}
 
 

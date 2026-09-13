@@ -438,6 +438,28 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-12, step 3 of the next-steps plan - the stage gates and the placed bosses (local), and the capture tied
+to quests (owner):** (a) `ArmourDef.Composition` gained `stage`; `pick` weighs only the compositions in force
+(`Stages.isSet`); `war_zones.py` puts `switchyard_scouted` on every composition with a tank (`TANK_STAGE`: Act II is
+APC patrols, the tanks are Act III's), on top of the day's no-tanks-near-Skadowsky rule; `/gscraft director armourpick
+<x> <z> <n>` prints a zone's roll as a histogram (the test's tool). (b) `WaveEntry` gained `stage` and `faction`:
+`sendWave` skips an entry whose stage is unset, and a vehicle entry's crew takes the entry's faction over the site's;
+the hospital's third counterattack wave carries one RUAF BMP-2 on `line_depot` (S4). (c) A site file's `boss` block
+(`vehicle`, `id`, `name`, `at`, optional `to`, `stage`): `Loop.boss` places it through `Armour.wave` once the site is
+scouted, the stage set and its chunk loaded; `Progress.bossPlaced` keeps it to one across reloads; the reset takes it.
+The switchyard's gatekeeper (a T-90A) stands on flat grass south of the fence at (-822, 28), read from the world;
+its death sets `switchyard_gatekeeper`. The M1A2 at the bridge waits for a bridge site (Act IV). (d) **Owner: territory
+capture is tied to quests.** The clear now sets `<id>_cleared` (the building is takeable) and the quest's word - the
+alias stage `<id>_taken`, its command reward, or by hand until Phase C - takes it (`Loop.take`); the first take is the
+quest's to give even without a clear; a building lost after that is retaken by the clear alone (`Progress.questTaken`).
+Two findings fixed on the way: `Vehicles.isVehicleType` read the type's base class, which Superb Warfare's types report
+as plain Entity, so **no site wave had ever placed its vehicle** (the entry fell to the infantry path and was discarded
+silently - the plant sites' Bradley and M1A2 waves included); it now makes the type once and asks (cached). And
+`Armour.wave` trusted a height of 0 (the boss block's "at" says 0 for the heightmap); a height above 0 is trusted now,
+and the stand search widens to rings of 24 (an approach on a verge has no room at the point). `tools/war_phase27.py`
+(4/4); phases 26 (rewritten for the quest tie: cleared, taken by the stage, lost, retaken by the clear; 7/7), 25, 21,
+6 green. Not on live.
+
 **2026-09-12, step 2 of the next-steps plan - the building takes (local), with two owner rulings:** "keep the
 zombies and scavenger spawns in held areas still, obviously not the starting depot" and "don't spawn the tank in
 the skadowsky area at all, leave it for just the final wave defense". (a) The zones: only `camp_compound` is an

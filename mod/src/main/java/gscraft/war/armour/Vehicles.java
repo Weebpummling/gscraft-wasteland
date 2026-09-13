@@ -36,8 +36,24 @@ public final class Vehicles {
         return VEHICLE != null && VEHICLE.isInstance(e);
     }
 
-    public static boolean isVehicleType(net.minecraft.world.entity.EntityType<?> type) {
-        return VEHICLE != null && VEHICLE.isAssignableFrom(type.getBaseClass());
+    private static final java.util.Map<net.minecraft.world.entity.EntityType<?>, Boolean> typeCache = new java.util.HashMap<>();
+
+    /** a Superb Warfare vehicle type. The type's base class is what its builder was told, and the mod's types say plain
+     *  Entity, so a type the class check cannot settle is made once (not added to the world) and asked; the answer is kept. */
+    public static boolean isVehicleType(net.minecraft.world.entity.EntityType<?> type, net.minecraft.world.level.Level level) {
+        if (VEHICLE == null) return false;
+        if (VEHICLE.isAssignableFrom(type.getBaseClass())) return true;
+        Boolean known = typeCache.get(type);
+        if (known != null) return known;
+        boolean is = false;
+        try {
+            Entity probe = type.create(level);
+            is = probe != null && VEHICLE.isInstance(probe);
+        } catch (RuntimeException ignored) {
+            // a type that cannot be made outside its own path is not one of ours
+        }
+        typeCache.put(type, is);
+        return is;
     }
 
     private static Object call(Entity v, String name, Class<?>[] types, Object... args) {

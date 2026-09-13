@@ -121,7 +121,7 @@ public final class Patrols {
     }
 
     /** open ground within a few blocks of a column, up or down six: something solid under, a hull's room over */
-    private static BlockPos openStand(ServerLevel level, BlockPos at) {
+    public static BlockPos openStand(ServerLevel level, BlockPos at) {
         for (int r = 0; r <= 4; r++) {
             for (int dx = -r; dx <= r; dx++) {
                 for (int dz = -r; dz <= r; dz++) {

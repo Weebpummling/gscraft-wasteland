@@ -123,6 +123,13 @@
       {
         "entity": "minecraft:cave_spider",
         "count": 8
+      },
+      {
+        "entity": "superbwarfare:bmp_2",
+        "count": 1,
+        "faction": "ruaf",
+        "stage": "line_depot",
+        "note": "the sector's first armour (system pass S4): one RUAF APC in the last counterattack wave, only once the players hold line_depot (the RPG blueprint)"
       }
     ]
   ]

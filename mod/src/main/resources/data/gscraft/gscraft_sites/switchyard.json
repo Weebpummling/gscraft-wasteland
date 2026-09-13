@@ -142,5 +142,17 @@
         "count": 1
       }
     ]
-  ]
+  ],
+  "boss": {
+    "vehicle": "superbwarfare:t_90a",
+    "id": "gatekeeper",
+    "name": "The gatekeeper",
+    "at": [
+      -822,
+      0,
+      28
+    ],
+    "stage": "",
+    "note": "the T-90 at the plant gate (system pass S5/S6): placed holding once the switchyard is scouted; its death sets switchyard_gatekeeper. Flat grass south of the switchyard's fence, read from the world 2026-09-12 (the south edge, the approach's side); y 0 takes the heightmap"
+  }
 }

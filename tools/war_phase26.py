@@ -2,12 +2,15 @@
 player; the director's phantom stands in for the player.
 
 1. The five building sites load beside the four strongpoints.
-2. The square: unknown until someone is inside (scouted), held after a clear of site.clear_ticks with the phantom
-   inside and no hostile in the box - the stage `square_taken`, the torch placed by the held function, no site guard,
-   the zone at the square now camp_square; the Dead still spawn there (keep_ambient).
-3. The gatehouse's held functions summon Marshall (a named, no-AI villager tagged gscraft_npc_marshall).
+2. The square: unknown until someone is inside (scouted); a clear of site.clear_ticks with the phantom inside and no
+   hostile in the box makes it takeable (`square_cleared`); the quest's word - the stage `square_taken`, set by hand
+   here - takes it: held, the torch placed by the held function, no site guard, the zone at the square now
+   camp_square; the Dead still spawn there (keep_ambient). (Owner: territory capture is tied to quests.)
+3. The gatehouse taken by its stage alone (the quest's first word needs no clear) summons Marshall (a named, no-AI
+   villager tagged gscraft_npc_marshall).
 4. The loss of a building: the counterattack's wave at the approach walks for the gate; five attackers in the
-   compound for thirty seconds put the square back to scouted, its stages down; the zone is the front's again.
+   compound for thirty seconds put the square back to scouted, its stages down; the zone is the front's again; the
+   clear alone retakes it (the quest has had its say).
 5. No gscraft errors.
 """
 import re
@@ -83,20 +86,25 @@ clear_hostiles(POCKET)
 mark = LOG.stat().st_size
 waited = 0
 held = ""
+cleared = ""
 while waited < clear_ticks / 20 + 25:
     time.sleep(5)
     waited += 5
     clear_hostiles(SQUARE)   # the front's ambient pass is paused, but a stray wanderer would restart the clear
-    held = c("gscraft site square")
-    if ": held" in held:
+    cleared = c("gscraft stages")
+    if "square_cleared" in cleared:
         break
+still = c("gscraft site square")   # cleared is takeable, not taken: the quest's word is the stage
+c("gscraft stage add square_taken")   # the quest's command reward, by hand until Phase C
+time.sleep(3)
+held = c("gscraft site square")
 stages = c("gscraft stages")
 torch = "passed" in c("execute if block -940 67 -979 magnumtorch:diamond_magnum_torch").lower()
 guard = count(f"@e[tag=gscraft_siteguard_square,{SQUARE}]")
 zone = c("gscraft zone -940 -979")
-check("the square: scouted on entry, held by the clear, its stage and torch, no guard, camp_square",
-      ": unknown" in before and ": scouted" in scouted and ": held" in held and "square_taken" in stages and torch and guard == 0 and "camp_square" in zone,
-      f"[{before[:24]}] -> [{scouted[:24]}] -> [{held[:40]}] in {waited} s; torch {torch}; guard {guard}; zone [{zone[:30]}]")
+check("the square: scouted on entry, cleared (takeable) after the clear, held by the quest's stage, its torch, no guard, camp_square",
+      ": unknown" in before and ": scouted" in scouted and "square_cleared" in cleared and ": scouted" in still and ": held" in held and "square_taken" in stages and torch and guard == 0 and "camp_square" in zone,
+      f"[{before[:24]}] -> [{scouted[:24]}] -> cleared in {waited} s, still [{still[:20]}] -> [{held[:40]}]; torch {torch}; guard {guard}; zone [{zone[:30]}]")
 ambient = c("gscraft director ambient -940 66 -979 6")
 placed = int((re.search(r"placed (\d+)", ambient) or [0, 0])[1])
 soldiers = count(f"@e[type=gscraft:nato_soldier,{SQUARE}]") + count(f"@e[type=gscraft:ruaf_soldier,{SQUARE}]")
@@ -108,17 +116,17 @@ c("gscraft director phantom set -966 70 -947")
 time.sleep(3)
 waited = 0
 held = ""
-while waited < clear_ticks / 20 + 25:
-    time.sleep(5)
-    waited += 5
-    clear_hostiles(GATEHOUSE)
+c("gscraft stage add gatehouse_taken")   # the quest's word without a clear: the first take is the quest's to give
+while waited < 30:
+    time.sleep(3)
+    waited += 3
     held = c("gscraft site gatehouse")
     if ": held" in held:
         break
 marshall = count("@e[type=minecraft:villager,tag=gscraft_npc_marshall]")
 name = c("data get entity @e[type=minecraft:villager,tag=gscraft_npc_marshall,limit=1] CustomName")
 noai = c("data get entity @e[type=minecraft:villager,tag=gscraft_npc_marshall,limit=1] NoAI")
-check("the gatehouse taken summons Marshall by its held function", ": held" in held and marshall == 1 and "Marshall" in name and "1b" in noai,
+check("the gatehouse taken by the quest's stage alone summons Marshall by its held function", ": held" in held and marshall == 1 and "Marshall" in name and "1b" in noai,
       f"[{held[:40]}] in {waited} s; marshall {marshall}; name [{name[-24:]}]; NoAI [{noai[-4:]}]")
 c("gscraft director phantom clear")
 
@@ -134,8 +142,22 @@ after = c("gscraft site square")
 stages = c("gscraft stages")
 zone = c("gscraft zone -940 -979")
 check("the square lost: the wave came, five in the compound put it back to scouted, its stages down, the front's ground again",
-      "counterattack" in info and wave >= 3 and ": scouted" in after and "square_taken" not in stages and "square_held" not in stages and "camp_square" not in zone,
+      "counterattack" in info and wave >= 3 and ": scouted" in after and "square_taken" not in stages and "square_held" not in stages and "square_cleared" not in stages and "camp_square" not in zone,
       f"[{info[:50]}] wave {wave}; after [{after[:30]}]; stages has square_taken {'square_taken' in stages}; zone [{zone[:24]}]")
+# the retake: the quest has had its say once, so the clear alone takes it back
+c("kill @e[tag=gs_wave]")
+c("gscraft director phantom set -940 66 -979")
+waited = 0
+retaken = ""
+while waited < clear_ticks / 20 + 25:
+    time.sleep(5)
+    waited += 5
+    clear_hostiles(SQUARE)
+    retaken = c("gscraft site square")
+    if ": held" in retaken:
+        break
+c("gscraft director phantom clear")
+check("lost once, the clear alone retakes it", ": held" in retaken, f"[{retaken[:40]}] in {waited} s")
 
 # tidy
 c("kill @e[tag=gs_wave]")

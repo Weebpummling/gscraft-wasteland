@@ -347,7 +347,8 @@
       "vehicles": [
        "superbwarfare:t_90a"
       ],
-      "infantry": 0
+      "infantry": 0,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -355,7 +356,8 @@
        "superbwarfare:t_90a",
        "superbwarfare:bmp_2"
       ],
-      "infantry": 4
+      "infantry": 4,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -408,7 +410,8 @@
       "vehicles": [
        "superbwarfare:t_90a"
       ],
-      "infantry": 0
+      "infantry": 0,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -416,7 +419,8 @@
        "superbwarfare:t_90a",
        "superbwarfare:bmp_2"
       ],
-      "infantry": 4
+      "infantry": 4,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -469,7 +473,8 @@
       "vehicles": [
        "superbwarfare:m_1a_2"
       ],
-      "infantry": 0
+      "infantry": 0,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -477,7 +482,8 @@
        "superbwarfare:m_1a_2",
        "superbwarfare:bradley"
       ],
-      "infantry": 4
+      "infantry": 4,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -596,7 +602,8 @@
       "vehicles": [
        "superbwarfare:t_90a"
       ],
-      "infantry": 0
+      "infantry": 0,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -604,7 +611,8 @@
        "superbwarfare:t_90a",
        "superbwarfare:bmp_2"
       ],
-      "infantry": 4
+      "infantry": 4,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -666,7 +674,8 @@
       "vehicles": [
        "superbwarfare:t_90a"
       ],
-      "infantry": 0
+      "infantry": 0,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -674,7 +683,8 @@
        "superbwarfare:t_90a",
        "superbwarfare:bmp_2"
       ],
-      "infantry": 4
+      "infantry": 4,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -787,7 +797,8 @@
       "vehicles": [
        "superbwarfare:m_1a_2"
       ],
-      "infantry": 0
+      "infantry": 0,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -795,7 +806,8 @@
        "superbwarfare:m_1a_2",
        "superbwarfare:bradley"
       ],
-      "infantry": 4
+      "infantry": 4,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -1411,7 +1423,8 @@
       "vehicles": [
        "superbwarfare:m_1a_2"
       ],
-      "infantry": 0
+      "infantry": 0,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -1419,7 +1432,8 @@
        "superbwarfare:m_1a_2",
        "superbwarfare:bradley"
       ],
-      "infantry": 4
+      "infantry": 4,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -1505,7 +1519,8 @@
       "vehicles": [
        "superbwarfare:t_90a"
       ],
-      "infantry": 0
+      "infantry": 0,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -1513,7 +1528,8 @@
        "superbwarfare:t_90a",
        "superbwarfare:bmp_2"
       ],
-      "infantry": 4
+      "infantry": 4,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 1,
@@ -1737,7 +1753,8 @@
       "vehicles": [
        "superbwarfare:t_90a"
       ],
-      "infantry": 0
+      "infantry": 0,
+      "stage": "switchyard_scouted"
      },
      {
       "weight": 6,
@@ -1751,7 +1768,8 @@
       "vehicles": [
        "superbwarfare:m_1a_2"
       ],
-      "infantry": 0
+      "infantry": 0,
+      "stage": "switchyard_scouted"
      }
     ]
    }

@@ -89,7 +89,8 @@ public final class Zones extends SimpleJsonResourceReloadListener {
             JsonObject c = el.getAsJsonObject();
             List<ResourceLocation> vehicles = new ArrayList<>();
             for (JsonElement v : GsonHelper.getAsJsonArray(c, "vehicles", new JsonArray())) vehicles.add(new ResourceLocation(v.getAsString()));
-            comps.add(new ArmourDef.Composition(GsonHelper.getAsInt(c, "weight", 1), List.copyOf(vehicles), GsonHelper.getAsInt(c, "infantry", 0)));
+            comps.add(new ArmourDef.Composition(GsonHelper.getAsInt(c, "weight", 1), List.copyOf(vehicles), GsonHelper.getAsInt(c, "infantry", 0),
+                    c.has("stage") ? GsonHelper.getAsString(c, "stage") : null));
         }
         return new ArmourDef(GsonHelper.getAsFloat(a, "chance", 0.0F), List.copyOf(comps));
     }

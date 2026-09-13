@@ -512,3 +512,20 @@ the next check. A knocked-out turret always bails. Phase 22 spawns up to six hul
 overlap the sector (`front_en`, `out_e2`, `farbank`) roll APC compositions only (`NO_TANKS` / `apc_only` in
 `tools/war_zones.py`); the T-90A and the M1A2 roll at the plant and the western fronts as before (step 3 of the
 next-steps plan gates the plant's on `switchyard_scouted`) and come to the sector only in the finale's last wave.
+
+## 23. Armour by stage, and a wave vehicle that never was (2026-09-12, plan step 3)
+
+A composition carries an optional `stage` and rolls only while it is set: every tank composition waits for
+`switchyard_scouted` (Act II is APC patrols on every front; the tanks are the plant's act), on top of §22's rule that
+no tank rolls in the Skadowsky sector at all. A wave entry carries `stage` (sent only while set - the sector's first
+APC in the hospital's last counterattack wave on `line_depot`) and `faction` (a vehicle's crew faction where the site's
+would be wrong: the Dead's site, a RUAF crew). A site file's `boss` block is placed once by the loop on scouted: the
+switchyard's gatekeeper, a T-90A on the grass south of the fence.
+
+**The finding.** `Vehicles.isVehicleType` read `EntityType.getBaseClass()`, which Superb Warfare's Kotlin types
+report as plain `Entity`, so `Loop.sendWave` never took the vehicle branch for any wave entry: the entry fell to the
+infantry path, `placeWave` made the hull, saw it was no Mob and discarded it, and the count moved on. Every vehicle
+wave in the site files (the plant's Bradley and M1A2 waves of §15 included) had placed nothing since V6; phase 21
+tested the command path, which goes to `Armour.wave` directly. The check now makes the type once (not added to the
+world), asks the instance, and keeps the answer. `Armour.wave` also trusted a height of 0 as given and searched
+underground; a height above 0 is trusted now, and a stand is looked for in rings out to 24 blocks.

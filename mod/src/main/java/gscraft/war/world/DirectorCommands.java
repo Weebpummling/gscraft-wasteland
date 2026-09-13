@@ -107,7 +107,7 @@ public final class DirectorCommands {
                                     ServerLevel level = ctx.getSource().getLevel();
                                     BlockPos at = net.minecraft.commands.arguments.coordinates.BlockPosArgument.getLoadedBlockPos(ctx, "at");
                                     gscraft.war.world.ArmourDef.Composition c = new gscraft.war.world.ArmourDef.Composition(1,
-                                            java.util.List.of(net.minecraft.commands.arguments.ResourceLocationArgument.getId(ctx, "vehicle")), IntegerArgumentType.getInteger(ctx, "infantry"));
+                                            java.util.List.of(net.minecraft.commands.arguments.ResourceLocationArgument.getId(ctx, "vehicle")), IntegerArgumentType.getInteger(ctx, "infantry"), null);
                                     net.minecraft.world.entity.Entity v = gscraft.war.armour.Patrols.placeAt(level, at, c, ctx.getSource().getRotation().y);
                                     if (v == null) say(ctx, "no ground with a hull's room within 4 of " + at.toShortString());
                                     else {
@@ -117,6 +117,26 @@ public final class DirectorCommands {
                                     }
                                     return v == null ? 0 : 1;
                                 })))))
+                        .then(Commands.literal("armourpick").then(xzThen(Commands.argument("n", IntegerArgumentType.integer(1, 10000)).executes(ctx -> {
+                            // the zone's armour roll picked n times as it stands now (the stage gates): a histogram of the vehicles
+                            Zone zone = Zones.at(IntegerArgumentType.getInteger(ctx, "x"), IntegerArgumentType.getInteger(ctx, "z"));
+                            if (zone == null || zone.armour() == null) {
+                                say(ctx, "no armour roll here");
+                                return 0;
+                            }
+                            java.util.Map<String, Integer> seen = new java.util.TreeMap<>();
+                            int none = 0;
+                            for (int i = 0; i < IntegerArgumentType.getInteger(ctx, "n"); i++) {
+                                gscraft.war.world.ArmourDef.Composition c = zone.armour().pick(ctx.getSource().getLevel().getRandom());
+                                if (c == null) {
+                                    none++;
+                                    continue;
+                                }
+                                for (net.minecraft.resources.ResourceLocation v : c.vehicles()) seen.merge(v.getPath(), 1, Integer::sum);
+                            }
+                            say(ctx, zone.name() + " picks: " + seen + (none > 0 ? " (nothing in force " + none + ")" : ""));
+                            return 1;
+                        }))))
                         .then(Commands.literal("wave").then(xyzThen(Commands.argument("tx", IntegerArgumentType.integer()).then(Commands.argument("tz", IntegerArgumentType.integer())
                                 .then(Commands.argument("vehicle", net.minecraft.commands.arguments.ResourceLocationArgument.id()).then(Commands.argument("boss", StringArgumentType.word()).executes(ctx -> {
                                     ServerLevel level = ctx.getSource().getLevel();

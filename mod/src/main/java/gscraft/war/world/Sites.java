@@ -27,13 +27,17 @@ public final class Sites extends SimpleJsonResourceReloadListener {
 
     /** one line of a wave: this many of this body, dressed as this rank when one is named */
     /** @param boss for a vehicle: the stage set on its death (site id + "_" + this), "" for none; @param name its name over it */
-    public record WaveEntry(ResourceLocation entity, String rank, int count, String boss, String name) {}
+    /** @param stage the entry is sent only while this stage is set ("": always); @param faction a vehicle's crew faction ("": the site's) */
+    public record WaveEntry(ResourceLocation entity, String rank, int count, String boss, String name, String stage, String faction) {}
+
+    /** a boss the loop places once the site is scouted (and the stage set): a named vehicle that holds its ground */
+    public record BossDef(ResourceLocation vehicle, String id, String name, int x, int y, int z, int tx, int tz, String stage) {}
 
     /** a site file; a building take (next-steps plan §2) has no assault waves and is held by a clear, and may carry
      *  `held` / `lost` function lists, an `alias` stage (the readable name), `keep_ambient` (the Dead stay) and `guard` (0: no site guard) */
     public record SiteDef(String id, String name, int x0, int x1, int z0, int z1, int anchorX, int anchorZ, String faction,
                           String approach, List<List<WaveEntry>> assault, List<List<WaveEntry>> defence,
-                          List<String> held, List<String> lost, String alias, boolean keepAmbient, int guard) {
+                          List<String> held, List<String> lost, String alias, boolean keepAmbient, int guard, BossDef boss) {
         public boolean contains(int x, int z) {
             return x >= x0 && x <= x1 && z >= z0 && z <= z1;
         }
@@ -101,7 +105,23 @@ public final class Sites extends SimpleJsonResourceReloadListener {
                 a.get(0).getAsInt(), a.get(1).getAsInt(), GsonHelper.getAsString(o, "faction"),
                 GsonHelper.getAsString(o, "approach"), waves(o, "assault"), waves(o, "defence"),
                 strings(o, "held"), strings(o, "lost"), o.has("alias") ? GsonHelper.getAsString(o, "alias") : null,
-                GsonHelper.getAsBoolean(o, "keep_ambient", false), GsonHelper.getAsInt(o, "guard", -1));
+                GsonHelper.getAsBoolean(o, "keep_ambient", false), GsonHelper.getAsInt(o, "guard", -1), boss(o));
+    }
+
+    /** optional "boss": {"vehicle", "id", "name", "at": [x, y, z], "to": [tx, tz] (else it holds at the point), "stage"} */
+    private static BossDef boss(JsonObject o) {
+        if (!o.has("boss")) return null;
+        JsonObject b = GsonHelper.getAsJsonObject(o, "boss");
+        JsonArray at = GsonHelper.getAsJsonArray(b, "at");
+        int x = at.get(0).getAsInt(), y = at.get(1).getAsInt(), z = at.get(2).getAsInt();
+        int tx = x, tz = z;
+        if (b.has("to")) {
+            JsonArray to = GsonHelper.getAsJsonArray(b, "to");
+            tx = to.get(0).getAsInt();
+            tz = to.get(1).getAsInt();
+        }
+        return new BossDef(new ResourceLocation(GsonHelper.getAsString(b, "vehicle")), GsonHelper.getAsString(b, "id"),
+                GsonHelper.getAsString(b, "name", ""), x, y, z, tx, tz, GsonHelper.getAsString(b, "stage", ""));
     }
 
     private static List<String> strings(JsonObject o, String key) {
@@ -118,7 +138,8 @@ public final class Sites extends SimpleJsonResourceReloadListener {
                 JsonObject s = e.getAsJsonObject();
                 wave.add(new WaveEntry(new ResourceLocation(GsonHelper.getAsString(s, "entity")),
                         GsonHelper.getAsString(s, "rank", ""), GsonHelper.getAsInt(s, "count", 1),
-                        GsonHelper.getAsString(s, "boss", ""), GsonHelper.getAsString(s, "name", "")));
+                        GsonHelper.getAsString(s, "boss", ""), GsonHelper.getAsString(s, "name", ""),
+                        GsonHelper.getAsString(s, "stage", ""), GsonHelper.getAsString(s, "faction", "")));
             }
             waves.add(List.copyOf(wave));
         }
