@@ -413,6 +413,15 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, slice build 0 - the building takes cut down (owner: "approved on all, go ahead and initiate"):** a
+building take is its alias stage and nothing else. `Loop.building`: the alias set (`square_taken` … by the quest's reward,
+or by hand) takes the building - held, `<id>_held`, the `held` functions (the torch, the survivor), the zone flips; the
+alias unset loses it - unknown, `<id>_held` down, the `lost` functions, the zone back. Gone: the clear timer and
+`<id>_cleared`, `site.clear_ticks`, `Progress.questTaken`, the per-building counterattack, loss check and guard; the five
+site files lost `approach`, `defence`, `guard` (both now optional in `Sites`). `tools/war_phase26.py` rewritten (6/6);
+25 and 6 green. Note for headless tests: the loop ticks with nobody online only on `gscraft clock free`. Not on live
+(the slice goes up whole).
+
 **2026-09-13, the reassessment (owner: "don't close it… reassess the plan and close out design contradictions and
 better integration of all the mechanics… I consider the project losing focus"):** `docs/gscraft-system-2026-09-13.md`
 is now **the living description of the game as one system** - the loop rung by rung with which half of each is built

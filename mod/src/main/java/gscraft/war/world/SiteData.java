@@ -38,8 +38,6 @@ public final class SiteData extends SavedData {
         public int guardTarget;
         /** the site's boss has been placed (or refused); the reset clears it */
         public boolean bossPlaced;
-        /** a building take: the quest has taken it once (after that the clear alone retakes it) */
-        public boolean questTaken;
 
         CompoundTag save() {
             CompoundTag t = new CompoundTag();
@@ -54,7 +52,6 @@ public final class SiteData extends SavedData {
             t.putInt("LossTicks", lossTicks);
             t.putInt("GuardTarget", guardTarget);
             t.putBoolean("BossPlaced", bossPlaced);
-            t.putBoolean("QuestTaken", questTaken);
             return t;
         }
 
@@ -71,7 +68,6 @@ public final class SiteData extends SavedData {
             p.lossTicks = t.getInt("LossTicks");
             p.guardTarget = t.getInt("GuardTarget");
             p.bossPlaced = t.getBoolean("BossPlaced");
-            p.questTaken = t.getBoolean("QuestTaken");
             return p;
         }
     }

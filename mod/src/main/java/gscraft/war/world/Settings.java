@@ -142,7 +142,6 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("armour.contact_range", () -> gscraft.war.armour.Reports.CONTACT, v -> gscraft.war.armour.Reports.CONTACT = v, "a player this close to a crewed vehicle is told of the engine noise once");
         d("armour.arrive", () -> gscraft.war.armour.DriveGoal.ARRIVE, v -> gscraft.war.armour.DriveGoal.ARRIVE = v, "a waypoint counts as reached inside this many blocks");
         d("armour.sprint_beyond", () -> gscraft.war.armour.DriveGoal.SPRINT_BEYOND, v -> gscraft.war.armour.DriveGoal.SPRINT_BEYOND = v, "the drive sprints when the waypoint is further than this and the hull is lined up");
-        i("site.clear_ticks", () -> gscraft.war.world.Loop.CLEAR_TICKS, v -> gscraft.war.world.Loop.CLEAR_TICKS = (int) v, "a building take is held once its box has had someone inside and no hostile for this long");
         d("armour.heavy_health", () -> gscraft.war.armour.ArmourDamage.HEAVY_HEALTH, v -> gscraft.war.armour.ArmourDamage.HEAVY_HEALTH = v, "a vehicle with this much health or more is heavy (a tank) for the flat explosive damage");
         d("armour.rocket_light", () -> gscraft.war.armour.ArmourDamage.ROCKET_LIGHT, v -> gscraft.war.armour.ArmourDamage.ROCKET_LIGHT = v, "a TACZ rocket (a blast of 100 or more) hitting light armour does this");
         d("armour.rocket_heavy", () -> gscraft.war.armour.ArmourDamage.ROCKET_HEAVY, v -> gscraft.war.armour.ArmourDamage.ROCKET_HEAVY = v, "and this to heavy armour");

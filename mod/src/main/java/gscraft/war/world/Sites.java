@@ -42,7 +42,7 @@ public final class Sites extends SimpleJsonResourceReloadListener {
             return x >= x0 && x <= x1 && z >= z0 && z <= z1;
         }
 
-        /** a building take: no assault waves; scouted on entry, held by a clear */
+        /** a building take (system doc §6): no assault waves; taken and lost by its alias stage alone */
         public boolean building() {
             return assault.isEmpty();
         }
@@ -103,7 +103,7 @@ public final class Sites extends SimpleJsonResourceReloadListener {
         JsonArray a = GsonHelper.getAsJsonArray(o, "anchor");
         return new SiteDef(GsonHelper.getAsString(o, "id"), GsonHelper.getAsString(o, "name"), b[0], b[1], b[2], b[3],
                 a.get(0).getAsInt(), a.get(1).getAsInt(), GsonHelper.getAsString(o, "faction"),
-                GsonHelper.getAsString(o, "approach"), waves(o, "assault"), waves(o, "defence"),
+                GsonHelper.getAsString(o, "approach", ""), waves(o, "assault"), waves(o, "defence"),
                 strings(o, "held"), strings(o, "lost"), o.has("alias") ? GsonHelper.getAsString(o, "alias") : null,
                 GsonHelper.getAsBoolean(o, "keep_ambient", false), GsonHelper.getAsInt(o, "guard", -1), boss(o));
     }
@@ -132,7 +132,7 @@ public final class Sites extends SimpleJsonResourceReloadListener {
 
     private static List<List<WaveEntry>> waves(JsonObject o, String key) {
         List<List<WaveEntry>> waves = new ArrayList<>();
-        for (JsonElement w : GsonHelper.getAsJsonArray(o, key)) {
+        for (JsonElement w : GsonHelper.getAsJsonArray(o, key, new JsonArray())) {
             List<WaveEntry> wave = new ArrayList<>();
             for (JsonElement e : w.getAsJsonArray()) {
                 JsonObject s = e.getAsJsonObject();

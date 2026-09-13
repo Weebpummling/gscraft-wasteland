@@ -1,7 +1,7 @@
 {
   "id": "north",
   "name": "THE NORTH COMPLEX",
-  "note": "the clinic with the 24 beds and the shack (step 4): Tony and Tune move in; a building take: no assault, held by a clear, the Dead and scavengers stay",
+  "note": "the clinic with the 24 beds and the shack (step 4): Tony and Tune move in; a building take (system doc \u00a76, slice build 0): taken by its alias stage alone, lost when it is unset; the Dead and scavengers stay",
   "box": [
     -970,
     -894,
@@ -13,17 +13,7 @@
     -1026
   ],
   "faction": "dead",
-  "approach": "north",
   "assault": [],
-  "defence": [
-    [
-      {
-        "entity": "minecraft:zombie",
-        "count": 12,
-        "rank": "The Infected"
-      }
-    ]
-  ],
   "held": [
     "gscraft:torch_clinic",
     "gscraft:camp_npc_tony",
@@ -31,6 +21,5 @@
   ],
   "lost": [],
   "alias": "clinic_taken",
-  "keep_ambient": true,
-  "guard": 0
+  "keep_ambient": true
 }

@@ -53,7 +53,7 @@ below either writes a stage or reads one; that is what makes it one system rathe
 | **Fighters** (ranks, kit, skins, hearing, suppression, cover, grenades, callouts, squads, patrols) | factions, ranks data | sight and sound only, by design (§6 of the system pass) | `entity/*` |
 | **Factions** (`gscraft_factions`) | - | who fights whom; scavengers provoked, the rest hostile to players | `Factions` |
 | **Sites, the ladder** (`gscraft_sites`, 9 + camp) | the claim (a command today), the stage set, presence | `<id>_scouted/looted/held/defended/lost`; titles (hold, held, fell, coming); the boss bar; Tune's warning line | `Loop`, `Sites` |
-| **Building takes** (5) | presence, Monsters in the box, `<id>_taken` | `<id>_cleared`, `<id>_taken` → held; the `held`/`lost` functions (torch, survivor); titles (cleared, taken) | `Loop.building/take` |
+| **Building takes** (5) | `<id>_taken` (the quest's stage) | held / lost with it; the `held`/`lost` functions (torch, survivor); the zone flips; titles (taken, fell) | `Loop.building` |
 | **The counterattack** | the camp's approaches and gate, the online clock | waves marching to the gate; the loss check in the compound; "THE GATE" bar | `Loop.counter/march` |
 | **Armour** (patrols, riders, cones, priority, bail, wrecks, waves, bosses) | zones' compositions and their stages, wave entries and their stages, a site's boss block | engine sound at 96, the bar while engaged, the crewman on the ground, the wreck's loot; chat off | `armour/*` |
 | **Damage** (the body model, the vehicles' lists, the flat TACZ explosives) | the world datapack `gscraft_armour`, settings | wounds and bleeding on players; modules on vehicles | `combat/*`, `ArmourDamage` |
@@ -98,7 +98,7 @@ Rulings are mine, applied to the documents on 2026-09-13 by dated in-place notes
 | Group | Stages | Written by | Read by |
 |---|---|---|---|
 | Strongpoints ×5 | `hospital_*`, `switchyard_*`, `intake_*`, `turbine_*`, `krot_*` with `_scouted`, `_looted`, `_held`, `_defended`, `_lost` | the loop (the claim, the assault, the clock, the loss) | zones, quests, functions, wave entries |
-| Building takes ×5 | `square`, `gatehouse`, `north`, `crossing`, `mast` with `_scouted`, `_cleared`, `_held`, `_lost`; aliases `square_taken`, `gatehouse_taken`, `clinic_taken`, `crossing_taken`, `mast_taken` | the loop (`_scouted`, `_cleared`, `_held`), **the quest** (`_taken`) | zones (the boxes by stage), the loop (the take), quests |
+| Building takes ×5 | `square`, `gatehouse`, `north`, `crossing`, `mast` with `_held`; aliases `square_taken`, `gatehouse_taken`, `clinic_taken`, `crossing_taken`, `mast_taken` | **the quest** (`_taken`); the loop (`_held` with it) | zones (the boxes by stage), the loop (the take), quests |
 | The sector | `compound_closed`; `skadowsky_scouted` / `_held` / `_defended` derived from the takes and the hospital (R11) | the quest (the takes' hand-ins) | zones (the pocket on `skadowsky_held`), torches, quests |
 | Bosses | `switchyard_gatekeeper`; later the bridge's M1A2, the finale's | the boss's death | quests |
 | Gates on enemies | `line_depot` (the first APC), `switchyard_scouted` (every tank) | quests; the loop | wave entries, compositions |
@@ -153,7 +153,7 @@ on the local server and WarTest first.
 
 | # | Build | Done when |
 |---|---|---|
-| 0 | **Cut the takes down** (§6 step 2): the alias stage takes a building, runs its functions, flips its zone; no per-building counterattack, loss, guard or clear timer; phase 26 rewritten | `/gscraft stage add square_taken` lights the torch and flips the zone; nothing else moves; phase 25/26/6 green |
+| 0 | **Cut the takes down** (§6 step 2): the alias stage takes a building, runs its functions, flips its zone; no per-building counterattack, loss, guard or clear timer; phase 26 rewritten | `/gscraft stage add square_taken` lights the torch and flips the zone; nothing else moves; phase 25/26/6 green  **Built 2026-09-13.** |
 | 1 | **R2: an advancement per stage** in the mod, generated from the registry (§5) plus any `bp_*` the recipes list; `/gscraft stage add` grants it | an FTB Quests advancement task on `gscraft:stage/square_taken` completes when the stage is set; survives a relogin |
 | 2 | **Drop tables** per faction with dog tags and low-rate armour; `dead.json` re-cut from In Control's file | a killed rifleman leaves materials and a tag, never a gun; a wreck's table unchanged |
 | 3 | **Items** (~25 for the slice, of the ~85) with stack sizes, the bulky tag, one tooltip each; `build/kubejs/startup_scripts/` created | every id gives; a bulky item slows and refuses the pack |

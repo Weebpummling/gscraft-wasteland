@@ -107,67 +107,32 @@ public final class Loop {
         return false;
     }
 
-    // ---- the building take (next-steps plan §2): scouted on entry; the clear makes it takeable; the quest takes it
-    // (owner 2026-09-12: "territory capture should be tied to quests"); lost after that, the clear alone retakes it
-
-    public static int CLEAR_TICKS = 1200;
-    private static final Map<String, Integer> clearTicks = new HashMap<>();
+    // ---- the building take (system doc §6, slice build 0): the alias stage is the whole mechanism. Set (by the quest's
+    // reward, or by hand), it takes the building: held, its functions run (the torch, the survivor), its zone flips. Unset,
+    // the building is lost: its lost functions, the stages down, the zone back. No clear timer, no per-building counterattack,
+    // loss check or guard - the sector's strongpoints carry the pressure.
 
     private static void building(ServerLevel level, SiteData data, SiteDef site, Progress p) {
-        if (p.phase != Phase.NONE) return;
-        boolean inside = false;
-        for (BlockPos at : Director.presence(level)) {
-            if (site.contains(at.getX(), at.getZ())) {
-                inside = true;
-                break;
-            }
+        if (site.alias() == null) return;
+        boolean taken = Stages.isSet(site.alias());
+        if (taken && p.state != State.HELD) {
+            setState(level, data, site, p, State.HELD);
+            p.lost = false;
+            p.phase = Phase.NONE;
+            p.guardTarget = 0;
+            data.setDirty();
+            run(level, site.held());
+            title(level.getServer(), Component.literal(site.name()), Component.translatable("gscraft.title.taken"));
+            GscraftWar.LOG.info("[gscraft] {} taken ({}); {} functions", site.id(), site.alias(), site.held().size());
+        } else if (!taken && p.state == State.HELD) {
+            p.state = State.UNKNOWN;
+            Stages.remove(level.getServer(), site.id() + "_held");
+            p.phase = Phase.NONE;
+            data.setDirty();
+            run(level, site.lost());
+            title(level.getServer(), Component.translatable("gscraft.title.fell"), Component.translatable("gscraft.title.fell.sub"));
+            GscraftWar.LOG.info("[gscraft] {} lost ({} unset); {} functions", site.id(), site.alias(), site.lost().size());
         }
-        if (p.state == State.UNKNOWN) {
-            if (inside) {
-                setState(level, data, site, p, State.SCOUTED);
-                GscraftWar.LOG.info("[gscraft] {} scouted: someone inside", site.id());
-            }
-            return;
-        }
-        if (p.state != State.SCOUTED && p.state != State.LOOTED) return;
-        String cleared = site.id() + "_cleared";
-        // the quest's word: the alias stage set (by its command reward, or by hand) takes a cleared building - and, the
-        // first time, an uncleared one too (the quest decides); once taken by the quest, the clear alone retakes it
-        if (site.alias() != null && Stages.isSet(site.alias())) {
-            if (!p.questTaken) p.questTaken = true;
-            take(level, data, site, p);
-            return;
-        }
-        if (Stages.isSet(cleared) && p.questTaken) {
-            take(level, data, site, p);
-            return;
-        }
-        if (Stages.isSet(cleared)) return;   // takeable: waiting on the quest
-        int hostile = inside ? level.getEntitiesOfClass(Mob.class, around(site, 0), m -> m.isAlive() && m instanceof net.minecraft.world.entity.monster.Monster).size() : -1;
-        int t = inside && hostile == 0 ? clearTicks.merge(site.id(), 20, Integer::sum) : 0;
-        if (!(inside && hostile == 0)) clearTicks.remove(site.id());
-        if (t < CLEAR_TICKS) return;
-        clearTicks.remove(site.id());
-        Stages.add(level.getServer(), cleared);
-        title(level.getServer(), Component.literal(site.name()), Component.translatable("gscraft.title.cleared"));
-        GscraftWar.LOG.info("[gscraft] {} cleared: takeable{}", site.id(), p.questTaken ? "" : " - the quest takes it");
-    }
-
-    /** the building is held: the stage and its readable alias, the held functions, the guard (if any), the clock */
-    private static void take(ServerLevel level, SiteData data, SiteDef site, Progress p) {
-        setState(level, data, site, p, State.HELD);
-        if (site.alias() != null) Stages.add(level.getServer(), site.alias());
-        p.lost = false;
-        p.guardTarget = guardFor(site, 1);
-        p.phase = Phase.FORTIFY;
-        p.deadline = data.online + FORTIFY_TICKS;
-        p.warned = false;
-        p.twoMinutes = false;
-        data.setDirty();
-        run(level, site.held());
-        keepGuard(level, site, p);
-        title(level.getServer(), Component.literal(site.name()), Component.translatable("gscraft.title.taken"));
-        GscraftWar.LOG.info("[gscraft] {} taken (held by a clear); {} functions; the fortify clock runs {} minutes of online time", site.id(), site.held().size(), FORTIFY_TICKS / 1200);
     }
 
     /** the site's boss (system pass §3: placed, not rolled): once the site is scouted and the boss's stage (if any) is set,
@@ -278,9 +243,7 @@ public final class Loop {
     private static void reset(ServerLevel level, SiteData data, SiteDef site, Progress p) {
         for (State s : State.values()) Stages.remove(level.getServer(), site.id() + "_" + s.name().toLowerCase(Locale.ROOT));
         Stages.remove(level.getServer(), site.id() + "_lost");
-        Stages.remove(level.getServer(), site.id() + "_cleared");
         if (site.alias() != null) Stages.remove(level.getServer(), site.alias());
-        p.questTaken = false;
         if (data.contested.equals(site.id())) data.contested = "";
         discardWave(level, site);
         for (Mob m : level.getEntitiesOfClass(Mob.class, around(site, 64), m -> m.getTags().contains(GUARD_TAG + site.id()))) m.discard();
@@ -434,21 +397,6 @@ public final class Loop {
             Stages.add(level.getServer(), site.id() + "_lost");
             discardWave(level, site);
             dropBar(site);
-            if (site.building()) {
-                // a taken building is lost: back to scouted, its stages down, the lost functions; retaken by another clear
-                p.state = State.SCOUTED;
-                Stages.remove(level.getServer(), site.id() + "_held");
-                Stages.remove(level.getServer(), site.id() + "_cleared");
-                if (site.alias() != null) Stages.remove(level.getServer(), site.alias());
-                p.phase = Phase.NONE;
-                p.lossTicks = 0;
-                p.guardTarget = 0;
-                data.setDirty();
-                run(level, site.lost());
-                title(level.getServer(), Component.translatable("gscraft.title.fell"), Component.translatable("gscraft.title.fell.sub"));
-                GscraftWar.LOG.info("[gscraft] {}: the building fell; scouted again", site.id());
-                return;
-            }
             p.phase = Phase.FORTIFY;
             p.deadline = data.online + FORTIFY_TICKS;
             p.warned = false;

@@ -1,7 +1,7 @@
 {
   "id": "square",
   "name": "THE SQUARE",
-  "note": "the paved junction and the streets off it (start-compound doc \u00a75 step 2); a building take: no assault, held by a clear, the Dead and scavengers stay",
+  "note": "the paved junction and the streets off it (start-compound doc \u00a75 step 2); a building take (system doc \u00a76, slice build 0): taken by its alias stage alone, lost when it is unset; the Dead and scavengers stay",
   "box": [
     -966,
     -914,
@@ -13,22 +13,11 @@
     -979
   ],
   "faction": "dead",
-  "approach": "west",
   "assault": [],
-  "defence": [
-    [
-      {
-        "entity": "minecraft:zombie",
-        "count": 12,
-        "rank": "The Infected"
-      }
-    ]
-  ],
   "held": [
     "gscraft:torch_square"
   ],
   "lost": [],
   "alias": "square_taken",
-  "keep_ambient": true,
-  "guard": 0
+  "keep_ambient": true
 }

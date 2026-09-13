@@ -1,7 +1,7 @@
 {
   "id": "mast",
   "name": "THE MAST'S FIELD",
-  "note": "the gun pit and the field (step 6); the sector's held rung is the ladder's, this is the ground; a building take: no assault, held by a clear, the Dead and scavengers stay",
+  "note": "the gun pit and the field (step 6); the sector's held rung is the ladder's, this is the ground; a building take (system doc \u00a76, slice build 0): taken by its alias stage alone, lost when it is unset; the Dead and scavengers stay",
   "box": [
     -846,
     -770,
@@ -13,20 +13,9 @@
     -1000
   ],
   "faction": "dead",
-  "approach": "east",
   "assault": [],
-  "defence": [
-    [
-      {
-        "entity": "minecraft:zombie",
-        "count": 12,
-        "rank": "The Infected"
-      }
-    ]
-  ],
   "held": [],
   "lost": [],
   "alias": "mast_taken",
-  "keep_ambient": true,
-  "guard": 0
+  "keep_ambient": true
 }
