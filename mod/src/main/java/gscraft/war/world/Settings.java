@@ -161,6 +161,7 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("fight.vehicle_standoff", () -> GunAttackGoal.VEHICLE_STANDOFF, v -> GunAttackGoal.VEHICLE_STANDOFF = v, "a fighter holds off a target riding a hull at least this far");
         d("fight.vehicle_backoff", () -> GunAttackGoal.VEHICLE_BACKOFF, v -> GunAttackGoal.VEHICLE_BACKOFF = v, "closer than this to a hull it backs away");
         d("fight.vehicle_clearance", () -> gscraft.war.entity.AvoidVehicleGoal.CLEARANCE, v -> gscraft.war.entity.AvoidVehicleGoal.CLEARANCE = v, "blocks off any hull's box a fighter steps out of");
+        i("armour.reengage_grace", () -> gscraft.war.armour.FightGoal.REENGAGE_GRACE, v -> gscraft.war.armour.FightGoal.REENGAGE_GRACE = (int) v, "a target lost this recently is engaged again without a second look");
         i("armour.calm_ticks", () -> gscraft.war.armour.FightGoal.CALM_TICKS, v -> gscraft.war.armour.FightGoal.CALM_TICKS = (int) v, "no fighting for this long after a withdrawal");
         d("armour.place_min", () -> gscraft.war.armour.Patrols.PLACE_MIN, v -> gscraft.war.armour.Patrols.PLACE_MIN = v, "an armour group is placed no nearer than this to anyone (a tank should be heard first)");
         d("armour.place_max", () -> gscraft.war.armour.Patrols.PLACE_MAX, v -> gscraft.war.armour.Patrols.PLACE_MAX = v, "and no further than this from the player it is rolled for");

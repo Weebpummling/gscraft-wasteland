@@ -203,7 +203,7 @@
   },
   "armour": {
     "engage": 96.0,
-    "acquire_ticks": 40,
+    "acquire_ticks": 20,
     "retarget_ticks": 60,
     "view_cone_driver": 120.0,
     "view_cone_gunner": 200.0,
@@ -212,7 +212,7 @@
     "friendly_radius": 2.5,
     "retreat_share": 0.33,
     "retreat_ticks": 200,
-    "calm_ticks": 600,
+    "calm_ticks": 100,
     "place_min": 96.0,
     "place_max": 140.0,
     "spacing": 400.0,
@@ -235,7 +235,8 @@
     "chat": 0,
     "dismount_range": 32.0,
     "bail_share": 0.6,
-    "bail_chance": 0.5
+    "bail_chance": 0.5,
+    "reengage_grace": 300
   },
   "drops": {
     "armour_chance": 0.05

@@ -413,6 +413,8 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, engagements resume faster (owner):** `armour.calm_ticks` 600 -> 100 (five seconds' calm after a withdrawal, which now comes at 60 %), `armour.acquire_ticks` 40 -> 20, and `FightGoal` re-engages the target it just lost without a second look for `armour.reengage_grace` (300) ticks (`lastTarget`/`lastStop`). Built; awaiting the cycle.
+
 **2026-09-13, the fighters off the hulls, the crews' front cone, the Cobra pinned to its line:** (1) `GunAttackGoal.ridesHull`:
 against a target riding a hull the hold is at least `fight.vehicle_standoff` (24) and inside `fight.vehicle_backoff` (14) the
 fighter backs away; the melee goals (Soldier, Scavenger) never take a hull target; `entity/AvoidVehicleGoal` (priority 1) steps a

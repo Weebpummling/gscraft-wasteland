@@ -35,7 +35,7 @@ import java.util.List;
  */
 public class FightGoal extends Goal {
     public static double ENGAGE = 96.0D;
-    public static int ACQUIRE_TICKS = 40;
+    public static int ACQUIRE_TICKS = 20;   // a second's look (owner 2026-09-13: engagements took too long to resume)
     public static int LOST_TICKS = 100;
     public static int RETARGET_TICKS = 60;
     public static double VIEW_CONE_DRIVER = 120.0D;
@@ -46,7 +46,7 @@ public class FightGoal extends Goal {
     public static double FRIENDLY_RADIUS = 2.5D;
     public static float RETREAT_SHARE = 0.33F;
     public static int RETREAT_TICKS = 200;
-    public static int CALM_TICKS = 600;
+    public static int CALM_TICKS = 100;    // five seconds' calm after a withdrawal, not thirty
     private static final String NONE = "undefined";
 
     private final Crew crew;
@@ -54,6 +54,10 @@ public class FightGoal extends Goal {
     private LivingEntity candidate;
     private int candidateTicks;
     private int lost;
+    /** the target the last engagement ended on and when: the same one seen again inside the grace is engaged at once */
+    private LivingEntity lastTarget;
+    private long lastStop = -100000;
+    public static int REENGAGE_GRACE = 300;
     private int ticks;
     private boolean holding;
 
@@ -80,6 +84,11 @@ public class FightGoal extends Goal {
         if (best != candidate) {
             candidate = best;
             candidateTicks = candidateTicks / 2;   // a better target inherits half the look the last one had
+        }
+        if (best == lastTarget && now - lastStop < REENGAGE_GRACE) {
+            // the one it was just fighting: no second look
+            target = best;
+            return true;
         }
         candidateTicks += crew.watchUntil > now ? 10 : 5;   // under fire the crew makes its mind up twice as fast
         // a target the other crew already engages is known at once
@@ -120,6 +129,8 @@ public class FightGoal extends Goal {
     @Override
     public void stop() {
         Entity v = crew.vehicle();
+        lastTarget = target;
+        lastStop = crew.level().getGameTime();
         crew.setTarget(null);
         crew.engaged = null;
         if (v != null) {
