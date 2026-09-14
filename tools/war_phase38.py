@@ -10,7 +10,7 @@ sounds are the owner's in-game check (`/give @s gscraft:strike_mortar`).
 1. The three strike items and the shell card are registered; the shell order exists.
 2. Mortar: the spotting round at ~15 s, the barrage of six after; mortar shells seen in the air; the call refused meanwhile.
 3. Artillery (after a reset): cannon shells seen; the barrage of eight logged; a bare BMP on the smoke wrecked.
-4. Air (after a reset): the crewed Cobra seen within 25 s at full power with the rotor turning, firing its own rockets or rounds at the dummy on the smoke, off station within 60 s, nothing of it left.
+4. Air (after a reset): the crewed Cobra seen within 25 s at a pilot's power (0.12, fuelled) with the rotor turning, at least twenty of its own rockets out (the off-station log line), off station within 60 s, nothing of it left.
 5. No gscraft errors.
 """
 import re
@@ -117,7 +117,7 @@ while time.time() - t0 < 95:
     if h and heli_at is None:
         heli_at = time.time() - t0
     if h and time.time() - t0 - (heli_at or 0) >= 3 and power is None:
-        # the engine: power held at full, the rotor turning (the mod's synched rotor lerps to the power)
+        # the engine: the mod's own flying power on fuel (AirRun.POWER 0.12), the rotor turning (the mod's synched rotor lerps to the power)
         nbt = c(f"data get entity @e[type=dragonrise_reforge:ah1f,x={X - 400},y=-64,z={Z - 400},dx=800,dy=384,dz=800,limit=1] Power")
         rot = c(f"data get entity @e[type=dragonrise_reforge:ah1f,x={X - 400},y=-64,z={Z - 400},dx=800,dy=384,dz=800,limit=1] PropellerRot")
         power = (re.search(r"([\d.]+)f", nbt) or [None, None])[1]
@@ -127,12 +127,14 @@ while time.time() - t0 < 95:
     rockets = max(rockets, near("superbwarfare:medium_rocket", 400) + near("superbwarfare:small_rocket", 400) + near("superbwarfare:rpg_rocket_standard", 400))
     rounds = max(rounds, near("superbwarfare:projectile", 400) + near("superbwarfare:small_cannon_shell", 400))
     if "off station" in log_since(mark):
+        out_m = re.search(r"(\d+) rockets out", log_since(mark))
+        rockets = max(rockets, int(out_m.group(1)) if out_m else 0)
         off = time.time() - t0
         break
 time.sleep(2)
 left = near("dragonrise_reforge:ah1f", 400) + count("@e[tag=gscraft_strike_dummy]") + count("@e[tag=gscraft_air_run]")
-check("air: the crewed Cobra within 35 s at full power with the rotor turning, its own rockets or rounds seen, off station within 60 s, nothing of it left",
-      heli_at is not None and heli_at <= 25 and power is not None and float(power) >= 0.9 and rotor is not None and float(rotor) >= 0.5 and alt is not None and abs(float(alt) - (Y + 55)) <= 4 and (rockets >= 1 or rounds >= 1) and off and off <= 65 and left == 0,
+check("air: the crewed Cobra within 35 s at a pilot's power with the rotor turning, twenty of its rockets out, off station within 60 s, nothing of it left",
+      heli_at is not None and heli_at <= 25 and power is not None and 0.1 <= float(power) <= 0.2 and rotor is not None and 0.08 <= float(rotor) <= 0.2 and alt is not None and abs(float(alt) - (Y + 55)) <= 4 and rockets >= 20 and off and off <= 65 and left == 0,
       f"heli at {heli_at and round(heli_at, 1)} s; power {power}; rotor {rotor}; height {alt} (want {Y + 55}); rockets {rockets}; rounds {rounds}; off at {off and round(off, 1)} s; left {left}")
 
 c("gscraft strike reset")

@@ -1,5 +1,6 @@
 """The armour override datapack (design 2026-09-11 §1, §5): Superb Warfare's own vehicle files for the four vehicles,
-copied out of the jar with our damage list in place of the mod's, as a world datapack that overrides the jar's data.
+copied out of the jar with our damage list in place of the mod's, as a world datapack that overrides the jar's data;
+and the air strike's Cobra with a full rocket load (38 in the magazine, the mod's 14).
 
     python tools/armour_override.py            -> build/local-datapack/gscraft_armour/ (the repo copy)
     python tools/armour_override.py --install  -> also copied into the local world's datapacks (then /reload)
@@ -69,6 +70,8 @@ HEAVY = IMMUNE + [
 ]
 WEIGHT = {"bmp_2": LIGHT, "bradley": LIGHT, "t_90a": HEAVY, "m_1a_2": HEAVY}
 CONFIG = Path("G:/GSCraft/server/config/superbwarfare-server.toml")
+COBRA_ROCKETS = 38   # the AH-1F carries up to 38 Hydra 70s
+COBRA_RELOAD = 20    # ticks to fill the pods from the bay (the mod: 200)
 
 
 def tame_radius(r):
@@ -144,6 +147,38 @@ def tame_config():
         default = None
     CONFIG.write_text(chr(10).join(lines) + chr(10), encoding="utf-8")
     print(f"{CONFIG.name}: {changed} blast values set from the defaults")
+    set_flags()
+
+
+# block destruction (owner 2026-09-13): blasts on (wooden only, world/BlastRule.java), vehicles crush soft blocks only
+# (the soft-collision tag above), bullets never (glass off); the old collision_destroy_blocks key is not this mod version's
+FLAGS = {
+    "explosion_destroy": "true", "allow_projectile_destroy_glass": "false",
+    "collision_destroy_soft_blocks": "true", "collision_destroy_normal_blocks": "false",
+    "collision_destroy_hard_blocks": "false", "collision_destroy_blocks_beastly": "false",
+}
+SECTION = {"explosion_destroy": "[explosion]", "allow_projectile_destroy_glass": "[projectile]"}
+
+
+def set_flags():
+    lines = CONFIG.read_text(encoding="utf-8").splitlines()
+    done = set()
+    for i, line in enumerate(lines):
+        m = re.match(r"(\s*)(\w+) = (true|false)\s*$", line)
+        if m and m.group(2) in FLAGS:
+            lines[i] = f"{m.group(1)}{m.group(2)} = {FLAGS[m.group(2)]}"
+            done.add(m.group(2))
+        elif m and m.group(2) == "collision_destroy_blocks":
+            lines[i] = None
+    lines = [l for l in lines if l is not None]
+    for key, value in FLAGS.items():
+        if key in done:
+            continue
+        section = SECTION.get(key, "[vehicle]")
+        at = next(i for i, l in enumerate(lines) if l.strip() == section)
+        lines.insert(at + 1, f"\t{key} = {value}")
+    CONFIG.write_text(chr(10).join(lines) + chr(10), encoding="utf-8")
+    print(f"{CONFIG.name}: block destruction flags set ({len(FLAGS)})")
 
 
 def main():
@@ -160,6 +195,24 @@ def main():
         tame(data)
         (target / f"{v}.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(f"{v}: {len(mods)} modifiers, first {mods[:2]}")
+    # the Cobra of the air strike (strikes note 2026-09-13; owner: engage earlier for more rocket shots): Dragonrise's
+    # file with the pods' magazine at COBRA_ROCKETS in place of 14, so one pass from 150 blocks out empties most of it;
+    # the blasts tamed like the rest
+    dj = next(MODS.glob("dragonrise_reforge-*.jar"))
+    raw = zipfile.ZipFile(dj).read("data/dragonrise_reforge/sbw/vehicles/ah1f.json").decode("utf-8-sig")
+    data = json.loads(re.sub(r"//[^\r\n]*", "", raw))
+    data["Weapons"]["Rocket"]["Magazine"] = COBRA_ROCKETS
+    data["Weapons"]["Rocket"]["EmptyReloadTime"] = COBRA_RELOAD   # a fresh airframe's magazine is empty; the mod's 200 ticks would eat the run
+    tame(data)
+    cobra = OUT / "data" / "dragonrise_reforge" / "sbw" / "vehicles"
+    cobra.mkdir(parents=True, exist_ok=True)
+    (cobra / "ah1f.json").write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"ah1f: rocket magazine {COBRA_ROCKETS} from {dj.name}")
+    # block destruction (owner 2026-09-13): vehicles crush wooden blocks only - the mod's soft-collision tag replaced
+    # by ours (world/BlastRule.java has the blasts' side of the same rule)
+    tags = OUT / "data" / "superbwarfare" / "tags" / "blocks"
+    tags.mkdir(parents=True, exist_ok=True)
+    (tags / "soft_collision.json").write_text(json.dumps({"replace": True, "values": ["#gscraft:wooden"]}, indent=2) + "\n", encoding="utf-8")
     guns = OUT / "data" / "superbwarfare" / "sbw" / "guns"
     guns.mkdir(parents=True, exist_ok=True)
     tamed = 0

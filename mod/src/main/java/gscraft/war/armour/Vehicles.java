@@ -153,6 +153,11 @@ public final class Vehicles {
         return r instanceof Integer i ? i : -1;
     }
 
+    public static float power(Entity v) {
+        Object r = call(v, "getPower", new Class<?>[0]);
+        return r instanceof Number n ? n.floatValue() : Float.NaN;
+    }
+
     public static void refuel(Entity v) {
         int max = maxEnergy(v);
         if (max > 0) call(v, "setEnergy", new Class<?>[] {int.class}, max);

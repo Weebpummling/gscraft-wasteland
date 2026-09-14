@@ -43,7 +43,7 @@ lands during another's window drops back on the ground.
 | Item | `gscraft:strike_mortar` | `gscraft:strike_artillery` | `gscraft:strike_air` |
 | Cooldown (its own) | 3:00 | 5:00 | 8:00 |
 | Delay to the first round | **15 s** | 20 s | 20 s to the airframe (owner, 2026-09-13: was 30) |
-| Then | a spotting round (half strength); 4 s; **six rounds**, 1.5 s apart, within 6 blocks | a spotting round; 5 s; **eight heavy rounds**, 1.25 s apart, within 12 blocks | from 120 blocks out **eight rockets** in pairs converging on the smoke; over the smoke **five seconds of guns** on anything hostile within 12 |
+| Then | a spotting round (half strength); 4 s; **six rounds**, 1.5 s apart, within 6 blocks | a spotting round; 5 s; **eight heavy rounds**, 1.25 s apart, within 12 blocks | from 150 blocks out **about 29 rockets** in pairs converging on the smoke; over the smoke **five seconds of guns** on anything hostile within 12 |
 | Blast per round | 80, radius 5 | 160, radius 9 | rockets 120, radius 6; a cannon round 14 |
 | On a hull (the vehicle rules multiply: `tools/armour_override.py`) | 0.6x on light, 0.4x on heavy (`@mortar_shell 1.5`) | **1.2x on light, 0.75x on heavy** (`@cannon_shell 3`): a BMP dies to one round on the smoke, a T-90 to three | rockets 0.8x light, 0.5x heavy (`@medium_rocket 2`): two rockets for a BMP; the guns nothing to a hull |
 | Breaks off | never | never | a hit on the helicopter: it flies straight out |
@@ -61,42 +61,20 @@ of the camp's faction sits in the seat, so the mod treats the airframe as manned
 own), and two crews sit in it: the pilot in seat 0 and a second in seat 1, which is the airframe's turret seat (the chin gun,
 -40° to +10°). The turret crew lays and fires the 30 mm at what it sees with the mod's aiming, rate and damage; the
 pilot's Hydra pods are fixed forward and the mod's own four-degree rule never lets an AI pilot fire them, so the run
-pitches the nose onto the smoke from 90 blocks out to 45 and pulls the trigger on the airframe's weapon system
-(`vehicleShoot(pilot, "Rocket")`) every quarter second - two rockets a trigger, the mod's rockets, sound and blast. The
-line dives from 55 up at 150 out to 25 over the smoke and climbs out the same way, so the chin gun's arc reaches the
-ground. An invisible, invulnerable dummy at the
-smoke is the aim point when nothing hostile stands there; anything real outranks it. The run still flies the line (55 up,
-`strike.air_height`), holds the power up, and breaks off on a hit. The rockets hand-fired from 120 blocks out of the old
-run never arrived: 120 is past the server's simulation distance and they froze in the air.
-
-## 3. How they are earned (Marshall's chapter)
-
-| Quest | Needs | Hand-in | Pays |
-|---|---|---|---|
-| **The tube** | Muster (R1) | a mortar barrel, bipod and base plate (the town's workshops), 2 steel frames | the stage `mortar_built`; the tube stands in the yard (`gscraft:yard_mortar`); the **mortar shell card** (3 scrap + 2 powder → 2 shells at the station, `bp_mortar_shell`) |
-| **Fire mission** (repeatable) | The tube | 6 mortar shells | one *Fire mission: mortar* |
-| **Fire for effect** (repeatable) | The tube; the stage `gun_fired` (the Create chapter's gun standing at a strongpoint) | 4 heavy HE shells | one *Fire mission: guns* |
-| **Air support** (repeatable) | The tube; the stage `radio_2` (Tune's second radio) | 4 HE rockets | one *Air support: Cobra* |
-
-Shells drop in the garages, a few at a time; the mortar's three parts in the workshops, rarely. Heavy shells and
-rockets have no Act I source on purpose: they come with the strongpoints (the switchyard's and the plant's tables,
-Act III) and the Create gun's own chain. Until those tables exist the owner tests them by `/give`.
-
-## 4. The pass on convenient items (the mod's own creative tab)
-
-The mod now has its own creative tab, *GSCraft Wasteland*: the station, the bandage, every slice item (hardware,
-medical, tools, intermediates, cards, the claim marker, the three grenades) and the spawn eggs. What the slice would
-be better with, in order of worth:
-
-1. **The three grenades** - built.
-2. **A field radio item** that plays the survivors' lines in the hand and shows the cooldown and the board's state
-   on the action bar when held: the readout without walking to the wall. Cheap; next.
-3. **Flares** - a night marker for the team (a coloured light at the throw, two minutes), the same marker entity with
-   no call behind it. Cheap.
-4. **A spotter's glasses** that put a Xaero waypoint where you look (James's J1 pays a compass and a map today).
-5. **The notebook** (onboarding §6) - still the one written manual; Patchouli is in the pack; not in the slice.
-6. Not worth it now: a hand-held rangefinder, the drone (Superb Warfare has one; Walls 2 hands it out later), any
-   item that duplicates a readout the world already gives (the board, the signs, the station).
+pitches the nose onto the smoke from **150 blocks out to 45** (owner: engage earlier, more rockets) and pulls the trigger
+on the airframe's weapon system (`vehicleShoot(pilot, "Rocket")`) every three ticks - the mod fires one rocket a trigger
+at the pods' own 450 rpm, so a pass puts out about **29 rockets**; the pack's Cobra carries 38 in the pods
+(`tools/armour_override.py`, the mod's 14) and fills them from the bay in a second (the mod's ten: a fresh airframe's
+magazine is empty, and the ten seconds ate the whole run - 18 triggers put out three rockets before this). The line
+dives from 55 up at 150 out to 25 over the smoke and climbs out the same way, so the chin gun's arc reaches the ground.
+An invisible, invulnerable dummy at the smoke is the aim point when nothing hostile stands there; anything real
+outranks it. **The airframe is fuelled** (owner: "put the battery in like it's supposed to") and flies at the mod's own
+power (0.12, `AirRun.POWER`; the run only tops it up): the mod advances the blade by thirty times the power a tick on
+every client, so at the full power the old run held the rotor turned eight times a pilot's rate and strobed on screen
+(owner: "it kind of rotated"); at a pilot's power it turns as a flown Cobra's does. The client logs the blade angle once
+a second while a run is in view (`client/AirDiag.java`, `[gscraft] airdiag` in the client log) - the proof came from
+there. The run breaks off on a hit. The rockets hand-fired from 120 blocks out of the old run never arrived: 120 is
+past the server's simulation distance and they froze in the air.
 
 ## 5. What is deliberately not done
 

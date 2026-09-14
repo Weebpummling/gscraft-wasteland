@@ -413,6 +413,30 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, the Cobra fuelled and at a pilot's power, 29 rockets a pass; blocks break, wooden only (R36):** the rotor did
+not turn on screen (owner) - the run held the power at 1.0 and the mod advances the blade by 30 x power a tick on every
+client, eight times a flown Cobra's rate, so it strobed. `AirRun` now fuels the airframe (`Vehicles.refuel`, owner: "put
+the battery in like it's supposed to") and holds the mod's own flying power (`AirRun.POWER` 0.12; the mod keeps it there
+itself once fuelled). Proof from the client: `client/AirDiag.java` logs the blade angle once a second while a Cobra is in
+view (`[gscraft] airdiag` in the client log) - 30 a tick before, 3.6 after. The rockets: 18 triggers put out three -
+a fresh airframe's pod magazine is empty and the mod's reload is 200 ticks, longer than the run; the armour datapack
+now carries Dragonrise's `ah1f.json` with the pods at 38 rockets and a 20-tick reload (`COBRA_ROCKETS`, `COBRA_RELOAD`
+in `tools/armour_override.py`), the rocket window starts at 150 out (`ROCKET_FROM`), the trigger is every three ticks
+(the mod fires one rocket a trigger at its 450 rpm): **29 rockets a pass**, counted as they leave the rails (the
+"rockets out" figure in the off-station log line). Block destruction (owner: on for vehicles and artillery rounds, wooden
+only, not bullets): `superbwarfare-server.toml` `explosion_destroy` on, `allow_projectile_destroy_glass` off,
+`collision_destroy_soft_blocks` on and normal/hard/beastly off (this mod version's keys; the old `collision_destroy_blocks`
+key is gone), `world/BlastRule.java` keeps non-wooden blocks out of every blast (vanilla TNT untouched), the datapack
+replaces the mod's `soft_collision` block tag with `#gscraft:wooden` (`data/gscraft/tags/blocks/wooden.json` in the jar).
+`tools/war_phase41.py` (4/4: a mortar mission flattens a fence line and leaves the stone floor and ring). Phase 38 has
+a variance: the artillery check wants the bare BMP under 120 health after eight rounds scattered within 12 blocks of
+the smoke, and one run left it higher; two of three passed. The WarTest client can be driven from here: Prism launches
+it with `--launch GSCraft-WarTest --server localhost:9150` (the launcher's first-run wizard needed the global Java path
+set in `prismlauncher.cfg`, done), and `scratchpad rotor_check.py` waited for the join, teleported the player, called
+the strike and read the client log. Config and datapack are local; **live still needs the toml, the datapack and the
+jar together** at the slice's push. Open: the pack's modded wooden blocks (Refurbished Furniture, Doomsday Decoration)
+are not in the wooden tag; a vehicle crushing a fence is the owner's in-game check.
+
 **2026-09-13, the crewed Cobra, second pass:** the Cobra's turret is seat 1's (`TurretControllerIndex` 1) - `Armour.extraCrew`
 seats a second crew there and its FightGoal lays and fires the chin gun (30 rounds a run in the tests). The pilot's fixed pods
 never pass the mod's four-degree AI rule, so `AirRun` pitches the nose onto the smoke (vanilla sign, nose down positive) in

@@ -31,11 +31,12 @@ import java.util.Locale;
 public final class AirRun {
     public static String HELI = "dragonrise_reforge:ah1f";
     public static String FACTION = "camp";
-    public static int RANGE = 300, HEIGHT = 55, HEIGHT_LOW = 25, DIVE_FROM = 150, DIVE_TO = 30, ROCKET_FROM = 90, ROCKET_TO = 45, GUN_RANGE = 60;
+    public static int RANGE = 300, HEIGHT = 55, HEIGHT_LOW = 25, DIVE_FROM = 150, DIVE_TO = 30, ROCKET_FROM = 150, ROCKET_TO = 45, GUN_RANGE = 60;
     public static double SPEED = 1.2;
+    public static float POWER = 0.12f;   // the mod's own flying power (a pilot's collective tops out here); 1.0 spun the rotor so fast it strobed
     public static float PITCH_SIGN = 1f;
-    public static int ROCKET_EVERY = 5;
-    private int rocketsFired;
+    public static int ROCKET_EVERY = 3;   // the mod fires one rocket a trigger at its own 450 rpm (2.7 ticks): every three ticks is the pods' full rate
+    private int rocketsFired, rocketsOut;
 
     private final ServerLevel level;
     private final BlockPos target;
@@ -76,11 +77,12 @@ public final class AirRun {
         forcedX = Integer.MIN_VALUE;
     }
 
-    /** the engine on: power held at full every tick, so the rotor spins (the mod lerps its rotor to the power) and the engine sound plays on every client */
+    /** the engine on at the mod's flying power: the airframe is fuelled at spawn, so the mod's own engine holds the power and the rotor
+     *  turns at a pilot's rate (the mod advances the blade by 30 x power a tick on every client; owner: it strobed at full power) */
     private void engine() {
         Sw.set(heli, "setEngineStart", true);
         Sw.set(heli, "setEngineStartOver", true);
-        Sw.set(heli, "setPower", 1.0f);
+        if (Vehicles.power(heli) < POWER) Sw.set(heli, "setPower", POWER);
     }
 
     /** the seat's weapons by name: the rockets and the gun; logged once so the names can be checked */
@@ -126,6 +128,7 @@ public final class AirRun {
             level.addFreshEntity(heli);
             Vehicles.whole(heli);
             Armour.arm(heli);   // the seat's ammunition, as the placed hulls get it
+            Vehicles.refuel(heli);   // and its fuel: the mod's engine drains the power every tick without it
             crew = Armour.crew(level, heli, FACTION, null);
             if (crew != null) {
                 crew.air = true;
@@ -198,8 +201,17 @@ public final class AirRun {
         if (crew != null && !out && dist <= ROCKET_FROM && dist >= ROCKET_TO && t % ROCKET_EVERY == 0) {
             if (Sw.invoke(heli, "vehicleShoot", new Class<?>[] {net.minecraft.world.entity.LivingEntity.class, String.class}, crew, "Rocket")) rocketsFired++;
         }
+        if (dist <= ROCKET_FROM + 20 && dist >= ROCKET_TO - 20) {
+            // the rockets that left the rails (the magazine, its reload and the ammunition are the mod's; the count is the proof):
+            // each is caught in its first tick, within a tick's flight of the airframe
+            EntityType<?> rocket = ForgeRegistries.ENTITY_TYPES.getValue(new ResourceLocation("superbwarfare", "small_rocket"));
+            for (Entity r : level.getEntities(heli, heli.getBoundingBox().inflate(24), e -> e.getType() == rocket && !e.getTags().contains("gscraft_counted"))) {
+                r.addTag("gscraft_counted");
+                rocketsOut++;
+            }
+        }
         if (along > RANGE - 5 || (out && along > GUN_RANGE + 40) || t > 20 * 60) {
-            GscraftWar.LOG.info("[gscraft] strike: the helicopter is off station ({} rocket triggers)", rocketsFired);
+            GscraftWar.LOG.info("[gscraft] strike: the helicopter is off station ({} rocket triggers, {} rockets out)", rocketsFired, rocketsOut);
             Strikes.tell("tune", "air_off", level.getServer());
             finish();
             return false;
