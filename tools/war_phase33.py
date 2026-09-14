@@ -9,6 +9,7 @@ and the lines on a first join are the owner's in-game check (WarTest: a fresh ac
 2. The kit holds the station, a loaded glock with a spare magazine of its ammo, the flashlight, a battery and a bandage.
 3. `/gscraft say tune join_1` renders as ♪ [TUNE]  You're up...
 4. The summons put each survivor up with the profession from survivors.json, level 2 and no offers.
+4b. A survivor takes no damage from rounds or blasts; the summons' kill still re-issues one.
 5. The joined advancement is known.
 6. No gscraft errors, no ftbquests errors.
 """
@@ -35,6 +36,11 @@ def c(cmd, t=60):
 def check(name, ok, detail):
     results.append(bool(ok))
     print(f"  {'PASS' if ok else 'FAIL'}  {name}: {detail}")
+
+
+def count(sel):
+    m = re.search(r"count: (\d+)", c(f"execute if entity {sel}"))
+    return int(m.group(1)) if m else 0
 
 
 def log_since(mark):
@@ -69,8 +75,22 @@ for d in survivors["survivors"]:
     offers = c(f"data get entity {sel} Offers.Recipes")
     if d["profession"] not in vd or "level: 2" not in vd or not re.search(r"Recipes: \[\]|Found no elements matching Offers", offers):
         bad.append((d["id"], vd[-80:], offers[-40:]))
-c("forceload remove -1000 -1070 -880 -840")
 check("the summons stand with their professions, level 2, no offers", not bad, f"{bad[:2]}")
+
+# 4b. a survivor takes no damage from a round (owner: Marshall died to the guns), and the console's kill still re-issues them
+W = "@e[type=minecraft:villager,tag=gscraft_npc_walker,limit=1]"
+h0 = c(f"data get entity {W} Health")
+c(f"damage {W} 500 superbwarfare:custom_explosion")
+c(f"damage {W} 500 minecraft:explosion")
+c(f"damage {W} 500 minecraft:generic")
+time.sleep(1)
+h1 = c(f"data get entity {W} Health")
+alive = "Health" in h1 or "following entity data" in h1
+c("function gscraft:camp_npc_walker")
+time.sleep(1)
+one = count("@e[type=minecraft:villager,tag=gscraft_npc_walker]") if "count" in dir() else None
+c("forceload remove -1000 -1070 -880 -840")
+check("a survivor takes no damage from rounds or blasts; the summons' kill still re-issues one", alive and h1[-8:] == h0[-8:] and (one is None or one == 1), f"health [{h0[-10:]}] -> [{h1[-10:]}]; walkers after re-issue {one}")
 
 joined = c("gscraft stage check joined")
 check("the joined advancement is known", "known" in joined and "UNKNOWN" not in joined, f"[{joined[:60]}]")

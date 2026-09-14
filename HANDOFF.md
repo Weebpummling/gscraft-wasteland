@@ -413,6 +413,13 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, the survivors take no damage (owner: Marshall died to the guns):** the summons carry `Invulnerable`, but a
+creative player's own rounds bypass that flag (`Entity.isInvulnerableTo` lets a creative attacker through), and the strike's
+rounds are owned by the thrower. `SurvivorEvents.attacked` cancels every `LivingAttackEvent` on a `gscraft_npc` except a
+source that bypasses invulnerability outright (the console's `kill`, which the summons use). Phase 33 damages Walker with the
+mod's blast, a vanilla explosion and generic damage and reads his health unchanged, then re-issues him. **Built, not yet
+cycled onto the local server: the owner was on.**
+
 **2026-09-13, the strikes' third pass:** the guns did no proper vehicle damage because every matching vehicle damage rule
 multiplies in turn (SW `DamageModifier.compute`) and a cannon shell only matched `custom_explosion 0.4`: `tools/armour_override.py`
 adds `@superbwarfare:cannon_shell * 3` and `@superbwarfare:medium_rocket * 2` to both lists (installed locally; live gets it

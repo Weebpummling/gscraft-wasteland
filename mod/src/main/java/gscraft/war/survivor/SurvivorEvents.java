@@ -64,6 +64,19 @@ public final class SurvivorEvents {
         }
     }
 
+    /**
+     * A survivor takes no damage from anything (owner 2026-09-13: Marshall died to the guns). The summons carry
+     * Invulnerable, but a creative player's own rounds bypass that flag, and so does anything that skips the flag;
+     * the attack is refused here at the source. Only what bypasses invulnerability outright (the console's kill,
+     * which the summons use to re-issue a survivor) still lands.
+     */
+    @SubscribeEvent
+    public static void attacked(net.minecraftforge.event.entity.living.LivingAttackEvent event) {
+        if (!event.getEntity().getTags().contains("gscraft_npc")) return;
+        if (event.getSource().is(net.minecraft.tags.DamageTypeTags.BYPASSES_INVULNERABILITY)) return;
+        event.setCanceled(true);
+    }
+
     /** nothing hunts a survivor: the Dead would path into the compound after the villagers otherwise */
     @SubscribeEvent
     public static void target(net.minecraftforge.event.entity.living.LivingChangeTargetEvent event) {
