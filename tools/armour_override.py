@@ -48,6 +48,8 @@ LIGHT = IMMUNE + [
     "superbwarfare:custom_explosion * 0.4", "superbwarfare:projectile_explosion * 0.4",
     "@superbwarfare:small_cannon_shell * 0.5",
     "@superbwarfare:mortar_shell * 1.5", "@superbwarfare:c4 * 1.5",
+    # the fire missions (strikes note 2026-09-13): a gun round lands 1.2x its blast on a light hull, a rocket 0.8x (the rules multiply)
+    "@superbwarfare:cannon_shell * 3", "@superbwarfare:medium_rocket * 2",
     "minecraft:explosion * 2", "minecraft:lava * 2",
     "#superbwarfare:vehicle_strike * 2.5",
     "@#superbwarfare:aerial_bomb * 3", "@#superbwarfare:aa_missile * 0.5",
@@ -59,6 +61,7 @@ HEAVY = IMMUNE + [
     "@superbwarfare:small_cannon_shell * 0.2",
     "@superbwarfare:javelin_missile * 1.3",
     "@superbwarfare:mortar_shell * 1.5", "@superbwarfare:c4 * 4",
+    "@superbwarfare:cannon_shell * 3", "@superbwarfare:medium_rocket * 2",   # 0.75x and 0.5x on a heavy hull
     "minecraft:explosion * 1.2", "minecraft:lava * 1",
     "#superbwarfare:vehicle_strike * 2.5",
     "@#superbwarfare:aerial_bomb * 6", "@#superbwarfare:aa_missile * 0.3",

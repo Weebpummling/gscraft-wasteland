@@ -31,9 +31,10 @@ public class StrikeItem extends SliceItems.SliceItem {
     public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         if (!(level instanceof ServerLevel sl) || !(player instanceof ServerPlayer sp)) return InteractionResultHolder.sidedSuccess(stack, level.isClientSide);
-        if (Strikes.hot(sl.getServer())) {
-            Say.queue(sp, "marshall", "tube_hot", true);
-            sp.displayClientMessage(Component.literal("the tube is hot: " + Strikes.hotFor(sl.getServer())), true);
+        if (Strikes.hot(sl.getServer(), kind)) {
+            String[] line = Strikes.refusalLine(kind);
+            Say.queue(sp, line[0], line[1], true);
+            sp.displayClientMessage(Component.literal(Strikes.refusal(sl.getServer(), kind)), true);
             return InteractionResultHolder.fail(stack);
         }
         StrikeMarker m = new StrikeMarker(level, player);

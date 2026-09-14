@@ -185,11 +185,11 @@
   "gscraft.strike.tip.mortar": "15 seconds to the spotting round, then six rounds. Stay clear of the smoke.",
   "gscraft.strike.tip.artillery": "20 seconds to the spotting round, then eight heavy rounds, wide. Stay well clear.",
   "gscraft.strike.tip.air": "30 seconds to the Cobra: rockets on the smoke, then guns for five seconds. Keep your head down.",
-  "gscraft.strike.tip.cooldown": "One call at a time: the tube is hot for five minutes after any of them.",
+  "gscraft.strike.tip.cooldown": "Each grenade has its own clock: the tube three minutes, the guns five, the Cobra eight.",
   "gscraft.say.marshall.fire_mission": "Fire mission on the smoke. Fifteen seconds — get clear of it.",
   "gscraft.say.marshall.fire_for_effect": "Guns on the smoke, fire for effect. Twenty seconds — well clear.",
   "gscraft.say.marshall.air_support": "Cobra's up. Thirty seconds to the smoke — heads down when she comes over.",
-  "gscraft.say.marshall.tube_hot": "The tube's hot. Wait for it.",
+  "gscraft.say.marshall.tube_hot": "The tube's hot. Three minutes between calls.",
   "gscraft.say.tune.splash": "Splash. Rounds following.",
   "gscraft.say.tune.air_hit": "She's taking fire — breaking off.",
   "gscraft.say.tune.air_off": "Cobra's off station.",
@@ -202,5 +202,7 @@
   "item.gscraft.strike_air": "Air support: Cobra",
   "item.gscraft.strike_air.tip": "Tune's call to the Cobra. Throw it; the smoke marks the run.",
   "item.gscraft.card_mortar_shell": "Blueprint: mortar shell",
-  "item.gscraft.card_mortar_shell.tip": "Put it in a station's card slot; the station lists what the shell needs."
+  "item.gscraft.card_mortar_shell.tip": "Put it in a station's card slot; the station lists what the shell needs.",
+  "gscraft.say.marshall.guns_hot": "The guns are still laying. Five minutes between calls.",
+  "gscraft.say.tune.air_busy": "She's refuelling. Eight minutes before she's back up."
 }

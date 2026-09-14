@@ -61,7 +61,10 @@ public final class Settings extends SimpleJsonResourceReloadListener {
     static {
         // the director
         i("director.interval_ticks", () -> Director.INTERVAL, v -> Director.INTERVAL = (int) v, "ticks between director passes");
-        i("strike.cooldown_ticks", () -> gscraft.war.strike.Strikes.COOLDOWN, v -> gscraft.war.strike.Strikes.COOLDOWN = (int) v, "the global cooldown after any fire mission");
+        i("strike.cooldown_mortar", () -> gscraft.war.strike.Strikes.COOLDOWN_MORTAR, v -> gscraft.war.strike.Strikes.COOLDOWN_MORTAR = (int) v, "ticks before the tube takes another call");
+        i("strike.cooldown_artillery", () -> gscraft.war.strike.Strikes.COOLDOWN_ARTILLERY, v -> gscraft.war.strike.Strikes.COOLDOWN_ARTILLERY = (int) v, "ticks before the guns take another call");
+        i("strike.cooldown_air", () -> gscraft.war.strike.Strikes.COOLDOWN_AIR, v -> gscraft.war.strike.Strikes.COOLDOWN_AIR = (int) v, "ticks before the Cobra takes another call");
+        i("strike.air_height", () -> gscraft.war.strike.AirRun.HEIGHT, v -> gscraft.war.strike.AirRun.HEIGHT = (int) v, "the Cobra's height over the smoke");
         i("strike.mortar_delay", () -> gscraft.war.strike.Strikes.MORTAR_DELAY, v -> gscraft.war.strike.Strikes.MORTAR_DELAY = (int) v, "ticks from the smoke to the mortar's spotting round; the barrage follows 4 s later");
         i("strike.mortar_barrage", () -> gscraft.war.strike.Strikes.MORTAR_BARRAGE, v -> gscraft.war.strike.Strikes.MORTAR_BARRAGE = (int) v, "rounds in the mortar barrage");
         i("strike.mortar_scatter", () -> gscraft.war.strike.Strikes.MORTAR_SCATTER, v -> gscraft.war.strike.Strikes.MORTAR_SCATTER = (int) v, "blocks either way a mortar round may land from the smoke");

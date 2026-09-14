@@ -9,8 +9,8 @@ sounds are the owner's in-game check (`/give @s gscraft:strike_mortar`).
 
 1. The three strike items and the shell card are registered; the shell order exists.
 2. Mortar: the spotting round at ~15 s, the barrage of six after; mortar shells seen in the air; the call refused meanwhile.
-3. Artillery (after a reset): cannon shells seen; the barrage of eight logged.
-4. Air (after a reset): the Cobra seen within 35 s, rockets and gun rounds seen, off station within 60 s, none left.
+3. Artillery (after a reset): cannon shells seen; the barrage of eight logged; a bare BMP on the smoke wrecked.
+4. Air (after a reset): the Cobra seen within 35 s at full power with the rotor turning, rockets and gun rounds seen, off station within 60 s, none left.
 5. No gscraft errors.
 """
 import re
@@ -68,6 +68,7 @@ mark = LOG.stat().st_size
 t0 = time.time()
 out = c(f"gscraft strike mortar {X} {Y} {Z}")
 refused = c(f"gscraft strike mortar {X} {Y} {Z}")
+guns_ready = "ready" in c("gscraft strike status").split("artillery")[1].split(";")[0]   # its own clock: a mortar call leaves the guns ready
 spotted, seen, barrage = None, 0, False
 while time.time() - t0 < 40:
     time.sleep(1)
@@ -79,13 +80,16 @@ while time.time() - t0 < 40:
         barrage = True
         break
 check("mortar: the spotting round at ~15 s, the barrage after, shells in the air; a second call refused",
-      "called" in out and "hot" in refused and spotted is not None and 13 <= spotted <= 19 and barrage and seen >= 1,
-      f"[{out}] [{refused[:40]}]; spotting at {spotted and round(spotted, 1)} s; barrage {barrage}; shells seen {seen}")
+      "called" in out and "hot" in refused and guns_ready and spotted is not None and 13 <= spotted <= 19 and barrage and seen >= 1,
+      f"[{out}] [{refused[:40]}]; guns ready {guns_ready}; spotting at {spotted and round(spotted, 1)} s; barrage {barrage}; shells seen {seen}")
 
 # 3. the guns
 c("gscraft strike reset")
 mark = LOG.stat().st_size
 t0 = time.time()
+c(f"kill @e[type=superbwarfare:bmp_2,x={X - 60},y={Y - 10},z={Z - 60},dx=120,dy=40,dz=120]")
+c(f"gscraft vehicle spawn superbwarfare:bmp_2 ruaf {X} {Y} {Z}")   # a bare hull on the smoke: the guns must wreck it (owner: the strike did no proper damage)
+time.sleep(1)
 c(f"gscraft strike artillery {X} {Y} {Z}")
 seen, barrage = 0, False
 while time.time() - t0 < 50:
@@ -94,19 +98,30 @@ while time.time() - t0 < 50:
     if "artillery barrage of" in log_since(mark):
         barrage = True
         break
-check("artillery: cannon shells in the air, the barrage of eight logged", barrage and seen >= 1, f"barrage {barrage}; shells seen {seen}")
+time.sleep(3)
+st = c(f"gscraft vehicle status @e[type=superbwarfare:bmp_2,x={X - 60},y={Y - 10},z={Z - 60},dx=120,dy=40,dz=120,limit=1]")
+hp = re.search(r"health ([-\d.]+)/", st)
+wrecked = "No entity" in st or "wreck true" in st or (hp is not None and float(hp.group(1)) < 120)
+check("artillery: cannon shells in the air, the barrage of eight logged, the hull on the smoke wrecked", barrage and seen >= 1 and wrecked, f"barrage {barrage}; shells seen {seen}; hull [{st[:60]}]")
+c(f"execute as @e[type=superbwarfare:bmp_2,x={X - 60},y={Y - 10},z={Z - 60},dx=120,dy=40,dz=120] run data modify entity @s Health set value -99999f")
 
 # 4. the Cobra
 c("gscraft strike reset")
 mark = LOG.stat().st_size
 t0 = time.time()
 c(f"gscraft strike air {X} {Y} {Z}")
-heli_at, rockets, rounds, off = None, 0, 0, False
+heli_at, rockets, rounds, off, power, rotor = None, 0, 0, False, None, None
 while time.time() - t0 < 95:
     time.sleep(1)
     h = near("dragonrise_reforge:ah1f", 400)
     if h and heli_at is None:
         heli_at = time.time() - t0
+    if h and time.time() - t0 - (heli_at or 0) >= 3 and power is None:
+        # the engine: power held at full, the rotor turning (the mod's synched rotor lerps to the power)
+        nbt = c(f"data get entity @e[type=dragonrise_reforge:ah1f,x={X - 400},y=-64,z={Z - 400},dx=800,dy=384,dz=800,limit=1] Power")
+        rot = c(f"data get entity @e[type=dragonrise_reforge:ah1f,x={X - 400},y=-64,z={Z - 400},dx=800,dy=384,dz=800,limit=1] PropellerRot")
+        power = (re.search(r"([\d.]+)f", nbt) or [None, None])[1]
+        rotor = (re.search(r"([\d.]+)f", rot) or [None, None])[1]
     rockets = max(rockets, near("superbwarfare:medium_rocket", 400))
     rounds = max(rounds, near("superbwarfare:projectile", 400))
     if "off station" in log_since(mark):
@@ -114,9 +129,9 @@ while time.time() - t0 < 95:
         break
 time.sleep(2)
 left = near("dragonrise_reforge:ah1f", 400)
-check("air: the Cobra within 35 s, rockets and rounds seen, off station within 60 s, none left",
-      heli_at is not None and heli_at <= 35 and rockets >= 1 and rounds >= 1 and off and off <= 65 and left == 0,
-      f"heli at {heli_at and round(heli_at, 1)} s; rockets {rockets}; rounds {rounds}; off at {off and round(off, 1)} s; left {left}")
+check("air: the Cobra within 35 s at full power with the rotor turning, rockets and rounds seen, off station within 60 s, none left",
+      heli_at is not None and heli_at <= 35 and power is not None and float(power) >= 0.9 and rotor is not None and float(rotor) >= 0.5 and rockets >= 1 and rounds >= 1 and off and off <= 65 and left == 0,
+      f"heli at {heli_at and round(heli_at, 1)} s; power {power}; rotor {rotor}; rockets {rockets}; rounds {rounds}; off at {off and round(off, 1)} s; left {left}")
 
 c("gscraft strike reset")
 c(f"kill @e[type=superbwarfare:mortar_shell]")

@@ -42,8 +42,8 @@ public final class Strikes {
 
     public enum Kind { MORTAR, ARTILLERY, AIR }
 
-    // the settings (strike.*)
-    public static int COOLDOWN = 6000;
+    // the settings (strike.*); a cooldown per grenade, not one for all (owner, 2026-09-13)
+    public static int COOLDOWN_MORTAR = 3600, COOLDOWN_ARTILLERY = 6000, COOLDOWN_AIR = 9600;
     public static int MORTAR_DELAY = 300, MORTAR_BARRAGE = 6, MORTAR_GAP = 30, MORTAR_SCATTER = 6;
     public static float MORTAR_DAMAGE = 60f, MORTAR_EXPLOSION = 80f, MORTAR_RADIUS = 5f;
     public static int ARTY_DELAY = 400, ARTY_BARRAGE = 8, ARTY_GAP = 25, ARTY_SCATTER = 12;
@@ -55,15 +55,41 @@ public final class Strikes {
 
     private static final List<Task> TASKS = new ArrayList<>();
     private static final List<AirRun> RUNS = new ArrayList<>();
-    private static long cooldownUntil;
+    private static final java.util.EnumMap<Kind, Long> COOLDOWN_UNTIL = new java.util.EnumMap<>(Kind.class);
     private static String lastCall = "";
 
-    public static boolean hot(MinecraftServer server) {
-        return server.getTickCount() < cooldownUntil;
+    public static int cooldown(Kind kind) {
+        return switch (kind) {
+            case MORTAR -> COOLDOWN_MORTAR;
+            case ARTILLERY -> COOLDOWN_ARTILLERY;
+            case AIR -> COOLDOWN_AIR;
+        };
     }
 
-    public static String hotFor(MinecraftServer server) {
-        return mmss(cooldownUntil - server.getTickCount());
+    public static boolean hot(MinecraftServer server, Kind kind) {
+        return server.getTickCount() < COOLDOWN_UNTIL.getOrDefault(kind, 0L);
+    }
+
+    public static String hotFor(MinecraftServer server, Kind kind) {
+        return mmss(COOLDOWN_UNTIL.getOrDefault(kind, 0L) - server.getTickCount());
+    }
+
+    /** the refusal in the caller's words: the tube, the guns, the Cobra */
+    public static String refusal(MinecraftServer server, Kind kind) {
+        return switch (kind) {
+            case MORTAR -> "the tube is hot: " + hotFor(server, kind);
+            case ARTILLERY -> "the guns are hot: " + hotFor(server, kind);
+            case AIR -> "the Cobra is refuelling: " + hotFor(server, kind);
+        };
+    }
+
+    /** the line the refusal comes with: Marshall for the tube and the guns, Tune for the Cobra */
+    public static String[] refusalLine(Kind kind) {
+        return switch (kind) {
+            case MORTAR -> new String[]{"marshall", "tube_hot"};
+            case ARTILLERY -> new String[]{"marshall", "guns_hot"};
+            case AIR -> new String[]{"tune", "air_busy"};
+        };
     }
 
     static String mmss(long ticks) {
@@ -78,8 +104,8 @@ public final class Strikes {
     /** the call: accepted (null) or the refusal; the cooldown starts, everyone hears it */
     public static String call(ServerLevel level, Kind kind, BlockPos target, ServerPlayer caller) {
         MinecraftServer server = level.getServer();
-        if (hot(server)) return "the tube is hot: " + hotFor(server) + " (" + lastCall + ")";
-        cooldownUntil = server.getTickCount() + COOLDOWN;
+        if (hot(server, kind)) return refusal(server, kind) + " (" + lastCall + ")";
+        COOLDOWN_UNTIL.put(kind, server.getTickCount() + (long) cooldown(kind));
         lastCall = kind.name().toLowerCase(Locale.ROOT) + " at " + target.toShortString();
         BlockPos ground = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, target);
         switch (kind) {
@@ -179,12 +205,14 @@ public final class Strikes {
                 .then(Commands.literal("strike")
                         .then(Commands.literal("status").executes(ctx -> {
                             MinecraftServer server = ctx.getSource().getServer();
-                            String line = (hot(server) ? "hot for " + hotFor(server) + " (" + lastCall + ")" : "ready") + "; " + TASKS.size() + " rounds scheduled, " + RUNS.size() + " runs";
+                            StringBuilder sb = new StringBuilder();
+                            for (Kind k : Kind.values()) sb.append(k.name().toLowerCase(Locale.ROOT)).append(' ').append(hot(server, k) ? "hot " + hotFor(server, k) : "ready").append("; ");
+                            String line = sb + "last " + (lastCall.isEmpty() ? "none" : lastCall) + "; " + TASKS.size() + " rounds scheduled, " + RUNS.size() + " runs";
                             ctx.getSource().sendSuccess(() -> Component.literal(line), false);
                             return 1;
                         }))
                         .then(Commands.literal("reset").executes(ctx -> {
-                            cooldownUntil = 0;
+                            COOLDOWN_UNTIL.clear();
                             TASKS.clear();
                             for (AirRun r : RUNS) r.abort();
                             RUNS.clear();

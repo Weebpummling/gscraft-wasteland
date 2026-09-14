@@ -27,7 +27,7 @@ import java.util.List;
  */
 public final class AirRun {
     public static String HELI = "dragonrise_reforge:ah1f";
-    public static int RANGE = 300, HEIGHT = 35, ROCKET_FROM = 120, ROCKET_TO = 60, GUN_RANGE = 60, ROCKETS = 8;
+    public static int RANGE = 300, HEIGHT = 55, ROCKET_FROM = 120, ROCKET_TO = 60, GUN_RANGE = 60, ROCKETS = 8;
     public static double SPEED = 1.2;
     public static float ROCKET_DAMAGE = 90f, ROCKET_EXPLOSION = 120f, ROCKET_RADIUS = 6f, GUN_DAMAGE = 14f;
     public static int GUN_EVERY = 2, GUN_TARGETS = 12;
@@ -51,6 +51,13 @@ public final class AirRun {
         level.setChunkForced(cx, cz, true);
         forcedX = cx;
         forcedZ = cz;
+    }
+
+    /** the engine on: power held at full every tick, so the rotor spins (the mod lerps its rotor to the power) and the engine sound plays on every client */
+    private void engine() {
+        Sw.set(heli, "setEngineStart", true);
+        Sw.set(heli, "setEngineStartOver", true);
+        Sw.set(heli, "setPower", 1.0f);
     }
 
     private void release() {
@@ -109,6 +116,7 @@ public final class AirRun {
         Vec3 pos = heli.position().add(dir.scale(SPEED));
         forceUnder(pos);
         heli.setPos(pos);
+        engine();
         heli.setYRot(heading);
         heli.setDeltaMovement(Vec3.ZERO);
         heli.hurtMarked = true;

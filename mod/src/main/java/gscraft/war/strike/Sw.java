@@ -34,6 +34,16 @@ final class Sw {
         }
     }
 
+    /** calls a one-boolean setter such as setEngineStart(boolean) if the entity has it */
+    static void set(Entity e, String method, boolean value) {
+        try {
+            Method m = e.getClass().getMethod(method, boolean.class);
+            m.invoke(e, value);
+        } catch (ReflectiveOperationException | RuntimeException ex) {
+            if (warned.add(e.getClass().getSimpleName() + "." + method)) GscraftWar.LOG.warn("[gscraft] strike: {} has no {}(boolean): {}", e.getClass().getSimpleName(), method, ex.toString());
+        }
+    }
+
     /** calls setType(<enum>) with the constant of that name if the entity has such a setter */
     @SuppressWarnings({"unchecked", "rawtypes"})
     static void type(Entity e, String constant) {

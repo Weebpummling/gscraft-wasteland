@@ -413,6 +413,19 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, the strikes' third pass:** the guns did no proper vehicle damage because every matching vehicle damage rule
+multiplies in turn (SW `DamageModifier.compute`) and a cannon shell only matched `custom_explosion 0.4`: `tools/armour_override.py`
+adds `@superbwarfare:cannon_shell * 3` and `@superbwarfare:medium_rocket * 2` to both lists (installed locally; live gets it
+with the datapack). `RetreatGoal.groundAlong`: the withdrawal probes the ground three and six blocks along the way and never
+backs off a drop or into water (the other way if safe, else it holds). Phase 38 now wrecks a bare BMP on the smoke with the
+guns; phase 37 green with the probe.
+
+**2026-09-13, the strikes' second pass:** a cooldown per grenade (`Strikes.COOLDOWN_MORTAR|ARTILLERY|AIR`, `strike.cooldown_*`;
+refusals in the right voice: `marshall.tube_hot|guns_hot`, `tune.air_busy`); the Cobra's engine held on every tick of the run
+(`AirRun.engine`: setEngineStart, setEngineStartOver, setPower 1 by reflection - the mod lerps the rotor to the power and its
+client plays the engine sound when the power comes up) and 55 blocks up (`strike.air_height`). Phase 38 also checks that a
+mortar call leaves the guns ready and that the Cobra's Power and PropellerRot read full in flight.
+
 **2026-09-13, the HUD in a vehicle, the creative tab and the fire missions (rulings R31-R32; design
 `docs/gscraft-strikes-2026-09-13.md`):** `client/VehicleHud` hides the vanilla health and armour overlays and the wounds
 figure while riding anything not living. `ModTab`: the *GSCraft Wasteland* creative tab. `gscraft.war.strike`: `Strikes`

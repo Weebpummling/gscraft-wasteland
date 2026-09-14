@@ -81,8 +81,8 @@ called by the loop; the takes' torches are `function gscraft:torch_<name>`.
 | Command | What it does |
 |---|---|
 | `/gscraft strike <mortar|artillery|air> <x y z>` | the call a landed grenade would make, from the console (no owner on the rounds): the spotting round, the barrage, or the Cobra's run; refused while the tube is hot |
-| `/gscraft strike status` | ready or hot (with the last call), rounds scheduled, runs in the air |
-| `/gscraft strike reset` | the tube cold, every scheduled round dropped, any Cobra unloaded |
+| `/gscraft strike status` | each grenade ready or hot, the last call, rounds scheduled, runs in the air |
+| `/gscraft strike reset` | every cooldown cleared, every scheduled round dropped, any Cobra unloaded |
 | `/function gscraft:yard_mortar` | the tube stands in the yard (The tube's reward) |
 
 The numbers are settings under `strike.*` (`/gscraft settings strike`). The design is `docs/gscraft-strikes-2026-09-13.md`.
