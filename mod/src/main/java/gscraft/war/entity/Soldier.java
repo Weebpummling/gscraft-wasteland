@@ -135,10 +135,11 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
         goalSelector.addGoal(4, new OrderGoal(this));
         goalSelector.addGoal(5, new PatrolGoal(this));
         goalSelector.addGoal(5, new SquadFollowGoal(this));
+        goalSelector.addGoal(1, new AvoidVehicleGoal(this));   // never against a hull (owner 2026-09-13)
         goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.1D, false) {
             @Override
             public boolean canUse() {
-                return (!IGun.mainHandHoldGun(mob) || state.outOfAmmo) && super.canUse();
+                return !GunAttackGoal.ridesHull(mob.getTarget()) && (!IGun.mainHandHoldGun(mob) || state.outOfAmmo) && super.canUse();
             }
         });
         // assigned here, not at the field: Mob's constructor calls registerGoals before field initialisers run

@@ -39,6 +39,8 @@ public class FightGoal extends Goal {
     public static int LOST_TICKS = 100;
     public static int RETARGET_TICKS = 60;
     public static double VIEW_CONE_DRIVER = 120.0D;
+    /** the hull's front is always in view, whatever the turret is doing: the crew looks out of the front */
+    public static double FRONT_CONE = 100.0D;
     public static double VIEW_CONE_GUNNER = 200.0D;
     public static int ALERT_TICKS = 400;
     public static double FRIENDLY_RADIUS = 2.5D;
@@ -69,13 +71,15 @@ public class FightGoal extends Goal {
         if (crew.tickCount % 5 != 0) return false;
         LivingEntity best = pick(v);
         if (best == null) {
-            candidate = null;
-            candidateTicks = 0;
+            // out of the cone for a moment (the sweep passing by): the timer decays, it is not thrown away (owner 2026-09-13: a BMP
+            // would not engage NATO it could clearly see)
+            candidateTicks = Math.max(0, candidateTicks - 5);
+            if (candidateTicks == 0) candidate = null;
             return false;
         }
         if (best != candidate) {
             candidate = best;
-            candidateTicks = 0;
+            candidateTicks = candidateTicks / 2;   // a better target inherits half the look the last one had
         }
         candidateTicks += crew.watchUntil > now ? 10 : 5;   // under fire the crew makes its mind up twice as fast
         // a target the other crew already engages is known at once
@@ -222,7 +226,7 @@ public class FightGoal extends Goal {
         double bestScore = -1.0D;
         for (LivingEntity e : level.getEntitiesOfClass(LivingEntity.class, v.getBoundingBox().inflate(ENGAGE), e -> e != crew && valid(v, e))) {
             if (v.distanceTo(e) > ENGAGE) continue;
-            if (!allRound && !Armour.engagedBy(v, e) && !inCone(v, e, half, centre)) continue;
+            if (!allRound && !Armour.engagedBy(v, e) && !inCone(v, e, half, centre) && !inCone(v, e, FRONT_CONE * 0.5D, v.getYRot())) continue;
             if (!sees(v, e)) continue;
             double s = score(v, e);
             if (s > bestScore) {

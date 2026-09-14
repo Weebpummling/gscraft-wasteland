@@ -6,6 +6,7 @@ seconds with nothing about; a rifleman straight behind it is not seen by the swe
 turret onto his bearing and the crew engages him. The turret turning on screen is the owner's in-game check.
 
 1. A holding BMP with nothing about sweeps its turret: the yaw read three seconds apart differs.
+1b. A rifleman ahead is engaged within eight seconds with no hit.
 2. A rifleman straight behind the hull, out of the sweep's reach, is not engaged in eight seconds.
 3. Hit from him, the crew engages him within eight seconds and the turret lays toward his bearing.
 4. No gscraft errors.
@@ -76,6 +77,19 @@ time.sleep(3)
 t2 = turret()
 moved = t0 is not None and t1 is not None and t2 is not None and (abs(t1 - t0) > 2 or abs(t2 - t1) > 2)
 check("a holding BMP with nothing about sweeps its turret", "placed" in out and moved, f"[{out[:50]}]; turret yaw {t0} -> {t1} -> {t2}; hull {hull()}")
+
+# 1b. a rifleman ahead, in the hull's front, is engaged without a hit (owner: a BMP would not engage NATO it could see)
+mark = LOG.stat().st_size
+c(f'summon gscraft:nato_soldier {X} {Y} {Z + 22} {{Tags:["p39a"],NoAI:1b,GscraftRank:"NATO Rifleman",{HP}}}')
+ahead_at = None
+for i in range(16):
+    time.sleep(0.5)
+    if "engages" in log_since(mark):
+        ahead_at = (i + 1) * 0.5
+        break
+check("a rifleman ahead is engaged within eight seconds with no hit", ahead_at is not None, f"engaged at {ahead_at} s; turret {turret()}")
+c("kill @e[tag=p39a]")
+time.sleep(8)   # the engagement drops (lost ticks) before the next check
 
 # 2. straight behind, out of the sweep's reach: the hull faces +z (yaw 0), behind is -z
 mark = LOG.stat().st_size

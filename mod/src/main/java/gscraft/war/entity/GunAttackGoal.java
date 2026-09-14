@@ -43,6 +43,15 @@ public class GunAttackGoal extends Goal {
     public static double HOLD_FACTOR = 1.2D;
     public static int SUPPRESS_TICKS = 40;
     private static final double RAD_TO_DEG = 180.0D / Math.PI;
+    /** against a target riding a hull the fighter holds off at least this far, and backs away when closer than the backoff (owner 2026-09-13) */
+    public static double VEHICLE_STANDOFF = 24.0D;
+    public static double VEHICLE_BACKOFF = 14.0D;
+
+    /** the target rides a hull (a crew in its seat, a player driving): not something to close with */
+    public static boolean ridesHull(LivingEntity target) {
+        return target != null && target.getVehicle() != null && !(target.getVehicle() instanceof LivingEntity);
+    }
+
     public static double MARKSMAN_MIN_DIST = 16.0D;
     public static double MARKSMAN_PRONE_DIST = 32.0D;
     private static final double SHIELD_LOWER_DIST = 12.0D;
@@ -290,7 +299,7 @@ public class GunAttackGoal extends Goal {
         }
         // cover only once the fighter has closed to its holding distance (the squad bounds beyond it); a fighter that
         // dug in at forty blocks never advanced - the Marksman's hold is its full range, so it digs in where it stands
-        double hold = role.range * role.holdAt * HOLD_FACTOR;
+        double hold = Math.max(role.range * role.holdAt, ridesHull(target) ? VEHICLE_STANDOFF : 0) * HOLD_FACTOR;
         if (distSqr > hold * hold) return;
         if (--coverSearch > 0) return;
         coverSearch = COVER_SEARCH_EVERY;
@@ -360,8 +369,14 @@ public class GunAttackGoal extends Goal {
             Vec3 away = DefaultRandomPos.getPosAway(mob, 16, 7, target.position());
             if (away != null) mob.getNavigation().moveTo(away.x, away.y, away.z, speed * 1.15D);
             moving = true;
+        } else if (ridesHull(target) && distSqr < VEHICLE_BACKOFF * VEHICLE_BACKOFF) {
+            // never up against a hull: back off to the standoff and fire from there
+            Vec3 away = DefaultRandomPos.getPosAway(mob, 16, 7, target.position());
+            if (away != null) mob.getNavigation().moveTo(away.x, away.y, away.z, speed * 1.15D);
+            mob.setSprinting(false);
+            moving = true;
         } else {
-            double hold = role.range * role.holdAt;
+            double hold = Math.max(role.range * role.holdAt, ridesHull(target) ? VEHICLE_STANDOFF : 0);
             moving = !canSee || distSqr > hold * hold;
             if (moving) {
                 mob.getNavigation().moveTo(target, speed);

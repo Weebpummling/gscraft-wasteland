@@ -110,7 +110,7 @@ c("gscraft strike reset")
 mark = LOG.stat().st_size
 t0 = time.time()
 c(f"gscraft strike air {X} {Y} {Z}")
-heli_at, rockets, rounds, off, power, rotor = None, 0, 0, False, None, None
+heli_at, rockets, rounds, off, power, rotor, alt = None, 0, 0, False, None, None, None
 while time.time() - t0 < 95:
     time.sleep(1)
     h = near("dragonrise_reforge:ah1f", 400)
@@ -121,6 +121,8 @@ while time.time() - t0 < 95:
         nbt = c(f"data get entity @e[type=dragonrise_reforge:ah1f,x={X - 400},y=-64,z={Z - 400},dx=800,dy=384,dz=800,limit=1] Power")
         rot = c(f"data get entity @e[type=dragonrise_reforge:ah1f,x={X - 400},y=-64,z={Z - 400},dx=800,dy=384,dz=800,limit=1] PropellerRot")
         power = (re.search(r"([\d.]+)f", nbt) or [None, None])[1]
+        posn = c(f"data get entity @e[type=dragonrise_reforge:ah1f,x={X - 400},y=-64,z={Z - 400},dx=800,dy=384,dz=800,limit=1] Pos")
+        alt = (re.search(r"d, (-?[\d.]+)d, ", posn) or [None, None])[1]
         rotor = (re.search(r"([\d.]+)f", rot) or [None, None])[1]
     rockets = max(rockets, near("superbwarfare:medium_rocket", 400))
     rounds = max(rounds, near("superbwarfare:projectile", 400))
@@ -130,8 +132,8 @@ while time.time() - t0 < 95:
 time.sleep(2)
 left = near("dragonrise_reforge:ah1f", 400)
 check("air: the Cobra within 35 s at full power with the rotor turning, rockets and rounds seen, off station within 60 s, none left",
-      heli_at is not None and heli_at <= 25 and power is not None and float(power) >= 0.9 and rotor is not None and float(rotor) >= 0.5 and rockets >= 1 and rounds >= 1 and off and off <= 65 and left == 0,
-      f"heli at {heli_at and round(heli_at, 1)} s; power {power}; rotor {rotor}; rockets {rockets}; rounds {rounds}; off at {off and round(off, 1)} s; left {left}")
+      heli_at is not None and heli_at <= 25 and power is not None and float(power) >= 0.9 and rotor is not None and float(rotor) >= 0.5 and alt is not None and abs(float(alt) - (Y + 55)) <= 4 and rockets >= 1 and rounds >= 1 and off and off <= 65 and left == 0,
+      f"heli at {heli_at and round(heli_at, 1)} s; power {power}; rotor {rotor}; height {alt} (want {Y + 55}); rockets {rockets}; rounds {rounds}; off at {off and round(off, 1)} s; left {left}")
 
 c("gscraft strike reset")
 c(f"kill @e[type=superbwarfare:mortar_shell]")

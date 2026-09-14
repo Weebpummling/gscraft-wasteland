@@ -113,11 +113,15 @@ public final class AirRun {
             GscraftWar.LOG.info("[gscraft] strike: the helicopter is hit, breaking off");
             Strikes.tell("tune", "air_hit", level.getServer());
         }
-        Vec3 pos = heli.position().add(dir.scale(SPEED));
+        // the position is the line's, from the start by the tick count: the engine's own lift and pitch (the mod flies a
+        // powered hull) were compounding into the current position and the Cobra climbed out of sight (owner 2026-09-13)
+        Vec3 pos = start.add(dir.scale(SPEED * t));
         forceUnder(pos);
         heli.setPos(pos);
         engine();
         heli.setYRot(heading);
+        heli.setXRot(0f);
+        Sw.set(heli, "setZRot", 0f);
         heli.setDeltaMovement(Vec3.ZERO);
         heli.hurtMarked = true;
         if (t % 20 == 1) Strikes.sound(level, heli.blockPosition(), "ah_6_engine", 4f, 0.8f);

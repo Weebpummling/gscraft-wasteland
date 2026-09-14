@@ -413,6 +413,17 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, the fighters off the hulls, the crews' front cone, the Cobra pinned to its line:** (1) `GunAttackGoal.ridesHull`:
+against a target riding a hull the hold is at least `fight.vehicle_standoff` (24) and inside `fight.vehicle_backoff` (14) the
+fighter backs away; the melee goals (Soldier, Scavenger) never take a hull target; `entity/AvoidVehicleGoal` (priority 1) steps a
+fighter out of any hull's box grown by `fight.vehicle_clearance` (1.5) - boarding within four still works. (2) the BMP not
+engaging NATO it could see: the scan's cone dropped a front target at the sweep's ends and the acquisition timer reset each
+time; now the hull's front (`armour.front_cone` 100) is always in view and a candidate out of the cone decays its timer instead
+of losing it (a better target inherits half). (3) the Cobra never arrived after the engine change: with power held the mod's
+own lift compounded into the current position and it climbed away; `AirRun` now computes the tick's position from the start
+point and zeroes pitch and roll; phase 38 checks the height held. `tools/war_phase40.py` (the standoff, the clearance);
+phase 39 gains the rifleman ahead. Built; the cycle and the runs waited for the owner to be off.
+
 **2026-09-13, the crews' visual scan (ruling R33):** `Crew.scan` lays the turret (`Vehicles.setTurretYaw`, SW `setTurretYRot`)
 on a slow sweep about the hull's heading when nothing is engaged; a health drop with a known last attacker sets `watchYaw` and
 the sweep searches narrowly about it; `FightGoal.pick` centres the cone on `scanYaw` (a gunner's on the hull), widens it and
