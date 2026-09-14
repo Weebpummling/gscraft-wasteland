@@ -77,7 +77,7 @@ public class FightGoal extends Goal {
             candidate = best;
             candidateTicks = 0;
         }
-        candidateTicks += 5;
+        candidateTicks += crew.watchUntil > now ? 10 : 5;   // under fire the crew makes its mind up twice as fast
         // a target the other crew already engages is known at once
         if (candidateTicks < ACQUIRE_TICKS && !Armour.engagedBy(v, best)) return false;
         target = candidate;
@@ -122,6 +122,7 @@ public class FightGoal extends Goal {
             if (crew.gunner()) Vehicles.setData(v, "AI_PASSENGER_WEAPON_TARGET_UUID", NONE);
             else Vehicles.setData(v, "AI_TURRET_TARGET_UUID", NONE);
         }
+        if (v != null && !crew.gunner()) crew.scanYaw = Vehicles.turretYaw(v);   // the sweep resumes from where the turret was left
         target = null;
         candidate = null;
         candidateTicks = 0;
@@ -212,13 +213,16 @@ public class FightGoal extends Goal {
     private LivingEntity pick(Entity v) {
         if (!(crew.level() instanceof ServerLevel level)) return null;
         long now = level.getGameTime();
-        boolean allRound = crew.alertUntil > now;
-        double half = (crew.gunner() ? VIEW_CONE_GUNNER : VIEW_CONE_DRIVER) * 0.5D;
+        // hit by something known: the cone follows the scan turned onto its bearing; hit by nothing known: all round, as before
+        boolean watching = crew.watchUntil > now && !Float.isNaN(crew.watchYaw);
+        boolean allRound = crew.alertUntil > now && !watching;
+        double half = (crew.gunner() ? VIEW_CONE_GUNNER : VIEW_CONE_DRIVER) * 0.5D + (watching ? 20.0D : 0.0D);
+        float centre = crew.gunner() || Float.isNaN(crew.scanYaw) ? v.getYRot() : crew.scanYaw;
         LivingEntity best = null;
         double bestScore = -1.0D;
         for (LivingEntity e : level.getEntitiesOfClass(LivingEntity.class, v.getBoundingBox().inflate(ENGAGE), e -> e != crew && valid(v, e))) {
             if (v.distanceTo(e) > ENGAGE) continue;
-            if (!allRound && !Armour.engagedBy(v, e) && !inCone(v, e, half)) continue;
+            if (!allRound && !Armour.engagedBy(v, e) && !inCone(v, e, half, centre)) continue;
             if (!sees(v, e)) continue;
             double s = score(v, e);
             if (s > bestScore) {
@@ -239,13 +243,13 @@ public class FightGoal extends Goal {
         return e instanceof Mob && Factions.hostile(crew, e);
     }
 
-    /** the threat's bearing against the hull's heading */
-    private static boolean inCone(Entity v, LivingEntity e, double halfDegrees) {
+    /** the threat's bearing against the cone's centre: the scan's heading for a driver, the hull's for a gunner */
+    private static boolean inCone(Entity v, LivingEntity e, double halfDegrees, float centre) {
         double dx = e.getX() - v.getX();
         double dz = e.getZ() - v.getZ();
         if (dx * dx + dz * dz < 4.0D) return true;
         float bearing = (float) Math.toDegrees(Math.atan2(-dx, dz));
-        return Math.abs(Mth.wrapDegrees(bearing - v.getYRot())) <= halfDegrees;
+        return Math.abs(Mth.wrapDegrees(bearing - centre)) <= halfDegrees;
     }
 
     private static Vec3 turret(Entity v) {

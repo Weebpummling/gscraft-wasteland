@@ -413,6 +413,16 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, the crews' visual scan (ruling R33):** `Crew.scan` lays the turret (`Vehicles.setTurretYaw`, SW `setTurretYRot`)
+on a slow sweep about the hull's heading when nothing is engaged; a health drop with a known last attacker sets `watchYaw` and
+the sweep searches narrowly about it; `FightGoal.pick` centres the cone on `scanYaw` (a gunner's on the hull), widens it and
+counts acquisition twice as fast while watching; `stop` resumes the sweep from where the turret was left. Settings
+`armour.scan_arc|scan_period_ticks|scan_slew|watch_arc`. `tools/war_phase39.py` (4/4: the sweep -8 -> -68 -> 8 in six
+seconds, a rifleman straight behind unseen by the sweep, engaged 3 s after his hit with the turret at -180). Phases 33 (the
+survivors' invulnerability, 8/8) and 38 (the Cobra at 21 s) green on this jar; the local server runs it.
+
+**2026-09-13, the Cobra at 20 s** (owner): `Strikes.AIR_DELAY` 400, the tip and Marshall's line say twenty; phase 38 expects it within 25 s. Cycled onto the local server on the owner's word while they were on.
+
 **2026-09-13, the grenade shows its clock:** "the Cobra is not summoned any more" was its own eight-minute cooldown (the log:
 the run at 19:01:36 flew, the next calls fell inside the clock). The grenade now carries the vanilla cooldown sweep in the
 hotbar: the whole clock for the thrower when the smoke lands, what is left of it for anyone whose throw is refused

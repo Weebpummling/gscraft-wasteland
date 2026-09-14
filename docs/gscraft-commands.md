@@ -85,7 +85,7 @@ called by the loop; the takes' torches are `function gscraft:torch_<name>`.
 | `/gscraft strike reset` | every cooldown cleared, every scheduled round dropped, any Cobra unloaded |
 | `/function gscraft:yard_mortar` | the tube stands in the yard (The tube's reward) |
 
-The numbers are settings under `strike.*` (`/gscraft settings strike`). The design is `docs/gscraft-strikes-2026-09-13.md`.
+The numbers are settings under `strike.*` (`/gscraft settings strike`); the crews' turret sweep and its focus under fire are `armour.scan_arc`, `armour.scan_period_ticks`, `armour.scan_slew`, `armour.watch_arc`. The design is `docs/gscraft-strikes-2026-09-13.md`.
 
 ## 5. The director and the zones
 

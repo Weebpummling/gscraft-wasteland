@@ -153,6 +153,10 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("station.speed", () -> gscraft.war.station.Orders.SPEED, v -> gscraft.war.station.Orders.SPEED = v, "multiplies every station order's time (the yard's tiers: 0.85, 0.7, 0.5)");
         i("say.spacing_ticks", () -> gscraft.war.survivor.Say.SPACING, v -> gscraft.war.survivor.Say.SPACING = (int) v, "ticks between one player's radio lines");
         i("say.collapse", () -> gscraft.war.survivor.Say.COLLAPSE, v -> gscraft.war.survivor.Say.COLLAPSE = (int) v, "a queue longer than this collapses to the newest line per speaker");
+        d("armour.scan_arc", () -> gscraft.war.armour.Crew.SCAN_ARC, v -> gscraft.war.armour.Crew.SCAN_ARC = (float) v, "the turret's sweep either side of the hull's heading with nothing engaged");
+        i("armour.scan_period_ticks", () -> gscraft.war.armour.Crew.SCAN_PERIOD, v -> gscraft.war.armour.Crew.SCAN_PERIOD = (int) v, "ticks for one full sweep");
+        d("armour.scan_slew", () -> gscraft.war.armour.Crew.SCAN_SLEW, v -> gscraft.war.armour.Crew.SCAN_SLEW = (float) v, "degrees a tick the turret turns while scanning");
+        d("armour.watch_arc", () -> gscraft.war.armour.Crew.WATCH_ARC, v -> gscraft.war.armour.Crew.WATCH_ARC = (float) v, "the narrow search either side of the bearing the fire came from");
         i("armour.calm_ticks", () -> gscraft.war.armour.FightGoal.CALM_TICKS, v -> gscraft.war.armour.FightGoal.CALM_TICKS = (int) v, "no fighting for this long after a withdrawal");
         d("armour.place_min", () -> gscraft.war.armour.Patrols.PLACE_MIN, v -> gscraft.war.armour.Patrols.PLACE_MIN = v, "an armour group is placed no nearer than this to anyone (a tank should be heard first)");
         d("armour.place_max", () -> gscraft.war.armour.Patrols.PLACE_MAX, v -> gscraft.war.armour.Patrols.PLACE_MAX = v, "and no further than this from the player it is rolled for");

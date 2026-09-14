@@ -48,7 +48,7 @@ public final class Strikes {
     public static float MORTAR_DAMAGE = 60f, MORTAR_EXPLOSION = 80f, MORTAR_RADIUS = 5f;
     public static int ARTY_DELAY = 400, ARTY_BARRAGE = 8, ARTY_GAP = 25, ARTY_SCATTER = 12;
     public static float ARTY_DAMAGE = 120f, ARTY_EXPLOSION = 160f, ARTY_RADIUS = 9f;
-    public static int AIR_DELAY = 600;
+    public static int AIR_DELAY = 400;   // 20 s to the airframe, like the guns (owner, 2026-09-13)
     public static int DROP_HEIGHT = 70;
 
     private record Task(long at, Runnable run) {}

@@ -10,7 +10,7 @@ sounds are the owner's in-game check (`/give @s gscraft:strike_mortar`).
 1. The three strike items and the shell card are registered; the shell order exists.
 2. Mortar: the spotting round at ~15 s, the barrage of six after; mortar shells seen in the air; the call refused meanwhile.
 3. Artillery (after a reset): cannon shells seen; the barrage of eight logged; a bare BMP on the smoke wrecked.
-4. Air (after a reset): the Cobra seen within 35 s at full power with the rotor turning, rockets and gun rounds seen, off station within 60 s, none left.
+4. Air (after a reset): the Cobra seen within 25 s at full power with the rotor turning, rockets and gun rounds seen, off station within 60 s, none left.
 5. No gscraft errors.
 """
 import re
@@ -130,7 +130,7 @@ while time.time() - t0 < 95:
 time.sleep(2)
 left = near("dragonrise_reforge:ah1f", 400)
 check("air: the Cobra within 35 s at full power with the rotor turning, rockets and rounds seen, off station within 60 s, none left",
-      heli_at is not None and heli_at <= 35 and power is not None and float(power) >= 0.9 and rotor is not None and float(rotor) >= 0.5 and rockets >= 1 and rounds >= 1 and off and off <= 65 and left == 0,
+      heli_at is not None and heli_at <= 25 and power is not None and float(power) >= 0.9 and rotor is not None and float(rotor) >= 0.5 and rockets >= 1 and rounds >= 1 and off and off <= 65 and left == 0,
       f"heli at {heli_at and round(heli_at, 1)} s; power {power}; rotor {rotor}; rockets {rockets}; rounds {rounds}; off at {off and round(off, 1)} s; left {left}")
 
 c("gscraft strike reset")

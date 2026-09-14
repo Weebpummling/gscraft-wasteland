@@ -75,6 +75,16 @@ public class Crew extends Mob implements FactionMember {
     public static int REBOARD_TICKS = 600;
     private int lastDismount = -100000;
     /** at or under this share of health the crew bails (owner 2026-09-12: about a half - 0.6, so one rocket from the front (the mod scales a frontal hit by 0.85) still does it on light armour) */
+    /** the visual scan (owner 2026-09-13: crews had trouble acquiring): with nothing engaged the turret sweeps slowly across
+     *  the arc either side of the hull's heading, the detection cone riding on it; a hit turns the sweep onto the fire's bearing */
+    public static float SCAN_ARC = 70.0F;
+    public static int SCAN_PERIOD = 240;
+    public static float SCAN_SLEW = 1.5F;
+    public static float WATCH_ARC = 25.0F;
+    public float scanYaw = Float.NaN;
+    public float watchYaw = Float.NaN;
+    public long watchUntil;
+
     public static float DISABLED_SHARE = 0.6F;
     /** the share of crews that bail when the hull is low (owner 2026-09-12: not every time); rolled once per crew, kept.
      *  A knocked-out turret always bails. */
@@ -184,6 +194,21 @@ public class Crew extends Mob implements FactionMember {
         GscraftWar.LOG.info("[gscraft] crew of {} bails out ({} crewmen) at {} health", v.getName().getString(), out, String.format("%.0f", Vehicles.health(v)));
     }
 
+    /** the turret's sweep with nothing engaged: slow, across the arc about the hull's heading; under fire a narrow search about the fire's bearing */
+    private void scan(Entity v) {
+        long now = level().getGameTime();
+        if (Float.isNaN(scanYaw)) {
+            float t = Vehicles.turretYaw(v);
+            scanYaw = Float.isNaN(t) ? v.getYRot() : t;
+        }
+        float want;
+        if (watchUntil > now && !Float.isNaN(watchYaw)) want = watchYaw + WATCH_ARC * (float) Math.sin(now * (2 * Math.PI / 60));
+        else want = v.getYRot() + SCAN_ARC * (float) Math.sin(now * (2 * Math.PI / Math.max(20, SCAN_PERIOD)));
+        float err = net.minecraft.util.Mth.wrapDegrees(want - scanYaw);
+        scanYaw = net.minecraft.util.Mth.wrapDegrees(scanYaw + net.minecraft.util.Mth.clamp(err, -SCAN_SLEW, SCAN_SLEW));
+        Vehicles.setTurretYaw(v, scanYaw);
+    }
+
     public boolean retreating(long now) {
         return now < retreatUntil;
     }
@@ -224,6 +249,12 @@ public class Crew extends Mob implements FactionMember {
             if (!Float.isNaN(lastHealth) && h < lastHealth - 0.01F) {
                 long now = level().getGameTime();
                 alertUntil = now + FightGoal.ALERT_TICKS;
+                // where the fire comes from: the scan turns onto the hitter's bearing (the mod records the last attacker)
+                Entity hitBy = Reports.lastAttacker(v);
+                if (hitBy != null) {
+                    watchYaw = (float) Math.toDegrees(Math.atan2(-(hitBy.getX() - v.getX()), hitBy.getZ() - v.getZ()));
+                    watchUntil = now + FightGoal.ALERT_TICKS;
+                }
                 // a hit with nothing engaged (holding, or shot from outside the cone) still withdraws: away from the hitter,
                 // else from the nearest player, else straight back (owner 2026-09-13: holding vehicles never withdrew)
                 if (!gunner() && !bailed && !retreating(now) && !calm(now) && FightGoal.shouldRetreat(v)) {
@@ -247,6 +278,7 @@ public class Crew extends Mob implements FactionMember {
         }
         if (!gunner() && !bailed && v != null && tickCount == BOARD_TICK) board(v);
         if (!gunner() && !bailed && v != null && tickCount % 40 == 0) escortTick(v);
+        if (!gunner() && !bailed && v != null && engaged == null && !Vehicles.wreck(v)) scan(v);
         if (!gunner() && !bailed && v != null && tickCount % 20 == 10 && ridersAboard(v) && fightReachesRiders(v)) dismount(v);
         if (!gunner() && v != null) {
             vehicleName = v.getDisplayName();

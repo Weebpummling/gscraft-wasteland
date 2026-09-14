@@ -173,6 +173,11 @@ public final class Vehicles {
         if (!Float.isNaN(max) && hasMethod(v, "setHealth", float.class)) call(v, "setHealth", new Class<?>[] {float.class}, max);
     }
 
+    /** the turret laid on a bearing (world yaw, as the hull's): the crew's scan when nothing is engaged */
+    public static void setTurretYaw(Entity v, float yaw) {
+        if (hasMethod(v, "setTurretYRot", float.class)) call(v, "setTurretYRot", new Class<?>[] {float.class}, yaw);
+    }
+
     public static float turretYaw(Entity v) {
         Object r = call(v, "getTurretYRot", new Class<?>[0]);
         return r instanceof Float f ? f : Float.NaN;

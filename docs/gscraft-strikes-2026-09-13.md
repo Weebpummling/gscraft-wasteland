@@ -42,13 +42,13 @@ lands during another's window drops back on the ground.
 |---|---|---|---|
 | Item | `gscraft:strike_mortar` | `gscraft:strike_artillery` | `gscraft:strike_air` |
 | Cooldown (its own) | 3:00 | 5:00 | 8:00 |
-| Delay to the first round | **15 s** | 20 s | 30 s to the airframe |
+| Delay to the first round | **15 s** | 20 s | 20 s to the airframe (owner, 2026-09-13: was 30) |
 | Then | a spotting round (half strength); 4 s; **six rounds**, 1.5 s apart, within 6 blocks | a spotting round; 5 s; **eight heavy rounds**, 1.25 s apart, within 12 blocks | from 120 blocks out **eight rockets** in pairs converging on the smoke; over the smoke **five seconds of guns** on anything hostile within 12 |
 | Blast per round | 80, radius 5 | 160, radius 9 | rockets 120, radius 6; a cannon round 14 |
 | On a hull (the vehicle rules multiply: `tools/armour_override.py`) | 0.6x on light, 0.4x on heavy (`@mortar_shell 1.5`) | **1.2x on light, 0.75x on heavy** (`@cannon_shell 3`): a BMP dies to one round on the smoke, a T-90 to three | rockets 0.8x light, 0.5x heavy (`@medium_rocket 2`): two rockets for a BMP; the guns nothing to a hull |
 | Breaks off | never | never | a hit on the helicopter: it flies straight out |
 | Ends | the last round | the last round | 300 blocks past the smoke the Cobra is unloaded |
-| The line | Marshall: *fire mission on the smoke, fifteen seconds* | Marshall: *guns on the smoke, fire for effect* | Marshall: *Cobra's up, thirty seconds, heads down* |
+| The line | Marshall: *fire mission on the smoke, fifteen seconds* | Marshall: *guns on the smoke, fire for effect* | Marshall: *Cobra's up, twenty seconds, heads down* |
 | Then | Tune: *splash, rounds following* | Tune: *splash* | Tune: *breaking off* / *off station* / *we lost the Cobra* |
 
 **A cooldown per grenade** (owner, 2026-09-13: not one for all): the tube three minutes, the guns five, the Cobra eight
