@@ -100,6 +100,9 @@ called by the loop; the takes' torches are `function gscraft:torch_<name>`.
 
 Placement rules in force: nothing where a player within `director.hidden_from` (64) can see it; nothing in an
 excluded zone or within its `margin` (the compound: 32); the open ring 36-72 blocks, indoors 10-24, underground 8-24.
+A vehicle patrols when the block under its stand is road: the road mod's surfaces anywhere, or a zone's listed surfaces
+(`gscraft_armour/roads.json`; Skadowsky's streets for now). `/gscraft vehicle hit` with `superbwarfare:custom_explosion`
+keeps the crew seated; a vanilla explosion type ejects it.
 
 ## 6. Fighters, squads and vehicles
 

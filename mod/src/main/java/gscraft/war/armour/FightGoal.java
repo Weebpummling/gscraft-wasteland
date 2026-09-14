@@ -173,13 +173,16 @@ public class FightGoal extends Goal {
         if (!holding) crew.setTarget(target);
     }
 
-    private boolean shouldRetreat(Entity v) {
+    /** below the retreat share of health, or with the turret out; never with the engine out (a pillbox) */
+    public static boolean shouldRetreat(Entity v) {
         float health = Vehicles.health(v);
         float max = Vehicles.maxHealth(v);
         boolean engine = Vehicles.data(v, "MAIN_ENGINE_DAMAGED", false);
         boolean turret = Vehicles.data(v, "TURRET_DAMAGED", false);
         if (engine) return false;   // cannot move: a pillbox
-        return (!Float.isNaN(health) && !Float.isNaN(max) && health < max * RETREAT_SHARE) || turret;
+        // the hull is disabled at the disabled share (Crew): a crew that can still drive withdraws first and rolls the bail only
+        // when the retreat ends with the hull still low (owner 2026-09-13: holding vehicles bailed before ever withdrawing)
+        return (!Float.isNaN(health) && !Float.isNaN(max) && health < max * Math.max(RETREAT_SHARE, Crew.DISABLED_SHARE)) || turret;
     }
 
     /** the weapon: always the seat's first (the cannon). The APC's missile has a magazine of one and the mod only

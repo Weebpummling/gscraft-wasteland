@@ -221,10 +221,25 @@ public class Crew extends Mob implements FactionMember {
         } else {
             unseated = 0;
             float h = Vehicles.health(v);
-            if (!Float.isNaN(lastHealth) && h < lastHealth - 0.01F) alertUntil = level().getGameTime() + FightGoal.ALERT_TICKS;
+            if (!Float.isNaN(lastHealth) && h < lastHealth - 0.01F) {
+                long now = level().getGameTime();
+                alertUntil = now + FightGoal.ALERT_TICKS;
+                // a hit with nothing engaged (holding, or shot from outside the cone) still withdraws: away from the hitter,
+                // else from the nearest player, else straight back (owner 2026-09-13: holding vehicles never withdrew)
+                if (!gunner() && !bailed && !retreating(now) && !calm(now) && FightGoal.shouldRetreat(v)) {
+                    Entity hitter = Reports.lastAttacker(v);
+                    Vec3 from = hitter != null ? hitter.position() : null;
+                    if (from == null) {
+                        net.minecraft.world.entity.player.Player near = level().getNearestPlayer(v, 64.0D);
+                        from = near != null ? near.position() : v.position().add(v.getLookAngle().scale(8.0D));
+                    }
+                    startRetreat(now, from);
+                }
+            }
             lastHealth = h;
         }
-        if (!gunner() && !bailed && v != null && tickCount % 10 == 0 && disabled(v) && willBail(v)) bail(v);
+        // a withdrawing crew drives, it does not climb out: the bail waits for the retreat to end (owner 2026-09-13)
+        if (!gunner() && !bailed && v != null && tickCount % 10 == 0 && !retreating(level().getGameTime()) && disabled(v) && willBail(v)) bail(v);
         if (bailed && ++bailedTicks > BAIL_WATCH) {
             GscraftWar.LOG.info("[gscraft] bailed crew of {} gives up the watch", v == null ? "nothing" : v.getName().getString());
             discard();

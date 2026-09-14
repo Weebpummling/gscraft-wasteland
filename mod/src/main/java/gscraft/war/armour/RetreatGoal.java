@@ -40,11 +40,13 @@ public class RetreatGoal extends Goal {
         if (away.horizontalDistanceSqr() < 1.0E-4D) away = new Vec3(1.0D, 0.0D, 0.0D);
         float bearing = (float) Math.toDegrees(Math.atan2(-away.x, away.z));
         float err = Mth.wrapDegrees(bearing - v.getYRot());
-        boolean forward = Math.abs(err) < 100.0F;
+        // the threat ahead: back straight out, front armour to it (a hull turning in place went nowhere - owner 2026-09-13);
+        // the way clear behind or beside: drive off, steering away
+        boolean forward = Math.abs(err) < 90.0F;
         Vehicles.input(v, "forward", forward);
-        Vehicles.input(v, "back", false);
-        Vehicles.input(v, "left", err < -DriveGoal.STEER_DEAD);
-        Vehicles.input(v, "right", err > DriveGoal.STEER_DEAD);
+        Vehicles.input(v, "back", !forward);
+        Vehicles.input(v, "left", forward && err < -DriveGoal.STEER_DEAD);
+        Vehicles.input(v, "right", forward && err > DriveGoal.STEER_DEAD);
         Vehicles.input(v, "sprint", forward && Math.abs(err) < 30.0F);
     }
 

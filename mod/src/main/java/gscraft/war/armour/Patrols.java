@@ -163,16 +163,14 @@ public final class Patrols {
 
     // ---- roads
 
-    /** a road block: the road mod's surfaces, by name */
+    /** a road block anywhere: the road mod's surfaces, by name (roads.json) */
     public static boolean isRoad(BlockState state) {
-        ResourceLocation key = ForgeRegistries.BLOCKS.getKey(state.getBlock());
-        if (key == null || !key.getNamespace().equals("furenikusroads")) return false;
-        String p = key.getPath();
-        return p.contains("road") || p.contains("street");
+        return Roads.isRoadBlock(state);
     }
 
+    /** road under a stand: the road mod's surfaces, or the zone's own listed surfaces (Skadowsky's streets, roads.json) */
     private static boolean roadUnder(ServerLevel level, BlockPos stand) {
-        return isRoad(level.getBlockState(stand.below()));
+        return Roads.isRoad(level, stand.below());
     }
 
     /** a hull's worth of room: a 5 x 4 x 5 box of air over the stand, road under the middle */

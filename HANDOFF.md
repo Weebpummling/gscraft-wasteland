@@ -413,6 +413,20 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, roads by data and the withdrawal on a hit (rulings R29-R30):** `armour/Roads` reads
+`gscraft_armour/roads.json` (namespaces: the road mod; surfaces: per-zone block lists - Skadowsky's streets for now);
+`Patrols.roadUnder` goes through it. `Crew.tick`: a health drop under the disabled share (or the turret out) starts the
+retreat from the hitter (`Reports.lastAttacker`), else the nearest player, else straight back; the bail roll is skipped
+while retreating; `FightGoal.shouldRetreat` is public static and uses max(retreat share, disabled share); `RetreatGoal`
+backs straight out when the threat is ahead (a hull turning in place went nowhere). `tools/war_phase37.py` (4/4: the
+square patrols, the far pad holds, the holding hull hit six times with the mod's own explosion backs off 20+ blocks in
+four seconds). TRAPS: a vanilla `minecraft:explosion` hit through `/gscraft vehicle hit` ejects the crew (use
+`superbwarfare:custom_explosion`); the test pad at y 200 is a platform - a withdrawing hull drives off it.
+**Incident:** at 17:18 my cycle wrapper killed the local server while the owner (FTP1312, on since 17:05) was playing:
+`cycle_local.py` had correctly refused ("players online - not cycling") and a hung-JVM check I wrapped around it
+misread the refusal and ran `taskkill`. Up to five minutes of that session (the autosave interval) may be lost. The
+wrapper is gone; the script's own refusal is final, and a hung stop is handled only after `list` says nobody is on.
+
 **2026-09-13, the commands guide:** `docs/gscraft-commands.md` - every `/gscraft` command with its arguments, the other mods' commands the slice uses, the play-test recipes; keep it current when a command is added.
 
 **2026-09-13, the director in front of the players and the compound (ruling R28):** `Director.seen` (a placement any
