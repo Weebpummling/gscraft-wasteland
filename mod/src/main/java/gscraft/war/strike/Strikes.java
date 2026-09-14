@@ -197,6 +197,10 @@ public final class Strikes {
                 GscraftWar.LOG.error("[gscraft] strike task failed: {}", ex.toString());
             }
         }
+        // an aircrew left without its airframe (a crash mid-run once did it): gone
+        if (now % 100 == 0) for (ServerLevel level : event.getServer().getAllLevels()) {
+            for (Entity e : level.getEntities().getAll()) if (e instanceof gscraft.war.armour.Crew c && c.air && c.getVehicle() == null && c.isAlive()) c.discard();
+        }
         for (Iterator<AirRun> it = RUNS.iterator(); it.hasNext(); ) {
             AirRun r = it.next();
             if (!r.tick()) it.remove();

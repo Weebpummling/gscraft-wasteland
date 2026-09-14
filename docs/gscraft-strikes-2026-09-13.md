@@ -56,8 +56,18 @@ lands during another's window drops back on the ground.
 The refusal comes in the right voice: Marshall for the tube and the guns, Tune for the Cobra. The console's
 `/gscraft strike status|reset` reads and clears all three. Every number above is a setting (`strike.*`).
 
-**The Cobra flies as itself**: its power is held at full every tick of the run, so the mod's own rotor lerp spins the
-blades and every client hears the mod's engine sound; it crosses at 55 blocks up (`strike.air_height`).
+**The Cobra is crewed** (owner, 2026-09-13: "why not have it crewed like the other vehicles and fired from inside"): a crew
+of the camp's faction sits in the seat, so the mod treats the airframe as manned (the rotor and the engine sound are its
+own), and two crews sit in it: the pilot in seat 0 and a second in seat 1, which is the airframe's turret seat (the chin gun,
+-40° to +10°). The turret crew lays and fires the 30 mm at what it sees with the mod's aiming, rate and damage; the
+pilot's Hydra pods are fixed forward and the mod's own four-degree rule never lets an AI pilot fire them, so the run
+pitches the nose onto the smoke from 90 blocks out to 45 and pulls the trigger on the airframe's weapon system
+(`vehicleShoot(pilot, "Rocket")`) every quarter second - two rockets a trigger, the mod's rockets, sound and blast. The
+line dives from 55 up at 150 out to 25 over the smoke and climbs out the same way, so the chin gun's arc reaches the
+ground. An invisible, invulnerable dummy at the
+smoke is the aim point when nothing hostile stands there; anything real outranks it. The run still flies the line (55 up,
+`strike.air_height`), holds the power up, and breaks off on a hit. The rockets hand-fired from 120 blocks out of the old
+run never arrived: 120 is past the server's simulation distance and they froze in the air.
 
 ## 3. How they are earned (Marshall's chapter)
 

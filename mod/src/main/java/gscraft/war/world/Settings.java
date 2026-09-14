@@ -76,9 +76,6 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("strike.artillery_explosion", () -> gscraft.war.strike.Strikes.ARTY_EXPLOSION, v -> gscraft.war.strike.Strikes.ARTY_EXPLOSION = (float) v, "a gun round's blast damage");
         d("strike.artillery_radius", () -> gscraft.war.strike.Strikes.ARTY_RADIUS, v -> gscraft.war.strike.Strikes.ARTY_RADIUS = (float) v, "a gun round's blast radius");
         i("strike.air_delay", () -> gscraft.war.strike.Strikes.AIR_DELAY, v -> gscraft.war.strike.Strikes.AIR_DELAY = (int) v, "ticks from the smoke to the Cobra's appearance");
-        i("strike.air_rockets", () -> gscraft.war.strike.AirRun.ROCKETS, v -> gscraft.war.strike.AirRun.ROCKETS = (int) v, "rockets in the Cobra's salvo");
-        d("strike.air_rocket_explosion", () -> gscraft.war.strike.AirRun.ROCKET_EXPLOSION, v -> gscraft.war.strike.AirRun.ROCKET_EXPLOSION = (float) v, "a rocket's blast damage");
-        d("strike.air_gun_damage", () -> gscraft.war.strike.AirRun.GUN_DAMAGE, v -> gscraft.war.strike.AirRun.GUN_DAMAGE = (float) v, "a cannon round's damage");
         i("director.hidden_from", () -> Director.HIDDEN_FROM, v -> Director.HIDDEN_FROM = (int) v, "a placement must be out of the sight of every player this close (0 = off)");
         i("director.sweep_blocks", () -> Director.SWEEP, v -> Director.SWEEP = (int) v, "an ambient placement further than this from everyone, on two passes running, is taken back");
         i("director.player_ceiling", () -> Director.PLAYER_CEILING, v -> Director.PLAYER_CEILING = (int) v, "director creatures allowed within ceiling_box of one player, whatever the ground");
@@ -162,6 +159,10 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("fight.vehicle_backoff", () -> GunAttackGoal.VEHICLE_BACKOFF, v -> GunAttackGoal.VEHICLE_BACKOFF = v, "closer than this to a hull it backs away");
         d("fight.vehicle_clearance", () -> gscraft.war.entity.AvoidVehicleGoal.CLEARANCE, v -> gscraft.war.entity.AvoidVehicleGoal.CLEARANCE = v, "blocks off any hull's box a fighter steps out of");
         i("armour.reengage_grace", () -> gscraft.war.armour.FightGoal.REENGAGE_GRACE, v -> gscraft.war.armour.FightGoal.REENGAGE_GRACE = (int) v, "a target lost this recently is engaged again without a second look");
+        d("armour.stress_hit", () -> gscraft.war.armour.Crew.STRESS_HIT, v -> gscraft.war.armour.Crew.STRESS_HIT = (float) v, "stress a hit adds to a crew, before the damage");
+        d("armour.stress_damage", () -> gscraft.war.armour.Crew.STRESS_DAMAGE, v -> gscraft.war.armour.Crew.STRESS_DAMAGE = (float) v, "stress per whole hull of damage taken (a hit for a tenth adds a tenth of this)");
+        d("armour.stress_decay", () -> gscraft.war.armour.Crew.STRESS_DECAY, v -> gscraft.war.armour.Crew.STRESS_DECAY = (float) v, "stress shed a second, once three seconds have passed without a hit");
+        d("armour.stress_bail", () -> gscraft.war.armour.Crew.STRESS_BAIL, v -> gscraft.war.armour.Crew.STRESS_BAIL = (float) v, "the crew bails at this much stress (the turret out bails it at once)");
         i("armour.calm_ticks", () -> gscraft.war.armour.FightGoal.CALM_TICKS, v -> gscraft.war.armour.FightGoal.CALM_TICKS = (int) v, "no fighting for this long after a withdrawal");
         d("armour.place_min", () -> gscraft.war.armour.Patrols.PLACE_MIN, v -> gscraft.war.armour.Patrols.PLACE_MIN = v, "an armour group is placed no nearer than this to anyone (a tank should be heard first)");
         d("armour.place_max", () -> gscraft.war.armour.Patrols.PLACE_MAX, v -> gscraft.war.armour.Patrols.PLACE_MAX = v, "and no further than this from the player it is rolled for");
@@ -183,7 +184,6 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("armour.blast_heavy", () -> gscraft.war.armour.ArmourDamage.OTHER_HEAVY, v -> gscraft.war.armour.ArmourDamage.OTHER_HEAVY = v, "and this to heavy armour");
         d("armour.splash", () -> gscraft.war.armour.ArmourDamage.SPLASH, v -> gscraft.war.armour.ArmourDamage.SPLASH = v, "a TACZ blast beside (not on) a vehicle does this share of the flat amount");
         d("armour.bail_share", () -> gscraft.war.armour.Crew.DISABLED_SHARE, v -> gscraft.war.armour.Crew.DISABLED_SHARE = (float) v, "at or under this share of health the crew bails out (also when the turret is knocked out)");
-        d("armour.bail_chance", () -> gscraft.war.armour.Crew.BAIL_CHANCE, v -> gscraft.war.armour.Crew.BAIL_CHANCE = v, "the share of crews that bail when the hull is low (rolled once per crew; a knocked-out turret always bails)");
         d("armour.dismount_range", () -> gscraft.war.armour.Crew.DISMOUNT_RANGE, v -> gscraft.war.armour.Crew.DISMOUNT_RANGE = v, "riders dismount when a hostile player is this close to the hull (also when the hull or a rider is hit, or the crew engages)");
         i("armour.chat", () -> gscraft.war.armour.Reports.CHAT ? 1 : 0, v -> gscraft.war.armour.Reports.CHAT = v >= 0.5D, "1 sends the armour chat lines (contact, module hits, dismount, withdrawing, bail, destroyed) to players in earshot; 0 keeps them to the log");
         i("armour.bail_watch_ticks", () -> gscraft.war.armour.Crew.BAIL_WATCH, v -> gscraft.war.armour.Crew.BAIL_WATCH = (int) v, "a bailed crew watches its vehicle for the wreck this long, then is gone");

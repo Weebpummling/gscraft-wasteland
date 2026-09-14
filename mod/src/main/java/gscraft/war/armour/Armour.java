@@ -53,6 +53,11 @@ public final class Armour {
         return driver;
     }
 
+    /** one more crew in the next free seat (the Cobra's turret seat, strike/AirRun) */
+    public static Crew extraCrew(ServerLevel level, Entity vehicle, String faction) {
+        return mount(level, vehicle, faction, false);
+    }
+
     private static Crew mount(ServerLevel level, Entity vehicle, String faction, boolean gunner) {
         Crew crew = ModEntities.CREW.get().create(level);
         if (crew == null) return null;
@@ -80,6 +85,9 @@ public final class Armour {
         } else if (name.equals("bmp_2") || name.equals("bradley")) {
             load = new String[][] {{"superbwarfare:small_shell_he", "64"}, {"superbwarfare:small_shell_he", "64"}, {"superbwarfare:small_shell_ap", "64"},
                     {"superbwarfare:medium_anti_ground_missile", "8"}, {"superbwarfare:rifle_ammo", "64"}, {"superbwarfare:rifle_ammo", "64"}};
+        } else if (name.equals("ah1f")) {
+            // the Cobra: the pilot's Hydra pods and the chin gun's 30 mm (its weapons' AmmoType), for the run's reloads
+            load = new String[][] {{"superbwarfare:small_rocket", "64"}, {"superbwarfare:small_rocket", "64"}, {"superbwarfare:small_shell_ap", "64"}, {"superbwarfare:small_shell_ap", "64"}};
         } else {
             return 0;
         }

@@ -80,9 +80,9 @@ before = pos(V)
 c(f"summon gscraft:nato_soldier {X + 10} {Y} {Z} {{Tags:[\"p37_hitter\"],NoAI:1b}}")
 time.sleep(2)
 mark = LOG.stat().st_size
-for _ in range(6):   # the mod's own explosion: the damage list makes 90 into 36; six take 300 to 84 (28 %), under the third. A vanilla explosion type ejects the crew instead
-    c(f"gscraft vehicle hit {V} superbwarfare:custom_explosion 90 @e[tag=p37_hitter,limit=1]")
-    time.sleep(0.5)
+# one heavy hit (the list makes 500 into 200: 300 -> 100, a third) - one hit is under the crew's stress limit (R35), six quick ones would bail it
+c(f"gscraft vehicle hit {V} superbwarfare:custom_explosion 500 @e[tag=p37_hitter,limit=1]")
+time.sleep(0.5)
 time.sleep(4)   # it backs out at ~7 blocks a second: read it before it leaves the pad
 after = pos(f"@e[type=superbwarfare:bmp_2,x={X - 60},y={Y - 5},z={Z - 60},dx=120,dy=12,dz=120,limit=1]")
 new = log_since(mark)

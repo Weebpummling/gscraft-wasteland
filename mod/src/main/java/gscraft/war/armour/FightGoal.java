@@ -209,7 +209,8 @@ public class FightGoal extends Goal {
         if (seat < 0) return;
         List<String> weapons = Vehicles.seatWeapons(v, seat);
         if (weapons == null || weapons.isEmpty()) return;
-        if (Vehicles.selectedWeapon(v, seat) != 0) Vehicles.changeWeapon(v, seat, 0);
+        int want = crew.weaponLock >= 0 ? crew.weaponLock : 0;   // an aircrew fires what its run chose
+        if (Vehicles.selectedWeapon(v, seat) != want) Vehicles.changeWeapon(v, seat, want);
     }
 
     // ---- choosing

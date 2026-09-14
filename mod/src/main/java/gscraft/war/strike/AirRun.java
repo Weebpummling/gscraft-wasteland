@@ -1,6 +1,9 @@
 package gscraft.war.strike;
 
 import gscraft.war.GscraftWar;
+import gscraft.war.ModEntities;
+import gscraft.war.armour.Armour;
+import gscraft.war.armour.Crew;
 import gscraft.war.armour.Vehicles;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -9,39 +12,54 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
+import java.util.Locale;
 
 /**
- * The Cobra's run (owner, 2026-09-13): the AH-1F appears 300 blocks out along a random heading, crosses the marker
- * at 35 blocks up and 24 a second, fires its rockets from 120 blocks out in pairs converging on the smoke, works the
- * guns over anything hostile within twelve of it for the five seconds of the pass, then flies out 300 blocks and is
- * unloaded. A hit on the helicopter breaks the run off at once. The hull is the other mod's entity moved as a prop;
- * the rockets and rounds are Superb Warfare's own projectiles.
+ * The Cobra's run (owner, 2026-09-13): the AH-1F appears 300 blocks out along a random heading and crosses the
+ * marker at 55 blocks up and 24 a second, flown along that line by this class. It is **crewed like the other
+ * vehicles** (owner: fired from inside): a crew of the camp's faction sits in the seat, the crew logic lays the
+ * mod's own turret and fires the airframe's own weapons at what it sees - the rockets on the run-in, the gun over
+ * the smoke - with the mod's aiming, rate and damage. An invisible dummy at the smoke gives it something to fire at
+ * when nothing hostile stands there; anything hostile that does outranks it. A hit on the helicopter breaks the run
+ * off; 300 blocks past the smoke it is unloaded.
  */
 public final class AirRun {
     public static String HELI = "dragonrise_reforge:ah1f";
-    public static int RANGE = 300, HEIGHT = 55, ROCKET_FROM = 120, ROCKET_TO = 60, GUN_RANGE = 60, ROCKETS = 8;
+    public static String FACTION = "camp";
+    public static int RANGE = 300, HEIGHT = 55, HEIGHT_LOW = 25, DIVE_FROM = 150, DIVE_TO = 30, ROCKET_FROM = 90, ROCKET_TO = 45, GUN_RANGE = 60;
     public static double SPEED = 1.2;
-    public static float ROCKET_DAMAGE = 90f, ROCKET_EXPLOSION = 120f, ROCKET_RADIUS = 6f, GUN_DAMAGE = 14f;
-    public static int GUN_EVERY = 2, GUN_TARGETS = 12;
+    public static float PITCH_SIGN = 1f;
+    public static int ROCKET_EVERY = 5;
+    private int rocketsFired;
 
     private final ServerLevel level;
     private final BlockPos target;
     private final ServerPlayer caller;
-    private final Vec3 start, end, dir;
+    private final Vec3 start, dir;
     private final float heading;
     private Entity heli;
+    private Crew crew, gunner;
+    private Mob dummy;
     private float health0 = Float.NaN;
-    private int t, rocketsFired, gunTicks;
+    private int t, rockets = -1, gun = -1, weapon = -2;
     private boolean out, done;
     private int forcedX = Integer.MIN_VALUE, forcedZ;
+
+    AirRun(ServerLevel level, BlockPos target, ServerPlayer caller) {
+        this.level = level;
+        this.target = target;
+        this.caller = caller;
+        double a = level.getRandom().nextDouble() * Math.PI * 2;
+        Vec3 c = Strikes.centre(target);
+        dir = new Vec3(Math.cos(a), 0, Math.sin(a));
+        start = c.subtract(dir.scale(RANGE)).add(0, HEIGHT, 0);
+        heading = (float) Math.toDegrees(Math.atan2(-dir.x, dir.z));
+    }
 
     /** the chunk under the helicopter is kept loaded as it flies (the run starts 300 blocks out); the last one released */
     private void forceUnder(Vec3 pos) {
@@ -53,6 +71,11 @@ public final class AirRun {
         forcedZ = cz;
     }
 
+    private void release() {
+        if (forcedX != Integer.MIN_VALUE) level.setChunkForced(forcedX, forcedZ, false);
+        forcedX = Integer.MIN_VALUE;
+    }
+
     /** the engine on: power held at full every tick, so the rotor spins (the mod lerps its rotor to the power) and the engine sound plays on every client */
     private void engine() {
         Sw.set(heli, "setEngineStart", true);
@@ -60,21 +83,28 @@ public final class AirRun {
         Sw.set(heli, "setPower", 1.0f);
     }
 
-    private void release() {
-        if (forcedX != Integer.MIN_VALUE) level.setChunkForced(forcedX, forcedZ, false);
-        forcedX = Integer.MIN_VALUE;
+    /** the seat's weapons by name: the rockets and the gun; logged once so the names can be checked */
+    private void weapons() {
+        List<String> names = Vehicles.seatWeapons(heli, 0);
+        if (names == null) {
+            GscraftWar.LOG.warn("[gscraft] strike: {} lists no seat weapons", HELI);
+            return;
+        }
+        for (int i = 0; i < names.size(); i++) {
+            String n = names.get(i).toLowerCase(Locale.ROOT);
+            if (rockets < 0 && (n.contains("rocket") || n.contains("hydra") || n.contains("pod"))) rockets = i;
+            else if (gun < 0 && (n.contains("gun") || n.contains("cannon") || n.contains("mg") || n.contains("m197"))) gun = i;
+        }
+        if (gun < 0) gun = 0;
+        if (rockets < 0) rockets = names.size() > 1 ? 1 : 0;
+        GscraftWar.LOG.info("[gscraft] strike: {} seat weapons {}: rockets {}, gun {}", HELI, names, rockets, gun);
     }
 
-    AirRun(ServerLevel level, BlockPos target, ServerPlayer caller) {
-        this.level = level;
-        this.target = target;
-        this.caller = caller;
-        double a = level.getRandom().nextDouble() * Math.PI * 2;
-        Vec3 c = Strikes.centre(target);
-        dir = new Vec3(Math.cos(a), 0, Math.sin(a));
-        start = c.subtract(dir.scale(RANGE)).add(0, HEIGHT, 0);
-        end = c.add(dir.scale(RANGE)).add(0, HEIGHT, 0);
-        heading = (float) Math.toDegrees(Math.atan2(-dir.x, dir.z));
+    private void select(int index) {
+        if (index == weapon || index < 0) return;
+        weapon = index;
+        if (crew != null) crew.weaponLock = index;
+        Vehicles.changeWeapon(heli, 0, index);
     }
 
     /** @return false when the run is over and the helicopter unloaded */
@@ -92,108 +122,101 @@ public final class AirRun {
             heli.setPos(start);
             heli.setYRot(heading);
             heli.setNoGravity(true);
-            heli.setInvulnerable(false);
             heli.addTag("gscraft_air_run");
             level.addFreshEntity(heli);
+            Vehicles.whole(heli);
+            Armour.arm(heli);   // the seat's ammunition, as the placed hulls get it
+            crew = Armour.crew(level, heli, FACTION, null);
+            if (crew != null) {
+                crew.air = true;
+                crew.addTag("gscraft_air_run");
+            } else GscraftWar.LOG.warn("[gscraft] strike: no crew could mount the {}", HELI);
+            // the turret is the second seat's (TurretControllerIndex 1): a second crew lays and fires the chin gun
+            if (heli.getPassengers().size() < 2) {
+                gunner = Armour.extraCrew(level, heli, FACTION);
+                if (gunner != null) {
+                    gunner.air = true;
+                    gunner.addTag("gscraft_air_run");
+                }
+            }
+            weapons();
+            // the aim point: an invisible, invulnerable hostile at the smoke, outranked by anything real
+            dummy = ModEntities.NATO_SOLDIER.get().create(level);
+            if (dummy != null) {
+                dummy.setPos(target.getX() + 0.5, target.getY() + 0.1, target.getZ() + 0.5);
+                dummy.setNoAi(true);
+                dummy.setInvisible(true);
+                dummy.setInvulnerable(true);
+                dummy.setSilent(true);
+                dummy.setPersistenceRequired();
+                dummy.addTag("gscraft_strike_dummy");
+                level.addFreshEntity(dummy);
+            }
             health0 = Vehicles.health(heli);
             GscraftWar.LOG.info("[gscraft] strike: {} inbound from {} to {}", HELI, start, target.toShortString());
         }
         if (!heli.isAlive()) {
             GscraftWar.LOG.info("[gscraft] strike: the helicopter is down");
             Strikes.tell("tune", "air_down", level.getServer());
-            release();
-            done = true;
+            finish();
             return false;
         }
         t++;
-        // a hit breaks the run off: straight out from here
         float h = Vehicles.health(heli);
         if (!out && !Float.isNaN(health0) && !Float.isNaN(h) && h < health0 - 0.5f) {
             out = true;
             GscraftWar.LOG.info("[gscraft] strike: the helicopter is hit, breaking off");
             Strikes.tell("tune", "air_hit", level.getServer());
         }
-        // the position is the line's, from the start by the tick count: the engine's own lift and pitch (the mod flies a
-        // powered hull) were compounding into the current position and the Cobra climbed out of sight (owner 2026-09-13)
-        Vec3 pos = start.add(dir.scale(SPEED * t));
+        // the position is the line's, from the start by the tick count: the powered hull's own lift never compounds into it;
+        // the height dives from HEIGHT at DIVE_FROM out to HEIGHT_LOW over the smoke and climbs out the same way (the chin
+        // gun's arc reaches the ground only from low; the rockets go where the nose points)
+        Vec3 flat = start.add(dir.scale(SPEED * t));
+        double alongNow = flat.subtract(Strikes.centre(target).add(0, HEIGHT, 0)).dot(dir);
+        double a = Math.abs(alongNow);
+        double y = a >= DIVE_FROM ? HEIGHT : a <= DIVE_TO ? HEIGHT_LOW : HEIGHT_LOW + (HEIGHT - HEIGHT_LOW) * (a - DIVE_TO) / (DIVE_FROM - DIVE_TO);
+        Vec3 pos = new Vec3(flat.x, target.getY() + y, flat.z);
         forceUnder(pos);
         heli.setPos(pos);
         engine();
         heli.setYRot(heading);
-        heli.setXRot(0f);
+        double toSmoke = -alongNow;
+        // the nose on the smoke for the pods: the mod's aim vector reads the hull's pitch with nose-down negative (PITCH_SIGN), unlike vanilla
+        float pitch = toSmoke <= ROCKET_FROM && toSmoke >= ROCKET_TO ? PITCH_SIGN * (float) Math.toDegrees(Math.atan2(y - 1.5, toSmoke)) : 0f;
+        heli.setXRot(pitch);
         Sw.set(heli, "setZRot", 0f);
         heli.setDeltaMovement(Vec3.ZERO);
         heli.hurtMarked = true;
         if (t % 20 == 1) Strikes.sound(level, heli.blockPosition(), "ah_6_engine", 4f, 0.8f);
         double along = pos.subtract(Strikes.centre(target).add(0, HEIGHT, 0)).dot(dir);   // negative inbound, positive past
         double dist = -along;
-        if (!out) {
-            if (dist <= ROCKET_FROM && dist >= ROCKET_TO && rocketsFired < ROCKETS && t % 5 == 0) {
-                rocket(pos);
-                rocket(pos);
-                rocketsFired += 2;
-            }
-            if (Math.abs(along) <= GUN_RANGE && t % GUN_EVERY == 0) {
-                gun(pos);
-                gunTicks++;
-                if (gunTicks % 4 == 0) Strikes.sound(level, heli.blockPosition(), "ah_6_cannon_fire_3p", 3f, 1f);
-            }
+        if (crew != null) crew.alertUntil = level.getGameTime() + 100;   // all round, always: a gunship looks everywhere
+        if (gunner != null) gunner.alertUntil = level.getGameTime() + 100;
+        if (crew != null) select(out ? gun : dist <= ROCKET_FROM && dist >= ROCKET_TO ? rockets : gun);
+        // the pods are fixed and the mod's four-degree rule never lets an AI pilot fire them: the run pulls the trigger on the
+        // airframe's own weapon system (vehicleShoot) while the nose is on the smoke - the rockets, sound and damage are the mod's
+        if (crew != null && !out && dist <= ROCKET_FROM && dist >= ROCKET_TO && t % ROCKET_EVERY == 0) {
+            if (Sw.invoke(heli, "vehicleShoot", new Class<?>[] {net.minecraft.world.entity.LivingEntity.class, String.class}, crew, "Rocket")) rocketsFired++;
         }
         if (along > RANGE - 5 || (out && along > GUN_RANGE + 40) || t > 20 * 60) {
-            GscraftWar.LOG.info("[gscraft] strike: the helicopter is off station ({} rockets, {} gun ticks)", rocketsFired, gunTicks);
+            GscraftWar.LOG.info("[gscraft] strike: the helicopter is off station ({} rocket triggers)", rocketsFired);
             Strikes.tell("tune", "air_off", level.getServer());
-            heli.discard();
-            release();
-            done = true;
+            finish();
             return false;
         }
         return true;
     }
 
-    private void rocket(Vec3 from) {
-        Entity e = Sw.create(level, "medium_rocket");
-        if (!(e instanceof net.minecraft.world.entity.projectile.Projectile r)) return;
-        Sw.set(r, "setDamage", ROCKET_DAMAGE);
-        Sw.set(r, "setExplosionDamage", ROCKET_EXPLOSION);
-        Sw.set(r, "setExplosionRadius", ROCKET_RADIUS);
-        Sw.type(r, "HE");
-        if (caller != null) r.setOwner(caller);
-        Vec3 aim = Strikes.centre(target).add((level.getRandom().nextDouble() * 2 - 1) * 4, 0, (level.getRandom().nextDouble() * 2 - 1) * 4);
-        Vec3 d = aim.subtract(from).normalize();
-        r.setPos(from.add(dir.scale(3)).add(0, -1.5, 0));
-        r.shoot(d.x, d.y, d.z, 4f, 0.3f);
-        level.addFreshEntity(r);
-        Strikes.sound(level, heli.blockPosition(), "medium_rocket_fire", 3f, 1f);
-    }
-
-    private void gun(Vec3 from) {
-        Vec3 aim = null;
-        AABB box = new AABB(target).inflate(GUN_TARGETS, 8, GUN_TARGETS);
-        List<Mob> hostile = level.getEntitiesOfClass(Mob.class, box, m -> m.isAlive() && !m.getTags().contains("gscraft_npc") && !m.getTags().contains("gscraft_air_run"));
-        if (!hostile.isEmpty()) aim = hostile.get(level.getRandom().nextInt(hostile.size())).position().add(0, 0.8, 0);
-        if (aim == null) aim = Strikes.centre(target).add((level.getRandom().nextDouble() * 2 - 1) * 3, 0, (level.getRandom().nextDouble() * 2 - 1) * 3);
-        Entity e = Sw.create(level, "projectile");
-        if (!(e instanceof net.minecraft.world.entity.projectile.Projectile b)) return;
-        Sw.shooter(b, caller != null ? caller : heli);
-        Sw.set(b, "setDamage", GUN_DAMAGE);
-        b.setPos(from.add(0, -1, 0));
-        Vec3 d = aim.subtract(from).normalize();
-        b.shoot(d.x, d.y, d.z, 6f, 1.5f);
-        level.addFreshEntity(b);
-    }
-
-    void abort() {
+    private void finish() {
+        if (crew != null && crew.isAlive()) crew.discard();   // before the hull: a crew left without one reports a wreck
+        if (gunner != null && gunner.isAlive()) gunner.discard();
+        if (dummy != null && dummy.isAlive()) dummy.discard();
         if (heli != null && heli.isAlive()) heli.discard();
         release();
         done = true;
     }
 
-    static float yawTo(Vec3 from, Vec3 to) {
-        Vec3 d = to.subtract(from);
-        return (float) Mth.wrapDegrees(Math.toDegrees(Math.atan2(-d.x, d.z)));
-    }
-
-    static boolean living(Entity e) {
-        return e instanceof LivingEntity;
+    void abort() {
+        finish();
     }
 }

@@ -101,15 +101,17 @@ h1 = health("superbwarfare:t_90a")
 check("heavy: the same hit takes about 125", h0 is not None and h1 is not None and 80 <= h0 - h1 <= 170, f"health {h0} -> {h1}")
 clear()
 
-# 3. the bail-out (half the crews, rolled once, after the withdrawal - R30: up to six hulls until one bails; the refusals are logged)
+# 3. the bail-out by stress (R35): a series of hits; the loop stays for a crew that somehow shrugged it off
 refused = 0
 for attempt in range(6):
     c(f"gscraft vehicle spawn superbwarfare:bmp_2 nato {X} {Y} {Z}")
     time.sleep(2)
     crews0 = count(f"@e[type=gscraft:crew,{AREA}]")
     mark = LOG.stat().st_size
-    c("gscraft vehicle hit @e[type=superbwarfare:bmp_2,limit=1] superbwarfare:projectile_hit 450 @e[tag=p22k,limit=1]")   # one rocket: 300 -> ~166, under the disabled share (0.6)
-    time.sleep(14)   # R30: the crew withdraws first (retreat 200 ticks) and rolls the bail when the retreat ends
+    for _ in range(4):   # R35: four hits in a row (36 each) take the crew's stress past its limit; a single rocket would not
+        c("gscraft vehicle hit @e[type=superbwarfare:bmp_2,limit=1] superbwarfare:custom_explosion 90 @e[tag=p22k,limit=1]")
+        time.sleep(0.5)
+    time.sleep(4)
     if "bails out" in log_since(mark):
         break
     refused += 1
@@ -123,7 +125,7 @@ helmet = c("data get entity @e[type=gscraft:nato_soldier,limit=1] ArmorItems[3].
 rank = c("data get entity @e[type=gscraft:nato_soldier,limit=1] CustomName")
 bailed = "bails out" in log_since(mark)
 seat_empty = "passengers 0" in st
-check("a BMP-2 at about half health (one rocket) loses its crew: a crewman with a pistol and no helmet, the seat empty, told",
+check("a BMP-2 hit four times in a row loses its crew to stress: a crewman with a pistol and no helmet, the seat empty, told",
       h is not None and 0 < h <= 200 and crewmen >= 1 and "glock" in kit and ("air" in helmet.lower() or "no elements" in helmet.lower()) and "Crewman" in rank and bailed and seat_empty,
       f"health {h}; crews before {crews0}; refused first {refused}; crewmen {crewmen}; gun [{kit[-24:]}]; helmet [{helmet[-30:]}]; rank [{rank[-30:]}]; bailed {bailed}; seat empty {seat_empty}")
 mark2 = LOG.stat().st_size

@@ -85,11 +85,19 @@ public class Crew extends Mob implements FactionMember {
     public float watchYaw = Float.NaN;
     public long watchUntil;
 
+    /** an aircrew (the Cobra's run, strike/AirRun): flown by the run, never withdraws, never bails, never sweeps; the run picks its weapon */
+    public boolean air;
+    public int weaponLock = -1;
+
     public static float DISABLED_SHARE = 0.6F;
+    /** the crew's stress (owner 2026-09-13: a series of hits causes the bail-out): every hit adds a point and the share of the hull
+     *  it took, scaled; it decays by the second once three seconds have passed without a hit; at the limit the crew bails */
+    public float stress;
+    private long stressHoldUntil;
+    public static float STRESS_HIT = 1.0F, STRESS_DAMAGE = 4.0F, STRESS_DECAY = 0.5F, STRESS_BAIL = 5.0F;
+
     /** the share of crews that bail when the hull is low (owner 2026-09-12: not every time); rolled once per crew, kept.
      *  A knocked-out turret always bails. */
-    public static double BAIL_CHANCE = 0.5D;
-    private int bailRoll;   // 0 not rolled, 1 will bail, 2 fights to the end
 
     public Crew(EntityType<? extends Crew> type, Level level) {
         super(type, level);
@@ -161,13 +169,10 @@ public class Crew extends Mob implements FactionMember {
     }
 
     /** this crew's answer to a low hull: rolled once against the bail chance and kept; the turret out is not a question */
+    /** the turret out, or the stress at its limit: a series of hits in a short time (a single big one is not enough) */
     private boolean willBail(Entity v) {
         if (Vehicles.data(v, "TURRET_DAMAGED", false)) return true;
-        if (bailRoll == 0) {
-            bailRoll = random.nextDouble() < BAIL_CHANCE ? 1 : 2;
-            if (bailRoll == 2) GscraftWar.LOG.info("[gscraft] crew of {} will fight to the end", v.getName().getString());
-        }
-        return bailRoll == 1;
+        return stress >= STRESS_BAIL;
     }
 
     /** the crew climbs out as crewmen (uniform and a pistol), the riders with them; the vehicle is left to burn;
@@ -191,7 +196,8 @@ public class Crew extends Mob implements FactionMember {
         stopRiding();
         Reports.dropBar(v);
         Reports.bail(v);
-        GscraftWar.LOG.info("[gscraft] crew of {} bails out ({} crewmen) at {} health", v.getName().getString(), out, String.format("%.0f", Vehicles.health(v)));
+        GscraftWar.LOG.info("[gscraft] crew of {} bails out at stress {} ({} crewmen) at {} health", v.getName().getString(), String.format("%.1f", stress), out, String.format("%.0f", Vehicles.health(v)));
+        if (false) GscraftWar.LOG.info("[gscraft] crew of {} bails out ({} crewmen) at {} health", v.getName().getString(), out, String.format("%.0f", Vehicles.health(v)));
     }
 
     /** the turret's sweep with nothing engaged: slow, across the arc about the hull's heading; under fire a narrow search about the fire's bearing */
@@ -249,15 +255,18 @@ public class Crew extends Mob implements FactionMember {
             if (!Float.isNaN(lastHealth) && h < lastHealth - 0.01F) {
                 long now = level().getGameTime();
                 alertUntil = now + FightGoal.ALERT_TICKS;
+                float max = Vehicles.maxHealth(v);
+                stress += STRESS_HIT + (lastHealth - h) / Math.max(1.0F, Float.isNaN(max) ? 300.0F : max) * STRESS_DAMAGE;
+                stressHoldUntil = now + 60;
                 // where the fire comes from: the scan turns onto the hitter's bearing (the mod records the last attacker)
-                Entity hitBy = Reports.lastAttacker(v);
+                Entity hitBy = air ? null : Reports.lastAttacker(v);
                 if (hitBy != null) {
                     watchYaw = (float) Math.toDegrees(Math.atan2(-(hitBy.getX() - v.getX()), hitBy.getZ() - v.getZ()));
                     watchUntil = now + FightGoal.ALERT_TICKS;
                 }
                 // a hit with nothing engaged (holding, or shot from outside the cone) still withdraws: away from the hitter,
                 // else from the nearest player, else straight back (owner 2026-09-13: holding vehicles never withdrew)
-                if (!gunner() && !bailed && !retreating(now) && !calm(now) && FightGoal.shouldRetreat(v)) {
+                if (!air && !gunner() && !bailed && !retreating(now) && !calm(now) && FightGoal.shouldRetreat(v)) {
                     Entity hitter = Reports.lastAttacker(v);
                     Vec3 from = hitter != null ? hitter.position() : null;
                     if (from == null) {
@@ -270,16 +279,17 @@ public class Crew extends Mob implements FactionMember {
             lastHealth = h;
         }
         // a withdrawing crew drives, it does not climb out: the bail waits for the retreat to end (owner 2026-09-13)
-        if (!gunner() && !bailed && v != null && tickCount % 10 == 0 && !retreating(level().getGameTime()) && disabled(v) && willBail(v)) bail(v);
+        if (tickCount % 20 == 0 && level().getGameTime() > stressHoldUntil && stress > 0) stress = Math.max(0.0F, stress - STRESS_DECAY);
+        if (!air && !gunner() && !bailed && v != null && tickCount % 10 == 0 && willBail(v)) bail(v);
         if (bailed && ++bailedTicks > BAIL_WATCH) {
             GscraftWar.LOG.info("[gscraft] bailed crew of {} gives up the watch", v == null ? "nothing" : v.getName().getString());
             discard();
             return;
         }
         if (!gunner() && !bailed && v != null && tickCount == BOARD_TICK) board(v);
-        if (!gunner() && !bailed && v != null && tickCount % 40 == 0) escortTick(v);
-        if (!gunner() && !bailed && v != null && engaged == null && !Vehicles.wreck(v)) scan(v);
-        if (!gunner() && !bailed && v != null && tickCount % 20 == 10 && ridersAboard(v) && fightReachesRiders(v)) dismount(v);
+        if (!air && !gunner() && !bailed && v != null && tickCount % 40 == 0) escortTick(v);
+        if (!air && !gunner() && !bailed && v != null && engaged == null && !Vehicles.wreck(v)) scan(v);
+        if (!air && !gunner() && !bailed && v != null && tickCount % 20 == 10 && ridersAboard(v) && fightReachesRiders(v)) dismount(v);
         if (!gunner() && v != null) {
             vehicleName = v.getDisplayName();
             vehicleType = net.minecraftforge.registries.ForgeRegistries.ENTITY_TYPES.getKey(v.getType());
@@ -411,13 +421,21 @@ public class Crew extends Mob implements FactionMember {
     }
 
     /** swept by the director (a discard, not a death): the vehicle goes with its driver; a wreck stays as loot */
+    private boolean removing;
+
     @Override
     public void remove(RemovalReason reason) {
+        // two crews in one hull (the Cobra) discarded each other back and forth to a stack overflow (2026-09-13): once is enough
+        if (removing) {
+            super.remove(reason);
+            return;
+        }
+        removing = true;
         if (reason == RemovalReason.DISCARDED && !gunner() && !bailed && !level().isClientSide) {
             Entity v = vehicle();
             if (v != null && !Vehicles.wreck(v)) {
                 Reports.dropBar(v);
-                for (Entity p : new ArrayList<>(v.getPassengers())) if (p != this) p.discard();
+                for (Entity p : new ArrayList<>(v.getPassengers())) if (p != this && !(p instanceof Crew c && c.removing)) p.discard();
                 v.discard();
             }
         }
@@ -477,7 +495,7 @@ public class Crew extends Mob implements FactionMember {
         tag.put("GscraftRoute", list);
         tag.putInt("GscraftRouteIndex", routeIndex);
         tag.putBoolean("GscraftBailed", bailed);
-        tag.putInt("GscraftBailRoll", bailRoll);
+        tag.putFloat("GscraftStress", stress);
         if (watching != null) tag.putUUID("GscraftWatching", watching);
     }
 
@@ -491,7 +509,7 @@ public class Crew extends Mob implements FactionMember {
         for (Tag t : tag.getList("GscraftRoute", Tag.TAG_COMPOUND)) route.add(NbtUtils.readBlockPos((CompoundTag) t));
         routeIndex = tag.getInt("GscraftRouteIndex");
         bailed = tag.getBoolean("GscraftBailed");
-        bailRoll = tag.getInt("GscraftBailRoll");
+        stress = tag.getFloat("GscraftStress");
         watching = tag.hasUUID("GscraftWatching") ? tag.getUUID("GscraftWatching") : null;
     }
 }

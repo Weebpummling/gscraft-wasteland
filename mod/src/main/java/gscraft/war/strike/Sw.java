@@ -58,6 +58,18 @@ final class Sw {
         }
     }
 
+    /** any public method by name and parameter types, for the vehicle's own weapon system (vehicleShoot(LivingEntity, String)) */
+    static boolean invoke(Entity e, String method, Class<?>[] types, Object... args) {
+        try {
+            Method m = e.getClass().getMethod(method, types);
+            m.invoke(e, args);
+            return true;
+        } catch (ReflectiveOperationException | RuntimeException ex) {
+            if (warned.add(e.getClass().getSimpleName() + "." + method)) GscraftWar.LOG.warn("[gscraft] strike: {}.{} failed: {}", e.getClass().getSimpleName(), method, ex.toString());
+            return false;
+        }
+    }
+
     /** the bullet's fluent shooter(Entity) if it has one */
     static void shooter(Entity e, Entity shooter) {
         if (shooter == null) return;

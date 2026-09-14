@@ -235,7 +235,6 @@
     "chat": 0,
     "dismount_range": 32.0,
     "bail_share": 0.6,
-    "bail_chance": 0.5,
     "reengage_grace": 300
   },
   "drops": {

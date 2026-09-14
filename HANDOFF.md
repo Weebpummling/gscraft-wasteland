@@ -413,6 +413,26 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, the crewed Cobra, second pass:** the Cobra's turret is seat 1's (`TurretControllerIndex` 1) - `Armour.extraCrew`
+seats a second crew there and its FightGoal lays and fires the chin gun (30 rounds a run in the tests). The pilot's fixed pods
+never pass the mod's four-degree AI rule, so `AirRun` pitches the nose onto the smoke (vanilla sign, nose down positive) in
+the 90-45 window and calls the airframe's `vehicleShoot(pilot, "Rocket")` every 5 ticks by reflection (`Sw.invoke`): two
+rockets a trigger, seen landing within four blocks of the smoke. The line dives 55 -> 25 -> 55 (`HEIGHT_LOW`, `DIVE_FROM/TO`).
+`Armour.arm` knows `ah1f` (small rockets, 30 mm AP). **Crash fixed:** two crews in one hull discarded each other back and
+forth (`Crew.remove` -> the other crew's discard -> ...) to a StackOverflowError that took the server down; `Crew.removing`
+guards it. TRAPS: a run that dies mid-way leaves its forced chunk and its crews behind - `Strikes.tick` discards any
+aircrew without an airframe, and `forceload remove all` on the local server clears the chunks; a crashed JVM lingers and
+refuses RCON - `taskkill` it before `cycle_local.py`.
+
+**2026-09-13, the crewed Cobra and the stress bail (rulings R35; the strikes note §2):** `AirRun` now mounts a crew
+(`Armour.crew`, faction `camp`, `Crew.air`): the mod flies it as manned (rotor, engine sound), the crew's FightGoal lays
+the turret and the airframe fires its own weapons (`Crew.weaponLock` -> `FightGoal.chooseWeapon`; the run picks the rockets
+from 90 to 45 blocks out and the gun over the smoke; the seat's weapon names are logged once); an invisible invulnerable
+NATO dummy at the smoke is the aim point; the crew, the dummy and the hull are discarded in that order. The hand-fired
+rockets from 120 blocks out froze past the simulation distance (10 chunks) - gone with the prop code. The bail is stress
+(`Crew.stress`, `willBail`: the turret out or stress >= 5; the coin toss and `armour.bail_chance` removed; phase 22 hits four
+times). An aircrew never withdraws, bails, sweeps, escorts or dismounts.
+
 **2026-09-13, the server hang (owner: "failed to connect"):** the server thread sat in the autosave forever - a villager
 saved with an **empty offer list generates its trades on the save**, and a cartographer's treasure-map trade searches for a
 structure with a blocking join on the server thread (`VillagerTrades$TreasureMapForEmeralds` -> `StructureCheck`). James is a
