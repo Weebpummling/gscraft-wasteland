@@ -8,7 +8,7 @@ and the lines on a first join are the owner's in-game check (WarTest: a fresh ac
 1. Six survivors, each complete (hello line, chapter file, seen advancement); three join lines, none missing; the kit resolves.
 2. The kit holds the station, a loaded glock with a spare magazine of its ammo, the flashlight, a battery and a bandage.
 3. `/gscraft say tune join_1` renders as ♪ [TUNE]  You're up...
-4. The summons put each survivor up with the profession from survivors.json, level 2 and no offers.
+4. The summons put each survivor up with the profession from survivors.json, level 2 and one disabled placeholder trade (an empty list is generated on save; a cartographer's map hangs the server).
 4b. A survivor takes no damage from rounds or blasts; the summons' kill still re-issues one.
 5. The joined advancement is known.
 6. No gscraft errors, no ftbquests errors.
@@ -73,9 +73,9 @@ for d in survivors["survivors"]:
     sel = f"@e[type=minecraft:villager,tag={ 'gscraft_npc_' + d['id']},limit=1]"
     vd = c(f"data get entity {sel} VillagerData")
     offers = c(f"data get entity {sel} Offers.Recipes")
-    if d["profession"] not in vd or "level: 2" not in vd or not re.search(r"Recipes: \[\]|Found no elements matching Offers", offers):
+    if d["profession"] not in vd or "level: 2" not in vd or "maxUses: 0" not in offers or offers.count("buy:") != 1:   # one disabled placeholder trade, never generated
         bad.append((d["id"], vd[-80:], offers[-40:]))
-check("the summons stand with their professions, level 2, no offers", not bad, f"{bad[:2]}")
+check("the summons stand with their professions, level 2, one disabled placeholder trade", not bad, f"{bad[:2]}")
 
 # 4b. a survivor takes no damage from a round (owner: Marshall died to the guns), and the console's kill still re-issues them
 W = "@e[type=minecraft:villager,tag=gscraft_npc_walker,limit=1]"

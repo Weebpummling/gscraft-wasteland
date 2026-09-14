@@ -413,6 +413,14 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, the server hang (owner: "failed to connect"):** the server thread sat in the autosave forever - a villager
+saved with an **empty offer list generates its trades on the save**, and a cartographer's treasure-map trade searches for a
+structure with a blocking join on the server thread (`VillagerTrades$TreasureMapForEmeralds` -> `StructureCheck`). James is a
+cartographer since build 6 and every re-issued summon carried `Offers:{Recipes:[]}`. TRAP, now fixed in `tools/camp.py`: every
+survivor is summoned with **one disabled placeholder trade** (emerald for emerald, maxUses 0), so nothing is ever generated;
+the six re-issued locally and a `save-all` went through. Phase 33 checks the placeholder. Diagnosed with `jstack` on the hung
+JVM (the dump is the way in for any future hang).
+
 **2026-09-13, engagements resume faster (owner):** `armour.calm_ticks` 600 -> 100 (five seconds' calm after a withdrawal, which now comes at 60 %), `armour.acquire_ticks` 40 -> 20, and `FightGoal` re-engages the target it just lost without a second look for `armour.reengage_grace` (300) ticks (`lastTarget`/`lastStop`). Cycled; phases 37-40 green (the riflemen never inside 14 of the BMP, the man ahead engaged in 2 s, the Cobra at exactly 255 over the pad).
 
 **2026-09-13, the fighters off the hulls, the crews' front cone, the Cobra pinned to its line:** (1) `GunAttackGoal.ridesHull`:

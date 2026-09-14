@@ -81,7 +81,10 @@ def main(argv):
         _, x, y, z, ground = s
         nbt = ('{NoAI:1b,Invulnerable:1b,PersistenceRequired:1b,Silent:1b,CustomNameVisible:1b,'
                f'CustomName:\'{{"text":"{name}"}}\',Tags:["gscraft_npc","gscraft_npc_{npc}"],'
-               f'VillagerData:{{profession:"{professions.get(npc, "minecraft:nitwit")}",level:2,type:"minecraft:plains"}},Offers:{{Recipes:[]}}}}')
+               # one disabled placeholder trade: a villager saved with an empty offer list generates its trades on the save, and a
+               # cartographer's treasure map then searches for a structure on the server thread and hangs the server (2026-09-13)
+               f'VillagerData:{{profession:"{professions.get(npc, "minecraft:nitwit")}",level:2,type:"minecraft:plains"}},'
+               'Offers:{Recipes:[{buy:{id:"minecraft:emerald",Count:1b},sell:{id:"minecraft:emerald",Count:1b},maxUses:0,uses:0,rewardExp:0b,xp:0,priceMultiplier:0.0f,specialPrice:0,demand:0}]}}')
         lines = [f"kill @e[type=minecraft:villager,tag=gscraft_npc_{npc}]", f"summon minecraft:villager {x} {y} {z} {nbt}"]
         # the sign: on the same floor beside them, the first free side
         for dx, dz in ((1, 0), (-1, 0), (0, 1), (0, -1)):
