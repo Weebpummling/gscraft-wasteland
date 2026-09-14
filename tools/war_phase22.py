@@ -24,7 +24,7 @@ r = L.Rcon("127.0.0.1", 25575, "gscraft-local-test")
 results = []
 log_start = LOG.stat().st_size
 X, Y, Z = -2000, 200, -600
-AREA = f"x={X - 60},y={Y - 10},z={Z - 60},dx=120,dy=40,dz=120"
+AREA = f"x={X - 100},y={Y - 10},z={Z - 100},dx=200,dy=40,dz=200"   # wide: a withdrawing hull backs out 70 blocks
 HP = 'Health:20000f,Attributes:[{Name:"minecraft:generic.max_health",Base:20000}]'
 
 
@@ -68,11 +68,11 @@ def log_since(mark):
 
 
 c("gscraft director pause")
-c(f"forceload add {X - 60} {Z - 60} {X + 60} {Z + 60}")
+c(f"forceload add {X - 110} {Z - 110} {X + 110} {Z + 110}")
 time.sleep(4)
 clear()
 L.fill(r, X - 50, Y - 1, Z - 50, X + 50, Y + 5, Z + 50, "minecraft:air")
-L.fill(r, X - 50, Y - 1, Z - 50, X + 50, Y - 1, Z + 50, "minecraft:stone")
+L.fill(r, X - 90, Y - 1, Z - 90, X + 90, Y - 1, Z + 90, "minecraft:stone")   # 181 wide: the withdrawal (R30) backs the hull ~70 blocks
 c(f'summon gscraft:ruaf_soldier {X} {Y} {Z + 20} {{Tags:["p22k"],NoAI:1b,GscraftRank:"RUAF Rifleman",{HP}}}')
 time.sleep(1)
 
@@ -101,15 +101,15 @@ h1 = health("superbwarfare:t_90a")
 check("heavy: the same hit takes about 125", h0 is not None and h1 is not None and 80 <= h0 - h1 <= 170, f"health {h0} -> {h1}")
 clear()
 
-# 3. the bail-out (half the crews, rolled once: up to six hulls until one bails; the refusals are logged)
+# 3. the bail-out (half the crews, rolled once, after the withdrawal - R30: up to six hulls until one bails; the refusals are logged)
 refused = 0
 for attempt in range(6):
     c(f"gscraft vehicle spawn superbwarfare:bmp_2 nato {X} {Y} {Z}")
     time.sleep(2)
     crews0 = count(f"@e[type=gscraft:crew,{AREA}]")
     mark = LOG.stat().st_size
-    c("gscraft vehicle hit @e[type=superbwarfare:bmp_2,limit=1] superbwarfare:projectile_hit 450 @e[tag=p22k,limit=1]")   # one rocket: 300 -> ~166, under the bail share (0.6)
-    time.sleep(3)
+    c("gscraft vehicle hit @e[type=superbwarfare:bmp_2,limit=1] superbwarfare:projectile_hit 450 @e[tag=p22k,limit=1]")   # one rocket: 300 -> ~166, under the disabled share (0.6)
+    time.sleep(14)   # R30: the crew withdraws first (retreat 200 ticks) and rolls the bail when the retreat ends
     if "bails out" in log_since(mark):
         break
     refused += 1

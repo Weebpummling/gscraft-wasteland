@@ -41,7 +41,8 @@ def log_since(mark):
 
 
 def clear(x, z, rad):
-    c(f"execute positioned {x} 0 {z} run data modify entity @e[type=superbwarfare:bmp_2,distance=..{rad}] Health set value -9999f")
+    # a box the full height: a withdrawn hull that drove off the pad lies far below it
+    c(f"execute as @e[type=superbwarfare:bmp_2,x={x - rad},y=-64,z={z - rad},dx={2 * rad},dy=384,dz={2 * rad}] run data modify entity @s Health set value -99999f")
     c(f"kill @e[type=gscraft:crew,x={x - rad},y=-64,z={z - rad},dx={2 * rad},dy=384,dz={2 * rad}]")
     c(f"kill @e[type=#minecraft:zombies,x={x - rad},y=-64,z={z - rad},dx={2 * rad},dy=384,dz={2 * rad}]")
     c(f"kill @e[type=gscraft:nato_soldier,x={x - rad},y=-64,z={z - rad},dx={2 * rad},dy=384,dz={2 * rad}]")
