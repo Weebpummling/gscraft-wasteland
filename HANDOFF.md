@@ -413,6 +413,8 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, the commands guide:** `docs/gscraft-commands.md` - every `/gscraft` command with its arguments, the other mods' commands the slice uses, the play-test recipes; keep it current when a command is added.
+
 **2026-09-13, the director in front of the players and the compound (ruling R28):** `Director.seen` (a placement any
 player within `director.hidden_from` = 64 can see is refused, checked per try in `placeNear`), `Zones.nearExcluded` (map.json
 `margin` on an excluded zone: the compound 32, `tools/war_zones.py`), `SurvivorEvents.target` (nothing ever targets a
