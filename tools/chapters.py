@@ -68,6 +68,10 @@ def say(npc, key):
     return {"type": "say", "npc": npc, "key": key}
 
 
+def cmd(command):
+    return {"type": "cmd", "command": command}
+
+
 def meet(npc):
     return {"key": f"meet_{npc}", "chapter": npc, "title": "Meet " + npc.capitalize(), "voice": "", "task": f"You spoke to {npc.capitalize()}. Their chapter is open.",
             "x": 0, "y": 0, "tasks": [adv(f"seen_{npc}")], "rewards": [], "deps": [], "invisible": True}
@@ -130,6 +134,19 @@ QUESTS = [
     {"key": "R1", "chapter": "marshall", "title": "Muster", "voice": "We're squatting in someone's town.", "task": "Read the board in the hall, then come back.",
      "x": 0, "y": 0, "tasks": [CHECK], "deps": ["W1", "T1", "M1", "U1", "J1"], "hide_until_deps": True,
      "rewards": [give("gscraft:card_claim_marker"), stage("bp_claim_marker"), stage("marshall_speaks"), say("marshall", "speaks")]},
+    # Marshall's support (strikes note 2026-09-13): the tube, then the fire missions as repeatable hand-ins
+    {"key": "tube", "chapter": "marshall", "title": "The tube", "voice": "A mortar is three pieces and a plate.", "task": "Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard, and its shells are a station order.",
+     "x": 2, "y": 0, "tasks": [item("superbwarfare:mortar_barrel", 1), item("superbwarfare:mortar_bipod", 1), item("superbwarfare:mortar_base_plate", 1), item("gscraft:steel_frame", 2)], "deps": ["R1"], "hide_until_deps": True,
+     "rewards": [stage("mortar_built"), cmd("/function gscraft:yard_mortar"), give("gscraft:card_mortar_shell"), stage("bp_mortar_shell"), say("marshall", "tube")]},
+    {"key": "fire_mission", "chapter": "marshall", "title": "Fire mission", "voice": "Six shells buys you one call.", "task": "Hand in six mortar shells for a fire-mission grenade. Throw it where you want the rounds; fifteen seconds, then six of them.",
+     "x": 4, "y": 0, "tasks": [item("superbwarfare:mortar_shell", 6)], "deps": ["tube"], "repeat": True,
+     "rewards": [give("gscraft:strike_mortar")]},
+    {"key": "fire_for_effect", "chapter": "marshall", "title": "Fire for effect", "voice": "The guns reach further than the tube, and hit harder.", "task": "With a gun standing at a strongpoint, four heavy shells buy a call on the guns: wider, heavier, twenty seconds out.",
+     "x": 6, "y": 0, "tasks": [adv("gun_fired"), item("superbwarfare:large_shell_he", 4)], "deps": ["tube"], "repeat": True, "hide_until_deps": True,
+     "rewards": [give("gscraft:strike_artillery")]},
+    {"key": "air_support", "chapter": "marshall", "title": "Air support", "voice": "Tune found a Cobra on the net. She wants rockets for it.", "task": "With Radio 2 up, four rockets buy the Cobra: a rocket and gun run on the smoke, thirty seconds out.",
+     "x": 8, "y": 0, "tasks": [adv("radio_2"), item("superbwarfare:medium_rocket_he", 4)], "deps": ["tube"], "repeat": True, "hide_until_deps": True,
+     "rewards": [give("gscraft:strike_air")]},
     # The pocket: the gap, then the five takes (start-compound §5; ruling R22/R23)
     {"key": "R0", "chapter": "pocket", "title": "The gap", "voice": "Marshall wants that corner shut before dark.", "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the corner is a gate.",
      "x": 0, "y": 0, "tasks": [item("superbwarfare:sandbag", 8)], "deps": ["W1"], "hide_until_deps": True,
@@ -209,6 +226,8 @@ def reward_nbt(qkey, i, r):
         base.update({"type": "command", "title": "the stage " + r["stage"], "command": f"/gscraft stage add {r['stage']}", "elevate_perms": True, "silent": True, "auto": "invisible"})
     elif r["type"] == "say":
         base.update({"type": "command", "title": r["npc"] + " speaks", "command": f"/gscraft say {r['npc']} {r['key']} @s", "elevate_perms": True, "silent": True, "auto": "invisible"})
+    elif r["type"] == "cmd":
+        base.update({"type": "command", "title": r["command"].split(" ")[0].lstrip("/"), "command": r["command"], "elevate_perms": True, "silent": True, "auto": "invisible"})
     return base
 
 
@@ -224,6 +243,8 @@ def quest_nbt(d):
         nbt["invisible"] = True
     if d.get("hide_until_deps"):
         nbt["hide_until_deps_complete"] = True
+    if d.get("repeat"):
+        nbt["can_repeat"] = True
     nbt["tasks"] = [task_nbt(d["key"], i, t) for i, t in enumerate(d["tasks"])]
     nbt["rewards"] = [reward_nbt(d["key"], i, r) for i, r in enumerate(d["rewards"])]
     return nbt

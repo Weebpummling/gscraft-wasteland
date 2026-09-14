@@ -472,6 +472,34 @@
       "role": "part",
       "stack": 1,
       "bulky": true
+    },
+    {
+      "id": "strike_mortar",
+      "name": "Fire mission: mortar",
+      "tip": "Marshall's tube. Throw it; the smoke marks the target.",
+      "stack": 4,
+      "role": "strike"
+    },
+    {
+      "id": "strike_artillery",
+      "name": "Fire mission: guns",
+      "tip": "The strongpoints' guns. Throw it; the smoke marks the target.",
+      "stack": 4,
+      "role": "strike"
+    },
+    {
+      "id": "strike_air",
+      "name": "Air support: Cobra",
+      "tip": "Tune's call to the Cobra. Throw it; the smoke marks the run.",
+      "stack": 4,
+      "role": "strike"
+    },
+    {
+      "id": "card_mortar_shell",
+      "name": "Blueprint: mortar shell",
+      "tip": "Put it in a station's card slot; the station lists what the shell needs.",
+      "stack": 1,
+      "role": "card"
     }
   ]
 }

@@ -6,6 +6,7 @@
 
 - **`gscraft-system-2026-09-13.md`** — THE living description of the game as one system: the loop, every mechanic, the rulings, the stage registry, the reassessment, the vertical slice.
 - `../HANDOFF.md` — where things stand on both servers, session by session, and the tools.
+- `gscraft-strikes-2026-09-13.md` — the fire missions: the three strike grenades, the rounds the pack has, the quests that earn them, the items pass.
 - `gscraft-commands.md` — every `/gscraft` command, the FTB Quests, Lootr and datapack commands the slice uses, and the play-test recipes (reset, armour, the hospital by hand).
 
 ## The rules

@@ -24,6 +24,7 @@ Survivors are `walker`, `tony`, `michael`, `tune`, `james`, `marshall`. The sour
 | See what the world knows | `/gscraft sites`, `/gscraft stages`, `/gscraft board`, `/gscraft station list`, `/gscraft survivors` |
 | Stop the enemy layer for a quiet look | `/gscraft director pause` (and `resume`); `/gscraft hold on` freezes every fighter (`off`) |
 | Open a chapter | `/ftbquests open_book #walker` (any chapter tag: `compound`, `pocket`, a survivor's id) |
+| Call a fire mission by hand | `/gscraft strike mortar ~ ~ ~` (or `artillery`, `air`); `/gscraft strike status`; `/gscraft strike reset` clears the cooldown and any run. The grenades: `/give @s gscraft:strike_mortar` (also `strike_artillery`, `strike_air`) |
 
 ## 2. The survivors and the first join
 
@@ -74,6 +75,17 @@ trip 20:00, scaled by the setting `station.speed`.
 
 The board's blocks are datapack functions (`function gscraft:board_<site>_<state>`, `board_lamp_on|off`, `board_place`),
 called by the loop; the takes' torches are `function gscraft:torch_<name>`.
+
+## 4a. The fire missions
+
+| Command | What it does |
+|---|---|
+| `/gscraft strike <mortar|artillery|air> <x y z>` | the call a landed grenade would make, from the console (no owner on the rounds): the spotting round, the barrage, or the Cobra's run; refused while the tube is hot |
+| `/gscraft strike status` | ready or hot (with the last call), rounds scheduled, runs in the air |
+| `/gscraft strike reset` | the tube cold, every scheduled round dropped, any Cobra unloaded |
+| `/function gscraft:yard_mortar` | the tube stands in the yard (The tube's reward) |
+
+The numbers are settings under `strike.*` (`/gscraft settings strike`). The design is `docs/gscraft-strikes-2026-09-13.md`.
 
 ## 5. The director and the zones
 

@@ -35,6 +35,11 @@ public final class ModEntities {
                     .clientTrackingRange(10).build(GscraftWar.MODID + ":matron"));
 
     /** the crew of a Superb Warfare vehicle (armour design §2): invisible, in the driver's seat */
+    /** the strike grenade in flight and the smoke it lands as (strike/StrikeMarker) */
+    public static final RegistryObject<EntityType<gscraft.war.strike.StrikeMarker>> STRIKE_MARKER = ENTITIES.register("strike_marker",
+            () -> EntityType.Builder.<gscraft.war.strike.StrikeMarker>of(gscraft.war.strike.StrikeMarker::new, MobCategory.MISC).sized(0.25F, 0.25F)
+                    .clientTrackingRange(8).updateInterval(10).build("strike_marker"));
+
     public static final RegistryObject<EntityType<Crew>> CREW = ENTITIES.register("crew",
             () -> EntityType.Builder.of(Crew::new, MobCategory.MISC).sized(0.2F, 0.2F)
                     .clientTrackingRange(10).build(GscraftWar.MODID + ":crew"));

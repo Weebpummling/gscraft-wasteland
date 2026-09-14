@@ -65,7 +65,9 @@ public final class SliceItems {
     /** called from ModItems' static init: every listed item registered */
     public static void register() {
         for (Def d : DEFS) {
-            REGISTERED.add(ModItems.ITEMS.register(d.id(), () -> d.id().equals("claim_marker") ? new ClaimMarkerItem(d) : new SliceItem(d)));
+            REGISTERED.add(ModItems.ITEMS.register(d.id(), () -> d.id().equals("claim_marker") ? new ClaimMarkerItem(d)
+                    : d.id().startsWith("strike_") ? new gscraft.war.strike.StrikeItem(d, gscraft.war.strike.Strikes.Kind.valueOf(d.id().substring(7).toUpperCase(java.util.Locale.ROOT)))
+                    : new SliceItem(d)));
         }
         GscraftWar.LOG.info("[gscraft] items: {} from items.json", DEFS.size());
     }

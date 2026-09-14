@@ -30,5 +30,6 @@ public final class ClientSetup {
         event.registerEntityRenderer(ModEntities.BLOATER.get(), ctx -> new ScaledZombieRenderer(ctx, Bloater.RENDER_SCALE, false));
         event.registerEntityRenderer(ModEntities.MATRON.get(), ctx -> new ScaledZombieRenderer(ctx, Matron.RENDER_SCALE, true));
         event.registerEntityRenderer(ModEntities.CREW.get(), NoopRenderer::new);
+        event.registerEntityRenderer(ModEntities.STRIKE_MARKER.get(), net.minecraft.client.renderer.entity.ThrownItemRenderer::new);
     }
 }

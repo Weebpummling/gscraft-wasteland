@@ -25,6 +25,7 @@ SECTOR = ("compound_closed", "skadowsky_scouted", "skadowsky_held", "skadowsky_d
 BOSSES = ("switchyard_gatekeeper",)
 GATES = ("line_depot",)
 FUNCTIONS = ("workshop_1", "storage_1", "medical_1", "generator_1", "water_1", "radio_1")   # the slice's function levels (quests §9), set by the introductions' second quests
+GATES_SUPPORT = ("mortar_built", "gun_fired", "radio_2")   # the fire missions' gates (strikes note 2026-09-13)
 PER_PLAYER = ("joined", "marshall_speaks", "revives_3", "seen_walker", "seen_tony", "seen_michael", "seen_tune", "seen_james", "seen_marshall")
 RECIPES_FILE = ROOT / "mod/src/main/resources/data/gscraft/gscraft_recipes/recipes.json"
 # bp_<card>: one per blueprint card in the station's recipe file (slice build 5); the card's id without its card_ prefix
@@ -37,7 +38,7 @@ def registry():
         names += [f"{s}_{r}" for r in RUNGS]
     for site, alias in TAKES.items():
         names += [f"{site}_held", alias]
-    names += list(SECTOR) + list(BOSSES) + list(GATES) + list(FUNCTIONS) + list(PER_PLAYER)
+    names += list(SECTOR) + list(BOSSES) + list(GATES) + list(FUNCTIONS) + list(GATES_SUPPORT) + list(PER_PLAYER)
     names += [f"bp_{r}" for r in RECIPES]
     return names
 

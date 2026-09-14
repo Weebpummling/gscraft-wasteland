@@ -61,6 +61,21 @@ public final class Settings extends SimpleJsonResourceReloadListener {
     static {
         // the director
         i("director.interval_ticks", () -> Director.INTERVAL, v -> Director.INTERVAL = (int) v, "ticks between director passes");
+        i("strike.cooldown_ticks", () -> gscraft.war.strike.Strikes.COOLDOWN, v -> gscraft.war.strike.Strikes.COOLDOWN = (int) v, "the global cooldown after any fire mission");
+        i("strike.mortar_delay", () -> gscraft.war.strike.Strikes.MORTAR_DELAY, v -> gscraft.war.strike.Strikes.MORTAR_DELAY = (int) v, "ticks from the smoke to the mortar's spotting round; the barrage follows 4 s later");
+        i("strike.mortar_barrage", () -> gscraft.war.strike.Strikes.MORTAR_BARRAGE, v -> gscraft.war.strike.Strikes.MORTAR_BARRAGE = (int) v, "rounds in the mortar barrage");
+        i("strike.mortar_scatter", () -> gscraft.war.strike.Strikes.MORTAR_SCATTER, v -> gscraft.war.strike.Strikes.MORTAR_SCATTER = (int) v, "blocks either way a mortar round may land from the smoke");
+        d("strike.mortar_explosion", () -> gscraft.war.strike.Strikes.MORTAR_EXPLOSION, v -> gscraft.war.strike.Strikes.MORTAR_EXPLOSION = (float) v, "a mortar round's blast damage");
+        d("strike.mortar_radius", () -> gscraft.war.strike.Strikes.MORTAR_RADIUS, v -> gscraft.war.strike.Strikes.MORTAR_RADIUS = (float) v, "a mortar round's blast radius");
+        i("strike.artillery_delay", () -> gscraft.war.strike.Strikes.ARTY_DELAY, v -> gscraft.war.strike.Strikes.ARTY_DELAY = (int) v, "ticks from the smoke to the guns' spotting round");
+        i("strike.artillery_barrage", () -> gscraft.war.strike.Strikes.ARTY_BARRAGE, v -> gscraft.war.strike.Strikes.ARTY_BARRAGE = (int) v, "rounds in the guns' barrage");
+        i("strike.artillery_scatter", () -> gscraft.war.strike.Strikes.ARTY_SCATTER, v -> gscraft.war.strike.Strikes.ARTY_SCATTER = (int) v, "blocks either way a gun round may land");
+        d("strike.artillery_explosion", () -> gscraft.war.strike.Strikes.ARTY_EXPLOSION, v -> gscraft.war.strike.Strikes.ARTY_EXPLOSION = (float) v, "a gun round's blast damage");
+        d("strike.artillery_radius", () -> gscraft.war.strike.Strikes.ARTY_RADIUS, v -> gscraft.war.strike.Strikes.ARTY_RADIUS = (float) v, "a gun round's blast radius");
+        i("strike.air_delay", () -> gscraft.war.strike.Strikes.AIR_DELAY, v -> gscraft.war.strike.Strikes.AIR_DELAY = (int) v, "ticks from the smoke to the Cobra's appearance");
+        i("strike.air_rockets", () -> gscraft.war.strike.AirRun.ROCKETS, v -> gscraft.war.strike.AirRun.ROCKETS = (int) v, "rockets in the Cobra's salvo");
+        d("strike.air_rocket_explosion", () -> gscraft.war.strike.AirRun.ROCKET_EXPLOSION, v -> gscraft.war.strike.AirRun.ROCKET_EXPLOSION = (float) v, "a rocket's blast damage");
+        d("strike.air_gun_damage", () -> gscraft.war.strike.AirRun.GUN_DAMAGE, v -> gscraft.war.strike.AirRun.GUN_DAMAGE = (float) v, "a cannon round's damage");
         i("director.hidden_from", () -> Director.HIDDEN_FROM, v -> Director.HIDDEN_FROM = (int) v, "a placement must be out of the sight of every player this close (0 = off)");
         i("director.sweep_blocks", () -> Director.SWEEP, v -> Director.SWEEP = (int) v, "an ambient placement further than this from everyone, on two passes running, is taken back");
         i("director.player_ceiling", () -> Director.PLAYER_CEILING, v -> Director.PLAYER_CEILING = (int) v, "director creatures allowed within ceiling_box of one player, whatever the ground");

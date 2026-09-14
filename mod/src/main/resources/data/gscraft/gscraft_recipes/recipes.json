@@ -1,42 +1,233 @@
 {
   "__comment": "The station's orders (system doc 2026-09-13 §7 build 5; crafting §3-§5, map-design §4.3, interface §4.3). An order is one line: the card that is the order (an item id under gscraft, or none for the quick recipes nobody needs a blueprint for), what goes in (item ids, or #tags, with counts), the tool the tool slot must hold, what comes out, and the class that sets the time. tools/stages.py turns the distinct cards into bp_<card> advancements.",
-  "classes": {"quick": 20, "intermediate": 120, "equipment": 300, "trip": 1200},
+  "classes": {
+    "quick": 20,
+    "intermediate": 120,
+    "equipment": 300,
+    "trip": 1200
+  },
   "orders": [
-    {"id": "fastener_kit", "card": "card_fastener_kit", "class": "intermediate", "out": "gscraft:fastener_kit", "count": 1,
-     "in": {"gscraft:bolt": 4, "gscraft:nut": 4, "gscraft:screw": 4, "gscraft:nail": 4}},
-    {"id": "steel_frame", "card": "card_steel_frame", "class": "intermediate", "out": "gscraft:steel_frame", "count": 1,
-     "in": {"gscraft:metal_scrap": 6, "gscraft:fastener_kit": 1}, "tool": "gscraft:welding_torch"},
-    {"id": "wiring_harness", "card": "card_wiring_harness", "class": "intermediate", "out": "gscraft:wiring_harness", "count": 1,
-     "in": {"gscraft:wire_spool": 3, "gscraft:power_cord": 1, "gscraft:duct_tape": 1}},
-    {"id": "filter_cartridge", "card": "card_filter_cartridge", "class": "intermediate", "out": "gscraft:filter_cartridge", "count": 1,
-     "in": {"gscraft:water_filter": 1, "gscraft:corrugated_hose": 1, "gscraft:bleach": 1}},
-    {"id": "circuit_assembly", "card": "card_circuit_assembly", "class": "intermediate", "out": "gscraft:circuit_assembly", "count": 1,
-     "in": {"gscraft:circuit_board": 1, "gscraft:capacitor": 2, "gscraft:relay": 1, "gscraft:wire_spool": 1}},
-    {"id": "med_kit", "card": "card_med_kit", "class": "intermediate", "out": "gscraft:med_kit", "count": 1,
-     "in": {"gscraft:bandage": 2, "gscraft:painkillers": 1, "gscraft:antiseptic": 1, "gscraft:syringe": 1}},
-
-    {"id": "wrench", "card": "card_hand_tools", "class": "equipment", "out": "gscraft:wrench", "count": 1,
-     "in": {"gscraft:metal_scrap": 3}},
-    {"id": "pliers", "card": "card_hand_tools", "class": "equipment", "out": "gscraft:pliers", "count": 1,
-     "in": {"gscraft:metal_scrap": 2}},
-    {"id": "screwdriver_set", "card": "card_hand_tools", "class": "equipment", "out": "gscraft:screwdriver_set", "count": 1,
-     "in": {"gscraft:metal_scrap": 2, "#minecraft:planks": 1}},
-    {"id": "hand_drill", "card": "card_hand_tools", "class": "equipment", "out": "gscraft:hand_drill", "count": 1,
-     "in": {"gscraft:metal_scrap": 4, "gscraft:wire_spool": 1, "gscraft:duct_tape": 1}},
-    {"id": "welding_torch", "card": "card_hand_tools", "class": "equipment", "out": "gscraft:welding_torch", "count": 1,
-     "in": {"gscraft:metal_scrap": 4, "gscraft:silicone_tube": 2}},
-
-    {"id": "casings", "card": "card_casings", "class": "quick", "out": "gscraft:casings", "count": 16,
-     "in": {"gscraft:metal_scrap": 2}},
-    {"id": "powder", "card": "card_powder", "class": "quick", "out": "gscraft:powder", "count": 4,
-     "in": {"minecraft:gunpowder": 1, "gscraft:solvent": 1}},
-    {"id": "claim_marker", "card": "card_claim_marker", "class": "trip", "out": "gscraft:claim_marker", "count": 1,
-     "in": {"gscraft:steel_frame": 4, "gscraft:circuit_assembly": 1, "gscraft:wiring_harness": 1, "minecraft:white_banner": 1}},
-
-    {"id": "cloth_wool", "class": "quick", "out": "gscraft:cloth", "count": 1, "in": {"#minecraft:wool": 2}},
-    {"id": "cloth_string", "class": "quick", "out": "gscraft:cloth", "count": 1, "in": {"minecraft:string": 4}},
-    {"id": "bandage", "class": "quick", "out": "gscraft:bandage", "count": 1, "in": {"gscraft:cloth": 2}},
-    {"id": "sandbags", "class": "quick", "out": "superbwarfare:sandbag", "count": 4, "in": {"gscraft:cloth": 2, "#minecraft:sand": 4}},
-    {"id": "concrete", "class": "quick", "out": "gscraft:concrete_mix", "count": 8, "in": {"minecraft:gravel": 4, "#minecraft:sand": 4, "minecraft:water_bucket": 1}}
+    {
+      "id": "fastener_kit",
+      "card": "card_fastener_kit",
+      "class": "intermediate",
+      "out": "gscraft:fastener_kit",
+      "count": 1,
+      "in": {
+        "gscraft:bolt": 4,
+        "gscraft:nut": 4,
+        "gscraft:screw": 4,
+        "gscraft:nail": 4
+      }
+    },
+    {
+      "id": "steel_frame",
+      "card": "card_steel_frame",
+      "class": "intermediate",
+      "out": "gscraft:steel_frame",
+      "count": 1,
+      "in": {
+        "gscraft:metal_scrap": 6,
+        "gscraft:fastener_kit": 1
+      },
+      "tool": "gscraft:welding_torch"
+    },
+    {
+      "id": "wiring_harness",
+      "card": "card_wiring_harness",
+      "class": "intermediate",
+      "out": "gscraft:wiring_harness",
+      "count": 1,
+      "in": {
+        "gscraft:wire_spool": 3,
+        "gscraft:power_cord": 1,
+        "gscraft:duct_tape": 1
+      }
+    },
+    {
+      "id": "filter_cartridge",
+      "card": "card_filter_cartridge",
+      "class": "intermediate",
+      "out": "gscraft:filter_cartridge",
+      "count": 1,
+      "in": {
+        "gscraft:water_filter": 1,
+        "gscraft:corrugated_hose": 1,
+        "gscraft:bleach": 1
+      }
+    },
+    {
+      "id": "circuit_assembly",
+      "card": "card_circuit_assembly",
+      "class": "intermediate",
+      "out": "gscraft:circuit_assembly",
+      "count": 1,
+      "in": {
+        "gscraft:circuit_board": 1,
+        "gscraft:capacitor": 2,
+        "gscraft:relay": 1,
+        "gscraft:wire_spool": 1
+      }
+    },
+    {
+      "id": "med_kit",
+      "card": "card_med_kit",
+      "class": "intermediate",
+      "out": "gscraft:med_kit",
+      "count": 1,
+      "in": {
+        "gscraft:bandage": 2,
+        "gscraft:painkillers": 1,
+        "gscraft:antiseptic": 1,
+        "gscraft:syringe": 1
+      }
+    },
+    {
+      "id": "wrench",
+      "card": "card_hand_tools",
+      "class": "equipment",
+      "out": "gscraft:wrench",
+      "count": 1,
+      "in": {
+        "gscraft:metal_scrap": 3
+      }
+    },
+    {
+      "id": "pliers",
+      "card": "card_hand_tools",
+      "class": "equipment",
+      "out": "gscraft:pliers",
+      "count": 1,
+      "in": {
+        "gscraft:metal_scrap": 2
+      }
+    },
+    {
+      "id": "screwdriver_set",
+      "card": "card_hand_tools",
+      "class": "equipment",
+      "out": "gscraft:screwdriver_set",
+      "count": 1,
+      "in": {
+        "gscraft:metal_scrap": 2,
+        "#minecraft:planks": 1
+      }
+    },
+    {
+      "id": "hand_drill",
+      "card": "card_hand_tools",
+      "class": "equipment",
+      "out": "gscraft:hand_drill",
+      "count": 1,
+      "in": {
+        "gscraft:metal_scrap": 4,
+        "gscraft:wire_spool": 1,
+        "gscraft:duct_tape": 1
+      }
+    },
+    {
+      "id": "welding_torch",
+      "card": "card_hand_tools",
+      "class": "equipment",
+      "out": "gscraft:welding_torch",
+      "count": 1,
+      "in": {
+        "gscraft:metal_scrap": 4,
+        "gscraft:silicone_tube": 2
+      }
+    },
+    {
+      "id": "casings",
+      "card": "card_casings",
+      "class": "quick",
+      "out": "gscraft:casings",
+      "count": 16,
+      "in": {
+        "gscraft:metal_scrap": 2
+      }
+    },
+    {
+      "id": "powder",
+      "card": "card_powder",
+      "class": "quick",
+      "out": "gscraft:powder",
+      "count": 4,
+      "in": {
+        "minecraft:gunpowder": 1,
+        "gscraft:solvent": 1
+      }
+    },
+    {
+      "id": "claim_marker",
+      "card": "card_claim_marker",
+      "class": "trip",
+      "out": "gscraft:claim_marker",
+      "count": 1,
+      "in": {
+        "gscraft:steel_frame": 4,
+        "gscraft:circuit_assembly": 1,
+        "gscraft:wiring_harness": 1,
+        "minecraft:white_banner": 1
+      }
+    },
+    {
+      "id": "cloth_wool",
+      "class": "quick",
+      "out": "gscraft:cloth",
+      "count": 1,
+      "in": {
+        "#minecraft:wool": 2
+      }
+    },
+    {
+      "id": "cloth_string",
+      "class": "quick",
+      "out": "gscraft:cloth",
+      "count": 1,
+      "in": {
+        "minecraft:string": 4
+      }
+    },
+    {
+      "id": "bandage",
+      "class": "quick",
+      "out": "gscraft:bandage",
+      "count": 1,
+      "in": {
+        "gscraft:cloth": 2
+      }
+    },
+    {
+      "id": "sandbags",
+      "class": "quick",
+      "out": "superbwarfare:sandbag",
+      "count": 4,
+      "in": {
+        "gscraft:cloth": 2,
+        "#minecraft:sand": 4
+      }
+    },
+    {
+      "id": "concrete",
+      "class": "quick",
+      "out": "gscraft:concrete_mix",
+      "count": 8,
+      "in": {
+        "minecraft:gravel": 4,
+        "#minecraft:sand": 4,
+        "minecraft:water_bucket": 1
+      }
+    },
+    {
+      "id": "mortar_shell",
+      "card": "card_mortar_shell",
+      "class": "intermediate",
+      "out": "superbwarfare:mortar_shell",
+      "count": 2,
+      "in": {
+        "gscraft:metal_scrap": 3,
+        "gscraft:powder": 2
+      }
+    }
   ]
 }

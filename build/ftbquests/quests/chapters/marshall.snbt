@@ -69,6 +69,201 @@
 				}
 			]
 		}
+		{
+			id: "A1F988CF156889C3"
+			x: 2.0d
+			y: 0.0d
+			title: "The tube"
+			subtitle: "A mortar is three pieces and a plate."
+			description: [
+				"Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard, and its shells are a station order."
+			]
+			dependencies: [
+				"B210B848C9E6E4CB"
+			]
+			hide_until_deps_complete: true
+			tasks: [
+				{
+					id: "F2F25A4C839C48E3"
+					type: "item"
+					item: "superbwarfare:mortar_barrel"
+					count: 1
+					consume_items: true
+				}
+				{
+					id: "5B35467B337FD906"
+					type: "item"
+					item: "superbwarfare:mortar_bipod"
+					count: 1
+					consume_items: true
+				}
+				{
+					id: "4DCA9ACDCAFC0285"
+					type: "item"
+					item: "superbwarfare:mortar_base_plate"
+					count: 1
+					consume_items: true
+				}
+				{
+					id: "5E396324725BCE3C"
+					type: "item"
+					item: "gscraft:steel_frame"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "0FC1415272108264"
+					type: "command"
+					title: "the stage mortar_built"
+					command: "/gscraft stage add mortar_built"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "4BD845190BB39B29"
+					type: "command"
+					title: "function"
+					command: "/function gscraft:yard_mortar"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "36E5CD2AA2DBD089"
+					type: "item"
+					item: "gscraft:card_mortar_shell"
+					count: 1
+				}
+				{
+					id: "1CC3657559CF9DE1"
+					type: "command"
+					title: "the stage bp_mortar_shell"
+					command: "/gscraft stage add bp_mortar_shell"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "E20E4A5DA1C78083"
+					type: "command"
+					title: "marshall speaks"
+					command: "/gscraft say marshall tube @s"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "C61D2B89EFA494BA"
+			x: 4.0d
+			y: 0.0d
+			title: "Fire mission"
+			subtitle: "Six shells buys you one call."
+			description: [
+				"Hand in six mortar shells for a fire-mission grenade. Throw it where you want the rounds; fifteen seconds, then six of them."
+			]
+			dependencies: [
+				"A1F988CF156889C3"
+			]
+			can_repeat: true
+			tasks: [
+				{
+					id: "97163EB4FAF0C605"
+					type: "item"
+					item: "superbwarfare:mortar_shell"
+					count: 6
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "3A93C701B43A75EB"
+					type: "item"
+					item: "gscraft:strike_mortar"
+					count: 1
+				}
+			]
+		}
+		{
+			id: "9E3DB02C61CB85E7"
+			x: 6.0d
+			y: 0.0d
+			title: "Fire for effect"
+			subtitle: "The guns reach further than the tube, and hit harder."
+			description: [
+				"With a gun standing at a strongpoint, four heavy shells buy a call on the guns: wider, heavier, twenty seconds out."
+			]
+			dependencies: [
+				"A1F988CF156889C3"
+			]
+			hide_until_deps_complete: true
+			can_repeat: true
+			tasks: [
+				{
+					id: "C8DCA01D6B559F9F"
+					type: "advancement"
+					advancement: "gscraft:stage/gun_fired"
+					criterion: "set"
+				}
+				{
+					id: "6DCDEF2567AB435D"
+					type: "item"
+					item: "superbwarfare:large_shell_he"
+					count: 4
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "042FC5CC88181E5D"
+					type: "item"
+					item: "gscraft:strike_artillery"
+					count: 1
+				}
+			]
+		}
+		{
+			id: "3C9C07181B3150F0"
+			x: 8.0d
+			y: 0.0d
+			title: "Air support"
+			subtitle: "Tune found a Cobra on the net. She wants rockets for it."
+			description: [
+				"With Radio 2 up, four rockets buy the Cobra: a rocket and gun run on the smoke, thirty seconds out."
+			]
+			dependencies: [
+				"A1F988CF156889C3"
+			]
+			hide_until_deps_complete: true
+			can_repeat: true
+			tasks: [
+				{
+					id: "2F9B77DC881880ED"
+					type: "advancement"
+					advancement: "gscraft:stage/radio_2"
+					criterion: "set"
+				}
+				{
+					id: "E8ED5F7B932E8A3D"
+					type: "item"
+					item: "superbwarfare:medium_rocket_he"
+					count: 4
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "D39E0F9ADB7FFA7C"
+					type: "item"
+					item: "gscraft:strike_air"
+					count: 1
+				}
+			]
+		}
 	]
 	quest_links: [ ]
 	icon: "gscraft:claim_marker"

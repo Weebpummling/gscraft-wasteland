@@ -413,6 +413,22 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, the HUD in a vehicle, the creative tab and the fire missions (rulings R31-R32; design
+`docs/gscraft-strikes-2026-09-13.md`):** `client/VehicleHud` hides the vanilla health and armour overlays and the wounds
+figure while riding anything not living. `ModTab`: the *GSCraft Wasteland* creative tab. `gscraft.war.strike`: `Strikes`
+(the scheduler, the three calls, the global cooldown `strike.cooldown_ticks`, `/gscraft strike`), `AirRun` (the AH-1F flown
+as a prop, force-loading the chunk under it; rockets from 120 blocks out, guns over the smoke, breaks off on a hit,
+unloaded 300 past), `StrikeMarker` (a thrown item entity that lands as coloured smoke and makes the call; refused calls
+drop the grenade back), `StrikeItem` (`strike_mortar|artillery|air`, refused in the hand while hot), `Sw` (Superb
+Warfare's projectiles by reflection: create, setDamage/setExplosionDamage/setExplosionRadius, setType, shooter). Data:
+items.json +3 grenades +`card_mortar_shell` (63), recipes.json +`mortar_shell` order, lang lines, stages +`mortar_built`
+`gun_fired` `radio_2` (70), loot: shells in the garages, the mortar's parts in the workshops, `yard_mortar` function
+(installed locally), chapters.py: Marshall's *The tube* and the three repeatable fire missions (27 quests; `cmd` rewards,
+`can_repeat`). `tools/war_phase38.py` (5/5: spotting at 15.1 s, six rounds; eight heavy rounds; the Cobra at 30 s, 8
+rockets, 50 gun ticks, off at 55 s, none left). In-game: `/give @s gscraft:strike_mortar`, throw it, watch the smoke and
+listen; ride a BMP and see the bars go. TRAP: a `forceload` over 256 chunks is refused silently by the command and the
+test's positions read as unloaded.
+
 **2026-09-13, roads by data and the withdrawal on a hit (rulings R29-R30):** `armour/Roads` reads
 `gscraft_armour/roads.json` (namespaces: the road mod; surfaces: per-zone block lists - Skadowsky's streets for now);
 `Patrols.roadUnder` goes through it. `Crew.tick`: a health drop under the disabled share (or the turret out) starts the

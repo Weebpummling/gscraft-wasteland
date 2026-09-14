@@ -62,6 +62,8 @@ public final class WoundsHud {
     private static final int BACK = 0x70000000;
 
     private static void draw(GuiGraphics g, int width, int height) {
+
+        if (VehicleHud.inVehicle()) return;   // in a hull the body is the vehicle's (owner 2026-09-13)
         Minecraft mc = Minecraft.getInstance();
         Net.HudPacket p = latest;
         if (p == null || mc.player == null || mc.options.hideGui || mc.player.isSpectator()) return;

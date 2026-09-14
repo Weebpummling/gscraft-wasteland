@@ -613,6 +613,167 @@
    "id": "B210B848C9E6E4CB"
   },
   {
+   "key": "tube",
+   "chapter": "marshall",
+   "title": "The tube",
+   "voice": "A mortar is three pieces and a plate.",
+   "task": "Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard, and its shells are a station order.",
+   "x": 2,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "superbwarfare:mortar_barrel",
+     "count": 1,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "superbwarfare:mortar_bipod",
+     "count": 1,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "superbwarfare:mortar_base_plate",
+     "count": 1,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:steel_frame",
+     "count": 2,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "R1"
+   ],
+   "hide_until_deps": true,
+   "rewards": [
+    {
+     "type": "stage",
+     "stage": "mortar_built"
+    },
+    {
+     "type": "cmd",
+     "command": "/function gscraft:yard_mortar"
+    },
+    {
+     "type": "item",
+     "item": "gscraft:card_mortar_shell",
+     "count": 1
+    },
+    {
+     "type": "stage",
+     "stage": "bp_mortar_shell"
+    },
+    {
+     "type": "say",
+     "npc": "marshall",
+     "key": "tube"
+    }
+   ],
+   "id": "A1F988CF156889C3"
+  },
+  {
+   "key": "fire_mission",
+   "chapter": "marshall",
+   "title": "Fire mission",
+   "voice": "Six shells buys you one call.",
+   "task": "Hand in six mortar shells for a fire-mission grenade. Throw it where you want the rounds; fifteen seconds, then six of them.",
+   "x": 4,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "superbwarfare:mortar_shell",
+     "count": 6,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "tube"
+   ],
+   "repeat": true,
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:strike_mortar",
+     "count": 1
+    }
+   ],
+   "id": "C61D2B89EFA494BA"
+  },
+  {
+   "key": "fire_for_effect",
+   "chapter": "marshall",
+   "title": "Fire for effect",
+   "voice": "The guns reach further than the tube, and hit harder.",
+   "task": "With a gun standing at a strongpoint, four heavy shells buy a call on the guns: wider, heavier, twenty seconds out.",
+   "x": 6,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "gun_fired"
+    },
+    {
+     "type": "item",
+     "item": "superbwarfare:large_shell_he",
+     "count": 4,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "tube"
+   ],
+   "repeat": true,
+   "hide_until_deps": true,
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:strike_artillery",
+     "count": 1
+    }
+   ],
+   "id": "9E3DB02C61CB85E7"
+  },
+  {
+   "key": "air_support",
+   "chapter": "marshall",
+   "title": "Air support",
+   "voice": "Tune found a Cobra on the net. She wants rockets for it.",
+   "task": "With Radio 2 up, four rockets buy the Cobra: a rocket and gun run on the smoke, thirty seconds out.",
+   "x": 8,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "radio_2"
+    },
+    {
+     "type": "item",
+     "item": "superbwarfare:medium_rocket_he",
+     "count": 4,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "tube"
+   ],
+   "repeat": true,
+   "hide_until_deps": true,
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:strike_air",
+     "count": 1
+    }
+   ],
+   "id": "3C9C07181B3150F0"
+  },
+  {
    "key": "R0",
    "chapter": "pocket",
    "title": "The gap",
