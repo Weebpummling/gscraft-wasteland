@@ -4,7 +4,7 @@ on a platform of oak planks ringed and floored with stone: the planks go, the st
 prove: after the barrage some planks are gone and no stone block is; the server config carries the flags; the
 soft-collision tag the vehicles use is ours. A vehicle crushing a fence on screen is the owner's in-game check.
 
-1. The server config: explosion_destroy on, projectile glass off, collision soft on / normal, hard, beastly off.
+1. The world's serverconfig (the file the mod reads): explosion_destroy on, projectile blocks off, collision soft on / normal, hard, beastly off.
 2. The world datapack's soft-collision tag is the wooden tag alone.
 3. A mortar mission on a plank platform: planks gone, stone untouched.
 4. No gscraft errors.
@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import localtest as L  # noqa: E402
 
 LOG = Path("G:/GSCraft/server/logs/latest.log")
-CONFIG = Path("G:/GSCraft/server/config/superbwarfare-server.toml")
+CONFIG = Path("G:/GSCraft/server/wasteland-v8/serverconfig/superbwarfare-server.toml")   # the mod's SERVER config: the world's, not config/
 TAG = Path("G:/GSCraft/server/wasteland-v8/datapacks/gscraft_armour/data/superbwarfare/tags/blocks/soft_collision.json")
 r = L.Rcon("127.0.0.1", 25575, "gscraft-local-test")
 results = []
@@ -44,7 +44,7 @@ def log_since(mark):
 
 # 1. the config flags
 flags = dict(re.findall(r"^\s*(\w+) = (true|false)\s*$", CONFIG.read_text(encoding="utf-8"), re.M))
-want = {"explosion_destroy": "true", "allow_projectile_destroy_glass": "false", "collision_destroy_soft_blocks": "true",
+want = {"explosion_destroy": "true", "allow_projectile_destroy_blocks": "false", "collision_destroy_soft_blocks": "true",
         "collision_destroy_normal_blocks": "false", "collision_destroy_hard_blocks": "false", "collision_destroy_blocks_beastly": "false"}
 bad = {k: flags.get(k) for k, v in want.items() if flags.get(k) != v}
 check("the server config carries the block destruction flags", not bad, f"off {bad}" if bad else "all six as wanted")

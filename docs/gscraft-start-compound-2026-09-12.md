@@ -76,6 +76,8 @@ need no upload, so the world-deploy rule does not come into it. Players who alre
 | | the gun pit and **the mast's field**, 165–200 m |
 | | the hospital, 438 m |
 
+> **2026-09-13 (owner: every survivor inside the south compound):** all six start inside the walls - Marshall on the hall's floor by the board, Tony in the sheds, Tune in the annex, James at the gap (`tools/camp.py` START); the four still move out to their buildings when the site loop takes those (gatehouse, north, crossing).
+
 Walker and Michael are the two survivors whose buildings the compound already is; the other four are met where they
 are found. That changes nothing in their chains (quests §2–§7) except the order the first-time lines come in.
 

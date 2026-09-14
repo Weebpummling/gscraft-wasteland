@@ -1,0 +1,226 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "marshall"
+	group: ""
+	icon: "gscraft:claim_marker"
+	id: "4DC1AA420558F272"
+	order_index: 6
+	quest_links: [ ]
+	quests: [
+		{
+			dependencies: [
+				"0016A4AE37CD6D15"
+				"7B637596EC041BC1"
+				"44D246950C7B83C4"
+			]
+			description: ["Read the board in the hall, then come back."]
+			hide_until_deps_complete: true
+			id: "31F7312326D4CA8C"
+			rewards: [
+				{
+					id: "0BD9A2AFF3299A07"
+					item: "gscraft:card_claim_marker"
+					type: "item"
+				}
+				{
+					auto: "invisible"
+					command: "/gscraft stage add bp_claim_marker"
+					elevate_perms: true
+					id: "5B06E1B8F91828A4"
+					silent: true
+					title: "the stage bp_claim_marker"
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/gscraft stage add marshall_speaks"
+					elevate_perms: true
+					id: "04F3CE65B846A90B"
+					silent: true
+					title: "the stage marshall_speaks"
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/gscraft say marshall speaks @s"
+					elevate_perms: true
+					id: "4A14E16DA8A75C9A"
+					silent: true
+					title: "marshall speaks"
+					type: "command"
+				}
+			]
+			subtitle: "We're squatting in someone's town."
+			tasks: [{
+				id: "5663E77E78BA4396"
+				type: "checkmark"
+			}]
+			title: "Muster"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: ["Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard, and its shells are a station order."]
+			hide_until_deps_complete: true
+			id: "57E28750B13EF429"
+			rewards: [
+				{
+					auto: "invisible"
+					command: "/gscraft stage add mortar_built"
+					elevate_perms: true
+					id: "0FC1415272108264"
+					silent: true
+					title: "the stage mortar_built"
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/function gscraft:yard_mortar"
+					elevate_perms: true
+					id: "4BD845190BB39B29"
+					silent: true
+					title: "function"
+					type: "command"
+				}
+				{
+					id: "36E5CD2AA2DBD089"
+					item: "gscraft:card_mortar_shell"
+					type: "item"
+				}
+				{
+					auto: "invisible"
+					command: "/gscraft stage add bp_mortar_shell"
+					elevate_perms: true
+					id: "1CC3657559CF9DE1"
+					silent: true
+					title: "the stage bp_mortar_shell"
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/gscraft say marshall tube @s"
+					elevate_perms: true
+					id: "51667ABA20BC8FF9"
+					silent: true
+					title: "marshall speaks"
+					type: "command"
+				}
+			]
+			subtitle: "A mortar is three pieces and a plate."
+			tasks: [
+				{
+					consume_items: true
+					id: "3D6F36E076752EEA"
+					item: "superbwarfare:mortar_barrel"
+					type: "item"
+				}
+				{
+					consume_items: true
+					id: "5B35467B337FD906"
+					item: "superbwarfare:mortar_bipod"
+					type: "item"
+				}
+				{
+					consume_items: true
+					id: "4DCA9ACDCAFC0285"
+					item: "superbwarfare:mortar_base_plate"
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 2L
+					id: "5E396324725BCE3C"
+					item: "gscraft:steel_frame"
+					type: "item"
+				}
+			]
+			title: "The tube"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			can_repeat: true
+			description: ["Hand in six mortar shells for a fire-mission grenade. Throw it where you want the rounds; fifteen seconds, then six of them."]
+			id: "0345B8F3CA83A14B"
+			rewards: [{
+				id: "3A93C701B43A75EB"
+				item: "gscraft:strike_mortar"
+				type: "item"
+			}]
+			subtitle: "Six shells buys you one call."
+			tasks: [{
+				consume_items: true
+				count: 6L
+				id: "408D3B8C32F15820"
+				item: "superbwarfare:mortar_shell"
+				type: "item"
+			}]
+			title: "Fire mission"
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			can_repeat: true
+			description: ["With a gun standing at a strongpoint, four heavy shells buy a call on the guns: wider, heavier, twenty seconds out."]
+			hide_until_deps_complete: true
+			id: "6F10D492BCBC03A7"
+			rewards: [{
+				id: "042FC5CC88181E5D"
+				item: "gscraft:strike_artillery"
+				type: "item"
+			}]
+			subtitle: "The guns reach further than the tube, and hit harder."
+			tasks: [
+				{
+					advancement: "gscraft:stage/gun_fired"
+					criterion: "set"
+					id: "575CBC616B99D726"
+					type: "advancement"
+				}
+				{
+					consume_items: true
+					count: 4L
+					id: "6DCDEF2567AB435D"
+					item: "superbwarfare:large_shell_he"
+					type: "item"
+				}
+			]
+			title: "Fire for effect"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			can_repeat: true
+			description: ["With Radio 2 up, four rockets buy the Cobra: a rocket and gun run on the smoke, thirty seconds out."]
+			hide_until_deps_complete: true
+			id: "3C9C07181B3150F0"
+			rewards: [{
+				id: "74357EF6C8CCD9C4"
+				item: "gscraft:strike_air"
+				type: "item"
+			}]
+			subtitle: "Tune found a Cobra on the net. She wants rockets for it."
+			tasks: [
+				{
+					advancement: "gscraft:stage/radio_2"
+					criterion: "set"
+					id: "2F9B77DC881880ED"
+					type: "advancement"
+				}
+				{
+					consume_items: true
+					count: 4L
+					id: "0016A882012C7D17"
+					item: "superbwarfare:medium_rocket_he"
+					type: "item"
+				}
+			]
+			title: "Air support"
+			x: 8.0d
+			y: 0.0d
+		}
+	]
+	tags: ["marshall"]
+	title: "Marshall"
+}

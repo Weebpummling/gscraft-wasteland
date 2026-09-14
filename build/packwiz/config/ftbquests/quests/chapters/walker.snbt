@@ -1,0 +1,194 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "walker"
+	group: ""
+	icon: {
+		Count: 1
+		id: "gscraft:wrench"
+		tag: {
+			Damage: 0
+		}
+	}
+	id: "2738C5E7FCA0B0F8"
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["You spoke to Walker. Their chapter is open."]
+			id: "059D4FE0ADEB02D4"
+			invisible: true
+			tasks: [{
+				advancement: "gscraft:stage/seen_walker"
+				criterion: "set"
+				id: "719B19B4371477D0"
+				type: "advancement"
+			}]
+			title: "Meet Walker"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: ["Hand in eight bolts and eight nuts from the town's rooms. The reward is a wrench and two blueprint cards: a card in your station's top-left slot is an order."]
+			id: "0016A4AE37CD6D15"
+			rewards: [
+				{
+					id: "31F1F0E36EC9AB3A"
+					item: {
+						Count: 1
+						id: "gscraft:wrench"
+						tag: {
+							Damage: 0
+						}
+					}
+					type: "item"
+				}
+				{
+					id: "6DB44ED20F921F06"
+					item: "gscraft:card_fastener_kit"
+					type: "item"
+				}
+				{
+					id: "77B1B2C8F290A483"
+					item: "gscraft:card_hand_tools"
+					type: "item"
+				}
+				{
+					auto: "invisible"
+					command: "/gscraft stage add bp_fastener_kit"
+					elevate_perms: true
+					id: "4A33CD1D3172863E"
+					silent: true
+					title: "the stage bp_fastener_kit"
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/gscraft stage add bp_hand_tools"
+					elevate_perms: true
+					id: "12739BF170F4D60D"
+					silent: true
+					title: "the stage bp_hand_tools"
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/gscraft say walker station @s"
+					elevate_perms: true
+					id: "0B12F71C1794D87F"
+					silent: true
+					title: "walker speaks"
+					type: "command"
+				}
+			]
+			subtitle: "Bring me anything with a thread on it."
+			tasks: [
+				{
+					consume_items: true
+					count: 8L
+					id: "6E3079147DED44FF"
+					item: "gscraft:bolt"
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 8L
+					id: "0815BB95DC698509"
+					item: "gscraft:nut"
+					type: "item"
+				}
+			]
+			title: "Nuts and bolts"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["0016A4AE37CD6D15"]
+			description: ["Put the fastener-kit card in your station, four bolts, nuts, screws and nails under it, and wait two minutes. Bring me two kits."]
+			id: "479EBD567E6EFFAE"
+			rewards: [
+				{
+					id: "0591D08B7C4768DE"
+					item: "sophisticatedbackpacks:backpack"
+					type: "item"
+				}
+				{
+					auto: "invisible"
+					command: "/gscraft stage add storage_1"
+					elevate_perms: true
+					id: "3CC82F0E9BF29E25"
+					silent: true
+					title: "the stage storage_1"
+					type: "command"
+				}
+			]
+			subtitle: "You'll need somewhere to put it all."
+			tasks: [{
+				consume_items: true
+				count: 2L
+				id: "4512B7851696B4B6"
+				item: "gscraft:fastener_kit"
+				type: "item"
+			}]
+			title: "A place for everything"
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			description: ["Bring twelve metal scrap and show me a welding torch."]
+			id: "737BC38EE1D1CF90"
+			rewards: [
+				{
+					id: "53FCD9FC185D272D"
+					item: "gscraft:card_steel_frame"
+					type: "item"
+				}
+				{
+					auto: "invisible"
+					command: "/gscraft stage add bp_steel_frame"
+					elevate_perms: true
+					id: "32B8099801AD8180"
+					silent: true
+					title: "the stage bp_steel_frame"
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/gscraft stage add workshop_1"
+					elevate_perms: true
+					id: "7654B72652173573"
+					silent: true
+					title: "the stage workshop_1"
+					type: "command"
+				}
+			]
+			subtitle: "Scrap is only scrap till it's welded."
+			tasks: [
+				{
+					consume_items: true
+					count: 12L
+					id: "4350457C7C993087"
+					item: "gscraft:metal_scrap"
+					type: "item"
+				}
+				{
+					id: "5A35C56880BB3766"
+					item: {
+						Count: 1
+						id: "gscraft:welding_torch"
+						tag: {
+							Damage: 0
+						}
+					}
+					title: "Show welding torch"
+					type: "item"
+				}
+			]
+			title: "Frame of mind"
+			x: 6.0d
+			y: 0.0d
+		}
+	]
+	tags: ["walker"]
+	title: "Walker"
+}

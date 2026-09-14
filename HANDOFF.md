@@ -413,6 +413,46 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13 22:40, live** (owner: "server is empty, update this live"; empty by the console's `list` at 22:33 and 22:39, read
+from `/logs/latest.log` through the panel's `get` - `cat` trips on the console's code page): **the whole slice at once**,
+everything since the 15:15 jar of 2026-09-12. Uploaded while running: the armour datapack (`pack.mcmeta`, the four vehicle
+files, the five gun files, `tags/blocks/soft_collision.json`, `dragonrise_reforge/sbw/vehicles/ah1f.json`) into
+`/wasteland-v8/datapacks/gscraft_armour`; the book (`data.snbt`, `chapter_groups.snbt`, the eight chapters) into
+`/config/ftbquests/quests` (the folder did not exist on live - `mkdir` each level; the panel answers HTTP 500 for a folder
+that is not there); a new world datapack **`gscraft_slice`** (`/wasteland-v8/datapacks/gscraft_slice/data/gscraft/functions`,
+66 functions: `board_*`, `camp_*`, `torch_*`, `yard_mortar`) - live has no `gscraft` world datapack, so the functions got
+their own. Then `power stop`, `put` of `gscraft-0.1.0.jar` (647430 bytes, sha256 2ab1eeec...) into `/mods` and of
+`superbwarfare-server.toml` into `/config` and `/wasteland-v8/serverconfig`, `power start`: Done in 2.0 s, "Found new data
+pack file/gscraft_slice", `settings: 194 values from [defaults (192), zz_live (2)]`, `armour loaded: 24 pieces`, no gscraft
+errors. **Trap:** console commands sent six seconds after Done threw `NullPointerException ... ServerLevel` (forceload,
+`execute if entity`); the same commands a minute later ran. Then `forceload add -990 -900 -880 -810`, `function
+gscraft:board_place` (57), `camp_npcs` (28), `camp_torches` (4), `yard_mortar` (2); `execute if entity` counts: six
+survivors inside the compound box, one mortar in the yard; the board's origin block is not air; forceload removed. **The
+block-destruction flags:** the mod registers `superbwarfare-server.toml` as a Forge SERVER config, so the file it reads
+is the world's `serverconfig/` one (nested `[vehicle.collision]`), not `config/`; Forge "corrected" the flat file I put
+there and dropped the collision keys. The mod's own command set and saved them on live and locally: `/sbw config
+explosionDestroy true`, `/sbw config collisionDestroy soft`, `/sbw config projectileDestroyBlocks false` (`/help sbw
+config` lists the rest); live's serverconfig file confirmed after (`explosion_destroy = true`, soft true, normal/hard/
+beastly false, `allow_projectile_destroy_blocks = false`). `tools/armour_override.py` now writes both files in each one's
+layout; `tools/war_phase41.py` reads the world's. Locally proven after: a withdrawing BMP crushed 36 of 54 oak fences and
+no stone brick; phase 41 4/4 (planks 81 -> 69, fences 81 -> 7, stone untouched). Pack **2026.09.13.1** built after the
+boot (`pauseEventServer` toggled true for the build and restored), the `pack-files` release jar replaced with `--clobber`
+(647430 bytes), `config/ftbquests/quests` now in the pack. Not done on live: nothing - the compound's survivors, the
+board, the torches, the mortar, the book, the strikes, the Cobra, the stress bail and the wooden rule are all up.
+
+**2026-09-13, every survivor starts inside the south compound** (owner: "move all of the npcs inside the southern
+compound"): `tools/camp.py` keeps the six building spots (`camp_npc_<npc>`, which the site loop runs on `held` -
+gatehouse.json, north.json, crossing.json - so Marshall, Tony, Tune and James still move out to their buildings when
+those are taken) and adds `camp_start_<npc>` for those four inside the walls: Marshall on the hall's floor by the board
+(-952, 65, -851), Tony in the sheds along the yard's west wall (-966, 65, -876), Tune in the hall's annex (-949, 65,
+-828), James at the gap in the yard's north-east corner (-945, 65, -889); `camp_npcs` (the deploy, the reset) runs the
+start set. Under a roof the column's top is the roof, so `spot_indoor` finds the hard block within two of the floor
+with two of air above (`Chunk.get`), and the sign check reads blocks the same way. `tools/camp_npcs.json` records both
+sets. The start signs name the place they stand ("the hall", "the sheds", "the annex", "the gap"). Phase 33 8/8 (run
+with `PYTHONIOENCODING=utf-8`: the check names carry an em dash the console's code page cannot print). On local and
+live: six inside the compound box by `execute if entity`. The old signs at the four buildings stay (the loop's move
+puts each survivor beside its own).
+
 **2026-09-13, the Cobra fuelled and at a pilot's power, 29 rockets a pass; blocks break, wooden only (R36):** the rotor did
 not turn on screen (owner) - the run held the power at 1.0 and the mod advances the blade by 30 x power a tick on every
 client, eight times a flown Cobra's rate, so it strobed. `AirRun` now fuels the airframe (`Vehicles.refuel`, owner: "put

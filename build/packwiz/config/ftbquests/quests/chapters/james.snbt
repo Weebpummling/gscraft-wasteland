@@ -1,0 +1,84 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "james"
+	group: ""
+	icon: "minecraft:compass"
+	id: "6A8C22A3C1E3B021"
+	order_index: 5
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["You spoke to James. Their chapter is open."]
+			id: "47711A1946DA3493"
+			invisible: true
+			tasks: [{
+				advancement: "gscraft:stage/seen_james"
+				criterion: "set"
+				id: "0E026420D68423E9"
+				type: "advancement"
+			}]
+			title: "Meet James"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			description: ["Reach the level crossing and the mast's field."]
+			id: "64F66C9BB11B381D"
+			rewards: [
+				{
+					id: "36300B16A27338AB"
+					item: "minecraft:compass"
+					type: "item"
+				}
+				{
+					id: "1C8C4402809D0DE4"
+					item: "minecraft:map"
+					type: "item"
+				}
+			]
+			subtitle: "Walk it before you trust it."
+			tasks: [
+				{
+					dimension: "minecraft:overworld"
+					id: "16299759B797582D"
+					ignore_dimension: false
+					position: [I;
+						-912
+						40
+						-988
+					]
+					size: [I;
+						35
+						70
+						31
+					]
+					title: "Reach the level crossing"
+					type: "location"
+				}
+				{
+					dimension: "minecraft:overworld"
+					id: "2E390230F38AF7CC"
+					ignore_dimension: false
+					position: [I;
+						-846
+						40
+						-1040
+					]
+					size: [I;
+						77
+						70
+						81
+					]
+					title: "Reach the mast's field"
+					type: "location"
+				}
+			]
+			title: "Get your bearings"
+			x: 2.0d
+			y: 0.0d
+		}
+	]
+	tags: ["james"]
+	title: "James"
+}

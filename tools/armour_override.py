@@ -151,34 +151,47 @@ def tame_config():
 
 
 # block destruction (owner 2026-09-13): blasts on (wooden only, world/BlastRule.java), vehicles crush soft blocks only
-# (the soft-collision tag above), bullets never (glass off); the old collision_destroy_blocks key is not this mod version's
+# (the soft-collision tag above), bullets never. The mod registers this file as a Forge SERVER config, so the one it
+# reads is the world's `serverconfig/superbwarfare-server.toml` (nested `[vehicle.collision]`); the copy in `config/`
+# is an old artefact and is kept in step. On a running server the mod's own command sets and saves the same values:
+# `/sbw config explosionDestroy true`, `/sbw config collisionDestroy soft`, `/sbw config projectileDestroyBlocks false`
+# (that is how live got them, 2026-09-13). The old collision_destroy_blocks key is not this mod version's.
 FLAGS = {
-    "explosion_destroy": "true", "allow_projectile_destroy_glass": "false",
+    "explosion_destroy": "true", "allow_projectile_destroy_glass": "false", "allow_projectile_destroy_blocks": "false",
     "collision_destroy_soft_blocks": "true", "collision_destroy_normal_blocks": "false",
     "collision_destroy_hard_blocks": "false", "collision_destroy_blocks_beastly": "false",
 }
-SECTION = {"explosion_destroy": "[explosion]", "allow_projectile_destroy_glass": "[projectile]"}
+SECTION = {"explosion_destroy": "[explosion]", "allow_projectile_destroy_glass": "[projectile]", "allow_projectile_destroy_blocks": "[projectile]"}
+WORLD_CONFIG = Path("G:/GSCraft/server/wasteland-v8/serverconfig/superbwarfare-server.toml")
 
 
 def set_flags():
-    lines = CONFIG.read_text(encoding="utf-8").splitlines()
-    done = set()
-    for i, line in enumerate(lines):
-        m = re.match(r"(\s*)(\w+) = (true|false)\s*$", line)
-        if m and m.group(2) in FLAGS:
-            lines[i] = f"{m.group(1)}{m.group(2)} = {FLAGS[m.group(2)]}"
-            done.add(m.group(2))
-        elif m and m.group(2) == "collision_destroy_blocks":
-            lines[i] = None
-    lines = [l for l in lines if l is not None]
-    for key, value in FLAGS.items():
-        if key in done:
+    for path in (CONFIG, WORLD_CONFIG):
+        if not path.exists():
+            print(f"no {path}: flags not set there")
             continue
-        section = SECTION.get(key, "[vehicle]")
-        at = next(i for i, l in enumerate(lines) if l.strip() == section)
-        lines.insert(at + 1, f"\t{key} = {value}")
-    CONFIG.write_text(chr(10).join(lines) + chr(10), encoding="utf-8")
-    print(f"{CONFIG.name}: block destruction flags set ({len(FLAGS)})")
+        lines = path.read_text(encoding="utf-8").splitlines()
+        done = set()
+        for i, line in enumerate(lines):
+            m = re.match(r"(\s*)(\w+) = (true|false)\s*$", line)
+            if m and m.group(2) in FLAGS:
+                lines[i] = f"{m.group(1)}{m.group(2)} = {FLAGS[m.group(2)]}"
+                done.add(m.group(2))
+            elif m and m.group(2) == "collision_destroy_blocks":
+                lines[i] = None
+        lines = [l for l in lines if l is not None]
+        nested = any(l.strip() == "[vehicle.collision]" for l in lines)   # the mod's own layout (the world's serverconfig)
+        for key, value in FLAGS.items():
+            if key in done or (nested and key == "allow_projectile_destroy_glass") or (not nested and key == "allow_projectile_destroy_blocks"):
+                continue
+            section = SECTION.get(key, "[vehicle.collision]" if nested else "[vehicle]")
+            at = next((i for i, l in enumerate(lines) if l.strip() == section), None)
+            if at is None:
+                print(f"  {path.name}: no {section} section, {key} not set")
+                continue
+            lines.insert(at + 1, f"{chr(9) * (2 if nested else 1)}{key} = {value}")
+        path.write_text(chr(10).join(lines) + chr(10), encoding="utf-8")
+        print(f"{path.name} ({'the mod' if nested else 'config/'}): block destruction flags set")
 
 
 def main():

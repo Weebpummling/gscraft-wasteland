@@ -4,7 +4,7 @@
 
 [projectile]
 	#Set true to allow projectiles to destroy glasses
-	allow_projectile_destroy_glass = true
+	allow_projectile_destroy_glass = false
 
 [explosion]
 	#The percentage of explosion damage you take behind cover
@@ -12,7 +12,7 @@
 	# Range: 0 ~ 100
 	explosion_penetration_ratio = 15
 	#Set true to allow Explosion to destroy blocks
-	explosion_destroy = false
+	explosion_destroy = true
 
 	[explosion."RGO Grenade"]
 		#The explosion damage of RGO grenade
@@ -129,10 +129,11 @@
 		mk_82_explosion_radius = 6.2
 
 [vehicle]
+	collision_destroy_normal_blocks = false
+	collision_destroy_soft_blocks = true
 	#Allows vehicles to destroy blocks via collision
-	collision_destroy_blocks = true
 	#Allows vehicles to destroy hard blocks via collision
-	collision_destroy_hard_blocks = true
+	collision_destroy_hard_blocks = false
 	#Allows vehicles to destroy blocks via collision like a beast
 	collision_destroy_blocks_beastly = false
 	#Allow vehicles to pick up items

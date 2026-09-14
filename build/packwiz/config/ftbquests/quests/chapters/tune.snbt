@@ -1,0 +1,109 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "tune"
+	group: ""
+	icon: "gscraft:circuit_board"
+	id: "13FCFC52B8BBC3B7"
+	order_index: 4
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["You spoke to Tune. Their chapter is open."]
+			id: "72E6981B6BA1DC1A"
+			invisible: true
+			tasks: [{
+				advancement: "gscraft:stage/seen_tune"
+				criterion: "set"
+				id: "3B606CA5393A6A57"
+				type: "advancement"
+			}]
+			title: "Meet Tune"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["72E6981B6BA1DC1A"]
+			description: ["Hand in a circuit board, two capacitors and a broken radio."]
+			id: "598947196CF380CE"
+			rewards: [
+				{
+					id: "70834ED09D998D6A"
+					item: "gscraft:card_circuit_assembly"
+					type: "item"
+				}
+				{
+					auto: "invisible"
+					command: "/gscraft stage add bp_circuit_assembly"
+					elevate_perms: true
+					id: "53CB5F0145E58602"
+					silent: true
+					title: "the stage bp_circuit_assembly"
+					type: "command"
+				}
+			]
+			subtitle: "I can hear the town from here. I'd like to hear further."
+			tasks: [
+				{
+					consume_items: true
+					id: "7BF456F6B2AB0928"
+					item: "gscraft:circuit_board"
+					type: "item"
+				}
+				{
+					consume_items: true
+					count: 2L
+					id: "17C45ABD918B0B71"
+					item: "gscraft:capacitor"
+					type: "item"
+				}
+				{
+					consume_items: true
+					id: "2B805F39E68C3A65"
+					item: "gscraft:broken_radio"
+					type: "item"
+				}
+			]
+			title: "Static"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			description: ["Order two circuit assemblies and bring them."]
+			id: "001A953178CD6614"
+			rewards: [
+				{
+					auto: "invisible"
+					command: "/gscraft stage add radio_1"
+					elevate_perms: true
+					id: "1CD962EEF259EBB3"
+					silent: true
+					title: "the stage radio_1"
+					type: "command"
+				}
+				{
+					auto: "invisible"
+					command: "/gscraft say tune map @s"
+					elevate_perms: true
+					id: "24BC8F5603A49F8D"
+					silent: true
+					title: "tune speaks"
+					type: "command"
+				}
+			]
+			subtitle: "Two of those and the map talks."
+			tasks: [{
+				consume_items: true
+				count: 2L
+				id: "1F5EDD36F5183F2F"
+				item: "gscraft:circuit_assembly"
+				type: "item"
+			}]
+			title: "The map"
+			x: 4.0d
+			y: 0.0d
+		}
+	]
+	tags: ["tune"]
+	title: "Tune"
+}

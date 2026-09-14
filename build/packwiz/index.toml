@@ -153,6 +153,46 @@ file = "config/fml.toml"
 hash = "3dc49a8b8cd9fcc70dd2897d31ffe2a51a605765565cfcf52676f30613deb96a"
 
 [[files]]
+file = "config/ftbquests/quests/chapter_groups.snbt"
+hash = "e57d8311aec9f524911ed1313cabf138bb7fa5a2d3ba985a00a2a267ff35ef78"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/compound.snbt"
+hash = "b03996cfc8a93d5b5c916d1f7ba83b9a38359b1ff79cbd93a358ee2825d9da58"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/james.snbt"
+hash = "4101db280a848f05e2527aaa226cf26c963d4cbb6c97bf7aa3d5272d7f2146b2"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/marshall.snbt"
+hash = "cce602ab0c95e867e18f8d044e98b546b46b1df27152932b0d5a9340b58eac3c"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/michael.snbt"
+hash = "1cf8fa86df591761e99c15577804e022b2501acc0c44f177a03ef1311425b176"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/pocket.snbt"
+hash = "7ba148af1589b6aeb8290a266d0e40ab1d22bb86290dae29165cc8582f65dbad"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/tony.snbt"
+hash = "278baf2518a70e40cf9e2d01badb85037548771670536246b767ad46bbd64a8b"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/tune.snbt"
+hash = "adaf9ce0005fd878b7cf0c8adb7bd93de11da792a3aa719354051504239b1e6b"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/walker.snbt"
+hash = "5ae330cf4b63d4374a987e5d05550b5e6e356c2d946817acc0aa2ddffb27b7f1"
+
+[[files]]
+file = "config/ftbquests/quests/data.snbt"
+hash = "f30d96853bd5e31dc18e3b3e4c9c4bb182570ce92e81fa0ad932e2818344fd9e"
+
+[[files]]
 file = "config/guardvillagers-common.toml"
 hash = "3263ecf26bb8434f7e5ab322685e6f149328ff6a1af58802082556662f34f7ff"
 
@@ -501,7 +541,7 @@ hash = "58d8d17d24f6651690abeb1535b4116f1d255b737541f6a6eba64e5b7da6aa3a"
 
 [[files]]
 file = "config/superbwarfare-server.toml"
-hash = "d269cf1abb0e21c40c9f5328ee9b79dc0f0ae3c40ebdaa4e9d51c4b62d28a36b"
+hash = "9118c52c6d1508ed5cbf8824f1182e703e5f69651d1f662127be7d2b8322af4a"
 
 [[files]]
 file = "config/superbwarfare-server.toml.bak-explosion"
@@ -830,7 +870,7 @@ metafile = true
 
 [[files]]
 file = "mods/gscraft-0-1-0.pw.toml"
-hash = "08a5757f40f62f58c5f4f52e0846085bd16ca3b7ded3f89e800277d970060c36"
+hash = "7964038d1d7e0cfc14964a7c65b980cde247c97d70e542948f2b2158cf15d2ef"
 metafile = true
 
 [[files]]
@@ -1145,7 +1185,7 @@ metafile = true
 
 [[files]]
 file = "options.txt"
-hash = "13654d4f98441ec5b6dcd3a2bf8356949e9bf06d0a5ea13536cabf4b679ef018"
+hash = "0192dce8b305308e8a3f0141301fde4e3c7e6a2198c7ebc1dd7fc4b5564fef2d"
 preserve = true
 
 [[files]]

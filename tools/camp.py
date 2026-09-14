@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """The camp's survivors as datapack functions (camp spec §1, cut to what the building takes need - next-steps plan §2d).
 
-    python camp.py <world dir>   -> functions/camp_npc_<npc>.mcfunction (six), functions/camp_npcs.mcfunction, tools/camp_npcs.json
+    python camp.py <world dir>   -> functions/camp_npc_<npc>.mcfunction (six, at their buildings), camp_start_<npc> (four, in the
+                                    compound), functions/camp_npcs.mcfunction (the start set), tools/camp_npcs.json
 
 Each `camp_npc_<npc>` kills the survivor by tag and summons it again on its spot: a villager with no AI, invulnerable,
 persistent, silent, named, tagged `gscraft_npc` and `gscraft_npc_<npc>`, with the profession survivors.json gives them
@@ -41,10 +42,55 @@ NPCS = {
     "tune": ("Tune the Technician", (-925, -1040, -905, -1020), 63),     # the radio shack
     "james": ("James the Scout", (-905, -978, -884, -964), 66),          # the signal box and the crossing's paving beside it (the box's columns are roof)
 }
+# the start (owner, 2026-09-13: every survivor inside the south compound from the start): the four whose buildings lie
+# outside the walls stand in the compound until the site loop moves them out - gatehouse.json, north.json and
+# crossing.json run camp_npc_<npc> on `held`, which summons them at their building. `camp_npcs` (the deploy, the reset)
+# runs the start set. npc -> (rectangle, floor), inside the compound box x -980..-920, z -897..-818 (start-compound §2)
+START = {
+    "marshall": ((-958, -856, -946, -846), 64),   # the hall's floor, by the board
+    "tony": ((-971, -890, -960, -862), 64),       # the sheds along the yard's west wall
+    "tune": ((-960, -834, -938, -821), 64),       # the hall's annex, the compound's back
+    "james": ((-950, -893, -940, -884), 64),      # the yard's north-east corner, at the gap
+}
+START_SIGNS = {
+    "marshall": ["MARSHALL", "the hall", "the strongpoints", "right-click"],
+    "tony": ["TONY", "the sheds", "bandages", "right-click"],
+    "tune": ["TUNE", "the annex", "boards, radios", "right-click"],
+    "james": ["JAMES", "the gap", "the map", "right-click"],
+}
 # hard ground a survivor stands on; not cobblestone (the torches' plinths)
 HARD = {"stone", "andesite", "diorite", "granite", "gravel", "stone_bricks", "smooth_stone", "polished_andesite",
         "polished_diorite", "polished_granite", "bricks", "deepslate_tiles", "polished_deepslate", "cracked_stone_bricks",
         "stone_brick_slab", "smooth_stone_slab", "oak_planks", "spruce_planks", "dark_oak_planks", "concrete", "terracotta", "mud_bricks"}
+
+
+def block(g, x, y, z):
+    c = g.chunk(x >> 4, z >> 4)
+    return c.get(x & 15, y, z & 15) if c else "minecraft:air"
+
+
+AIR = {"minecraft:air", "minecraft:cave_air", "minecraft:void_air"}
+
+
+def spot_indoor(g, rect, floor):
+    """under a roof the column's top is the roof: the hard block within two of the floor level with two of air above it,
+    nearest the rectangle's middle (the hall, the annex, the sheds)"""
+    x0, z0, x1, z1 = rect
+    cx, cz = (x0 + x1) // 2, (z0 + z1) // 2
+    best = None
+    for x in range(x0, x1 + 1):
+        for z in range(z0, z1 + 1):
+            for y in range(floor - 2, floor + 3):
+                name = block(g, x, y, z).split(":")[-1]
+                if not any(name == h or name.endswith("_" + h) for h in HARD):
+                    continue
+                if block(g, x, y + 1, z) not in AIR or block(g, x, y + 2, z) not in AIR:
+                    continue
+                d = (x - cx) ** 2 + (z - cz) ** 2
+                if best is None or d < best[0]:
+                    best = (d, x, y + 1, z, name)
+                break
+    return best
 
 
 def spot(g, rect, floor):
@@ -66,39 +112,50 @@ def spot(g, rect, floor):
     return best
 
 
+def place(g, npc, name, rect, floor, signs, professions, fname):
+    """one survivor's function: kill by tag, summon on the spot, the sign beside; returns the spot or None"""
+    sp = spot(g, rect, floor) or spot_indoor(g, rect, floor)
+    if sp is None:
+        print(f"  {fname:20} no hard floor near {floor} in {rect}")
+        return None
+    _, x, y, z, ground = sp
+    nbt = ('{NoAI:1b,Invulnerable:1b,PersistenceRequired:1b,Silent:1b,CustomNameVisible:1b,'
+           f'CustomName:\'{{"text":"{name}"}}\',Tags:["gscraft_npc","gscraft_npc_{npc}"],'
+           # one disabled placeholder trade: a villager saved with an empty offer list generates its trades on the save, and a
+           # cartographer's treasure map then searches for a structure on the server thread and hangs the server (2026-09-13)
+           f'VillagerData:{{profession:"{professions.get(npc, "minecraft:nitwit")}",level:2,type:"minecraft:plains"}},'
+           'Offers:{Recipes:[{buy:{id:"minecraft:emerald",Count:1b},sell:{id:"minecraft:emerald",Count:1b},maxUses:0,uses:0,rewardExp:0b,xp:0,priceMultiplier:0.0f,specialPrice:0,demand:0}]}}')
+    lines = [f"kill @e[type=minecraft:villager,tag=gscraft_npc_{npc}]", f"summon minecraft:villager {x} {y} {z} {nbt}"]
+    # the sign: on the same floor beside them, the first free side
+    for dx, dz in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+        if block(g, x + dx, y - 1, z + dz) not in AIR and block(g, x + dx, y, z + dz) in AIR:
+            msgs = ",".join(f"'{{\"text\":\"{t}\"}}'" for t in signs)
+            lines.append(f"setblock {x + dx} {y} {z + dz} minecraft:oak_sign{{front_text:{{messages:[{msgs}]}}}}")
+            break
+    (FN / f"{fname}.mcfunction").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"  {fname:20} ({x:5}, {y:3}, {z:5}) on {ground}")
+    return {"name": name, "x": x, "y": y, "z": z, "ground": ground}
+
+
 def main(argv):
     if len(argv) < 2:
         sys.exit(__doc__)
     g = Ground(Path(argv[1]))
     FN.mkdir(parents=True, exist_ok=True)
-    placed = {}
+    placed, starts = {}, {}
     professions = {d["id"]: d["profession"] for d in json.loads(SURVIVORS.read_text(encoding="utf-8"))["survivors"]}
     for npc, (name, rect, floor) in NPCS.items():
-        s = spot(g, rect, floor)
-        if s is None:
-            print(f"  {npc:9} no hard floor near {floor} in {rect}")
-            continue
-        _, x, y, z, ground = s
-        nbt = ('{NoAI:1b,Invulnerable:1b,PersistenceRequired:1b,Silent:1b,CustomNameVisible:1b,'
-               f'CustomName:\'{{"text":"{name}"}}\',Tags:["gscraft_npc","gscraft_npc_{npc}"],'
-               # one disabled placeholder trade: a villager saved with an empty offer list generates its trades on the save, and a
-               # cartographer's treasure map then searches for a structure on the server thread and hangs the server (2026-09-13)
-               f'VillagerData:{{profession:"{professions.get(npc, "minecraft:nitwit")}",level:2,type:"minecraft:plains"}},'
-               'Offers:{Recipes:[{buy:{id:"minecraft:emerald",Count:1b},sell:{id:"minecraft:emerald",Count:1b},maxUses:0,uses:0,rewardExp:0b,xp:0,priceMultiplier:0.0f,specialPrice:0,demand:0}]}}')
-        lines = [f"kill @e[type=minecraft:villager,tag=gscraft_npc_{npc}]", f"summon minecraft:villager {x} {y} {z} {nbt}"]
-        # the sign: on the same floor beside them, the first free side
-        for dx, dz in ((1, 0), (-1, 0), (0, 1), (0, -1)):
-            ty, _ = g.top(x + dx, z + dz)
-            if ty == y - 1:
-                msgs = ",".join(f"'{{\"text\":\"{t}\"}}'" for t in SIGNS[npc])
-                lines.append(f"setblock {x + dx} {y} {z + dz} minecraft:oak_sign{{front_text:{{messages:[{msgs}]}}}}")
-                break
-        (FN / f"camp_npc_{npc}.mcfunction").write_text("\n".join(lines) + "\n", encoding="utf-8")
-        placed[npc] = {"name": name, "x": x, "y": y, "z": z, "ground": ground}
-        print(f"  {npc:9} ({x:5}, {y:3}, {z:5}) on {ground}")
-    (FN / "camp_npcs.mcfunction").write_text("\n".join(f"function gscraft:camp_npc_{n}" for n in placed) + "\n", encoding="utf-8")
-    (ROOT / "tools" / "camp_npcs.json").write_text(json.dumps(placed, indent=1), encoding="utf-8")
-    print("wrote", len(placed), "survivor functions and camp_npcs")
+        r = place(g, npc, name, rect, floor, SIGNS[npc], professions, f"camp_npc_{npc}")
+        if r:
+            placed[npc] = r
+    for npc, (rect, floor) in START.items():
+        r = place(g, npc, NPCS[npc][0], rect, floor, START_SIGNS[npc], professions, f"camp_start_{npc}")
+        if r:
+            starts[npc] = r
+    deploy = [f"function gscraft:camp_start_{n}" if n in starts else f"function gscraft:camp_npc_{n}" for n in placed]
+    (FN / "camp_npcs.mcfunction").write_text("\n".join(deploy) + "\n", encoding="utf-8")
+    (ROOT / "tools" / "camp_npcs.json").write_text(json.dumps({"buildings": placed, "start": starts}, indent=1), encoding="utf-8")
+    print("wrote", len(placed), "survivor functions,", len(starts), "start functions and camp_npcs")
 
 
 if __name__ == "__main__":

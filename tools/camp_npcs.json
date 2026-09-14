@@ -1,44 +1,76 @@
 {
- "walker": {
-  "name": "Walker the Foreman",
-  "x": -959,
-  "y": 65,
-  "z": -863,
-  "ground": "andesite"
+ "buildings": {
+  "walker": {
+   "name": "Walker the Foreman",
+   "x": -959,
+   "y": 65,
+   "z": -863,
+   "ground": "andesite"
+  },
+  "michael": {
+   "name": "Michael the Engineer",
+   "x": -924,
+   "y": 65,
+   "z": -885,
+   "ground": "stone"
+  },
+  "marshall": {
+   "name": "Marshall",
+   "x": -967,
+   "y": 69,
+   "z": -948,
+   "ground": "gravel"
+  },
+  "tony": {
+   "name": "Tony the Medic",
+   "x": -948,
+   "y": 62,
+   "z": -1036,
+   "ground": "stone"
+  },
+  "tune": {
+   "name": "Tune the Technician",
+   "x": -922,
+   "y": 62,
+   "z": -1030,
+   "ground": "andesite"
+  },
+  "james": {
+   "name": "James the Scout",
+   "x": -893,
+   "y": 66,
+   "z": -971,
+   "ground": "stone_bricks"
+  }
  },
- "michael": {
-  "name": "Michael the Engineer",
-  "x": -924,
-  "y": 65,
-  "z": -885,
-  "ground": "stone"
- },
- "marshall": {
-  "name": "Marshall",
-  "x": -967,
-  "y": 69,
-  "z": -948,
-  "ground": "gravel"
- },
- "tony": {
-  "name": "Tony the Medic",
-  "x": -948,
-  "y": 62,
-  "z": -1036,
-  "ground": "stone"
- },
- "tune": {
-  "name": "Tune the Technician",
-  "x": -922,
-  "y": 62,
-  "z": -1030,
-  "ground": "andesite"
- },
- "james": {
-  "name": "James the Scout",
-  "x": -893,
-  "y": 66,
-  "z": -971,
-  "ground": "stone_bricks"
+ "start": {
+  "marshall": {
+   "name": "Marshall",
+   "x": -952,
+   "y": 65,
+   "z": -851,
+   "ground": "smooth_stone"
+  },
+  "tony": {
+   "name": "Tony the Medic",
+   "x": -966,
+   "y": 65,
+   "z": -876,
+   "ground": "stone"
+  },
+  "tune": {
+   "name": "Tune the Technician",
+   "x": -949,
+   "y": 65,
+   "z": -828,
+   "ground": "smooth_stone"
+  },
+  "james": {
+   "name": "James the Scout",
+   "x": -945,
+   "y": 65,
+   "z": -889,
+   "ground": "andesite"
+  }
  }
 }
