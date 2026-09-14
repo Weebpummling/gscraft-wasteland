@@ -413,7 +413,7 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
-**2026-09-13, engagements resume faster (owner):** `armour.calm_ticks` 600 -> 100 (five seconds' calm after a withdrawal, which now comes at 60 %), `armour.acquire_ticks` 40 -> 20, and `FightGoal` re-engages the target it just lost without a second look for `armour.reengage_grace` (300) ticks (`lastTarget`/`lastStop`). Built; awaiting the cycle.
+**2026-09-13, engagements resume faster (owner):** `armour.calm_ticks` 600 -> 100 (five seconds' calm after a withdrawal, which now comes at 60 %), `armour.acquire_ticks` 40 -> 20, and `FightGoal` re-engages the target it just lost without a second look for `armour.reengage_grace` (300) ticks (`lastTarget`/`lastStop`). Cycled; phases 37-40 green (the riflemen never inside 14 of the BMP, the man ahead engaged in 2 s, the Cobra at exactly 255 over the pad).
 
 **2026-09-13, the fighters off the hulls, the crews' front cone, the Cobra pinned to its line:** (1) `GunAttackGoal.ridesHull`:
 against a target riding a hull the hold is at least `fight.vehicle_standoff` (24) and inside `fight.vehicle_backoff` (14) the
@@ -424,7 +424,7 @@ time; now the hull's front (`armour.front_cone` 100) is always in view and a can
 of losing it (a better target inherits half). (3) the Cobra never arrived after the engine change: with power held the mod's
 own lift compounded into the current position and it climbed away; `AirRun` now computes the tick's position from the start
 point and zeroes pitch and roll; phase 38 checks the height held. `tools/war_phase40.py` (the standoff, the clearance);
-phase 39 gains the rifleman ahead. Built; the cycle and the runs waited for the owner to be off.
+phase 39 gains the rifleman ahead. Cycled once the owner was off; 37-40 green.
 
 **2026-09-13, the crews' visual scan (ruling R33):** `Crew.scan` lays the turret (`Vehicles.setTurretYaw`, SW `setTurretYRot`)
 on a slow sweep about the hull's heading when nothing is engaged; a health drop with a known last attacker sets `watchYaw` and
