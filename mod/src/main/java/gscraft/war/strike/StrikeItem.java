@@ -35,6 +35,8 @@ public class StrikeItem extends SliceItems.SliceItem {
             String[] line = Strikes.refusalLine(kind);
             Say.queue(sp, line[0], line[1], true);
             sp.displayClientMessage(Component.literal(Strikes.refusal(sl.getServer(), kind)), true);
+            // the hotbar shows the wait: the vanilla cooldown sweep on the grenade for what is left of its clock
+            player.getCooldowns().addCooldown(this, Strikes.hotTicks(sl.getServer(), kind));
             return InteractionResultHolder.fail(stack);
         }
         StrikeMarker m = new StrikeMarker(level, player);

@@ -70,6 +70,10 @@ public final class Strikes {
         return server.getTickCount() < COOLDOWN_UNTIL.getOrDefault(kind, 0L);
     }
 
+    public static int hotTicks(MinecraftServer server, Kind kind) {
+        return (int) Math.max(0, COOLDOWN_UNTIL.getOrDefault(kind, 0L) - server.getTickCount());
+    }
+
     public static String hotFor(MinecraftServer server, Kind kind) {
         return mmss(COOLDOWN_UNTIL.getOrDefault(kind, 0L) - server.getTickCount());
     }

@@ -413,6 +413,11 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-13, the grenade shows its clock:** "the Cobra is not summoned any more" was its own eight-minute cooldown (the log:
+the run at 19:01:36 flew, the next calls fell inside the clock). The grenade now carries the vanilla cooldown sweep in the
+hotbar: the whole clock for the thrower when the smoke lands, what is left of it for anyone whose throw is refused
+(`StrikeMarker.land`, `StrikeItem.use`, `Strikes.hotTicks`). Built, awaiting the cycle with the survivors' fix.
+
 **2026-09-13, the survivors take no damage (owner: Marshall died to the guns):** the summons carry `Invulnerable`, but a
 creative player's own rounds bypass that flag (`Entity.isInvulnerableTo` lets a creative attacker through), and the strike's
 rounds are owned by the thrower. `SurvivorEvents.attacked` cancels every `LivingAttackEvent` on a `gscraft_npc` except a

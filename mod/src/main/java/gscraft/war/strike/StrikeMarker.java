@@ -81,6 +81,8 @@ public class StrikeMarker extends ThrowableItemProjectile {
             discard();
             return;
         }
+        // the thrower's hotbar shows the grenade's own clock: the vanilla cooldown sweep for the whole of it
+        if (owner != null) owner.getCooldowns().addCooldown(getItem().getItem(), Strikes.cooldown(kind));
         smoke = switch (kind) {
             case MORTAR -> Strikes.MORTAR_DELAY + 80 + Strikes.MORTAR_BARRAGE * Strikes.MORTAR_GAP;
             case ARTILLERY -> Strikes.ARTY_DELAY + 100 + Strikes.ARTY_BARRAGE * Strikes.ARTY_GAP;
