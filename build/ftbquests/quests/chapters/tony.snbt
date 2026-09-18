@@ -11,25 +11,6 @@
 	]
 	quests: [
 		{
-			id: "CC8C6FEF50EC1831"
-			x: 0.0d
-			y: 0.0d
-			title: "Meet Tony"
-			description: [
-				"You spoke to Tony. Their chapter is open."
-			]
-			invisible: true
-			tasks: [
-				{
-					id: "4168AB9460C74033"
-					type: "advancement"
-					advancement: "gscraft:stage/seen_tony"
-					criterion: "set"
-				}
-			]
-			rewards: [ ]
-		}
-		{
 			id: "7B637596EC041BC1"
 			x: 2.0d
 			y: 0.0d
@@ -61,6 +42,7 @@
 				{
 					id: "385FF82781E7B40A"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:card_med_kit"
 					count: 1
 				}
@@ -100,6 +82,7 @@
 				{
 					id: "1A3AB20D126B1650"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:med_kit"
 					count: 4
 				}

@@ -413,6 +413,21 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-17, the journal pass (owner: "the journal and quest system is not very intuitive to grasp"; rulings R38):**
+`tools/chapters.py` - the compound chapter is the **hub**: Wake up (its text names J, the right-click and the notebook,
+and asks for a tick), then six visible **Meet** quests in a fan to its right, each saying where the survivor stands
+(`WHERE`), each ticked by the `seen_<npc>` advancement the right-click grants, with the survivor's icon; the survivors'
+chapters keep their work behind those (28 quests now). Item rewards carry `auto: "enabled"` (they land on completion with
+the toast; command rewards stay invisible). Tune's `join_3` names J and the notebook. **The notebook is built** (onboarding
+§6): Patchouli book `gscraft:notebook` in the mod jar - `book.json` under `data/`, the pages under `assets/` with
+`use_resource_pack` true (Patchouli 1.20 refuses the old layout: "Failed to load book ... use_resource_pack set to false" -
+one cycle lost to it); eight entries under sixty words (Controls with `$(k:key.ftbquests.quests)`, The camp, Reading the
+board, Carrying, Getting hurt, Where things are, The junction taken gated on `gscraft:stage/square_taken`, Driving gated
+on `garage_1`). The kit gives it: `KitEntry` grew an `nbt` field (`TagParser`), survivors.json's kit lists
+`patchouli:guide_book` with `{"patchouli:book":"gscraft:notebook"}` (six kit entries). Phase 33 8/8. Not done: auto-pinning
+the newest quest (interface §4.1); the Field notes chapter. The look of the hub and the notebook's pages on screen is the
+owner's check. **Not on live yet.**
+
 **2026-09-17, the start compound moved to the walled compound** (owner: "correct it to the walled compound around
 (-900, -920) and (-720, -835), not where it's corrected to"): start-compound doc **§6** has the measured anatomy (the
 north wall along z −912 with the gate at x −835…−830 where the road enters, the big hall x −787…−750 / z −903…−874 on

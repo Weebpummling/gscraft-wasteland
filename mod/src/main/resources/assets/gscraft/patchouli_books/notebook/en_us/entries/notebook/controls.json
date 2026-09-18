@@ -1,0 +1,12 @@
+{
+  "name": "Controls",
+  "category": "gscraft:notebook",
+  "icon": "minecraft:lever",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)Journal$() $(k:key.ftbquests.quests), or right-click a survivor.$(br)$(bold)Map$() M. $(bold)Ping$() middle mouse.$(br)$(bold)Talk$() hold V. $(bold)Backpack$() G.$(br)$(bold)Station$() the top-left slot takes a card; the parts go under it; the kit comes out at the bottom when the clock runs down."
+    }
+  ]
+}

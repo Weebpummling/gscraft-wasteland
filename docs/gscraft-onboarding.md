@@ -114,6 +114,8 @@ The quest book (FTB Quests) is the **journal**. Rules for every quest in `gscraf
 
 ## 6. The one piece of paper: the survivor's notebook
 
+> **Built 2026-09-17** (owner: the journal and quest system were not intuitive): the Patchouli book `gscraft:notebook` lives in the mod jar (`data/gscraft/patchouli_books/notebook/book.json`, the pages under `assets/.../en_us` - Patchouli 1.20 wants `use_resource_pack` true), given by the kit at the first join (`patchouli:guide_book` with the book id; `/give @s patchouli:guide_book{"patchouli:book":"gscraft:notebook"}` for anyone else). Eight entries: Controls, The camp, Reading the board, Carrying, Getting hurt, Where things are, The junction taken (appears with `square_taken`), Driving (with `garage_1`). The same pass made the journal's compound chapter the **hub**: Wake up, then six visible Meet quests that say where each survivor stands, each ticked by the right-click; item rewards land on completion; Tune's third line names J and the notebook (a bend of rule 4.6, on purpose).
+
 Patchouli is in the pack. It gets exactly one book, seven pages, given at first join and never required:
 **Controls** (quest book key, map M, ping middle-mouse, voice V, backpack G, the station's card slot),
 **The camp** (the six names and what each wants), **Reading the board** (the six colours), **Carrying**

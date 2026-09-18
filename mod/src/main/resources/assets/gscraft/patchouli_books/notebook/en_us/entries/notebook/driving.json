@@ -1,0 +1,13 @@
+{
+  "name": "Driving",
+  "category": "gscraft:notebook",
+  "icon": "minecraft:minecart",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Right-click a seat to get in; sneak to get out.$(br)$(bold)W A S D$() drive, $(bold)space$() brake.$(br)A car carries what you cannot: put the bulky part in its bay.$(br)Keep to the roads: the wrecks were somebody's last idea."
+    }
+  ],
+  "advancement": "gscraft:stage/garage_1"
+}

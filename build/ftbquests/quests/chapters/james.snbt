@@ -11,25 +11,6 @@
 	]
 	quests: [
 		{
-			id: "D74CFA3B64761D9A"
-			x: 0.0d
-			y: 0.0d
-			title: "Meet James"
-			description: [
-				"You spoke to James. Their chapter is open."
-			]
-			invisible: true
-			tasks: [
-				{
-					id: "A44E93C860827ACB"
-					type: "advancement"
-					advancement: "gscraft:stage/seen_james"
-					criterion: "set"
-				}
-			]
-			rewards: [ ]
-		}
-		{
 			id: "90041807678DFDB1"
 			x: 2.0d
 			y: 0.0d
@@ -65,12 +46,14 @@
 				{
 					id: "36300B16A27338AB"
 					type: "item"
+					auto: "enabled"
 					item: "minecraft:compass"
 					count: 1
 				}
 				{
 					id: "F1E4ADD724ACFF59"
 					type: "item"
+					auto: "enabled"
 					item: "minecraft:map"
 					count: 1
 				}

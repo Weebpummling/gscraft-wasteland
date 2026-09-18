@@ -37,6 +37,7 @@
 				{
 					id: "BBB8E66FB0EE3808"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:card_claim_marker"
 					count: 1
 				}
@@ -134,6 +135,7 @@
 				{
 					id: "36E5CD2AA2DBD089"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:card_mortar_shell"
 					count: 1
 				}
@@ -183,6 +185,7 @@
 				{
 					id: "3A93C701B43A75EB"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:strike_mortar"
 					count: 1
 				}
@@ -221,6 +224,7 @@
 				{
 					id: "042FC5CC88181E5D"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:strike_artillery"
 					count: 1
 				}
@@ -259,6 +263,7 @@
 				{
 					id: "D39E0F9ADB7FFA7C"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:strike_air"
 					count: 1
 				}

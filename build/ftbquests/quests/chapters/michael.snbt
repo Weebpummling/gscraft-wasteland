@@ -11,25 +11,6 @@
 	]
 	quests: [
 		{
-			id: "B197DA86940AABFE"
-			x: 0.0d
-			y: 0.0d
-			title: "Meet Michael"
-			description: [
-				"You spoke to Michael. Their chapter is open."
-			]
-			invisible: true
-			tasks: [
-				{
-					id: "855B163280D3F5F0"
-					type: "advancement"
-					advancement: "gscraft:stage/seen_michael"
-					criterion: "set"
-				}
-			]
-			rewards: [ ]
-		}
-		{
 			id: "44D246950C7B83C4"
 			x: 2.0d
 			y: 0.0d
@@ -68,12 +49,14 @@
 				{
 					id: "CECC710ED2694506"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:card_wiring_harness"
 					count: 1
 				}
 				{
 					id: "D84D58B8F1A45F24"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:card_filter_cartridge"
 					count: 1
 				}

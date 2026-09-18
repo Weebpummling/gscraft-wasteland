@@ -1,0 +1,13 @@
+{
+  "name": "Survivor's notebook",
+  "landing_text": "One piece of paper. The controls, the camp, the board, carrying, getting hurt, where things are. Nothing here is a rule you have to read; it is what you would ask a survivor.",
+  "version": 1,
+  "show_progress": false,
+  "model": "patchouli:book_brown",
+  "creative_tab": "gscraft:wasteland",
+  "dont_generate_book": false,
+  "book_texture": "patchouli:textures/gui/book_brown.png",
+  "use_blocky_font": false,
+  "text_overflow_mode": "overflow",
+  "use_resource_pack": true
+}

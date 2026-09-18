@@ -45,7 +45,7 @@ public final class Survivors {
         }
     }
 
-    public record KitEntry(String item, int count, String gun, int magazines) {}
+    public record KitEntry(String item, int count, String gun, int magazines, String nbt) {}
 
     public static final List<Def> ALL = new ArrayList<>();
     public static final List<String[]> JOIN_LINES = new ArrayList<>();
@@ -82,7 +82,8 @@ public final class Survivors {
                 if (fj.has("kit")) for (JsonElement el : fj.getAsJsonArray("kit")) {
                     JsonObject o = el.getAsJsonObject();
                     KIT.add(new KitEntry(o.has("item") ? o.get("item").getAsString() : null, o.has("count") ? o.get("count").getAsInt() : 1,
-                            o.has("gun") ? o.get("gun").getAsString() : null, o.has("magazines") ? o.get("magazines").getAsInt() : 1));
+                            o.has("gun") ? o.get("gun").getAsString() : null, o.has("magazines") ? o.get("magazines").getAsInt() : 1,
+                            o.has("nbt") ? o.get("nbt").getAsString() : null));
                 }
             }
         } catch (RuntimeException | java.io.IOException ex) {
@@ -140,7 +141,15 @@ public final class Survivors {
                 GscraftWar.LOG.warn("[gscraft] kit item {} is not registered", k.item());
                 continue;
             }
-            out.add(new ItemStack(it, k.count()));
+            ItemStack stack = new ItemStack(it, k.count());
+            if (k.nbt() != null) {   // the notebook: patchouli:guide_book with its book id
+                try {
+                    stack.setTag(net.minecraft.nbt.TagParser.parseTag(k.nbt()));
+                } catch (com.mojang.brigadier.exceptions.CommandSyntaxException ex) {
+                    GscraftWar.LOG.warn("[gscraft] kit item {} has bad nbt: {}", k.item(), ex.getMessage());
+                }
+            }
+            out.add(stack);
         }
         return out;
     }

@@ -1,0 +1,12 @@
+{
+  "name": "Reading the board",
+  "category": "gscraft:notebook",
+  "icon": "minecraft:black_concrete",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "One column per strongpoint, the lamp at the end.$(br)$(bold)Black$() unknown. $(bold)Yellow$() scouted.$(br)$(bold)Orange$() looted. $(bold)Light blue$() held, or contested.$(br)$(bold)Lime$() defended - it stays yours.$(br)$(bold)Red$() lost.$(br)The lamp burns while an assault runs."
+    }
+  ]
+}

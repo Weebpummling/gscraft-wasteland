@@ -5,7 +5,7 @@
     python chapters.py --install   -> also copied to G:/GSCraft/server/config/ftbquests/quests (the local server;
                                       FTB Quests reads config/ftbquests/quests, file version 13; then `/ftbquests reload`)
 
-Seven chapters: one per survivor (tagged with the survivor's id, which the right-click opens by:
+Eight chapters: the compound (the hub: Wake up, six visible Meet quests saying where each survivor stands, 2026-09-17), one per survivor (tagged with the survivor's id, which the right-click opens by:
 `/ftbquests open_book #<chapter>`), hidden behind a "meet" quest that completes on the per-player seen_<id> advancement,
 and "The pocket" for the north gate and the five building takes, whose askers arrive with them. Every quest is a line of the
 QUESTS table: title (four words, the survivor's phrasing), the voice line, the task line, tasks (hand-ins consume;
@@ -72,9 +72,19 @@ def cmd(command):
     return {"type": "cmd", "command": command}
 
 
+# where each survivor stands at the start (start-compound §6), for the hub's Meet quests
+WHERE = {
+    "walker": ("the yard, at its south end", 2, -2), "michael": ("the brick works, east of the hall", 2, 2),
+    "marshall": ("the big hall, by the board", 4, -2), "tony": ("the annex, south of the hall", 4, 2),
+    "tune": ("the shed by the north gate", 6, -2), "james": ("the road inside the north gate", 6, 2),
+}
+
+
 def meet(npc):
-    return {"key": f"meet_{npc}", "chapter": npc, "title": "Meet " + npc.capitalize(), "voice": "", "task": f"You spoke to {npc.capitalize()}. Their chapter is open.",
-            "x": 0, "y": 0, "tasks": [adv(f"seen_{npc}")], "rewards": [], "deps": [], "invisible": True}
+    """the hub's Meet quest (visible, in the compound chapter): completes on the seen_<npc> advancement, the right-click"""
+    where, x, y = WHERE[npc]
+    return {"key": f"meet_{npc}", "chapter": "compound", "title": "Meet " + npc.capitalize(), "voice": "", "task": f"{npc.capitalize()} is in {where}. Right-click them; their chapter opens here.",
+            "x": x, "y": y, "tasks": [adv(f"seen_{npc}")], "rewards": [], "deps": ["wake"], "icon": MEET_ICONS[npc]}
 
 
 CHAPTERS = [
@@ -82,13 +92,14 @@ CHAPTERS = [
     ("compound", "The compound", -1),
     ("pocket", "The pocket", 6),
 ]
+MEET_ICONS = {"walker": "gscraft:wrench", "tony": "gscraft:bandage", "michael": "gscraft:wire_spool", "tune": "gscraft:circuit_board", "james": "minecraft:compass", "marshall": "gscraft:claim_marker"}
 ICONS = {"compound": "gscraft:station", "walker": "gscraft:wrench", "tony": "gscraft:bandage", "michael": "gscraft:wire_spool", "tune": "gscraft:circuit_board",
          "james": "minecraft:compass", "marshall": "gscraft:claim_marker", "pocket": "superbwarfare:sandbag"}
 
 QUESTS = [
     # The compound: the one page that says where you are (always visible)
     {"key": "wake", "chapter": "compound", "title": "Wake up", "voice": "Skadowsky. Somebody's town.",
-     "task": "You woke in the yard of a walled compound: the big hall east of you, the brick works beyond it, the road running out through the north gate past the shed, and the wall all round. Walker is in the yard and Michael in the brick works. Right-click a survivor to hear what they need; their chapter opens here. Your work station is in your pack: put it down inside the wire.",
+     "task": "You woke in the yard of a walled compound: the big hall east of you, the brick works beyond it, the road out through the north gate. Six survivors live here; meet them (the quests to the right). This journal opens with J or by right-clicking a survivor. The notebook in your pack has the controls. Tick this page to begin.",
      "x": 0, "y": 0, "tasks": [CHECK], "rewards": [], "deps": []},
     # Walker
     meet("walker"),
@@ -130,6 +141,7 @@ QUESTS = [
     {"key": "J1", "chapter": "james", "title": "Get your bearings", "voice": "Walk it before you trust it.", "task": "Reach the level crossing and the mast's field.",
      "x": 2, "y": 0, "tasks": [loc("the level crossing", site_box("crossing")), loc("the mast's field", site_box("mast"))], "deps": ["meet_james"],
      "rewards": [give("minecraft:compass"), give("minecraft:map")]},
+    meet("marshall"),
     # Marshall: only after the five introductions
     {"key": "R1", "chapter": "marshall", "title": "Muster", "voice": "We're squatting in someone's town.", "task": "Read the board in the hall, then come back.",
      "x": 0, "y": 0, "tasks": [CHECK], "deps": ["W1", "T1", "M1", "U1", "J1"], "hide_until_deps": True,
@@ -221,7 +233,7 @@ def task_nbt(qkey, i, t):
 def reward_nbt(qkey, i, r):
     base = {"id": hex_id(f"reward:{qkey}:{i}")}
     if r["type"] == "item":
-        base.update({"type": "item", "item": r["item"], "count": r["count"]})
+        base.update({"type": "item", "auto": "enabled", "item": r["item"], "count": r["count"]})
     elif r["type"] == "stage":
         base.update({"type": "command", "title": "the stage " + r["stage"], "command": f"/gscraft stage add {r['stage']}", "elevate_perms": True, "silent": True, "auto": "invisible"})
     elif r["type"] == "say":
@@ -239,6 +251,8 @@ def quest_nbt(d):
         nbt["description"] = [d["task"]]
     if d.get("deps"):
         nbt["dependencies"] = [hex_id("quest:" + k) for k in d["deps"]]
+    if d.get("icon"):
+        nbt["icon"] = d["icon"]
     if d.get("invisible"):
         nbt["invisible"] = True
     if d.get("hide_until_deps"):

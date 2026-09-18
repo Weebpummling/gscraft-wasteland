@@ -11,25 +11,6 @@
 	]
 	quests: [
 		{
-			id: "FBE6BDDCB8D785C1"
-			x: 0.0d
-			y: 0.0d
-			title: "Meet Walker"
-			description: [
-				"You spoke to Walker. Their chapter is open."
-			]
-			invisible: true
-			tasks: [
-				{
-					id: "719B19B4371477D0"
-					type: "advancement"
-					advancement: "gscraft:stage/seen_walker"
-					criterion: "set"
-				}
-			]
-			rewards: [ ]
-		}
-		{
 			id: "0016A4AE37CD6D15"
 			x: 2.0d
 			y: 0.0d
@@ -61,18 +42,21 @@
 				{
 					id: "99E0D6570C869356"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:wrench"
 					count: 1
 				}
 				{
 					id: "6DB44ED20F921F06"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:card_fastener_kit"
 					count: 1
 				}
 				{
 					id: "E7D49C8E1D1591C1"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:card_hand_tools"
 					count: 1
 				}
@@ -130,6 +114,7 @@
 				{
 					id: "FD53A363744CCC8B"
 					type: "item"
+					auto: "enabled"
 					item: "sophisticatedbackpacks:backpack"
 					count: 1
 				}
@@ -176,6 +161,7 @@
 				{
 					id: "53FCD9FC185D272D"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:card_steel_frame"
 					count: 1
 				}

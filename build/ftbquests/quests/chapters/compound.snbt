@@ -17,12 +17,144 @@
 			title: "Wake up"
 			subtitle: "Skadowsky. Somebody's town."
 			description: [
-				"You woke in the yard of a walled compound: the big hall east of you, the brick works beyond it, the road running out through the north gate past the shed, and the wall all round. Walker is in the yard and Michael in the brick works. Right-click a survivor to hear what they need; their chapter opens here. Your work station is in your pack: put it down inside the wire."
+				"You woke in the yard of a walled compound: the big hall east of you, the brick works beyond it, the road out through the north gate. Six survivors live here; meet them (the quests to the right). This journal opens with J or by right-clicking a survivor. The notebook in your pack has the controls. Tick this page to begin."
 			]
 			tasks: [
 				{
 					id: "27EB43080DA5DE54"
 					type: "checkmark"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "FBE6BDDCB8D785C1"
+			x: 2.0d
+			y: -2.0d
+			title: "Meet Walker"
+			description: [
+				"Walker is in the yard, at its south end. Right-click them; their chapter opens here."
+			]
+			dependencies: [
+				"AF24D0F7F02E123D"
+			]
+			icon: "gscraft:wrench"
+			tasks: [
+				{
+					id: "719B19B4371477D0"
+					type: "advancement"
+					advancement: "gscraft:stage/seen_walker"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "CC8C6FEF50EC1831"
+			x: 4.0d
+			y: 2.0d
+			title: "Meet Tony"
+			description: [
+				"Tony is in the annex, south of the hall. Right-click them; their chapter opens here."
+			]
+			dependencies: [
+				"AF24D0F7F02E123D"
+			]
+			icon: "gscraft:bandage"
+			tasks: [
+				{
+					id: "4168AB9460C74033"
+					type: "advancement"
+					advancement: "gscraft:stage/seen_tony"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "B197DA86940AABFE"
+			x: 2.0d
+			y: 2.0d
+			title: "Meet Michael"
+			description: [
+				"Michael is in the brick works, east of the hall. Right-click them; their chapter opens here."
+			]
+			dependencies: [
+				"AF24D0F7F02E123D"
+			]
+			icon: "gscraft:wire_spool"
+			tasks: [
+				{
+					id: "855B163280D3F5F0"
+					type: "advancement"
+					advancement: "gscraft:stage/seen_michael"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "72E6981B6BA1DC1A"
+			x: 6.0d
+			y: -2.0d
+			title: "Meet Tune"
+			description: [
+				"Tune is in the shed by the north gate. Right-click them; their chapter opens here."
+			]
+			dependencies: [
+				"AF24D0F7F02E123D"
+			]
+			icon: "gscraft:circuit_board"
+			tasks: [
+				{
+					id: "DACAD27FB3775B8D"
+					type: "advancement"
+					advancement: "gscraft:stage/seen_tune"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "D74CFA3B64761D9A"
+			x: 6.0d
+			y: 2.0d
+			title: "Meet James"
+			description: [
+				"James is in the road inside the north gate. Right-click them; their chapter opens here."
+			]
+			dependencies: [
+				"AF24D0F7F02E123D"
+			]
+			icon: "minecraft:compass"
+			tasks: [
+				{
+					id: "A44E93C860827ACB"
+					type: "advancement"
+					advancement: "gscraft:stage/seen_james"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "D8CB501597A05CE7"
+			x: 4.0d
+			y: -2.0d
+			title: "Meet Marshall"
+			description: [
+				"Marshall is in the big hall, by the board. Right-click them; their chapter opens here."
+			]
+			dependencies: [
+				"AF24D0F7F02E123D"
+			]
+			icon: "gscraft:claim_marker"
+			tasks: [
+				{
+					id: "A46284C94A167B3F"
+					type: "advancement"
+					advancement: "gscraft:stage/seen_marshall"
+					criterion: "set"
 				}
 			]
 			rewards: [ ]

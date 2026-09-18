@@ -1,0 +1,12 @@
+{
+  "name": "Carrying",
+  "category": "gscraft:notebook",
+  "icon": "gscraft:steel_frame",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "Small parts stack. A $(bold)bulky$() item - a frame, a barrel, a plate - slows you and stops you sprinting; one at a time, and a car carries it better.$(br)The backpack from Walker's second job holds the rest. Cars come with the garage."
+    }
+  ]
+}

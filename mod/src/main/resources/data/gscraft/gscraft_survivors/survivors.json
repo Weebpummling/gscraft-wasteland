@@ -76,6 +76,10 @@
       },
       {
         "item": "gscraft:bandage"
+      },
+      {
+        "item": "patchouli:guide_book",
+        "nbt": "{\"patchouli:book\":\"gscraft:notebook\"}"
       }
     ],
     "subtitle": "Skadowsky",

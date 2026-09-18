@@ -1,0 +1,12 @@
+{
+  "name": "Where things are",
+  "category": "gscraft:notebook",
+  "icon": "minecraft:compass",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "$(bold)The compound$() - the yard, the hall, the north gate. Home.$(br)$(bold)The junction$() - north-west, across the rails. The square and the streets off it.$(br)This page grows as the town is walked."
+    }
+  ]
+}

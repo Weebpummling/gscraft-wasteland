@@ -11,25 +11,6 @@
 	]
 	quests: [
 		{
-			id: "72E6981B6BA1DC1A"
-			x: 0.0d
-			y: 0.0d
-			title: "Meet Tune"
-			description: [
-				"You spoke to Tune. Their chapter is open."
-			]
-			invisible: true
-			tasks: [
-				{
-					id: "DACAD27FB3775B8D"
-					type: "advancement"
-					advancement: "gscraft:stage/seen_tune"
-					criterion: "set"
-				}
-			]
-			rewards: [ ]
-		}
-		{
 			id: "CBEAB3D0BF7F532E"
 			x: 2.0d
 			y: 0.0d
@@ -68,6 +49,7 @@
 				{
 					id: "70834ED09D998D6A"
 					type: "item"
+					auto: "enabled"
 					item: "gscraft:card_circuit_assembly"
 					count: 1
 				}
