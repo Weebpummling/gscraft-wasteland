@@ -2,17 +2,17 @@
  "buildings": {
   "walker": {
    "name": "Walker the Foreman",
-   "x": -959,
-   "y": 65,
-   "z": -863,
-   "ground": "andesite"
+   "x": -832,
+   "y": 71,
+   "z": -883,
+   "ground": "stone"
   },
   "michael": {
    "name": "Michael the Engineer",
-   "x": -924,
-   "y": 65,
-   "z": -885,
-   "ground": "stone"
+   "x": -741,
+   "y": 72,
+   "z": -890,
+   "ground": "stone_brick_slab"
   },
   "marshall": {
    "name": "Marshall",
@@ -46,31 +46,31 @@
  "start": {
   "marshall": {
    "name": "Marshall",
-   "x": -952,
-   "y": 65,
-   "z": -851,
-   "ground": "smooth_stone"
+   "x": -769,
+   "y": 71,
+   "z": -889,
+   "ground": "stone"
   },
   "tony": {
    "name": "Tony the Medic",
-   "x": -966,
-   "y": 65,
-   "z": -876,
-   "ground": "stone"
+   "x": -788,
+   "y": 71,
+   "z": -879,
+   "ground": "polished_andesite"
   },
   "tune": {
    "name": "Tune the Technician",
-   "x": -949,
-   "y": 65,
-   "z": -828,
-   "ground": "smooth_stone"
+   "x": -836,
+   "y": 71,
+   "z": -904,
+   "ground": "andesite"
   },
   "james": {
    "name": "James the Scout",
-   "x": -945,
-   "y": 65,
-   "z": -889,
-   "ground": "andesite"
+   "x": -832,
+   "y": 71,
+   "z": -900,
+   "ground": "gravel"
   }
  }
 }

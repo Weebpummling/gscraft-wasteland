@@ -1,4 +1,4 @@
-fill -958 65 -863 -956 65 -861 minecraft:cobblestone
-setblock -957 66 -862 magnumtorch:diamond_magnum_torch
-fill -948 65 -891 -946 65 -889 minecraft:cobblestone
-setblock -947 66 -890 magnumtorch:diamond_magnum_torch
+fill -839 71 -896 -837 71 -894 minecraft:cobblestone
+setblock -838 72 -895 magnumtorch:diamond_magnum_torch
+fill -827 71 -905 -825 71 -903 minecraft:cobblestone
+setblock -826 72 -904 magnumtorch:diamond_magnum_torch

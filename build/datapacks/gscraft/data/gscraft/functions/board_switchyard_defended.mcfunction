@@ -1,6 +1,6 @@
-setblock -948 65 -857 minecraft:lime_concrete
-setblock -948 66 -857 minecraft:lime_concrete
-setblock -948 67 -857 minecraft:lime_concrete
-setblock -947 65 -857 minecraft:lime_concrete
-setblock -947 66 -857 minecraft:lime_concrete
-setblock -947 67 -857 minecraft:lime_concrete
+setblock -834 71 -895 minecraft:lime_concrete
+setblock -834 72 -895 minecraft:lime_concrete
+setblock -834 73 -895 minecraft:lime_concrete
+setblock -834 71 -894 minecraft:lime_concrete
+setblock -834 72 -894 minecraft:lime_concrete
+setblock -834 73 -894 minecraft:lime_concrete

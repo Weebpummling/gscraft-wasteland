@@ -1,17 +1,17 @@
 {
  "__comment": "the strongpoint board's geometry (tools/board.py): origin = the first column's bottom block, along = the wall's direction, front = the side the room is on",
  "origin": [
-  -952,
-  65,
-  -857
+  -834,
+  71,
+  -899
  ],
  "along": [
-  1,
-  0
- ],
- "front": [
   0,
   1
+ ],
+ "front": [
+  1,
+  0
  ],
  "width": 2,
  "height": 3,
@@ -24,8 +24,8 @@
   "woods_outpost"
  ],
  "lamp": [
-  -940,
-  66,
-  -857
+  -834,
+  72,
+  -887
  ]
 }

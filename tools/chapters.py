@@ -7,7 +7,7 @@
 
 Seven chapters: one per survivor (tagged with the survivor's id, which the right-click opens by:
 `/ftbquests open_book #<chapter>`), hidden behind a "meet" quest that completes on the per-player seen_<id> advancement,
-and "The pocket" for the gap and the five building takes, whose askers arrive with them. Every quest is a line of the
+and "The pocket" for the north gate and the five building takes, whose askers arrive with them. Every quest is a line of the
 QUESTS table: title (four words, the survivor's phrasing), the voice line, the task line, tasks (hand-ins consume;
 "show" does not; locations are the sites' boxes; stages are advancement tasks) and rewards (items; stages and lines as
 command rewards, claimed on their own). Ids are stable hashes of the keys, so a rewrite keeps progress.
@@ -88,7 +88,7 @@ ICONS = {"compound": "gscraft:station", "walker": "gscraft:wrench", "tony": "gsc
 QUESTS = [
     # The compound: the one page that says where you are (always visible)
     {"key": "wake", "chapter": "compound", "title": "Wake up", "voice": "Skadowsky. Somebody's town.",
-     "task": "You woke in the yard of a walled compound on the river: the hall to the south, the brick block to the east, the sheds to the north, and the corner between the sheds and the block open. Walker is in the hall and Michael in the brick block. Right-click a survivor to hear what they need; their chapter opens here. Your work station is in your pack: put it down inside the wire.",
+     "task": "You woke in the yard of a walled compound: the big hall east of you, the brick works beyond it, the road running out through the north gate past the shed, and the wall all round. Walker is in the yard and Michael in the brick works. Right-click a survivor to hear what they need; their chapter opens here. Your work station is in your pack: put it down inside the wire.",
      "x": 0, "y": 0, "tasks": [CHECK], "rewards": [], "deps": []},
     # Walker
     meet("walker"),
@@ -148,10 +148,10 @@ QUESTS = [
      "x": 8, "y": 0, "tasks": [adv("radio_2"), item("superbwarfare:medium_rocket_he", 4)], "deps": ["tube"], "repeat": True, "hide_until_deps": True,
      "rewards": [give("gscraft:strike_air")]},
     # The pocket: the gap, then the five takes (start-compound §5; ruling R22/R23)
-    {"key": "R0", "chapter": "pocket", "title": "The gap", "voice": "Marshall wants that corner shut before dark.", "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the corner is a gate.",
+    {"key": "R0", "chapter": "pocket", "title": "The north gate", "voice": "Marshall wants that gate shut before dark.", "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred.",
      "x": 0, "y": 0, "tasks": [item("superbwarfare:sandbag", 8)], "deps": ["W1"], "hide_until_deps": True,
      "rewards": [stage("compound_closed")]},
-    {"key": "square", "chapter": "pocket", "title": "The junction", "voice": "The square is ours if we say it is.", "task": "Walk the square north of the hall and bring back eight metal scrap from its streets. That lights its torch and the map wall.",
+    {"key": "square", "chapter": "pocket", "title": "The junction", "voice": "The square is ours if we say it is.", "task": "Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch and the map wall.",
      "x": 2, "y": 0, "tasks": [loc("the square", site_box("square")), item("gscraft:metal_scrap", 8)], "deps": ["R0"],
      "rewards": [stage("square_taken"), stage("skadowsky_scouted")]},
     {"key": "gatehouse", "chapter": "pocket", "title": "The gatehouse", "voice": "The bridge's east end. Bar the doors and Marshall moves in.", "task": "Reach the gatehouse; hand in a fastener kit and eight scrap.",

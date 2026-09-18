@@ -3,14 +3,14 @@
   {
    "name": "camp_compound",
    "box": [
-    -980,
+    -900,
+    -720,
     -920,
-    -897,
-    -818
+    -835
    ],
    "exclude": true,
    "margin": 32,
-   "note": "the south compound: the start, always denied, and nothing placed within 32 of its wall - the waves attack towards it"
+   "note": "the walled compound (owner 2026-09-17; the hall, the yard, the north gate): the start, always denied, and nothing placed within 32 of its wall - the waves attack towards it"
   },
   {
    "name": "camp_square",

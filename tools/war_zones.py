@@ -162,7 +162,7 @@ OPEN = {"name": "open", "cap": 4, "spawns": pool(dead=5, scav=2, rider=1),
 # armour; before the stage it is passed over to the sector's front zone beneath it, military and all
 TAKEN = dict(cap=3, spawns=pool(dead=5, scav=2), dead_ranks=["Runner", "The Dead"])
 CAMP_STAGED = [
-    {"name": "camp_compound", "box": [-980, -920, -897, -818], "exclude": True, "margin": 32, "note": "the south compound: the start, always denied, and nothing placed within 32 of its wall - the waves attack towards it"},
+    {"name": "camp_compound", "box": [-900, -720, -920, -835], "exclude": True, "margin": 32, "note": "the walled compound (owner 2026-09-17; the hall, the yard, the north gate): the start, always denied, and nothing placed within 32 of its wall - the waves attack towards it"},
     dict({"name": "camp_square", "box": [-966, -914, -1000, -958], "stage": "square_taken", "note": "the paved junction and the streets off it; taken: the Dead and scavengers only"}, **TAKEN),
     dict({"name": "camp_gatehouse", "box": [-982, -950, -960, -936], "stage": "gatehouse_taken", "note": "the bridge's east end, Marshall's; taken: the Dead and scavengers only"}, **TAKEN),
     dict({"name": "camp_north", "box": [-970, -894, -1094, -996], "stage": "clinic_taken", "note": "the north complex: the clinic and the shack; taken: the Dead and scavengers only"}, **TAKEN),

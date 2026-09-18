@@ -73,7 +73,7 @@ c("kill @e[tag=gs_director,x=-1000,y=40,z=-1120,dx=140,dy=80,dz=290]")
 time.sleep(1.5)
 
 # 1. the zones by stage
-yard = zone(-956, -876)
+yard = zone(-829, -893)   # the walled compound's yard (2026-09-17)
 square_before = zone(-940, -979)
 c("gscraft stage add square_taken")
 time.sleep(1.5)
@@ -89,7 +89,7 @@ check("the yard is camp_compound; the square is camp_square only while square_ta
 # square a group while it is the sector's ground, nothing once square_taken is set
 c("kill @e[tag=gs_director]")   # the sector zone's cap counts every director creature in it, wherever
 time.sleep(1)
-c("gscraft director ambient -956 65 -876 6")
+c("gscraft director ambient -829 71 -893 6")
 in_compound = count(f"@e[tag=gs_director,{COMPOUND}]")
 c("kill @e[tag=gs_director,x=-1000,y=40,z=-1120,dx=140,dy=80,dz=290]")
 time.sleep(1)

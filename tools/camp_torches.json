@@ -1,16 +1,16 @@
 {
  "yard": {
-  "x": -957,
-  "y": 66,
-  "z": -862,
-  "ground": "minecraft:gravel",
+  "x": -838,
+  "y": 72,
+  "z": -895,
+  "ground": "minecraft:grass_block",
   "start": true
  },
  "gap": {
-  "x": -947,
-  "y": 66,
-  "z": -890,
-  "ground": "minecraft:andesite",
+  "x": -826,
+  "y": 72,
+  "z": -904,
+  "ground": "minecraft:stone",
   "start": true
  },
  "square": {

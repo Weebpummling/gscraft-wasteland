@@ -184,3 +184,50 @@ Nothing changes act. The plant gets 100 m nearer, the hospital 100 m further; bo
 | level.dat, both worlds | the spawn (§3) — a console command at the deploy |
 
 Supersession notes were added at the top of `gscraft-skadowsky-camp.md` and `gscraft-onboarding.md` pointing here.
+
+## 6. The start moves again: the walled compound (owner, 2026-09-17)
+
+> Owner: "update where the main compound is, correct it to the walled compound around (-900, -920) and (-720, -835). Not
+> where it's corrected to." The south yard and hall of §2 were the wrong place. Everything §2–§5 fixed to the south
+> compound now points here; §2's measurements stay as the record of what was built first.
+
+**The compound, as measured** (scratchpad surveys from the world's regions, 2026-09-17): the owner's rectangle
+x −900…−720, z −920…−835 is the bounding box of a walled enclosure.
+
+| Part | Where | Floor (block y; stand +1) | Notes |
+|---|---|---|---|
+| The north wall | along z −912, x −896…−738, bone block with bars and fences; the railway fence runs along z −919/−917 outside it | — | **the north gate**: the one opening, where the road enters, x −835…−830 |
+| The west wall | x −896, z −912…−843 | — | the river side beyond |
+| The south wall | z −836 in the west (x −896…−883), then a wall running east from about (−855, −868) to (−770, −850) | — | the compound is a pentagon, not the box |
+| The east wall | x −728, z −908…−877 | — | the brick works straddle it |
+| **The big hall** | x −787…−750, z −903…−874; roof y 87 | 70 | pillars and windows inside: no flat wall long enough for the board |
+| **The yard** | the paving west of the hall, x −840…−820, z −906…−880; the road x −840…−826 runs north–south through it to the gate | 70 | the start |
+| The gate shed | x −844…−836, z −911…−904 | 70 | beside the gate, west of the road |
+| The annex | x −792…−774, z −884…−874 | 70 | south of the hall |
+| The brick works | x −746…−730, z −905…−872 (the building runs on to x −705, outside the wall) | 70–72 | Michael's |
+| A raised stone stand | x −826…−814, z −901…−893, y 71–75 | — | between the yard and the hall |
+
+**The layout** (`tools/camp.py`, `tools/camp_torches.py`, `tools/board.py`, `tools/chests.py`; the world functions
+`camp_npcs`, `camp_torches`, `yard_mortar`, `board_place`):
+
+| Thing | Where | Rule |
+|---|---|---|
+| World spawn | **(−829, 71, −893)**, `spawnRadius` 4 | the yard, looking west at the board |
+| The board | free-standing at (−834, 71, −899) along +z, facing east | no wall in the hall fit it (`board.py` `free_standing`, `FREE`): its own concrete rows are the wall |
+| Walker | the yard's south end, (−832, 71, −883) | `camp_npc_walker`, his building is the yard itself |
+| Michael | the brick works, (−741, 72, −890) | `camp_npc_michael` |
+| Marshall (start) | the hall's floor, (−769, 71, −889) | `camp_start_marshall`; the gatehouse when it is taken |
+| Tony (start) | the annex, (−788, 71, −879) | `camp_start_tony`; the clinic when the north complex is taken |
+| Tune (start) | the gate shed's door, (−836, 71, −904) | `camp_start_tune`; the shack when the north complex is taken |
+| James (start) | the road inside the gate, (−832, 71, −900) | `camp_start_james`; the signal box when the crossing is taken |
+| Torches | `yard` (−838, 72, −895); `gap` (−826, 72, −904), just inside the gate east of the road | `camp_torches` at the deploy |
+| The mortar | (−826, 71, −881), the yard's south-east | `yard_mortar` (Marshall's The tube); it also clears the old tube |
+| Lootr chests | the hall 8 (workshop), the brick works 6 (garage), the gate shed 3 (office), the annex 4 (apartment) | `chests.py --place` |
+
+**The systems' box** is the owner's rectangle: zone `camp_compound` [−900, −720, −920, −835] (the zone boxes are x0, x1, z0, z1) (excluded, margin 32), the
+camp site's `square` (the loss check), the quests' compound box. The square (the paved junction, x −966…−914,
+z −1000…−958) is now north-west of the compound across the rails; its quest text says so. R0 "The gap" became **"The
+north gate"** (`compound_closed`: the gate barred with sandbags). Tune's three join lines and the wake page describe this
+compound. The old south compound keeps its two torches (spawn-free ground behind the players) and its old board on the
+old hall's wall (static now); the old survivors, mortar and spawn are gone.
+

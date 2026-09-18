@@ -24,8 +24,8 @@ FN = ROOT / "build/datapacks/gscraft/data/gscraft/functions"
 DATA = ROOT / "mod/src/main/resources/data/gscraft/gscraft_board/board.json"
 WORLD_FN = "datapacks/gscraft/data/gscraft/functions"
 
-HALL = (-979, -937, -858, -834)   # x0, x1, z0, z1
-Y0, ROWS = 65, 3                  # the concrete rows; the sign row is in front at Y0 + ROWS
+HALL = (-786, -752, -902, -876)   # x0, x1, z0, z1: the walled compound's big hall (owner 2026-09-17; floor block 70)
+Y0, ROWS = 71, 3                  # the concrete rows; the sign row is in front at Y0 + ROWS
 COLUMNS = ["hospital", "krot", "switchyard", "turbine", "intake", "woods_outpost"]
 NAMES = {"hospital": "HOSPITAL", "krot": "KROT", "switchyard": "SWITCHYARD", "turbine": "TURBINE HALL", "intake": "INTAKE WORKS", "woods_outpost": "THE WOODS"}
 STATES = {"unknown": "black_concrete", "scouted": "yellow_concrete", "looted": "orange_concrete", "held": "light_blue_concrete",
@@ -76,6 +76,33 @@ def find_wall(b):
                 if floor and plane_ok(b, cells, front):
                     depth = 3
                     while depth < 12 and all(b.air(x + sign * (depth + 1), Y0, zs + i) for i in range(LENGTH)) and x0 <= x + sign * (depth + 1) <= x1:
+                        depth += 1
+                    cand = (depth, (x, Y0, zs), (0, 1), (sign, 0))
+                    if best is None or cand[0] > best[0]:
+                        best = cand
+    if best is None:
+        best = free_standing(b)
+    return best
+
+
+FREE = (-842, -816, -906, -880)   # x0, x1, z0, z1: the yard west of the hall - a free-standing board facing west, its front the open yard
+
+
+def free_standing(b):
+    """no wall in the hall fit the board (the walled compound's hall has windows and pillars): a board on its own in the
+    yard, its concrete rows the wall, facing east or west - the line's cells and three in front open air over a solid floor;
+    the deepest open front wins"""
+    x0, x1, z0, z1 = FREE
+    best = None
+    for x in range(x0, x1 + 1):
+        for sign in (-1, 1):
+            for zs in range(z0, z1 - LENGTH + 2):
+                cells = [(x, Y0 + r, zs + i) for i in range(LENGTH) for r in range(ROWS + 1)]
+                front = [(x + sign * d, Y0 + r, zs + i) for i in range(LENGTH) for r in range(ROWS + 1) for d in (1, 2, 3)]
+                floor = all(b.solid(x + sign * d, Y0 - 1, zs + i) for i in range(LENGTH) for d in (0, 1))
+                if floor and all(b.air(*c) for c in cells) and all(b.air(*c) for c in front):
+                    depth = 3
+                    while depth < 12 and all(b.air(x + sign * (depth + 1), Y0, zs + i) for i in range(LENGTH)):
                         depth += 1
                     cand = (depth, (x, Y0, zs), (0, 1), (sign, 0))
                     if best is None or cand[0] > best[0]:

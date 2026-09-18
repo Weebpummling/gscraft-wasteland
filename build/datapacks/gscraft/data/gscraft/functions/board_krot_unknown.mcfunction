@@ -1,6 +1,6 @@
-setblock -950 65 -857 minecraft:black_concrete
-setblock -950 66 -857 minecraft:black_concrete
-setblock -950 67 -857 minecraft:black_concrete
-setblock -949 65 -857 minecraft:black_concrete
-setblock -949 66 -857 minecraft:black_concrete
-setblock -949 67 -857 minecraft:black_concrete
+setblock -834 71 -897 minecraft:black_concrete
+setblock -834 72 -897 minecraft:black_concrete
+setblock -834 73 -897 minecraft:black_concrete
+setblock -834 71 -896 minecraft:black_concrete
+setblock -834 72 -896 minecraft:black_concrete
+setblock -834 73 -896 minecraft:black_concrete

@@ -413,6 +413,25 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-17, the start compound moved to the walled compound** (owner: "correct it to the walled compound around
+(-900, -920) and (-720, -835), not where it's corrected to"): start-compound doc **§6** has the measured anatomy (the
+north wall along z −912 with the gate at x −835…−830 where the road enters, the big hall x −787…−750 / z −903…−874 on
+floor 70, the yard west of it, the gate shed, the annex, the brick works) and the layout. Re-pointed: zone `camp_compound`
+[−900, −920, −720, −835] (`tools/war_zones.py` → `map.json`), the camp site's `square`, `camp.py` (Walker in the yard,
+Michael in the brick works, the four start spots), `camp_torches.py` (`yard`, `gap`, and now the **mortar** - it writes
+`yard_mortar.mcfunction`, which also clears the old tube), `board.py` (`HALL`, `Y0` 71, and a **free-standing** fallback:
+the hall's walls have windows and pillars, so the board stands in the yard at (−834, 71, −899) facing east), `chests.py`
+(the hall workshop 8, the brick works garage 6, the gate shed office 3, the annex apartment 4; 73 containers bound in
+all, the square's included), `chapters.py` (the wake page, R0 → "The north gate", the junction "north-west across the
+rails"), Tune's join lines, phases 25/36 (`YARD` (−829, 71, −893)). World spawn **(−829, 71, −893)**, `spawnRadius` 4
+(the reset teleports to the world spawn). Surveys: scratchpad `survey_compound*.py` (a PNG per column class from the
+region files - worth keeping as a tool next time a place moves). Local: functions run, six survivors in the new box and
+none in the old, the mortar in the new yard and the old one gone, the board block and both torches present, the chests
+placed. The old compound's torches and board stay (harmless). **TRAP, cost one cycle:** the zone boxes (`war_zones.py`, `map.json`) and
+the site boxes (`gscraft_sites/*.json`) are **x0, x1, z0, z1**; `camp.py`'s rectangles are x0, z0, x1, z1; `chests.py`'s and `board.py`'s
+are x0, x1, z0, z1. Written the wrong way round, the compound zone contained nothing and the yard read `sk_south`; `/gscraft zone <x> <z>`
+is the check. **Not on live yet.**
+
 **2026-09-13 22:40, live** (owner: "server is empty, update this live"; empty by the console's `list` at 22:33 and 22:39, read
 from `/logs/latest.log` through the panel's `get` - `cat` trips on the console's code page): **the whole slice at once**,
 everything since the 15:15 jar of 2026-09-12. Uploaded while running: the armour datapack (`pack.mcmeta`, the four vehicle

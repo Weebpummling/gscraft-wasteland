@@ -47,7 +47,7 @@
    "chapter": "compound",
    "title": "Wake up",
    "voice": "Skadowsky. Somebody's town.",
-   "task": "You woke in the yard of a walled compound on the river: the hall to the south, the brick block to the east, the sheds to the north, and the corner between the sheds and the block open. Walker is in the hall and Michael in the brick block. Right-click a survivor to hear what they need; their chapter opens here. Your work station is in your pack: put it down inside the wire.",
+   "task": "You woke in the yard of a walled compound: the big hall east of you, the brick works beyond it, the road running out through the north gate past the shed, and the wall all round. Walker is in the yard and Michael in the brick works. Right-click a survivor to hear what they need; their chapter opens here. Your work station is in your pack: put it down inside the wire.",
    "x": 0,
    "y": 0,
    "tasks": [
@@ -776,9 +776,9 @@
   {
    "key": "R0",
    "chapter": "pocket",
-   "title": "The gap",
-   "voice": "Marshall wants that corner shut before dark.",
-   "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the corner is a gate.",
+   "title": "The north gate",
+   "voice": "Marshall wants that gate shut before dark.",
+   "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred.",
    "x": 0,
    "y": 0,
    "tasks": [
@@ -806,7 +806,7 @@
    "chapter": "pocket",
    "title": "The junction",
    "voice": "The square is ours if we say it is.",
-   "task": "Walk the square north of the hall and bring back eight metal scrap from its streets. That lights its torch and the map wall.",
+   "task": "Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch and the map wall.",
    "x": 2,
    "y": 0,
    "tasks": [

@@ -1,1 +1,1 @@
-setblock -940 66 -857 minecraft:redstone_lamp[lit=true]
+setblock -834 72 -887 minecraft:redstone_lamp[lit=true]

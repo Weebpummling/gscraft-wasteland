@@ -28,18 +28,18 @@ ROOT = Path(__file__).resolve().parents[1]
 CONTAINERS = {"minecraft:chest", "minecraft:trapped_chest", "minecraft:barrel", "lootr:lootr_chest", "lootr:lootr_barrel", "lootr:lootr_trapped_chest"}
 # (x0, x1, z0, z1) -> table, first match wins
 RECTS = [
-    ((-979, -937, -858, -834), "apartment"),   # the hall
-    ((-938, -924, -869, -831), "garage"),      # the brick block
-    ((-973, -958, -895, -858), "workshop"),    # the west sheds
-    ((-960, -937, -834, -820), "office"),      # the annex
-    ((-980, -920, -897, -818), "apartment"),   # the rest of the compound
+    ((-786, -752, -902, -876), "workshop"),    # the big hall (the walled compound, owner 2026-09-17)
+    ((-746, -730, -905, -872), "garage"),      # the brick works, east
+    ((-844, -836, -911, -904), "office"),      # the shed by the north gate
+    ((-792, -774, -884, -874), "apartment"),   # the annex south of the hall
+    ((-900, -720, -920, -835), "apartment"),   # the rest of the compound
 ]
 SQUARE = (-966, -914, -1000, -958)
-BOXES = [(-980, -920, -897, -818), SQUARE]
+BOXES = [(-900, -720, -920, -835), SQUARE]
 # chests placed per rectangle when --place (the hall, the block, the sheds, the annex; the square's buildings share one budget)
 PLACE = {"hall": 8, "block": 6, "sheds": 4, "annex": 4, "square": 14}
-NAMED = {"hall": ((-979, -937, -858, -834), "apartment"), "block": ((-938, -924, -869, -831), "garage"), "sheds": ((-973, -958, -895, -858), "workshop"),
-         "annex": ((-960, -937, -834, -820), "office"), "square": (SQUARE, None)}
+NAMED = {"hall": ((-786, -752, -902, -876), "workshop"), "block": ((-746, -730, -905, -872), "garage"), "sheds": ((-844, -836, -911, -904), "office"),
+         "annex": ((-792, -774, -884, -874), "apartment"), "square": (SQUARE, None)}
 SOLID_SKIP = {"minecraft:air", "minecraft:cave_air", "minecraft:void_air", "minecraft:water", "minecraft:lava", "minecraft:grass", "minecraft:tall_grass", "minecraft:fern",
               "minecraft:dead_bush", "minecraft:snow", "minecraft:torch", "minecraft:wall_torch", "minecraft:rail"}
 

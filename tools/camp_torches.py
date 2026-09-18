@@ -29,14 +29,15 @@ TORCH = "magnumtorch:diamond_magnum_torch"
 # START are placed by camp_torches at the deploy; the rest each have their own function torch_<name>, run by the site
 # loop when that building is taken (next-steps plan §1d, §2c).
 SPOTS = {
-    "yard": (-957, -862),           # the south compound, Walker and Michael
-    "gap": (-947, -890),            # the compound's open corner, inside, on the paving (the doc's (-945, -890) is a button by the prismarine)
+    "yard": (-838, -895),           # the walled compound's yard, west of the hall (owner 2026-09-17)
+    "gap": (-826, -904),            # just inside the north gate, east of the road (the compound's one opening)
     "square": (-940, -979),         # the paved junction
     "gatehouse": (-966, -947),      # the bridge's east end, Marshall
     "clinic": (-948, -1026),        # the north complex, Tony (on its own paving, not the trees north of it)
     "crossing": (-890, -975),       # the rail embankment's level crossing, the east gate, James
 }
 START = ("yard", "gap")
+MORTAR = (-826, -881)   # the yard's tube, on the paving
 
 
 def main(argv):
@@ -56,6 +57,14 @@ def main(argv):
         placed[name] = {"x": x, "y": base + 1, "z": z, "ground": top, "start": name in START}
         print(f"  {name:11} ({x:5}, {base+1:3}, {z:5}) on {top.split(':')[-1]}{'  (start)' if name in START else ''}")
     FN.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    # the yard's mortar (Marshall's The tube): kill any tube at the spot (and at the old south compound's), summon one
+    mx, mz = MORTAR
+    my, mtop = g.top(mx, mz)
+    (FN.parent / "yard_mortar.mcfunction").write_text("\n".join([
+        f"kill @e[type=superbwarfare:mortar,x={mx - 10},y={my - 9},z={mz - 10},dx=20,dy=20,dz=20]",
+        "kill @e[type=superbwarfare:mortar,x=-956,y=55,z=-878,dx=20,dy=20,dz=20]",
+        f"summon superbwarfare:mortar {mx} {my + 1} {mz}"]) + "\n", encoding="utf-8")
+    print(f"  mortar      ({mx:5}, {my + 1:3}, {mz:5}) on {mtop.split(':')[-1]}")
     (ROOT / "tools" / "camp_torches.json").write_text(json.dumps(placed, indent=1), encoding="utf-8")
     print("wrote", FN.name, len(placed), "torches")
 

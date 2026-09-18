@@ -1,6 +1,6 @@
-setblock -946 65 -857 minecraft:yellow_concrete
-setblock -946 66 -857 minecraft:yellow_concrete
-setblock -946 67 -857 minecraft:yellow_concrete
-setblock -945 65 -857 minecraft:yellow_concrete
-setblock -945 66 -857 minecraft:yellow_concrete
-setblock -945 67 -857 minecraft:yellow_concrete
+setblock -834 71 -893 minecraft:yellow_concrete
+setblock -834 72 -893 minecraft:yellow_concrete
+setblock -834 73 -893 minecraft:yellow_concrete
+setblock -834 71 -892 minecraft:yellow_concrete
+setblock -834 72 -892 minecraft:yellow_concrete
+setblock -834 73 -892 minecraft:yellow_concrete

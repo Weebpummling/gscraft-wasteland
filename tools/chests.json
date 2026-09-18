@@ -1,9 +1,49 @@
 [
  {
+  "x": -961,
+  "y": 63,
+  "z": -989,
+  "was": "lootr:lootr_chest",
+  "table": "office",
+  "command": "setblock -961 63 -989 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
+ },
+ {
+  "x": -952,
+  "y": 73,
+  "z": -995,
+  "was": "lootr:lootr_chest",
+  "table": "apartment",
+  "command": "setblock -952 73 -995 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -957,
+  "y": 62,
+  "z": -994,
+  "was": "lootr:lootr_chest",
+  "table": "office",
+  "command": "setblock -957 62 -994 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
+ },
+ {
+  "x": -953,
+  "y": 60,
+  "z": -999,
+  "was": "lootr:lootr_chest",
+  "table": "apartment",
+  "command": "setblock -953 60 -999 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -957,
+  "y": 60,
+  "z": -998,
+  "was": "lootr:lootr_chest",
+  "table": "office",
+  "command": "setblock -957 60 -998 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
+ },
+ {
   "x": -946,
   "y": 72,
   "z": -996,
-  "was": "minecraft:barrel",
+  "was": "lootr:lootr_barrel",
   "table": "apartment",
   "command": "setblock -946 72 -996 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
  },
@@ -11,15 +51,31 @@
   "x": -946,
   "y": 71,
   "z": -996,
-  "was": "minecraft:barrel",
+  "was": "lootr:lootr_barrel",
   "table": "apartment",
   "command": "setblock -946 71 -996 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -960,
+  "y": 66,
+  "z": -984,
+  "was": "lootr:lootr_chest",
+  "table": "office",
+  "command": "setblock -960 66 -984 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
+ },
+ {
+  "x": -951,
+  "y": 62,
+  "z": -966,
+  "was": "lootr:lootr_chest",
+  "table": "apartment",
+  "command": "setblock -951 62 -966 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
  },
  {
   "x": -937,
   "y": 61,
   "z": -996,
-  "was": "minecraft:barrel",
+  "was": "lootr:lootr_barrel",
   "table": "office",
   "command": "setblock -937 61 -996 lootr:lootr_barrel{LootTable:\"gscraft:building/office\"}"
  },
@@ -27,7 +83,7 @@
   "x": -933,
   "y": 68,
   "z": -998,
-  "was": "minecraft:barrel",
+  "was": "lootr:lootr_barrel",
   "table": "office",
   "command": "setblock -933 68 -998 lootr:lootr_barrel{LootTable:\"gscraft:building/office\"}"
  },
@@ -35,7 +91,7 @@
   "x": -937,
   "y": 60,
   "z": -996,
-  "was": "minecraft:barrel",
+  "was": "lootr:lootr_barrel",
   "table": "office",
   "command": "setblock -937 60 -996 lootr:lootr_barrel{LootTable:\"gscraft:building/office\"}"
  },
@@ -43,7 +99,7 @@
   "x": -919,
   "y": 69,
   "z": -996,
-  "was": "minecraft:barrel",
+  "was": "lootr:lootr_barrel",
   "table": "apartment",
   "command": "setblock -919 69 -996 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
  },
@@ -51,7 +107,7 @@
   "x": -919,
   "y": 67,
   "z": -996,
-  "was": "minecraft:barrel",
+  "was": "lootr:lootr_barrel",
   "table": "apartment",
   "command": "setblock -919 67 -996 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
  },
@@ -59,305 +115,502 @@
   "x": -919,
   "y": 68,
   "z": -996,
-  "was": "minecraft:barrel",
+  "was": "lootr:lootr_barrel",
   "table": "apartment",
   "command": "setblock -919 68 -996 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
  },
  {
-  "x": -938,
-  "y": 65,
-  "z": -856,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "hall",
-  "command": "setblock -938 65 -856 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
- },
- {
-  "x": -965,
-  "y": 65,
-  "z": -856,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "hall",
-  "command": "setblock -965 65 -856 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
- },
- {
-  "x": -965,
-  "y": 65,
-  "z": -836,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "hall",
-  "command": "setblock -965 65 -836 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
- },
- {
-  "x": -961,
-  "y": 65,
-  "z": -856,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "hall",
-  "command": "setblock -961 65 -856 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
- },
- {
-  "x": -961,
-  "y": 65,
-  "z": -836,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "hall",
-  "command": "setblock -961 65 -836 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
- },
- {
-  "x": -957,
-  "y": 65,
-  "z": -856,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "hall",
-  "command": "setblock -957 65 -856 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
- },
- {
-  "x": -957,
-  "y": 65,
-  "z": -836,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "hall",
-  "command": "setblock -957 65 -836 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
- },
- {
-  "x": -953,
-  "y": 65,
-  "z": -856,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "hall",
-  "command": "setblock -953 65 -856 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
- },
- {
-  "x": -937,
-  "y": 66,
-  "z": -867,
-  "was": "air (placed)",
-  "table": "garage",
-  "building": "block",
-  "command": "setblock -937 66 -867 lootr:lootr_chest{LootTable:\"gscraft:building/garage\"}"
- },
- {
-  "x": -936,
-  "y": 66,
-  "z": -860,
-  "was": "air (placed)",
-  "table": "garage",
-  "building": "block",
-  "command": "setblock -936 66 -860 lootr:lootr_chest{LootTable:\"gscraft:building/garage\"}"
- },
- {
-  "x": -935,
-  "y": 66,
-  "z": -839,
-  "was": "air (placed)",
-  "table": "garage",
-  "building": "block",
-  "command": "setblock -935 66 -839 lootr:lootr_chest{LootTable:\"gscraft:building/garage\"}"
- },
- {
-  "x": -935,
-  "y": 66,
-  "z": -832,
-  "was": "air (placed)",
-  "table": "garage",
-  "building": "block",
-  "command": "setblock -935 66 -832 lootr:lootr_chest{LootTable:\"gscraft:building/garage\"}"
- },
- {
-  "x": -932,
-  "y": 66,
-  "z": -868,
-  "was": "air (placed)",
-  "table": "garage",
-  "building": "block",
-  "command": "setblock -932 66 -868 lootr:lootr_chest{LootTable:\"gscraft:building/garage\"}"
- },
- {
-  "x": -932,
-  "y": 66,
-  "z": -864,
-  "was": "air (placed)",
-  "table": "garage",
-  "building": "block",
-  "command": "setblock -932 66 -864 lootr:lootr_chest{LootTable:\"gscraft:building/garage\"}"
- },
- {
-  "x": -960,
-  "y": 65,
-  "z": -868,
-  "was": "air (placed)",
-  "table": "workshop",
-  "building": "sheds",
-  "command": "setblock -960 65 -868 lootr:lootr_chest{LootTable:\"gscraft:building/workshop\"}"
- },
- {
-  "x": -956,
-  "y": 65,
-  "z": -823,
-  "was": "air (placed)",
-  "table": "office",
-  "building": "annex",
-  "command": "setblock -956 65 -823 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
- },
- {
-  "x": -938,
-  "y": 65,
-  "z": -823,
-  "was": "air (placed)",
-  "table": "office",
-  "building": "annex",
-  "command": "setblock -938 65 -823 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
- },
- {
-  "x": -956,
-  "y": 65,
-  "z": -832,
-  "was": "air (placed)",
-  "table": "office",
-  "building": "annex",
-  "command": "setblock -956 65 -832 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
- },
- {
-  "x": -956,
-  "y": 65,
-  "z": -828,
-  "was": "air (placed)",
-  "table": "office",
-  "building": "annex",
-  "command": "setblock -956 65 -828 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
- },
- {
-  "x": -957,
-  "y": 60,
-  "z": -998,
-  "was": "air (placed)",
-  "table": "office",
-  "building": "square",
-  "command": "setblock -957 60 -998 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
- },
- {
-  "x": -953,
-  "y": 60,
-  "z": -999,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "square",
-  "command": "setblock -953 60 -999 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
- },
- {
-  "x": -915,
-  "y": 61,
-  "z": -965,
-  "was": "air (placed)",
-  "table": "office",
-  "building": "square",
-  "command": "setblock -915 61 -965 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
- },
- {
-  "x": -957,
-  "y": 62,
-  "z": -994,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "square",
-  "command": "setblock -957 62 -994 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
- },
- {
-  "x": -951,
-  "y": 62,
-  "z": -966,
-  "was": "air (placed)",
-  "table": "office",
-  "building": "square",
-  "command": "setblock -951 62 -966 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
- },
- {
   "x": -915,
   "y": 62,
   "z": -994,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "square",
-  "command": "setblock -915 62 -994 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+  "was": "lootr:lootr_chest",
+  "table": "office",
+  "command": "setblock -915 62 -994 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
  },
  {
   "x": -915,
   "y": 62,
   "z": -990,
-  "was": "air (placed)",
+  "was": "lootr:lootr_chest",
   "table": "office",
-  "building": "square",
   "command": "setblock -915 62 -990 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
  },
  {
   "x": -915,
   "y": 62,
   "z": -986,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "square",
-  "command": "setblock -915 62 -986 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
- },
- {
-  "x": -961,
-  "y": 63,
-  "z": -989,
-  "was": "air (placed)",
+  "was": "lootr:lootr_chest",
   "table": "office",
-  "building": "square",
-  "command": "setblock -961 63 -989 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
+  "command": "setblock -915 62 -986 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
  },
  {
   "x": -915,
   "y": 63,
   "z": -981,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "square",
-  "command": "setblock -915 63 -981 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
- },
- {
-  "x": -922,
-  "y": 65,
-  "z": -960,
-  "was": "air (placed)",
+  "was": "lootr:lootr_chest",
   "table": "office",
-  "building": "square",
-  "command": "setblock -922 65 -960 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
- },
- {
-  "x": -960,
-  "y": 66,
-  "z": -984,
-  "was": "air (placed)",
-  "table": "apartment",
-  "building": "square",
-  "command": "setblock -960 66 -984 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+  "command": "setblock -915 63 -981 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
  },
  {
   "x": -915,
   "y": 68,
   "z": -961,
-  "was": "air (placed)",
+  "was": "lootr:lootr_chest",
   "table": "office",
-  "building": "square",
   "command": "setblock -915 68 -961 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
  },
  {
-  "x": -952,
+  "x": -915,
+  "y": 61,
+  "z": -965,
+  "was": "lootr:lootr_chest",
+  "table": "office",
+  "command": "setblock -915 61 -965 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
+ },
+ {
+  "x": -922,
+  "y": 65,
+  "z": -960,
+  "was": "lootr:lootr_chest",
+  "table": "apartment",
+  "command": "setblock -922 65 -960 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -881,
+  "y": 52,
+  "z": -913,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -881 52 -913 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -881,
+  "y": 53,
+  "z": -913,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -881 53 -913 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -886,
+  "y": 52,
+  "z": -912,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -886 52 -912 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -886,
+  "y": 53,
+  "z": -912,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -886 53 -912 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -872,
+  "y": 49,
+  "z": -908,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -872 49 -908 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -870,
+  "y": 50,
+  "z": -901,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -870 50 -901 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -872,
+  "y": 50,
+  "z": -908,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -872 50 -908 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -870,
+  "y": 49,
+  "z": -901,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -870 49 -901 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -868,
+  "y": 58,
+  "z": -887,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -868 58 -887 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -868,
+  "y": 59,
+  "z": -887,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -868 59 -887 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -867,
+  "y": 51,
+  "z": -864,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -867 51 -864 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -867,
+  "y": 52,
+  "z": -864,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -867 52 -864 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -862,
+  "y": 70,
+  "z": -908,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -862 70 -908 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -819,
+  "y": 69,
+  "z": -842,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -819 69 -842 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -819,
+  "y": 70,
+  "z": -842,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -819 70 -842 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -785,
+  "y": 71,
+  "z": -877,
+  "was": "minecraft:barrel",
+  "table": "workshop",
+  "command": "setblock -785 71 -877 lootr:lootr_barrel{LootTable:\"gscraft:building/workshop\"}"
+ },
+ {
+  "x": -785,
+  "y": 72,
+  "z": -877,
+  "was": "minecraft:barrel",
+  "table": "workshop",
+  "command": "setblock -785 72 -877 lootr:lootr_barrel{LootTable:\"gscraft:building/workshop\"}"
+ },
+ {
+  "x": -783,
+  "y": 72,
+  "z": -875,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -783 72 -875 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -783,
+  "y": 71,
+  "z": -875,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -783 71 -875 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -761,
+  "y": 71,
+  "z": -874,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -761 71 -874 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -761,
+  "y": 72,
+  "z": -874,
+  "was": "minecraft:barrel",
+  "table": "apartment",
+  "command": "setblock -761 72 -874 lootr:lootr_barrel{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -770,
+  "y": 70,
+  "z": -885,
+  "was": "air (placed)",
+  "table": "workshop",
+  "building": "hall",
+  "command": "setblock -770 70 -885 lootr:lootr_chest{LootTable:\"gscraft:building/workshop\"}"
+ },
+ {
+  "x": -766,
+  "y": 70,
+  "z": -885,
+  "was": "air (placed)",
+  "table": "workshop",
+  "building": "hall",
+  "command": "setblock -766 70 -885 lootr:lootr_chest{LootTable:\"gscraft:building/workshop\"}"
+ },
+ {
+  "x": -785,
+  "y": 71,
+  "z": -898,
+  "was": "air (placed)",
+  "table": "workshop",
+  "building": "hall",
+  "command": "setblock -785 71 -898 lootr:lootr_chest{LootTable:\"gscraft:building/workshop\"}"
+ },
+ {
+  "x": -785,
+  "y": 71,
+  "z": -893,
+  "was": "air (placed)",
+  "table": "workshop",
+  "building": "hall",
+  "command": "setblock -785 71 -893 lootr:lootr_chest{LootTable:\"gscraft:building/workshop\"}"
+ },
+ {
+  "x": -785,
+  "y": 71,
+  "z": -887,
+  "was": "air (placed)",
+  "table": "workshop",
+  "building": "hall",
+  "command": "setblock -785 71 -887 lootr:lootr_chest{LootTable:\"gscraft:building/workshop\"}"
+ },
+ {
+  "x": -781,
+  "y": 71,
+  "z": -892,
+  "was": "air (placed)",
+  "table": "workshop",
+  "building": "hall",
+  "command": "setblock -781 71 -892 lootr:lootr_chest{LootTable:\"gscraft:building/workshop\"}"
+ },
+ {
+  "x": -781,
+  "y": 71,
+  "z": -884,
+  "was": "air (placed)",
+  "table": "workshop",
+  "building": "hall",
+  "command": "setblock -781 71 -884 lootr:lootr_chest{LootTable:\"gscraft:building/workshop\"}"
+ },
+ {
+  "x": -779,
+  "y": 71,
+  "z": -897,
+  "was": "air (placed)",
+  "table": "workshop",
+  "building": "hall",
+  "command": "setblock -779 71 -897 lootr:lootr_chest{LootTable:\"gscraft:building/workshop\"}"
+ },
+ {
+  "x": -744,
+  "y": 67,
+  "z": -897,
+  "was": "air (placed)",
+  "table": "garage",
+  "building": "block",
+  "command": "setblock -744 67 -897 lootr:lootr_chest{LootTable:\"gscraft:building/garage\"}"
+ },
+ {
+  "x": -731,
+  "y": 67,
+  "z": -876,
+  "was": "air (placed)",
+  "table": "garage",
+  "building": "block",
+  "command": "setblock -731 67 -876 lootr:lootr_chest{LootTable:\"gscraft:building/garage\"}"
+ },
+ {
+  "x": -743,
+  "y": 71,
+  "z": -880,
+  "was": "air (placed)",
+  "table": "garage",
+  "building": "block",
+  "command": "setblock -743 71 -880 lootr:lootr_chest{LootTable:\"gscraft:building/garage\"}"
+ },
+ {
+  "x": -743,
+  "y": 71,
+  "z": -874,
+  "was": "air (placed)",
+  "table": "garage",
+  "building": "block",
+  "command": "setblock -743 71 -874 lootr:lootr_chest{LootTable:\"gscraft:building/garage\"}"
+ },
+ {
+  "x": -739,
+  "y": 71,
+  "z": -881,
+  "was": "air (placed)",
+  "table": "garage",
+  "building": "block",
+  "command": "setblock -739 71 -881 lootr:lootr_chest{LootTable:\"gscraft:building/garage\"}"
+ },
+ {
+  "x": -739,
+  "y": 71,
+  "z": -875,
+  "was": "air (placed)",
+  "table": "garage",
+  "building": "block",
+  "command": "setblock -739 71 -875 lootr:lootr_chest{LootTable:\"gscraft:building/garage\"}"
+ },
+ {
+  "x": -842,
+  "y": 71,
+  "z": -907,
+  "was": "air (placed)",
+  "table": "office",
+  "building": "sheds",
+  "command": "setblock -842 71 -907 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
+ },
+ {
+  "x": -838,
+  "y": 78,
+  "z": -909,
+  "was": "air (placed)",
+  "table": "office",
+  "building": "sheds",
+  "command": "setblock -838 78 -909 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
+ },
+ {
+  "x": -837,
+  "y": 71,
+  "z": -905,
+  "was": "air (placed)",
+  "table": "office",
+  "building": "sheds",
+  "command": "setblock -837 71 -905 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
+ },
+ {
+  "x": -775,
+  "y": 72,
+  "z": -880,
+  "was": "air (placed)",
+  "table": "apartment",
+  "building": "annex",
+  "command": "setblock -775 72 -880 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -779,
   "y": 73,
-  "z": -995,
+  "z": -877,
+  "was": "air (placed)",
+  "table": "apartment",
+  "building": "annex",
+  "command": "setblock -779 73 -877 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -785,
+  "y": 75,
+  "z": -883,
+  "was": "air (placed)",
+  "table": "apartment",
+  "building": "annex",
+  "command": "setblock -785 75 -883 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -791,
+  "y": 71,
+  "z": -875,
+  "was": "air (placed)",
+  "table": "apartment",
+  "building": "annex",
+  "command": "setblock -791 71 -875 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -941,
+  "y": 66,
+  "z": -994,
+  "was": "air (placed)",
+  "table": "office",
+  "building": "square",
+  "command": "setblock -941 66 -994 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
+ },
+ {
+  "x": -963,
+  "y": 63,
+  "z": -969,
   "was": "air (placed)",
   "table": "apartment",
   "building": "square",
-  "command": "setblock -952 73 -995 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+  "command": "setblock -963 63 -969 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -915,
+  "y": 66,
+  "z": -976,
+  "was": "air (placed)",
+  "table": "office",
+  "building": "square",
+  "command": "setblock -915 66 -976 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
+ },
+ {
+  "x": -934,
+  "y": 67,
+  "z": -986,
+  "was": "air (placed)",
+  "table": "apartment",
+  "building": "square",
+  "command": "setblock -934 67 -986 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -915,
+  "y": 62,
+  "z": -999,
+  "was": "air (placed)",
+  "table": "office",
+  "building": "square",
+  "command": "setblock -915 62 -999 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
+ },
+ {
+  "x": -920,
+  "y": 66,
+  "z": -982,
+  "was": "air (placed)",
+  "table": "apartment",
+  "building": "square",
+  "command": "setblock -920 66 -982 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -919,
+  "y": 66,
+  "z": -992,
+  "was": "air (placed)",
+  "table": "office",
+  "building": "square",
+  "command": "setblock -919 66 -992 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
+ },
+ {
+  "x": -919,
+  "y": 66,
+  "z": -988,
+  "was": "air (placed)",
+  "table": "apartment",
+  "building": "square",
+  "command": "setblock -919 66 -988 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -915,
+  "y": 66,
+  "z": -971,
+  "was": "air (placed)",
+  "table": "office",
+  "building": "square",
+  "command": "setblock -915 66 -971 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
  }
 ]

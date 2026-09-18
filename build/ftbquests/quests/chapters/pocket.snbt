@@ -14,10 +14,10 @@
 			id: "03F608F813A19429"
 			x: 0.0d
 			y: 0.0d
-			title: "The gap"
-			subtitle: "Marshall wants that corner shut before dark."
+			title: "The north gate"
+			subtitle: "Marshall wants that gate shut before dark."
 			description: [
-				"Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the corner is a gate."
+				"Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred."
 			]
 			dependencies: [
 				"0016A4AE37CD6D15"
@@ -51,7 +51,7 @@
 			title: "The junction"
 			subtitle: "The square is ours if we say it is."
 			description: [
-				"Walk the square north of the hall and bring back eight metal scrap from its streets. That lights its torch and the map wall."
+				"Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch and the map wall."
 			]
 			dependencies: [
 				"03F608F813A19429"

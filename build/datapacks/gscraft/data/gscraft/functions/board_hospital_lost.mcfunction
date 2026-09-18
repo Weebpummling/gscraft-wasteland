@@ -1,6 +1,6 @@
-setblock -952 65 -857 minecraft:red_concrete
-setblock -952 66 -857 minecraft:red_concrete
-setblock -952 67 -857 minecraft:red_concrete
-setblock -951 65 -857 minecraft:red_concrete
-setblock -951 66 -857 minecraft:red_concrete
-setblock -951 67 -857 minecraft:red_concrete
+setblock -834 71 -899 minecraft:red_concrete
+setblock -834 72 -899 minecraft:red_concrete
+setblock -834 73 -899 minecraft:red_concrete
+setblock -834 71 -898 minecraft:red_concrete
+setblock -834 72 -898 minecraft:red_concrete
+setblock -834 73 -898 minecraft:red_concrete

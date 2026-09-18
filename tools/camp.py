@@ -28,15 +28,15 @@ FN = ROOT / "build" / "datapacks" / "gscraft" / "data" / "gscraft" / "functions"
 # the sign beside each survivor: the place and what they want, four lines of fifteen characters (onboarding §2, 0:02)
 SIGNS = {
     "walker": ["WALKER", "the yard", "bolts and nuts", "right-click"],
-    "michael": ["MICHAEL", "the block", "wire and cord", "right-click"],
+    "michael": ["MICHAEL", "the brick works", "wire and cord", "right-click"],
     "marshall": ["MARSHALL", "the gatehouse", "the strongpoints", "right-click"],
     "tony": ["TONY", "the clinic", "bandages", "right-click"],
     "tune": ["TUNE", "the shack", "boards, radios", "right-click"],
     "james": ["JAMES", "the signal box", "the map", "right-click"],
 }
 NPCS = {
-    "walker": ("Walker the Foreman", (-975, -880, -940, -845), 64),      # the yard (the compound's hall side)
-    "michael": ("Michael the Engineer", (-938, -900, -910, -870), 64),   # the brick block
+    "walker": ("Walker the Foreman", (-838, -886, -826, -880), 70),      # the yard: the paving west of the hall (the walled compound, 2026-09-17)
+    "michael": ("Michael the Engineer", (-746, -905, -730, -874), 70),   # the brick works on the compound's east side
     "marshall": ("Marshall", (-978, -955, -955, -940), 66),              # the gatehouse, the bridge's east end
     "tony": ("Tony the Medic", (-966, -1060, -930, -1020), 63),          # the clinic
     "tune": ("Tune the Technician", (-925, -1040, -905, -1020), 63),     # the radio shack
@@ -45,18 +45,18 @@ NPCS = {
 # the start (owner, 2026-09-13: every survivor inside the south compound from the start): the four whose buildings lie
 # outside the walls stand in the compound until the site loop moves them out - gatehouse.json, north.json and
 # crossing.json run camp_npc_<npc> on `held`, which summons them at their building. `camp_npcs` (the deploy, the reset)
-# runs the start set. npc -> (rectangle, floor), inside the compound box x -980..-920, z -897..-818 (start-compound §2)
+# runs the start set. npc -> (rectangle, floor), inside the compound box x -900..-720, z -920..-835 (start-compound §6)
 START = {
-    "marshall": ((-958, -856, -946, -846), 64),   # the hall's floor, by the board
-    "tony": ((-971, -890, -960, -862), 64),       # the sheds along the yard's west wall
-    "tune": ((-960, -834, -938, -821), 64),       # the hall's annex, the compound's back
-    "james": ((-950, -893, -940, -884), 64),      # the yard's north-east corner, at the gap
+    "marshall": ((-785, -900, -753, -878), 70),   # the hall's floor, by the board
+    "tony": ((-792, -884, -774, -874), 70),       # the annex south of the hall
+    "tune": ((-844, -911, -836, -904), 70),       # the shed by the north gate
+    "james": ((-834, -903, -828, -896), 70),      # inside the north gate, on the road
 }
 START_SIGNS = {
     "marshall": ["MARSHALL", "the hall", "the strongpoints", "right-click"],
-    "tony": ["TONY", "the sheds", "bandages", "right-click"],
-    "tune": ["TUNE", "the annex", "boards, radios", "right-click"],
-    "james": ["JAMES", "the gap", "the map", "right-click"],
+    "tony": ["TONY", "the annex", "bandages", "right-click"],
+    "tune": ["TUNE", "the gate shed", "boards, radios", "right-click"],
+    "james": ["JAMES", "the north gate", "the map", "right-click"],
 }
 # hard ground a survivor stands on; not cobblestone (the torches' plinths)
 HARD = {"stone", "andesite", "diorite", "granite", "gravel", "stone_bricks", "smooth_stone", "polished_andesite",

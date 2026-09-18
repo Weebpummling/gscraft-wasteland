@@ -1,6 +1,6 @@
-setblock -944 65 -857 minecraft:light_blue_concrete
-setblock -944 66 -857 minecraft:light_blue_concrete
-setblock -944 67 -857 minecraft:light_blue_concrete
-setblock -943 65 -857 minecraft:light_blue_concrete
-setblock -943 66 -857 minecraft:light_blue_concrete
-setblock -943 67 -857 minecraft:light_blue_concrete
+setblock -834 71 -891 minecraft:light_blue_concrete
+setblock -834 72 -891 minecraft:light_blue_concrete
+setblock -834 73 -891 minecraft:light_blue_concrete
+setblock -834 71 -890 minecraft:light_blue_concrete
+setblock -834 72 -890 minecraft:light_blue_concrete
+setblock -834 73 -890 minecraft:light_blue_concrete
