@@ -4,7 +4,7 @@
 	filename: "marshall"
 	group: ""
 	icon: "gscraft:claim_marker"
-	id: "4DC1AA420558F272"
+	id: "4460D9B8927F04A8"
 	order_index: 6
 	quest_links: [ ]
 	quests: [
@@ -16,10 +16,10 @@
 			]
 			description: ["Read the board in the hall, then come back."]
 			hide_until_deps_complete: true
-			id: "31F7312326D4CA8C"
+			id: "7AA8182FC8295DCB"
 			rewards: [
 				{
-					id: "0BD9A2AFF3299A07"
+					id: "520A7A6E6F3AE6AC"
 					item: "gscraft:card_claim_marker"
 					type: "item"
 				}
@@ -27,7 +27,7 @@
 					auto: "invisible"
 					command: "/gscraft stage add bp_claim_marker"
 					elevate_perms: true
-					id: "5B06E1B8F91828A4"
+					id: "3D3099C59F2F9B71"
 					silent: true
 					title: "the stage bp_claim_marker"
 					type: "command"
@@ -63,7 +63,7 @@
 		{
 			description: ["Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard, and its shells are a station order."]
 			hide_until_deps_complete: true
-			id: "57E28750B13EF429"
+			id: "4DF49BB1169053C5"
 			rewards: [
 				{
 					auto: "invisible"
@@ -101,7 +101,7 @@
 					auto: "invisible"
 					command: "/gscraft say marshall tube @s"
 					elevate_perms: true
-					id: "51667ABA20BC8FF9"
+					id: "1D5C5E1874C7672F"
 					silent: true
 					title: "marshall speaks"
 					type: "command"
@@ -111,7 +111,7 @@
 			tasks: [
 				{
 					consume_items: true
-					id: "3D6F36E076752EEA"
+					id: "75705AA9A71647B7"
 					item: "superbwarfare:mortar_barrel"
 					type: "item"
 				}
@@ -142,7 +142,7 @@
 		{
 			can_repeat: true
 			description: ["Hand in six mortar shells for a fire-mission grenade. Throw it where you want the rounds; fifteen seconds, then six of them."]
-			id: "0345B8F3CA83A14B"
+			id: "70C44578D18D0D20"
 			rewards: [{
 				id: "3A93C701B43A75EB"
 				item: "gscraft:strike_mortar"
@@ -152,7 +152,7 @@
 			tasks: [{
 				consume_items: true
 				count: 6L
-				id: "408D3B8C32F15820"
+				id: "560A56413AD762B5"
 				item: "superbwarfare:mortar_shell"
 				type: "item"
 			}]
@@ -164,7 +164,7 @@
 			can_repeat: true
 			description: ["With a gun standing at a strongpoint, four heavy shells buy a call on the guns: wider, heavier, twenty seconds out."]
 			hide_until_deps_complete: true
-			id: "6F10D492BCBC03A7"
+			id: "2CDE46314C2A7481"
 			rewards: [{
 				id: "042FC5CC88181E5D"
 				item: "gscraft:strike_artillery"
@@ -175,7 +175,7 @@
 				{
 					advancement: "gscraft:stage/gun_fired"
 					criterion: "set"
-					id: "575CBC616B99D726"
+					id: "3F2543DF093553C1"
 					type: "advancement"
 				}
 				{
@@ -196,7 +196,7 @@
 			hide_until_deps_complete: true
 			id: "3C9C07181B3150F0"
 			rewards: [{
-				id: "74357EF6C8CCD9C4"
+				id: "6FC646684219EED3"
 				item: "gscraft:strike_air"
 				type: "item"
 			}]
@@ -211,7 +211,7 @@
 				{
 					consume_items: true
 					count: 4L
-					id: "0016A882012C7D17"
+					id: "021520FC0EAB3DA8"
 					item: "superbwarfare:medium_rocket_he"
 					type: "item"
 				}

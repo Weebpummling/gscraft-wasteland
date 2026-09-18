@@ -430,7 +430,14 @@ none in the old, the mortar in the new yard and the old one gone, the board bloc
 placed. The old compound's torches and board stay (harmless). **TRAP, cost one cycle:** the zone boxes (`war_zones.py`, `map.json`) and
 the site boxes (`gscraft_sites/*.json`) are **x0, x1, z0, z1**; `camp.py`'s rectangles are x0, z0, x1, z1; `chests.py`'s and `board.py`'s
 are x0, x1, z0, z1. Written the wrong way round, the compound zone contained nothing and the yard read `sk_south`; `/gscraft zone <x> <z>`
-is the check. **Not on live yet.**
+is the check. **Live 2026-09-17 evening** (owner: "go ahead and commit and update the live server"; empty by the console's
+`list` twice): the 66 functions into `gscraft_slice`, the book's `data.snbt` and eight chapters, `power stop`, the jar
+(647485 bytes, sha256 e2a51ed3...) into `/mods`, `power start` (Done 1.5 s, `settings: 194 values`, no gscraft errors),
+a minute's wait for the console's level, then `setworldspawn -829 71 -893`, `spawnRadius 4`, the compound forceloaded,
+`board_place` (57), `camp_npcs` (30), `camp_torches` (4), `yard_mortar` (3), the 73 chest bindings from `tools/chests.json`
+(73 blocks set); counts: six survivors in the new box and none in the old, one mortar in the yard, the board's origin block
+set, the yard torch present. Pack **2026.09.17.1** pushed after the boot, the `pack-files` jar replaced (647485 bytes).
+Phase 36's square check (three placements within 30 of the square's phantom, none in the margin) is the one open test.
 
 **2026-09-13 22:40, live** (owner: "server is empty, update this live"; empty by the console's `list` at 22:33 and 22:39, read
 from `/logs/latest.log` through the panel's `get` - `cat` trips on the console's code page): **the whole slice at once**,

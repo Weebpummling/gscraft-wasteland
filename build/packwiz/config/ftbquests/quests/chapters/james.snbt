@@ -10,12 +10,12 @@
 	quests: [
 		{
 			description: ["You spoke to James. Their chapter is open."]
-			id: "47711A1946DA3493"
+			id: "0A17FA1DE8951DDA"
 			invisible: true
 			tasks: [{
 				advancement: "gscraft:stage/seen_james"
 				criterion: "set"
-				id: "0E026420D68423E9"
+				id: "49403DAB85A054B4"
 				type: "advancement"
 			}]
 			title: "Meet James"
@@ -24,7 +24,7 @@
 		}
 		{
 			description: ["Reach the level crossing and the mast's field."]
-			id: "64F66C9BB11B381D"
+			id: "24F23C266BA52E0B"
 			rewards: [
 				{
 					id: "36300B16A27338AB"
@@ -32,7 +32,7 @@
 					type: "item"
 				}
 				{
-					id: "1C8C4402809D0DE4"
+					id: "4D9DE93D265A4CC1"
 					item: "minecraft:map"
 					type: "item"
 				}
@@ -41,7 +41,7 @@
 			tasks: [
 				{
 					dimension: "minecraft:overworld"
-					id: "16299759B797582D"
+					id: "4E1FC2BFF97AE0FE"
 					ignore_dimension: false
 					position: [I;
 						-912
@@ -58,7 +58,7 @@
 				}
 				{
 					dimension: "minecraft:overworld"
-					id: "2E390230F38AF7CC"
+					id: "3C5495B4F95DA5A4"
 					ignore_dimension: false
 					position: [I;
 						-846

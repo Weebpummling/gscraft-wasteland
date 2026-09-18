@@ -4,7 +4,7 @@
 	filename: "tune"
 	group: ""
 	icon: "gscraft:circuit_board"
-	id: "13FCFC52B8BBC3B7"
+	id: "228A00A832584F74"
 	order_index: 4
 	quest_links: [ ]
 	quests: [
@@ -15,7 +15,7 @@
 			tasks: [{
 				advancement: "gscraft:stage/seen_tune"
 				criterion: "set"
-				id: "3B606CA5393A6A57"
+				id: "03603E750D5A265B"
 				type: "advancement"
 			}]
 			title: "Meet Tune"
@@ -25,7 +25,7 @@
 		{
 			dependencies: ["72E6981B6BA1DC1A"]
 			description: ["Hand in a circuit board, two capacitors and a broken radio."]
-			id: "598947196CF380CE"
+			id: "4E3377F9353AD919"
 			rewards: [
 				{
 					id: "70834ED09D998D6A"
@@ -36,7 +36,7 @@
 					auto: "invisible"
 					command: "/gscraft stage add bp_circuit_assembly"
 					elevate_perms: true
-					id: "53CB5F0145E58602"
+					id: "14A8BB2889C213E2"
 					silent: true
 					title: "the stage bp_circuit_assembly"
 					type: "command"
@@ -53,13 +53,13 @@
 				{
 					consume_items: true
 					count: 2L
-					id: "17C45ABD918B0B71"
+					id: "2A08A42C62055116"
 					item: "gscraft:capacitor"
 					type: "item"
 				}
 				{
 					consume_items: true
-					id: "2B805F39E68C3A65"
+					id: "4CAFD5155FEB7E36"
 					item: "gscraft:broken_radio"
 					type: "item"
 				}
@@ -70,7 +70,7 @@
 		}
 		{
 			description: ["Order two circuit assemblies and bring them."]
-			id: "001A953178CD6614"
+			id: "71578A35B3A7D5BE"
 			rewards: [
 				{
 					auto: "invisible"
@@ -95,7 +95,7 @@
 			tasks: [{
 				consume_items: true
 				count: 2L
-				id: "1F5EDD36F5183F2F"
+				id: "35F2EA52929F8A47"
 				item: "gscraft:circuit_assembly"
 				type: "item"
 			}]

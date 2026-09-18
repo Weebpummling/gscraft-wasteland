@@ -10,12 +10,12 @@
 	quests: [
 		{
 			description: ["You spoke to Michael. Their chapter is open."]
-			id: "195DC5080C57DFB7"
+			id: "1460EFC5AC2998FD"
 			invisible: true
 			tasks: [{
 				advancement: "gscraft:stage/seen_michael"
 				criterion: "set"
-				id: "6641AC08A47AAB11"
+				id: "430FD9CB1DF3A636"
 				type: "advancement"
 			}]
 			title: "Meet Michael"
@@ -27,12 +27,12 @@
 			id: "44D246950C7B83C4"
 			rewards: [
 				{
-					id: "32F8FBFF3226613A"
+					id: "6AD097F302D4ADF6"
 					item: "gscraft:card_wiring_harness"
 					type: "item"
 				}
 				{
-					id: "6FF40B469AEBA76A"
+					id: "74076243FF32F4B9"
 					item: "gscraft:card_filter_cartridge"
 					type: "item"
 				}
@@ -49,7 +49,7 @@
 					auto: "invisible"
 					command: "/gscraft stage add bp_filter_cartridge"
 					elevate_perms: true
-					id: "6B2DB62E0DFF55ED"
+					id: "08F7044E0BDF7305"
 					silent: true
 					title: "the stage bp_filter_cartridge"
 					type: "command"
@@ -66,7 +66,7 @@
 				}
 				{
 					consume_items: true
-					id: "296468B5F069A478"
+					id: "10764AEE90F9DA6D"
 					item: "gscraft:power_cord"
 					type: "item"
 				}
@@ -99,7 +99,7 @@
 					auto: "invisible"
 					command: "/gscraft say michael lights @s"
 					elevate_perms: true
-					id: "50A4CF74112A1FF0"
+					id: "6B1BA9C8A69EFF58"
 					silent: true
 					title: "michael speaks"
 					type: "command"

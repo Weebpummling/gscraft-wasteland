@@ -4,12 +4,12 @@
 	filename: "compound"
 	group: ""
 	icon: "gscraft:station"
-	id: "7A9EF376D335949E"
+	id: "5CF419447B054600"
 	order_index: 0
 	quest_links: [ ]
 	quests: [{
-		description: ["You woke in the yard of a walled compound on the river: the hall to the south, the brick block to the east, the sheds to the north, and the corner between the sheds and the block open. Walker is in the hall and Michael in the brick block. Right-click a survivor to hear what they need; their chapter opens here. Your work station is in your pack: put it down inside the wire."]
-		id: "3E45A53165999DF6"
+		description: ["You woke in the yard of a walled compound: the big hall east of you, the brick works beyond it, the road running out through the north gate past the shed, and the wall all round. Walker is in the yard and Michael in the brick works. Right-click a survivor to hear what they need; their chapter opens here. Your work station is in your pack: put it down inside the wire."]
+		id: "3855D93734AE1998"
 		subtitle: "Skadowsky. Somebody's town."
 		tasks: [{
 			id: "27EB43080DA5DE54"

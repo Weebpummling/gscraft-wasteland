@@ -10,34 +10,34 @@
 	quests: [
 		{
 			dependencies: ["0016A4AE37CD6D15"]
-			description: ["Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the corner is a gate."]
+			description: ["Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred."]
 			hide_until_deps_complete: true
 			id: "03F608F813A19429"
 			rewards: [{
 				auto: "invisible"
 				command: "/gscraft stage add compound_closed"
 				elevate_perms: true
-				id: "48C9826C2721B238"
+				id: "3874ACDBD348435A"
 				silent: true
 				title: "the stage compound_closed"
 				type: "command"
 			}]
-			subtitle: "Marshall wants that corner shut before dark."
+			subtitle: "Marshall wants that gate shut before dark."
 			tasks: [{
 				consume_items: true
 				count: 8L
-				id: "757B154EBD982216"
+				id: "5ED01DA92799CD96"
 				item: "superbwarfare:sandbag"
 				type: "item"
 			}]
-			title: "The gap"
+			title: "The north gate"
 			x: 0.0d
 			y: 0.0d
 		}
 		{
 			dependencies: ["03F608F813A19429"]
-			description: ["Walk the square north of the hall and bring back eight metal scrap from its streets. That lights its torch and the map wall."]
-			id: "664D04C0F80F07F8"
+			description: ["Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch and the map wall."]
+			id: "61360A05E98643F7"
 			rewards: [
 				{
 					auto: "invisible"
@@ -52,7 +52,7 @@
 					auto: "invisible"
 					command: "/gscraft stage add skadowsky_scouted"
 					elevate_perms: true
-					id: "28DBD0F3C7CD418A"
+					id: "7AC3D5B205A66673"
 					silent: true
 					title: "the stage skadowsky_scouted"
 					type: "command"
@@ -80,7 +80,7 @@
 				{
 					consume_items: true
 					count: 8L
-					id: "1F67EA9499AFCCD0"
+					id: "63987B9577826D9F"
 					item: "gscraft:metal_scrap"
 					type: "item"
 				}
@@ -91,7 +91,7 @@
 		}
 		{
 			description: ["Reach the gatehouse; hand in a fastener kit and eight scrap."]
-			id: "50F54E4A80A241BB"
+			id: "6C2652003F714FD9"
 			rewards: [{
 				auto: "invisible"
 				command: "/gscraft stage add gatehouse_taken"
@@ -105,7 +105,7 @@
 			tasks: [
 				{
 					dimension: "minecraft:overworld"
-					id: "7EB1D93F4BC69BDD"
+					id: "34532268D2B74A0E"
 					ignore_dimension: false
 					position: [I;
 						-982
@@ -129,7 +129,7 @@
 				{
 					consume_items: true
 					count: 8L
-					id: "2988498F67482489"
+					id: "36658FE6F73CB011"
 					item: "gscraft:metal_scrap"
 					type: "item"
 				}
@@ -145,7 +145,7 @@
 				auto: "invisible"
 				command: "/gscraft stage add clinic_taken"
 				elevate_perms: true
-				id: "7AE546180FB88C6C"
+				id: "06C2E0B3B465013D"
 				silent: true
 				title: "the stage clinic_taken"
 				type: "command"
@@ -154,7 +154,7 @@
 			tasks: [
 				{
 					dimension: "minecraft:overworld"
-					id: "7BD610E979E1395C"
+					id: "5470AB3BD28675AC"
 					ignore_dimension: false
 					position: [I;
 						-970
@@ -178,7 +178,7 @@
 				{
 					consume_items: true
 					count: 8L
-					id: "0DCF996170BE896B"
+					id: "4802E857BD4A59F6"
 					item: "gscraft:metal_scrap"
 					type: "item"
 				}
@@ -248,7 +248,7 @@
 					auto: "invisible"
 					command: "/gscraft stage add mast_taken"
 					elevate_perms: true
-					id: "0AA91C57D8A929D1"
+					id: "2B6DCB188600009D"
 					silent: true
 					title: "the stage mast_taken"
 					type: "command"
@@ -257,7 +257,7 @@
 					auto: "invisible"
 					command: "/gscraft stage add skadowsky_held"
 					elevate_perms: true
-					id: "22AF81755E8560FB"
+					id: "6E7A7CEC73973CC6"
 					silent: true
 					title: "the stage skadowsky_held"
 					type: "command"
@@ -285,7 +285,7 @@
 				{
 					consume_items: true
 					count: 2L
-					id: "4973F711BD19BDE3"
+					id: "456DBAC37C97781E"
 					item: "gscraft:fastener_kit"
 					type: "item"
 				}
