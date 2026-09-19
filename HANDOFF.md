@@ -456,7 +456,7 @@ crew engaged and unloaded the bay before the hit (he stands in a stone box). 18 
 **The second full run: 42 of 44, and both red were this change's** - a rifleman behind a wall found his muzzle blocked by
 his own cover and abandoned it (phase 8), and the Marksman still missed two runs in five (a grazing line: only the far
 end had been lowered). Fixed: behind cover or stepping to the lean a blocked muzzle means wait, not stand; the whole line
-is lowered by `Cover.DROP` 0.35. 3, 7, 8, 9, 10 green after, the Marksman four kills in four probes. Jar 688,9xx bytes on
+is lowered by `Cover.DROP` 0.35. 3, 7, 8, 9, 10 green after, the Marksman four kills in four probes. Jar 688,948 bytes on
 the local server and WarTest. **A change to `GunAttackGoal` is not tested until 3, 7, 8, 9 and 10 have all run.**
 
 **2026-09-19, the rest of step 2 and the loose ends (owner: "continue with the work"; ruling R50; local only).**
