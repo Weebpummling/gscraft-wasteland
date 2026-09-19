@@ -1,0 +1,81 @@
+{
+ "__comment": "loot design 2026-09-19: every foreign chest table (path chests/...) becomes one of the design's building tables; the FIRST matching rule wins; ids are matched whole (java regex). Read from the JAR by LootRemap, not from a datapack.",
+ "rules": [
+  {
+   "match": "keerdm_zombie_essentials:chests/abandoned_car_emergency.*",
+   "table": "gscraft:building/hospital"
+  },
+  {
+   "match": "keerdm_zombie_essentials:chests/abandoned_car.*",
+   "table": "gscraft:building/garage"
+  },
+  {
+   "match": "keerdm_zombie_essentials:chests/apartment_bathroom.*",
+   "table": "gscraft:building/hospital"
+  },
+  {
+   "match": "underground_bunkers:chests/underground_bunker/underground_bunker_supply",
+   "table": "gscraft:building/store"
+  },
+  {
+   "match": "lostcities:chests/raildungeonchest",
+   "table": "gscraft:building/workshop"
+  },
+  {
+   "match": "keerdm_zombie_essentials:chests/.*",
+   "table": "gscraft:building/military"
+  },
+  {
+   "match": "underground_bunkers:chests/.*",
+   "table": "gscraft:building/military"
+  },
+  {
+   "match": "apotheosis:chests/chest_valuable",
+   "table": "gscraft:building/office"
+  },
+  {
+   "match": "apotheosis:chests/.*",
+   "table": "gscraft:building/military"
+  },
+  {
+   "match": "lostcities:chests/.*",
+   "table": "gscraft:building/apartment"
+  },
+  {
+   "match": "minecraft:chests/(simple_dungeon|ancient_city.*|nether_bridge|bastion.*|pillager_outpost|woodland_mansion|end_city_treasure|stronghold_corridor|stronghold_crossing)",
+   "table": "gscraft:building/military"
+  },
+  {
+   "match": "minecraft:chests/(stronghold_library|village/village_cartographer)",
+   "table": "gscraft:building/library"
+  },
+  {
+   "match": "minecraft:chests/(abandoned_mineshaft|village/village_(weaponsmith|armorer|toolsmith|mason|fletcher))",
+   "table": "gscraft:building/workshop"
+  },
+  {
+   "match": "minecraft:chests/village/village_(butcher|fisher|shepherd|tannery)",
+   "table": "gscraft:building/store"
+  },
+  {
+   "match": "minecraft:chests/village/village_temple",
+   "table": "gscraft:building/hospital"
+  },
+  {
+   "match": "minecraft:chests/village/.*",
+   "table": "gscraft:building/apartment"
+  },
+  {
+   "match": "minecraft:chests/(shipwreck.*|underwater_ruin.*|buried_treasure|igloo_chest|spawn_bonus_chest|desert_pyramid|jungle_temple|ruined_portal)",
+   "table": "gscraft:building/store"
+  },
+  {
+   "match": "minecraft:chests/jungle_temple_dispenser",
+   "table": "minecraft:chests/jungle_temple_dispenser"
+  },
+  {
+   "match": "[a-z0-9_.-]+:chests/.*",
+   "table": "gscraft:building/store"
+  }
+ ]
+}

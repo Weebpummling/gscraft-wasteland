@@ -111,12 +111,17 @@ QUESTS = [
     {"key": "W1", "chapter": "walker", "title": "Nuts and bolts", "voice": "Bring me anything with a thread on it.", "task": "Hand in eight bolts and eight nuts from the town's rooms. The reward is a wrench and two blueprint cards: a card in your station's top-left slot is an order.",
      "x": 2, "y": 0, "tasks": [item("gscraft:bolt", 8), item("gscraft:nut", 8)], "deps": ["meet_walker"],
      "rewards": [give("gscraft:wrench"), give("gscraft:card_fastener_kit"), give("gscraft:card_hand_tools"), stage("bp_fastener_kit"), stage("bp_hand_tools"), say("walker", "station")]},
-    {"key": "W2", "chapter": "walker", "title": "A place for everything", "voice": "You'll need somewhere to put it all.", "task": "Put the fastener-kit card in your station, four bolts, nuts, screws and nails under it, and wait two minutes. Bring me two kits.",
+    {"key": "W2", "chapter": "walker", "title": "A place for everything", "voice": "You'll need somewhere to put it all.", "task": "Put the fastener-kit card in your station, four bolts, nuts, screws and nails under it, and wait two minutes. Bring me two kits. The kit is a wrench's work: put the one I gave you in the slot beside the card.",
      "x": 4, "y": 0, "tasks": [item("gscraft:fastener_kit", 2)], "deps": ["W1"],
      "rewards": [give("sophisticatedbackpacks:backpack"), stage("storage_1")]},
     {"key": "W3", "chapter": "walker", "title": "Frame of mind", "voice": "Scrap is only scrap till it's welded.", "task": "Bring twelve metal scrap and show me a welding torch.",
      "x": 6, "y": 0, "tasks": [item("gscraft:metal_scrap", 12), show("gscraft:welding_torch")], "deps": ["W2"],
      "rewards": [give("gscraft:card_steel_frame"), stage("bp_steel_frame"), stage("workshop_1")]},
+    # the loot design (2026-09-19): every survivor's line gets one more rung, and each is the use of something the tables
+    # dropped that nothing took - the garage's engine parts here
+    {"key": "W4", "chapter": "walker", "title": "It still runs", "voice": "Give me a battery, two plugs and oil and I'll give you a week's welding.", "task": "A car battery, two spark plugs and two motor oil: garages, and the brick works east of the hall.",
+     "x": 8, "y": 0, "tasks": [item("gscraft:car_battery", 1), item("gscraft:spark_plug", 2), item("gscraft:motor_oil", 2)], "deps": ["W3"],
+     "rewards": [give("gscraft:steel_frame", 2), give("gscraft:fastener_kit", 4), stage("workshop_2")]},
     # Tony
     meet("tony"),
     {"key": "T1", "chapter": "tony", "title": "Field dressing", "voice": "The shelves here are bare.", "task": "Hand in four bandages and two painkillers.",
@@ -125,6 +130,9 @@ QUESTS = [
     {"key": "T2", "chapter": "tony", "title": "Stock the clinic", "voice": "Two for the shelf, and you get more back.", "task": "Order two med kits and bring them. Bandages and painkillers are in any flat; antiseptic and syringes are only where medicine was kept - the clinic in the north complex, or the hospital. Neither is ours: go armed, or go later.",
      "x": 4, "y": 0, "tasks": [item("gscraft:med_kit", 2)], "deps": ["T1"],
      "rewards": [give("gscraft:med_kit", 4), stage("medical_1")]},
+    {"key": "T3", "chapter": "tony", "title": "Clean air, clean blood", "voice": "A ward needs both.", "task": "Three gas-mask filters and two blood bags. Flats have the filters; blood is only where medicine was kept.",
+     "x": 6, "y": 0, "tasks": [item("gscraft:gas_mask_filter", 3), item("gscraft:blood_bag", 2)], "deps": ["T2"],
+     "rewards": [give("gscraft:med_kit", 3), stage("medical_2")]},
     # Michael
     meet("michael"),
     {"key": "M1", "chapter": "michael", "title": "Sparks", "voice": "Wire first. Everything else is wire with a job.", "task": "Hand in three wire spools, a power cord and a water filter.",
@@ -133,6 +141,9 @@ QUESTS = [
     {"key": "M2", "chapter": "michael", "title": "Lights on", "voice": "There's a generator under that tarp.", "task": "Order two wiring harnesses and find a light bulb.",
      "x": 4, "y": 0, "tasks": [item("gscraft:wiring_harness", 2), item("gscraft:light_bulb", 1)], "deps": ["M1"],
      "rewards": [stage("generator_1"), say("michael", "lights")]},
+    {"key": "M3", "chapter": "michael", "title": "Water", "voice": "The tank's fine. What comes out of it isn't.", "task": "Order two filter cartridges and find a pressure gauge; workshops have the gauges.",
+     "x": 6, "y": 0, "tasks": [item("gscraft:filter_cartridge", 2), item("gscraft:pressure_gauge", 1)], "deps": ["M2"],
+     "rewards": [give("gscraft:canned_goods", 6), stage("water_1")]},
     # Tune
     meet("tune"),
     {"key": "U1", "chapter": "tune", "title": "Static", "voice": "I can hear the town from here. I'd like to hear further.", "task": "Hand in a circuit board, two capacitors and a broken radio.",
@@ -141,11 +152,17 @@ QUESTS = [
     {"key": "U2", "chapter": "tune", "title": "The map", "voice": "Two of those and the map talks.", "task": "Order two circuit assemblies and bring them.",
      "x": 4, "y": 0, "tasks": [item("gscraft:circuit_assembly", 2)], "deps": ["U1"],
      "rewards": [stage("radio_1"), say("tune", "map")]},
+    {"key": "U3", "chapter": "tune", "title": "What was on them", "voice": "Offices kept everything. Bring me their drives.", "task": "Three hard drives, from the town's offices.",
+     "x": 6, "y": 0, "tasks": [item("gscraft:hard_drive", 3)], "deps": ["U2"],
+     "rewards": [give("gscraft:circuit_assembly", 1), stage("intel_1")]},
     # James
     meet("james"),
     {"key": "J1", "chapter": "james", "title": "Get your bearings", "voice": "Walk it before you trust it.", "task": "Reach the level crossing and the mast's field.",
      "x": 2, "y": 0, "tasks": [loc("the level crossing", site_box("crossing")), loc("the mast's field", site_box("mast"))], "deps": ["meet_james"],
      "rewards": [give("minecraft:compass"), give("minecraft:map")]},
+    {"key": "J2", "chapter": "james", "title": "Paper trail", "voice": "Somebody wrote down where things were.", "task": "Three folders of documents, from the town's offices.",
+     "x": 4, "y": 0, "tasks": [item("gscraft:folder_of_documents", 3)], "deps": ["J1"],
+     "rewards": [give("superbwarfare:handgun_ammo", 24), give("gscraft:canned_goods", 2)]},
     meet("marshall"),
     # Marshall: only after the five introductions
     {"key": "R1", "chapter": "marshall", "title": "Muster", "voice": "We're squatting in someone's town.", "task": "Marshall has a plan for the town. Hear him out.",
@@ -166,6 +183,14 @@ QUESTS = [
      "rewards": [stage("mortar_built"), cmd("/function gscraft:yard_mortar"), give("gscraft:card_mortar_shell"), stage("bp_mortar_shell"),
                  give("gscraft:card_powder"), stage("bp_powder"),   # the shell order needs powder; without this card the fire mission could never be fed (itemflow, 2026-09-18)
                  say("marshall", "tube")]},
+    # rounds are RENEWABLE (loot design 2026-09-19): scrap makes casings, gunpowder and solvent make powder, and the two make
+    # rounds. The powder card comes here as well as with The tube, or a player who never built the tube could never load one
+    {"key": "brass", "chapter": "marshall", "title": "Brass", "voice": "We stop counting rounds the day we can make them.", "task": "Sixteen metal scrap and two gunpowder. Soldiers carry the powder; so do the factories.",
+     "x": 2, "y": 2, "tasks": [item("gscraft:metal_scrap", 16), item("minecraft:gunpowder", 2)], "deps": ["R1"], "hide_until_deps": True,
+     "rewards": [give("gscraft:card_rounds"), stage("bp_rounds"), give("gscraft:card_powder"), stage("bp_powder")]},
+    {"key": "tags", "chapter": "marshall", "title": "Tags", "voice": "Every tag is a rifle that isn't pointed at us.", "task": "Five dog tags, off soldiers of either army. Marshall pays in rounds, every time.",
+     "x": 4, "y": 2, "tasks": [item("superbwarfare:dog_tag", 5)], "deps": ["brass"], "repeat": True,
+     "rewards": [give("superbwarfare:rifle_ammo", 16), give("superbwarfare:handgun_ammo", 8)]},
     {"key": "fire_mission", "chapter": "marshall", "title": "Fire mission", "voice": "Six shells buys you one call.", "task": "Hand in six mortar shells for a fire-mission grenade. Throw it where you want the rounds; fifteen seconds, then six of them.",
      "x": 4, "y": 0, "tasks": [item("superbwarfare:mortar_shell", 6)], "deps": ["tube"], "repeat": True,
      "rewards": [give("gscraft:strike_mortar")]},

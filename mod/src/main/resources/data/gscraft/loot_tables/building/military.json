@@ -9,24 +9,36 @@
    "entries": [
     {
      "type": "minecraft:item",
-     "name": "minecraft:comparator",
-     "weight": 10,
-     "gscraft_item": "gscraft:circuit_board",
+     "name": "superbwarfare:rifle_ammo",
+     "weight": 12,
      "functions": [
       {
        "function": "minecraft:set_count",
        "count": {
-        "min": 1,
-        "max": 2
+        "min": 6,
+        "max": 14
        }
       }
      ]
     },
     {
      "type": "minecraft:item",
-     "name": "minecraft:redstone",
-     "weight": 10,
-     "gscraft_item": "gscraft:capacitor",
+     "name": "superbwarfare:handgun_ammo",
+     "weight": 8,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 6,
+        "max": 12
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "minecraft:gunpowder",
+     "weight": 8,
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -39,9 +51,28 @@
     },
     {
      "type": "minecraft:item",
-     "name": "minecraft:repeater",
-     "weight": 3,
-     "gscraft_item": "gscraft:relay",
+     "name": "gscraft:damaged_pistol",
+     "weight": 4
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:gas_mask_filter",
+     "weight": 6
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:hard_drive",
+     "weight": 3
+    },
+    {
+     "type": "minecraft:item",
+     "name": "superbwarfare:armor_plate",
+     "weight": 4
+    },
+    {
+     "type": "minecraft:item",
+     "name": "superbwarfare:mortar_shell",
+     "weight": 4,
      "functions": [
       {
        "function": "minecraft:set_count",
@@ -54,75 +85,42 @@
     },
     {
      "type": "minecraft:item",
-     "name": "minecraft:copper_ingot",
+     "name": "superbwarfare:medium_rocket_he",
+     "weight": 3,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 1,
+        "max": 2
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "superbwarfare:large_shell_he",
+     "weight": 2,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 1,
+        "max": 2
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:metal_scrap",
      "weight": 10,
-     "gscraft_item": "gscraft:wire_spool",
      "functions": [
       {
        "function": "minecraft:set_count",
        "count": {
-        "min": 1,
-        "max": 3
-       }
-      }
-     ]
-    },
-    {
-     "type": "minecraft:item",
-     "name": "minecraft:observer",
-     "weight": 3,
-     "gscraft_item": "gscraft:computer_parts",
-     "functions": [
-      {
-       "function": "minecraft:set_count",
-       "count": {
-        "min": 1,
-        "max": 1
-       }
-      }
-     ]
-    },
-    {
-     "type": "minecraft:item",
-     "name": "minecraft:music_disc_13",
-     "weight": 3,
-     "gscraft_item": "gscraft:hard_drive",
-     "functions": [
-      {
-       "function": "minecraft:set_count",
-       "count": {
-        "min": 1,
-        "max": 1
-       }
-      }
-     ]
-    },
-    {
-     "type": "minecraft:item",
-     "name": "minecraft:book",
-     "weight": 3,
-     "gscraft_item": "gscraft:folder_of_documents",
-     "functions": [
-      {
-       "function": "minecraft:set_count",
-       "count": {
-        "min": 1,
-        "max": 1
-       }
-      }
-     ]
-    },
-    {
-     "type": "minecraft:item",
-     "name": "minecraft:jukebox",
-     "weight": 3,
-     "gscraft_item": "gscraft:broken_radio",
-     "functions": [
-      {
-       "function": "minecraft:set_count",
-       "count": {
-        "min": 1,
-        "max": 1
+        "min": 2,
+        "max": 4
        }
       }
      ]

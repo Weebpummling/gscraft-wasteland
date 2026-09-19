@@ -1,4 +1,15 @@
 {
-  "type": "minecraft:chest",
-  "pools": []
+ "type": "minecraft:chest",
+ "__comment": "loot design 2026-09-19: a table in a world datapack is never passed to LootTableLoadEvent, so LootRemap cannot replace it; it points at the design's table itself",
+ "pools": [
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:loot_table",
+     "name": "gscraft:building/military"
+    }
+   ]
+  }
+ ]
 }

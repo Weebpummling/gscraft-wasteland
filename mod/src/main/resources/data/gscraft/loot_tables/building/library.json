@@ -1,0 +1,52 @@
+{
+ "type": "minecraft:chest",
+ "pools": [
+  {
+   "rolls": {
+    "min": 2,
+    "max": 3
+   },
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:folder_of_documents",
+     "weight": 15
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:hard_drive",
+     "weight": 4
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:broken_radio",
+     "weight": 6
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:capacitor",
+     "weight": 8,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 1,
+        "max": 2
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:computer_parts",
+     "weight": 4
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:canned_goods",
+     "weight": 4
+    }
+   ]
+  }
+ ]
+}

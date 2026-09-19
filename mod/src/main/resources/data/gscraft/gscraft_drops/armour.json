@@ -126,6 +126,20 @@
    "chance": 0.3,
    "min": 1,
    "max": 2
+  },
+  {
+   "entity": "dragonrise_reforge:ah1f",
+   "item": "superbwarfare:medium_rocket_he",
+   "chance": 0.8,
+   "min": 2,
+   "max": 4
+  },
+  {
+   "entity": "dragonrise_reforge:ah1f",
+   "item": "gscraft:metal_scrap",
+   "chance": 1.0,
+   "min": 4,
+   "max": 8
   }
  ]
 }

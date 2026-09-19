@@ -1,172 +1,171 @@
 {
-  "type": "minecraft:chest",
-  "pools": [
+ "type": "minecraft:chest",
+ "pools": [
+  {
+   "rolls": {
+    "min": 3,
+    "max": 5
+   },
+   "entries": [
     {
-      "rolls": {
-        "min": 3,
-        "max": 5
-      },
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:bolt",
-          "weight": 15,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:nut",
-          "weight": 15,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:screw",
-          "weight": 10,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:metal_scrap",
-          "weight": 20,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:duct_tape",
-          "weight": 8
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:silicone_tube",
-          "weight": 10
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:spark_plug",
-          "weight": 6
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:motor_oil",
-          "weight": 8
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:car_battery",
-          "weight": 2
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:wrench",
-          "weight": 2
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:hand_drill",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:damaged_pistol",
-          "weight": 2
-        },
-        {
-          "type": "minecraft:item",
-          "name": "superbwarfare:handgun_ammo",
-          "weight": 6,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 4,
-                "max": 10
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:solvent",
-          "weight": 6
-        },
-        {
-          "type": "minecraft:item",
-          "name": "superbwarfare:mortar_shell",
-          "weight": 4,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ]
-        }
-      ]
+     "type": "minecraft:item",
+     "name": "gscraft:bolt",
+     "weight": 15,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 2,
+        "max": 4
+       }
+      }
+     ]
     },
     {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "superbwarfare:mortar_barrel",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "superbwarfare:mortar_bipod",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "superbwarfare:mortar_base_plate",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:welding_torch",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:empty",
-          "weight": 4
-        }
-      ]
+     "type": "minecraft:item",
+     "name": "gscraft:nut",
+     "weight": 15,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 2,
+        "max": 4
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:screw",
+     "weight": 10,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 2,
+        "max": 4
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:metal_scrap",
+     "weight": 20,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 2,
+        "max": 4
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:duct_tape",
+     "weight": 8
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:silicone_tube",
+     "weight": 10
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:spark_plug",
+     "weight": 8
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:motor_oil",
+     "weight": 10
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:car_battery",
+     "weight": 6
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:wrench",
+     "weight": 2
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:hand_drill",
+     "weight": 1
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:damaged_pistol",
+     "weight": 2
+    },
+    {
+     "type": "minecraft:item",
+     "name": "superbwarfare:handgun_ammo",
+     "weight": 6,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 4,
+        "max": 10
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:solvent",
+     "weight": 6
+    },
+    {
+     "type": "minecraft:item",
+     "name": "superbwarfare:mortar_shell",
+     "weight": 4,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 1,
+        "max": 2
+       }
+      }
+     ]
     }
-  ],
-  "__comment": "pool 2 (2026-09-19): one of the tube's parts or a welding torch, half the time - the tail of the workshop's pool 2"
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "superbwarfare:mortar_barrel",
+     "weight": 1
+    },
+    {
+     "type": "minecraft:item",
+     "name": "superbwarfare:mortar_bipod",
+     "weight": 1
+    },
+    {
+     "type": "minecraft:item",
+     "name": "superbwarfare:mortar_base_plate",
+     "weight": 1
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:welding_torch",
+     "weight": 1
+    },
+    {
+     "type": "minecraft:empty",
+     "weight": 4
+    }
+   ]
+  }
+ ]
 }

@@ -1,5 +1,5 @@
 {
- "note": "the Dead (re-cut 2026-09-13, slice build 2, from In Control's 2026-10 file): materials only - flesh, string, bone, a little powder and scrap; no ender pearls, no ammunition boxes, no food but the drowned's kelp [2026-09-18: the scrap is gscraft:metal_scrap - it was an iron nugget / iron block nothing consumed (tools/itemflow.py)]",
+ "note": "the Dead (re-cut 2026-09-13, slice build 2, from In Control's 2026-10 file): materials only - flesh, string, bone, a little powder and scrap; no ender pearls, no ammunition boxes, no food but the drowned's kelp [2026-09-18: the scrap is gscraft:metal_scrap - it was an iron nugget / iron block nothing consumed (tools/itemflow.py)] [2026-09-19, the loot design: bones, leather, coal and slime became cloth, canned goods and solvent - nothing used the vanilla ones]",
  "drops": [
   {
    "entity": "minecraft:zombie",
@@ -17,7 +17,7 @@
   },
   {
    "entity": "minecraft:zombie",
-   "item": "minecraft:bone",
+   "item": "gscraft:cloth",
    "chance": 0.2,
    "min": 1,
    "max": 1
@@ -52,7 +52,7 @@
   },
   {
    "entity": "minecraft:zombie_villager",
-   "item": "minecraft:bone",
+   "item": "gscraft:cloth",
    "chance": 0.2,
    "min": 1,
    "max": 1
@@ -87,7 +87,7 @@
   },
   {
    "entity": "minecraft:husk",
-   "item": "minecraft:bone",
+   "item": "gscraft:cloth",
    "chance": 0.2,
    "min": 1,
    "max": 1
@@ -122,7 +122,7 @@
   },
   {
    "entity": "minecraft:drowned",
-   "item": "minecraft:bone",
+   "item": "gscraft:cloth",
    "chance": 0.2,
    "min": 1,
    "max": 1
@@ -164,7 +164,7 @@
   },
   {
    "entity": "minecraft:zombified_piglin",
-   "item": "minecraft:bone",
+   "item": "gscraft:cloth",
    "chance": 0.2,
    "min": 1,
    "max": 1

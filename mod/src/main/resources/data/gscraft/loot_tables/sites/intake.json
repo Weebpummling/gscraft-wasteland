@@ -1,0 +1,48 @@
+{
+ "type": "minecraft:chest",
+ "pools": [
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:loot_table",
+     "name": "gscraft:building/factory",
+     "weight": 1
+    },
+    {
+     "type": "minecraft:loot_table",
+     "name": "gscraft:building/workshop",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rolls": {
+    "min": 1,
+    "max": 2
+   },
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:corrugated_hose",
+     "weight": 15
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:pressure_gauge",
+     "weight": 10
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:water_filter",
+     "weight": 8
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:solvent",
+     "weight": 6
+    }
+   ]
+  }
+ ]
+}

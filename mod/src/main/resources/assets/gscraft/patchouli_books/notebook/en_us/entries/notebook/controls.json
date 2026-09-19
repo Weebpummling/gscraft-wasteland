@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(bold)Journal$() $(k:key.ftbquests.quests), or right-click a survivor.$(br)$(bold)Map$() M. $(bold)Ping$() middle mouse.$(br)$(bold)Talk$() hold V. $(bold)Backpack$() G.$(br)$(bold)Station$() the top-left slot takes a card; the parts go under it; the kit comes out at the bottom when the clock runs down."
+      "text": "$(bold)Journal$() $(k:key.ftbquests.quests), or right-click a survivor.$(br)$(bold)Map$() M. $(bold)Ping$() middle mouse.$(br)$(bold)Talk$() hold V. $(bold)Backpack$() G.$(br)$(bold)Station$() the top-left slot takes a card; the parts go under it; the kit comes out at the bottom when the clock runs down.$(br)Some orders want a $(bold)tool$() in the slot beside the card - a wrench for fastener kits, pliers for harnesses. A tool wears, one use an order; the hand-tools card makes more."
     }
   ]
 }

@@ -18,7 +18,8 @@
         "gscraft:nut": 4,
         "gscraft:screw": 4,
         "gscraft:nail": 4
-      }
+      },
+      "tool": "gscraft:wrench"
     },
     {
       "id": "steel_frame",
@@ -42,7 +43,8 @@
         "gscraft:wire_spool": 3,
         "gscraft:power_cord": 1,
         "gscraft:duct_tape": 1
-      }
+      },
+      "tool": "gscraft:pliers"
     },
     {
       "id": "filter_cartridge",
@@ -67,7 +69,8 @@
         "gscraft:capacitor": 2,
         "gscraft:relay": 1,
         "gscraft:wire_spool": 1
-      }
+      },
+      "tool": "gscraft:screwdriver_set"
     },
     {
       "id": "med_kit",
@@ -138,7 +141,7 @@
     },
     {
       "id": "casings",
-      "card": "card_casings",
+      "card": "card_rounds",
       "class": "quick",
       "out": "gscraft:casings",
       "count": 16,
@@ -169,7 +172,8 @@
         "gscraft:wiring_harness": 1,
         "gscraft:cloth": 2
       },
-      "note": "cloth x2 stands in for the white banner the first cut asked for: benches are stripped, so a banner cannot be crafted, and nothing drops one (itemflow, 2026-09-18) | class equipment (5 min), not trip (20): the whole marker was 40 minutes of station time (slice review 2026-09-19)"
+      "note": "cloth x2 stands in for the white banner the first cut asked for: benches are stripped, so a banner cannot be crafted, and nothing drops one (itemflow, 2026-09-18) | class equipment (5 min), not trip (20): the whole marker was 40 minutes of station time (slice review 2026-09-19)",
+      "tool": "gscraft:hand_drill"
     },
     {
       "id": "cloth_wool",
@@ -209,17 +213,6 @@
       }
     },
     {
-      "id": "concrete",
-      "class": "quick",
-      "out": "gscraft:concrete_mix",
-      "count": 8,
-      "in": {
-        "minecraft:gravel": 4,
-        "#minecraft:sand": 4,
-        "minecraft:water_bucket": 1
-      }
-    },
-    {
       "id": "mortar_shell",
       "card": "card_mortar_shell",
       "class": "intermediate",
@@ -227,6 +220,59 @@
       "count": 2,
       "in": {
         "gscraft:metal_scrap": 3,
+        "gscraft:powder": 2
+      }
+    },
+    {
+      "id": "relay",
+      "class": "quick",
+      "out": "gscraft:relay",
+      "count": 1,
+      "in": {
+        "gscraft:wire_spool": 1,
+        "gscraft:insulating_tape": 1,
+        "gscraft:metal_scrap": 1
+      }
+    },
+    {
+      "id": "strip_pistol",
+      "class": "quick",
+      "out": "gscraft:metal_scrap",
+      "count": 4,
+      "in": {
+        "gscraft:damaged_pistol": 1
+      },
+      "tool": "gscraft:screwdriver_set"
+    },
+    {
+      "id": "salvage_computer",
+      "class": "quick",
+      "out": "gscraft:circuit_board",
+      "count": 1,
+      "in": {
+        "gscraft:computer_parts": 1
+      },
+      "tool": "gscraft:screwdriver_set"
+    },
+    {
+      "id": "handgun_rounds",
+      "card": "card_rounds",
+      "class": "quick",
+      "out": "superbwarfare:handgun_ammo",
+      "count": 8,
+      "in": {
+        "gscraft:casings": 8,
+        "gscraft:powder": 1
+      }
+    },
+    {
+      "id": "rifle_rounds",
+      "card": "card_rounds",
+      "class": "quick",
+      "out": "superbwarfare:rifle_ammo",
+      "count": 8,
+      "in": {
+        "gscraft:casings": 8,
         "gscraft:powder": 2
       }
     }

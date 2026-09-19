@@ -59,6 +59,44 @@
 				}
 			]
 		}
+		{
+			id: "74A21B9D6A3B48CE"
+			x: 4.0d
+			y: 0.0d
+			title: "Paper trail"
+			subtitle: "Somebody wrote down where things were."
+			description: [
+				"Three folders of documents, from the town's offices."
+			]
+			dependencies: [
+				"10041807678DFDB1"
+			]
+			tasks: [
+				{
+					id: "67950DF677A0B256"
+					type: "item"
+					item: "gscraft:folder_of_documents"
+					count: 3
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "5DA78F88BDA31BC8"
+					type: "item"
+					auto: "enabled"
+					item: "superbwarfare:handgun_ammo"
+					count: 24
+				}
+				{
+					id: "131B84F4D5F1EC8A"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:canned_goods"
+					count: 2
+				}
+			]
+		}
 	]
 	quest_links: [ ]
 	icon: "minecraft:compass"

@@ -424,6 +424,39 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-19, THE LOOT SYSTEM, COMPLETE AND VERIFIED - LOCAL ONLY (owner: "make a complete loot design now, and just do this
+locally ... verify that the entire loot system functions"; ruling R53). READ `docs/gscraft-loot-design-2026-09-19.md`: it is
+generated from the data the game loads, after the proof passed.** The owner had asked for this twice before and I had gone
+to push live instead; they stopped that push. NOTHING here is on live.
+**What it is:** nine building tables and five site tables from ONE source, `tools/loot.py` (edit there, run it, never the
+JSON); every other mod's chest table replaced as it loads by one of ours (`world/LootRemap.java` + `gscraft_loot/remap.json`,
+19 rules - a world scan found 255 simple_dungeon, 113 bunker, 91 Keerdm gun/ammo and 29 Lost Cities chests giving diamonds
+and working TACZ guns); the thirty global loot modifiers that ADD to chests switched off by the datapack
+(`tools/glm.py <server dir>` - **rerun when a mod is added or updated**); and every item given a use: quests W4 It still
+runs, T3 Clean air clean blood, M3 Water, U3 What was on them, J2 Paper trail, Marshall's Brass (the rounds card) and Tags
+(five dog tags -> rounds, repeatable); orders relay, strip_pistol, salvage_computer, handgun_rounds, rifle_rounds; each hand
+tool is an order's tool (wrench: fastener kit - W2's text says so and the notebook's Controls page). Out: `concrete_mix`,
+`card_casings`, emeralds in tables, the Dead's bones and the soldiers' leather (cloth now), coal and slime (canned goods,
+solvent). 62 items, 24 orders, 43 quests, 78 stages.
+**The gate:** `python tools/itemflow.py --gate` exits 1 unless nothing is asked for without a reachable source, nothing is
+sourced that nothing uses (ANY namespace - its `USED` table lists what is worn, fired, placed or eaten, each a claim checked
+when written), no table has dead weight, the start area gives half again what its quests need in total, and everything
+needed once is a nine-in-ten find or an order or a reward.
+**The proof:** `tools/war_phase46.py`, 13 of 13, no player: tables rolled 4000 times each through the new
+`/gscraft loot roll <table> <n>` and held to the design's weights; 22 foreign tables rolled and nothing leaked; every drop
+rule rolled; all 92 item ids known to the server; all 144 containers standing, Lootr, bound to their table. On the final
+jar (702,452 bytes): 46 13/13, 44 10/10, 29, 31, 32, 33, 34, 35, 43 green.
+**What the proof found that reading never would have** (all fixed): three dead `sites/*` tables in the WORLD's datapack,
+loading beside ours; the loot modifiers; Immersive Weathering adding a pool in the same load event AFTER us (LootRemap runs
+at LOWEST now); **Forge never passes a world datapack's table to LootTableLoadEvent** (our own Keerdm overrides point at
+the design's tables themselves); **a Lootr container answers "Modified" to `data merge` and keeps its old table**, and a
+setblock onto the identical block is refused - rebinding is clear-then-set (`chests.py` `before`); and **MY OWN BUG: chests.py
+counted "standing" containers by the text of their command, so a reworded command made every building look empty and it
+placed 42 chests twice** on the local server. Removed (42 of 42), the count fixed, the record back to 144.
+**To deploy, when the owner names live:** the jar, the quest book, the client pack (new item), AND THE WORLD DATAPACK
+(`global_loot_modifiers.json`, the six Keerdm overrides, and live's copies of `sites/financial|line|novo.json` DELETED).
+**Out of the system and said so in the doc:** component containers, the deferred sites' own tables, reward containers.
+
 **Owner, 2026-09-19: "There's no need for a live session" and then "no need to test anything".** The player-side proofs (the respawn hand-out, the loaded Glock in the hand, the two hospital hooks, the quest rewards arriving) stay UNPROVEN by the owner's choice; do not launch a client for them. `tools/war_phase45.py` and `tools/click_client.ps1` were written for it and **never run** - the owner stopped the run before the game started; nothing on the local server changed (checked: nobody joined, gamerules and the hospital as they were).
 
 **NEXT: `docs/gscraft-session-and-deploy-2026-09-19.md`** - the deploy live needs before a session (eight steps, none started, all waiting for the owner to name live), the ten things only a player can prove, and what to watch because it changed.

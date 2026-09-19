@@ -1,134 +1,158 @@
 {
-  "type": "minecraft:chest",
-  "pools": [
+ "type": "minecraft:chest",
+ "pools": [
+  {
+   "rolls": {
+    "min": 4,
+    "max": 6
+   },
+   "entries": [
     {
-      "rolls": {
-        "min": 4,
-        "max": 6
-      },
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:metal_scrap",
-          "weight": 20,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:nail",
-          "weight": 15,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:screw",
-          "weight": 15,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:insulating_tape",
-          "weight": 8
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:pliers",
-          "weight": 3
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:screwdriver_set",
-          "weight": 3
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:pressure_gauge",
-          "weight": 4
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:corrugated_hose",
-          "weight": 4
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:bolt",
-          "weight": 12,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 4
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:nut",
-          "weight": 12,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 2,
-                "max": 4
-              }
-            }
-          ]
-        }
-      ]
+     "type": "minecraft:item",
+     "name": "gscraft:metal_scrap",
+     "weight": 20,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 2,
+        "max": 4
+       }
+      }
+     ]
     },
     {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "superbwarfare:mortar_barrel",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "superbwarfare:mortar_bipod",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "superbwarfare:mortar_base_plate",
-          "weight": 1
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:welding_torch",
-          "weight": 1
-        }
-      ]
+     "type": "minecraft:item",
+     "name": "gscraft:nail",
+     "weight": 15,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 2,
+        "max": 4
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:screw",
+     "weight": 15,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 2,
+        "max": 4
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:insulating_tape",
+     "weight": 8
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:pliers",
+     "weight": 3
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:screwdriver_set",
+     "weight": 3
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:pressure_gauge",
+     "weight": 6
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:corrugated_hose",
+     "weight": 8
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:bolt",
+     "weight": 12,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 2,
+        "max": 4
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:nut",
+     "weight": 12,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 2,
+        "max": 4
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:solvent",
+     "weight": 4
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:silicone_tube",
+     "weight": 5
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:spark_plug",
+     "weight": 5
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:motor_oil",
+     "weight": 5
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:car_battery",
+     "weight": 4
     }
-  ],
-  "__comment": "pool 1: the workshop's materials (bolts and nuts added 2026-09-19; 4-6 rolls). pool 2: exactly one of the tube's three parts or a welding torch per chest - a quest needs one of each, and weight 1-2 of 79 made that a coin flip (tools/itemflow.py)"
+   ]
+  },
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "superbwarfare:mortar_barrel",
+     "weight": 1
+    },
+    {
+     "type": "minecraft:item",
+     "name": "superbwarfare:mortar_bipod",
+     "weight": 1
+    },
+    {
+     "type": "minecraft:item",
+     "name": "superbwarfare:mortar_base_plate",
+     "weight": 1
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:welding_torch",
+     "weight": 1
+    }
+   ]
+  }
+ ]
 }

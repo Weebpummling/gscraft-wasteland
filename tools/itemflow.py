@@ -4,6 +4,11 @@ and every place one is ASKED FOR, read from the data the game actually loads, an
 
     python tools/itemflow.py            -> the report
     python tools/itemflow.py --json     -> the same as JSON (tools/itemflow.json), for a diff after a change
+    python tools/itemflow.py --gate     -> exit 1 unless the economy CLOSES (loot design 2026-09-19): nothing asked for without a
+                                           reachable source, nothing sourced that nothing uses (any namespace), no id that is not
+                                           registered, no dead weight in any table, nothing the quests need in total that the
+                                           start area's chests do not hold (unless bodies drop it), and every thing needed once
+                                           found by one player nine times in ten (unless dropped or rewarded)
 
 Sources: the building loot tables (loot_tables/building/*.json), the body and wreck drop tables (gscraft_drops/*.json),
 station orders' outputs (gscraft_recipes/recipes.json), quest item rewards (tools/quests.json), the first-join kit.
@@ -29,17 +34,20 @@ CODE_ITEMS = {"gscraft:station", "gscraft:bandage"} | {f"gscraft:{e}_spawn_egg" 
 sources = defaultdict(list)   # item -> [where from]
 sinks = defaultdict(list)     # item -> [where asked for]
 
-# building loot tables
+# the loot tables: building/* by their bare name (what tools/chests.json records), sites/* as "sites/<id>"
 tables = {}
-for f in sorted((RES / "loot_tables/building").glob("*.json")):
+TABLE_FILES = {}
+for f in sorted((RES / "loot_tables/building").glob("*.json")) + sorted((RES / "loot_tables/sites").glob("*.json")):
+    name = f.stem if f.parent.name == "building" else f"sites/{f.stem}"
+    TABLE_FILES[name] = f
     lt = json.loads(f.read_text(encoding="utf-8"))
     weights = {}
     for pool in lt["pools"]:
         for e in pool["entries"]:
             if e.get("type") == "minecraft:item":
                 weights[e["name"]] = weights.get(e["name"], 0) + e.get("weight", 1)
-                sources[e["name"]].append(f"table:{f.stem}")
-    tables[f.stem] = weights
+                sources[e["name"]].append(f"table:{name}")
+    tables[name] = weights
 
 # body and wreck drops
 for f in sorted((RES / "gscraft_drops").glob("*.json")):
@@ -102,6 +110,20 @@ for it in json.loads((ROOT / "mod/src/main/resources/data/gscraft/gscraft_items/
 for k in json.loads((ROOT / "mod/src/main/resources/data/gscraft/gscraft_survivors/survivors.json").read_text(encoding="utf-8"))["first_join"]["kit"]:
     if "ammo" in k.get("item", ""):
         sinks[k["item"]].append("the kit gun's rounds")
+# what is used by being PLACED, WORN, FIRED or READ - a use the data cannot show (loot design 2026-09-19). Each line is a claim
+# about the game and is checked when it is written, not by this script.
+USED = {
+    "gscraft:station": "placed: the station", "gscraft:claim_marker": "planted at a strongpoint",
+    "superbwarfare:rifle_ammo": "the Marlin's rounds (R0's reward)",
+    "superbwarfare:handgun_ammo": "the kit gun's rounds", "superbwarfare:heavy_ammo": "a captured vehicle's guns", "superbwarfare:armor_plate": "refills a worn vest",
+    "superbwarfare:marlin": "a gun", "superbwarfare:glock_17": "a gun", "superbwarfare:ru_chest_6b43": "worn", "superbwarfare:sandbag": "placed, and R0",
+    "sophisticatedbackpacks:backpack": "worn", "minecraft:compass": "held", "minecraft:map": "held", "flashlight:flashlight": "held", "flashlight:battery": "the flashlight's",
+    "patchouli:guide_book": "read", "minecraft:bread": "eaten", "minecraft:rotten_flesh": "eaten, badly", "minecraft:dried_kelp": "eaten",
+    "superbwarfare:small_shell_he": "a captured vehicle's gun", "superbwarfare:medium_anti_ground_missile": "a captured vehicle's launcher",
+}
+for k, why in USED.items():
+    if k in sources:
+        sinks[k].append(why)
 
 report = {"no_source": [], "unreachable": [], "order_only": [], "no_sink": [], "nowhere": [], "unregistered": [], "tables": {}, "tags": []}
 for item in sorted(sinks):
@@ -115,10 +137,10 @@ for item in sorted(sinks):
     elif not found_in_world(item):
         report["order_only"].append({"item": item, "made_by": sources[item]})
 for item in sorted(sources):
-    if item not in sinks and item.startswith("gscraft:") and items.get(item, {}).get("role") not in ("tool", "strike", "card"):
+    if item not in sinks and items.get(item, {}).get("role") != "strike":   # every namespace: another mod's item in a table is dead weight too
         report["no_sink"].append({"item": item, "from": sorted(set(sources[item]))})
 for item in sorted(known):
-    if item not in sources and item not in sinks:
+    if item not in sources and item not in sinks and not item.endswith("_spawn_egg"):   # the eggs are the operator's
         report["nowhere"].append(item)
 for item in sorted(set(sources) | set(sinks)):
     if item.startswith("gscraft:") and item not in known:
@@ -132,14 +154,27 @@ for name, weights in tables.items():
 # ---- scarcity: can ONE player fill the quests' asks from the chests that exist in the start area? Lootr chests are per
 # player, so each placed chest (tools/chests.json: its table) yields its table's expectation once per player.
 yields = {}   # table -> item -> expected count per chest
-for f in sorted((RES / "loot_tables/building").glob("*.json")):
-    lt = json.loads(f.read_text(encoding="utf-8"))
+
+
+def table_name(ref):
+    """gscraft:building/x -> x, gscraft:sites/x -> sites/x"""
+    path = ref.split(":", 1)[1]
+    return path.split("/", 1)[1] if path.startswith("building/") else path
+
+
+def yield_of(name):
+    if name in yields:
+        return yields[name]
     per = defaultdict(float)
-    for pool in lt["pools"]:
+    for pool in json.loads(TABLE_FILES[name].read_text(encoding="utf-8"))["pools"]:
         rolls = pool.get("rolls", 1)
         r = (rolls["min"] + rolls["max"]) / 2 if isinstance(rolls, dict) else rolls
         total = sum(e.get("weight", 1) for e in pool["entries"])
         for e in pool["entries"]:
+            share = r * e.get("weight", 1) / total
+            if e.get("type") == "minecraft:loot_table":
+                for k, v in yield_of(table_name(e["name"])).items():
+                    per[k] += share * v
             if e.get("type") != "minecraft:item":
                 continue
             cnt = 1.0
@@ -147,8 +182,13 @@ for f in sorted((RES / "loot_tables/building").glob("*.json")):
                 if fn.get("function") == "minecraft:set_count":
                     c = fn["count"]
                     cnt = (c["min"] + c["max"]) / 2 if isinstance(c, dict) else c
-            per[e["name"]] += r * e.get("weight", 1) / total * cnt
-    yields[f.stem] = dict(per)
+            per[e["name"]] += share * cnt
+    yields[name] = dict(per)
+    return yields[name]
+
+
+for name in TABLE_FILES:
+    yield_of(name)
 placed = defaultdict(int)
 chests_file = ROOT / "tools/chests.json"
 if chests_file.exists():
@@ -160,21 +200,35 @@ for table, n in placed.items():
         available[item] += n * y
 
 
+def miss_in(table, item):
+    """P(one chest of this table holds none of the item): it misses every roll of every pool; a base table rolled whole is
+    its own miss, weighted by how often it is the base picked"""
+    f = TABLE_FILES.get(table)
+    if not f:
+        return 1.0
+    chest_miss = 1.0
+    for pool in json.loads(f.read_text(encoding="utf-8"))["pools"]:
+        rolls = pool.get("rolls", 1)
+        r = (rolls["min"] + rolls["max"]) / 2 if isinstance(rolls, dict) else rolls
+        total = sum(e.get("weight", 1) for e in pool["entries"])
+        per_roll = 0.0   # P(this roll misses)
+        for e in pool["entries"]:
+            share = e.get("weight", 1) / total
+            if e.get("type") == "minecraft:loot_table":
+                per_roll += share * miss_in(table_name(e["name"]), item)
+            elif e.get("name") == item:
+                per_roll += 0.0
+            else:
+                per_roll += share
+        chest_miss *= per_roll ** r
+    return chest_miss
+
+
 def chance_of_one(item):
-    """P(at least one) for one player over every bound chest: per chest, the item misses every roll of every pool"""
+    """P(at least one) for one player over every bound chest"""
     miss = 1.0
     for table, n in placed.items():
-        f = RES / "loot_tables/building" / f"{table}.json"
-        if not f.exists():
-            continue
-        chest_miss = 1.0
-        for pool in json.loads(f.read_text(encoding="utf-8"))["pools"]:
-            rolls = pool.get("rolls", 1)
-            r = (rolls["min"] + rolls["max"]) / 2 if isinstance(rolls, dict) else rolls
-            total = sum(e.get("weight", 1) for e in pool["entries"])
-            w = sum(e.get("weight", 1) for e in pool["entries"] if e.get("name") == item)
-            chest_miss *= (1 - w / total) ** r
-        miss *= chest_miss ** n
+        miss *= miss_in(table, item) ** n
     return 1 - miss
 
 
@@ -209,7 +263,7 @@ for q in quests:
         if t.get("type") == "item" and t.get("consume", True):
             raw_need(t["item"], t.get("count", 1), need)
     for item, n in need.items():
-        if item.startswith("#") or not item.startswith(("gscraft:", "superbwarfare:")):
+        if item.startswith("#"):
             continue
         if not q.get("repeat"):
             total_need[item] += n
@@ -272,3 +326,24 @@ for r_ in sorted(report["scarcity"], key=lambda x: (x["ratio"] is None, x["ratio
         continue
     flag = "drops" if r_["renewable"] else ("SHORT" if r_["ratio"] < 1 else "tight")
     print(f"      {r_['quest']:16} {r_['item']:34} need {r_['need']:3}  expect {r_['start_area_expects']:6}  x{r_['ratio']:<5} {flag}")
+
+if "--gate" in sys.argv:
+    why = []
+    for key, label in (("no_source", "asked for with no source"), ("unreachable", "cannot be reached"), ("no_sink", "sourced and never used"), ("unregistered", "not registered")):
+        for r_ in report[key]:
+            why.append(f"{label}: {r_['item']}")
+    for name, t in report["tables"].items():
+        for i in t["dead"]:
+            why.append(f"dead weight in {name}: {i}")
+    for r_ in report["cumulative"]:
+        if r_["ratio"] < 1.5 and not r_["renewable"]:   # an expectation EQUAL to the need is a coin flip for a lone player: half again, at least
+            why.append(f"the start area is SHORT of {r_['item']}: the quests need {r_['all_quests_need']}, one player expects {r_['start_area_expects']} (wanted: half again)")
+    for u in report["unique"]:
+        ordered = u["item"] in made_by and reachable(u["item"])   # a tool the station makes from what can be found is not a find at all
+        if u["chance_one_player_finds_one"] < 0.9 and not u["renewable"] and not u["rewarded"] and not ordered:
+            why.append(f"needed once and a coin flip: {u['item']} {u['chance_one_player_finds_one'] * 100:.0f}%")
+    print()
+    print("GATE:", "the economy closes" if not why else f"{len(why)} faults")
+    for w in why:
+        print("   " + w)
+    sys.exit(1 if why else 0)

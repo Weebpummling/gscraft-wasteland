@@ -1,5 +1,5 @@
 {
- "note": "the mod's own bodies: the Bloater (powder and flesh), the Rider (a scavenger's scrap); the Matron's is the quest's to add [2026-09-18: the scrap is gscraft:metal_scrap - it was an iron nugget / iron block nothing consumed (tools/itemflow.py)]",
+ "note": "the mod's own bodies: the Bloater (powder and flesh), the Rider (a scavenger's scrap); the Matron's is the quest's to add [2026-09-18: the scrap is gscraft:metal_scrap - it was an iron nugget / iron block nothing consumed (tools/itemflow.py)] [2026-09-19, the loot design: bones, leather, coal and slime became cloth, canned goods and solvent - nothing used the vanilla ones]",
  "drops": [
   {
    "entity": "gscraft:bloater",
@@ -17,14 +17,14 @@
   },
   {
    "entity": "gscraft:bloater",
-   "item": "minecraft:slime_ball",
+   "item": "gscraft:solvent",
    "chance": 0.3,
    "min": 1,
    "max": 2
   },
   {
    "entity": "gscraft:rider",
-   "item": "minecraft:leather",
+   "item": "gscraft:cloth",
    "chance": 0.4,
    "min": 1,
    "max": 2

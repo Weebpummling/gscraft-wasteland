@@ -36,7 +36,7 @@ RECTS = [
     ((-792, -774, -884, -874), "apartment"),   # the annex south of the hall
     ((-900, -720, -920, -835), "apartment"),   # the rest of the compound
     ((-966, -930, -1060, -1020), "hospital"),  # the clinic, in the north complex
-    ((-865, -698, -1312, -1242), "hospital"),  # the hospital strongpoint
+    ((-865, -698, -1312, -1242), "sites/hospital"),  # the hospital strongpoint: its SITE table (loot design 2026-09-19), a building table first and the site's own pool second
 ]
 SQUARE = (-966, -914, -1000, -958)
 CLINIC = (-966, -930, -1060, -1020)   # the north complex's clinic (camp.py's Tony rectangle), x0, x1, z0, z1
@@ -48,13 +48,18 @@ BOXES = [(-900, -720, -920, -835), SQUARE, CLINIC, HOSPITAL, ROAD_A, ROAD_B]
 PLACE = {"hall": 8, "block": 6, "sheds": 4, "annex": 4, "square": 14, "clinic": 0, "hospital": 20, "road_a": 10, "road_b": 10}   # the clinic already holds 31 barrels of its own: none placed (2026-09-18)
 NAMED = {"hall": ((-786, -752, -902, -876), "workshop"), "block": ((-746, -730, -905, -872), "garage"), "sheds": ((-844, -836, -911, -904), "office"),
          "annex": ((-792, -774, -884, -874), "apartment"), "square": (SQUARE, None),
-         "clinic": (CLINIC, "hospital"), "hospital": (HOSPITAL, "hospital"), "road_a": (ROAD_A, None), "road_b": (ROAD_B, None)}   # T2's med kits need the hospital table (itemflow, 2026-09-18)
+         "clinic": (CLINIC, "hospital"), "hospital": (HOSPITAL, "sites/hospital"), "road_a": (ROAD_A, None), "road_b": (ROAD_B, None)}   # T2's med kits need the hospital table (itemflow, 2026-09-18)
 SOLID_SKIP = {"minecraft:air", "minecraft:cave_air", "minecraft:void_air", "minecraft:water", "minecraft:lava", "minecraft:grass", "minecraft:tall_grass", "minecraft:fern",
               "minecraft:dead_bush", "minecraft:snow", "minecraft:torch", "minecraft:wall_torch", "minecraft:rail"}
 
 
 def unwrap(v):
     return v[1] if isinstance(v, tuple) else v
+
+
+def table_id(t):
+    """the record's short name -> the table's id: a bare name is a building table, "sites/<id>" a strongpoint's"""
+    return f"gscraft:{t}" if "/" in t else f"gscraft:building/{t}"
 
 
 def table_for(x, z):
@@ -111,11 +116,20 @@ def scan(world):
             # the container's OWN table is the truth when it is one of ours: recomputing it from the position disagreed with
             # what place() had assigned (by order, not by x) and would have dropped the road's chests from the record (2026-09-19)
             own = unwrap(e.get("LootTable"))
-            t = own.split("gscraft:building/", 1)[1] if isinstance(own, str) and own.startswith("gscraft:building/") else table_for(x, z)
+            here = table_for(x, z)
+            # ... unless the rectangle is a strongpoint's: there the site's table wins, so a container bound before the site
+            # tables existed is bound again (loot design 2026-09-19)
+            t = own.split("gscraft:building/", 1)[1] if isinstance(own, str) and own.startswith("gscraft:building/") and not (here or "").startswith("sites/") else here
             if t is None:
                 continue
             block = "lootr:lootr_barrel" if "barrel" in eid else "lootr:lootr_chest"
-            found.append({"x": x, "y": y, "z": z, "was": eid, "table": t, "command": f'setblock {x} {y} {z} {block}{{LootTable:"gscraft:building/{t}"}}'})
+            # already Lootr and bound to ANOTHER table: a setblock onto the identical block is refused before its NBT is looked at, and a
+            # data merge answers 'Modified' and changes nothing (Lootr reads its table once) - so the hospital's containers kept
+            # building/hospital when the site table came (phase 46, 2026-09-19). `before` clears the block first.
+            entry = {"x": x, "y": y, "z": z, "was": eid, "table": t, "command": f'setblock {x} {y} {z} {block}{{LootTable:"{table_id(t)}"}}'}
+            if eid.startswith("lootr:") and own != table_id(t):
+                entry["before"] = f"setblock {x} {y} {z} minecraft:air"   # Lootr keeps its table through a data merge ("Modified", and unchanged): the block goes and comes back
+            found.append(entry)
     if skipped:
         why = {}
         for *_, w in skipped:
@@ -210,13 +224,13 @@ def place(world, found):
         # only the SHORTFALL is placed: a chest applied on an earlier run is on disk now and comes back from the scan, so placing
         # the full budget again would double every building (2026-09-19). The square's budget counts its whole box.
         x0, x1, z0, z1 = rect
-        standing = sum(1 for f in found if x0 <= f["x"] <= x1 and z0 <= f["z"] <= z1 and "lootr" in f.get("command", ""))
+        standing = sum(1 for f in found if x0 <= f["x"] <= x1 and z0 <= f["z"] <= z1)   # every found entry is or becomes Lootr. (It tested the COMMAND's text for "lootr"; a reworded command made every building look empty and 42 chests were placed twice, 2026-09-19)
         need = max(0, PLACE[name] - standing)
         spots = interior_spots(b, rect, need, taken)[:need] if need > 0 else []   # the finder adds a spot before it checks its budget: 0 meant 1 (2026-09-18)
         for i, (x, y, z) in enumerate(spots):
             t = table or ("office" if i % 2 == 0 else "apartment")
             placed.append({"x": x, "y": y, "z": z, "was": "air (placed)", "table": t, "building": name,
-                           "command": f'setblock {x} {y} {z} lootr:lootr_chest{{LootTable:"gscraft:building/{t}"}}'})
+                           "command": f'setblock {x} {y} {z} lootr:lootr_chest{{LootTable:"{table_id(t)}"}}'})
             taken.append((x, y, z))
         print(f"  {name:12} {standing} standing, {len(spots)} new of a budget of {PLACE[name]}")
     return placed
@@ -244,6 +258,8 @@ def main(argv):
         time.sleep(4)
         ok = 0
         for f in found:
+            if f.get("before"):
+                r.cmd(f["before"], timeout=30)
             out = r.cmd(f["command"], timeout=30) or ""
             ok += "Changed" in out
         for x0, x1, z0, z1 in BOXES:

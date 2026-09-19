@@ -1,5 +1,5 @@
 {
- "note": "RUAF bodies (enemy review §7): as NATO [2026-09-18: the scrap is gscraft:metal_scrap - it was an iron nugget / iron block nothing consumed (tools/itemflow.py)]",
+ "note": "RUAF bodies (enemy review §7): as NATO [2026-09-18: the scrap is gscraft:metal_scrap - it was an iron nugget / iron block nothing consumed (tools/itemflow.py)] [2026-09-19, the loot design: bones, leather, coal and slime became cloth, canned goods and solvent - nothing used the vanilla ones]",
  "drops": [
   {
    "entity": "gscraft:ruaf_soldier",
@@ -45,7 +45,7 @@
   },
   {
    "entity": "gscraft:ruaf_soldier",
-   "item": "minecraft:leather",
+   "item": "gscraft:cloth",
    "chance": 0.15,
    "min": 1,
    "max": 1

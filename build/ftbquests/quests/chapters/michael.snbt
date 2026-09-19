@@ -129,6 +129,53 @@
 				}
 			]
 		}
+		{
+			id: "379A96535ECDEAD8"
+			x: 6.0d
+			y: 0.0d
+			title: "Water"
+			subtitle: "The tank's fine. What comes out of it isn't."
+			description: [
+				"Order two filter cartridges and find a pressure gauge; workshops have the gauges."
+			]
+			dependencies: [
+				"3E696D1A279CE198"
+			]
+			tasks: [
+				{
+					id: "65196370BCEDE5E8"
+					type: "item"
+					item: "gscraft:filter_cartridge"
+					count: 2
+					consume_items: true
+				}
+				{
+					id: "39AEEA17CF3694A1"
+					type: "item"
+					item: "gscraft:pressure_gauge"
+					count: 1
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "4CBCCB7F62F443FF"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:canned_goods"
+					count: 6
+				}
+				{
+					id: "37E7DBFE1530BE80"
+					type: "command"
+					title: "the stage water_1"
+					command: "/gscraft stage add water_1"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
 	]
 	quest_links: [ ]
 	icon: "gscraft:wire_spool"

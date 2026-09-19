@@ -106,6 +106,46 @@
 				}
 			]
 		}
+		{
+			id: "7D1CAA38B774A7E9"
+			x: 6.0d
+			y: 0.0d
+			title: "What was on them"
+			subtitle: "Offices kept everything. Bring me their drives."
+			description: [
+				"Three hard drives, from the town's offices."
+			]
+			dependencies: [
+				"4CC3254FA145A448"
+			]
+			tasks: [
+				{
+					id: "51BB9304465A2CA8"
+					type: "item"
+					item: "gscraft:hard_drive"
+					count: 3
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "634225C47F2FD8C9"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:circuit_assembly"
+					count: 1
+				}
+				{
+					id: "1BE14A3D0FD268FD"
+					type: "command"
+					title: "the stage intel_1"
+					command: "/gscraft stage add intel_1"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
 	]
 	quest_links: [ ]
 	icon: "gscraft:circuit_board"

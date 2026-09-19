@@ -75,6 +75,7 @@ c(f"gscraft station bind {P} Alice")
 
 # 1. the fastener kit: card and parts in, the countdown from 2:00
 c(f"gscraft station load {P} 0 gscraft:card_fastener_kit")
+c(f"gscraft station load {P} 1 gscraft:wrench")   # the kit is a wrench's work since the loot design (2026-09-19): every hand tool is some order's tool
 c(f"gscraft station load {P} 3 gscraft:bolt 4")
 c(f"gscraft station load {P} 4 gscraft:nut 4")
 c(f"gscraft station load {P} 5 gscraft:screw 4")

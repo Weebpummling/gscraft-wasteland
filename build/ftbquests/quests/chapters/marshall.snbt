@@ -254,6 +254,109 @@
 			]
 		}
 		{
+			id: "20B0C849A72D5DBD"
+			x: 2.0d
+			y: 2.0d
+			title: "Brass"
+			subtitle: "We stop counting rounds the day we can make them."
+			description: [
+				"Sixteen metal scrap and two gunpowder. Soldiers carry the powder; so do the factories."
+			]
+			dependencies: [
+				"3210B848C9E6E4CB"
+			]
+			hide_until_deps_complete: true
+			tasks: [
+				{
+					id: "1653092FF64D6F35"
+					type: "item"
+					item: "gscraft:metal_scrap"
+					count: 16
+					consume_items: true
+				}
+				{
+					id: "080385BB3110CD3E"
+					type: "item"
+					item: "minecraft:gunpowder"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "3CE48405A477679F"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:card_rounds"
+					count: 1
+				}
+				{
+					id: "2F74A49FABCD3A9B"
+					type: "command"
+					title: "the stage bp_rounds"
+					command: "/gscraft stage add bp_rounds"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "425F6446B9FE6F0F"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:card_powder"
+					count: 1
+				}
+				{
+					id: "08C0343123419C46"
+					type: "command"
+					title: "the stage bp_powder"
+					command: "/gscraft stage add bp_powder"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "1131A7949DAAF797"
+			x: 4.0d
+			y: 2.0d
+			title: "Tags"
+			subtitle: "Every tag is a rifle that isn't pointed at us."
+			description: [
+				"Five dog tags, off soldiers of either army. Marshall pays in rounds, every time."
+			]
+			dependencies: [
+				"20B0C849A72D5DBD"
+			]
+			can_repeat: true
+			tasks: [
+				{
+					id: "2B04ABE48174EE81"
+					type: "item"
+					item: "superbwarfare:dog_tag"
+					count: 5
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "03935A3759793D8B"
+					type: "item"
+					auto: "enabled"
+					item: "superbwarfare:rifle_ammo"
+					count: 16
+				}
+				{
+					id: "1FC390707C672E82"
+					type: "item"
+					auto: "enabled"
+					item: "superbwarfare:handgun_ammo"
+					count: 8
+				}
+			]
+		}
+		{
 			id: "461D2B89EFA494BA"
 			x: 4.0d
 			y: 0.0d

@@ -1,5 +1,7 @@
 # GSCraft wasteland — loot tables by building and by site
 
+> **SUPERSEDED 2026-09-19 by `gscraft-loot-design-2026-09-19.md`**, which is written from the data the game loads. This sheet stays as the plan for what that one names as deferred (component containers, the small sites, the hub).
+
 *Sheet 1, 2026-09-04. Closes gap audit C7 (sites that dropped nothing anyone needs), C8 (the camp
 ruins lacked the introductions' items), the loot half of C10 (the valuables bag, the components
 crate) and C17 (the hub's economy). Companion to design §4 (the item ladder), quests draft 3 and

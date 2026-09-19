@@ -97,6 +97,53 @@
 				}
 			]
 		}
+		{
+			id: "68658C6F7430D849"
+			x: 6.0d
+			y: 0.0d
+			title: "Clean air, clean blood"
+			subtitle: "A ward needs both."
+			description: [
+				"Three gas-mask filters and two blood bags. Flats have the filters; blood is only where medicine was kept."
+			]
+			dependencies: [
+				"7E3A7A7A5C44B2B0"
+			]
+			tasks: [
+				{
+					id: "29B4702FA3C65A31"
+					type: "item"
+					item: "gscraft:gas_mask_filter"
+					count: 3
+					consume_items: true
+				}
+				{
+					id: "49FBE17CC0343BF2"
+					type: "item"
+					item: "gscraft:blood_bag"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "230C3D7BEE1959EC"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:med_kit"
+					count: 3
+				}
+				{
+					id: "37EA499A7935D893"
+					type: "command"
+					title: "the stage medical_2"
+					command: "/gscraft stage add medical_2"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
 	]
 	quest_links: [ ]
 	icon: "gscraft:bandage"

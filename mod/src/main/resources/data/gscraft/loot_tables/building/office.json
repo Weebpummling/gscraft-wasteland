@@ -1,95 +1,90 @@
 {
-  "type": "minecraft:chest",
-  "pools": [
+ "type": "minecraft:chest",
+ "pools": [
+  {
+   "rolls": {
+    "min": 2,
+    "max": 4
+   },
+   "entries": [
     {
-      "rolls": {
-        "min": 2,
-        "max": 4
-      },
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:wire_spool",
-          "weight": 12,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:power_cord",
-          "weight": 10
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:capacitor",
-          "weight": 12,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ]
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:circuit_board",
-          "weight": 10
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:relay",
-          "weight": 8
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:computer_parts",
-          "weight": 5
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:hard_drive",
-          "weight": 3
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:folder_of_documents",
-          "weight": 8
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:emerald",
-          "weight": 3
-        },
-        {
-          "type": "minecraft:item",
-          "name": "gscraft:broken_radio",
-          "weight": 4
-        },
-        {
-          "type": "minecraft:item",
-          "name": "superbwarfare:handgun_ammo",
-          "weight": 8,
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": 4,
-                "max": 10
-              }
-            }
-          ]
-        }
-      ]
+     "type": "minecraft:item",
+     "name": "gscraft:wire_spool",
+     "weight": 12,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 1,
+        "max": 2
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:power_cord",
+     "weight": 10
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:capacitor",
+     "weight": 12,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 1,
+        "max": 2
+       }
+      }
+     ]
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:circuit_board",
+     "weight": 10
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:relay",
+     "weight": 8
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:computer_parts",
+     "weight": 5
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:hard_drive",
+     "weight": 6
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:folder_of_documents",
+     "weight": 8
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:broken_radio",
+     "weight": 4
+    },
+    {
+     "type": "minecraft:item",
+     "name": "superbwarfare:handgun_ammo",
+     "weight": 8,
+     "functions": [
+      {
+       "function": "minecraft:set_count",
+       "count": {
+        "min": 4,
+        "max": 10
+       }
+      }
+     ]
     }
-  ]
+   ]
+  }
+ ]
 }

@@ -148,7 +148,7 @@
    "chapter": "walker",
    "title": "A place for everything",
    "voice": "You'll need somewhere to put it all.",
-   "task": "Put the fastener-kit card in your station, four bolts, nuts, screws and nails under it, and wait two minutes. Bring me two kits.",
+   "task": "Put the fastener-kit card in your station, four bolts, nuts, screws and nails under it, and wait two minutes. Bring me two kits. The kit is a wrench's work: put the one I gave you in the slot beside the card.",
    "x": 4,
    "y": 0,
    "tasks": [
@@ -216,6 +216,55 @@
     }
    ],
    "id": "6D8D7105876E6B1C"
+  },
+  {
+   "key": "W4",
+   "chapter": "walker",
+   "title": "It still runs",
+   "voice": "Give me a battery, two plugs and oil and I'll give you a week's welding.",
+   "task": "A car battery, two spark plugs and two motor oil: garages, and the brick works east of the hall.",
+   "x": 8,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:car_battery",
+     "count": 1,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:spark_plug",
+     "count": 2,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:motor_oil",
+     "count": 2,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "W3"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:steel_frame",
+     "count": 2
+    },
+    {
+     "type": "item",
+     "item": "gscraft:fastener_kit",
+     "count": 4
+    },
+    {
+     "type": "stage",
+     "stage": "workshop_2"
+    }
+   ],
+   "id": "4E303A50C6520A59"
   },
   {
    "key": "meet_tony",
@@ -307,6 +356,44 @@
     }
    ],
    "id": "7E3A7A7A5C44B2B0"
+  },
+  {
+   "key": "T3",
+   "chapter": "tony",
+   "title": "Clean air, clean blood",
+   "voice": "A ward needs both.",
+   "task": "Three gas-mask filters and two blood bags. Flats have the filters; blood is only where medicine was kept.",
+   "x": 6,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:gas_mask_filter",
+     "count": 3,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:blood_bag",
+     "count": 2,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "T2"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:med_kit",
+     "count": 3
+    },
+    {
+     "type": "stage",
+     "stage": "medical_2"
+    }
+   ],
+   "id": "68658C6F7430D849"
   },
   {
    "key": "meet_michael",
@@ -421,6 +508,44 @@
    "id": "3E696D1A279CE198"
   },
   {
+   "key": "M3",
+   "chapter": "michael",
+   "title": "Water",
+   "voice": "The tank's fine. What comes out of it isn't.",
+   "task": "Order two filter cartridges and find a pressure gauge; workshops have the gauges.",
+   "x": 6,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:filter_cartridge",
+     "count": 2,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "gscraft:pressure_gauge",
+     "count": 1,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "M2"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:canned_goods",
+     "count": 6
+    },
+    {
+     "type": "stage",
+     "stage": "water_1"
+    }
+   ],
+   "id": "379A96535ECDEAD8"
+  },
+  {
    "key": "meet_tune",
    "chapter": "compound",
    "title": "Meet Tune",
@@ -518,6 +643,38 @@
    "id": "4CC3254FA145A448"
   },
   {
+   "key": "U3",
+   "chapter": "tune",
+   "title": "What was on them",
+   "voice": "Offices kept everything. Bring me their drives.",
+   "task": "Three hard drives, from the town's offices.",
+   "x": 6,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:hard_drive",
+     "count": 3,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "U2"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:circuit_assembly",
+     "count": 1
+    },
+    {
+     "type": "stage",
+     "stage": "intel_1"
+    }
+   ],
+   "id": "7D1CAA38B774A7E9"
+  },
+  {
    "key": "meet_james",
    "chapter": "compound",
    "title": "Meet James",
@@ -584,6 +741,39 @@
     }
    ],
    "id": "10041807678DFDB1"
+  },
+  {
+   "key": "J2",
+   "chapter": "james",
+   "title": "Paper trail",
+   "voice": "Somebody wrote down where things were.",
+   "task": "Three folders of documents, from the town's offices.",
+   "x": 4,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:folder_of_documents",
+     "count": 3,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "J1"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "superbwarfare:handgun_ammo",
+     "count": 24
+    },
+    {
+     "type": "item",
+     "item": "gscraft:canned_goods",
+     "count": 2
+    }
+   ],
+   "id": "74A21B9D6A3B48CE"
   },
   {
    "key": "meet_marshall",
@@ -791,6 +981,88 @@
     }
    ],
    "id": "21F988CF156889C3"
+  },
+  {
+   "key": "brass",
+   "chapter": "marshall",
+   "title": "Brass",
+   "voice": "We stop counting rounds the day we can make them.",
+   "task": "Sixteen metal scrap and two gunpowder. Soldiers carry the powder; so do the factories.",
+   "x": 2,
+   "y": 2,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "gscraft:metal_scrap",
+     "count": 16,
+     "consume": true
+    },
+    {
+     "type": "item",
+     "item": "minecraft:gunpowder",
+     "count": 2,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "R1"
+   ],
+   "hide_until_deps": true,
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:card_rounds",
+     "count": 1
+    },
+    {
+     "type": "stage",
+     "stage": "bp_rounds"
+    },
+    {
+     "type": "item",
+     "item": "gscraft:card_powder",
+     "count": 1
+    },
+    {
+     "type": "stage",
+     "stage": "bp_powder"
+    }
+   ],
+   "id": "20B0C849A72D5DBD"
+  },
+  {
+   "key": "tags",
+   "chapter": "marshall",
+   "title": "Tags",
+   "voice": "Every tag is a rifle that isn't pointed at us.",
+   "task": "Five dog tags, off soldiers of either army. Marshall pays in rounds, every time.",
+   "x": 4,
+   "y": 2,
+   "tasks": [
+    {
+     "type": "item",
+     "item": "superbwarfare:dog_tag",
+     "count": 5,
+     "consume": true
+    }
+   ],
+   "deps": [
+    "brass"
+   ],
+   "repeat": true,
+   "rewards": [
+    {
+     "type": "item",
+     "item": "superbwarfare:rifle_ammo",
+     "count": 16
+    },
+    {
+     "type": "item",
+     "item": "superbwarfare:handgun_ammo",
+     "count": 8
+    }
+   ],
+   "id": "1131A7949DAAF797"
   },
   {
    "key": "fire_mission",

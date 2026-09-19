@@ -96,7 +96,7 @@
 			title: "A place for everything"
 			subtitle: "You'll need somewhere to put it all."
 			description: [
-				"Put the fastener-kit card in your station, four bolts, nuts, screws and nails under it, and wait two minutes. Bring me two kits."
+				"Put the fastener-kit card in your station, four bolts, nuts, screws and nails under it, and wait two minutes. Bring me two kits. The kit is a wrench's work: put the one I gave you in the slot beside the card."
 			]
 			dependencies: [
 				"0016A4AE37CD6D15"
@@ -179,6 +179,67 @@
 					type: "command"
 					title: "the stage workshop_1"
 					command: "/gscraft stage add workshop_1"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "4E303A50C6520A59"
+			x: 8.0d
+			y: 0.0d
+			title: "It still runs"
+			subtitle: "Give me a battery, two plugs and oil and I'll give you a week's welding."
+			description: [
+				"A car battery, two spark plugs and two motor oil: garages, and the brick works east of the hall."
+			]
+			dependencies: [
+				"6D8D7105876E6B1C"
+			]
+			tasks: [
+				{
+					id: "73881DD16B45A4F7"
+					type: "item"
+					item: "gscraft:car_battery"
+					count: 1
+					consume_items: true
+				}
+				{
+					id: "338410B01CCF7F97"
+					type: "item"
+					item: "gscraft:spark_plug"
+					count: 2
+					consume_items: true
+				}
+				{
+					id: "6CE1B9FB048334D8"
+					type: "item"
+					item: "gscraft:motor_oil"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "79FB9EE47EEAF1EB"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:steel_frame"
+					count: 2
+				}
+				{
+					id: "49CFBD9D10755375"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:fastener_kit"
+					count: 4
+				}
+				{
+					id: "642F9BCDAF220740"
+					type: "command"
+					title: "the stage workshop_2"
+					command: "/gscraft stage add workshop_2"
 					elevate_perms: true
 					silent: true
 					auto: "invisible"

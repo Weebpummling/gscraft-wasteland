@@ -1,0 +1,48 @@
+{
+ "type": "minecraft:chest",
+ "pools": [
+  {
+   "rolls": 1,
+   "entries": [
+    {
+     "type": "minecraft:loot_table",
+     "name": "gscraft:building/office",
+     "weight": 1
+    },
+    {
+     "type": "minecraft:loot_table",
+     "name": "gscraft:building/military",
+     "weight": 1
+    }
+   ]
+  },
+  {
+   "rolls": {
+    "min": 1,
+    "max": 2
+   },
+   "entries": [
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:circuit_board",
+     "weight": 15
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:computer_parts",
+     "weight": 12
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:hard_drive",
+     "weight": 8
+    },
+    {
+     "type": "minecraft:item",
+     "name": "gscraft:relay",
+     "weight": 8
+    }
+   ]
+  }
+ ]
+}
