@@ -1,47 +1,47 @@
 {
-  "note": "scavenger bodies (enemy review \u00a77): scrap and a little ammunition; no dog tag (they are nobody's army), never a gun",
-  "drops": [
-    {
-      "entity": "gscraft:scavenger",
-      "item": "minecraft:iron_nugget",
-      "chance": 0.5,
-      "min": 1,
-      "max": 4
-    },
-    {
-      "entity": "gscraft:scavenger",
-      "item": "minecraft:string",
-      "chance": 0.4,
-      "min": 1,
-      "max": 3
-    },
-    {
-      "entity": "gscraft:scavenger",
-      "item": "minecraft:leather",
-      "chance": 0.2,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "gscraft:scavenger",
-      "item": "minecraft:coal",
-      "chance": 0.2,
-      "min": 1,
-      "max": 2
-    },
-    {
-      "entity": "gscraft:scavenger",
-      "item": "superbwarfare:handgun_ammo",
-      "chance": 0.15,
-      "min": 2,
-      "max": 6
-    },
-    {
-      "entity": "gscraft:scavenger",
-      "item": "minecraft:bread",
-      "chance": 0.1,
-      "min": 1,
-      "max": 1
-    }
-  ]
+ "note": "scavenger bodies (enemy review §7): scrap and a little ammunition; no dog tag (they are nobody's army), never a gun [2026-09-18: the scrap is gscraft:metal_scrap - it was an iron nugget / iron block nothing consumed (tools/itemflow.py)]",
+ "drops": [
+  {
+   "entity": "gscraft:scavenger",
+   "item": "gscraft:metal_scrap",
+   "chance": 0.5,
+   "min": 1,
+   "max": 4
+  },
+  {
+   "entity": "gscraft:scavenger",
+   "item": "minecraft:string",
+   "chance": 0.4,
+   "min": 1,
+   "max": 3
+  },
+  {
+   "entity": "gscraft:scavenger",
+   "item": "minecraft:leather",
+   "chance": 0.2,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "gscraft:scavenger",
+   "item": "minecraft:coal",
+   "chance": 0.2,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "gscraft:scavenger",
+   "item": "superbwarfare:handgun_ammo",
+   "chance": 0.15,
+   "min": 2,
+   "max": 6
+  },
+  {
+   "entity": "gscraft:scavenger",
+   "item": "minecraft:bread",
+   "chance": 0.1,
+   "min": 1,
+   "max": 1
+  }
+ ]
 }

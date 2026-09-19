@@ -73,7 +73,11 @@ TABLES = json.loads((ROOT / "tools/chests.json").read_text(encoding="utf-8"))
 expect = {"apartment": "gscraft:canned_goods", "garage": "gscraft:bolt", "workshop": "gscraft:nail", "office": "gscraft:wire_spool", "hospital": "gscraft:syringe"}
 rolled = {t: roll(t) for t in expect}
 own = all(expect[t] in rolled[t] for t in expect)
-foreign = {t: [k for k in rolled[t] if not k.startswith("gscraft:") and k not in ("minecraft:emerald", "superbwarfare:handgun_ammo")] for t in expect}
+# "its own items" means the table's own entries, read from the table: a hand-kept allow-list went stale when the fire
+# missions put the mortar's shell in the garage and its three parts in the workshop (f1cf9e0, 2026-09-13; the phase was red
+# from then until 2026-09-18), and would flake besides - a weight-2 part shows up in some samples and not others
+ENTRIES = {t: {e["name"] for p in json.loads((ROOT / f"mod/src/main/resources/data/gscraft/loot_tables/building/{t}.json").read_text(encoding="utf-8"))["pools"] for e in p["entries"]} for t in expect}
+foreign = {t: [k for k in rolled[t] if k not in ENTRIES[t]] for t in expect}
 check("each of the five tables rolls its own items", own and not any(foreign.values()), f"{ {t: len(v) for t, v in rolled.items()} } distinct; foreign {foreign}")
 
 c("forceload add -1000 -1010 -900 -810")

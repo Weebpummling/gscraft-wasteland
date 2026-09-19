@@ -52,7 +52,7 @@ check("NATO and RUAF soldiers roll dog tags, ammunition and materials, never a g
 
 scav, out_s = roll("gscraft:scavenger")
 check("scavengers roll materials and a little ammunition, never a dog tag or a gun",
-      scav and scav.get("superbwarfare:dog_tag", 0) == 0 and not any(GUN(k) for k in scav) and scav.get("minecraft:iron_nugget", 0) > 0,
+      scav and scav.get("superbwarfare:dog_tag", 0) == 0 and not any(GUN(k) for k in scav) and scav.get("gscraft:metal_scrap", 0) > 0 and scav.get("minecraft:iron_nugget", 0) == 0,   # the scrap is the economy's own since 2026-09-18 (itemflow): a nugget fed nothing
       f"{dict(list(scav.items())[:6])}")
 
 dead, out_d = roll("minecraft:zombie")

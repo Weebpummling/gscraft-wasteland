@@ -167,8 +167,9 @@
         "gscraft:steel_frame": 4,
         "gscraft:circuit_assembly": 1,
         "gscraft:wiring_harness": 1,
-        "minecraft:white_banner": 1
-      }
+        "gscraft:cloth": 2
+      },
+      "note": "cloth x2 stands in for the white banner the first cut asked for: benches are stripped, so a banner cannot be crafted, and nothing drops one (itemflow, 2026-09-18)"
     },
     {
       "id": "cloth_wool",

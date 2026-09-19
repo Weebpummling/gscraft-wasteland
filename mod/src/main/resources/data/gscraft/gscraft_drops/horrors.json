@@ -1,47 +1,47 @@
 {
-  "note": "the mod's own bodies: the Bloater (powder and flesh), the Rider (a scavenger's scrap); the Matron's is the quest's to add",
-  "drops": [
-    {
-      "entity": "gscraft:bloater",
-      "item": "minecraft:rotten_flesh",
-      "chance": 0.8,
-      "min": 2,
-      "max": 4
-    },
-    {
-      "entity": "gscraft:bloater",
-      "item": "minecraft:gunpowder",
-      "chance": 0.6,
-      "min": 2,
-      "max": 5
-    },
-    {
-      "entity": "gscraft:bloater",
-      "item": "minecraft:slime_ball",
-      "chance": 0.3,
-      "min": 1,
-      "max": 2
-    },
-    {
-      "entity": "gscraft:rider",
-      "item": "minecraft:leather",
-      "chance": 0.4,
-      "min": 1,
-      "max": 2
-    },
-    {
-      "entity": "gscraft:rider",
-      "item": "minecraft:iron_nugget",
-      "chance": 0.4,
-      "min": 2,
-      "max": 5
-    },
-    {
-      "entity": "gscraft:rider",
-      "item": "superbwarfare:handgun_ammo",
-      "chance": 0.2,
-      "min": 2,
-      "max": 6
-    }
-  ]
+ "note": "the mod's own bodies: the Bloater (powder and flesh), the Rider (a scavenger's scrap); the Matron's is the quest's to add [2026-09-18: the scrap is gscraft:metal_scrap - it was an iron nugget / iron block nothing consumed (tools/itemflow.py)]",
+ "drops": [
+  {
+   "entity": "gscraft:bloater",
+   "item": "minecraft:rotten_flesh",
+   "chance": 0.8,
+   "min": 2,
+   "max": 4
+  },
+  {
+   "entity": "gscraft:bloater",
+   "item": "minecraft:gunpowder",
+   "chance": 0.6,
+   "min": 2,
+   "max": 5
+  },
+  {
+   "entity": "gscraft:bloater",
+   "item": "minecraft:slime_ball",
+   "chance": 0.3,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "gscraft:rider",
+   "item": "minecraft:leather",
+   "chance": 0.4,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "gscraft:rider",
+   "item": "gscraft:metal_scrap",
+   "chance": 0.4,
+   "min": 2,
+   "max": 5
+  },
+  {
+   "entity": "gscraft:rider",
+   "item": "superbwarfare:handgun_ammo",
+   "chance": 0.2,
+   "min": 2,
+   "max": 6
+  }
+ ]
 }

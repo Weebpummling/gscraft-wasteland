@@ -1,0 +1,905 @@
+{
+ "no_source": [
+  {
+   "item": "gscraft:card_casings",
+   "asked_by": [
+    "order:casings needs it"
+   ]
+  },
+  {
+   "item": "minecraft:gravel",
+   "asked_by": [
+    "order:concrete"
+   ]
+  },
+  {
+   "item": "minecraft:water_bucket",
+   "asked_by": [
+    "order:concrete"
+   ]
+  },
+  {
+   "item": "superbwarfare:medium_rocket_he",
+   "asked_by": [
+    "quest:air_support"
+   ]
+  }
+ ],
+ "unreachable": [],
+ "order_only": [
+  {
+   "item": "gscraft:circuit_assembly",
+   "made_by": [
+    "order:circuit_assembly (card)"
+   ]
+  },
+  {
+   "item": "gscraft:fastener_kit",
+   "made_by": [
+    "order:fastener_kit (card)"
+   ]
+  },
+  {
+   "item": "gscraft:powder",
+   "made_by": [
+    "order:powder (card)"
+   ]
+  },
+  {
+   "item": "gscraft:steel_frame",
+   "made_by": [
+    "order:steel_frame (card)"
+   ]
+  },
+  {
+   "item": "gscraft:wiring_harness",
+   "made_by": [
+    "order:wiring_harness (card)"
+   ]
+  },
+  {
+   "item": "superbwarfare:sandbag",
+   "made_by": [
+    "order:sandbags"
+   ]
+  }
+ ],
+ "no_sink": [
+  {
+   "item": "gscraft:blood_bag",
+   "from": [
+    "table:hospital"
+   ]
+  },
+  {
+   "item": "gscraft:canned_goods",
+   "from": [
+    "table:apartment"
+   ]
+  },
+  {
+   "item": "gscraft:car_battery",
+   "from": [
+    "table:garage"
+   ]
+  },
+  {
+   "item": "gscraft:casings",
+   "from": [
+    "order:casings (card)"
+   ]
+  },
+  {
+   "item": "gscraft:claim_marker",
+   "from": [
+    "order:claim_marker (card)"
+   ]
+  },
+  {
+   "item": "gscraft:computer_parts",
+   "from": [
+    "table:office"
+   ]
+  },
+  {
+   "item": "gscraft:concrete_mix",
+   "from": [
+    "order:concrete"
+   ]
+  },
+  {
+   "item": "gscraft:damaged_pistol",
+   "from": [
+    "table:garage",
+    "table:hospital"
+   ]
+  },
+  {
+   "item": "gscraft:filter_cartridge",
+   "from": [
+    "order:filter_cartridge (card)"
+   ]
+  },
+  {
+   "item": "gscraft:folder_of_documents",
+   "from": [
+    "table:office"
+   ]
+  },
+  {
+   "item": "gscraft:gas_mask_filter",
+   "from": [
+    "table:apartment",
+    "table:hospital"
+   ]
+  },
+  {
+   "item": "gscraft:hard_drive",
+   "from": [
+    "table:office"
+   ]
+  },
+  {
+   "item": "gscraft:insulating_tape",
+   "from": [
+    "table:workshop"
+   ]
+  },
+  {
+   "item": "gscraft:motor_oil",
+   "from": [
+    "table:garage"
+   ]
+  },
+  {
+   "item": "gscraft:pressure_gauge",
+   "from": [
+    "table:workshop"
+   ]
+  },
+  {
+   "item": "gscraft:spark_plug",
+   "from": [
+    "table:garage"
+   ]
+  },
+  {
+   "item": "gscraft:station",
+   "from": [
+    "kit"
+   ]
+  }
+ ],
+ "nowhere": [
+  "gscraft:bloater_spawn_egg",
+  "gscraft:matron_spawn_egg",
+  "gscraft:nato_soldier_spawn_egg",
+  "gscraft:ruaf_soldier_spawn_egg",
+  "gscraft:scavenger_spawn_egg"
+ ],
+ "unregistered": [],
+ "tables": {
+  "apartment": {
+   "entries": 9,
+   "weight": 76,
+   "dead_weight_share": 0.3,
+   "dead": [
+    "gscraft:canned_goods",
+    "gscraft:gas_mask_filter"
+   ]
+  },
+  "garage": {
+   "entries": 15,
+   "weight": 115,
+   "dead_weight_share": 0.23,
+   "dead": [
+    "gscraft:car_battery",
+    "gscraft:damaged_pistol",
+    "gscraft:hand_drill",
+    "gscraft:motor_oil",
+    "gscraft:spark_plug",
+    "gscraft:wrench",
+    "superbwarfare:handgun_ammo"
+   ]
+  },
+  "hospital": {
+   "entries": 7,
+   "weight": 68,
+   "dead_weight_share": 0.13,
+   "dead": [
+    "gscraft:blood_bag",
+    "gscraft:damaged_pistol",
+    "gscraft:gas_mask_filter"
+   ]
+  },
+  "office": {
+   "entries": 10,
+   "weight": 75,
+   "dead_weight_share": 0.25,
+   "dead": [
+    "gscraft:computer_parts",
+    "gscraft:folder_of_documents",
+    "gscraft:hard_drive",
+    "minecraft:emerald"
+   ]
+  },
+  "workshop": {
+   "entries": 12,
+   "weight": 79,
+   "dead_weight_share": 0.23,
+   "dead": [
+    "gscraft:insulating_tape",
+    "gscraft:pliers",
+    "gscraft:pressure_gauge",
+    "gscraft:screwdriver_set"
+   ]
+  }
+ },
+ "tags": [
+  {
+   "tag": "#minecraft:planks",
+   "asked_by": [
+    "order:screwdriver_set"
+   ]
+  },
+  {
+   "tag": "#minecraft:sand",
+   "asked_by": [
+    "order:sandbags",
+    "order:concrete"
+   ]
+  },
+  {
+   "tag": "#minecraft:wool",
+   "asked_by": [
+    "order:cloth_wool"
+   ]
+  }
+ ],
+ "scarcity": [
+  {
+   "quest": "W1",
+   "item": "gscraft:bolt",
+   "need": 8,
+   "start_area_expects": 9.4,
+   "ratio": 1.17,
+   "renewable": false
+  },
+  {
+   "quest": "W1",
+   "item": "gscraft:nut",
+   "need": 8,
+   "start_area_expects": 9.4,
+   "ratio": 1.17,
+   "renewable": false
+  },
+  {
+   "quest": "W2",
+   "item": "gscraft:bolt",
+   "need": 8,
+   "start_area_expects": 9.4,
+   "ratio": 1.17,
+   "renewable": false
+  },
+  {
+   "quest": "W2",
+   "item": "gscraft:nut",
+   "need": 8,
+   "start_area_expects": 9.4,
+   "ratio": 1.17,
+   "renewable": false
+  },
+  {
+   "quest": "W2",
+   "item": "gscraft:screw",
+   "need": 8,
+   "start_area_expects": 29.0,
+   "ratio": 3.63,
+   "renewable": false
+  },
+  {
+   "quest": "W2",
+   "item": "gscraft:nail",
+   "need": 8,
+   "start_area_expects": 22.8,
+   "ratio": 2.85,
+   "renewable": false
+  },
+  {
+   "quest": "W3",
+   "item": "gscraft:metal_scrap",
+   "need": 12,
+   "start_area_expects": 42.9,
+   "ratio": 3.58,
+   "renewable": true
+  },
+  {
+   "quest": "T1",
+   "item": "gscraft:bandage",
+   "need": 4,
+   "start_area_expects": 86.7,
+   "ratio": 21.67,
+   "renewable": false
+  },
+  {
+   "quest": "T1",
+   "item": "gscraft:painkillers",
+   "need": 2,
+   "start_area_expects": 31.9,
+   "ratio": 15.94,
+   "renewable": false
+  },
+  {
+   "quest": "T2",
+   "item": "gscraft:bandage",
+   "need": 4,
+   "start_area_expects": 86.7,
+   "ratio": 21.67,
+   "renewable": false
+  },
+  {
+   "quest": "T2",
+   "item": "gscraft:painkillers",
+   "need": 2,
+   "start_area_expects": 31.9,
+   "ratio": 15.94,
+   "renewable": false
+  },
+  {
+   "quest": "T2",
+   "item": "gscraft:antiseptic",
+   "need": 2,
+   "start_area_expects": 16.4,
+   "ratio": 8.21,
+   "renewable": false
+  },
+  {
+   "quest": "T2",
+   "item": "gscraft:syringe",
+   "need": 2,
+   "start_area_expects": 16.4,
+   "ratio": 8.21,
+   "renewable": false
+  },
+  {
+   "quest": "M1",
+   "item": "gscraft:wire_spool",
+   "need": 3,
+   "start_area_expects": 15.1,
+   "ratio": 5.04,
+   "renewable": false
+  },
+  {
+   "quest": "M1",
+   "item": "gscraft:power_cord",
+   "need": 1,
+   "start_area_expects": 8.4,
+   "ratio": 8.4,
+   "renewable": false
+  },
+  {
+   "quest": "M1",
+   "item": "gscraft:water_filter",
+   "need": 1,
+   "start_area_expects": 7.1,
+   "ratio": 7.11,
+   "renewable": false
+  },
+  {
+   "quest": "M2",
+   "item": "gscraft:wire_spool",
+   "need": 6,
+   "start_area_expects": 15.1,
+   "ratio": 2.52,
+   "renewable": false
+  },
+  {
+   "quest": "M2",
+   "item": "gscraft:power_cord",
+   "need": 2,
+   "start_area_expects": 8.4,
+   "ratio": 4.2,
+   "renewable": false
+  },
+  {
+   "quest": "M2",
+   "item": "gscraft:duct_tape",
+   "need": 2,
+   "start_area_expects": 8.8,
+   "ratio": 4.39,
+   "renewable": false
+  },
+  {
+   "quest": "M2",
+   "item": "gscraft:light_bulb",
+   "need": 1,
+   "start_area_expects": 8.5,
+   "ratio": 8.53,
+   "renewable": false
+  },
+  {
+   "quest": "U1",
+   "item": "gscraft:circuit_board",
+   "need": 1,
+   "start_area_expects": 8.4,
+   "ratio": 8.4,
+   "renewable": false
+  },
+  {
+   "quest": "U1",
+   "item": "gscraft:capacitor",
+   "need": 2,
+   "start_area_expects": 15.1,
+   "ratio": 7.56,
+   "renewable": false
+  },
+  {
+   "quest": "U1",
+   "item": "gscraft:broken_radio",
+   "need": 1,
+   "start_area_expects": 3.4,
+   "ratio": 3.36,
+   "renewable": false
+  },
+  {
+   "quest": "U2",
+   "item": "gscraft:circuit_board",
+   "need": 2,
+   "start_area_expects": 8.4,
+   "ratio": 4.2,
+   "renewable": false
+  },
+  {
+   "quest": "U2",
+   "item": "gscraft:capacitor",
+   "need": 4,
+   "start_area_expects": 15.1,
+   "ratio": 3.78,
+   "renewable": false
+  },
+  {
+   "quest": "U2",
+   "item": "gscraft:relay",
+   "need": 2,
+   "start_area_expects": 6.7,
+   "ratio": 3.36,
+   "renewable": false
+  },
+  {
+   "quest": "U2",
+   "item": "gscraft:wire_spool",
+   "need": 2,
+   "start_area_expects": 15.1,
+   "ratio": 7.56,
+   "renewable": false
+  },
+  {
+   "quest": "tube",
+   "item": "superbwarfare:mortar_barrel",
+   "need": 1,
+   "start_area_expects": 1.0,
+   "ratio": 1.01,
+   "renewable": false
+  },
+  {
+   "quest": "tube",
+   "item": "superbwarfare:mortar_bipod",
+   "need": 1,
+   "start_area_expects": 1.0,
+   "ratio": 1.01,
+   "renewable": false
+  },
+  {
+   "quest": "tube",
+   "item": "superbwarfare:mortar_base_plate",
+   "need": 1,
+   "start_area_expects": 1.0,
+   "ratio": 1.01,
+   "renewable": false
+  },
+  {
+   "quest": "tube",
+   "item": "gscraft:metal_scrap",
+   "need": 12,
+   "start_area_expects": 42.9,
+   "ratio": 3.58,
+   "renewable": true
+  },
+  {
+   "quest": "tube",
+   "item": "gscraft:bolt",
+   "need": 8,
+   "start_area_expects": 9.4,
+   "ratio": 1.17,
+   "renewable": false
+  },
+  {
+   "quest": "tube",
+   "item": "gscraft:nut",
+   "need": 8,
+   "start_area_expects": 9.4,
+   "ratio": 1.17,
+   "renewable": false
+  },
+  {
+   "quest": "tube",
+   "item": "gscraft:screw",
+   "need": 8,
+   "start_area_expects": 29.0,
+   "ratio": 3.63,
+   "renewable": false
+  },
+  {
+   "quest": "tube",
+   "item": "gscraft:nail",
+   "need": 8,
+   "start_area_expects": 22.8,
+   "ratio": 2.85,
+   "renewable": false
+  },
+  {
+   "quest": "fire_mission",
+   "item": "gscraft:metal_scrap",
+   "need": 9,
+   "start_area_expects": 42.9,
+   "ratio": 4.77,
+   "renewable": true
+  },
+  {
+   "quest": "fire_mission",
+   "item": "gscraft:solvent",
+   "need": 2,
+   "start_area_expects": 1.3,
+   "ratio": 0.63,
+   "renewable": false
+  },
+  {
+   "quest": "fire_for_effect",
+   "item": "superbwarfare:large_shell_he",
+   "need": 4,
+   "start_area_expects": 0.0,
+   "ratio": 0.0,
+   "renewable": true
+  },
+  {
+   "quest": "air_support",
+   "item": "superbwarfare:medium_rocket_he",
+   "need": 4,
+   "start_area_expects": 0.0,
+   "ratio": 0.0,
+   "renewable": false
+  },
+  {
+   "quest": "R0",
+   "item": "gscraft:cloth",
+   "need": 4,
+   "start_area_expects": 17.1,
+   "ratio": 4.26,
+   "renewable": false
+  },
+  {
+   "quest": "square",
+   "item": "gscraft:metal_scrap",
+   "need": 8,
+   "start_area_expects": 42.9,
+   "ratio": 5.36,
+   "renewable": true
+  },
+  {
+   "quest": "gatehouse",
+   "item": "gscraft:bolt",
+   "need": 4,
+   "start_area_expects": 9.4,
+   "ratio": 2.35,
+   "renewable": false
+  },
+  {
+   "quest": "gatehouse",
+   "item": "gscraft:nut",
+   "need": 4,
+   "start_area_expects": 9.4,
+   "ratio": 2.35,
+   "renewable": false
+  },
+  {
+   "quest": "gatehouse",
+   "item": "gscraft:screw",
+   "need": 4,
+   "start_area_expects": 29.0,
+   "ratio": 7.26,
+   "renewable": false
+  },
+  {
+   "quest": "gatehouse",
+   "item": "gscraft:nail",
+   "need": 4,
+   "start_area_expects": 22.8,
+   "ratio": 5.7,
+   "renewable": false
+  },
+  {
+   "quest": "gatehouse",
+   "item": "gscraft:metal_scrap",
+   "need": 8,
+   "start_area_expects": 42.9,
+   "ratio": 5.36,
+   "renewable": true
+  },
+  {
+   "quest": "clinic",
+   "item": "gscraft:bolt",
+   "need": 4,
+   "start_area_expects": 9.4,
+   "ratio": 2.35,
+   "renewable": false
+  },
+  {
+   "quest": "clinic",
+   "item": "gscraft:nut",
+   "need": 4,
+   "start_area_expects": 9.4,
+   "ratio": 2.35,
+   "renewable": false
+  },
+  {
+   "quest": "clinic",
+   "item": "gscraft:screw",
+   "need": 4,
+   "start_area_expects": 29.0,
+   "ratio": 7.26,
+   "renewable": false
+  },
+  {
+   "quest": "clinic",
+   "item": "gscraft:nail",
+   "need": 4,
+   "start_area_expects": 22.8,
+   "ratio": 5.7,
+   "renewable": false
+  },
+  {
+   "quest": "clinic",
+   "item": "gscraft:metal_scrap",
+   "need": 8,
+   "start_area_expects": 42.9,
+   "ratio": 5.36,
+   "renewable": true
+  },
+  {
+   "quest": "crossing",
+   "item": "gscraft:bolt",
+   "need": 4,
+   "start_area_expects": 9.4,
+   "ratio": 2.35,
+   "renewable": false
+  },
+  {
+   "quest": "crossing",
+   "item": "gscraft:nut",
+   "need": 4,
+   "start_area_expects": 9.4,
+   "ratio": 2.35,
+   "renewable": false
+  },
+  {
+   "quest": "crossing",
+   "item": "gscraft:screw",
+   "need": 4,
+   "start_area_expects": 29.0,
+   "ratio": 7.26,
+   "renewable": false
+  },
+  {
+   "quest": "crossing",
+   "item": "gscraft:nail",
+   "need": 4,
+   "start_area_expects": 22.8,
+   "ratio": 5.7,
+   "renewable": false
+  },
+  {
+   "quest": "crossing",
+   "item": "gscraft:metal_scrap",
+   "need": 8,
+   "start_area_expects": 42.9,
+   "ratio": 5.36,
+   "renewable": true
+  },
+  {
+   "quest": "mast",
+   "item": "gscraft:bolt",
+   "need": 8,
+   "start_area_expects": 9.4,
+   "ratio": 1.17,
+   "renewable": false
+  },
+  {
+   "quest": "mast",
+   "item": "gscraft:nut",
+   "need": 8,
+   "start_area_expects": 9.4,
+   "ratio": 1.17,
+   "renewable": false
+  },
+  {
+   "quest": "mast",
+   "item": "gscraft:screw",
+   "need": 8,
+   "start_area_expects": 29.0,
+   "ratio": 3.63,
+   "renewable": false
+  },
+  {
+   "quest": "mast",
+   "item": "gscraft:nail",
+   "need": 8,
+   "start_area_expects": 22.8,
+   "ratio": 2.85,
+   "renewable": false
+  },
+  {
+   "quest": "mast",
+   "item": "gscraft:metal_scrap",
+   "need": 16,
+   "start_area_expects": 42.9,
+   "ratio": 2.68,
+   "renewable": true
+  }
+ ],
+ "cumulative": [
+  {
+   "item": "gscraft:bolt",
+   "all_quests_need": 44,
+   "start_area_expects": 9.4,
+   "ratio": 0.21,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:nut",
+   "all_quests_need": 44,
+   "start_area_expects": 9.4,
+   "ratio": 0.21,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:metal_scrap",
+   "all_quests_need": 72,
+   "start_area_expects": 42.9,
+   "ratio": 0.6,
+   "renewable": true
+  },
+  {
+   "item": "gscraft:nail",
+   "all_quests_need": 36,
+   "start_area_expects": 22.8,
+   "ratio": 0.63,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:screw",
+   "all_quests_need": 36,
+   "start_area_expects": 29.0,
+   "ratio": 0.81,
+   "renewable": false
+  },
+  {
+   "item": "superbwarfare:mortar_barrel",
+   "all_quests_need": 1,
+   "start_area_expects": 1.0,
+   "ratio": 1.01,
+   "renewable": false
+  },
+  {
+   "item": "superbwarfare:mortar_bipod",
+   "all_quests_need": 1,
+   "start_area_expects": 1.0,
+   "ratio": 1.01,
+   "renewable": false
+  },
+  {
+   "item": "superbwarfare:mortar_base_plate",
+   "all_quests_need": 1,
+   "start_area_expects": 1.0,
+   "ratio": 1.01,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:wire_spool",
+   "all_quests_need": 11,
+   "start_area_expects": 15.1,
+   "ratio": 1.37,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:capacitor",
+   "all_quests_need": 6,
+   "start_area_expects": 15.1,
+   "ratio": 2.52,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:power_cord",
+   "all_quests_need": 3,
+   "start_area_expects": 8.4,
+   "ratio": 2.8,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:circuit_board",
+   "all_quests_need": 3,
+   "start_area_expects": 8.4,
+   "ratio": 2.8,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:broken_radio",
+   "all_quests_need": 1,
+   "start_area_expects": 3.4,
+   "ratio": 3.36,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:relay",
+   "all_quests_need": 2,
+   "start_area_expects": 6.7,
+   "ratio": 3.36,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:cloth",
+   "all_quests_need": 4,
+   "start_area_expects": 17.1,
+   "ratio": 4.26,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:duct_tape",
+   "all_quests_need": 2,
+   "start_area_expects": 8.8,
+   "ratio": 4.39,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:water_filter",
+   "all_quests_need": 1,
+   "start_area_expects": 7.1,
+   "ratio": 7.11,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:painkillers",
+   "all_quests_need": 4,
+   "start_area_expects": 31.9,
+   "ratio": 7.97,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:antiseptic",
+   "all_quests_need": 2,
+   "start_area_expects": 16.4,
+   "ratio": 8.21,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:syringe",
+   "all_quests_need": 2,
+   "start_area_expects": 16.4,
+   "ratio": 8.21,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:light_bulb",
+   "all_quests_need": 1,
+   "start_area_expects": 8.5,
+   "ratio": 8.53,
+   "renewable": false
+  },
+  {
+   "item": "gscraft:bandage",
+   "all_quests_need": 8,
+   "start_area_expects": 86.7,
+   "ratio": 10.83,
+   "renewable": false
+  }
+ ]
+}

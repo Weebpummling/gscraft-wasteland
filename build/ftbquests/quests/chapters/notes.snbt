@@ -39,7 +39,7 @@
 			title: "Heavy"
 			subtitle: "Some things are carried, not pocketed."
 			description: [
-				"A bulky part slows you and stops you sprinting. One at a time; a car carries it better."
+				"Some things are bulky - the tooltip says so in gold. Carrying one slows you and stops you sprinting; a car carries it better."
 			]
 			icon: "gscraft:steel_frame"
 			invisible: true

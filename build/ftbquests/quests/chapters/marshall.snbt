@@ -77,7 +77,7 @@
 			title: "The tube"
 			subtitle: "A mortar is three pieces and a plate."
 			description: [
-				"Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard, and its shells are a station order."
+				"Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard; its shells are a station order, and so is the powder that fills them."
 			]
 			dependencies: [
 				"3210B848C9E6E4CB"
@@ -150,6 +150,22 @@
 				}
 				{
 					id: "620E4A5DA1C78083"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:card_powder"
+					count: 1
+				}
+				{
+					id: "298C3E74866A0976"
+					type: "command"
+					title: "the stage bp_powder"
+					command: "/gscraft stage add bp_powder"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "024A40EA222CACDE"
 					type: "command"
 					title: "marshall speaks"
 					command: "/gscraft say marshall tube @s"

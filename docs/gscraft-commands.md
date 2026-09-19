@@ -171,6 +171,8 @@ keeps the crew seated; a vanilla explosion type ejects it.
 | `tools/war_phase<N>.py` | the headless tests over RCON (`localtest.Rcon("127.0.0.1", 25575, ...)`); phases 26-36 are the slice's |
 | `tools/chapters.py --install` | writes and installs the quest book |
 | `tools/board.py` | RETIRED 2026-09-18 with the board; kept for the record, do not run |
+| `tools/itemflow.py [--json]` | the item economy audited from the data: what is asked for with no source, dead weight, and what one player expects from the start area's chests against the quests' needs |
+| `tools/chests.py <world> --place --apply` | the Lootr chests: `--place` only writes placements into the record, `--apply` is what reaches the local server |
 | `tools/camp.py <world>` | the survivors' summons and signs (then copy to the world's datapack) |
 | `tools/chests.py <world> --place --apply` | the Lootr containers |
 | `tools/stages.py` | the stage advancements from the registry and the recipe cards |

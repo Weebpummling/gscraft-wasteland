@@ -8,6 +8,206 @@
   "command": "setblock -961 63 -989 lootr:lootr_chest{LootTable:\"gscraft:building/office\"}"
  },
  {
+  "x": -947,
+  "y": 67,
+  "z": -1034,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -947 67 -1034 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -956,
+  "y": 59,
+  "z": -1032,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -956 59 -1032 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -956,
+  "y": 63,
+  "z": -1028,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -956 63 -1028 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -955,
+  "y": 59,
+  "z": -1032,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -955 59 -1032 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -954,
+  "y": 59,
+  "z": -1032,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -954 59 -1032 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -948,
+  "y": 63,
+  "z": -1034,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -948 63 -1034 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -950,
+  "y": 59,
+  "z": -1034,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -950 59 -1034 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -956,
+  "y": 53,
+  "z": -1031,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -956 53 -1031 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -956,
+  "y": 58,
+  "z": -1032,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -956 58 -1032 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -955,
+  "y": 58,
+  "z": -1032,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -955 58 -1032 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -954,
+  "y": 58,
+  "z": -1032,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -954 58 -1032 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -950,
+  "y": 58,
+  "z": -1034,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -950 58 -1034 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -956,
+  "y": 59,
+  "z": -1033,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -956 59 -1033 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -955,
+  "y": 59,
+  "z": -1033,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -955 59 -1033 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -954,
+  "y": 59,
+  "z": -1033,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -954 59 -1033 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -945,
+  "y": 67,
+  "z": -1031,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -945 67 -1031 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -948,
+  "y": 63,
+  "z": -1031,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -948 63 -1031 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -948,
+  "y": 67,
+  "z": -1025,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -948 67 -1025 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -946,
+  "y": 67,
+  "z": -1025,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -946 67 -1025 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -956,
+  "y": 64,
+  "z": -1028,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -956 64 -1028 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -956,
+  "y": 58,
+  "z": -1033,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -956 58 -1033 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -955,
+  "y": 58,
+  "z": -1033,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -955 58 -1033 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -954,
+  "y": 58,
+  "z": -1033,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -954 58 -1033 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -956,
+  "y": 54,
+  "z": -1031,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -956 54 -1031 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -956,
+  "y": 63,
+  "z": -1022,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -956 63 -1022 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
   "x": -952,
   "y": 73,
   "z": -995,
@@ -70,6 +270,54 @@
   "was": "lootr:lootr_chest",
   "table": "apartment",
   "command": "setblock -951 62 -966 lootr:lootr_chest{LootTable:\"gscraft:building/apartment\"}"
+ },
+ {
+  "x": -942,
+  "y": 54,
+  "z": -1029,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -942 54 -1029 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -942,
+  "y": 53,
+  "z": -1029,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -942 53 -1029 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -937,
+  "y": 63,
+  "z": -1034,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -937 63 -1034 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -937,
+  "y": 63,
+  "z": -1022,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -937 63 -1022 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -943,
+  "y": 53,
+  "z": -1021,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -943 53 -1021 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
+ },
+ {
+  "x": -943,
+  "y": 54,
+  "z": -1021,
+  "was": "minecraft:barrel",
+  "table": "hospital",
+  "command": "setblock -943 54 -1021 lootr:lootr_barrel{LootTable:\"gscraft:building/hospital\"}"
  },
  {
   "x": -937,

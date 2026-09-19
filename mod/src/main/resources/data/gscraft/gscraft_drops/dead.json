@@ -1,187 +1,187 @@
 {
-  "note": "the Dead (re-cut 2026-09-13, slice build 2, from In Control's 2026-10 file): materials only - flesh, string, bone, a little powder and scrap; no ender pearls, no ammunition boxes, no food but the drowned's kelp",
-  "drops": [
-    {
-      "entity": "minecraft:zombie",
-      "item": "minecraft:rotten_flesh",
-      "chance": 0.6,
-      "min": 1,
-      "max": 2
-    },
-    {
-      "entity": "minecraft:zombie",
-      "item": "minecraft:string",
-      "chance": 0.3,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:zombie",
-      "item": "minecraft:bone",
-      "chance": 0.2,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:zombie",
-      "item": "minecraft:gunpowder",
-      "chance": 0.1,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:zombie",
-      "item": "minecraft:iron_nugget",
-      "chance": 0.1,
-      "min": 1,
-      "max": 2
-    },
-    {
-      "entity": "minecraft:zombie_villager",
-      "item": "minecraft:rotten_flesh",
-      "chance": 0.6,
-      "min": 1,
-      "max": 2
-    },
-    {
-      "entity": "minecraft:zombie_villager",
-      "item": "minecraft:string",
-      "chance": 0.3,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:zombie_villager",
-      "item": "minecraft:bone",
-      "chance": 0.2,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:zombie_villager",
-      "item": "minecraft:gunpowder",
-      "chance": 0.1,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:zombie_villager",
-      "item": "minecraft:iron_nugget",
-      "chance": 0.1,
-      "min": 1,
-      "max": 2
-    },
-    {
-      "entity": "minecraft:husk",
-      "item": "minecraft:rotten_flesh",
-      "chance": 0.6,
-      "min": 1,
-      "max": 2
-    },
-    {
-      "entity": "minecraft:husk",
-      "item": "minecraft:string",
-      "chance": 0.3,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:husk",
-      "item": "minecraft:bone",
-      "chance": 0.2,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:husk",
-      "item": "minecraft:gunpowder",
-      "chance": 0.08,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:husk",
-      "item": "minecraft:iron_nugget",
-      "chance": 0.1,
-      "min": 1,
-      "max": 2
-    },
-    {
-      "entity": "minecraft:drowned",
-      "item": "minecraft:rotten_flesh",
-      "chance": 0.5,
-      "min": 1,
-      "max": 2
-    },
-    {
-      "entity": "minecraft:drowned",
-      "item": "minecraft:string",
-      "chance": 0.3,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:drowned",
-      "item": "minecraft:bone",
-      "chance": 0.2,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:drowned",
-      "item": "minecraft:gunpowder",
-      "chance": 0.05,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:drowned",
-      "item": "minecraft:iron_nugget",
-      "chance": 0.1,
-      "min": 1,
-      "max": 2
-    },
-    {
-      "entity": "minecraft:drowned",
-      "item": "minecraft:dried_kelp",
-      "chance": 0.2,
-      "min": 1,
-      "max": 2
-    },
-    {
-      "entity": "minecraft:zombified_piglin",
-      "item": "minecraft:rotten_flesh",
-      "chance": 0.6,
-      "min": 1,
-      "max": 2
-    },
-    {
-      "entity": "minecraft:zombified_piglin",
-      "item": "minecraft:string",
-      "chance": 0.3,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:zombified_piglin",
-      "item": "minecraft:bone",
-      "chance": 0.2,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:zombified_piglin",
-      "item": "minecraft:gunpowder",
-      "chance": 0.1,
-      "min": 1,
-      "max": 1
-    },
-    {
-      "entity": "minecraft:zombified_piglin",
-      "item": "minecraft:iron_nugget",
-      "chance": 0.1,
-      "min": 1,
-      "max": 2
-    }
-  ]
+ "note": "the Dead (re-cut 2026-09-13, slice build 2, from In Control's 2026-10 file): materials only - flesh, string, bone, a little powder and scrap; no ender pearls, no ammunition boxes, no food but the drowned's kelp [2026-09-18: the scrap is gscraft:metal_scrap - it was an iron nugget / iron block nothing consumed (tools/itemflow.py)]",
+ "drops": [
+  {
+   "entity": "minecraft:zombie",
+   "item": "minecraft:rotten_flesh",
+   "chance": 0.6,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "minecraft:zombie",
+   "item": "minecraft:string",
+   "chance": 0.3,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:zombie",
+   "item": "minecraft:bone",
+   "chance": 0.2,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:zombie",
+   "item": "minecraft:gunpowder",
+   "chance": 0.1,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:zombie",
+   "item": "gscraft:metal_scrap",
+   "chance": 0.1,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "minecraft:zombie_villager",
+   "item": "minecraft:rotten_flesh",
+   "chance": 0.6,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "minecraft:zombie_villager",
+   "item": "minecraft:string",
+   "chance": 0.3,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:zombie_villager",
+   "item": "minecraft:bone",
+   "chance": 0.2,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:zombie_villager",
+   "item": "minecraft:gunpowder",
+   "chance": 0.1,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:zombie_villager",
+   "item": "gscraft:metal_scrap",
+   "chance": 0.1,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "minecraft:husk",
+   "item": "minecraft:rotten_flesh",
+   "chance": 0.6,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "minecraft:husk",
+   "item": "minecraft:string",
+   "chance": 0.3,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:husk",
+   "item": "minecraft:bone",
+   "chance": 0.2,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:husk",
+   "item": "minecraft:gunpowder",
+   "chance": 0.08,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:husk",
+   "item": "gscraft:metal_scrap",
+   "chance": 0.1,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "minecraft:drowned",
+   "item": "minecraft:rotten_flesh",
+   "chance": 0.5,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "minecraft:drowned",
+   "item": "minecraft:string",
+   "chance": 0.3,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:drowned",
+   "item": "minecraft:bone",
+   "chance": 0.2,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:drowned",
+   "item": "minecraft:gunpowder",
+   "chance": 0.05,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:drowned",
+   "item": "gscraft:metal_scrap",
+   "chance": 0.1,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "minecraft:drowned",
+   "item": "minecraft:dried_kelp",
+   "chance": 0.2,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "minecraft:zombified_piglin",
+   "item": "minecraft:rotten_flesh",
+   "chance": 0.6,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "minecraft:zombified_piglin",
+   "item": "minecraft:string",
+   "chance": 0.3,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:zombified_piglin",
+   "item": "minecraft:bone",
+   "chance": 0.2,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:zombified_piglin",
+   "item": "minecraft:gunpowder",
+   "chance": 0.1,
+   "min": 1,
+   "max": 1
+  },
+  {
+   "entity": "minecraft:zombified_piglin",
+   "item": "gscraft:metal_scrap",
+   "chance": 0.1,
+   "min": 1,
+   "max": 2
+  }
+ ]
 }

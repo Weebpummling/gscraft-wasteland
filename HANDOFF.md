@@ -413,6 +413,44 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-18, the items and the drop tables audited (owner: "work on the items and drop tables now"; rulings R41):**
+`tools/itemflow.py` - every place an item comes FROM (the five building tables, the six drop tables, station orders' outputs,
+quest rewards, the kit) against every place one is ASKED FOR (quest hand-ins, order inputs, the card an order needs), read
+from the data the game loads; `--json` writes `tools/itemflow.json` for a diff. It reports: asked for with no source, sourced
+but never asked for, referenced but unregistered, each table's dead-weight share, and **scarcity** - what ONE player expects
+from the chests bound in the start area (Lootr is per player) against every non-repeatable quest's raw needs, cumulative.
+**Breaks it found, fixed:** (1) the **fire mission could not be fed**: the shell order needs powder, powder needs
+`card_powder`, and no quest gave that card - The tube now gives it with `bp_powder` (the garage's shell is weight 4 of 115:
+about forty garage chests per call). (2) the **claim marker could not be made**: its order asked for `minecraft:white_banner`,
+which nothing drops and which cannot be crafted - benches are stripped by design (`gscraft_recipes.js`), so no 3x3 grid; the
+order takes `gscraft:cloth` x2 instead (my substitution, the nearest thing the economy has; one line in `recipes.json`).
+(3) **Tony's T2 could not be finished**: med kits need antiseptic and syringes, which exist only in the `hospital` table,
+and no chest anywhere was bound to it - `chests.py` now has the clinic's rectangle, and the clinic turned out to hold **31
+barrels of its own**, so none are placed. **The structural finding:** the economy had **no renewable input**. Bodies and
+wrecks dropped `minecraft:iron_nugget` / `iron_block`, leftovers of the In Control file the tables were re-cut from, where
+four of the six tables' own notes say "scrap", and nothing consumes a nugget; the quests ask for `gscraft:metal_scrap` (72
+across the slice against 42.9 expected from every bound chest). 13 rules now give `gscraft:metal_scrap`: bodies one for one
+(same chance and count), wrecks 6-12 in place of 1-3 iron blocks (**that number is mine**). Phase 29 rolls it for real:
+361 from the scavenger sample. **NOT changed, a proposal for the owner - fasteners:** bolts and nuts come from ONE table
+(garage, weight 15 of 115), in SIX chests, and nothing drops them: one player expects **9.4 of each from the whole start
+area**; W1 takes 8, W2 another 8, the slice 44. The ten workshop chests hold none. One option, numbers only: bolt and nut at
+weight 12 each in the workshop table gives 1.4 a chest, 14.0 from the ten, 23.4 in all (covers W1+W2 at x1.46), and a
+scavenger drop of 1-2 at 25% makes the rest renewable. Nails (x0.63) and screws (x0.81) are short the same way; the three
+mortar parts expect 1.0 each against a need of 1, so building the tube is a coin flip. Left alone on purpose: the orphan
+`casings` order (no card, no use), `concrete` (needs a bucket; nothing uses the mix), 17 sourced-but-unused items (13-30% of
+each table's roll weight), and `air_support`'s rockets, which the strikes note already records as deliberate for Act I.
+**`tools/chests.py`, three truths learnt the hard way:** `--place` only WRITES placements into `tools/chests.json` - nothing
+reaches a server without `--apply`; `--apply` force-loaded a fixed rectangle, the OLD south compound's, so it would have
+missed the walled compound (now it loads every box); and the spot finder adds a spot before checking its budget, so 0 meant
+1 (guarded). **CORRECTION to the compound-move entry below:** I wrote that the chests were "placed" locally. They were only
+in the record; the local world got them today (`--place --apply`, then every one of the 104 positions probed: 42 compound,
+31 junction, 31 clinic, all Lootr containers). Live did get them on 2026-09-17, by the replay. Running the tool without
+`--place` also rewrote the record from 112 entries to 74 before I understood that; restored. Phases: 29 5/5 (the scavenger
+check now guards scrap present and nuggets absent), 31 4/4 - **it had been red since 2026-09-13**, when the fire missions put
+the mortar's shell and parts into the garage and workshop tables and its hand-kept allow-list went stale; it now reads each
+table's own entries, which also stops it flaking on rare items - 32 7/7. My notebook page and field note had called frames,
+barrels and plates bulky; only the claim marker is, so the words now say "the tooltip says so". Local only; live untouched.
+
 **2026-09-18, the board removed** (owner: "Remove the board, we'll need a different way to display this, it's too much space for too
 little information"; rulings R40): `function gscraft:board_remove` clears both boards that ever stood - the yard's free-standing one
 (placed into air: back to air) and the old south hall's, which had been painted ONTO the wall (back to smooth stone, the wall

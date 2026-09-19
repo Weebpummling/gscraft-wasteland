@@ -152,9 +152,11 @@ QUESTS = [
      "x": 0, "y": 0, "tasks": [CHECK], "deps": ["W1", "T1", "M1", "U1", "J1"], "hide_until_deps": True,
      "rewards": [give("gscraft:card_claim_marker"), stage("bp_claim_marker"), stage("marshall_speaks"), say("marshall", "speaks")]},
     # Marshall's support (strikes note 2026-09-13): the tube, then the fire missions as repeatable hand-ins
-    {"key": "tube", "chapter": "marshall", "title": "The tube", "voice": "A mortar is three pieces and a plate.", "task": "Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard, and its shells are a station order.",
+    {"key": "tube", "chapter": "marshall", "title": "The tube", "voice": "A mortar is three pieces and a plate.", "task": "Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard; its shells are a station order, and so is the powder that fills them.",
      "x": 2, "y": 0, "tasks": [item("superbwarfare:mortar_barrel", 1), item("superbwarfare:mortar_bipod", 1), item("superbwarfare:mortar_base_plate", 1), item("gscraft:steel_frame", 2)], "deps": ["R1"], "hide_until_deps": True,
-     "rewards": [stage("mortar_built"), cmd("/function gscraft:yard_mortar"), give("gscraft:card_mortar_shell"), stage("bp_mortar_shell"), say("marshall", "tube")]},
+     "rewards": [stage("mortar_built"), cmd("/function gscraft:yard_mortar"), give("gscraft:card_mortar_shell"), stage("bp_mortar_shell"),
+                 give("gscraft:card_powder"), stage("bp_powder"),   # the shell order needs powder; without this card the fire mission could never be fed (itemflow, 2026-09-18)
+                 say("marshall", "tube")]},
     {"key": "fire_mission", "chapter": "marshall", "title": "Fire mission", "voice": "Six shells buys you one call.", "task": "Hand in six mortar shells for a fire-mission grenade. Throw it where you want the rounds; fifteen seconds, then six of them.",
      "x": 4, "y": 0, "tasks": [item("superbwarfare:mortar_shell", 6)], "deps": ["tube"], "repeat": True,
      "rewards": [give("gscraft:strike_mortar")]},
@@ -187,7 +189,7 @@ QUESTS = [
     # advancement is granted (journal/FieldNotes.java), two lines, no reward; the rule gets its name after the fact
     {"key": "note_death", "chapter": "notes", "title": "The first death", "voice": "It happens to everyone once.", "task": "You came back in the compound. What you carried lies where you fell; a friend can get you up before it comes to that.",
      "x": 0, "y": 0, "tasks": [adv("note_death")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:skeleton_skull"},
-    {"key": "note_bulky", "chapter": "notes", "title": "Heavy", "voice": "Some things are carried, not pocketed.", "task": "A bulky part slows you and stops you sprinting. One at a time; a car carries it better.",
+    {"key": "note_bulky", "chapter": "notes", "title": "Heavy", "voice": "Some things are carried, not pocketed.", "task": "Some things are bulky - the tooltip says so in gold. Carrying one slows you and stops you sprinting; a car carries it better.",
      "x": 2, "y": 0, "tasks": [adv("note_bulky")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "gscraft:steel_frame"},
     {"key": "note_vehicle", "chapter": "notes", "title": "Wheels", "voice": "It still runs.", "task": "A seat is a right-click; out is sneak. The fuel and the rounds are the vehicle's own - the crews out there have the same ones.",
      "x": 4, "y": 0, "tasks": [adv("note_vehicle")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:minecart"},

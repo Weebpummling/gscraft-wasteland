@@ -654,7 +654,7 @@
    "chapter": "marshall",
    "title": "The tube",
    "voice": "A mortar is three pieces and a plate.",
-   "task": "Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard, and its shells are a station order.",
+   "task": "Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard; its shells are a station order, and so is the powder that fills them.",
    "x": 2,
    "y": 0,
    "tasks": [
@@ -704,6 +704,15 @@
     {
      "type": "stage",
      "stage": "bp_mortar_shell"
+    },
+    {
+     "type": "item",
+     "item": "gscraft:card_powder",
+     "count": 1
+    },
+    {
+     "type": "stage",
+     "stage": "bp_powder"
     },
     {
      "type": "say",
@@ -1083,7 +1092,7 @@
    "chapter": "notes",
    "title": "Heavy",
    "voice": "Some things are carried, not pocketed.",
-   "task": "A bulky part slows you and stops you sprinting. One at a time; a car carries it better.",
+   "task": "Some things are bulky - the tooltip says so in gold. Carrying one slows you and stops you sprinting; a car carries it better.",
    "x": 2,
    "y": 0,
    "tasks": [
