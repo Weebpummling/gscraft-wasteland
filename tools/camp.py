@@ -126,12 +126,7 @@ def place(g, npc, name, rect, floor, signs, professions, fname):
            f'VillagerData:{{profession:"{professions.get(npc, "minecraft:nitwit")}",level:2,type:"minecraft:plains"}},'
            'Offers:{Recipes:[{buy:{id:"minecraft:emerald",Count:1b},sell:{id:"minecraft:emerald",Count:1b},maxUses:0,uses:0,rewardExp:0b,xp:0,priceMultiplier:0.0f,specialPrice:0,demand:0}]}}')
     lines = [f"kill @e[type=minecraft:villager,tag=gscraft_npc_{npc}]", f"summon minecraft:villager {x} {y} {z} {nbt}"]
-    # the sign: on the same floor beside them, the first free side
-    for dx, dz in ((1, 0), (-1, 0), (0, 1), (0, -1)):
-        if block(g, x + dx, y - 1, z + dz) not in AIR and block(g, x + dx, y, z + dz) in AIR:
-            msgs = ",".join(f"'{{\"text\":\"{t}\"}}'" for t in signs)
-            lines.append(f"setblock {x + dx} {y} {z + dz} minecraft:oak_sign{{front_text:{{messages:[{msgs}]}}}}")
-            break
+    # no sign (owner, 2026-09-19: "we don't need the signs at all with the NPCs"): camp_signs_clear takes the old ones down
     (FN / f"{fname}.mcfunction").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"  {fname:20} ({x:5}, {y:3}, {z:5}) on {ground}")
     return {"name": name, "x": x, "y": y, "z": z, "ground": ground}
