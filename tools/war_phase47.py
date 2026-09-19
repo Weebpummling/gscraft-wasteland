@@ -11,6 +11,7 @@ game made and did not keep.
 4. No player-facing text names the map wall, the board, a car's bay, or Tony's clinic as the cure: all four were gone or never were.
 5. Every stage a quest sets is registered; every function a quest or the code runs exists in the datapack; every line a
    survivor is told to say exists.
+5b. Every stage a quest WAITS for is set by something (two strikes were gated on stages nothing set).
 6. Every order's tool is an item the hand-tools card makes or a table holds, and every card's orders show in its tooltip data.
 7. No gscraft errors.
 """
@@ -113,6 +114,16 @@ says = [f"gscraft.say.{rw['npc']}.{rw['key']}" for q in quests for rw in q["rewa
 check("every stage set is registered and known to the server; every function run is in the world's datapack; every line exists",
       not unreg and not unknown and not (fn_want - fn_have) and all(s in lang for s in says),
       f"unregistered {unreg}; unknown to the server {unknown}; functions missing from the world {sorted(fn_want - fn_have)}; lines missing {[s for s in says if s not in lang]}")
+
+# 5b: every stage a quest WAITS for is one something sets. `gun_fired` and `radio_2` gated Fire for effect and Air support and
+# nothing in the game set either: two strikes nobody could ever earn (found by reading the quest texts, 2026-09-19)
+waits = {t["stage"] for q in quests for t in q["tasks"] if t.get("stage")}
+set_by_quest = {rw["stage"] for q in quests for rw in q["rewards"] if rw.get("type") == "stage"}
+ladder = {f"{sid}_{rung}" for sid in ST.STRONGPOINTS for rung in ST.RUNGS}
+in_code = {w for w in waits if f'"{w}"' in java}
+by_pattern = {w for w in waits if w.startswith(("seen_", "note_")) or w == "joined"}
+never = sorted(waits - set_by_quest - ladder - in_code - by_pattern)
+check("every stage a quest waits for is set by a quest, the site ladder or the code", not never, never or f"{len(waits)} stages waited for")
 
 # 6
 orders = json.loads((RES / "data/gscraft/gscraft_recipes/recipes.json").read_text(encoding="utf-8"))["orders"]

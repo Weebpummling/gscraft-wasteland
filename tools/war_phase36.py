@@ -56,7 +56,7 @@ def in_margin():
 
 
 def new_in_margin():
-    m = M - 2
+    m = M - 6
     return count(f"@e[tag=gs_director,tag=!p36_seen,x={BOX[0] - m},y=-64,z={BOX[2] - m},dx={BOX[1] - BOX[0] + 2 * m},dy=384,dz={BOX[3] - BOX[2] + 2 * m}]")
 
 
@@ -80,10 +80,15 @@ def run(p, seconds):
         time.sleep(1)
         m = re.search(r"count: (\d+)", c(f"execute positioned {p[0]} {p[1]} {p[2]} if entity @e[tag=gs_director,tag=!p36_seen,distance=..28]"))
         close_new += int(m.group(1)) if m else 0
-        # the margin the same way: what is NEW and already inside it (less two blocks: a body placed on the margin's edge has
-        # stepped over it within the second). Positions sampled every ten seconds counted a zombie that wandered one block in
+        # the margin the same way: what is NEW and already inside it (less SIX blocks: a squad placed a block outside the margin walks from its first tick, and a
+        # sample is a second and a few console calls late - two blocks of slack still went red one full run in two). Positions sampled every ten seconds counted a zombie that wandered one block in
         # as a placement, and the third full suite went red on it (2026-09-19)
-        worst_margin += new_in_margin()
+        n_new = new_in_margin()
+        if n_new:   # say WHAT it was: red in two full runs and green alone, so the run itself must name the offender
+            m_ = M - 6
+            sel = f"@e[tag=gs_director,tag=!p36_seen,x={BOX[0] - m_},y=-64,z={BOX[2] - m_},dx={BOX[1] - BOX[0] + 2 * m_},dy=384,dz={BOX[3] - BOX[2] + 2 * m_},limit=1]"
+            print(f"      in the margin at {i + 1} s: [{c(f'data get entity {sel} Pos')[-90:]}] tags [{c(f'data get entity {sel} Tags')[-200:]}]")
+        worst_margin += n_new
         c("tag @e[tag=gs_director,tag=!p36_seen] add p36_seen")
         if i % 10 == 9:
             most = max(most, near(p, 120))

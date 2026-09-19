@@ -647,7 +647,7 @@
    "chapter": "tune",
    "title": "What was on them",
    "voice": "Offices kept everything. Bring me their drives.",
-   "task": "Three hard drives, from the town's offices.",
+   "task": "Three hard drives, from the town's offices. What is on them is how Tune raises the Cobra.",
    "x": 6,
    "y": 0,
    "tasks": [
@@ -670,6 +670,10 @@
     {
      "type": "stage",
      "stage": "intel_1"
+    },
+    {
+     "type": "stage",
+     "stage": "radio_2"
     }
    ],
    "id": "7D1CAA38B774A7E9"
@@ -1098,7 +1102,7 @@
    "chapter": "marshall",
    "title": "Fire for effect",
    "voice": "The guns reach further than the tube, and hit harder.",
-   "task": "With a gun standing at a strongpoint, four heavy shells buy a call on the guns: wider, heavier, twenty seconds out.",
+   "task": "With a strongpoint held, four heavy shells buy a call on its guns: wider, heavier, twenty seconds out.",
    "x": 6,
    "y": 0,
    "tasks": [
@@ -1132,7 +1136,7 @@
    "chapter": "marshall",
    "title": "Air support",
    "voice": "Tune found a Cobra on the net. She wants rockets for it.",
-   "task": "With Radio 2 up, four rockets buy the Cobra: a rocket and gun run on the smoke, thirty seconds out.",
+   "task": "Once Tune has read the drives (What was on them), four rockets buy the Cobra: a rocket and gun run on the smoke, thirty seconds out.",
    "x": 8,
    "y": 0,
    "tasks": [

@@ -239,6 +239,9 @@ public final class Loop {
         p.state = to;
         data.setDirty();
         Stages.add(level.getServer(), site.id() + "_" + to.name().toLowerCase(Locale.ROOT));
+        // a held strongpoint's guns answer Marshall's call: `gun_fired` gates Fire for effect, and NOTHING set it - the
+        // artillery strike could never be earned (the completeness audit, 2026-09-19). Holding any strongpoint sets it.
+        if (to == State.HELD && SitePlay.strongpoint(site)) Stages.add(level.getServer(), "gun_fired");
         Board.apply(level, site.id(), to.name().toLowerCase(Locale.ROOT));
     }
 

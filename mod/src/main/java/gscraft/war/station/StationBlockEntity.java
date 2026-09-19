@@ -95,20 +95,31 @@ public class StationBlockEntity extends BlockEntity implements MenuProvider {
         all.addAll(Orders.quick());
         Orders.Order best = null;
         List<String> bestMissing = null;
+        boolean bestLoaded = false;
+        boolean cardLoaded = false;   // the card's own order has some of its parts in: what is loaded is FOR it
         Orders.Order ready = null;   // of the orders that can start, the one that uses the most of what is loaded (sandbags over a bandage)
         for (Orders.Order o : all) {
             List<String> missing = missing(o);
             if (missing.isEmpty()) {
-                if (ready == null || o.in().values().stream().mapToInt(Integer::intValue).sum() > ready.in().values().stream().mapToInt(Integer::intValue).sum()) ready = o;
+                if (ready == null || byCard.contains(o) && !byCard.contains(ready)
+                        || byCard.contains(o) == byCard.contains(ready) && o.in().values().stream().mapToInt(Integer::intValue).sum() > ready.in().values().stream().mapToInt(Integer::intValue).sum()) ready = o;
                 continue;
             }
             boolean loaded = missing.size() < o.in().size() + (o.tool() == null ? 0 : 1) || missing.stream().anyMatch(m -> m.contains(" more "));
-            // the readout names the card's order (or the quick one the inputs are closest to); nothing loaded and no card is "no card"
-            if (best == null || (byCard.contains(o) && !byCard.contains(best)) || (byCard.contains(o) == byCard.contains(best) && loaded && missing.size() < bestMissing.size())) {
+            if (loaded && byCard.contains(o)) cardLoaded = true;
+            // the readout names the card's order (or the quick one the inputs are closest to); nothing loaded and no card is "no card".
+            // A LOADED order beats an unloaded one: the first quick order in the file ("cloth - needs: 2 wool") used to win a tie
+            // against a pistol waiting for its screwdriver (phase 48, 2026-09-19)
+            if (best == null || (byCard.contains(o) && !byCard.contains(best))
+                    || (byCard.contains(o) == byCard.contains(best) && loaded && (!bestLoaded || missing.size() < bestMissing.size()))) {
                 best = o;
                 bestMissing = missing;
+                bestLoaded = loaded;
             }
         }
+        // the card's order is part-loaded and waits for the rest: a quick order must NOT run off with its parts. The claim
+        // marker's two cloth, loaded with the card and everything but the hand drill, were made into a bandage (phase 48)
+        if (ready != null && cardLoaded && !byCard.contains(ready)) ready = null;
         if (ready != null) {
             start(ready);
             return;

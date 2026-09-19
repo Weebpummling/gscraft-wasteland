@@ -83,6 +83,8 @@ check("a world datapack override changes them on /reload", ceiling2 == 4 and rng
 # 3. the changed ceiling bites
 c("gscraft director pause")
 c(f"forceload add {X - 64} {Z - 64} {X + 64} {Z + 64}")
+time.sleep(3)
+L.clear_sky(r, X, Z, 64)   # ground phase: nothing of another phase's platform overhead (localtest.clear_sky)
 time.sleep(6)
 c(f"kill @e[tag=gs_director,{AREA}]")
 c(f"kill @e[tag=gs_placed,{AREA}]")

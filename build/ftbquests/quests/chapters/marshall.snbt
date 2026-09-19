@@ -395,7 +395,7 @@
 			title: "Fire for effect"
 			subtitle: "The guns reach further than the tube, and hit harder."
 			description: [
-				"With a gun standing at a strongpoint, four heavy shells buy a call on the guns: wider, heavier, twenty seconds out."
+				"With a strongpoint held, four heavy shells buy a call on its guns: wider, heavier, twenty seconds out."
 			]
 			dependencies: [
 				"21F988CF156889C3"
@@ -434,7 +434,7 @@
 			title: "Air support"
 			subtitle: "Tune found a Cobra on the net. She wants rockets for it."
 			description: [
-				"With Radio 2 up, four rockets buy the Cobra: a rocket and gun run on the smoke, thirty seconds out."
+				"Once Tune has read the drives (What was on them), four rockets buy the Cobra: a rocket and gun run on the smoke, thirty seconds out."
 			]
 			dependencies: [
 				"21F988CF156889C3"

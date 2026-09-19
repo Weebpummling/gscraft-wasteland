@@ -152,9 +152,9 @@ QUESTS = [
     {"key": "U2", "chapter": "tune", "title": "The map", "voice": "Two of those and the map talks.", "task": "Order two circuit assemblies and bring them. They want a screwdriver set in the tool slot: Walker's hand-tools card makes one.",
      "x": 4, "y": 0, "tasks": [item("gscraft:circuit_assembly", 2)], "deps": ["U1"],
      "rewards": [stage("radio_1"), say("tune", "map")]},
-    {"key": "U3", "chapter": "tune", "title": "What was on them", "voice": "Offices kept everything. Bring me their drives.", "task": "Three hard drives, from the town's offices.",
+    {"key": "U3", "chapter": "tune", "title": "What was on them", "voice": "Offices kept everything. Bring me their drives.", "task": "Three hard drives, from the town's offices. What is on them is how Tune raises the Cobra.",
      "x": 6, "y": 0, "tasks": [item("gscraft:hard_drive", 3)], "deps": ["U2"],
-     "rewards": [give("gscraft:circuit_assembly", 1), stage("intel_1")]},
+     "rewards": [give("gscraft:circuit_assembly", 1), stage("intel_1"), stage("radio_2")]},   # the drives held the frequencies: `radio_2` gates Air support and nothing set it (audit, 2026-09-19)
     # James
     meet("james"),
     {"key": "J1", "chapter": "james", "title": "Get your bearings", "voice": "Walk it before you trust it.", "task": "Reach the level crossing and the mast's field.",
@@ -194,10 +194,10 @@ QUESTS = [
     {"key": "fire_mission", "chapter": "marshall", "title": "Fire mission", "voice": "Six shells buys you one call.", "task": "Hand in six mortar shells for a fire-mission grenade. Throw it where you want the rounds; fifteen seconds, then six of them.",
      "x": 4, "y": 0, "tasks": [item("superbwarfare:mortar_shell", 6)], "deps": ["tube"], "repeat": True,
      "rewards": [give("gscraft:strike_mortar")]},
-    {"key": "fire_for_effect", "chapter": "marshall", "title": "Fire for effect", "voice": "The guns reach further than the tube, and hit harder.", "task": "With a gun standing at a strongpoint, four heavy shells buy a call on the guns: wider, heavier, twenty seconds out.",
+    {"key": "fire_for_effect", "chapter": "marshall", "title": "Fire for effect", "voice": "The guns reach further than the tube, and hit harder.", "task": "With a strongpoint held, four heavy shells buy a call on its guns: wider, heavier, twenty seconds out.",
      "x": 6, "y": 0, "tasks": [adv("gun_fired"), item("superbwarfare:large_shell_he", 4)], "deps": ["tube"], "repeat": True, "hide_until_deps": True,
      "rewards": [give("gscraft:strike_artillery")]},
-    {"key": "air_support", "chapter": "marshall", "title": "Air support", "voice": "Tune found a Cobra on the net. She wants rockets for it.", "task": "With Radio 2 up, four rockets buy the Cobra: a rocket and gun run on the smoke, thirty seconds out.",
+    {"key": "air_support", "chapter": "marshall", "title": "Air support", "voice": "Tune found a Cobra on the net. She wants rockets for it.", "task": "Once Tune has read the drives (What was on them), four rockets buy the Cobra: a rocket and gun run on the smoke, thirty seconds out.",
      "x": 8, "y": 0, "tasks": [adv("radio_2"), item("superbwarfare:medium_rocket_he", 4)], "deps": ["tube"], "repeat": True, "hide_until_deps": True,
      "rewards": [give("gscraft:strike_air")]},
     # The pocket: the gap, then the five takes (start-compound §5; ruling R22/R23)

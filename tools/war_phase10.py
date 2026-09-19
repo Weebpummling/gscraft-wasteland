@@ -73,6 +73,8 @@ def counted(reply):
 c("gscraft director phantom clear")
 c("gscraft director pause")   # the bench runs the passes; the director's own tick would run with the phantoms too
 c(f"forceload add {X - 64} {Z - 64} {X + 64} {Z + 64}")
+time.sleep(3)
+L.clear_sky(r, X, Z, 64)   # ground phase: nothing of another phase's platform overhead (localtest.clear_sky)
 c(f"forceload add {OUTPOST[0] - 64} {OUTPOST[1] - 64} {OUTPOST[0] + 64} {OUTPOST[1] + 64}")
 time.sleep(8)
 kill_director(CAMP_AREA)

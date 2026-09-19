@@ -698,11 +698,15 @@ public final class Director {
             int x = zone.x0() + random.nextInt(Math.max(1, zone.x1() - zone.x0()));
             int z = zone.z0() + random.nextInt(Math.max(1, zone.z1() - zone.z0()));
             if (!level.hasChunkAt(new BlockPos(x, 64, z))) continue;
+            // never inside an excluded zone or its margin. The rail-yard outpost's box overlapped the WALLED compound after the
+            // start moved there, and its NATO garrison stood at the brick works, inside the players' wall (phase 36 named it, 2026-09-19)
+            Zone here = Zones.at(x, z);
+            if (here != null && here.exclude() || Zones.nearExcluded(x, z)) continue;
             BlockPos p = groundAt(level, x, z);
             if (p != null) return p;
         }
         // a zone of water and unloaded ground: the centre column, then nothing
-        if (level.hasChunkAt(new BlockPos(zone.centerX(), 64, zone.centerZ()))) return groundAt(level, zone.centerX(), zone.centerZ());
+        if (level.hasChunkAt(new BlockPos(zone.centerX(), 64, zone.centerZ())) && !Zones.nearExcluded(zone.centerX(), zone.centerZ())) return groundAt(level, zone.centerX(), zone.centerZ());
         return null;
     }
 

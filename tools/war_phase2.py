@@ -67,6 +67,7 @@ check("faction data loaded", set(names) >= {"nato", "ruaf", "scavengers", "dead"
 
 c(f"forceload add {X - 60} {Z - 60} {X + 60} {Z + 60}", 60)
 time.sleep(5)
+L.clear_sky(r, X, Z, 60)   # ground phase: nothing of another phase's platform overhead (localtest.clear_sky)
 clear()
 
 # 2. the Dead hunt soldiers

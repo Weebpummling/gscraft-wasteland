@@ -438,7 +438,21 @@ round its anchor (the switchyard's and the intake's had to be widened: round the
 was not true:** the notebook said the clinic cures infection, that painkillers treat wounds, that a car carries a bulky part
 in its bay and "cars come with the garage", and that the hall has a map wall (the board was removed); two field notes and
 sixteen tooltips were stale or vague (the claim marker's still asked for a white banner). All say what is so now.
-**Audited and found whole:** every translation key the code uses; every line a survivor is told to say; every function a
+(4) **Two strikes could never be earned.** Fire for effect waits for the stage `gun_fired` and Air support for `radio_2`, and NOTHING in the game set
+either. Wired to what exists: `Loop.setState` sets `gun_fired` when any strongpoint becomes held ("the strongpoints' guns", as the strike's own tooltip says),
+and Tune's U3 (What was on them) sets `radio_2`; both quests' texts say so. Phase 47 now fails on any stage a quest waits for that nothing sets.
+(5) **The five new orders had never been started**, only read as data: `tools/war_phase48.py` loads every one of the 24 orders into a real station - it must
+start, refuse without its tool and name it, and every quick order must deliver its count.
+(6) **A NATO garrison stood INSIDE the players' wall.** The rail-yard outpost's zone (`sk_out_e`) overlapped the walled compound after the start moved there, and
+`Director.groundIn` stands a garrison anywhere in its zone's box with no regard for exclusion: three NATO soldiers at the brick works. Phase 36 had gone red
+one full run in two and green alone for a day; it names what it finds now, and it named a `gs_garrison_sk_out_e` rifleman at -745 71 -861. Fixed twice over:
+`groundIn` refuses an excluded zone and its margin, and the outpost's box moved east (-680..-584 x -958..-862: forty clear of the wall, its home radius ends
+outside the margin). No other garrison or lair touches the compound's margin (checked).
+(7) **The station ate a player's parts.** With the claim marker's card and everything but the hand drill loaded, a cardless quick order ran off with the two
+cloth and made a bandage; and a pistol waiting for its screwdriver was reported as "cloth - needs: 2 wool" (the first quick order in the file won the tie).
+Now a part-loaded card order keeps its parts, the card's order is preferred among those that can start, and a loaded order beats an unloaded one in the readout.
+Both found by phase 48 on its first honest run.
+**Audited and found whole:** all 37 `/gscraft` subcommands are in the commands guide; every translation key the code uses; every line a survivor is told to say; every function a
 quest or the code runs; the quest graph (no unknown dependency, no two quests on one spot, none without text); every
 item's name. **Stages nothing reads** - `workshop_1`, `storage_1`, `medical_1`, `generator_1`, `water_1`, `radio_1`,
 `workshop_2`, `medical_2`, `intel_1`, `mortar_built`, `skadowsky_scouted` and the eleven `bp_*` - are flags for features
@@ -446,6 +460,9 @@ not built; no text promises anything of them, so they are groundwork, not a debt
 **The proof:** `tools/war_phase47.py` - each strongpoint climbed by the stand-ins (refused, scouted, six searches, claimed);
 twice the loot goal in each; the med kit heals and is the cure (`/gscraft items` lists medicines now); no text names what is
 gone; stages, functions and lines all present; every order's tool obtainable. **Results on the final jar (705,167 bytes): 47 7/7, 46 13/13 (180 containers), 44 10/10, 36 4/4 three times running, 31, 33, 34 green; the third full run of the suite before these last changes was 42 of 44, both red mine (36's measurement, and 46 seeing containers recorded and not yet placed).**
+**The fourth full run of the suite (before the garrison and station fixes): 43 of 45 headless phases green**; the two red were phase 2 (a platform left over the
+shared pad: `localtest.clear_sky`, now called by every ground phase) and phase 36 (the garrison above). **After every fix, on the final jar (705,513 bytes):
+2 8/8, 4 13/13, 10 8/8, 25 5/5, 32 7/7, 35 6/6, 36 4/4 twice, 44 10/10, 46 13/13, 47 8/8, 48 4/4.**
 **Still not mine to finish:** anything that needs a player (the owner: no client tests) and anything on live.
 
 **2026-09-19, THE LOOT SYSTEM, COMPLETE AND VERIFIED - LOCAL ONLY (owner: "make a complete loot design now, and just do this

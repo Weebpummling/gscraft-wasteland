@@ -167,6 +167,15 @@ if __name__ == "__main__":
 FILL_LIMIT = 32768
 
 
+def clear_sky(rcon, x, z, rad=90):
+    """A phase that stands its bodies on the GROUND (`positioned over motion_blocking...`) shares the pad at -2000 -600 with phases
+    that build platforms at y 200, and whatever one of those left behind puts half the bodies 133 blocks over the other half:
+    phase 3's Marksman and listener (2026-09-19), then phase 2's zombie and its prey in the fourth full run. The chunks must be
+    loaded. Clears y 198..203 over the pad, in strips under the fill cap."""
+    for z0 in range(z - rad, z + rad + 1, 30):
+        rcon.cmd(f"fill {x - rad} 198 {z0} {x + rad} 203 {min(z0 + 29, z + rad)} minecraft:air", timeout=120)
+
+
 def fill(rcon, x0, y0, z0, x1, y1, z1, block, mode=""):
     """/fill in slices that stay under the command's 32768-block limit (a bigger fill fails silently in a script).
     mode "hollow" is done as the six faces so the limit holds for any size."""
