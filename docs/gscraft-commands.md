@@ -93,6 +93,7 @@ only board-coloured blocks, over each board's footprint. The mod runs without `g
 | `/gscraft strike reset` | every cooldown cleared, every scheduled round dropped, any Cobra unloaded |
 | `/function gscraft:yard_mortar` | the tube stands in the yard. **The tube's reward only - never run it at a deploy** |
 | `/function gscraft:gate_close` | the north gate barred: sandbags two high each side, a fence gate in the middle (R0's reward - never a deploy step) |
+| `/function gscraft:camp_signs_clear` | takes down every sign the camp functions ever wrote beside a survivor (24 positions; guarded: only an oak sign is cleared). The survivors have no signs any more |
 | `/function gscraft:old_compound_chests_clear` | removes the 19 Lootr chests placed in the SOUTH compound before the move; guarded (only where a Lootr chest still stands); the chunks x -980..-920, z -897..-818 must be loaded. Run locally 2026-09-19; **on live only on the owner's word** |
 | `/function gscraft:gate_open` | the opening as the map had it (`/gscraft reset quests` runs this) |
 | `/function gscraft:yard_mortar_clear` | the tube taken down (`/gscraft reset quests` runs this) |

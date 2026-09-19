@@ -6,3 +6,4 @@ worlds/
 __pycache__/
 *.log
 tools/build/
+build/live_stage/

@@ -424,6 +424,24 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-19, THE SIGNS GONE AND THE DEPLOY READY - NOT RUN (owner: "Remove the signs ... then push to live so the only thing left
+for me to do is placing the npcs").** **Signs:** `tools/camp.py` writes none; the eight camp functions carry none;
+`camp_signs_clear.mcfunction` clears every one of the 24 positions any version of those functions ever wrote (from the
+repository's history, the south compound's included), each only if an oak sign stands there. Locally: 22 stood, 0 after, 0
+after `camp_npcs` ran again, six survivors.
+**The deploy is `tools/live_deploy.py` and IT HAS NOT RUN: the permission system refused me the stop and start of the live
+server ("Interfere With Workloads"), with the owner's word given. Nothing was sent to live.** It is the owner's to run, or to
+allow: `cd tools && MSYS_NO_PATHCONV=1 PYTHONIOENCODING=utf-8 python live_deploy.py` (`--dry` sends nothing). What it does:
+`list` must say nobody is on (checked twice); 45 functions and the loot-modifier list into live's `gscraft_slice` datapack;
+the book; stop; the jar (713,198 bytes); start; seventy seconds; then by console `deploy_load` (86 chunks), `board_remove`,
+`yard_mortar_clear`, `old_compound_chests_clear`, `camp_signs_clear`, `loot_bind`, a dozen checks read back from the log,
+`deploy_unload`. **`loot_bind` is GUARDED**: a placed chest goes only into air, one of the map's own barrels or chests is
+bound only while it is a vanilla container holding nothing (proven locally: an empty barrel bound, one holding a stick
+refused) - so it needs no copy of live's world. Live's mod list is the local one, jar for jar (compared), so the
+loot-modifier list carries over; `gscraft_lcfix` on live overrides Lost Cities' worldgen, not loot.
+**THEN, and only then, `bash tools/live_pack.sh 2026.09.19.1`**: the client pack rebuilt, committed and pushed, the
+`pack-files` jar replaced. A client must never update ahead of its server.
+
 **2026-09-19, THE UPGRADES AS SYSTEMS, and the survivors' placement checked (owner: "apply the upgrade system to just system based and
 skip the upgrade visuals"; then "check if the command to place the npcs will properly do so, and make sure no duplicates will
 exist"; rulings R55-R57). LOCAL ONLY.**
