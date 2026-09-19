@@ -1,307 +1,345 @@
 {
-	default_hide_dependency_lines: false
-	default_quest_shape: ""
-	filename: "pocket"
-	group: ""
-	icon: "superbwarfare:sandbag"
 	id: "5D227572CD0BCBA8"
-	order_index: 7
-	quest_links: [ ]
+	group: ""
+	order_index: 6
+	filename: "pocket"
+	title: "The pocket"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	tags: [
+		"pocket"
+	]
 	quests: [
 		{
-			dependencies: ["0016A4AE37CD6D15"]
-			description: ["Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred."]
-			hide_until_deps_complete: true
 			id: "03F608F813A19429"
-			rewards: [{
-				auto: "invisible"
-				command: "/gscraft stage add compound_closed"
-				elevate_perms: true
-				id: "3874ACDBD348435A"
-				silent: true
-				title: "the stage compound_closed"
-				type: "command"
-			}]
-			subtitle: "Marshall wants that gate shut before dark."
-			tasks: [{
-				consume_items: true
-				count: 8L
-				id: "5ED01DA92799CD96"
-				item: "superbwarfare:sandbag"
-				type: "item"
-			}]
-			title: "The north gate"
 			x: 0.0d
 			y: 0.0d
-		}
-		{
-			dependencies: ["03F608F813A19429"]
-			description: ["Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch and the map wall."]
-			id: "61360A05E98643F7"
+			title: "The north gate"
+			subtitle: "Marshall wants that gate shut before dark."
+			description: [
+				"Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred. Marshall has a rifle for whoever goes out past it."
+			]
+			dependencies: [
+				"0016A4AE37CD6D15"
+			]
+			hide_until_deps_complete: true
+			tasks: [
+				{
+					id: "63AA876D2949B0F6"
+					type: "item"
+					item: "superbwarfare:sandbag"
+					count: 8
+					consume_items: true
+				}
+			]
 			rewards: [
 				{
-					auto: "invisible"
-					command: "/gscraft stage add square_taken"
-					elevate_perms: true
-					id: "7C72BA3E9D7374DA"
-					silent: true
-					title: "the stage square_taken"
+					id: "0091B29D580EBE9A"
 					type: "command"
-				}
-				{
-					auto: "invisible"
-					command: "/gscraft stage add skadowsky_scouted"
+					title: "the stage compound_closed"
+					command: "/gscraft stage add compound_closed"
 					elevate_perms: true
-					id: "7AC3D5B205A66673"
 					silent: true
-					title: "the stage skadowsky_scouted"
+					auto: "invisible"
+				}
+				{
+					id: "277154B20377CA60"
 					type: "command"
-				}
-			]
-			subtitle: "The square is ours if we say it is."
-			tasks: [
-				{
-					dimension: "minecraft:overworld"
-					id: "2599740A8B50B9C0"
-					ignore_dimension: false
-					position: [I;
-						-966
-						40
-						-1000
-					]
-					size: [I;
-						53
-						70
-						43
-					]
-					title: "Reach the square"
-					type: "location"
+					title: "function"
+					command: "/function gscraft:gate_close"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
 				}
 				{
-					consume_items: true
-					count: 8L
-					id: "63987B9577826D9F"
-					item: "gscraft:metal_scrap"
+					id: "7B79AED16D6F98C5"
 					type: "item"
+					auto: "enabled"
+					item: "superbwarfare:marlin"
+					count: 1
+				}
+				{
+					id: "5950B8FF9533355F"
+					type: "item"
+					auto: "enabled"
+					item: "superbwarfare:rifle_ammo"
+					count: 32
 				}
 			]
-			title: "The junction"
+		}
+		{
+			id: "7F6BE292AA63A3F0"
 			x: 2.0d
 			y: 0.0d
-		}
-		{
-			description: ["Reach the gatehouse; hand in a fastener kit and eight scrap."]
-			id: "6C2652003F714FD9"
-			rewards: [{
-				auto: "invisible"
-				command: "/gscraft stage add gatehouse_taken"
-				elevate_perms: true
-				id: "35CD9636BE3CB3C3"
-				silent: true
-				title: "the stage gatehouse_taken"
-				type: "command"
-			}]
-			subtitle: "The bridge's east end. Bar the doors and Marshall moves in."
+			title: "The junction"
+			subtitle: "The square is ours if we say it is."
+			description: [
+				"Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch."
+			]
+			dependencies: [
+				"03F608F813A19429"
+			]
 			tasks: [
 				{
-					dimension: "minecraft:overworld"
-					id: "34532268D2B74A0E"
-					ignore_dimension: false
-					position: [I;
-						-982
-						40
-						-960
-					]
-					size: [I;
-						33
-						70
-						25
-					]
-					title: "Reach the gatehouse"
+					id: "2599740A8B50B9C0"
 					type: "location"
+					title: "Reach the square"
+					dimension: "minecraft:overworld"
+					ignore_dimension: false
+					position: [I;-966, 40, -1000]
+					size: [I;53, 70, 43]
 				}
 				{
-					consume_items: true
-					id: "23FE675F28026BB2"
-					item: "gscraft:fastener_kit"
+					id: "18491F7562952156"
 					type: "item"
-				}
-				{
-					consume_items: true
-					count: 8L
-					id: "36658FE6F73CB011"
 					item: "gscraft:metal_scrap"
-					type: "item"
+					count: 8
+					consume_items: true
 				}
 			]
-			title: "The gatehouse"
+			rewards: [
+				{
+					id: "7C72BA3E9D7374DA"
+					type: "command"
+					title: "the stage square_taken"
+					command: "/gscraft stage add square_taken"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "7ED989DF0AE7447E"
+					type: "command"
+					title: "the stage skadowsky_scouted"
+					command: "/gscraft stage add skadowsky_scouted"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "79D3600C6DDDB968"
+					type: "item"
+					auto: "enabled"
+					item: "superbwarfare:ru_chest_6b43"
+					count: 1
+				}
+				{
+					id: "49ECDAD52959602C"
+					type: "item"
+					auto: "enabled"
+					item: "superbwarfare:armor_plate"
+					count: 2
+				}
+			]
+		}
+		{
+			id: "28661C3DC1C47CB3"
 			x: 4.0d
 			y: -2.0d
-		}
-		{
-			description: ["Reach the clinic; hand in a fastener kit and eight scrap."]
-			id: "408CF436570458C9"
-			rewards: [{
-				auto: "invisible"
-				command: "/gscraft stage add clinic_taken"
-				elevate_perms: true
-				id: "06C2E0B3B465013D"
-				silent: true
-				title: "the stage clinic_taken"
-				type: "command"
-			}]
-			subtitle: "Twenty-four beds, and a shack with an aerial."
+			title: "The gatehouse"
+			subtitle: "The bridge's east end. Bar the doors and Marshall moves in."
+			description: [
+				"Reach the gatehouse; hand in a fastener kit and eight scrap."
+			]
+			dependencies: [
+				"7F6BE292AA63A3F0"
+			]
 			tasks: [
 				{
-					dimension: "minecraft:overworld"
-					id: "5470AB3BD28675AC"
-					ignore_dimension: false
-					position: [I;
-						-970
-						40
-						-1094
-					]
-					size: [I;
-						77
-						70
-						99
-					]
-					title: "Reach the north complex"
+					id: "50EA8E6BEC207D9D"
 					type: "location"
+					title: "Reach the gatehouse"
+					dimension: "minecraft:overworld"
+					ignore_dimension: false
+					position: [I;-982, 40, -960]
+					size: [I;33, 70, 25]
 				}
 				{
-					consume_items: true
-					id: "2C413F4F51EF3D42"
+					id: "23FE675F28026BB2"
+					type: "item"
 					item: "gscraft:fastener_kit"
-					type: "item"
+					count: 1
+					consume_items: true
 				}
 				{
-					consume_items: true
-					count: 8L
-					id: "4802E857BD4A59F6"
-					item: "gscraft:metal_scrap"
+					id: "06B0D15152B92A65"
 					type: "item"
+					item: "gscraft:metal_scrap"
+					count: 8
+					consume_items: true
 				}
 			]
-			title: "The north complex"
+			rewards: [
+				{
+					id: "35CD9636BE3CB3C3"
+					type: "command"
+					title: "the stage gatehouse_taken"
+					command: "/gscraft stage add gatehouse_taken"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "408CF436570458C9"
 			x: 4.0d
 			y: 0.0d
-		}
-		{
-			description: ["Reach the signal box; hand in a fastener kit and eight scrap."]
-			id: "65DE32B280852DE6"
-			rewards: [{
-				auto: "invisible"
-				command: "/gscraft stage add crossing_taken"
-				elevate_perms: true
-				id: "2F795DC85EE79B13"
-				silent: true
-				title: "the stage crossing_taken"
-				type: "command"
-			}]
-			subtitle: "The east gate is a railway crossing."
+			title: "The north complex"
+			subtitle: "Twenty-four beds, and a shack with an aerial."
+			description: [
+				"Reach the clinic; hand in a fastener kit and eight scrap."
+			]
+			dependencies: [
+				"7F6BE292AA63A3F0"
+			]
 			tasks: [
 				{
-					dimension: "minecraft:overworld"
-					id: "201C31985C78EABB"
-					ignore_dimension: false
-					position: [I;
-						-912
-						40
-						-988
-					]
-					size: [I;
-						35
-						70
-						31
-					]
-					title: "Reach the crossing"
+					id: "49A9A4A300247A58"
 					type: "location"
+					title: "Reach the north complex"
+					dimension: "minecraft:overworld"
+					ignore_dimension: false
+					position: [I;-970, 40, -1094]
+					size: [I;77, 70, 99]
 				}
 				{
-					consume_items: true
-					id: "30BBC8C16A86FF0C"
+					id: "2C413F4F51EF3D42"
+					type: "item"
 					item: "gscraft:fastener_kit"
-					type: "item"
+					count: 1
+					consume_items: true
 				}
 				{
-					consume_items: true
-					count: 8L
-					id: "52837B580E5797BE"
-					item: "gscraft:metal_scrap"
+					id: "0097EDA9CFE25E73"
 					type: "item"
+					item: "gscraft:metal_scrap"
+					count: 8
+					consume_items: true
 				}
 			]
-			title: "The crossing"
-			x: 4.0d
-			y: 2.0d
+			rewards: [
+				{
+					id: "73FEDABEED259656"
+					type: "command"
+					title: "the stage clinic_taken"
+					command: "/gscraft stage add clinic_taken"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
 		}
 		{
+			id: "65DE32B280852DE6"
+			x: 4.0d
+			y: 2.0d
+			title: "The crossing"
+			subtitle: "The east gate is a railway crossing."
+			description: [
+				"Reach the signal box; hand in a fastener kit and eight scrap."
+			]
 			dependencies: [
+				"7F6BE292AA63A3F0"
+			]
+			tasks: [
+				{
+					id: "201C31985C78EABB"
+					type: "location"
+					title: "Reach the crossing"
+					dimension: "minecraft:overworld"
+					ignore_dimension: false
+					position: [I;-912, 40, -988]
+					size: [I;35, 70, 31]
+				}
+				{
+					id: "30BBC8C16A86FF0C"
+					type: "item"
+					item: "gscraft:fastener_kit"
+					count: 1
+					consume_items: true
+				}
+				{
+					id: "52837B580E5797BE"
+					type: "item"
+					item: "gscraft:metal_scrap"
+					count: 8
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "2F795DC85EE79B13"
+					type: "command"
+					title: "the stage crossing_taken"
+					command: "/gscraft stage add crossing_taken"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "7BF4278C81041457"
+			x: 6.0d
+			y: 0.0d
+			title: "The mast's field"
+			subtitle: "The mast is dead. The field under it doesn't have to be."
+			description: [
+				"Reach the field; hand in two fastener kits and sixteen scrap."
+			]
+			dependencies: [
+				"28661C3DC1C47CB3"
 				"408CF436570458C9"
 				"65DE32B280852DE6"
 			]
-			description: ["Reach the field; hand in two fastener kits and sixteen scrap."]
-			id: "7BF4278C81041457"
-			rewards: [
-				{
-					auto: "invisible"
-					command: "/gscraft stage add mast_taken"
-					elevate_perms: true
-					id: "2B6DCB188600009D"
-					silent: true
-					title: "the stage mast_taken"
-					type: "command"
-				}
-				{
-					auto: "invisible"
-					command: "/gscraft stage add skadowsky_held"
-					elevate_perms: true
-					id: "6E7A7CEC73973CC6"
-					silent: true
-					title: "the stage skadowsky_held"
-					type: "command"
-				}
-			]
-			subtitle: "The mast is dead. The field under it doesn't have to be."
 			tasks: [
 				{
-					dimension: "minecraft:overworld"
 					id: "21CF83F5E3E76E01"
-					ignore_dimension: false
-					position: [I;
-						-846
-						40
-						-1040
-					]
-					size: [I;
-						77
-						70
-						81
-					]
-					title: "Reach the mast's field"
 					type: "location"
+					title: "Reach the mast's field"
+					dimension: "minecraft:overworld"
+					ignore_dimension: false
+					position: [I;-846, 40, -1040]
+					size: [I;77, 70, 81]
 				}
 				{
-					consume_items: true
-					count: 2L
-					id: "456DBAC37C97781E"
+					id: "1DA3845CCEECA08E"
+					type: "item"
 					item: "gscraft:fastener_kit"
-					type: "item"
+					count: 2
+					consume_items: true
 				}
 				{
-					consume_items: true
-					count: 16L
 					id: "6511826BE009D322"
-					item: "gscraft:metal_scrap"
 					type: "item"
+					item: "gscraft:metal_scrap"
+					count: 16
+					consume_items: true
 				}
 			]
-			title: "The mast's field"
-			x: 6.0d
-			y: 0.0d
+			rewards: [
+				{
+					id: "0E8A9A98A449B5DB"
+					type: "command"
+					title: "the stage mast_taken"
+					command: "/gscraft stage add mast_taken"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "05467B17910BC366"
+					type: "command"
+					title: "the stage skadowsky_held"
+					command: "/gscraft stage add skadowsky_held"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
 		}
 	]
-	tags: ["pocket"]
-	title: "The pocket"
+	quest_links: [ ]
+	icon: "superbwarfare:sandbag"
 }

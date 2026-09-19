@@ -1,131 +1,182 @@
 {
-	default_hide_dependency_lines: false
-	default_quest_shape: ""
-	filename: "michael"
-	group: ""
-	icon: "gscraft:wire_spool"
 	id: "3D905E296DC1E25A"
-	order_index: 3
-	quest_links: [ ]
+	group: ""
+	order_index: 2
+	filename: "michael"
+	title: "Michael"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	tags: [
+		"michael"
+	]
 	quests: [
 		{
-			description: ["You spoke to Michael. Their chapter is open."]
-			id: "1460EFC5AC2998FD"
-			invisible: true
-			tasks: [{
-				advancement: "gscraft:stage/seen_michael"
-				criterion: "set"
-				id: "430FD9CB1DF3A636"
-				type: "advancement"
-			}]
-			title: "Meet Michael"
-			x: 0.0d
-			y: 0.0d
-		}
-		{
-			description: ["Hand in three wire spools, a power cord and a water filter."]
 			id: "44D246950C7B83C4"
-			rewards: [
-				{
-					id: "6AD097F302D4ADF6"
-					item: "gscraft:card_wiring_harness"
-					type: "item"
-				}
-				{
-					id: "74076243FF32F4B9"
-					item: "gscraft:card_filter_cartridge"
-					type: "item"
-				}
-				{
-					auto: "invisible"
-					command: "/gscraft stage add bp_wiring_harness"
-					elevate_perms: true
-					id: "52902240C42F85B0"
-					silent: true
-					title: "the stage bp_wiring_harness"
-					type: "command"
-				}
-				{
-					auto: "invisible"
-					command: "/gscraft stage add bp_filter_cartridge"
-					elevate_perms: true
-					id: "08F7044E0BDF7305"
-					silent: true
-					title: "the stage bp_filter_cartridge"
-					type: "command"
-				}
-			]
-			subtitle: "Wire first. Everything else is wire with a job."
-			tasks: [
-				{
-					consume_items: true
-					count: 3L
-					id: "663299C48AB63EC4"
-					item: "gscraft:wire_spool"
-					type: "item"
-				}
-				{
-					consume_items: true
-					id: "10764AEE90F9DA6D"
-					item: "gscraft:power_cord"
-					type: "item"
-				}
-				{
-					consume_items: true
-					id: "6057F93633618D43"
-					item: "gscraft:water_filter"
-					type: "item"
-				}
-			]
-			title: "Sparks"
 			x: 2.0d
 			y: 0.0d
-		}
-		{
-			dependencies: ["44D246950C7B83C4"]
-			description: ["Order two wiring harnesses and find a light bulb."]
-			id: "3E696D1A279CE198"
-			rewards: [
-				{
-					auto: "invisible"
-					command: "/gscraft stage add generator_1"
-					elevate_perms: true
-					id: "2E1C82D58CAA6F19"
-					silent: true
-					title: "the stage generator_1"
-					type: "command"
-				}
-				{
-					auto: "invisible"
-					command: "/gscraft say michael lights @s"
-					elevate_perms: true
-					id: "6B1BA9C8A69EFF58"
-					silent: true
-					title: "michael speaks"
-					type: "command"
-				}
+			title: "Sparks"
+			subtitle: "Wire first. Everything else is wire with a job."
+			description: [
+				"Hand in three wire spools, a power cord and a water filter."
 			]
-			subtitle: "There's a generator under that tarp."
+			dependencies: [
+				"3197DA86940AABFE"
+			]
 			tasks: [
 				{
-					consume_items: true
-					count: 2L
-					id: "6E34ED48CF25C05E"
-					item: "gscraft:wiring_harness"
+					id: "663299C48AB63EC4"
 					type: "item"
+					item: "gscraft:wire_spool"
+					count: 3
+					consume_items: true
 				}
 				{
-					consume_items: true
-					id: "4E10BE3944F38DBC"
-					item: "gscraft:light_bulb"
+					id: "0CC0F19859F0C78F"
 					type: "item"
+					item: "gscraft:power_cord"
+					count: 1
+					consume_items: true
+				}
+				{
+					id: "6057F93633618D43"
+					type: "item"
+					item: "gscraft:water_filter"
+					count: 1
+					consume_items: true
 				}
 			]
-			title: "Lights on"
+			rewards: [
+				{
+					id: "4ECC710ED2694506"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:card_wiring_harness"
+					count: 1
+				}
+				{
+					id: "584D58B8F1A45F24"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:card_filter_cartridge"
+					count: 1
+				}
+				{
+					id: "52902240C42F85B0"
+					type: "command"
+					title: "the stage bp_wiring_harness"
+					command: "/gscraft stage add bp_wiring_harness"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "20ABB87E87F628FC"
+					type: "command"
+					title: "the stage bp_filter_cartridge"
+					command: "/gscraft stage add bp_filter_cartridge"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "3E696D1A279CE198"
 			x: 4.0d
 			y: 0.0d
+			title: "Lights on"
+			subtitle: "There's a generator under that tarp."
+			description: [
+				"Order two wiring harnesses and find a light bulb. Lit, the compound keeps what is out there further from its wall. A harness is pliers' work: Walker's hand-tools card makes a pair, and workshops have them."
+			]
+			dependencies: [
+				"44D246950C7B83C4"
+			]
+			tasks: [
+				{
+					id: "6E34ED48CF25C05E"
+					type: "item"
+					item: "gscraft:wiring_harness"
+					count: 2
+					consume_items: true
+				}
+				{
+					id: "4E10BE3944F38DBC"
+					type: "item"
+					item: "gscraft:light_bulb"
+					count: 1
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "2E1C82D58CAA6F19"
+					type: "command"
+					title: "the stage generator_1"
+					command: "/gscraft stage add generator_1"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "786BF83D6DEEAF14"
+					type: "command"
+					title: "michael speaks"
+					command: "/gscraft say michael lights @s"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "379A96535ECDEAD8"
+			x: 6.0d
+			y: 0.0d
+			title: "Water"
+			subtitle: "The tank's fine. What comes out of it isn't."
+			description: [
+				"Order two filter cartridges and find a pressure gauge; workshops have the gauges. Clean water: inside the compound, wounds close on their own."
+			]
+			dependencies: [
+				"3E696D1A279CE198"
+			]
+			tasks: [
+				{
+					id: "65196370BCEDE5E8"
+					type: "item"
+					item: "gscraft:filter_cartridge"
+					count: 2
+					consume_items: true
+				}
+				{
+					id: "39AEEA17CF3694A1"
+					type: "item"
+					item: "gscraft:pressure_gauge"
+					count: 1
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "4CBCCB7F62F443FF"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:canned_goods"
+					count: 6
+				}
+				{
+					id: "37E7DBFE1530BE80"
+					type: "command"
+					title: "the stage water_1"
+					command: "/gscraft stage add water_1"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
 		}
 	]
-	tags: ["michael"]
-	title: "Michael"
+	quest_links: [ ]
+	icon: "gscraft:wire_spool"
 }

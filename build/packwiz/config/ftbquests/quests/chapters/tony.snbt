@@ -1,101 +1,150 @@
 {
-	default_hide_dependency_lines: false
-	default_quest_shape: ""
-	filename: "tony"
+	id: "64F1B6A0C48BBB5C"
 	group: ""
-	icon: "gscraft:bandage"
-	id: "3B6F534D34BEBC6A"
-	order_index: 2
-	quest_links: [ ]
+	order_index: 1
+	filename: "tony"
+	title: "Tony"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	tags: [
+		"tony"
+	]
 	quests: [
 		{
-			description: ["You spoke to Tony. Their chapter is open."]
-			id: "26C761E4EAED6624"
-			invisible: true
-			tasks: [{
-				advancement: "gscraft:stage/seen_tony"
-				criterion: "set"
-				id: "4168AB9460C74033"
-				type: "advancement"
-			}]
-			title: "Meet Tony"
-			x: 0.0d
-			y: 0.0d
-		}
-		{
-			description: ["Hand in four bandages and two painkillers."]
 			id: "7B637596EC041BC1"
+			x: 2.0d
+			y: 0.0d
+			title: "Field dressing"
+			subtitle: "The shelves here are bare."
+			description: [
+				"Hand in four bandages and two painkillers."
+			]
+			dependencies: [
+				"4C8C6FEF50EC1831"
+			]
+			tasks: [
+				{
+					id: "68A241FF02E5F45D"
+					type: "item"
+					item: "gscraft:bandage"
+					count: 4
+					consume_items: true
+				}
+				{
+					id: "01A93FAC6D9A8689"
+					type: "item"
+					item: "gscraft:painkillers"
+					count: 2
+					consume_items: true
+				}
+			]
 			rewards: [
 				{
 					id: "385FF82781E7B40A"
-					item: "gscraft:card_med_kit"
 					type: "item"
+					auto: "enabled"
+					item: "gscraft:card_med_kit"
+					count: 1
 				}
 				{
-					auto: "invisible"
+					id: "7E5F8833D8951E3F"
+					type: "command"
+					title: "the stage bp_med_kit"
 					command: "/gscraft stage add bp_med_kit"
 					elevate_perms: true
-					id: "7E5F8833D8951E3F"
 					silent: true
-					title: "the stage bp_med_kit"
-					type: "command"
+					auto: "invisible"
 				}
 			]
-			subtitle: "The shelves here are bare."
-			tasks: [
-				{
-					consume_items: true
-					count: 4L
-					id: "67F045647CD73073"
-					item: "gscraft:bandage"
-					type: "item"
-				}
-				{
-					consume_items: true
-					count: 2L
-					id: "01A93FAC6D9A8689"
-					item: "gscraft:painkillers"
-					type: "item"
-				}
-			]
-			title: "Field dressing"
-			x: 2.0d
-			y: 0.0d
 		}
 		{
-			dependencies: ["7B637596EC041BC1"]
-			description: ["Order two med kits and bring them."]
 			id: "7E3A7A7A5C44B2B0"
-			rewards: [
-				{
-					count: 4
-					id: "1A3AB20D126B1650"
-					item: "gscraft:med_kit"
-					type: "item"
-				}
-				{
-					auto: "invisible"
-					command: "/gscraft stage add medical_1"
-					elevate_perms: true
-					id: "733EED2E5EEA0AD0"
-					silent: true
-					title: "the stage medical_1"
-					type: "command"
-				}
-			]
-			subtitle: "Two for the shelf, and you get more back."
-			tasks: [{
-				consume_items: true
-				count: 2L
-				id: "2F12883D25CD979C"
-				item: "gscraft:med_kit"
-				type: "item"
-			}]
-			title: "Stock the clinic"
 			x: 4.0d
 			y: 0.0d
+			title: "Stock the clinic"
+			subtitle: "Two for the shelf, and you get more back."
+			description: [
+				"Order two med kits and bring them. Bandages and painkillers are in any flat; antiseptic and syringes are only where medicine was kept - the clinic in the north complex, or the hospital. Neither is ours: go armed, or go later. With the clinic stocked, Tony cures a bite and gets a downed player up, inside the compound."
+			]
+			dependencies: [
+				"7B637596EC041BC1"
+			]
+			tasks: [
+				{
+					id: "5BC785C8AB1A37E8"
+					type: "item"
+					item: "gscraft:med_kit"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "1A3AB20D126B1650"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:med_kit"
+					count: 4
+				}
+				{
+					id: "733EED2E5EEA0AD0"
+					type: "command"
+					title: "the stage medical_1"
+					command: "/gscraft stage add medical_1"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "68658C6F7430D849"
+			x: 6.0d
+			y: 0.0d
+			title: "Clean air, clean blood"
+			subtitle: "A ward needs both."
+			description: [
+				"Three gas-mask filters and two blood bags. Flats have the filters; blood is only where medicine was kept. After this a death also gives back a magazine of rounds and two bandages."
+			]
+			dependencies: [
+				"7E3A7A7A5C44B2B0"
+			]
+			tasks: [
+				{
+					id: "29B4702FA3C65A31"
+					type: "item"
+					item: "gscraft:gas_mask_filter"
+					count: 3
+					consume_items: true
+				}
+				{
+					id: "49FBE17CC0343BF2"
+					type: "item"
+					item: "gscraft:blood_bag"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "230C3D7BEE1959EC"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:med_kit"
+					count: 3
+				}
+				{
+					id: "37EA499A7935D893"
+					type: "command"
+					title: "the stage medical_2"
+					command: "/gscraft stage add medical_2"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
 		}
 	]
-	tags: ["tony"]
-	title: "Tony"
+	quest_links: [ ]
+	icon: "gscraft:bandage"
 }

@@ -1,226 +1,472 @@
 {
-	default_hide_dependency_lines: false
-	default_quest_shape: ""
-	filename: "marshall"
+	id: "667E58949533EA40"
 	group: ""
-	icon: "gscraft:claim_marker"
-	id: "4460D9B8927F04A8"
-	order_index: 6
-	quest_links: [ ]
+	order_index: 5
+	filename: "marshall"
+	title: "Marshall"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	tags: [
+		"marshall"
+	]
 	quests: [
 		{
+			id: "3210B848C9E6E4CB"
+			x: 0.0d
+			y: 0.0d
+			title: "Muster"
+			subtitle: "We're squatting in someone's town."
+			description: [
+				"Marshall has a plan for the town. Hear him out."
+			]
 			dependencies: [
 				"0016A4AE37CD6D15"
 				"7B637596EC041BC1"
 				"44D246950C7B83C4"
+				"4BEAB3D0BF7F532E"
+				"10041807678DFDB1"
 			]
-			description: ["Read the board in the hall, then come back."]
 			hide_until_deps_complete: true
-			id: "7AA8182FC8295DCB"
+			tasks: [
+				{
+					id: "5663E77E78BA4396"
+					type: "checkmark"
+				}
+			]
 			rewards: [
 				{
-					id: "520A7A6E6F3AE6AC"
-					item: "gscraft:card_claim_marker"
+					id: "3BB8E66FB0EE3808"
 					type: "item"
+					auto: "enabled"
+					item: "gscraft:card_claim_marker"
+					count: 1
 				}
 				{
-					auto: "invisible"
+					id: "4B4E910D17DAB58E"
+					type: "command"
+					title: "the stage bp_claim_marker"
 					command: "/gscraft stage add bp_claim_marker"
 					elevate_perms: true
-					id: "3D3099C59F2F9B71"
 					silent: true
-					title: "the stage bp_claim_marker"
-					type: "command"
+					auto: "invisible"
 				}
 				{
-					auto: "invisible"
+					id: "04F3CE65B846A90B"
+					type: "command"
+					title: "the stage marshall_speaks"
 					command: "/gscraft stage add marshall_speaks"
 					elevate_perms: true
-					id: "04F3CE65B846A90B"
 					silent: true
-					title: "the stage marshall_speaks"
-					type: "command"
+					auto: "invisible"
 				}
 				{
-					auto: "invisible"
+					id: "4A14E16DA8A75C9A"
+					type: "command"
+					title: "marshall speaks"
 					command: "/gscraft say marshall speaks @s"
 					elevate_perms: true
-					id: "4A14E16DA8A75C9A"
 					silent: true
-					title: "marshall speaks"
-					type: "command"
+					auto: "invisible"
 				}
 			]
-			subtitle: "We're squatting in someone's town."
-			tasks: [{
-				id: "5663E77E78BA4396"
-				type: "checkmark"
-			}]
-			title: "Muster"
-			x: 0.0d
-			y: 0.0d
 		}
 		{
-			description: ["Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard, and its shells are a station order."]
+			id: "2690D00757D9E54E"
+			x: 2.0d
+			y: -2.0d
+			title: "Eyes on it"
+			subtitle: "The hospital. Go and look, and come back breathing."
+			description: [
+				"North up the road, past the junction. Walk into the hospital's grounds; seeing it is enough."
+			]
+			dependencies: [
+				"3210B848C9E6E4CB"
+			]
+			icon: "minecraft:spyglass"
 			hide_until_deps_complete: true
-			id: "4DF49BB1169053C5"
+			tasks: [
+				{
+					id: "00F265EFE5FF2C36"
+					type: "advancement"
+					advancement: "gscraft:stage/hospital_scouted"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "3EC82984032725E3"
+			x: 4.0d
+			y: -2.0d
+			title: "What they left"
+			subtitle: "Tell me what is still on the shelves."
+			description: [
+				"Search six of the hospital's cupboards and lockers. What you find is yours."
+			]
+			dependencies: [
+				"2690D00757D9E54E"
+			]
+			icon: "gscraft:med_kit"
+			tasks: [
+				{
+					id: "78DCF8B8A2A03B02"
+					type: "advancement"
+					advancement: "gscraft:stage/hospital_looted"
+					criterion: "set"
+				}
+			]
 			rewards: [
 				{
-					auto: "invisible"
-					command: "/gscraft stage add mortar_built"
-					elevate_perms: true
-					id: "0FC1415272108264"
-					silent: true
-					title: "the stage mortar_built"
-					type: "command"
+					id: "64C835E90F1BFE13"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:med_kit"
+					count: 2
+				}
+			]
+		}
+		{
+			id: "62CF140C5B7CDAB2"
+			x: 6.0d
+			y: -2.0d
+			title: "Plant it"
+			subtitle: "Now we take it."
+			description: [
+				"Build the claim marker at your station - it wants a hand drill in the tool slot - and plant it at the hospital. Then hold for five minutes."
+			]
+			dependencies: [
+				"3EC82984032725E3"
+			]
+			icon: "gscraft:claim_marker"
+			tasks: [
+				{
+					id: "1E56CB7DCE12FBE6"
+					type: "advancement"
+					advancement: "gscraft:stage/hospital_held"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "21F988CF156889C3"
+			x: 2.0d
+			y: 0.0d
+			title: "The tube"
+			subtitle: "A mortar is three pieces and a plate."
+			description: [
+				"Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard; its shells are a station order, and so is the powder that fills them."
+			]
+			dependencies: [
+				"3210B848C9E6E4CB"
+			]
+			hide_until_deps_complete: true
+			tasks: [
+				{
+					id: "72F25A4C839C48E3"
+					type: "item"
+					item: "superbwarfare:mortar_barrel"
+					count: 1
+					consume_items: true
 				}
 				{
+					id: "5B35467B337FD906"
+					type: "item"
+					item: "superbwarfare:mortar_bipod"
+					count: 1
+					consume_items: true
+				}
+				{
+					id: "4DCA9ACDCAFC0285"
+					type: "item"
+					item: "superbwarfare:mortar_base_plate"
+					count: 1
+					consume_items: true
+				}
+				{
+					id: "5E396324725BCE3C"
+					type: "item"
+					item: "gscraft:steel_frame"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "0FC1415272108264"
+					type: "command"
+					title: "the stage mortar_built"
+					command: "/gscraft stage add mortar_built"
+					elevate_perms: true
+					silent: true
 					auto: "invisible"
+				}
+				{
+					id: "4BD845190BB39B29"
+					type: "command"
+					title: "function"
 					command: "/function gscraft:yard_mortar"
 					elevate_perms: true
-					id: "4BD845190BB39B29"
 					silent: true
-					title: "function"
-					type: "command"
+					auto: "invisible"
 				}
 				{
 					id: "36E5CD2AA2DBD089"
-					item: "gscraft:card_mortar_shell"
 					type: "item"
+					auto: "enabled"
+					item: "gscraft:card_mortar_shell"
+					count: 1
 				}
 				{
-					auto: "invisible"
+					id: "1CC3657559CF9DE1"
+					type: "command"
+					title: "the stage bp_mortar_shell"
 					command: "/gscraft stage add bp_mortar_shell"
 					elevate_perms: true
-					id: "1CC3657559CF9DE1"
 					silent: true
-					title: "the stage bp_mortar_shell"
-					type: "command"
+					auto: "invisible"
 				}
 				{
+					id: "620E4A5DA1C78083"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:card_powder"
+					count: 1
+				}
+				{
+					id: "298C3E74866A0976"
+					type: "command"
+					title: "the stage bp_powder"
+					command: "/gscraft stage add bp_powder"
+					elevate_perms: true
+					silent: true
 					auto: "invisible"
+				}
+				{
+					id: "024A40EA222CACDE"
+					type: "command"
+					title: "marshall speaks"
 					command: "/gscraft say marshall tube @s"
 					elevate_perms: true
-					id: "1D5C5E1874C7672F"
 					silent: true
-					title: "marshall speaks"
-					type: "command"
+					auto: "invisible"
 				}
 			]
-			subtitle: "A mortar is three pieces and a plate."
-			tasks: [
-				{
-					consume_items: true
-					id: "75705AA9A71647B7"
-					item: "superbwarfare:mortar_barrel"
-					type: "item"
-				}
-				{
-					consume_items: true
-					id: "5B35467B337FD906"
-					item: "superbwarfare:mortar_bipod"
-					type: "item"
-				}
-				{
-					consume_items: true
-					id: "4DCA9ACDCAFC0285"
-					item: "superbwarfare:mortar_base_plate"
-					type: "item"
-				}
-				{
-					consume_items: true
-					count: 2L
-					id: "5E396324725BCE3C"
-					item: "gscraft:steel_frame"
-					type: "item"
-				}
-			]
-			title: "The tube"
-			x: 2.0d
-			y: 0.0d
 		}
 		{
+			id: "20B0C849A72D5DBD"
+			x: 2.0d
+			y: 2.0d
+			title: "Brass"
+			subtitle: "We stop counting rounds the day we can make them."
+			description: [
+				"Sixteen metal scrap and two gunpowder. Soldiers carry the powder; so do the factories."
+			]
+			dependencies: [
+				"3210B848C9E6E4CB"
+			]
+			hide_until_deps_complete: true
+			tasks: [
+				{
+					id: "1653092FF64D6F35"
+					type: "item"
+					item: "gscraft:metal_scrap"
+					count: 16
+					consume_items: true
+				}
+				{
+					id: "080385BB3110CD3E"
+					type: "item"
+					item: "minecraft:gunpowder"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "3CE48405A477679F"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:card_rounds"
+					count: 1
+				}
+				{
+					id: "2F74A49FABCD3A9B"
+					type: "command"
+					title: "the stage bp_rounds"
+					command: "/gscraft stage add bp_rounds"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "425F6446B9FE6F0F"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:card_powder"
+					count: 1
+				}
+				{
+					id: "08C0343123419C46"
+					type: "command"
+					title: "the stage bp_powder"
+					command: "/gscraft stage add bp_powder"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "1131A7949DAAF797"
+			x: 4.0d
+			y: 2.0d
+			title: "Tags"
+			subtitle: "Every tag is a rifle that isn't pointed at us."
+			description: [
+				"Five dog tags, off soldiers of either army. Marshall pays in rounds, every time."
+			]
+			dependencies: [
+				"20B0C849A72D5DBD"
+			]
 			can_repeat: true
-			description: ["Hand in six mortar shells for a fire-mission grenade. Throw it where you want the rounds; fifteen seconds, then six of them."]
-			id: "70C44578D18D0D20"
-			rewards: [{
-				id: "3A93C701B43A75EB"
-				item: "gscraft:strike_mortar"
-				type: "item"
-			}]
-			subtitle: "Six shells buys you one call."
-			tasks: [{
-				consume_items: true
-				count: 6L
-				id: "560A56413AD762B5"
-				item: "superbwarfare:mortar_shell"
-				type: "item"
-			}]
-			title: "Fire mission"
+			tasks: [
+				{
+					id: "2B04ABE48174EE81"
+					type: "item"
+					item: "superbwarfare:dog_tag"
+					count: 5
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "03935A3759793D8B"
+					type: "item"
+					auto: "enabled"
+					item: "superbwarfare:rifle_ammo"
+					count: 16
+				}
+				{
+					id: "1FC390707C672E82"
+					type: "item"
+					auto: "enabled"
+					item: "superbwarfare:handgun_ammo"
+					count: 8
+				}
+			]
+		}
+		{
+			id: "461D2B89EFA494BA"
 			x: 4.0d
 			y: 0.0d
-		}
-		{
+			title: "Fire mission"
+			subtitle: "Six shells buys you one call."
+			description: [
+				"Hand in six mortar shells for a fire-mission grenade. Throw it where you want the rounds; fifteen seconds, then six of them."
+			]
+			dependencies: [
+				"21F988CF156889C3"
+			]
 			can_repeat: true
-			description: ["With a gun standing at a strongpoint, four heavy shells buy a call on the guns: wider, heavier, twenty seconds out."]
-			hide_until_deps_complete: true
-			id: "2CDE46314C2A7481"
-			rewards: [{
-				id: "042FC5CC88181E5D"
-				item: "gscraft:strike_artillery"
-				type: "item"
-			}]
-			subtitle: "The guns reach further than the tube, and hit harder."
 			tasks: [
 				{
-					advancement: "gscraft:stage/gun_fired"
-					criterion: "set"
-					id: "3F2543DF093553C1"
-					type: "advancement"
-				}
-				{
-					consume_items: true
-					count: 4L
-					id: "6DCDEF2567AB435D"
-					item: "superbwarfare:large_shell_he"
+					id: "17163EB4FAF0C605"
 					type: "item"
+					item: "superbwarfare:mortar_shell"
+					count: 6
+					consume_items: true
 				}
 			]
-			title: "Fire for effect"
+			rewards: [
+				{
+					id: "3A93C701B43A75EB"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:strike_mortar"
+					count: 1
+				}
+			]
+		}
+		{
+			id: "1E3DB02C61CB85E7"
 			x: 6.0d
 			y: 0.0d
-		}
-		{
-			can_repeat: true
-			description: ["With Radio 2 up, four rockets buy the Cobra: a rocket and gun run on the smoke, thirty seconds out."]
+			title: "Fire for effect"
+			subtitle: "The guns reach further than the tube, and hit harder."
+			description: [
+				"With a strongpoint held, four heavy shells buy a call on its guns: wider, heavier, twenty seconds out."
+			]
+			dependencies: [
+				"21F988CF156889C3"
+			]
 			hide_until_deps_complete: true
-			id: "3C9C07181B3150F0"
-			rewards: [{
-				id: "6FC646684219EED3"
-				item: "gscraft:strike_air"
-				type: "item"
-			}]
-			subtitle: "Tune found a Cobra on the net. She wants rockets for it."
+			can_repeat: true
 			tasks: [
 				{
-					advancement: "gscraft:stage/radio_2"
-					criterion: "set"
-					id: "2F9B77DC881880ED"
+					id: "48DCA01D6B559F9F"
 					type: "advancement"
+					advancement: "gscraft:stage/gun_fired"
+					criterion: "set"
 				}
 				{
-					consume_items: true
-					count: 4L
-					id: "021520FC0EAB3DA8"
-					item: "superbwarfare:medium_rocket_he"
+					id: "6DCDEF2567AB435D"
 					type: "item"
+					item: "superbwarfare:large_shell_he"
+					count: 4
+					consume_items: true
 				}
 			]
-			title: "Air support"
+			rewards: [
+				{
+					id: "042FC5CC88181E5D"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:strike_artillery"
+					count: 1
+				}
+			]
+		}
+		{
+			id: "3C9C07181B3150F0"
 			x: 8.0d
 			y: 0.0d
+			title: "Air support"
+			subtitle: "Tune found a Cobra on the net. She wants rockets for it."
+			description: [
+				"Once Tune has read the drives (What was on them), four rockets buy the Cobra: a rocket and gun run on the smoke, thirty seconds out."
+			]
+			dependencies: [
+				"21F988CF156889C3"
+			]
+			hide_until_deps_complete: true
+			can_repeat: true
+			tasks: [
+				{
+					id: "2F9B77DC881880ED"
+					type: "advancement"
+					advancement: "gscraft:stage/radio_2"
+					criterion: "set"
+				}
+				{
+					id: "68ED5F7B932E8A3D"
+					type: "item"
+					item: "superbwarfare:medium_rocket_he"
+					count: 4
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "539E0F9ADB7FFA7C"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:strike_air"
+					count: 1
+				}
+			]
 		}
 	]
-	tags: ["marshall"]
-	title: "Marshall"
+	quest_links: [ ]
+	icon: "gscraft:claim_marker"
 }

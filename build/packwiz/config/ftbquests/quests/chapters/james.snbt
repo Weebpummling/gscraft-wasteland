@@ -1,84 +1,103 @@
 {
-	default_hide_dependency_lines: false
-	default_quest_shape: ""
-	filename: "james"
-	group: ""
-	icon: "minecraft:compass"
 	id: "6A8C22A3C1E3B021"
-	order_index: 5
-	quest_links: [ ]
+	group: ""
+	order_index: 4
+	filename: "james"
+	title: "James"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	tags: [
+		"james"
+	]
 	quests: [
 		{
-			description: ["You spoke to James. Their chapter is open."]
-			id: "0A17FA1DE8951DDA"
-			invisible: true
-			tasks: [{
-				advancement: "gscraft:stage/seen_james"
-				criterion: "set"
-				id: "49403DAB85A054B4"
-				type: "advancement"
-			}]
-			title: "Meet James"
-			x: 0.0d
+			id: "10041807678DFDB1"
+			x: 2.0d
 			y: 0.0d
-		}
-		{
-			description: ["Reach the level crossing and the mast's field."]
-			id: "24F23C266BA52E0B"
+			title: "Get your bearings"
+			subtitle: "Walk it before you trust it."
+			description: [
+				"Reach the level crossing and the mast's field."
+			]
+			dependencies: [
+				"574CFA3B64761D9A"
+			]
+			tasks: [
+				{
+					id: "0928AA958FEA2D1E"
+					type: "location"
+					title: "Reach the level crossing"
+					dimension: "minecraft:overworld"
+					ignore_dimension: false
+					position: [I;-912, 40, -988]
+					size: [I;35, 70, 31]
+				}
+				{
+					id: "21539C533715A4B9"
+					type: "location"
+					title: "Reach the mast's field"
+					dimension: "minecraft:overworld"
+					ignore_dimension: false
+					position: [I;-846, 40, -1040]
+					size: [I;77, 70, 81]
+				}
+			]
 			rewards: [
 				{
 					id: "36300B16A27338AB"
-					item: "minecraft:compass"
 					type: "item"
+					auto: "enabled"
+					item: "minecraft:compass"
+					count: 1
 				}
 				{
-					id: "4D9DE93D265A4CC1"
-					item: "minecraft:map"
+					id: "71E4ADD724ACFF59"
 					type: "item"
+					auto: "enabled"
+					item: "minecraft:map"
+					count: 1
 				}
 			]
-			subtitle: "Walk it before you trust it."
+		}
+		{
+			id: "74A21B9D6A3B48CE"
+			x: 4.0d
+			y: 0.0d
+			title: "Paper trail"
+			subtitle: "Somebody wrote down where things were."
+			description: [
+				"Three folders of documents, from the town's offices."
+			]
+			dependencies: [
+				"10041807678DFDB1"
+			]
 			tasks: [
 				{
-					dimension: "minecraft:overworld"
-					id: "4E1FC2BFF97AE0FE"
-					ignore_dimension: false
-					position: [I;
-						-912
-						40
-						-988
-					]
-					size: [I;
-						35
-						70
-						31
-					]
-					title: "Reach the level crossing"
-					type: "location"
-				}
-				{
-					dimension: "minecraft:overworld"
-					id: "3C5495B4F95DA5A4"
-					ignore_dimension: false
-					position: [I;
-						-846
-						40
-						-1040
-					]
-					size: [I;
-						77
-						70
-						81
-					]
-					title: "Reach the mast's field"
-					type: "location"
+					id: "67950DF677A0B256"
+					type: "item"
+					item: "gscraft:folder_of_documents"
+					count: 3
+					consume_items: true
 				}
 			]
-			title: "Get your bearings"
-			x: 2.0d
-			y: 0.0d
+			rewards: [
+				{
+					id: "5DA78F88BDA31BC8"
+					type: "item"
+					auto: "enabled"
+					item: "superbwarfare:handgun_ammo"
+					count: 24
+				}
+				{
+					id: "131B84F4D5F1EC8A"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:canned_goods"
+					count: 2
+				}
+			]
 		}
 	]
-	tags: ["james"]
-	title: "James"
+	quest_links: [ ]
+	icon: "minecraft:compass"
 }

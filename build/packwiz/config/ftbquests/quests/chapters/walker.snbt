@@ -1,194 +1,252 @@
 {
-	default_hide_dependency_lines: false
-	default_quest_shape: ""
-	filename: "walker"
-	group: ""
-	icon: {
-		Count: 1
-		id: "gscraft:wrench"
-		tag: {
-			Damage: 0
-		}
-	}
 	id: "2738C5E7FCA0B0F8"
-	order_index: 1
-	quest_links: [ ]
+	group: ""
+	order_index: 0
+	filename: "walker"
+	title: "Walker"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	tags: [
+		"walker"
+	]
 	quests: [
 		{
-			description: ["You spoke to Walker. Their chapter is open."]
-			id: "0FE5EA20D69F1B09"
-			invisible: true
-			tasks: [{
-				advancement: "gscraft:stage/seen_walker"
-				criterion: "set"
-				id: "719B19B4371477D0"
-				type: "advancement"
-			}]
-			title: "Meet Walker"
-			x: 0.0d
-			y: 0.0d
-		}
-		{
-			description: ["Hand in eight bolts and eight nuts from the town's rooms. The reward is a wrench and two blueprint cards: a card in your station's top-left slot is an order."]
 			id: "0016A4AE37CD6D15"
+			x: 2.0d
+			y: 0.0d
+			title: "Nuts and bolts"
+			subtitle: "Bring me anything with a thread on it."
+			description: [
+				"Hand in eight bolts and eight nuts from the town's rooms. The reward is a wrench and two blueprint cards: a card in your station's top-left slot is an order."
+			]
+			dependencies: [
+				"7BE6BDDCB8D785C1"
+			]
+			tasks: [
+				{
+					id: "6E3079147DED44FF"
+					type: "item"
+					item: "gscraft:bolt"
+					count: 8
+					consume_items: true
+				}
+				{
+					id: "07E17298B7FF2A12"
+					type: "item"
+					item: "gscraft:nut"
+					count: 8
+					consume_items: true
+				}
+			]
 			rewards: [
 				{
-					id: "1AB12046A5E971C0"
-					item: {
-						Count: 1
-						id: "gscraft:wrench"
-						tag: {
-							Damage: 0
-						}
-					}
+					id: "19E0D6570C869356"
 					type: "item"
+					auto: "enabled"
+					item: "gscraft:wrench"
+					count: 1
 				}
 				{
 					id: "6DB44ED20F921F06"
+					type: "item"
+					auto: "enabled"
 					item: "gscraft:card_fastener_kit"
-					type: "item"
+					count: 1
 				}
 				{
-					id: "08446F1FE3680199"
+					id: "67D49C8E1D1591C1"
+					type: "item"
+					auto: "enabled"
 					item: "gscraft:card_hand_tools"
-					type: "item"
+					count: 1
 				}
 				{
-					auto: "invisible"
+					id: "4A33CD1D3172863E"
+					type: "command"
+					title: "the stage bp_fastener_kit"
 					command: "/gscraft stage add bp_fastener_kit"
 					elevate_perms: true
-					id: "4A33CD1D3172863E"
 					silent: true
-					title: "the stage bp_fastener_kit"
-					type: "command"
+					auto: "invisible"
 				}
 				{
-					auto: "invisible"
+					id: "12739BF170F4D60D"
+					type: "command"
+					title: "the stage bp_hand_tools"
 					command: "/gscraft stage add bp_hand_tools"
 					elevate_perms: true
-					id: "12739BF170F4D60D"
 					silent: true
-					title: "the stage bp_hand_tools"
-					type: "command"
+					auto: "invisible"
 				}
 				{
-					auto: "invisible"
+					id: "0B12F71C1794D87F"
+					type: "command"
+					title: "walker speaks"
 					command: "/gscraft say walker station @s"
 					elevate_perms: true
-					id: "0B12F71C1794D87F"
 					silent: true
-					title: "walker speaks"
-					type: "command"
+					auto: "invisible"
 				}
 			]
-			subtitle: "Bring me anything with a thread on it."
-			tasks: [
-				{
-					consume_items: true
-					count: 8L
-					id: "6E3079147DED44FF"
-					item: "gscraft:bolt"
-					type: "item"
-				}
-				{
-					consume_items: true
-					count: 8L
-					id: "4B5A559367169EF6"
-					item: "gscraft:nut"
-					type: "item"
-				}
-			]
-			title: "Nuts and bolts"
-			x: 2.0d
-			y: 0.0d
 		}
 		{
-			dependencies: ["0016A4AE37CD6D15"]
-			description: ["Put the fastener-kit card in your station, four bolts, nuts, screws and nails under it, and wait two minutes. Bring me two kits."]
-			id: "4578229B00660B2A"
-			rewards: [
-				{
-					id: "277778105CF2671B"
-					item: "sophisticatedbackpacks:backpack"
-					type: "item"
-				}
-				{
-					auto: "invisible"
-					command: "/gscraft stage add storage_1"
-					elevate_perms: true
-					id: "3CC82F0E9BF29E25"
-					silent: true
-					title: "the stage storage_1"
-					type: "command"
-				}
-			]
-			subtitle: "You'll need somewhere to put it all."
-			tasks: [{
-				consume_items: true
-				count: 2L
-				id: "4512B7851696B4B6"
-				item: "gscraft:fastener_kit"
-				type: "item"
-			}]
-			title: "A place for everything"
+			id: "361B131210590940"
 			x: 4.0d
 			y: 0.0d
-		}
-		{
-			description: ["Bring twelve metal scrap and show me a welding torch."]
-			id: "6213D4F4C41697E4"
-			rewards: [
-				{
-					id: "53FCD9FC185D272D"
-					item: "gscraft:card_steel_frame"
-					type: "item"
-				}
-				{
-					auto: "invisible"
-					command: "/gscraft stage add bp_steel_frame"
-					elevate_perms: true
-					id: "4DF136F77B10639E"
-					silent: true
-					title: "the stage bp_steel_frame"
-					type: "command"
-				}
-				{
-					auto: "invisible"
-					command: "/gscraft stage add workshop_1"
-					elevate_perms: true
-					id: "7654B72652173573"
-					silent: true
-					title: "the stage workshop_1"
-					type: "command"
-				}
+			title: "A place for everything"
+			subtitle: "You'll need somewhere to put it all."
+			description: [
+				"Put the fastener-kit card in your station, four bolts, nuts, screws and nails under it, and wait two minutes. Bring me two kits. The kit is a wrench's work: put the one I gave you in the slot beside the card."
 			]
-			subtitle: "Scrap is only scrap till it's welded."
+			dependencies: [
+				"0016A4AE37CD6D15"
+			]
 			tasks: [
 				{
-					consume_items: true
-					count: 12L
-					id: "10C9EF349EA8E5CF"
-					item: "gscraft:metal_scrap"
+					id: "4512B7851696B4B6"
 					type: "item"
+					item: "gscraft:fastener_kit"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "7D53A363744CCC8B"
+					type: "item"
+					auto: "enabled"
+					item: "sophisticatedbackpacks:backpack"
+					count: 1
+				}
+				{
+					id: "3CC82F0E9BF29E25"
+					type: "command"
+					title: "the stage storage_1"
+					command: "/gscraft stage add storage_1"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "6D8D7105876E6B1C"
+			x: 6.0d
+			y: 0.0d
+			title: "Frame of mind"
+			subtitle: "Scrap is only scrap till it's welded."
+			description: [
+				"Bring twelve metal scrap and show me a welding torch. Workshop 1: every station order runs a little faster, for everyone."
+			]
+			dependencies: [
+				"361B131210590940"
+			]
+			tasks: [
+				{
+					id: "59FE82E69E129DFA"
+					type: "item"
+					item: "gscraft:metal_scrap"
+					count: 12
+					consume_items: true
 				}
 				{
 					id: "5A35C56880BB3766"
-					item: {
-						Count: 1
-						id: "gscraft:welding_torch"
-						tag: {
-							Damage: 0
-						}
-					}
-					title: "Show welding torch"
 					type: "item"
+					item: "gscraft:welding_torch"
+					count: 1
+					title: "Show welding torch"
 				}
 			]
-			title: "Frame of mind"
-			x: 6.0d
+			rewards: [
+				{
+					id: "53FCD9FC185D272D"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:card_steel_frame"
+					count: 1
+				}
+				{
+					id: "254B41E2D2541ECE"
+					type: "command"
+					title: "the stage bp_steel_frame"
+					command: "/gscraft stage add bp_steel_frame"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+				{
+					id: "7654B72652173573"
+					type: "command"
+					title: "the stage workshop_1"
+					command: "/gscraft stage add workshop_1"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
+		}
+		{
+			id: "4E303A50C6520A59"
+			x: 8.0d
 			y: 0.0d
+			title: "It still runs"
+			subtitle: "Give me a battery, two plugs and oil and I'll give you a week's welding."
+			description: [
+				"A car battery, two spark plugs and two motor oil: garages, and the brick works east of the hall. Workshop 2: station orders run faster still."
+			]
+			dependencies: [
+				"6D8D7105876E6B1C"
+			]
+			tasks: [
+				{
+					id: "73881DD16B45A4F7"
+					type: "item"
+					item: "gscraft:car_battery"
+					count: 1
+					consume_items: true
+				}
+				{
+					id: "338410B01CCF7F97"
+					type: "item"
+					item: "gscraft:spark_plug"
+					count: 2
+					consume_items: true
+				}
+				{
+					id: "6CE1B9FB048334D8"
+					type: "item"
+					item: "gscraft:motor_oil"
+					count: 2
+					consume_items: true
+				}
+			]
+			rewards: [
+				{
+					id: "79FB9EE47EEAF1EB"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:steel_frame"
+					count: 2
+				}
+				{
+					id: "49CFBD9D10755375"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:fastener_kit"
+					count: 4
+				}
+				{
+					id: "642F9BCDAF220740"
+					type: "command"
+					title: "the stage workshop_2"
+					command: "/gscraft stage add workshop_2"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
+			]
 		}
 	]
-	tags: ["walker"]
-	title: "Walker"
+	quest_links: [ ]
+	icon: "gscraft:wrench"
 }

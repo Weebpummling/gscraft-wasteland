@@ -158,39 +158,43 @@ hash = "e57d8311aec9f524911ed1313cabf138bb7fa5a2d3ba985a00a2a267ff35ef78"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/compound.snbt"
-hash = "28a00b1784b185fa0e1bd4a6ef2368c175566d2939c6fbc829e61bdd32369fe0"
+hash = "f0ea24b1be94b1faaafb3f0befb57a9de7f098937cc04c7c13b42ac2ee691abc"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/james.snbt"
-hash = "308a72406b1704b4d7dca6f1a1ca07ba595e0ee69bf13478aff09e18397febbc"
+hash = "dd915958384a47409f14b49d47198be912963ebc172df0fee179be72b839c0ab"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/marshall.snbt"
-hash = "8c7abbd832e29ecedd60b25182c31e17801ec0ee9252e3daf666ab350396e40f"
+hash = "680223ddce1f07a3610f9f12125b072ea29cf94d7c899acae0d71ce3b02e6411"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/michael.snbt"
-hash = "176abc47ee453eae51caaf457cddbd0dcb9e883d62daa11e22d2325996dd4d18"
+hash = "67492cf8ec1cc59a1245314067465a82e377c6746226616859a73bb9b1c55988"
+
+[[files]]
+file = "config/ftbquests/quests/chapters/notes.snbt"
+hash = "d97cd63a1ff931c5e5aa2ef685f9d87b94dedf0b177d4aa6509d55111639d9b6"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/pocket.snbt"
-hash = "571cc41711ff9f3305a403b9ca7e5bd07f8f216c268ad7c0eb83844d102842eb"
+hash = "f77ea6517a5b21b4e3f4f238c04c4256a178a97ac05fd415865d7830848db322"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/tony.snbt"
-hash = "544892d5b70e5fb8942b12e8040d2c598a9bc529122f1d3651ee90f32798e471"
+hash = "44e3dfd615dedf3499c9940410be02df603ccf56504d1bae8dcd0b5297ba8aea"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/tune.snbt"
-hash = "c74d9ee7d34b3b46e058c5021cf8a55ad4a077b79f1e90b6fd7fa9c3f2be3f8e"
+hash = "c181d5bfa0e6be9c2c177b045bfa996457b08335903071b1900f1dbad1e84041"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/walker.snbt"
-hash = "bec999dd6b7e2fa26623b61c77472818af08cb4e9cbe12d354c358492e4f0fb8"
+hash = "e27cc86edd89b731570b0c02d479fa4c3618729a93ddf6f4e3be96220c56ee9a"
 
 [[files]]
 file = "config/ftbquests/quests/data.snbt"
-hash = "f30d96853bd5e31dc18e3b3e4c9c4bb182570ce92e81fa0ad932e2818344fd9e"
+hash = "db71070e8d51520b04c8c8cef8928ee8a48a549f7cccd8517d432a3b4756c8e2"
 
 [[files]]
 file = "config/guardvillagers-common.toml"
@@ -870,7 +874,7 @@ metafile = true
 
 [[files]]
 file = "mods/gscraft-0-1-0.pw.toml"
-hash = "46a19383122bfb7ec2a8e68540f5916912ae8db27083eba71f8f8fe1fe54a67b"
+hash = "013e101a71a3d1bfca60f3e30527451deba9ecbc6f0b13595cc8d2b346c3e6b6"
 metafile = true
 
 [[files]]
