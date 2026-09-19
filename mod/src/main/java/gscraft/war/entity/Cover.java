@@ -42,6 +42,13 @@ public final class Cover {
         return clipBlocked(level, mob, target.getEyePosition(), stand.add(0.0D, CHEST, 0.0D));
     }
 
+    /** what a round may drop below the line of aim on its way (blocks) */
+    public static final double DROP = 0.25D;
+
+    public static boolean lineBlocked(Mob mob, Vec3 from, Vec3 to) {
+        return mob.level() instanceof ServerLevel level && clipBlocked(level, mob, from, to);
+    }
+
     private static boolean clipBlocked(ServerLevel level, Mob mob, Vec3 from, Vec3 to) {
         return level.clip(new ClipContext(from, to, ClipContext.Block.COLLIDER, ClipContext.Fluid.NONE, mob)).getType() != HitResult.Type.MISS;
     }
@@ -73,7 +80,11 @@ public final class Cover {
             for (Vec3 candidate : new Vec3[] {stand.add(side), stand.subtract(side)}) {
                 // the body has to fit at the lean itself: a spot beside a bush whose lean sits in the bush is no cover
                 if (!level.noCollision(mob, mob.getBoundingBox().move(candidate.subtract(mob.position())))) continue;
-                if (!clipBlocked(level, mob, candidate.add(0.0D, eye, 0.0D), eyes)) {
+                // clear to the eyes AND to where the rounds go (the chest, less their drop): a lean that sees a head over a
+                // rise and shoots into the rise is no firing position (2026-09-19)
+                Vec3 from = candidate.add(0.0D, eye, 0.0D);
+                Vec3 chest = target.position().add(0.0D, target.getBbHeight() * 0.6D - DROP, 0.0D);
+                if (!clipBlocked(level, mob, from, eyes) && !clipBlocked(level, mob, from, chest)) {
                     lean = candidate;
                     break;
                 }

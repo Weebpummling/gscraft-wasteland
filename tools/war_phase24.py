@@ -64,6 +64,9 @@ L.fill(r, X - 50, Y - 1, Z - 50, X + 50, Y + 5, Z + 50, "minecraft:air")
 L.fill(r, X - 50, Y - 1, Z - 50, X + 50, Y - 1, Z + 50, "minecraft:stone")
 c(f'summon gscraft:nato_soldier {X} {Y} {Z + 40} {{Tags:["p24k"],NoAI:1b,GscraftRank:"NATO Rifleman",{HP}}}')
 time.sleep(1)
+# the named attacker must not be SEEN: a crew that sees an enemy engages, and engaging unloads the bay by design (FightGoal), so
+# the riders were out three seconds before the hit this check is about (suite of 2026-09-19: "aboard before 0"). He stands in a stone box.
+c(f"fill {X - 1} {Y} {Z + 39} {X + 1} {Y + 2} {Z + 41} minecraft:stone hollow")
 
 # 1. the hull is hit: the bay comes out
 c(f"gscraft director armour {X} {Y} {Z} superbwarfare:bmp_2 4")

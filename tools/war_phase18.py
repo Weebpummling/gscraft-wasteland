@@ -171,13 +171,14 @@ for i in range(30):
         break
 check("with the target dead the crew resumes its route", resumed, f"waypoint reached after {i + 1} s: {resumed}")
 
-# 4. the withdrawal
+# 4. the withdrawal (380, not 900: since the damage pass ee8eb02 the list keeps 95% of a blast, so 900 killed the 500-health tank
+#    outright - health -5.9 - and a dead tank does not withdraw; 380 leaves it about 135, under a third. Suite of 2026-09-19)
 tx, tz = tank_pos()
 c(f'summon gscraft:nato_soldier {tx:.1f} {Y} {tz - 30:.1f} {{Tags:["p18r"],NoAI:1b,GscraftRank:"NATO Rifleman",{HP}}}')
 time.sleep(3)
 d0 = num(c("execute as @e[type=superbwarfare:t_90a,limit=1] run gscraft vehicle status @s"), r"at ([-\d.]+) [-\d.]+ ([-\d.]+)")
 tx0, tz0 = tank_pos()
-print("   ", c(f"gscraft vehicle hit @e[type=superbwarfare:t_90a,limit=1] minecraft:explosion 900 @e[tag=p18r,limit=1]")[:120])
+print("   ", c(f"gscraft vehicle hit @e[type=superbwarfare:t_90a,limit=1] minecraft:explosion 380 @e[tag=p18r,limit=1]")[:120])
 mark4 = LOG.stat().st_size
 withdrew = False
 for i in range(12):

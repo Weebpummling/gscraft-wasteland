@@ -69,7 +69,7 @@ turret = reported(mark, "turret")
 c(f"data merge entity {T} {{MainEngineHealth:0f,MainEngineDamaged:1b}}")
 time.sleep(1.5)
 engine = reported(mark, "engine")
-check("a turret and then an engine breaking are each reported once", turret and engine and log_since(mark).count("armour:") == 2,
+check("a turret and then an engine breaking are each reported once", turret and engine and sum(l.rstrip().endswith(" turret") for l in log_since(mark).splitlines() if "armour:" in l) == 1 and sum(l.rstrip().endswith(" engine") for l in log_since(mark).splitlines() if "armour:" in l) == 1,   # each ONCE; a third line is the crew bailing out of a hull with no turret (ee8eb02), which is right
       f"turret {turret}, engine {engine}, lines {log_since(mark).count('armour:')}")
 
 # 2. the withdrawal (a fresh tank, a target in view, a blast below a third)

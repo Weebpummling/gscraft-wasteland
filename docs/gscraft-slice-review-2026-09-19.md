@@ -91,8 +91,8 @@ spark's tick numbers with a counterattack and an APC on the front.
 
 *Every headless phase run in sequence on the local server (phase 42 needs a client and was not run).*
 
-**First run: 29 green, 14 red.** Every red phase was then run again alone and read. Eleven were the TEST's fault, one was
-the game's, and three are left red and said so.
+**First run: 29 green, 14 red.** Every red phase was then run again alone and read. Eleven were the TEST's fault and
+**three were the game's** (36, the Marksman in 3, and the counterattack's gate). None is left red.
 
 | Phase | What was wrong | Now |
 |---|---|---|
@@ -104,8 +104,11 @@ the game's, and three are left red and said so.
 | 7, 11, 20 | nothing: green when run alone. They fail only after other phases, on what those leave behind | green alone |
 | 34 | stale: nine chapters since the notes | 7 of 7 |
 | 36 | **a real fault, hidden by a stale box.** The phase still measured the OLD compound's margin, so it could not fail. Pointed at the walled compound: creatures inside the 32-block margin. `placeBeside` - every member of a group after the first - checked neither the margin nor whether a player could see the spot. **This is the owner's "spawning right in front of players".** Fixed (below) | 4 of 4 |
-| 18, 19, 24 | the armour pass: a blast that should wound kills outright (health -29); a broken part is reported three times, not once; a hull hit does not put the riders out. Red twice running, alone. They predate the damage pass (ee8eb02) and are probably stale against it - **not triaged**, outside the slice's spine | **RED** |
-| 3, check 5 | the Marksman at thirty blocks takes cover, leans out and back for twenty-five seconds (his magazine reads 4 at the end) and the target's health never moves from 200. Whether he fires into his own cover was not looked at. **Not triaged.** It favours the player | **RED** |
+| 18 | stale: since the damage pass (ee8eb02) the list keeps 95% of a blast, so the test's 900 killed the 500-health tank outright and a dead tank does not withdraw. 380 now | 7 of 7 |
+| 19 | stale: the third report is the crew bailing out of a hull with no turret (ee8eb02), which is right. It counts the turret's and the engine's lines, once each | 4 of 4 |
+| 24 | the test's own setup: its named attacker stood in plain view, and a crew that sees an enemy engages and unloads the bay by design - the riders were out before the hit. He stands in a stone box now | 3 of 3 |
+| 3, check 5 | **a real fault.** A fighter fired whenever it could SEE its target, eye to eye, and aimed at the chest. Crouched behind a one-block rise the Marksman saw a head and put every round into the rise (impacts logged 6 and 12 blocks out, in the ground). Now the line to the aim point is checked, less a quarter block for the round's drop: the head if only that is clear, else up on the feet and out of that cover; and a cover's lean must be clear to the chest, not only to the eyes | 8 of 8 |
+| 25, and the game | **a real fault, found in passing.** `camp.json`'s gate - where a counterattack marches - was still the SOUTH compound's corner (-948, -893). A wave walked to the old camp and could never contest the walled one; phase 6 hid it by summoning its attackers straight into the box. The gate is (-833, -906), just inside the north gate; phase 25 reads it from the data | 5 of 5 |
 
 What the suite says about the process: **a phase that passes is not a phase that tests.** Four phases (4, 6, 31, 36) were
 still aimed at the south compound weeks after the move, and two of them passed *because* of it. Anything that moves a

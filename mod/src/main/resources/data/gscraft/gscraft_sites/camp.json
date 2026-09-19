@@ -1,6 +1,6 @@
 {
   "camp": {
-    "note": "the camp (zone camp_* boxes by stage); the square is the compound box (the walled compound, owner 2026-09-17: start-compound doc §6) - the loss check; the gate is the compound's open corner, where a counterattack goes; approaches 48 blocks outside the old perimeter",
+    "note": "the camp (zone camp_* boxes by stage); the square is the compound box (the walled compound, owner 2026-09-17: start-compound doc §6) - the loss check; the gate is where a counterattack goes: just inside the walled compound's north gate (x -835..-830, z -912) - it stood at the SOUTH compound's corner, -948 -893, until 2026-09-19, so a wave marched to the old camp and could never contest the new one; approaches 48 blocks outside the old perimeter",
     "perimeter": [
       -978,
       -770,
@@ -32,8 +32,8 @@
       ]
     },
     "gate": [
-      -948,
-      -893
+      -833,
+      -906
     ]
   }
 }

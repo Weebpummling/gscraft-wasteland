@@ -230,6 +230,23 @@ public class GunAttackGoal extends Goal {
         op.aim(true);
 
         if (burstPause > 0) return;
+
+        // the round flies from the eye to the AIM POINT (the chest), not eye to eye. A lowered eye sees a head over a rise
+        // and then buries every round in the rise: the Marksman crouched behind a one-block bump fired sixteen rounds into
+        // it at thirty blocks and never hurt his target (phase 3, found by the suite of 2026-09-19). So: if the line to
+        // the chest is not clear, the head if that is; if neither, up on the feet, out of this cover, and no round wasted.
+        if (canSee && muzzleBlocked(aim)) {
+            Vec3 head = target.getEyePosition();
+            if (!muzzleBlocked(head)) {
+                aim = head;
+            } else if (mob.getPose() != Pose.STANDING) {
+                lowBlockedUntil = mob.level().getGameTime() + LOW_BLOCKED_TICKS;
+                cover = null;
+                leaning = false;
+                stance(Pose.STANDING);
+                return;
+            }
+        }
         if (burstLeft <= 0) burstLeft = role.burstMin + mob.getRandom().nextInt(role.burstMax - role.burstMin + 1);
 
         float spread = role.spread * (1.0F + 2.0F * s);
@@ -301,6 +318,7 @@ public class GunAttackGoal extends Goal {
         // dug in at forty blocks never advanced - the Marksman's hold is its full range, so it digs in where it stands
         double hold = Math.max(role.range * role.holdAt, ridesHull(target) ? VEHICLE_STANDOFF : 0) * HOLD_FACTOR;
         if (distSqr > hold * hold) return;
+        if (mob.level().getGameTime() < lowBlockedUntil) return;   // just stood up because the low line was blocked: no new crouch yet
         if (--coverSearch > 0) return;
         coverSearch = COVER_SEARCH_EVERY;
         Cover.Spot found = Cover.find(level, mob, target, role.range);
@@ -424,6 +442,11 @@ public class GunAttackGoal extends Goal {
 
     private void stance(Pose pose) {
         Fighters.stance(mob, pose);
+    }
+
+    /** a block between the eye and the point aimed at, a quarter of a block allowed under it for the round's drop */
+    private boolean muzzleBlocked(Vec3 aim) {
+        return Cover.lineBlocked(mob, mob.getEyePosition(), aim.subtract(0.0D, Cover.DROP, 0.0D));
     }
 
     /** the lean for the clients: the upper body out to the side the lean steps to, held while the lean lasts */

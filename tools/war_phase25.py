@@ -4,11 +4,12 @@
    is set, and camp_square once it is; the stage removed, it is the front's again.
 2. The director places nothing inside the compound; on the square it places the front's military until
    `square_taken` is set and the Dead and scavengers only after (owner: a taken building keeps those).
-3. The gate datum: a NATO counterattack's wave (soldiers) leaves the south approach for the gate at (-948, -893).
+3. The gate datum: a NATO counterattack's wave (soldiers) leaves the south approach for the camp's gate (camp.json).
 4. The torches: `gscraft:camp_torches` places the two of the start; `gscraft:torch_square` places its own, twice
    without harm; the test takes the square's back down.
 5. No gscraft errors.
 """
+import json
 import re
 import sys
 import time
@@ -23,7 +24,7 @@ results = []
 log_start = LOG.stat().st_size
 COMPOUND = "x=-980,y=40,z=-897,dx=60,dy=80,dz=79"
 SQUARE = "x=-966,y=40,z=-1000,dx=52,dy=80,dz=42"
-GATE = (-948, -893)
+GATE = tuple(json.loads((Path(__file__).resolve().parents[1] / "mod/src/main/resources/data/gscraft/gscraft_sites/camp.json").read_text(encoding="utf-8"))["camp"]["gate"])   # read, not copied: it was the SOUTH compound's corner in the data AND here until 2026-09-19
 NORTH = (-870, -1108)
 
 

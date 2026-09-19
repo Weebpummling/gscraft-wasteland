@@ -424,6 +424,26 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-19, NOTHING LEFT RED: the four checks triaged, and two more faults of the GAME's found (rulings R51, R52; local only).**
+**The Marksman (phase 3) was a real fault, and every crouching fighter had it.** `GunAttackGoal` fired when
+`hasLineOfSight` said yes - eye to eye - and aimed at the chest. Lowered behind a one-block rise a fighter sees a head and
+buries every round in the rise: the near-miss log put his impacts 6 and 12 blocks out, in the ground, the target untouched
+and his magazine down to 4. Now `muzzleBlocked(aim)` clips eye -> aim point less `Cover.DROP` (0.25, the round's fall): blocked
+means the head if that line is clear, else stand, drop the cover, `lowBlockedUntil` (and `updateCover` finds no new
+cover until it passes, or he would crouch straight back). `Cover.find` takes a lean only if it is clear to the chest as
+well as the eyes. 3 is 8 of 8 (target 200 -> 170 in 25 s), 7 is 7 of 7. **This makes enemy fire over broken ground more
+dangerous than it has been in any session so far.**
+**The counterattack marched to the OLD compound.** `gscraft_sites/camp.json` `gate` was still (-948, -893), the south
+compound's corner; the log said so in passing ("hospital wave armour ... for -948, 0, -893"). A wave could never contest
+the walled compound; phase 6 hid it by summoning its attackers into the box, phase 25 had the same stale point copied in.
+Now (-833, -906), just inside the north gate; 25 reads it from the data. **Consequence to decide after a session: once R0
+bars the gate, a wave cannot walk in** (sandbags and a fence gate) - it has to be beaten at the wall, and the compound is
+lost only if something gets over. Walled-compound openings other than the north gate were not surveyed.
+**18, 19, 24 were stale or self-inflicted:** 18's blast of 900 kills a 500-health tank since the damage pass keeps 95% of
+a blast (380 now); 19's third report is the crew bailing out, which is right; 24's attacker stood in plain view, so the
+crew engaged and unloaded the bay before the hit (he stands in a stone box). 18 7/7, 19 4/4, 24 3/3, 25 5/5, 6 8/8.
+**A second full run of the suite was started after this entry; its result is appended to the review, not here.**
+
 **2026-09-19, the rest of step 2 and the loose ends (owner: "continue with the work"; ruling R50; local only).**
 **The long gun:** R0 (The north gate, the quest before the junction) also gives `superbwarfare:marlin` and 32
 `rifle_ammo`. Chosen from the jar's gun data: a lever action, 16 damage, 8 rounds, on `@RifleAmmo` - which every soldier
