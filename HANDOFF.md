@@ -424,6 +424,26 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-19, THE OWNER'S TWO DECISIONS (rulings R48, R49; local only): "Change to superb warfare" and "Re-issue".**
+**The gun.** The kit's TACZ Glock is Superb Warfare's Glock 17 (`superbwarfare:glock_17`, NBT `{GunData:{Ammo:17}}` - read
+from the mod's own `GunData` class, tag `GunData`, int `Ammo`) and 34 `superbwarfare:handgun_ammo`. Read in the installed
+jar (0.8.9), not remembered: the Glock 17, the M1911 and the MP-443 all take `@HandgunAmmo`; **one ammo item is ONE round**
+(`AmmoSupplierItem(Ammo.HANDGUN, 1)`), and rounds are not loaded from the inventory - a right-click pockets them into the
+player's capability (sneak pockets the whole stack) and R reloads from there. That is not how TACZ worked, so the notebook
+has a page, **The pistol**. The economy as it stands: a soldier gives 1.1 rounds a kill on average, a scavenger 0.6, the
+Dead none, and one of the Dead costs about four - so rooms must give rounds: apartments and offices do now (weight 8,
+4-10, about 2 a chest; the garage already did). Dials. `itemflow.py` counts food and the kit gun's rounds as uses (it
+called both dead weight). The factions' TACZ guns are untouched. **Not done from step 2:** a long gun as a reward before
+the junction, and armour plates that do something.
+**The death.** `survivors.json` kit entries take `"respawn": true`; `SurvivorEvents.respawn` (PlayerRespawnEvent, not the
+End's) gives those again unless the player carries that item, so a revive or a future keepInventory hands out nothing
+twice. Marked: the pistol (loaded) and the notebook. No rounds - the seventeen in the gun are the walk back; what fell
+lies where it fell. `/gscraft kit respawn` lists it, `/gscraft kit respawn <player>` gives it as the respawn does.
+**Tests:** 44 now 9 of 9 (the kit and the re-issue list as the game loaded them, rounds in the drop rules and three
+tables), 33 8/8 re-cut for the new kit, 31 4/4, 29 5/5. **NOT PROVEN - needs a player, so the first session:** that the
+respawn event fires and gives the two stacks; that `GunData.Ammo` shows as a loaded gun in the hand (if it does not, the
+gun is empty and the 34 rounds still load it); the two SitePlay hooks. Jar 687,805 bytes on the local server and WarTest.
+
 **2026-09-19, THE WORK ORDER STARTED (owner: "go ahead and start working on this"; rulings R43-R47). LOCAL ONLY: nothing
 here is on live, in the pack or in the release jar, and none of it may go there without the owner naming live.**
 Steps 1, 3, 5, 6, 7 and 8 of the review's nine are done; **2 (TACZ or Superb Warfare for the player's guns) and 4 (the

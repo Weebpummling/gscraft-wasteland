@@ -107,6 +107,28 @@ public final class SurvivorEvents {
         if (event.getEntity() instanceof ServerPlayer p && !p.getTags().contains("joined")) firstJoin(p);
     }
 
+    /**
+     * A death no longer disarms a player for good (slice review 2026-09-19, finding 4; owner: re-issue, not keepInventory).
+     * Whatever the kit marks {@code "respawn": true} is given again, unless the player already carries that item - so a
+     * revive, or keepInventory one day, hands out nothing twice. What fell stays where it fell.
+     */
+    @SubscribeEvent
+    public static void respawn(PlayerEvent.PlayerRespawnEvent event) {
+        if (!(event.getEntity() instanceof ServerPlayer p) || event.isEndConquered()) return;
+        int given = reissue(p);
+        if (given > 0) GscraftWar.LOG.info("[gscraft] respawn: {} given {} kit stacks again", p.getGameProfile().getName(), given);
+    }
+
+    public static int reissue(ServerPlayer p) {
+        int given = 0;
+        for (ItemStack s : Survivors.kit(true)) {
+            if (p.getInventory().hasAnyOf(java.util.Set.of(s.getItem()))) continue;
+            if (!p.getInventory().add(s)) p.drop(s, false);
+            given++;
+        }
+        return given;
+    }
+
     /** the first join: the title card, the kit, Tune's lines from five seconds on and twenty apart */
     public static void firstJoin(ServerPlayer p) {
         p.addTag("joined");
@@ -143,7 +165,14 @@ public final class SurvivorEvents {
                 .then(Commands.literal("kit").executes(ctx -> {
                     for (ItemStack s : Survivors.kit()) ctx.getSource().sendSuccess(() -> Component.literal(s.getCount() + " " + ForgeRegistries.ITEMS.getKey(s.getItem()) + (s.hasTag() ? " " + s.getTag() : "")), false);
                     return Survivors.kit().size();
+                }).then(Commands.literal("respawn").executes(ctx -> {   // what a death gives back, listed; with a player, given as the respawn gives it
+                    for (ItemStack s : Survivors.kit(true)) ctx.getSource().sendSuccess(() -> Component.literal(s.getCount() + " " + ForgeRegistries.ITEMS.getKey(s.getItem()) + (s.hasTag() ? " " + s.getTag() : "")), false);
+                    return Survivors.kit(true).size();
                 }).then(Commands.argument("player", EntityArgument.player()).executes(ctx -> {
+                    int given = reissue(EntityArgument.getPlayer(ctx, "player"));
+                    ctx.getSource().sendSuccess(() -> Component.literal("given again: " + given + " stacks"), false);
+                    return given;
+                }))).then(Commands.argument("player", EntityArgument.player()).executes(ctx -> {
                     ServerPlayer p = EntityArgument.getPlayer(ctx, "player");
                     for (ItemStack s : Survivors.kit()) if (!p.getInventory().add(s)) p.drop(s, false);
                     return 1;

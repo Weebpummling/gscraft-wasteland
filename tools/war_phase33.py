@@ -6,7 +6,7 @@ advancement exists; FTB Quests raised no error over the chapter files. The book 
 and the lines on a first join are the owner's in-game check (WarTest: a fresh account, or `/gscraft join @s`).
 
 1. Six survivors, each complete (hello line, chapter file, seen advancement); three join lines, none missing; the kit resolves.
-2. The kit holds the station, a loaded glock with a spare magazine of its ammo, the flashlight, a battery and a bandage.
+2. The kit holds the station, Superb Warfare's Glock 17 loaded and two magazines of its rounds (owner, 2026-09-19), the flashlight, a battery and a bandage.
 3. `/gscraft say tune join_1` renders as ♪ [TUNE]  You're up...
 4. The summons put each survivor up with the profession from survivors.json, level 2 and one disabled placeholder trade (an empty list is generated on save; a cartographer's map hangs the server).
 4b. A survivor takes no damage from rounds or blasts; the summons' kill still re-issues one.
@@ -58,7 +58,7 @@ check("six survivors complete; three join lines; the kit resolves",
 
 kit = c("gscraft kit")
 check("the kit: station, loaded glock + a magazine, flashlight, battery, bandage",
-      "gscraft:station" in kit and "tacz:modern_kinetic_gun" in kit and 'GunId:"tacz:glock_17"' in kit and re.search(r"(\d+) tacz:ammo", kit) and "flashlight:flashlight" in kit and "flashlight:battery" in kit and "gscraft:bandage" in kit,
+      "gscraft:station" in kit and "superbwarfare:glock_17" in kit and "Ammo:17" in kit and re.search(r"34 superbwarfare:handgun_ammo", kit) and "tacz" not in kit and "flashlight:flashlight" in kit and "flashlight:battery" in kit and "gscraft:bandage" in kit,
       f"[{kit[:200]}]")
 
 line = c("gscraft say tune join_1")

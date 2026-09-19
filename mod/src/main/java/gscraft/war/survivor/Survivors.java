@@ -45,7 +45,8 @@ public final class Survivors {
         }
     }
 
-    public record KitEntry(String item, int count, String gun, int magazines, String nbt) {}
+    /** @param respawn given again after a death, if the player does not carry one (owner, 2026-09-19: re-issue the pistol) */
+    public record KitEntry(String item, int count, String gun, int magazines, String nbt, boolean respawn) {}
 
     public static final List<Def> ALL = new ArrayList<>();
     public static final List<String[]> JOIN_LINES = new ArrayList<>();
@@ -83,7 +84,7 @@ public final class Survivors {
                     JsonObject o = el.getAsJsonObject();
                     KIT.add(new KitEntry(o.has("item") ? o.get("item").getAsString() : null, o.has("count") ? o.get("count").getAsInt() : 1,
                             o.has("gun") ? o.get("gun").getAsString() : null, o.has("magazines") ? o.get("magazines").getAsInt() : 1,
-                            o.has("nbt") ? o.get("nbt").getAsString() : null));
+                            o.has("nbt") ? o.get("nbt").getAsString() : null, o.has("respawn") && o.get("respawn").getAsBoolean()));
                 }
             }
         } catch (RuntimeException | java.io.IOException ex) {
@@ -111,8 +112,14 @@ public final class Survivors {
 
     /** the first join's kit as stacks: a gun comes loaded with its spare magazines as TACZ ammo */
     public static List<ItemStack> kit() {
+        return kit(false);
+    }
+
+    /** @param respawnOnly only the entries marked {@code "respawn": true}: what a player gets back after a death */
+    public static List<ItemStack> kit(boolean respawnOnly) {
         List<ItemStack> out = new ArrayList<>();
         for (KitEntry k : KIT) {
+            if (respawnOnly && !k.respawn()) continue;
             if (k.gun() != null) {
                 Item gunItem = item("tacz:modern_kinetic_gun");
                 Item ammoItem = item("tacz:ammo");

@@ -116,14 +116,15 @@ place must grep the phases for the old coordinates.
 | # | | State |
 |---|---|---|
 | 1 | play moves a strongpoint | **done**: `SitePlay` - five seconds on foot inside scouts, six different Lootr containers opened loots; Marshall's chapter carries the hospital in three quests (Eyes on it, What they left, Plant it) |
-| 2 | a fight the player can have | **the owner's decision**: TACZ or Superb Warfare for the player's guns |
+| 2 | a fight the player can have | **decided: Superb Warfare.** The kit is its Glock 17, loaded (17), and 34 `handgun_ammo` - what soldiers, scavengers and the brick works already gave; apartments and offices give it too now (about 2 rounds a chest). Not done: a long gun before the junction, and armour plates that do something |
 | 3 | food | **done**: canned goods are eaten (6, 0.6). Water: undecided |
-| 4 | death | **the owner's decision**: the pistol again on respawn, or keepInventory |
+| 4 | death | **decided: re-issue.** A respawn gives back what the kit marks `"respawn": true` - the pistol, loaded, and the notebook - unless the player carries one. No rounds: the 17 in the gun are the walk back |
 | 5 | the marker's cost | **done**: five minutes, not twenty; a lost assault leaves the marker on the ground where it stood |
 | 6 | the gate | **done**: R0's reward bars the opening (sandbags, a fence gate); the quest reset opens it |
 | 7 | loot where the quests send people | **done locally**: 20 in the hospital (11 of the map's own barrels, 9 placed), 10 and 10 along the road north. The old south compound's 19 are still bound |
 | 8 | the end-to-end phase | **done**: `tools/war_phase44.py`, 8 of 8, and it may not use `site set` or `stage add` |
-| 9 | the session | waits on 2 and 4 |
+| 9 | the session | **next** |
 
 Not proven headless: the two event hooks themselves (a real player's tick inside the box, a real right-click on a Lootr
-chest). The console stand-ins run the same two methods; the hooks are six lines. The first session shows it.
+chest). The console stand-ins run the same two methods; the hooks are six lines. Nor the respawn itself, which needs a
+player to die, nor that `GunData.Ammo` shows as a loaded gun in the hand. The first session shows all four.

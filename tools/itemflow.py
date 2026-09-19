@@ -94,6 +94,15 @@ def reachable(item, seen=()):
     return all(reachable(k, seen + (item,)) for k in o["in"])
 
 
+# what a player USES UP is a use too (2026-09-19): food, and the rounds of the kit's gun. Without this the audit called canned
+# goods and pistol rounds dead weight in every table that stocks them.
+for it in json.loads((ROOT / "mod/src/main/resources/data/gscraft/gscraft_items/items.json").read_text(encoding="utf-8")).get("items", []):
+    if isinstance(it, dict) and it.get("food"):
+        sinks["gscraft:" + it["id"]].append("eaten")
+for k in json.loads((ROOT / "mod/src/main/resources/data/gscraft/gscraft_survivors/survivors.json").read_text(encoding="utf-8"))["first_join"]["kit"]:
+    if "ammo" in k.get("item", ""):
+        sinks[k["item"]].append("the kit gun's rounds")
+
 report = {"no_source": [], "unreachable": [], "order_only": [], "no_sink": [], "nowhere": [], "unregistered": [], "tables": {}, "tags": []}
 for item in sorted(sinks):
     if item.startswith("#"):

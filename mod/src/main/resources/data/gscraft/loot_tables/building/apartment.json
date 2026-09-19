@@ -78,6 +78,20 @@
           "type": "minecraft:item",
           "name": "gscraft:gas_mask_filter",
           "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "superbwarfare:handgun_ammo",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 4,
+                "max": 10
+              }
+            }
+          ]
         }
       ]
     }

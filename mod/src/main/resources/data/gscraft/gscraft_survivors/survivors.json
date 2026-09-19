@@ -65,8 +65,13 @@
         "item": "gscraft:station"
       },
       {
-        "gun": "tacz:glock_17",
-        "magazines": 1
+        "item": "superbwarfare:glock_17",
+        "nbt": "{\"GunData\":{\"Ammo\":17}}",
+        "respawn": true
+      },
+      {
+        "item": "superbwarfare:handgun_ammo",
+        "count": 34
       },
       {
         "item": "flashlight:flashlight"
@@ -79,7 +84,8 @@
       },
       {
         "item": "patchouli:guide_book",
-        "nbt": "{\"patchouli:book\":\"gscraft:notebook\"}"
+        "nbt": "{\"patchouli:book\":\"gscraft:notebook\"}",
+        "respawn": true
       }
     ],
     "subtitle": "Skadowsky",

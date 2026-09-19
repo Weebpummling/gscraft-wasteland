@@ -34,6 +34,7 @@ Survivors are `walker`, `tony`, `michael`, `tune`, `james`, `marshall`. The sour
 | `/gscraft say <npc> <key>` | prints the radio line as the server renders it (a check of the lang key) |
 | `/gscraft say <npc> <key> <players>` | queues the line for those players: the click, `♪ [TUNE]  text`, one per player per 20 s |
 | `/gscraft kit` / `/gscraft kit <player>` | lists the first-join kit as resolved stacks / gives it |
+| `/gscraft kit respawn` / `/gscraft kit respawn <player>` | lists what a death gives back (kit entries marked `"respawn": true`: the pistol, loaded, and the notebook) / gives it as the respawn does - only what the player does not carry |
 | `/gscraft join <player>` | the first join again: `joined` and `seen_*` cleared, the title, the kit, Tune's lines, the book on The compound |
 | `/gscraft reset quests|players|all` | §1 |
 

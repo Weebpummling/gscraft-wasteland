@@ -19,7 +19,9 @@ Resets (`/gscraft reset quests`) and clocks (`clock free`, `site <id> clock`) ar
    hospital back to unknown and forgets the searches.
 7. What a player needs is in the data the game loaded: canned goods can be eaten; the marker's order is five minutes;
    Marshall's three hospital quests watch the three stages; R0 runs the gate.
-8. No gscraft errors.
+8. The kit is a Superb Warfare Glock 17, loaded, and 34 rounds of what bodies and rooms give; a death gives back the pistol
+   and the notebook and nothing else.
+9. No gscraft errors.
 """
 import json
 import re
@@ -137,6 +139,17 @@ gate_reward = any("gate_close" in json.dumps(rw) for rw in quests["R0"]["rewards
 check("canned goods can be eaten; the marker's order is five minutes; Marshall's three quests watch the three stages; R0 runs the gate",
       "canned_goods(6)" in items and orders["claim_marker"]["class"] == "equipment" and watch == {"H1": ["hospital_scouted"], "H2": ["hospital_looted"], "H3": ["hospital_held"]} and gate_reward,
       f"[{items[items.find('edible'):][:40]}]; marker class {orders['claim_marker']['class']}; {watch}; gate reward {gate_reward}")
+
+# 8: the fight and the death (owner's decisions, 2026-09-19: Superb Warfare for the player's guns; the pistol again on respawn)
+kit = c("gscraft kit")
+back = c("gscraft kit respawn")
+drops = json.dumps([json.loads(f.read_text(encoding="utf-8")) for f in (ROOT / "mod/src/main/resources/data/gscraft/gscraft_drops").glob("*.json")])
+tables = {t: (ROOT / f"mod/src/main/resources/data/gscraft/loot_tables/building/{t}.json").read_text(encoding="utf-8") for t in ("apartment", "office", "garage")}
+check("the kit's gun is Superb Warfare's, loaded, with rounds the world gives back; no TACZ in it; a death returns the pistol and the notebook",
+      "superbwarfare:glock_17" in kit and "Ammo:17" in kit and "34 superbwarfare:handgun_ammo" in kit and "tacz" not in kit
+      and "superbwarfare:glock_17" in back and "Ammo:17" in back and "patchouli:guide_book" in back and "handgun_ammo" not in back and "station" not in back
+      and drops.count("superbwarfare:handgun_ammo") >= 4 and all("superbwarfare:handgun_ammo" in v for v in tables.values()),
+      f"kit [{kit[:150]}]; back [{back[:120]}]; drop rules with rounds {drops.count('superbwarfare:handgun_ammo')}; tables with rounds {[t for t, v in tables.items() if 'handgun_ammo' in v]}")
 
 c("gscraft clock online")
 c("forceload remove all")

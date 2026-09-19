@@ -74,6 +74,20 @@
           "type": "minecraft:item",
           "name": "gscraft:broken_radio",
           "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "superbwarfare:handgun_ammo",
+          "weight": 8,
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 4,
+                "max": 10
+              }
+            }
+          ]
         }
       ]
     }
