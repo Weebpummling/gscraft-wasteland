@@ -15,8 +15,8 @@ BOX = (-900, -720, -920, -835)                    # the compound (x0, x1, z0, z1
 YARD = (-829, -893)
 START = (-833, -940)                              # the road north of the gate
 PASS = ("air", "cave_air", "grass", "tall_grass", "fern", "large_fern", "dead_bush", "snow", "torch", "wall_torch", "rail", "vine", "carpet", "button", "pressure_plate",
-        "sign", "lever", "flower", "dandelion", "poppy", "sapling", "mushroom", "_door", "ladder", "cobweb", "sweet_berry_bush", "bush", "sugar_cane", "lantern", "chain")
-NOCLIMB = ("_fence", "_wall", "fence_gate", "iron_bars", "glass_pane")
+        "sign", "lever", "flower", "dandelion", "poppy", "sapling", "mushroom", "_door", "ladder", "cobweb", "sweet_berry_bush", "bush", "sugar_cane")
+NOCLIMB = ("_fence", "_wall", "fence_gate", "iron_bars", "glass_pane", "chain", "lantern", "tripwire_hook")   # a chain leaves 0.41 each side of it: no body passes (the first cut let them, and "found" ways through the west fence)
 
 
 def kind(x, y, z):
@@ -64,7 +64,7 @@ def fill(plugs):
             return path[::-1]
         for dx, dz in ((1, 0), (-1, 0), (0, 1), (0, -1)):
             nx, nz = x + dx, z + dz
-            if not (X0 <= nx <= X1 and Z0 <= nz <= Z1) or any(abs(nx - px) <= 3 and abs(nz - pz) <= 3 for px, pz in plugs):
+            if not (X0 <= nx <= X1 and Z0 <= nz <= Z1) or any(abs(nx - px) <= 3 and abs(nz - pz) <= 3 for px, pz in plugs) or (nx, nz) in SEALED:
                 continue
             for ny, _ in stands(nx, nz):
                 if -3 <= ny - y <= 1 and (nx, ny, nz) not in prev:
@@ -73,30 +73,93 @@ def fill(plugs):
     return None
 
 
-plugs = []
-for n in range(12):
-    path = fill(plugs)
-    if path is None:
-        print(f"with {len(plugs)} ways in plugged the yard cannot be reached on foot")
-        break
-    ci = next(i for i, p in enumerate(path) if inside(p[0], p[2]) and not inside(path[i - 1][0], path[i - 1][2]))
 
-    def width(i):
-        x, y, z = path[i]
-        px, py, pz = path[i - 1]
-        sx, sz = (0, 1) if px != x else (1, 0)      # across the direction of travel
-        w = 1
-        for sign in (1, -1):
-            for k in range(1, 9):
-                if any(abs(sy - y) <= 1 for sy, _ in stands(x + sign * sx * k, z + sign * sz * k)):
-                    w += 1
-                else:
-                    break
-        return w
 
-    lo, hi = max(1, ci - 40), min(len(path) - 1, ci + 40)
-    neck = min(range(lo, hi), key=lambda i: (width(i), abs(i - ci)))
-    nx, ny, nz = path[neck]
-    doors = [q for q in path[lo:hi] if any(d for y, d in stands(q[0], q[2]) if y == q[1])]
-    print(f"way in {n + 1}: narrowest at ({nx}, {ny}, {nz}), {width(neck)} wide; enters the box at {path[ci]}; {len(path)} steps from the road" + (f"; a door at {doors[0]}" if doors else ""))
-    plugs.append((nx, nz))
+def reach(plugs):
+    """every standable cell reached from the road, with its step count"""
+    sy = min(stands(*START), key=lambda s: abs(s[0] - 70))[0]
+    start = (START[0], sy, START[1])
+    dist = {start: 0}
+    q = deque([start])
+    while q:
+        x, y, z = q.popleft()
+        for dx, dz in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            nx, nz = x + dx, z + dz
+            if not (X0 <= nx <= X1 and Z0 <= nz <= Z1) or any(abs(nx - px) <= 3 and abs(nz - pz) <= 3 for px, pz in plugs) or (nx, nz) in SEALED:
+                continue
+            for ny, _ in stands(nx, nz):
+                if -3 <= ny - y <= 1 and (nx, ny, nz) not in dist:
+                    dist[(nx, ny, nz)] = dist[(x, y, z)] + 1
+                    q.append((nx, ny, nz))
+    return dist
+
+
+def draw(out, plugs):
+    from PIL import Image
+    S = 4
+    dist = reach(plugs)
+    best = {}
+    for (x, y, z), d in dist.items():
+        best[(x, z)] = min(d, best.get((x, z), 10 ** 9))
+    img = Image.new("RGB", ((X1 - X0 + 1) * S, (Z1 - Z0 + 1) * S), (0, 0, 0))
+    px = img.load()
+    path = fill(plugs) or []
+    on = {(x, z) for x, _, z in path}
+    for x in range(X0, X1 + 1):
+        for z in range(Z0, Z1 + 1):
+            if (x, z) in on:
+                col = (255, 40, 40)
+            elif (x, z) in SEALED:
+                col = (255, 255, 0)
+            elif (x, z) in best:
+                t = min(1.0, best[(x, z)] / 500.0)
+                col = (int(40 + 60 * t), int(200 - 140 * t), int(60 + 160 * t))
+                if inside(x, z):
+                    col = tuple(min(255, c + 50) for c in col)
+            elif stands(x, z):
+                col = (110, 110, 110)      # standable, not reached
+            else:
+                col = (0, 0, 0)
+            for i in range(S):
+                for j in range(S):
+                    px[(x - X0) * S + i, (z - Z0) * S + j] = col
+    img.save(out)
+    print("drawn", out, "- the yard is", "REACHED" if path else "not reached", f"({len(path)} steps)" if path else "")
+
+
+SEALED = set()
+
+if __name__ == "__main__":
+    if "--seal" in sys.argv:
+        import json
+        SEALED |= {tuple(c) for c in json.loads(Path(sys.argv[sys.argv.index("--seal") + 1]).read_text(encoding="utf-8"))}
+    if "--map" in sys.argv:
+        draw(sys.argv[sys.argv.index("--map") + 1], [(-832, -912)] if "--gate-shut" in sys.argv else [])
+        sys.exit(0)
+    plugs = []
+    for n in range(30):
+        path = fill(plugs)
+        if path is None:
+            print(f"with {len(plugs)} ways in plugged the yard cannot be reached on foot")
+            break
+        ci = next(i for i, p in enumerate(path) if inside(p[0], p[2]) and not inside(path[i - 1][0], path[i - 1][2]))
+
+        def width(i):
+            x, y, z = path[i]
+            px, py, pz = path[i - 1]
+            sx, sz = (0, 1) if px != x else (1, 0)      # across the direction of travel
+            w = 1
+            for sign in (1, -1):
+                for k in range(1, 9):
+                    if any(abs(sy - y) <= 1 for sy, _ in stands(x + sign * sx * k, z + sign * sz * k)):
+                        w += 1
+                    else:
+                        break
+            return w
+
+        lo, hi = max(1, ci - 40), min(len(path) - 1, ci + 40)
+        neck = min(range(lo, hi), key=lambda i: (width(i), abs(i - ci)))
+        nx, ny, nz = path[neck]
+        doors = [q for q in path[lo:hi] if any(d for y, d in stands(q[0], q[2]) if y == q[1])]
+        print(f"way in {n + 1}: narrowest at ({nx}, {ny}, {nz}), {width(neck)} wide; enters the box at {path[ci]}; {len(path)} steps from the road" + (f"; a door at {doors[0]}" if doors else ""))
+        plugs.append((nx, nz))

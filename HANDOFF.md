@@ -444,8 +444,12 @@ lost only if something gets over. **Surveyed since (`tools/openings.py`, a flood
 north): the wall is NOT sealed.** The north gate is the short way (52 steps, 6 wide at -832 71 -912); with it plugged the
 yard is still reached through one-wide gaps in the north-east (-747 74 -918, -737 71 -912) and, however many are plugged,
 round the open north-west corner (x -910..-893, z -927..-907, ground 63-68, up to 4 wide), about 300 steps. So a barred
-gate sends a wave the long way round the west side; it does not make the compound safe. Whether the owner wants that
-corner walled is a building decision, not mine.
+gate sends a wave the long way round; it does not make the compound safe. **Owner, 2026-09-19: "don't worry about the
+walls" - nothing was built and nothing is to be.** For the record, my "open north-west corner" was a misreading: the wall
+(chain and crimson fence, six high) is intact round that corner; where it lets a body through is where it is a ruin - the
+west side south of z -873, a twelve-block break in the north side near x -836 (the gate), the north-east end, and long
+stretches of the south side where it is a one-high slab or nothing (`openings.py --map out.png --gate-shut` draws it).
+Also decided: water is NOT a need; bodies keep dropping a worn piece at 5%.
 **18, 19, 24 were stale or self-inflicted:** 18's blast of 900 kills a 500-health tank since the damage pass keeps 95% of
 a blast (380 now); 19's third report is the crew bailing out, which is right; 24's attacker stood in plain view, so the
 crew engaged and unloaded the bay before the hit (he stands in a stone box). 18 7/7, 19 4/4, 24 3/3, 25 5/5, 6 8/8.

@@ -53,5 +53,6 @@ Step 7 is the only one with real work in it: it needs live's region files pulled
 
 ## 4. Decisions still the owner's
 
-Water as a need or not. Whether the north-west corner of the compound gets a wall. Whether bodies should drop their
-vests more often than 5% now that a vest is a quest reward. `casings` and `concrete`: orders nobody can run.
+**Decided 2026-09-19:** water is not a need; bodies keep dropping a worn piece at 5%; **the compound's walls are left as
+they are** (owner: "don't worry about the walls").
+Still open: `casings` and `concrete`, orders nobody can run.
