@@ -79,7 +79,7 @@ def cmd(command):
 # where each survivor stands at the start (start-compound §6), for the hub's Meet quests
 WHERE = {
     "walker": ("the yard, at its south end", 2, -2), "michael": ("the brick works, east of the hall", 2, 2),
-    "marshall": ("the big hall, by the board", 4, -2), "tony": ("the annex, south of the hall", 4, 2),
+    "marshall": ("the big hall", 4, -2), "tony": ("the annex, south of the hall", 4, 2),
     "tune": ("the shed by the north gate", 6, -2), "james": ("the road inside the north gate", 6, 2),
 }
 
@@ -148,7 +148,7 @@ QUESTS = [
      "rewards": [give("minecraft:compass"), give("minecraft:map")]},
     meet("marshall"),
     # Marshall: only after the five introductions
-    {"key": "R1", "chapter": "marshall", "title": "Muster", "voice": "We're squatting in someone's town.", "task": "Read the board in the hall, then come back.",
+    {"key": "R1", "chapter": "marshall", "title": "Muster", "voice": "We're squatting in someone's town.", "task": "Marshall has a plan for the town. Hear him out.",
      "x": 0, "y": 0, "tasks": [CHECK], "deps": ["W1", "T1", "M1", "U1", "J1"], "hide_until_deps": True,
      "rewards": [give("gscraft:card_claim_marker"), stage("bp_claim_marker"), stage("marshall_speaks"), say("marshall", "speaks")]},
     # Marshall's support (strikes note 2026-09-13): the tube, then the fire missions as repeatable hand-ins

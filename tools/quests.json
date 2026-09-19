@@ -590,7 +590,7 @@
    "chapter": "compound",
    "title": "Meet Marshall",
    "voice": "",
-   "task": "Marshall is in the big hall, by the board. Right-click them; their chapter opens here.",
+   "task": "Marshall is in the big hall. Right-click them; their chapter opens here.",
    "x": 4,
    "y": -2,
    "tasks": [
@@ -611,7 +611,7 @@
    "chapter": "marshall",
    "title": "Muster",
    "voice": "We're squatting in someone's town.",
-   "task": "Read the board in the hall, then come back.",
+   "task": "Marshall has a plan for the town. Hear him out.",
    "x": 0,
    "y": 0,
    "tasks": [

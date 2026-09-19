@@ -1,6 +1,6 @@
 {
   "name": "Survivor's notebook",
-  "landing_text": "One piece of paper. The controls, the camp, the board, carrying, getting hurt, where things are. Nothing here is a rule you have to read; it is what you would ask a survivor.",
+  "landing_text": "One piece of paper. The controls, the camp, carrying, getting hurt, where things are. Nothing here is a rule you have to read; it is what you would ask a survivor.",
   "version": 1,
   "show_progress": false,
   "model": "patchouli:book_brown",

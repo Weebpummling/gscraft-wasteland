@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""The strongpoint board on the hall's ground floor (camp spec §2, ruling R4; system doc 2026-09-13 §7 build 8).
+"""RETIRED 2026-09-18 (owner: "remove the board... too much space for too little information"). The board is gone from
+the world (`function gscraft:board_remove`), the mod runs without `gscraft_board/board.json`, and `/gscraft board` prints the
+same one line per strongpoint as text. Kept for the record and for whatever display replaces it; do not run it.
+
+The strongpoint board on the hall's ground floor (camp spec §2, ruling R4; system doc 2026-09-13 §7 build 8).
 
     python board.py <world dir>            -> finds a wall inside the hall for a 13 x 4 board (six 2-wide columns of
                                               concrete three high, the contested lamp at the end, a sign row in front),

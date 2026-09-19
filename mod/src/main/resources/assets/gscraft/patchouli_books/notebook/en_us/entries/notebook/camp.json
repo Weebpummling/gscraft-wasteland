@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "$(bold)Walker$() the yard - bolts and nuts.$(br)$(bold)Michael$() the brick works - wire and cord.$(br)$(bold)Marshall$() the hall, by the board - the strongpoints.$(br)$(bold)Tony$() the annex - bandages.$(br)$(bold)Tune$() the gate shed - boards, radios.$(br)$(bold)James$() the north gate - the map.$(br)Right-click any of them: their page of the journal opens."
+      "text": "$(bold)Walker$() the yard - bolts and nuts.$(br)$(bold)Michael$() the brick works - wire and cord.$(br)$(bold)Marshall$() the hall - the strongpoints.$(br)$(bold)Tony$() the annex - bandages.$(br)$(bold)Tune$() the gate shed - boards, radios.$(br)$(bold)James$() the north gate - the map.$(br)Right-click any of them: their page of the journal opens."
     }
   ]
 }

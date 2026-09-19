@@ -145,7 +145,7 @@
 			y: -2.0d
 			title: "Meet Marshall"
 			description: [
-				"Marshall is in the big hall, by the board. Right-click them; their chapter opens here."
+				"Marshall is in the big hall. Right-click them; their chapter opens here."
 			]
 			dependencies: [
 				"2F24D0F7F02E123D"

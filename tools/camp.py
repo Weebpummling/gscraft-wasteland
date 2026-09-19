@@ -47,7 +47,7 @@ NPCS = {
 # crossing.json run camp_npc_<npc> on `held`, which summons them at their building. `camp_npcs` (the deploy, the reset)
 # runs the start set. npc -> (rectangle, floor), inside the compound box x -900..-720, z -920..-835 (start-compound §6)
 START = {
-    "marshall": ((-785, -900, -753, -878), 70),   # the hall's floor, by the board
+    "marshall": ((-785, -900, -753, -878), 70),   # the hall's floor
     "tony": ((-792, -884, -774, -874), 70),       # the annex south of the hall
     "tune": ((-844, -911, -836, -904), 70),       # the shed by the north gate
     "james": ((-834, -903, -828, -896), 70),      # inside the north gate, on the road

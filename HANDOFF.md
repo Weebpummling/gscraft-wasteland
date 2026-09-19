@@ -413,6 +413,20 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-18, the board removed** (owner: "Remove the board, we'll need a different way to display this, it's too much space for too
+little information"; rulings R40): `function gscraft:board_remove` clears both boards that ever stood - the yard's free-standing one
+(placed into air: back to air) and the old south hall's, which had been painted ONTO the wall (back to smooth stone, the wall
+beside it). It replaces **only board-coloured blocks** (the six state concretes, the lamp, the wall signs) over each footprint,
+because the old one turned out to be half-placed in the local world (12 concrete and the lamp, no signs: it straddles a chunk
+boundary) and a blanket fill would have guessed. The 45 `board_*` functions are deleted from `build/datapacks` and the local
+world; `gscraft_board/board.json` is deleted, and the mod needed no other change - `Board` was written to no-op without it
+(`apply`, `lamp`, `column` all guard on `loaded`). `/gscraft board` now prints `Board.readout` for every site: the same
+information as text, for whatever display comes next. Words fixed: Marshall's Meet ("the big hall"), R1's task, the notebook's
+"Reading the board" page deleted. `tools/board.py` is marked RETIRED. `tools/war_phase35.py` re-cut to the boardless expectation
+with the claim mechanics still asserted: 6/6; 33 8/8; 43 6/6. **LIVE STILL HAS THE BOARD and a jar with `board.json`, so live
+keeps repainting it** until an authorized push carries this jar and runs `board_remove` there. Note for that day: a `function`
+call reports "Executed N commands" whether or not a fill changed anything - probe blocks to verify, do not trust a second run.
+
 **2026-09-18, the survivors where the owner puts them** (owner: "provide a way for us to easily edit where the NPCs are
 placed. I am just going to manually place them"): `survivor/NpcPlaces.java` - stand on the spot, look the way they should
 look, `/gscraft npc place <id>` (or `... <id> building` for where Marshall, Tony, Tune and James go when `gatehouse_taken` /

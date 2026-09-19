@@ -17,7 +17,7 @@
 			title: "Muster"
 			subtitle: "We're squatting in someone's town."
 			description: [
-				"Read the board in the hall, then come back."
+				"Marshall has a plan for the town. Hear him out."
 			]
 			dependencies: [
 				"0016A4AE37CD6D15"

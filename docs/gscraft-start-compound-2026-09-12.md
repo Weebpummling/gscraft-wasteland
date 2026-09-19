@@ -212,8 +212,8 @@ x −900…−720, z −920…−835 is the bounding box of a walled enclosure.
 
 | Thing | Where | Rule |
 |---|---|---|
-| World spawn | **(−829, 71, −893)**, `spawnRadius` 4 | the yard, looking west at the board |
-| The board | free-standing at (−834, 71, −899) along +z, facing east | no wall in the hall fit it (`board.py` `free_standing`, `FREE`): its own concrete rows are the wall |
+| World spawn | **(−829, 71, −893)**, `spawnRadius` 4 | the yard |
+| ~~The board~~ | **removed 2026-09-18** (owner: too much space for too little information; a different display to come). It stood free in the yard at (−834, 71, −899) | `function gscraft:board_remove`; `/gscraft board` gives the same lines as text |
 | Walker | the yard's south end, (−832, 71, −883) | `camp_npc_walker`, his building is the yard itself |
 | Michael | the brick works, (−741, 72, −890) | `camp_npc_michael` |
 | Marshall (start) | the hall's floor, (−769, 71, −889) | `camp_start_marshall`; the gatehouse when it is taken |

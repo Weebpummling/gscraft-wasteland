@@ -58,8 +58,12 @@ public final class SiteCommands {
                                 site.id() + " site guard: " + Loop.keepGuard(level, site, SiteData.get(level).progress(site.id())) + " summoned, "
                                         + Loop.guardCount(level, site) + " standing")))))
                 .then(Commands.literal("board").executes(ctx -> {
-                    ctx.getSource().sendSuccess(() -> net.minecraft.network.chat.Component.literal(Board.describe()), false);
-                    return Board.loaded() ? 1 : 0;
+                    // the board's blocks are gone (owner 2026-09-18); what it said stays: one line per strongpoint
+                    ServerLevel level = ctx.getSource().getServer().overworld();
+                    StringBuilder sb = new StringBuilder(Board.describe());
+                    for (String id : new java.util.TreeSet<>(Sites.all().keySet())) sb.append("\n  ").append(Board.readout(level, id));
+                    ctx.getSource().sendSuccess(() -> net.minecraft.network.chat.Component.literal(sb.toString()), false);
+                    return Sites.all().size();
                 }))
                 .then(Commands.literal("clock")
                         .then(Commands.literal("free").executes(ctx -> {

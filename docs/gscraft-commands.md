@@ -66,15 +66,15 @@ trip 20:00, scaled by the setting `station.speed`.
 | `/gscraft site <id> marker` | the claim marker's claim without the item: the assault, the banner at the anchor, the lamp; at the end the banner must stand and a player be inside, else lost back to looted |
 | `/gscraft site <id> clock <seconds>` | sets the running assault's or fortify clock |
 | `/gscraft site <id> guard` | tops up and counts the site guard |
-| `/gscraft board` | the board's geometry as the mod reads it |
+| `/gscraft board` | one line per strongpoint: state, clock, garrison. The board's blocks were removed 2026-09-18; this is what it said, as text |
 | `/gscraft clock free` / `online` | the site clocks tick with nobody online (tests) / only with players (the default) |
 | `/gscraft stages` | every stage set |
 | `/gscraft stage add <name>` / `remove <name>` | sets or clears a stage: the tag on every player, the advancement `gscraft:stage/<name>`, the functions a take runs |
 | `/gscraft stage check [name]` | is the stage's advancement known to the server (the registry, tools/stages.py) |
 | `/gscraft settings [filter]` | every setting in force (`data/gscraft/gscraft_settings/*.json`; `/reload` applies a change) |
 
-The board's blocks are datapack functions (`function gscraft:board_<site>_<state>`, `board_lamp_on|off`, `board_place`),
-called by the loop; the takes' torches are `function gscraft:torch_<name>`.
+The board was removed (owner, 2026-09-18: too much space for too little information). `function gscraft:board_remove` clears its blocks -
+only board-coloured blocks, over each board's footprint. The mod runs without `gscraft_board/board.json`; a new display is to be designed.
 
 ## 4a. The fire missions
 
@@ -162,7 +162,7 @@ keeps the crew seated; a vanilla explosion type ejects it.
 | `/ftbteams party create` | the five players as one party so progress is shared |
 | `/lootr clear <player>` | forgets which containers that player opened (they glow again) |
 | `/reload` | datapacks and the mod's data (zones, sites, settings, recipes are read from the jar; functions from the world's datapack) |
-| `/function gscraft:<name>` | a datapack function: `camp_npcs`, `camp_npc_<npc>`, `torch_<name>`, `board_place`, `board_<site>_<state>`, `board_lamp_on|off`, `tower_stage_<n>` |
+| `/function gscraft:<name>` | a datapack function: `camp_npcs`, `camp_npc_<npc>`, `torch_<name>`, `board_remove`, `tower_stage_<n>` |
 
 ## 8. Tools that drive these from outside (this machine)
 
@@ -170,7 +170,7 @@ keeps the crew seated; a vanilla explosion type ejects it.
 |---|---|
 | `tools/war_phase<N>.py` | the headless tests over RCON (`localtest.Rcon("127.0.0.1", 25575, ...)`); phases 26-36 are the slice's |
 | `tools/chapters.py --install` | writes and installs the quest book |
-| `tools/board.py <world> --apply` | finds the board's wall, writes its functions, places it |
+| `tools/board.py` | RETIRED 2026-09-18 with the board; kept for the record, do not run |
 | `tools/camp.py <world>` | the survivors' summons and signs (then copy to the world's datapack) |
 | `tools/chests.py <world> --place --apply` | the Lootr containers |
 | `tools/stages.py` | the stage advancements from the registry and the recipe cards |
