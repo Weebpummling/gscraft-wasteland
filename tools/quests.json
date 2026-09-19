@@ -474,7 +474,7 @@
    "chapter": "michael",
    "title": "Lights on",
    "voice": "There's a generator under that tarp.",
-   "task": "Order two wiring harnesses and find a light bulb.",
+   "task": "Order two wiring harnesses and find a light bulb. A harness is pliers' work: Walker's hand-tools card makes a pair, and workshops have them.",
    "x": 4,
    "y": 0,
    "tasks": [
@@ -615,7 +615,7 @@
    "chapter": "tune",
    "title": "The map",
    "voice": "Two of those and the map talks.",
-   "task": "Order two circuit assemblies and bring them.",
+   "task": "Order two circuit assemblies and bring them. They want a screwdriver set in the tool slot: Walker's hand-tools card makes one.",
    "x": 4,
    "y": 0,
    "tasks": [
@@ -893,7 +893,7 @@
    "chapter": "marshall",
    "title": "Plant it",
    "voice": "Now we take it.",
-   "task": "Build the claim marker at your station and plant it at the hospital. Then hold for five minutes.",
+   "task": "Build the claim marker at your station - it wants a hand drill in the tool slot - and plant it at the hospital. Then hold for five minutes.",
    "x": 6,
    "y": -2,
    "tasks": [

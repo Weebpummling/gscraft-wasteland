@@ -132,7 +132,7 @@
 			title: "Plant it"
 			subtitle: "Now we take it."
 			description: [
-				"Build the claim marker at your station and plant it at the hospital. Then hold for five minutes."
+				"Build the claim marker at your station - it wants a hand drill in the tool slot - and plant it at the hospital. Then hold for five minutes."
 			]
 			dependencies: [
 				"3EC82984032725E3"

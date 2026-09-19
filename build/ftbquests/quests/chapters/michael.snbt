@@ -87,7 +87,7 @@
 			title: "Lights on"
 			subtitle: "There's a generator under that tarp."
 			description: [
-				"Order two wiring harnesses and find a light bulb."
+				"Order two wiring harnesses and find a light bulb. A harness is pliers' work: Walker's hand-tools card makes a pair, and workshops have them."
 			]
 			dependencies: [
 				"44D246950C7B83C4"

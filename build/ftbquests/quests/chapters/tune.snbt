@@ -71,7 +71,7 @@
 			title: "The map"
 			subtitle: "Two of those and the map talks."
 			description: [
-				"Order two circuit assemblies and bring them."
+				"Order two circuit assemblies and bring them. They want a screwdriver set in the tool slot: Walker's hand-tools card makes one."
 			]
 			dependencies: [
 				"4BEAB3D0BF7F532E"
