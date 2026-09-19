@@ -424,6 +424,14 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-19, PLACED MEANS PLACED (owner: "they don't need to move to a building. have them stay where I place them"; ruling R58).**
+`NpcPlaces.inForce` is the saved start spot and nothing else; `/gscraft npc place <id> building` is refused with a line saying
+so. The takes of the gatehouse, the clinic and the crossing still run the datapack function that summons their survivor in the
+building - the join hook carries him straight back to the owner's spot. Only a survivor with NO saved spot still follows the
+functions. Phase 43, 7 of 7: Marshall placed in the hall, `gatehouse_taken` set, `camp_npc_marshall` run, respawned - still in
+the hall, still one. The texts that say where a survivor stands (the Meet quests, the notebook's The camp) are the COMPUTED
+spots' and will be wrong wherever the owner puts someone else: not changed, because the places are not known yet.
+
 **2026-09-19 16:46, LIVE DEPLOYED (owner: "deploy to live"; the first attempt had been refused by the permission system, the second
 ran).** `tools/live_deploy.py`: nobody on by the console's `list`, twice; 45 functions and the loot-modifier list into
 `gscraft_slice`; the book (9 chapters); stop (offline in 18 s); the jar (713,198 bytes, sha256 27825712...); start (Done in

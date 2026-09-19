@@ -97,9 +97,9 @@ only board-coloured blocks, over each board's footprint. The mod runs without `g
 | `/function gscraft:old_compound_chests_clear` | removes the 19 Lootr chests placed in the SOUTH compound before the move; guarded (only where a Lootr chest still stands); the chunks x -980..-920, z -897..-818 must be loaded. Run locally 2026-09-19; **on live only on the owner's word** |
 | `/function gscraft:gate_open` | the opening as the map had it (`/gscraft reset quests` runs this) |
 | `/function gscraft:yard_mortar_clear` | the tube taken down (`/gscraft reset quests` runs this) |
-| `/gscraft npc place <id>` | **put a survivor where you stand, facing the way you face**, and save it with the world (ids: walker, michael, marshall, tony, tune, james). This is the compound (start) spot |
-| `/gscraft npc place <id> building` | the same for where Marshall, Tony, Tune or James go once their building is taken (gatehouse, clinic, clinic, crossing); saved now, used when that stage is set |
-| `/gscraft npc place <id> <start\|building> <x> <y> <z> <yaw>` | the same from the console, by coordinates |
+| `/gscraft npc place <id>` | **put a survivor where you stand, facing the way you face**, and save it with the world (ids: walker, michael, marshall, tony, tune, james). They STAY there: taking the gatehouse, the clinic or the crossing no longer moves anyone who has been placed |
+| `/gscraft npc place <id> building` | **refused since 2026-09-19**: a placed survivor stays where they were placed, whatever is taken |
+| `/gscraft npc place <id> start <x> <y> <z> <yaw>` | the same from the console, by coordinates |
 | `/gscraft npc list` | every survivor: saved start and building spots, which is in force, where they stand now |
 | `/gscraft npc respawn [id]` | put everyone (or one) up again: your saved spot if there is one, else the datapack's computed one |
 | `/gscraft npc clear <id> [start\|building]` | forget a saved spot; the computed one stands again after a respawn |

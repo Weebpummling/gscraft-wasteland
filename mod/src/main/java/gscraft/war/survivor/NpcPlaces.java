@@ -93,10 +93,13 @@ public final class NpcPlaces extends SavedData {
     }
 
     /** the owner's spot in force for this survivor, or null when none is saved (the datapack's computed spot stands) */
+    /**
+     * A survivor the owner has placed STAYS THERE (owner, 2026-09-19: "they don't need to move to a building. have them stay
+     * where I place them"). The take of the gatehouse, the clinic or the crossing still runs the datapack's function that
+     * summons its survivor in the building; the join hook carries that one straight back to the owner's spot. Only a
+     * survivor with NO saved spot follows the functions (and so still moves with the stages).
+     */
     public Spot inForce(String id) {
-        String stage = BUILDING_STAGE.get(id);
-        if (stage != null && Stages.isSet(stage) && spot(id, "building") != null) return spot(id, "building");
-        if (stage != null && Stages.isSet(stage)) return null;   // moved out to a building the owner has not placed: the function's spot
         return spot(id, "start");
     }
 
@@ -190,7 +193,7 @@ public final class NpcPlaces extends SavedData {
         Survivors.Def def = def(id);
         if (def == null) return say(ctx, "no survivor '" + id + "'; one of " + Survivors.ALL.stream().map(Survivors.Def::id).toList()) - 1;
         if (!SLOTS.contains(slot)) return say(ctx, "slot is start or building") - 1;
-        if (slot.equals("building") && !BUILDING_STAGE.containsKey(id)) return say(ctx, def.name() + " lives in the compound: only a start spot") - 1;
+        if (slot.equals("building")) return say(ctx, "survivors stay where they are placed: there is no building spot any more. Use /gscraft npc place " + id) - 1;
         CommandSourceStack src = ctx.getSource();
         Vec3 p = at != null ? at : src.getPosition();
         float facing = yaw != null ? yaw : src.getRotation().y;
@@ -250,8 +253,7 @@ public final class NpcPlaces extends SavedData {
             }
             if (copies > 1) stands += " - " + copies + " COPIES LOADED (run /gscraft npc respawn " + d.id() + ")";
             sb.append("\n  ").append(d.id()).append(": start ").append(s == null ? "(computed)" : s.text());
-            if (BUILDING_STAGE.containsKey(d.id())) sb.append("; building ").append(b == null ? "(computed)" : b.text()).append(" [").append(BUILDING_STAGE.get(d.id())).append(Stages.isSet(BUILDING_STAGE.get(d.id())) ? " set]" : " unset]");
-            sb.append("; in force ").append(f == null ? "computed" : "saved").append("; stands at ").append(stands);
+            sb.append(f == null ? "; follows the functions" : "; stays where placed").append("; stands at ").append(stands);
         }
         return say(ctx, sb.toString());
     }

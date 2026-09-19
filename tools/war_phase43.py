@@ -7,8 +7,8 @@ explicit coordinates. It leaves the world as it found it (records cleared, the d
    stops the autosave generating trades (a cartographer's map search hung the server, 2026-09-13).
 3. The datapack path still ends at the owner's spot: `function gscraft:camp_npcs` summons Walker at tools/camp.py's
    computed spot and the join hook moves him to the saved one; a survivor with no record stays where the function put him.
-4. The building slot: saved while its stage is unset without moving anyone; in force once the stage is set; start again
-   when the stage is removed.
+4. PLACED MEANS PLACED: the building slot is refused; with gatehouse_taken set and the take's own function run, a placed
+   Marshall is still on the owner's spot; a survivor with no saved spot still follows the functions.
 4b. NO DUPLICATES: placed twice, a copy summoned by hand, respawn and the function re-run, and a stale copy arriving from an
     unloaded chunk - there is always exactly one Walker.
 5. `npc clear` gives the computed spot back.
@@ -81,20 +81,32 @@ check("the datapack's camp_npcs still ends at the owner's spot; an unplaced surv
       count("walker") == 1 and count("walker", MINE) == 1 and count("walker", (W["x"], W["y"], W["z"])) == 0 and count("michael", (computed["buildings"]["michael"]["x"], computed["buildings"]["michael"]["y"], computed["buildings"]["michael"]["z"])) == 1,
       f"Walker on mine {count('walker', MINE)}, on the computed {count('walker', (W['x'], W['y'], W['z']))}; Michael on his computed {count('michael', (computed['buildings']['michael']['x'], computed['buildings']['michael']['y'], computed['buildings']['michael']['z']))}")
 
-# 4
-start_m = computed["start"]["marshall"]
+# 4: PLACED MEANS PLACED (owner, 2026-09-19: "they don't need to move to a building. have them stay where I place them")
 out_b = c(f"gscraft npc place marshall building {GATE[0]} {GATE[1]} {GATE[2]} 180")
+refused_building = "stay where they are placed" in out_b and count("marshall", GATE) == 0
+HALL = (-770, 71, -890)
+c(f"gscraft npc place marshall start {HALL[0]} {HALL[1]} {HALL[2]} 0")
 time.sleep(1)
-unset_ok = "saved; it takes effect when gatehouse_taken is set" in out_b and count("marshall", GATE) == 0
+c("gscraft stage add gatehouse_taken")
+c("function gscraft:camp_npc_marshall")      # what the gatehouse's take runs: it summons him AT the gatehouse
+time.sleep(1)
+stayed = count("marshall") == 1 and count("marshall", HALL) == 1
+c("gscraft npc respawn marshall")
+time.sleep(1)
+stayed = stayed and count("marshall") == 1 and count("marshall", HALL) == 1
+c("gscraft stage remove gatehouse_taken")
+# one with no saved spot still follows the functions
+c("gscraft npc clear marshall start")
 c("gscraft stage add gatehouse_taken")
 c("gscraft npc respawn marshall")
 time.sleep(1)
-set_ok = count("marshall") == 1 and count("marshall", GATE) == 1
+bm = computed["buildings"]["marshall"]
+follows = count("marshall") == 1 and count("marshall", (bm["x"], bm["y"], bm["z"]), 2) == 1
 c("gscraft stage remove gatehouse_taken")
 c("gscraft npc respawn marshall")
 time.sleep(1)
-back_ok = count("marshall") == 1 and count("marshall", (start_m["x"], start_m["y"], start_m["z"])) == 1
-check("the building slot: saved unset, in force with the stage, the start again without it", unset_ok and set_ok and back_ok, f"unset {unset_ok} [{out_b[:60]}]; with the stage {set_ok}; after {back_ok}")
+check("a placed survivor stays: the building slot is refused, the gatehouse's take and a respawn leave Marshall on the owner's spot; an unplaced one still moves",
+      refused_building and stayed and follows, f"building slot refused {refused_building}; stayed on the spot through the take {stayed}; unplaced Marshall went to the gatehouse {follows}")
 
 # 4b: NO DUPLICATES (owner, 2026-09-19: "make sure no duplicates will exist"). Four ways a second Walker could appear:
 SUMMON = ('summon minecraft:villager {x} {y} {z} {{NoAI:1b,Invulnerable:1b,PersistenceRequired:1b,Silent:1b,Tags:["gscraft_npc","gscraft_npc_walker"]}}')
@@ -156,7 +168,6 @@ time.sleep(1)
 
 # 5
 c("gscraft npc clear walker start")
-c("gscraft npc clear marshall building")
 c("function gscraft:camp_npcs")
 time.sleep(1)
 lst = c("gscraft npc list")
