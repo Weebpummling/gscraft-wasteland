@@ -413,6 +413,17 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-19, THE SLICE REVIEWED FOR PLAYABILITY - READ THIS FIRST: `docs/gscraft-slice-review-2026-09-19.md`.** The slice
+cannot be played to its end. Walked as a player, from the data and the local server: (1) **the hospital cannot be reached by
+play** - nothing scouts or loots a strongpoint but the operator command, and the claim marker is refused until the site is
+looted; (2) **the kit's TACZ Glock cannot be reloaded** - nothing gives `tacz:ammo`, the world drops Superb Warfare
+ammunition, and no other weapon exists; (3) **no food** - no gscraft item is edible, `canned_goods` only says it is, on Hard;
+(4) **a death disarms for good** - the kit is first-join only. Then: the town holds 144 loot containers in all and none in
+the hospital; one claim marker is 40 minutes of station time and 16 of each fastener, destroyed by a lost assault; the first
+objective is a military front entered with a pistol; `compound_closed` does nothing. Every build had a green phase because
+each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
+chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
+
 **2026-09-19, the fasteners fixed and the mortar un-built (owner: "Need to be fixed, and also, the mortar is somehow already
 built"; rulings R42):** **THE MORTAR WAS MINE.** `yard_mortar` is The tube's reward and nothing else, and I had run it as a
 deploy step - at both live pushes (2026-09-13 and 09-17, where I even reported "one mortar in the yard" as a success) and on
