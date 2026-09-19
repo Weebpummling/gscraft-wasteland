@@ -183,7 +183,7 @@ public class StationBlockEntity extends BlockEntity implements MenuProvider {
             }
         }
         orderId = o.id();
-        remaining = o.ticks();
+        remaining = (int) Math.max(20, Math.round(o.ticks() * gscraft.war.world.Upgrades.stationFactor()));   // Workshop 1 and 2 (world/Upgrades)
         why = "";
         setChanged();
         lit();

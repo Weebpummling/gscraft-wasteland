@@ -424,6 +424,36 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-19, THE UPGRADES AS SYSTEMS, and the survivors' placement checked (owner: "apply the upgrade system to just system based and
+skip the upgrade visuals"; then "check if the command to place the npcs will properly do so, and make sure no duplicates will
+exist"; rulings R55-R57). LOCAL ONLY.**
+**The upgrades** (`world/Upgrades.java`; `/gscraft upgrades` lists them): each camp function level is a stage a survivor's
+quest already set and nothing read. Now each changes a RULE - no block is placed. Workshop 1 (W3) and 2 (W4): station
+orders x0.85, x0.70. Medical 1 (T2): the clinic - inside the compound's box an infection is cured and a downed player is
+on their feet after 10 s (PlayerRevive's `PlayerReviveServer.isBleeding/revive`, by reflection; reachable: true). Medical 2
+(T3): a death also gives back 17 pistol rounds and 2 bandages. Generator 1 (M2): +16 blocks on the compound's no-placement
+margin. Water 1 (M3): half a heart every 5 s inside the compound. Radio 1 (U2): Tune's ten-minute warning of a
+counterattack is HEARD only with it (without it: the two-minute title only - this takes the warning AWAY from a team that
+has not done U2, which is the design, quests doc U2). Radio 2 (U3): a held site's whole countdown as a yellow bar, and the
+Cobra's gate. Storage 1 is the backpack. The medical and radio effects are the quests doc's own; workshop, generator and
+water named recipes that do not exist, so theirs are rules in the same spirit - **every number is a setting under
+`upgrades.`**. Each quest's text says what its level does. `intel_1` is gone.
+**FOUND DOING IT: THE COMPOUND'S MARGIN HAD NEVER WORKED.** `Zones.apply` called `margins.clear()` AFTER the parse that
+fills the map, so `nearExcluded` was false everywhere, always - since the day it was written. The generator's +16 changed
+nothing, and a probe ten blocks from the wall answered "allowed". That, not walking squads, is what phase 36 kept glimpsing
+(and its slack, widened twice, was hiding). Cleared before the parse now; the boot line counts margins.
+**The survivors' placement:** `/gscraft npc place <id> [start|building] [x y z yaw]` works as written (phase 43, 7 of 7).
+**One real way to a duplicate, closed:** `summon` and the datapack's `kill @e[...]` reach LOADED chunks only, so a copy
+left in an unloaded one (live may have one at the old south compound) came back when its chunk loaded, and the join hook
+then MOVED it onto the owner's spot beside the one standing there. The hook now refuses a survivor arriving while another
+of the same tag stands; refused from disk, it does not come back on a reload (proven: a stale copy made, its chunk
+unloaded, Walker placed, the chunk loaded, reloaded - always one). `npc list` says "N COPIES LOADED" if it ever sees two.
+**For the owner on live:** the datapack's `camp_npcs` also writes a SIGN beside each COMPUTED spot; a survivor placed by
+hand leaves that sign where he no longer is. The owner has said the signs are not needed; nothing removes them yet.
+**Proof:** `tools/war_phase49.py` 8 of 8 (the factor, the margin before and after Generator 1, the warning unheard and
+heard, Radio 2 from U3, no level without a rule, the reset). NOT proven, needs a player: the clinic's cure and revive, the
+water, Medical 2's respawn. **On the final jar (713,198 bytes): 49 8/8, 43 7/7, 36 5/5 (it asks the margin directly now), 47 8/8, 48 4/4, 44 10/10, 6, 25, 32, 33, 34, 35 green.**
+
 **2026-09-19, THE COMPLETENESS AUDIT (owner: "make sure every part of the gameplay that is available is designed and checked,
 so that nothing is left undone besides new features"; ruling R54). LOCAL ONLY.** Method: every promise the game makes to a
 player - a tooltip, a notebook page, a field note, a quest's text, a reward - checked against what the code and the data do.

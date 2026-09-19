@@ -180,7 +180,7 @@
    "chapter": "walker",
    "title": "Frame of mind",
    "voice": "Scrap is only scrap till it's welded.",
-   "task": "Bring twelve metal scrap and show me a welding torch.",
+   "task": "Bring twelve metal scrap and show me a welding torch. Workshop 1: every station order runs a little faster, for everyone.",
    "x": 6,
    "y": 0,
    "tasks": [
@@ -222,7 +222,7 @@
    "chapter": "walker",
    "title": "It still runs",
    "voice": "Give me a battery, two plugs and oil and I'll give you a week's welding.",
-   "task": "A car battery, two spark plugs and two motor oil: garages, and the brick works east of the hall.",
+   "task": "A car battery, two spark plugs and two motor oil: garages, and the brick works east of the hall. Workshop 2: station orders run faster still.",
    "x": 8,
    "y": 0,
    "tasks": [
@@ -330,7 +330,7 @@
    "chapter": "tony",
    "title": "Stock the clinic",
    "voice": "Two for the shelf, and you get more back.",
-   "task": "Order two med kits and bring them. Bandages and painkillers are in any flat; antiseptic and syringes are only where medicine was kept - the clinic in the north complex, or the hospital. Neither is ours: go armed, or go later.",
+   "task": "Order two med kits and bring them. Bandages and painkillers are in any flat; antiseptic and syringes are only where medicine was kept - the clinic in the north complex, or the hospital. Neither is ours: go armed, or go later. With the clinic stocked, Tony cures a bite and gets a downed player up, inside the compound.",
    "x": 4,
    "y": 0,
    "tasks": [
@@ -362,7 +362,7 @@
    "chapter": "tony",
    "title": "Clean air, clean blood",
    "voice": "A ward needs both.",
-   "task": "Three gas-mask filters and two blood bags. Flats have the filters; blood is only where medicine was kept.",
+   "task": "Three gas-mask filters and two blood bags. Flats have the filters; blood is only where medicine was kept. After this a death also gives back a magazine of rounds and two bandages.",
    "x": 6,
    "y": 0,
    "tasks": [
@@ -474,7 +474,7 @@
    "chapter": "michael",
    "title": "Lights on",
    "voice": "There's a generator under that tarp.",
-   "task": "Order two wiring harnesses and find a light bulb. A harness is pliers' work: Walker's hand-tools card makes a pair, and workshops have them.",
+   "task": "Order two wiring harnesses and find a light bulb. Lit, the compound keeps what is out there further from its wall. A harness is pliers' work: Walker's hand-tools card makes a pair, and workshops have them.",
    "x": 4,
    "y": 0,
    "tasks": [
@@ -512,7 +512,7 @@
    "chapter": "michael",
    "title": "Water",
    "voice": "The tank's fine. What comes out of it isn't.",
-   "task": "Order two filter cartridges and find a pressure gauge; workshops have the gauges.",
+   "task": "Order two filter cartridges and find a pressure gauge; workshops have the gauges. Clean water: inside the compound, wounds close on their own.",
    "x": 6,
    "y": 0,
    "tasks": [
@@ -615,7 +615,7 @@
    "chapter": "tune",
    "title": "The map",
    "voice": "Two of those and the map talks.",
-   "task": "Order two circuit assemblies and bring them. They want a screwdriver set in the tool slot: Walker's hand-tools card makes one.",
+   "task": "Order two circuit assemblies and bring them. Radio 1: Tune hears a counterattack ten minutes out. They want a screwdriver set in the tool slot: Walker's hand-tools card makes one.",
    "x": 4,
    "y": 0,
    "tasks": [
@@ -647,7 +647,7 @@
    "chapter": "tune",
    "title": "What was on them",
    "voice": "Offices kept everything. Bring me their drives.",
-   "task": "Three hard drives, from the town's offices. What is on them is how Tune raises the Cobra.",
+   "task": "Three hard drives, from the town's offices. What is on them is how Tune raises the Cobra, and how she counts a held strongpoint's clock down for everyone to see.",
    "x": 6,
    "y": 0,
    "tasks": [
@@ -666,10 +666,6 @@
      "type": "item",
      "item": "gscraft:circuit_assembly",
      "count": 1
-    },
-    {
-     "type": "stage",
-     "stage": "intel_1"
     },
     {
      "type": "stage",
@@ -1504,7 +1500,7 @@
    "chapter": "notes",
    "title": "Bitten",
    "voice": "It is in the blood now.",
-   "task": "An infection runs on a clock. A med kit, held to use, cures it; nothing else does. Tony's card makes them - carry one north.",
+   "task": "An infection runs on a clock. A med kit, held to use, cures it; so does the compound, once Tony's clinic is stocked. Tony's card makes the kits - carry one north.",
    "x": 6,
    "y": 0,
    "tasks": [

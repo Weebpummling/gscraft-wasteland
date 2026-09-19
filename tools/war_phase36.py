@@ -101,6 +101,9 @@ def run(p, seconds):
 
 hidden = re.search(r"director.hidden_from = (\d+)", c("gscraft settings director.hidden_from"))
 minr = re.search(r"env.indoor.min_r = (\d+)", c("gscraft settings env.indoor.min_r"))
+# the margin itself, asked directly: it was wiped at every load until 2026-09-19 (Zones.apply cleared the map after filling it)
+near_wall, clear_of = c("gscraft upgrades at -830 70 -930"), c("gscraft upgrades at -830 70 -990")
+check("the compound's margin is in force: ten blocks from the wall is refused, seventy is not", "REFUSED" in near_wall and "allowed" in clear_of, f"[{near_wall[-44:]}] [{clear_of[-30:]}]")
 check("the settings: hidden_from 64, indoor min_r 10", hidden and hidden.group(1) == "64" and minr and minr.group(1) == "10", f"hidden {hidden and hidden.group(1)}; indoor min_r {minr and minr.group(1)}")
 
 c(f"forceload add {SQUARE[0] - 100} {SQUARE[2] - 100} {SQUARE[0] + 100} {YARD[2] + 100}")

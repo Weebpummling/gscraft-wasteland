@@ -34,6 +34,8 @@ Survivors are `walker`, `tony`, `michael`, `tune`, `james`, `marshall`. The sour
 | `/gscraft say <npc> <key>` | prints the radio line as the server renders it (a check of the lang key) |
 | `/gscraft say <npc> <key> <players>` | queues the line for those players: the click, `♪ [TUNE]  text`, one per player per 20 s |
 | `/gscraft kit` / `/gscraft kit <player>` | lists the first-join kit as resolved stacks / gives it |
+| `/gscraft upgrades` | every camp function level: set or not, and the rule it changes; the last line is what is in force now |
+| `/gscraft upgrades at <x y z>` | whether the director may place at that spot as far as the excluded zones' margins go (Generator 1 widens the compound's) |
 | `/gscraft loot roll <table> <n>` | rolls ANY loot table n times (a chest's context, at the world spawn) and totals what came out; says NO SUCH TABLE for an unknown id. The instrument of `tools/war_phase46.py` |
 | `/gscraft loot remap <id>` | where a foreign chest table goes (`gscraft_loot/remap.json`), or "left alone" |
 | `/gscraft loot tables` | the design's tables the server loaded (9 building, 5 site) and how many foreign tables were replaced at load |

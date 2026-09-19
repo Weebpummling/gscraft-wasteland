@@ -115,7 +115,7 @@ public final class SurvivorEvents {
     @SubscribeEvent
     public static void respawn(PlayerEvent.PlayerRespawnEvent event) {
         if (!(event.getEntity() instanceof ServerPlayer p) || event.isEndConquered()) return;
-        int given = reissue(p);
+        int given = reissue(p) + gscraft.war.world.Upgrades.afterRespawn(p);   // Medical 2 adds rounds and bandages
         if (given > 0) GscraftWar.LOG.info("[gscraft] respawn: {} given {} kit stacks again", p.getGameProfile().getName(), given);
     }
 

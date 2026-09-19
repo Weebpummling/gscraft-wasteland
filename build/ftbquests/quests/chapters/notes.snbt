@@ -83,7 +83,7 @@
 			title: "Bitten"
 			subtitle: "It is in the blood now."
 			description: [
-				"An infection runs on a clock. A med kit, held to use, cures it; nothing else does. Tony's card makes them - carry one north."
+				"An infection runs on a clock. A med kit, held to use, cures it; so does the compound, once Tony's clinic is stocked. Tony's card makes the kits - carry one north."
 			]
 			icon: "minecraft:rotten_flesh"
 			invisible: true

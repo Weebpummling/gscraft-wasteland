@@ -206,5 +206,7 @@
   "gscraft.say.marshall.guns_hot": "The guns are still laying. Five minutes between calls.",
   "gscraft.say.tune.air_busy": "She's refuelling. Eight minutes before she's back up.",
   "item.gscraft.card_rounds": "Order card: rounds",
-  "item.gscraft.card_rounds.tip": "Casings from scrap; pistol and rifle rounds from casings and powder."
+  "item.gscraft.card_rounds.tip": "Casings from scrap; pistol and rifle rounds from casings and powder.",
+  "gscraft.upgrade.cured": "Tony: that's out of your blood. Don't make a habit of it.",
+  "gscraft.upgrade.revived": "Tony: up. You were lucky to fall where I could reach you."
 }

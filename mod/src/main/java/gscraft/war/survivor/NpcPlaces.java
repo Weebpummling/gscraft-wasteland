@@ -138,6 +138,19 @@ public final class NpcPlaces extends SavedData {
         if (!(event.getLevel() instanceof ServerLevel level) || !(event.getEntity() instanceof Villager v)) return;
         for (String tag : v.getTags()) {
             if (!tag.startsWith("gscraft_npc_")) continue;
+            // ONE of each survivor, ever. `summon` and the datapack's `kill @e[...]` reach loaded chunks only, so a copy left in
+            // an unloaded one (the old south compound, a test spot) came back when its chunk loaded - and this hook then MOVED it
+            // onto the owner's spot, beside the one already standing there (owner, 2026-09-19: "make sure no duplicates will
+            // exist"). A survivor arriving while another of the same name stands is refused; refused from disk, it is gone for good.
+            for (Entity other : level.getAllEntities()) {
+                if (other != v && other instanceof Villager && other.isAlive() && !other.isRemoved() && other.getTags().contains(tag)) {
+                    event.setCanceled(true);
+                    v.discard();
+                    GscraftWar.LOG.info("[gscraft] npc: a second {} arrived at {} and was refused (one stands at {})", tag.substring("gscraft_npc_".length()),
+                            v.blockPosition().toShortString(), other.blockPosition().toShortString());
+                    return;
+                }
+            }
             Spot spot = get(level).inForce(tag.substring("gscraft_npc_".length()));
             if (spot == null || v.distanceToSqr(spot.x(), spot.y(), spot.z()) < 0.5) return;
             v.moveTo(spot.x(), spot.y(), spot.z(), spot.yaw(), 0f);
@@ -228,9 +241,14 @@ public final class NpcPlaces extends SavedData {
         for (Survivors.Def d : Survivors.ALL) {
             Spot s = data.spot(d.id(), "start"), b = data.spot(d.id(), "building"), f = data.inForce(d.id());
             String stands = "not loaded";
+            int copies = 0;
             for (Entity e : level.getAllEntities()) {
-                if (e instanceof Villager && e.getTags().contains("gscraft_npc_" + d.id())) stands = String.format(Locale.ROOT, "%.1f %.1f %.1f", e.getX(), e.getY(), e.getZ());
+                if (e instanceof Villager && e.isAlive() && e.getTags().contains("gscraft_npc_" + d.id())) {
+                    stands = String.format(Locale.ROOT, "%.1f %.1f %.1f", e.getX(), e.getY(), e.getZ());
+                    copies++;
+                }
             }
+            if (copies > 1) stands += " - " + copies + " COPIES LOADED (run /gscraft npc respawn " + d.id() + ")";
             sb.append("\n  ").append(d.id()).append(": start ").append(s == null ? "(computed)" : s.text());
             if (BUILDING_STAGE.containsKey(d.id())) sb.append("; building ").append(b == null ? "(computed)" : b.text()).append(" [").append(BUILDING_STAGE.get(d.id())).append(Stages.isSet(BUILDING_STAGE.get(d.id())) ? " set]" : " unset]");
             sb.append("; in force ").append(f == null ? "computed" : "saved").append("; stands at ").append(stands);

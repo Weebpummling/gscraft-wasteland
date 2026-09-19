@@ -8,7 +8,7 @@ game made and did not keep.
 2. Each of them has at least twice the loot goal in containers bound to ITS site table.
 3. The med kit is a medicine: it heals, and The Hordes takes it for an infection cure. (Its tooltip said "Heals a wound",
    three quests paid in med kits, and the item did nothing; the notebook promised a cure nothing gave.)
-4. No player-facing text names the map wall, the board, a car's bay, or Tony's clinic as the cure: all four were gone or never were.
+4. No player-facing text names the map wall, the board or a car's bay: gone, or never were. (Tony's cure was on this list until Medical 1 made it true.)
 5. Every stage a quest sets is registered; every function a quest or the code runs exists in the datapack; every line a
    survivor is told to say exists.
 5b. Every stage a quest WAITS for is set by something (two strikes were gated on stages nothing set).
@@ -98,7 +98,9 @@ for f in (RES / "assets/gscraft/patchouli_books").rglob("*.json"):
     texts.append((f.name, f.read_text(encoding="utf-8")))
 texts.append(("quests.json", (ROOT / "tools/quests.json").read_text(encoding="utf-8")))
 texts.append(("en_us.json", (RES / "assets/gscraft/lang/en_us.json").read_text(encoding="utf-8")))
-stale = [(n, w) for n, t in texts for w in ("map wall", "the board", "in its bay", "a car carries", "Cars come with", "Tony cures", "clinic cures", "white banner") if w.lower() in t.lower()]
+# "Tony cures" and "clinic cures" left this list on 2026-09-19: with Medical 1 they are true (world/Upgrades)
+GONE = ("map wall", "the board", "in its bay", "a car carries", "Cars come with", "white banner", "Nothing else does")
+stale = [(n, w) for n, t in texts for w in GONE if w.lower() in t.lower()]
 check("no player-facing text promises what is gone or never was", not stale, stale or f"{len(texts)} files read")
 
 # 5

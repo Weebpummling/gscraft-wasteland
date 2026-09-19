@@ -136,7 +136,7 @@
 			title: "Frame of mind"
 			subtitle: "Scrap is only scrap till it's welded."
 			description: [
-				"Bring twelve metal scrap and show me a welding torch."
+				"Bring twelve metal scrap and show me a welding torch. Workshop 1: every station order runs a little faster, for everyone."
 			]
 			dependencies: [
 				"361B131210590940"
@@ -192,7 +192,7 @@
 			title: "It still runs"
 			subtitle: "Give me a battery, two plugs and oil and I'll give you a week's welding."
 			description: [
-				"A car battery, two spark plugs and two motor oil: garages, and the brick works east of the hall."
+				"A car battery, two spark plugs and two motor oil: garages, and the brick works east of the hall. Workshop 2: station orders run faster still."
 			]
 			dependencies: [
 				"6D8D7105876E6B1C"

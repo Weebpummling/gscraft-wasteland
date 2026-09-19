@@ -64,7 +64,7 @@
 			title: "Stock the clinic"
 			subtitle: "Two for the shelf, and you get more back."
 			description: [
-				"Order two med kits and bring them. Bandages and painkillers are in any flat; antiseptic and syringes are only where medicine was kept - the clinic in the north complex, or the hospital. Neither is ours: go armed, or go later."
+				"Order two med kits and bring them. Bandages and painkillers are in any flat; antiseptic and syringes are only where medicine was kept - the clinic in the north complex, or the hospital. Neither is ours: go armed, or go later. With the clinic stocked, Tony cures a bite and gets a downed player up, inside the compound."
 			]
 			dependencies: [
 				"7B637596EC041BC1"
@@ -104,7 +104,7 @@
 			title: "Clean air, clean blood"
 			subtitle: "A ward needs both."
 			description: [
-				"Three gas-mask filters and two blood bags. Flats have the filters; blood is only where medicine was kept."
+				"Three gas-mask filters and two blood bags. Flats have the filters; blood is only where medicine was kept. After this a death also gives back a magazine of rounds and two bandages."
 			]
 			dependencies: [
 				"7E3A7A7A5C44B2B0"

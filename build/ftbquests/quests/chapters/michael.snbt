@@ -87,7 +87,7 @@
 			title: "Lights on"
 			subtitle: "There's a generator under that tarp."
 			description: [
-				"Order two wiring harnesses and find a light bulb. A harness is pliers' work: Walker's hand-tools card makes a pair, and workshops have them."
+				"Order two wiring harnesses and find a light bulb. Lit, the compound keeps what is out there further from its wall. A harness is pliers' work: Walker's hand-tools card makes a pair, and workshops have them."
 			]
 			dependencies: [
 				"44D246950C7B83C4"
@@ -136,7 +136,7 @@
 			title: "Water"
 			subtitle: "The tank's fine. What comes out of it isn't."
 			description: [
-				"Order two filter cartridges and find a pressure gauge; workshops have the gauges."
+				"Order two filter cartridges and find a pressure gauge; workshops have the gauges. Clean water: inside the compound, wounds close on their own."
 			]
 			dependencies: [
 				"3E696D1A279CE198"

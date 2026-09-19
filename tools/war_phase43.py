@@ -9,6 +9,8 @@ explicit coordinates. It leaves the world as it found it (records cleared, the d
    computed spot and the join hook moves him to the saved one; a survivor with no record stays where the function put him.
 4. The building slot: saved while its stage is unset without moving anyone; in force once the stage is set; start again
    when the stage is removed.
+4b. NO DUPLICATES: placed twice, a copy summoned by hand, respawn and the function re-run, and a stale copy arriving from an
+    unloaded chunk - there is always exactly one Walker.
 5. `npc clear` gives the computed spot back.
 6. No gscraft errors.
 """
@@ -93,6 +95,64 @@ c("gscraft npc respawn marshall")
 time.sleep(1)
 back_ok = count("marshall") == 1 and count("marshall", (start_m["x"], start_m["y"], start_m["z"])) == 1
 check("the building slot: saved unset, in force with the stage, the start again without it", unset_ok and set_ok and back_ok, f"unset {unset_ok} [{out_b[:60]}]; with the stage {set_ok}; after {back_ok}")
+
+# 4b: NO DUPLICATES (owner, 2026-09-19: "make sure no duplicates will exist"). Four ways a second Walker could appear:
+SUMMON = ('summon minecraft:villager {x} {y} {z} {{NoAI:1b,Invulnerable:1b,PersistenceRequired:1b,Silent:1b,Tags:["gscraft_npc","gscraft_npc_walker"]}}')
+c(f"gscraft npc place walker start {MINE[0]} {MINE[1]} {MINE[2]} 90")
+time.sleep(1)
+# (a) placed again somewhere else: the first is gone
+c(f"gscraft npc place walker start {MINE[0] + 3} {MINE[1]} {MINE[2]} 90")
+time.sleep(1)
+a = (count("walker"), count("walker", (MINE[0] + 3, MINE[1], MINE[2])))
+# (b) a second copy summoned by hand while one stands: refused on arrival
+c(SUMMON.format(x=MINE[0] - 6, y=MINE[1], z=MINE[2]))
+time.sleep(1)
+b = count("walker")
+# (c) respawn, and the datapack's function, each run twice: still one
+for cmd in ("gscraft npc respawn walker", "gscraft npc respawn", "function gscraft:camp_npcs", "function gscraft:camp_npcs"):
+    c(cmd)
+    time.sleep(0.5)
+time.sleep(1)
+cc = count("walker")
+# (d) THE REAL ONE: a stale copy in an UNLOADED chunk. It is made while no record and no other Walker exists, its chunk is let
+#     go, the owner places Walker, and then the stale chunk loads: the copy must be refused, and must not come back on a reload
+FAR = (-2000, 120, -1500)
+c("gscraft npc clear walker start")
+c("kill @e[type=minecraft:villager,tag=gscraft_npc_walker]")
+time.sleep(2)
+c(f"forceload add {FAR[0]} {FAR[2]}")
+time.sleep(3)
+c(f"setblock {FAR[0]} {FAR[1] - 1} {FAR[2]} minecraft:stone")
+c(SUMMON.format(x=FAR[0], y=FAR[1], z=FAR[2]))
+time.sleep(1)
+stale_made = count("walker")
+c("save-all flush")
+time.sleep(3)
+c(f"forceload remove {FAR[0]} {FAR[2]}")
+for _ in range(40):                       # until the far chunk has really unloaded and taken the copy with it
+    time.sleep(1)
+    if count("walker") == 0:
+        break
+unloaded = count("walker") == 0
+c(f"gscraft npc place walker start {MINE[0]} {MINE[1]} {MINE[2]} 90")
+time.sleep(1)
+c(f"forceload add {FAR[0]} {FAR[2]}")
+time.sleep(4)
+d_loaded = (count("walker"), count("walker", MINE), count("walker", FAR, 3))
+c(f"forceload remove {FAR[0]} {FAR[2]}")
+time.sleep(12)
+c(f"forceload add {FAR[0]} {FAR[2]}")
+time.sleep(4)
+d_again = (count("walker"), count("walker", FAR, 3))
+listing = c("gscraft npc list")
+c(f"setblock {FAR[0]} {FAR[1] - 1} {FAR[2]} minecraft:air")
+c(f"forceload remove {FAR[0]} {FAR[2]}")
+check("no duplicates: placed twice, summoned by hand, respawned and re-run, and a stale copy from an unloaded chunk - always ONE Walker",
+      a == (1, 1) and b == 1 and cc == 1 and stale_made == 1 and unloaded and d_loaded == (1, 1, 0) and d_again == (1, 0) and "COPIES" not in listing,
+      f"placed twice {a}; hand-summoned {b}; respawn/function x2 {cc}; stale copy made {stale_made}, unloaded {unloaded}; on its chunk loading (total, at the spot, at the far place) {d_loaded}; after a reload {d_again}")
+c("gscraft npc clear walker start")
+c("function gscraft:camp_npcs")
+time.sleep(1)
 
 # 5
 c("gscraft npc clear walker start")

@@ -34,6 +34,9 @@ public final class Zones extends SimpleJsonResourceReloadListener {
     @Override
     protected void apply(Map<ResourceLocation, JsonElement> files, ResourceManager resources, ProfilerFiller profiler) {
         List<Zone> list = new ArrayList<>();
+        // cleared BEFORE the parse, which is what fills it. It stood AFTER the loop and wiped every margin as it loaded: the
+        // compound's 32-block margin was never once in force (found 2026-09-19, when the generator's +16 changed nothing)
+        margins.clear();
         files.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(file -> {
             try {
                 for (JsonElement el : GsonHelper.getAsJsonArray(GsonHelper.convertToJsonObject(file.getValue(), "zones"), "zones")) {
@@ -43,12 +46,11 @@ public final class Zones extends SimpleJsonResourceReloadListener {
                 GscraftWar.LOG.error("[gscraft] zone file {} is invalid: {}", file.getKey(), ex.toString());
             }
         });
-        margins.clear();
         zones = List.copyOf(list);
         long excluded = list.stream().filter(Zone::exclude).count();
         long garrisons = list.stream().filter(z -> z.garrison() != null).count();
         long lairs = list.stream().filter(z -> z.lair() != null).count();
-        GscraftWar.LOG.info("[gscraft] zones loaded: {} ({} excluded, {} garrisons, {} lairs)", list.size(), excluded, garrisons, lairs);
+        GscraftWar.LOG.info("[gscraft] zones loaded: {} ({} excluded, {} garrisons, {} lairs, {} margins)", list.size(), excluded, garrisons, lairs, margins.size());
     }
 
     private static Zone parse(JsonObject o) {
@@ -151,6 +153,7 @@ public final class Zones extends SimpleJsonResourceReloadListener {
         for (Zone zone : zones) {
             int m = margins.getOrDefault(zone.name(), 0);
             if (m <= 0 || !zone.exclude() || !zone.hasBox()) continue;
+            m += Upgrades.marginBonus(zone.name());   // Generator 1: lights (world/Upgrades)
             if (x >= zone.x0() - m && x <= zone.x1() + m && z >= zone.z0() - m && z <= zone.z1() + m) return true;
         }
         return false;

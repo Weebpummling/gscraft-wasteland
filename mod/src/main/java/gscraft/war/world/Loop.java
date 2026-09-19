@@ -403,9 +403,15 @@ public final class Loop {
         long left = p.deadline - data.online;
         if (!p.warned && left <= WARNING_TICKS) {
             p.warned = true;
-            level.getServer().getPlayerList().broadcastSystemMessage(Component.translatable("gscraft.line.tune.warning"), false);
-            gscraft.war.journal.FieldNotes.noteAll(level.getServer(), "warning");   // the first time: a field note
+            // Radio 1 is what hears it (quests doc U2: "the warning system"; world/Upgrades). Without it the two-minute title is all there is.
+            if (Upgrades.warningHeard()) {
+                level.getServer().getPlayerList().broadcastSystemMessage(Component.translatable("gscraft.line.tune.warning"), false);
+                gscraft.war.journal.FieldNotes.noteAll(level.getServer(), "warning");   // the first time: a field note
+            }
+            GscraftWar.LOG.info("[gscraft] {}: the ten-minute warning {}", site.id(), Upgrades.warningHeard() ? "is heard (Radio 1)" : "goes unheard (no Radio 1)");
         }
+        // Radio 2: the whole countdown from `held`, as the site's bar (it was the board's; the board is gone)
+        if (Upgrades.countdownShown() && left > 0) bar(level.getServer(), site, site.name() + " — they come back in " + mmss(left), Math.min(1.0F, (float) left / FORTIFY_TICKS), BossEvent.BossBarColor.YELLOW);
         if (!p.twoMinutes && left <= TWO_MINUTES) {
             p.twoMinutes = true;
             title(level.getServer(), Component.translatable("gscraft.title.coming"), Component.translatable("gscraft.title.coming.sub"));

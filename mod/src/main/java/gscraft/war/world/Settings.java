@@ -96,6 +96,13 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         }
         // the strongpoint loop
         i("loop.assault_ticks", () -> Loop.ASSAULT_TICKS, v -> Loop.ASSAULT_TICKS = (int) v, "the assault's length in online ticks");
+        d("upgrades.workshop_1", () -> Upgrades.WORKSHOP_1, v -> Upgrades.WORKSHOP_1 = v, "station order time x this with Workshop 1");
+        d("upgrades.workshop_2", () -> Upgrades.WORKSHOP_2, v -> Upgrades.WORKSHOP_2 = v, "station order time x this with Workshop 2");
+        i("upgrades.generator_margin", () -> Upgrades.GENERATOR_MARGIN, v -> Upgrades.GENERATOR_MARGIN = (int) v, "blocks Generator 1 adds to the compound's no-placement margin");
+        i("upgrades.clinic_revive_seconds", () -> Upgrades.CLINIC_REVIVE_SECONDS, v -> Upgrades.CLINIC_REVIVE_SECONDS = (int) v, "Medical 1: a downed player in the compound is up after this long");
+        i("upgrades.water_every_seconds", () -> Upgrades.WATER_EVERY_SECONDS, v -> Upgrades.WATER_EVERY_SECONDS = (int) v, "Water 1: half a heart this often, inside the compound (0 = off)");
+        i("upgrades.death_rounds", () -> Upgrades.DEATH_ROUNDS, v -> Upgrades.DEATH_ROUNDS = (int) v, "Medical 2: pistol rounds a death gives back");
+        i("upgrades.death_bandages", () -> Upgrades.DEATH_BANDAGES, v -> Upgrades.DEATH_BANDAGES = (int) v, "Medical 2: bandages a death gives back");
         i("site.scout_seconds", () -> SitePlay.SCOUT_SECONDS, v -> SitePlay.SCOUT_SECONDS = (int) v, "seconds of players on foot inside a strongpoint's box that scout it");
         i("site.loot_goal", () -> SitePlay.LOOT_GOAL, v -> SitePlay.LOOT_GOAL = (int) v, "different Lootr containers searched inside a scouted strongpoint that loot it");
         i("loop.assault_waves", () -> Loop.ASSAULT_WAVES, v -> Loop.ASSAULT_WAVES = (int) v, "waves in an assault");

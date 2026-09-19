@@ -114,12 +114,12 @@ QUESTS = [
     {"key": "W2", "chapter": "walker", "title": "A place for everything", "voice": "You'll need somewhere to put it all.", "task": "Put the fastener-kit card in your station, four bolts, nuts, screws and nails under it, and wait two minutes. Bring me two kits. The kit is a wrench's work: put the one I gave you in the slot beside the card.",
      "x": 4, "y": 0, "tasks": [item("gscraft:fastener_kit", 2)], "deps": ["W1"],
      "rewards": [give("sophisticatedbackpacks:backpack"), stage("storage_1")]},
-    {"key": "W3", "chapter": "walker", "title": "Frame of mind", "voice": "Scrap is only scrap till it's welded.", "task": "Bring twelve metal scrap and show me a welding torch.",
+    {"key": "W3", "chapter": "walker", "title": "Frame of mind", "voice": "Scrap is only scrap till it's welded.", "task": "Bring twelve metal scrap and show me a welding torch. Workshop 1: every station order runs a little faster, for everyone.",
      "x": 6, "y": 0, "tasks": [item("gscraft:metal_scrap", 12), show("gscraft:welding_torch")], "deps": ["W2"],
      "rewards": [give("gscraft:card_steel_frame"), stage("bp_steel_frame"), stage("workshop_1")]},
     # the loot design (2026-09-19): every survivor's line gets one more rung, and each is the use of something the tables
     # dropped that nothing took - the garage's engine parts here
-    {"key": "W4", "chapter": "walker", "title": "It still runs", "voice": "Give me a battery, two plugs and oil and I'll give you a week's welding.", "task": "A car battery, two spark plugs and two motor oil: garages, and the brick works east of the hall.",
+    {"key": "W4", "chapter": "walker", "title": "It still runs", "voice": "Give me a battery, two plugs and oil and I'll give you a week's welding.", "task": "A car battery, two spark plugs and two motor oil: garages, and the brick works east of the hall. Workshop 2: station orders run faster still.",
      "x": 8, "y": 0, "tasks": [item("gscraft:car_battery", 1), item("gscraft:spark_plug", 2), item("gscraft:motor_oil", 2)], "deps": ["W3"],
      "rewards": [give("gscraft:steel_frame", 2), give("gscraft:fastener_kit", 4), stage("workshop_2")]},
     # Tony
@@ -127,10 +127,10 @@ QUESTS = [
     {"key": "T1", "chapter": "tony", "title": "Field dressing", "voice": "The shelves here are bare.", "task": "Hand in four bandages and two painkillers.",
      "x": 2, "y": 0, "tasks": [item("gscraft:bandage", 4), item("gscraft:painkillers", 2)], "deps": ["meet_tony"],
      "rewards": [give("gscraft:card_med_kit"), stage("bp_med_kit")]},
-    {"key": "T2", "chapter": "tony", "title": "Stock the clinic", "voice": "Two for the shelf, and you get more back.", "task": "Order two med kits and bring them. Bandages and painkillers are in any flat; antiseptic and syringes are only where medicine was kept - the clinic in the north complex, or the hospital. Neither is ours: go armed, or go later.",
+    {"key": "T2", "chapter": "tony", "title": "Stock the clinic", "voice": "Two for the shelf, and you get more back.", "task": "Order two med kits and bring them. Bandages and painkillers are in any flat; antiseptic and syringes are only where medicine was kept - the clinic in the north complex, or the hospital. Neither is ours: go armed, or go later. With the clinic stocked, Tony cures a bite and gets a downed player up, inside the compound.",
      "x": 4, "y": 0, "tasks": [item("gscraft:med_kit", 2)], "deps": ["T1"],
      "rewards": [give("gscraft:med_kit", 4), stage("medical_1")]},
-    {"key": "T3", "chapter": "tony", "title": "Clean air, clean blood", "voice": "A ward needs both.", "task": "Three gas-mask filters and two blood bags. Flats have the filters; blood is only where medicine was kept.",
+    {"key": "T3", "chapter": "tony", "title": "Clean air, clean blood", "voice": "A ward needs both.", "task": "Three gas-mask filters and two blood bags. Flats have the filters; blood is only where medicine was kept. After this a death also gives back a magazine of rounds and two bandages.",
      "x": 6, "y": 0, "tasks": [item("gscraft:gas_mask_filter", 3), item("gscraft:blood_bag", 2)], "deps": ["T2"],
      "rewards": [give("gscraft:med_kit", 3), stage("medical_2")]},
     # Michael
@@ -138,10 +138,10 @@ QUESTS = [
     {"key": "M1", "chapter": "michael", "title": "Sparks", "voice": "Wire first. Everything else is wire with a job.", "task": "Hand in three wire spools, a power cord and a water filter.",
      "x": 2, "y": 0, "tasks": [item("gscraft:wire_spool", 3), item("gscraft:power_cord", 1), item("gscraft:water_filter", 1)], "deps": ["meet_michael"],
      "rewards": [give("gscraft:card_wiring_harness"), give("gscraft:card_filter_cartridge"), stage("bp_wiring_harness"), stage("bp_filter_cartridge")]},
-    {"key": "M2", "chapter": "michael", "title": "Lights on", "voice": "There's a generator under that tarp.", "task": "Order two wiring harnesses and find a light bulb. A harness is pliers' work: Walker's hand-tools card makes a pair, and workshops have them.",
+    {"key": "M2", "chapter": "michael", "title": "Lights on", "voice": "There's a generator under that tarp.", "task": "Order two wiring harnesses and find a light bulb. Lit, the compound keeps what is out there further from its wall. A harness is pliers' work: Walker's hand-tools card makes a pair, and workshops have them.",
      "x": 4, "y": 0, "tasks": [item("gscraft:wiring_harness", 2), item("gscraft:light_bulb", 1)], "deps": ["M1"],
      "rewards": [stage("generator_1"), say("michael", "lights")]},
-    {"key": "M3", "chapter": "michael", "title": "Water", "voice": "The tank's fine. What comes out of it isn't.", "task": "Order two filter cartridges and find a pressure gauge; workshops have the gauges.",
+    {"key": "M3", "chapter": "michael", "title": "Water", "voice": "The tank's fine. What comes out of it isn't.", "task": "Order two filter cartridges and find a pressure gauge; workshops have the gauges. Clean water: inside the compound, wounds close on their own.",
      "x": 6, "y": 0, "tasks": [item("gscraft:filter_cartridge", 2), item("gscraft:pressure_gauge", 1)], "deps": ["M2"],
      "rewards": [give("gscraft:canned_goods", 6), stage("water_1")]},
     # Tune
@@ -149,12 +149,12 @@ QUESTS = [
     {"key": "U1", "chapter": "tune", "title": "Static", "voice": "I can hear the town from here. I'd like to hear further.", "task": "Hand in a circuit board, two capacitors and a broken radio.",
      "x": 2, "y": 0, "tasks": [item("gscraft:circuit_board", 1), item("gscraft:capacitor", 2), item("gscraft:broken_radio", 1)], "deps": ["meet_tune"],
      "rewards": [give("gscraft:card_circuit_assembly"), stage("bp_circuit_assembly")]},
-    {"key": "U2", "chapter": "tune", "title": "The map", "voice": "Two of those and the map talks.", "task": "Order two circuit assemblies and bring them. They want a screwdriver set in the tool slot: Walker's hand-tools card makes one.",
+    {"key": "U2", "chapter": "tune", "title": "The map", "voice": "Two of those and the map talks.", "task": "Order two circuit assemblies and bring them. Radio 1: Tune hears a counterattack ten minutes out. They want a screwdriver set in the tool slot: Walker's hand-tools card makes one.",
      "x": 4, "y": 0, "tasks": [item("gscraft:circuit_assembly", 2)], "deps": ["U1"],
      "rewards": [stage("radio_1"), say("tune", "map")]},
-    {"key": "U3", "chapter": "tune", "title": "What was on them", "voice": "Offices kept everything. Bring me their drives.", "task": "Three hard drives, from the town's offices. What is on them is how Tune raises the Cobra.",
+    {"key": "U3", "chapter": "tune", "title": "What was on them", "voice": "Offices kept everything. Bring me their drives.", "task": "Three hard drives, from the town's offices. What is on them is how Tune raises the Cobra, and how she counts a held strongpoint's clock down for everyone to see.",
      "x": 6, "y": 0, "tasks": [item("gscraft:hard_drive", 3)], "deps": ["U2"],
-     "rewards": [give("gscraft:circuit_assembly", 1), stage("intel_1"), stage("radio_2")]},   # the drives held the frequencies: `radio_2` gates Air support and nothing set it (audit, 2026-09-19)
+     "rewards": [give("gscraft:circuit_assembly", 1), stage("radio_2")]},   # the drives held the frequencies: `radio_2` gates Air support and nothing set it (audit, 2026-09-19)
     # James
     meet("james"),
     {"key": "J1", "chapter": "james", "title": "Get your bearings", "voice": "Walk it before you trust it.", "task": "Reach the level crossing and the mast's field.",
@@ -230,7 +230,7 @@ QUESTS = [
      "x": 2, "y": 0, "tasks": [adv("note_bulky")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "gscraft:steel_frame"},
     {"key": "note_vehicle", "chapter": "notes", "title": "Wheels", "voice": "It still runs.", "task": "A seat is a right-click; out is sneak. The fuel and the rounds are the vehicle's own - the crews out there have the same ones.",
      "x": 4, "y": 0, "tasks": [adv("note_vehicle")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:minecart"},
-    {"key": "note_infected", "chapter": "notes", "title": "Bitten", "voice": "It is in the blood now.", "task": "An infection runs on a clock. A med kit, held to use, cures it; nothing else does. Tony's card makes them - carry one north.",
+    {"key": "note_infected", "chapter": "notes", "title": "Bitten", "voice": "It is in the blood now.", "task": "An infection runs on a clock. A med kit, held to use, cures it; so does the compound, once Tony's clinic is stocked. Tony's card makes the kits - carry one north.",
      "x": 6, "y": 0, "tasks": [adv("note_infected")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:rotten_flesh"},
     {"key": "note_warning", "chapter": "notes", "title": "They are coming back", "voice": "Tune heard them first.", "task": "A held strongpoint is counterattacked when its clock runs out. The warning comes ten minutes ahead; the walls you built are what meets them.",
      "x": 8, "y": 0, "tasks": [adv("note_warning")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:bell"},

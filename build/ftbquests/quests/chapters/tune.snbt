@@ -71,7 +71,7 @@
 			title: "The map"
 			subtitle: "Two of those and the map talks."
 			description: [
-				"Order two circuit assemblies and bring them. They want a screwdriver set in the tool slot: Walker's hand-tools card makes one."
+				"Order two circuit assemblies and bring them. Radio 1: Tune hears a counterattack ten minutes out. They want a screwdriver set in the tool slot: Walker's hand-tools card makes one."
 			]
 			dependencies: [
 				"4BEAB3D0BF7F532E"
@@ -113,7 +113,7 @@
 			title: "What was on them"
 			subtitle: "Offices kept everything. Bring me their drives."
 			description: [
-				"Three hard drives, from the town's offices. What is on them is how Tune raises the Cobra."
+				"Three hard drives, from the town's offices. What is on them is how Tune raises the Cobra, and how she counts a held strongpoint's clock down for everyone to see."
 			]
 			dependencies: [
 				"4CC3254FA145A448"
@@ -137,15 +137,6 @@
 				}
 				{
 					id: "1BE14A3D0FD268FD"
-					type: "command"
-					title: "the stage intel_1"
-					command: "/gscraft stage add intel_1"
-					elevate_perms: true
-					silent: true
-					auto: "invisible"
-				}
-				{
-					id: "25CBD5E381657E5A"
 					type: "command"
 					title: "the stage radio_2"
 					command: "/gscraft stage add radio_2"
