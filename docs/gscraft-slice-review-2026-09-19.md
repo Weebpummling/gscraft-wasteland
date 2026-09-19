@@ -110,6 +110,14 @@ spark's tick numbers with a counterattack and an APC on the front.
 | 3, check 5 | **a real fault.** A fighter fired whenever it could SEE its target, eye to eye, and aimed at the chest. Crouched behind a one-block rise the Marksman saw a head and put every round into the rise (impacts logged 6 and 12 blocks out, in the ground). Now the line to the aim point is checked, less a quarter block for the round's drop: the head if only that is clear, else up on the feet and out of that cover; and a cover's lean must be clear to the chest, not only to the eyes | 8 of 8 |
 | 25, and the game | **a real fault, found in passing.** `camp.json`'s gate - where a counterattack marches - was still the SOUTH compound's corner (-948, -893). A wave walked to the old camp and could never contest the walled one; phase 6 hid it by summoning its attackers straight into the box. The gate is (-833, -906), just inside the north gate; phase 25 reads it from the data | 5 of 5 |
 
+**Second full run, after the fixes (2026-09-19): 42 of 44 green** (42 skipped: it needs a client). The two red were both
+mine, from the muzzle-line change made an hour before: phase 8's rifleman behind a wall found his muzzle blocked BY HIS
+COVER, dropped it and stood up into the fire; and the Marksman still missed two runs in five, because only the far end
+of the line had been lowered and a grazing line over a rise ten blocks out stayed clear by a hair. Now a fighter behind
+cover or still stepping to its lean holds the round and keeps the cover, and the whole line is lowered by `Cover.DROP`
+(0.35). After that: 3 twice 8 of 8, the probe four kills in four, 8 6/6, 7 7/7, 9 7/7, 10 8/8. **The full run was what
+caught it: the change had passed phase 3 and phase 7 alone.**
+
 What the suite says about the process: **a phase that passes is not a phase that tests.** Four phases (4, 6, 31, 36) were
 still aimed at the south compound weeks after the move, and two of them passed *because* of it. Anything that moves a
 place must grep the phases for the old coordinates.

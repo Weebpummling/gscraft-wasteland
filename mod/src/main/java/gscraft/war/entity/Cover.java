@@ -43,7 +43,7 @@ public final class Cover {
     }
 
     /** what a round may drop below the line of aim on its way (blocks) */
-    public static final double DROP = 0.25D;
+    public static final double DROP = 0.35D;
 
     public static boolean lineBlocked(Mob mob, Vec3 from, Vec3 to) {
         return mob.level() instanceof ServerLevel level && clipBlocked(level, mob, from, to);
@@ -84,7 +84,7 @@ public final class Cover {
                 // rise and shoots into the rise is no firing position (2026-09-19)
                 Vec3 from = candidate.add(0.0D, eye, 0.0D);
                 Vec3 chest = target.position().add(0.0D, target.getBbHeight() * 0.6D - DROP, 0.0D);
-                if (!clipBlocked(level, mob, from, eyes) && !clipBlocked(level, mob, from, chest)) {
+                if (!clipBlocked(level, mob, from, eyes) && !clipBlocked(level, mob, from.subtract(0.0D, DROP, 0.0D), chest)) {
                     lean = candidate;
                     break;
                 }

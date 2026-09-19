@@ -453,7 +453,11 @@ Also decided: water is NOT a need; bodies keep dropping a worn piece at 5%.
 **18, 19, 24 were stale or self-inflicted:** 18's blast of 900 kills a 500-health tank since the damage pass keeps 95% of
 a blast (380 now); 19's third report is the crew bailing out, which is right; 24's attacker stood in plain view, so the
 crew engaged and unloaded the bay before the hit (he stands in a stone box). 18 7/7, 19 4/4, 24 3/3, 25 5/5, 6 8/8.
-**A second full run of the suite was started after this entry; its result is appended to the review, not here.**
+**The second full run: 42 of 44, and both red were this change's** - a rifleman behind a wall found his muzzle blocked by
+his own cover and abandoned it (phase 8), and the Marksman still missed two runs in five (a grazing line: only the far
+end had been lowered). Fixed: behind cover or stepping to the lean a blocked muzzle means wait, not stand; the whole line
+is lowered by `Cover.DROP` 0.35. 3, 7, 8, 9, 10 green after, the Marksman four kills in four probes. Jar 688,9xx bytes on
+the local server and WarTest. **A change to `GunAttackGoal` is not tested until 3, 7, 8, 9 and 10 have all run.**
 
 **2026-09-19, the rest of step 2 and the loose ends (owner: "continue with the work"; ruling R50; local only).**
 **The long gun:** R0 (The north gate, the quest before the junction) also gives `superbwarfare:marlin` and 32

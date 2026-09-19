@@ -239,6 +239,11 @@ public class GunAttackGoal extends Goal {
             Vec3 head = target.getEyePosition();
             if (!muzzleBlocked(head)) {
                 aim = head;
+            } else if (cover != null && !(leaning && mob.position().distanceTo(cover.lean()) <= 0.35D)) {
+                // behind the cover, or still stepping out to the lean: the cover is what is in the way, as it should be.
+                // Hold the round until the lean is reached - and keep the cover (the first cut dropped it here, and a
+                // rifleman behind a wall stood up into the fire: phase 8, the second suite of 2026-09-19)
+                return;
             } else if (mob.getPose() != Pose.STANDING) {
                 lowBlockedUntil = mob.level().getGameTime() + LOW_BLOCKED_TICKS;
                 cover = null;
@@ -444,9 +449,13 @@ public class GunAttackGoal extends Goal {
         Fighters.stance(mob, pose);
     }
 
-    /** a block between the eye and the point aimed at, a quarter of a block allowed under it for the round's drop */
+    /**
+     * a block on the round's way: the line of aim moved down by Cover.DROP at BOTH ends. Lowering only the far end left a
+     * grazing line over a rise ten blocks out clear by a hair, and spread and the round's fall put it in the rise all the
+     * same (the Marksman again, two runs in five, 2026-09-19).
+     */
     private boolean muzzleBlocked(Vec3 aim) {
-        return Cover.lineBlocked(mob, mob.getEyePosition(), aim.subtract(0.0D, Cover.DROP, 0.0D));
+        return Cover.lineBlocked(mob, mob.getEyePosition().subtract(0.0D, Cover.DROP, 0.0D), aim.subtract(0.0D, Cover.DROP, 0.0D));
     }
 
     /** the lean for the clients: the upper body out to the side the lean steps to, held while the lean lasts */
