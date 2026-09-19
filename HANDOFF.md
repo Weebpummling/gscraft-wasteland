@@ -424,6 +424,8 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**Owner, 2026-09-19: "There's no need for a live session" and then "no need to test anything".** The player-side proofs (the respawn hand-out, the loaded Glock in the hand, the two hospital hooks, the quest rewards arriving) stay UNPROVEN by the owner's choice; do not launch a client for them. `tools/war_phase45.py` and `tools/click_client.ps1` were written for it and **never run** - the owner stopped the run before the game started; nothing on the local server changed (checked: nobody joined, gamerules and the hospital as they were).
+
 **NEXT: `docs/gscraft-session-and-deploy-2026-09-19.md`** - the deploy live needs before a session (eight steps, none started, all waiting for the owner to name live), the ten things only a player can prove, and what to watch because it changed.
 
 **2026-09-19, NOTHING LEFT RED: the four checks triaged, and two more faults of the GAME's found (rulings R51, R52; local only).**
