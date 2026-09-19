@@ -216,8 +216,9 @@ check("a site table fills a real container", stacks >= 2, f"[{ins[:50]}]; stacks
 # 11
 import chests as CH  # noqa: E402
 record = json.loads((ROOT / "tools/chests.json").read_text(encoding="utf-8"))
-for x0, x1, z0, z1 in CH.BOXES:
-    c(f"forceload add {x0 - 2} {z0 - 2} {x1 + 2} {z1 + 2}")
+CHUNKS = sorted({(e["x"] >> 4, e["z"] >> 4) for e in record})   # chunk by chunk: a box over 256 chunks is refused whole (the intake's window)
+for cx, cz in CHUNKS:
+    c(f"forceload add {cx * 16} {cz * 16}")
 time.sleep(6)
 bad = []
 for e in record:
@@ -229,8 +230,8 @@ for e in record:
     if f'"{CH.table_id(e["table"])}"' not in out:
         bad.append(f"{at}: wants {e['table']}, the block says [{out[-60:]}]")
 hosp = [e for e in record if e["table"] == "sites/hospital"]
-for x0, x1, z0, z1 in CH.BOXES:
-    c(f"forceload remove {x0 - 2} {z0 - 2} {x1 + 2} {z1 + 2}")
+for cx, cz in CHUNKS:
+    c(f"forceload remove {cx * 16} {cz * 16}")
 check(f"all {len(record)} recorded containers stand, Lootr, bound to their table; the hospital's {len(hosp)} to its site table", not bad and len(hosp) >= 12, bad[:4] or "every one")
 
 # 12

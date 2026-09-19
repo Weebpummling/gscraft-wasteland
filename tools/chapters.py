@@ -207,7 +207,7 @@ QUESTS = [
      # every soldier drops - sixteen a shot, eight in the tube, slow. It comes empty: the rounds are pocketed and loaded, as the notebook says
      "rewards": [stage("compound_closed"), cmd("/function gscraft:gate_close"), give("superbwarfare:marlin"), give("superbwarfare:rifle_ammo", 32)]},
     # the vest with the junction: class 4, and the plates soldiers drop (0.15 a body) refill it - the armour the review found nothing led to
-    {"key": "square", "chapter": "pocket", "title": "The junction", "voice": "The square is ours if we say it is.", "task": "Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch and the map wall.",
+    {"key": "square", "chapter": "pocket", "title": "The junction", "voice": "The square is ours if we say it is.", "task": "Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch.",
      "x": 2, "y": 0, "tasks": [loc("the square", site_box("square")), item("gscraft:metal_scrap", 8)], "deps": ["R0"],
      "rewards": [stage("square_taken"), stage("skadowsky_scouted"), give("superbwarfare:ru_chest_6b43"), give("superbwarfare:armor_plate", 2)]},
     {"key": "gatehouse", "chapter": "pocket", "title": "The gatehouse", "voice": "The bridge's east end. Bar the doors and Marshall moves in.", "task": "Reach the gatehouse; hand in a fastener kit and eight scrap.",
@@ -224,13 +224,13 @@ QUESTS = [
      "rewards": [stage("mast_taken"), stage("skadowsky_held")]},
     # Field notes (onboarding §4.5): the chapter that writes itself - each entry invisible until its per-player note_<key>
     # advancement is granted (journal/FieldNotes.java), two lines, no reward; the rule gets its name after the fact
-    {"key": "note_death", "chapter": "notes", "title": "The first death", "voice": "It happens to everyone once.", "task": "You came back in the compound. What you carried lies where you fell; a friend can get you up before it comes to that.",
+    {"key": "note_death", "chapter": "notes", "title": "The first death", "voice": "It happens to everyone once.", "task": "You came back in the compound with the pistol, loaded, and the notebook. Everything else lies where you fell; a friend can get you up before it comes to that.",
      "x": 0, "y": 0, "tasks": [adv("note_death")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:skeleton_skull"},
-    {"key": "note_bulky", "chapter": "notes", "title": "Heavy", "voice": "Some things are carried, not pocketed.", "task": "Some things are bulky - the tooltip says so in gold. Carrying one slows you and stops you sprinting; a car carries it better.",
+    {"key": "note_bulky", "chapter": "notes", "title": "Heavy", "voice": "Some things are carried, not pocketed.", "task": "Some things are bulky - the tooltip says so in gold. Carrying one slows you and stops you sprinting; one at a time.",
      "x": 2, "y": 0, "tasks": [adv("note_bulky")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "gscraft:steel_frame"},
     {"key": "note_vehicle", "chapter": "notes", "title": "Wheels", "voice": "It still runs.", "task": "A seat is a right-click; out is sneak. The fuel and the rounds are the vehicle's own - the crews out there have the same ones.",
      "x": 4, "y": 0, "tasks": [adv("note_vehicle")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:minecart"},
-    {"key": "note_infected", "chapter": "notes", "title": "Bitten", "voice": "It is in the blood now.", "task": "An infection runs on a clock. Tony cures it once the clinic is his; until then, carry the cure or do not get bitten.",
+    {"key": "note_infected", "chapter": "notes", "title": "Bitten", "voice": "It is in the blood now.", "task": "An infection runs on a clock. A med kit, held to use, cures it; nothing else does. Tony's card makes them - carry one north.",
      "x": 6, "y": 0, "tasks": [adv("note_infected")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:rotten_flesh"},
     {"key": "note_warning", "chapter": "notes", "title": "They are coming back", "voice": "Tune heard them first.", "task": "A held strongpoint is counterattacked when its clock runs out. The warning comes ten minutes ahead; the walls you built are what meets them.",
      "x": 8, "y": 0, "tasks": [adv("note_warning")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:bell"},

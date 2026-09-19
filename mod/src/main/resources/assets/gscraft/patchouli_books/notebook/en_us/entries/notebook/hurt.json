@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Down is not dead: a friend revives you where you fell. Alone, you wait it out.$(br)A $(bold)bandage$() stops the bleeding; $(bold)painkillers$() for the rest.$(br)A bite $(bold)infects$(): the clinic cures it once Tony has it. Until then, the hall is the backstop."
+      "text": "Down is not dead: a friend revives you where you fell. Alone, you wait it out.$(br)A $(bold)bandage$(), held to use, stops the bleeding, sets a limb and closes two hearts.$(br)A $(bold)med kit$() does the same, closes six, and $(bold)cures a bite$(). Nothing else does. Tony's card makes them; the parts are where medicine was kept."
     }
   ]
 }

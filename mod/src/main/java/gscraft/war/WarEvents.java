@@ -295,7 +295,14 @@ public final class WarEvents {
                             edible.add(e.getKey().location().getPath() + "(" + e.getValue().getFoodProperties().getNutrition() + ")");
                     }
                     java.util.Collections.sort(edible);
-                    String line = registered + " items registered under gscraft; " + known + " of " + gscraft.war.item.SliceItems.DEFS.size() + " listed known; missing: " + missing + "; edible: " + edible;
+                    // what heals, and whether The Hordes takes it for an infection cure (the completeness audit, 2026-09-19: the med kit did nothing)
+                    java.util.List<String> medicine = new java.util.ArrayList<>();
+                    var cures = net.minecraft.tags.ItemTags.create(new net.minecraft.resources.ResourceLocation("hordes", "infection_cures"));
+                    for (var e : net.minecraftforge.registries.ForgeRegistries.ITEMS.getEntries()) {
+                        if (e.getValue() instanceof gscraft.war.item.SliceItems.MedicineItem m)
+                            medicine.add(e.getKey().location().getPath() + "(heals " + (int) m.def.heal() + ", cures a bite: " + new net.minecraft.world.item.ItemStack(m).is(cures) + ")");
+                    }
+                    String line = registered + " items registered under gscraft; " + known + " of " + gscraft.war.item.SliceItems.DEFS.size() + " listed known; missing: " + missing + "; edible: " + edible + "; medicine: " + medicine;
                     ctx.getSource().sendSuccess(() -> net.minecraft.network.chat.Component.literal(line), false);
                     return known;
                 }))

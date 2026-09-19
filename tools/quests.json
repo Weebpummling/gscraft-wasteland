@@ -1208,7 +1208,7 @@
    "chapter": "pocket",
    "title": "The junction",
    "voice": "The square is ours if we say it is.",
-   "task": "Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch and the map wall.",
+   "task": "Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch.",
    "x": 2,
    "y": 0,
    "tasks": [
@@ -1437,7 +1437,7 @@
    "chapter": "notes",
    "title": "The first death",
    "voice": "It happens to everyone once.",
-   "task": "You came back in the compound. What you carried lies where you fell; a friend can get you up before it comes to that.",
+   "task": "You came back in the compound with the pistol, loaded, and the notebook. Everything else lies where you fell; a friend can get you up before it comes to that.",
    "x": 0,
    "y": 0,
    "tasks": [
@@ -1458,7 +1458,7 @@
    "chapter": "notes",
    "title": "Heavy",
    "voice": "Some things are carried, not pocketed.",
-   "task": "Some things are bulky - the tooltip says so in gold. Carrying one slows you and stops you sprinting; a car carries it better.",
+   "task": "Some things are bulky - the tooltip says so in gold. Carrying one slows you and stops you sprinting; one at a time.",
    "x": 2,
    "y": 0,
    "tasks": [
@@ -1500,7 +1500,7 @@
    "chapter": "notes",
    "title": "Bitten",
    "voice": "It is in the blood now.",
-   "task": "An infection runs on a clock. Tony cures it once the clinic is his; until then, carry the cure or do not get bitten.",
+   "task": "An infection runs on a clock. A med kit, held to use, cures it; nothing else does. Tony's card makes them - carry one north.",
    "x": 6,
    "y": 0,
    "tasks": [

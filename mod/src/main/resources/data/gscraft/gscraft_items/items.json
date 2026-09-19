@@ -28,7 +28,7 @@
     {
       "id": "nail",
       "name": "Nail",
-      "tip": "Hardware. Boards, crates, kits.",
+      "tip": "Hardware. A fastener kit wants four.",
       "role": "small",
       "stack": 8,
       "bulky": false
@@ -76,7 +76,7 @@
     {
       "id": "spark_plug",
       "name": "Spark plug",
-      "tip": "Mechanical. An engine's.",
+      "tip": "Mechanical. Walker wants two.",
       "role": "small",
       "stack": 4,
       "bulky": false
@@ -84,7 +84,7 @@
     {
       "id": "motor_oil",
       "name": "Motor oil",
-      "tip": "Mechanical. Garages have it.",
+      "tip": "Mechanical. Garages have it; Walker wants two.",
       "role": "small",
       "stack": 4,
       "bulky": false
@@ -92,7 +92,7 @@
     {
       "id": "car_battery",
       "name": "Car battery",
-      "tip": "Mechanical. Heavy; one per stack.",
+      "tip": "Mechanical. Walker wants one.",
       "role": "small",
       "stack": 1,
       "bulky": false
@@ -172,7 +172,7 @@
     {
       "id": "folder_of_documents",
       "name": "Folder of documents",
-      "tip": "Paper. Someone's old office.",
+      "tip": "Paper. Someone's old office; James reads them.",
       "role": "small",
       "stack": 4,
       "bulky": false
@@ -236,7 +236,7 @@
     {
       "id": "blood_bag",
       "name": "Blood bag",
-      "tip": "Medical. The hospital's.",
+      "tip": "Medical. Only where medicine was kept; Tony wants two.",
       "role": "small",
       "stack": 4,
       "bulky": false
@@ -256,7 +256,7 @@
     {
       "id": "cloth",
       "name": "Cloth",
-      "tip": "Two wool or four string at any station; sandbags and storage want it.",
+      "tip": "Two wool or four string at any station; bandages, sandbags and the claim marker want it.",
       "role": "small",
       "stack": 8,
       "bulky": false
@@ -264,7 +264,7 @@
     {
       "id": "pressure_gauge",
       "name": "Pressure gauge",
-      "tip": "Mechanical. Workshops have them.",
+      "tip": "Mechanical. Workshops have them; Michael wants one.",
       "role": "small",
       "stack": 4,
       "bulky": false
@@ -280,7 +280,7 @@
     {
       "id": "wrench",
       "name": "Wrench",
-      "tip": "Tool. Walker's first gift; three metal scrap at a station.",
+      "tip": "Tool. Walker's first gift; fastener kits are its work. Three metal scrap make another.",
       "role": "tool",
       "stack": 1,
       "bulky": false
@@ -296,7 +296,7 @@
     {
       "id": "pliers",
       "name": "Pliers",
-      "tip": "Tool. For the electrical run.",
+      "tip": "Tool. A wiring harness is its work. Two metal scrap make a pair.",
       "role": "tool",
       "stack": 1,
       "bulky": false
@@ -304,7 +304,7 @@
     {
       "id": "screwdriver_set",
       "name": "Screwdriver set",
-      "tip": "Tool. For the electrical run.",
+      "tip": "Tool. Circuit assemblies, and taking pistols and computers apart.",
       "role": "tool",
       "stack": 1,
       "bulky": false
@@ -312,7 +312,7 @@
     {
       "id": "hand_drill",
       "name": "Hand drill",
-      "tip": "Tool. Rare in garages.",
+      "tip": "Tool. The claim marker is drilled. Rare in garages; the hand-tools card makes one.",
       "role": "tool",
       "stack": 1,
       "bulky": false
@@ -320,7 +320,7 @@
     {
       "id": "fastener_kit",
       "name": "Fastener kit",
-      "tip": "4 bolts, 4 nuts, 4 screws, 4 nails; two minutes at a station.",
+      "tip": "4 bolts, 4 nuts, 4 screws, 4 nails, and a wrench in the tool slot; two minutes at a station.",
       "role": "intermediate",
       "stack": 4,
       "bulky": false
@@ -336,7 +336,7 @@
     {
       "id": "wiring_harness",
       "name": "Wiring harness",
-      "tip": "3 wire spools, a power cord, duct tape; two minutes.",
+      "tip": "3 wire spools, a power cord, duct tape, and pliers in the tool slot; two minutes.",
       "role": "intermediate",
       "stack": 4,
       "bulky": false
@@ -352,7 +352,7 @@
     {
       "id": "circuit_assembly",
       "name": "Circuit assembly",
-      "tip": "A circuit board, 2 capacitors, a relay, a wire spool; two minutes.",
+      "tip": "A circuit board, 2 capacitors, a relay, a wire spool, and a screwdriver set in the tool slot; two minutes.",
       "role": "intermediate",
       "stack": 4,
       "bulky": false
@@ -360,10 +360,14 @@
     {
       "id": "med_kit",
       "name": "Med kit",
-      "tip": "2 bandages, painkillers, antiseptic, a syringe; two minutes. Heals a wound.",
+      "tip": "Hold to use: clears wounds, closes six hearts, cures a bite. Order: 2 bandages, painkillers, antiseptic, a syringe.",
       "role": "intermediate",
       "stack": 4,
-      "bulky": false
+      "bulky": false,
+      "heal": [
+        12,
+        60
+      ]
     },
     {
       "id": "casings",
@@ -464,7 +468,7 @@
     {
       "id": "claim_marker",
       "name": "Claim marker",
-      "tip": "4 steel frames, a circuit assembly, a wiring harness, a white banner. Plant it at a strongpoint's anchor to claim it.",
+      "tip": "4 steel frames, a circuit assembly, a wiring harness, 2 cloth; a hand drill in the tool slot. Plant it at a strongpoint's anchor to claim it.",
       "role": "part",
       "stack": 1,
       "bulky": true

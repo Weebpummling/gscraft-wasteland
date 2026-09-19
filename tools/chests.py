@@ -28,6 +28,16 @@ from camp_ruins import region_of, slot_of  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTAINERS = {"minecraft:chest", "minecraft:trapped_chest", "minecraft:barrel", "lootr:lootr_chest", "lootr:lootr_barrel", "lootr:lootr_trapped_chest"}
+# the other three strongpoints held NO container at all (completeness audit 2026-09-19: 1221, 318 and 160 chunks scanned), so by
+# SitePlay's rule they could never be looted and never claimed - the hospital's dead end again. Each gets a window of 70 blocks
+# round its anchor (where the marker goes), clipped to its box, and twelve containers of its site table.
+def window(anchor, box, r=70):
+    return (max(box[0], anchor[0] - r), min(box[1], anchor[0] + r), max(box[2], anchor[1] - r), min(box[3], anchor[1] + r))
+
+
+SWITCHYARD = window((-830, 110), (-957, -708, 37, 184), 130)   # the whole box: round the anchor it is pylons and open ground, the rooms are the admin block's
+INTAKE = window((890, 150), (606, 1180, -101, 413), 160)   # 70 found no roofed floor round the anchor either
+TURBINE = window((400, 590), (-13, 824, 546, 634))
 # (x0, x1, z0, z1) -> table, first match wins
 RECTS = [
     ((-786, -752, -902, -876), "workshop"),    # the big hall (the walled compound, owner 2026-09-17)
@@ -36,6 +46,7 @@ RECTS = [
     ((-792, -774, -884, -874), "apartment"),   # the annex south of the hall
     ((-900, -720, -920, -835), "apartment"),   # the rest of the compound
     ((-966, -930, -1060, -1020), "hospital"),  # the clinic, in the north complex
+    (SWITCHYARD, "sites/switchyard"), (INTAKE, "sites/intake"), (TURBINE, "sites/turbine"),
     ((-865, -698, -1312, -1242), "sites/hospital"),  # the hospital strongpoint: its SITE table (loot design 2026-09-19), a building table first and the site's own pool second
 ]
 SQUARE = (-966, -914, -1000, -958)
@@ -43,12 +54,13 @@ CLINIC = (-966, -930, -1060, -1020)   # the north complex's clinic (camp.py's To
 HOSPITAL = (-865, -698, -1312, -1242)   # the strongpoint's own box (gscraft_sites/hospital.json): it held no container at all (slice review 2026-09-19)
 ROAD_A = (-870, -760, -1140, -1045)   # the way north, its southern half: the streets between the mast's field and the hospital held no container (slice review 2026-09-19)
 ROAD_B = (-870, -760, -1241, -1141)   # and its northern half, up to the hospital's box
-BOXES = [(-900, -720, -920, -835), SQUARE, CLINIC, HOSPITAL, ROAD_A, ROAD_B]
+BOXES = [(-900, -720, -920, -835), SQUARE, CLINIC, HOSPITAL, ROAD_A, ROAD_B, SWITCHYARD, INTAKE, TURBINE]
 # chests placed per rectangle when --place (the hall, the block, the sheds, the annex; the square's buildings share one budget)
-PLACE = {"hall": 8, "block": 6, "sheds": 4, "annex": 4, "square": 14, "clinic": 0, "hospital": 20, "road_a": 10, "road_b": 10}   # the clinic already holds 31 barrels of its own: none placed (2026-09-18)
+PLACE = {"hall": 8, "block": 6, "sheds": 4, "annex": 4, "square": 14, "clinic": 0, "hospital": 20, "road_a": 10, "road_b": 10, "switchyard": 12, "intake": 12, "turbine": 12}   # the clinic already holds 31 barrels of its own: none placed (2026-09-18)
 NAMED = {"hall": ((-786, -752, -902, -876), "workshop"), "block": ((-746, -730, -905, -872), "garage"), "sheds": ((-844, -836, -911, -904), "office"),
          "annex": ((-792, -774, -884, -874), "apartment"), "square": (SQUARE, None),
-         "clinic": (CLINIC, "hospital"), "hospital": (HOSPITAL, "sites/hospital"), "road_a": (ROAD_A, None), "road_b": (ROAD_B, None)}   # T2's med kits need the hospital table (itemflow, 2026-09-18)
+         "clinic": (CLINIC, "hospital"), "hospital": (HOSPITAL, "sites/hospital"), "road_a": (ROAD_A, None), "road_b": (ROAD_B, None),
+         "switchyard": (SWITCHYARD, "sites/switchyard"), "intake": (INTAKE, "sites/intake"), "turbine": (TURBINE, "sites/turbine")}   # T2's med kits need the hospital table (itemflow, 2026-09-18)
 SOLID_SKIP = {"minecraft:air", "minecraft:cave_air", "minecraft:void_air", "minecraft:water", "minecraft:lava", "minecraft:grass", "minecraft:tall_grass", "minecraft:fern",
               "minecraft:dead_bush", "minecraft:snow", "minecraft:torch", "minecraft:wall_torch", "minecraft:rail"}
 
@@ -193,7 +205,7 @@ def interior_spots(b, rect, budget, taken):
     cands = []
     for x in range(x0 + 1, x1):
         for z in range(z0 + 1, z1):
-            for y in range(45, 100):
+            for y in range(40, 130):
                 if not (any(k in b.get(x, y, z) for k in FLOORS) and not b.get(x, y, z).endswith(ODD) and b.air(x, y + 1, z) and b.air(x, y + 2, z)):
                     continue
                 roof = next((yy for yy in range(y + 3, y + 11) if b.solid(x, yy, z)), None)
@@ -251,19 +263,20 @@ def main(argv):
         import time
         import localtest as L
         r = L.Rcon("127.0.0.1", 25575, "gscraft-local-test")
-        # every box the record covers, not a fixed rectangle: the old one was the south compound's and missed the walled
-        # compound and the clinic after the move (found 2026-09-18). One forceload per box keeps each under the 256-chunk cap.
-        for x0, x1, z0, z1 in BOXES:
-            r.cmd(f"forceload add {x0 - 2} {z0 - 2} {x1 + 2} {z1 + 2}", timeout=30)
-        time.sleep(4)
+        # only the CHUNKS the record stands in, one by one. A forceload per box was refused outright for the intake's window
+        # (441 chunks; the cap is 256), silently, and its twelve containers were never placed (2026-09-19)
+        chunks = sorted({(f["x"] >> 4, f["z"] >> 4) for f in found})
+        for cx, cz in chunks:
+            r.cmd(f"forceload add {cx * 16} {cz * 16}", timeout=30)
+        time.sleep(6)
         ok = 0
         for f in found:
             if f.get("before"):
                 r.cmd(f["before"], timeout=30)
             out = r.cmd(f["command"], timeout=30) or ""
             ok += "Changed" in out
-        for x0, x1, z0, z1 in BOXES:
-            r.cmd(f"forceload remove {x0 - 2} {z0 - 2} {x1 + 2} {z1 + 2}", timeout=30)
+        for cx, cz in chunks:
+            r.cmd(f"forceload remove {cx * 16} {cz * 16}", timeout=30)
         r.close()
         print(f"applied: {ok} of {len(found)} changed")
 

@@ -424,6 +424,30 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-19, THE COMPLETENESS AUDIT (owner: "make sure every part of the gameplay that is available is designed and checked,
+so that nothing is left undone besides new features"; ruling R54). LOCAL ONLY.** Method: every promise the game makes to a
+player - a tooltip, a notebook page, a field note, a quest's text, a reward - checked against what the code and the data do.
+**Found and fixed:** (1) **the med kit did nothing.** Its tooltip said "Heals a wound", T2, H2 and T3 pay in med kits, and it
+was a plain item. It is a medicine now (`"heal": [12, 60]`): wounds cleared, six hearts, and **the cure for a bite** - The
+Hordes cures on Forge's use-finish event with any item in `hordes:infection_cures` (read in its jar), the tag's only members
+were golden apples, and the loot remap had just removed every golden apple from the world, so infection had NO cure.
+`data/hordes/tags/items/infection_cures.json` adds `gscraft:med_kit`. (2) **Three of the four strongpoints could never be
+looted or claimed**: the switchyard, the intake works and the turbine hall held no container at all (1221, 318 and 160
+chunks scanned) - the hospital's dead end, three more times. `chests.py` gives each twelve of its site table in a window
+round its anchor (the switchyard's and the intake's had to be widened: round the anchor it is open ground). (3) **Text that
+was not true:** the notebook said the clinic cures infection, that painkillers treat wounds, that a car carries a bulky part
+in its bay and "cars come with the garage", and that the hall has a map wall (the board was removed); two field notes and
+sixteen tooltips were stale or vague (the claim marker's still asked for a white banner). All say what is so now.
+**Audited and found whole:** every translation key the code uses; every line a survivor is told to say; every function a
+quest or the code runs; the quest graph (no unknown dependency, no two quests on one spot, none without text); every
+item's name. **Stages nothing reads** - `workshop_1`, `storage_1`, `medical_1`, `generator_1`, `water_1`, `radio_1`,
+`workshop_2`, `medical_2`, `intel_1`, `mortar_built`, `skadowsky_scouted` and the eleven `bp_*` - are flags for features
+not built; no text promises anything of them, so they are groundwork, not a debt.
+**The proof:** `tools/war_phase47.py` - each strongpoint climbed by the stand-ins (refused, scouted, six searches, claimed);
+twice the loot goal in each; the med kit heals and is the cure (`/gscraft items` lists medicines now); no text names what is
+gone; stages, functions and lines all present; every order's tool obtainable. **Results on the final jar (705,167 bytes): 47 7/7, 46 13/13 (180 containers), 44 10/10, 36 4/4 three times running, 31, 33, 34 green; the third full run of the suite before these last changes was 42 of 44, both red mine (36's measurement, and 46 seeing containers recorded and not yet placed).**
+**Still not mine to finish:** anything that needs a player (the owner: no client tests) and anything on live.
+
 **2026-09-19, THE LOOT SYSTEM, COMPLETE AND VERIFIED - LOCAL ONLY (owner: "make a complete loot design now, and just do this
 locally ... verify that the entire loot system functions"; ruling R53). READ `docs/gscraft-loot-design-2026-09-19.md`: it is
 generated from the data the game loads, after the proof passed.** The owner had asked for this twice before and I had gone

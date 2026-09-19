@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "The junction's torch burns; the map wall in the hall shows the pocket.$(br)$(bold)The gatehouse$() west, at the bridge's east end.$(br)$(bold)The north complex$() north: the clinic and the shack.$(br)$(bold)The crossing$() east, on the railway."
+      "text": "The junction's torch burns.$(br)The gatehouse west, at the bridge's east end.$(br)The north complex north: the clinic and the shack.$(br)The crossing east, on the railway."
     }
   ],
   "advancement": "gscraft:stage/square_taken"

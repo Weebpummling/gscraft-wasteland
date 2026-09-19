@@ -55,6 +55,11 @@ def in_margin():
     return count(f"@e[tag=gs_director,x={BOX[0] - M},y=-64,z={BOX[2] - M},dx={BOX[1] - BOX[0] + 2 * M},dy=384,dz={BOX[3] - BOX[2] + 2 * M}]")
 
 
+def new_in_margin():
+    m = M - 2
+    return count(f"@e[tag=gs_director,tag=!p36_seen,x={BOX[0] - m},y=-64,z={BOX[2] - m},dx={BOX[1] - BOX[0] + 2 * m},dy=384,dz={BOX[3] - BOX[2] + 2 * m}]")
+
+
 def near(p, d):
     m = re.search(r"count: (\d+)", c(f"execute positioned {p[0]} {p[1]} {p[2]} if entity @e[tag=gs_director,distance=..{d}]"))
     return int(m.group(1)) if m else 0
@@ -62,6 +67,8 @@ def near(p, d):
 
 def run(p, seconds):
     c(f"kill @e[tag=gs_director]")
+    time.sleep(2)   # a killed body is still an entity for a second, and one lying in the margin was counted as placed there
+    c("tag @e[tag=gs_director] add p36_seen")
     c(f"gscraft director phantom set {p[0]} {p[1]} {p[2]}")
     c("gscraft director resume")
     c("gscraft clock free")
@@ -73,9 +80,12 @@ def run(p, seconds):
         time.sleep(1)
         m = re.search(r"count: (\d+)", c(f"execute positioned {p[0]} {p[1]} {p[2]} if entity @e[tag=gs_director,tag=!p36_seen,distance=..28]"))
         close_new += int(m.group(1)) if m else 0
+        # the margin the same way: what is NEW and already inside it (less two blocks: a body placed on the margin's edge has
+        # stepped over it within the second). Positions sampled every ten seconds counted a zombie that wandered one block in
+        # as a placement, and the third full suite went red on it (2026-09-19)
+        worst_margin += new_in_margin()
         c("tag @e[tag=gs_director,tag=!p36_seen] add p36_seen")
         if i % 10 == 9:
-            worst_margin = max(worst_margin, in_margin())
             most = max(most, near(p, 120))
     worst_near = close_new
     c("gscraft director pause")

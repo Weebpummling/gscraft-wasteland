@@ -74,7 +74,7 @@
 			title: "The junction"
 			subtitle: "The square is ours if we say it is."
 			description: [
-				"Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch and the map wall."
+				"Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch."
 			]
 			dependencies: [
 				"03F608F813A19429"

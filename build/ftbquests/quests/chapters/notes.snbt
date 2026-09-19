@@ -17,7 +17,7 @@
 			title: "The first death"
 			subtitle: "It happens to everyone once."
 			description: [
-				"You came back in the compound. What you carried lies where you fell; a friend can get you up before it comes to that."
+				"You came back in the compound with the pistol, loaded, and the notebook. Everything else lies where you fell; a friend can get you up before it comes to that."
 			]
 			icon: "minecraft:skeleton_skull"
 			invisible: true
@@ -39,7 +39,7 @@
 			title: "Heavy"
 			subtitle: "Some things are carried, not pocketed."
 			description: [
-				"Some things are bulky - the tooltip says so in gold. Carrying one slows you and stops you sprinting; a car carries it better."
+				"Some things are bulky - the tooltip says so in gold. Carrying one slows you and stops you sprinting; one at a time."
 			]
 			icon: "gscraft:steel_frame"
 			invisible: true
@@ -83,7 +83,7 @@
 			title: "Bitten"
 			subtitle: "It is in the blood now."
 			description: [
-				"An infection runs on a clock. Tony cures it once the clinic is his; until then, carry the cure or do not get bitten."
+				"An infection runs on a clock. A med kit, held to use, cures it; nothing else does. Tony's card makes them - carry one north."
 			]
 			icon: "minecraft:rotten_flesh"
 			invisible: true

@@ -63,8 +63,10 @@ Weights; `(xA-B)` is the stack. Rolls are per chest, per player.
 | `sites/turbine` | one of military (1), office (1), whole | + 1-2 of: relay 12, car_battery 6, circuit_board 8, capacitor 8 (x1-2) |
 | `sites/intake` | one of factory (1), workshop (1), whole | + 1-2 of: corrugated_hose 15, pressure_gauge 10, water_filter 8, solvent 6 |
 
-Only the hospital stands in the slice; its 20 containers are bound to `sites/hospital`. The other four tables are
-written, load and roll (phase 46), and wait for their sites' containers to be bound with `tools/chests.py`.
+Four strongpoints stand in the world and each holds containers of its own table: the hospital 20, the switchyard
+12, the intake works 12, the turbine hall 12 - at least twice `site.loot_goal`, or the site could never be looted and
+claimed (the three plant sites held none until the completeness audit; `tools/war_phase47.py` climbs each by play). `sites/krot`
+is written, loads and rolls, and waits for KROT to be a site.
 
 ## 5. The remap: every other mod's chest table
 
@@ -229,23 +231,14 @@ their mods wrote them. **Run it again whenever a mod is added or updated**, and 
 
 ## 10. The start area, for one player
 
-144 bound containers (50 apartment, 6 garage, 31 hospital, 27 office, 20 sites/hospital, 10 workshop). The gate holds the design to this:
+180 bound containers (50 apartment, 6 garage, 31 hospital, 27 office, 20 sites/hospital, 12 sites/intake, 12 sites/switchyard, 12 sites/turbine, 10 workshop). The gate holds the design to this:
 every non-repeatable quest's needs added up are covered by what one player expects from those containers (or drop from
 bodies), and every thing needed once is a nine-in-ten find or better, or the station makes it, or a quest gives it.
 `python tools/itemflow.py` prints the table; the tightest rows today:
 
 ```
-      gscraft:wire_spool                 all quests need  11   expect   17.6   x1.6   tight
-      gscraft:corrugated_hose            all quests need   2   expect    3.2   x1.6   tight
-      gscraft:spark_plug                 all quests need   2   expect    3.6   x1.78  tight
-      gscraft:hard_drive                 all quests need   3   expect    5.9   x1.95  tight
-      gscraft:motor_oil                  all quests need   2   expect    4.0   x1.98  tight
-      gscraft:pressure_gauge             needed once                                   91.5%  risky
-      gscraft:car_battery                needed once                                   94.1%  risky
-      M3               gscraft:corrugated_hose            need   2  expect    3.2  x1.6   tight
-      W4               gscraft:spark_plug                 need   2  expect    3.6  x1.78  tight
-      U3               gscraft:hard_drive                 need   3  expect    5.9  x1.95  tight
-      W4               gscraft:motor_oil                  need   2  expect    4.0  x1.98  tight
+      gscraft:pliers                     the tool of order wiring_harness              85.4%  risky
+      gscraft:screwdriver_set            the tool of order salvage_computer            85.4%  risky
 ```
 
 ## 11. Proof: `tools/war_phase46.py` (13 checks, no player)
@@ -254,8 +247,8 @@ The gate; the server has exactly the fourteen tables; each building table rolled
 else, and totals within a third of the weights; each site table gives its signature and its bases and nothing else;
 twenty-two foreign tables become design tables and roll nothing but the design; blocks, entities, the jungle dispenser
 and our own tables are left alone; every body and wreck rule drops; the server knows all 92 item ids the system names; the
-station loaded every order and every card is a quest's to give; a site table fills a real chest; all 144 recorded
-containers stand as Lootr containers bound to their table, the hospital's twenty to its site table; Lootr refreshes
+station loaded every order and every card is a quest's to give; a site table fills a real chest; every recorded
+container stands as a Lootr container bound to its table; Lootr refreshes
 `gscraft`; the quest book reloads clean; no errors. `/gscraft loot roll <table> <n>` is the instrument.
 
 What writing the test found, that reading the data never would have: three dead site tables still in the world's datapack;

@@ -36,7 +36,8 @@ import java.util.List;
 public final class SliceItems {
     private SliceItems() {}
 
-    public record Def(String id, int stack, boolean bulky, String role, int nutrition, float saturation) {}
+    /** @param heal health a use closes (0: not a medicine); @param healTicks how long the use is held */
+    public record Def(String id, int stack, boolean bulky, String role, int nutrition, float saturation, float heal, int healTicks) {}
 
     public static final List<Def> DEFS = load();
     public static final List<RegistryObject<Item>> REGISTERED = new ArrayList<>();
@@ -55,7 +56,8 @@ public final class SliceItems {
                 JsonObject o = el.getAsJsonObject();
                 out.add(new Def(o.get("id").getAsString(), o.has("stack") ? o.get("stack").getAsInt() : 64,
                         o.has("bulky") && o.get("bulky").getAsBoolean(), o.has("role") ? o.get("role").getAsString() : "item",
-                        o.has("food") ? o.getAsJsonArray("food").get(0).getAsInt() : 0, o.has("food") ? o.getAsJsonArray("food").get(1).getAsFloat() : 0f));
+                        o.has("food") ? o.getAsJsonArray("food").get(0).getAsInt() : 0, o.has("food") ? o.getAsJsonArray("food").get(1).getAsFloat() : 0f,
+                        o.has("heal") ? o.getAsJsonArray("heal").get(0).getAsFloat() : 0f, o.has("heal") ? o.getAsJsonArray("heal").get(1).getAsInt() : 0));
             }
         } catch (RuntimeException | java.io.IOException ex) {
             GscraftWar.LOG.error("[gscraft] items.json is invalid: {}", ex.toString());
@@ -68,9 +70,49 @@ public final class SliceItems {
         for (Def d : DEFS) {
             REGISTERED.add(ModItems.ITEMS.register(d.id(), () -> d.id().equals("claim_marker") ? new ClaimMarkerItem(d)
                     : d.id().startsWith("strike_") ? new gscraft.war.strike.StrikeItem(d, gscraft.war.strike.Strikes.Kind.valueOf(d.id().substring(7).toUpperCase(java.util.Locale.ROOT)))
+                    : d.heal() > 0 ? new MedicineItem(d)
                     : new SliceItem(d)));
         }
         GscraftWar.LOG.info("[gscraft] items: {} from items.json", DEFS.size());
+    }
+
+    /**
+     * A medicine (items.json "heal": [points, ticks]): held to use like the bandage, it clears the wounds and closes that much
+     * health. The med kit's tooltip had always said "Heals a wound" and three quests pay in med kits, and the item did
+     * NOTHING (the completeness audit, 2026-09-19). Finishing the use fires Forge's use-finish event, which is where The
+     * Hordes cures an infection with any item in its `hordes:infection_cures` tag - the med kit is in it
+     * (data/hordes/tags/items), so the one item is the cure the notebook promised and the economy can make.
+     */
+    public static class MedicineItem extends SliceItem {
+        public MedicineItem(Def def) {
+            super(def);
+        }
+
+        @Override
+        public int getUseDuration(ItemStack stack) {
+            return def.healTicks();
+        }
+
+        @Override
+        public net.minecraft.world.item.UseAnim getUseAnimation(ItemStack stack) {
+            return net.minecraft.world.item.UseAnim.BOW;
+        }
+
+        @Override
+        public net.minecraft.world.InteractionResultHolder<ItemStack> use(Level level, net.minecraft.world.entity.player.Player player, net.minecraft.world.InteractionHand hand) {
+            player.startUsingItem(hand);
+            return net.minecraft.world.InteractionResultHolder.consume(player.getItemInHand(hand));
+        }
+
+        @Override
+        public ItemStack finishUsingItem(ItemStack stack, Level level, net.minecraft.world.entity.LivingEntity user) {
+            if (!level.isClientSide && user instanceof net.minecraft.world.entity.player.Player player) {
+                gscraft.war.combat.PlayerWounds.clear(player);
+                player.heal(def.heal());
+                if (!player.getAbilities().instabuild) stack.shrink(1);
+            }
+            return stack;
+        }
     }
 
     public static class SliceItem extends Item {
