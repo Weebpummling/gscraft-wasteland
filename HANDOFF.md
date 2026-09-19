@@ -424,6 +424,25 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-19, the rest of step 2 and the loose ends (owner: "continue with the work"; ruling R50; local only).**
+**The long gun:** R0 (The north gate, the quest before the junction) also gives `superbwarfare:marlin` and 32
+`rifle_ammo`. Chosen from the jar's gun data: a lever action, 16 damage, 8 rounds, on `@RifleAmmo` - which every soldier
+and every wreck already drops - so it is a step up that does not make the pistol pointless. It comes empty; the rounds
+are pocketed and loaded like the pistol's (the notebook's page is now **Guns**).
+**The armour: THE REVIEW WAS WRONG that plates do nothing.** `combat/Damage` keeps a vest's plate points under Superb
+Warfare's own `ArmorPlate` key precisely so SW's plate item refills them (held to use; to level x 15 points: 30 on the two
+military vests, 15 on anything else). What a player lacked was a VEST: bodies drop a worn piece at 5%. The junction's
+quest now gives `superbwarfare:ru_chest_6b43` (class 4, 40 points) and two plates; soldiers drop plates at 0.15. The
+notebook has a page **Armour**. A worn faction vest changes nobody's hostility (`Factions.hostileToPlayer` reads the
+faction's stance only).
+**T2 told the truth:** its text says antiseptic and syringes are only in the clinic or the hospital, and that neither is
+ours. The design stands (medicine is a raid); the errand no longer pretends.
+**The south compound's 19 chests:** every one was mine (`air (placed)` in the record of a8076d0), none the map's.
+`old_compound_chests_clear.mcfunction` removes them, each only if a Lootr chest still stands there. Run locally: 19 -> 0.
+**LIVE STILL HAS THEM**, and a player may have stored things in one: the owner's word first.
+**Tests:** 44 10/10 (check 9: the two quests' rewards, and the server knows all six Superb Warfare items - `clear @a <id> 0`
+answers "Unknown item" for a bad id and "No player was found" for a good one, so ids can be proven headless), 34 7/7.
+
 **2026-09-19, THE OWNER'S TWO DECISIONS (rulings R48, R49; local only): "Change to superb warfare" and "Re-issue".**
 **The gun.** The kit's TACZ Glock is Superb Warfare's Glock 17 (`superbwarfare:glock_17`, NBT `{GunData:{Ammo:17}}` - read
 from the mod's own `GunData` class, tag `GunData`, int `Ammo`) and 34 `superbwarfare:handgun_ammo`. Read in the installed

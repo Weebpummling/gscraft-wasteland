@@ -1,12 +1,12 @@
 {
-  "name": "The pistol",
+  "name": "Guns",
   "category": "gscraft:notebook",
   "icon": "superbwarfare:glock_17",
   "sortnum": 2,
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "Seventeen in it. $(bold)Rounds$() go in your pocket first: right-click a handful to pocket them, sneak to pocket the lot. $(bold)R$() reloads from the pocket.$(br)The soldiers and the scavengers carry the same rounds; so does the brick works.$(br)$(bold)If you die$() you wake in the yard with the pistol, loaded, and this notebook. Everything else lies where you fell."
+      "text": "The pistol holds seventeen. $(bold)Rounds$() go in your pocket first: right-click a handful to pocket them, sneak to pocket the lot. $(bold)R$() reloads from the pocket. The rifle is the same with rifle rounds.$(br)The soldiers and the scavengers carry both kinds; the rooms in town hold pistol rounds.$(br)$(bold)If you die$() you wake in the yard with the pistol, loaded, and this notebook. Everything else lies where you fell."
     }
   ]
 }

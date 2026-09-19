@@ -281,7 +281,7 @@
    "chapter": "tony",
    "title": "Stock the clinic",
    "voice": "Two for the shelf, and you get more back.",
-   "task": "Order two med kits and bring them.",
+   "task": "Order two med kits and bring them. Bandages and painkillers are in any flat; antiseptic and syringes are only where medicine was kept - the clinic in the north complex, or the hospital. Neither is ours: go armed, or go later.",
    "x": 4,
    "y": 0,
    "tasks": [
@@ -894,7 +894,7 @@
    "chapter": "pocket",
    "title": "The north gate",
    "voice": "Marshall wants that gate shut before dark.",
-   "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred.",
+   "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred. Marshall has a rifle for whoever goes out past it.",
    "x": 0,
    "y": 0,
    "tasks": [
@@ -917,6 +917,16 @@
     {
      "type": "cmd",
      "command": "/function gscraft:gate_close"
+    },
+    {
+     "type": "item",
+     "item": "superbwarfare:marlin",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "superbwarfare:rifle_ammo",
+     "count": 32
     }
    ],
    "id": "03F608F813A19429"
@@ -958,6 +968,16 @@
     {
      "type": "stage",
      "stage": "skadowsky_scouted"
+    },
+    {
+     "type": "item",
+     "item": "superbwarfare:ru_chest_6b43",
+     "count": 1
+    },
+    {
+     "type": "item",
+     "item": "superbwarfare:armor_plate",
+     "count": 2
     }
    ],
    "id": "7F6BE292AA63A3F0"

@@ -2,7 +2,7 @@
   "name": "The junction, taken",
   "category": "gscraft:notebook",
   "icon": "minecraft:compass",
-  "sortnum": 6,
+  "sortnum": 7,
   "pages": [
     {
       "type": "patchouli:text",

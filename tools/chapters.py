@@ -122,7 +122,7 @@ QUESTS = [
     {"key": "T1", "chapter": "tony", "title": "Field dressing", "voice": "The shelves here are bare.", "task": "Hand in four bandages and two painkillers.",
      "x": 2, "y": 0, "tasks": [item("gscraft:bandage", 4), item("gscraft:painkillers", 2)], "deps": ["meet_tony"],
      "rewards": [give("gscraft:card_med_kit"), stage("bp_med_kit")]},
-    {"key": "T2", "chapter": "tony", "title": "Stock the clinic", "voice": "Two for the shelf, and you get more back.", "task": "Order two med kits and bring them.",
+    {"key": "T2", "chapter": "tony", "title": "Stock the clinic", "voice": "Two for the shelf, and you get more back.", "task": "Order two med kits and bring them. Bandages and painkillers are in any flat; antiseptic and syringes are only where medicine was kept - the clinic in the north complex, or the hospital. Neither is ours: go armed, or go later.",
      "x": 4, "y": 0, "tasks": [item("gscraft:med_kit", 2)], "deps": ["T1"],
      "rewards": [give("gscraft:med_kit", 4), stage("medical_1")]},
     # Michael
@@ -176,12 +176,15 @@ QUESTS = [
      "x": 8, "y": 0, "tasks": [adv("radio_2"), item("superbwarfare:medium_rocket_he", 4)], "deps": ["tube"], "repeat": True, "hide_until_deps": True,
      "rewards": [give("gscraft:strike_air")]},
     # The pocket: the gap, then the five takes (start-compound §5; ruling R22/R23)
-    {"key": "R0", "chapter": "pocket", "title": "The north gate", "voice": "Marshall wants that gate shut before dark.", "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred.",
+    {"key": "R0", "chapter": "pocket", "title": "The north gate", "voice": "Marshall wants that gate shut before dark.", "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred. Marshall has a rifle for whoever goes out past it.",
      "x": 0, "y": 0, "tasks": [item("superbwarfare:sandbag", 8)], "deps": ["W1"], "hide_until_deps": True,
-     "rewards": [stage("compound_closed"), cmd("/function gscraft:gate_close")]},
+     # the long gun before the junction (slice review, step 2): Superb Warfare's Marlin, a lever action that takes the rifle rounds
+     # every soldier drops - sixteen a shot, eight in the tube, slow. It comes empty: the rounds are pocketed and loaded, as the notebook says
+     "rewards": [stage("compound_closed"), cmd("/function gscraft:gate_close"), give("superbwarfare:marlin"), give("superbwarfare:rifle_ammo", 32)]},
+    # the vest with the junction: class 4, and the plates soldiers drop (0.15 a body) refill it - the armour the review found nothing led to
     {"key": "square", "chapter": "pocket", "title": "The junction", "voice": "The square is ours if we say it is.", "task": "Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch and the map wall.",
      "x": 2, "y": 0, "tasks": [loc("the square", site_box("square")), item("gscraft:metal_scrap", 8)], "deps": ["R0"],
-     "rewards": [stage("square_taken"), stage("skadowsky_scouted")]},
+     "rewards": [stage("square_taken"), stage("skadowsky_scouted"), give("superbwarfare:ru_chest_6b43"), give("superbwarfare:armor_plate", 2)]},
     {"key": "gatehouse", "chapter": "pocket", "title": "The gatehouse", "voice": "The bridge's east end. Bar the doors and Marshall moves in.", "task": "Reach the gatehouse; hand in a fastener kit and eight scrap.",
      "x": 4, "y": -2, "tasks": [loc("the gatehouse", site_box("gatehouse")), item("gscraft:fastener_kit", 1), item("gscraft:metal_scrap", 8)], "deps": ["square"],
      "rewards": [stage("gatehouse_taken")]},

@@ -2,7 +2,7 @@
   "name": "Where things are",
   "category": "gscraft:notebook",
   "icon": "minecraft:compass",
-  "sortnum": 5,
+  "sortnum": 6,
   "pages": [
     {
       "type": "patchouli:text",

@@ -2,7 +2,7 @@
   "name": "Getting hurt",
   "category": "gscraft:notebook",
   "icon": "gscraft:bandage",
-  "sortnum": 4,
+  "sortnum": 5,
   "pages": [
     {
       "type": "patchouli:text",

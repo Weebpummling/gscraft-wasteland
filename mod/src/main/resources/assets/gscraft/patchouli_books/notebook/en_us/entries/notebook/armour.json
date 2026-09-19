@@ -1,0 +1,12 @@
+{
+  "name": "Armour",
+  "category": "gscraft:notebook",
+  "icon": "superbwarfare:armor_plate",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "A vest stops a round only while its $(bold)plate$() holds; every hit wears the plate down, and at nothing the vest is cloth.$(br)An $(bold)armor plate$() in the hand, held to use, puts points back into the vest you wear. Soldiers carry them.$(br)A helmet is the same and cannot be refilled. The head is where it counts."
+    }
+  ]
+}

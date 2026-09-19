@@ -21,7 +21,8 @@ Resets (`/gscraft reset quests`) and clocks (`clock free`, `site <id> clock`) ar
    Marshall's three hospital quests watch the three stages; R0 runs the gate.
 8. The kit is a Superb Warfare Glock 17, loaded, and 34 rounds of what bodies and rooms give; a death gives back the pistol
    and the notebook and nothing else.
-9. No gscraft errors.
+9. The gate's quest gives the rifle, the junction's the vest and plates; the server knows the items.
+10. No gscraft errors.
 """
 import json
 import re
@@ -150,6 +151,13 @@ check("the kit's gun is Superb Warfare's, loaded, with rounds the world gives ba
       and "superbwarfare:glock_17" in back and "Ammo:17" in back and "patchouli:guide_book" in back and "handgun_ammo" not in back and "station" not in back
       and drops.count("superbwarfare:handgun_ammo") >= 4 and all("superbwarfare:handgun_ammo" in v for v in tables.values()),
       f"kit [{kit[:150]}]; back [{back[:120]}]; drop rules with rounds {drops.count('superbwarfare:handgun_ammo')}; tables with rounds {[t for t, v in tables.items() if 'handgun_ammo' in v]}")
+
+# 9: one step up before each fight (slice review, step 2): the rifle with the gate, the vest with the junction - and the game knows the items
+step = {"R0": ["superbwarfare:marlin", "superbwarfare:rifle_ammo"], "square": ["superbwarfare:ru_chest_6b43", "superbwarfare:armor_plate"]}
+missing = [f"{k}:{i}" for k, items in step.items() for i in items if i not in json.dumps(quests[k]["rewards"])]
+unknown = [i for items in step.values() for i in items + ["superbwarfare:glock_17", "superbwarfare:handgun_ammo"] if "Unknown item" in c(f"clear @a {i} 0")]
+check("the gate's quest gives the rifle and its rounds, the junction's the vest and two plates; the server knows every one of those items",
+      not missing and not unknown, f"missing from the rewards {missing}; unknown to the server {unknown}")
 
 c("gscraft clock online")
 c("forceload remove all")

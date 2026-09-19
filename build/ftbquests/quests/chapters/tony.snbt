@@ -64,7 +64,7 @@
 			title: "Stock the clinic"
 			subtitle: "Two for the shelf, and you get more back."
 			description: [
-				"Order two med kits and bring them."
+				"Order two med kits and bring them. Bandages and painkillers are in any flat; antiseptic and syringes are only where medicine was kept - the clinic in the north complex, or the hospital. Neither is ours: go armed, or go later."
 			]
 			dependencies: [
 				"7B637596EC041BC1"
