@@ -1,5 +1,5 @@
 {
-	id: "E67E58949533EA40"
+	id: "667E58949533EA40"
 	group: ""
 	order_index: 5
 	filename: "marshall"
@@ -11,7 +11,7 @@
 	]
 	quests: [
 		{
-			id: "B210B848C9E6E4CB"
+			id: "3210B848C9E6E4CB"
 			x: 0.0d
 			y: 0.0d
 			title: "Muster"
@@ -23,8 +23,8 @@
 				"0016A4AE37CD6D15"
 				"7B637596EC041BC1"
 				"44D246950C7B83C4"
-				"CBEAB3D0BF7F532E"
-				"90041807678DFDB1"
+				"4BEAB3D0BF7F532E"
+				"10041807678DFDB1"
 			]
 			hide_until_deps_complete: true
 			tasks: [
@@ -35,14 +35,14 @@
 			]
 			rewards: [
 				{
-					id: "BBB8E66FB0EE3808"
+					id: "3BB8E66FB0EE3808"
 					type: "item"
 					auto: "enabled"
 					item: "gscraft:card_claim_marker"
 					count: 1
 				}
 				{
-					id: "CB4E910D17DAB58E"
+					id: "4B4E910D17DAB58E"
 					type: "command"
 					title: "the stage bp_claim_marker"
 					command: "/gscraft stage add bp_claim_marker"
@@ -71,7 +71,7 @@
 			]
 		}
 		{
-			id: "A1F988CF156889C3"
+			id: "21F988CF156889C3"
 			x: 2.0d
 			y: 0.0d
 			title: "The tube"
@@ -80,12 +80,12 @@
 				"Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard, and its shells are a station order."
 			]
 			dependencies: [
-				"B210B848C9E6E4CB"
+				"3210B848C9E6E4CB"
 			]
 			hide_until_deps_complete: true
 			tasks: [
 				{
-					id: "F2F25A4C839C48E3"
+					id: "72F25A4C839C48E3"
 					type: "item"
 					item: "superbwarfare:mortar_barrel"
 					count: 1
@@ -149,7 +149,7 @@
 					auto: "invisible"
 				}
 				{
-					id: "E20E4A5DA1C78083"
+					id: "620E4A5DA1C78083"
 					type: "command"
 					title: "marshall speaks"
 					command: "/gscraft say marshall tube @s"
@@ -160,7 +160,7 @@
 			]
 		}
 		{
-			id: "C61D2B89EFA494BA"
+			id: "461D2B89EFA494BA"
 			x: 4.0d
 			y: 0.0d
 			title: "Fire mission"
@@ -169,12 +169,12 @@
 				"Hand in six mortar shells for a fire-mission grenade. Throw it where you want the rounds; fifteen seconds, then six of them."
 			]
 			dependencies: [
-				"A1F988CF156889C3"
+				"21F988CF156889C3"
 			]
 			can_repeat: true
 			tasks: [
 				{
-					id: "97163EB4FAF0C605"
+					id: "17163EB4FAF0C605"
 					type: "item"
 					item: "superbwarfare:mortar_shell"
 					count: 6
@@ -192,7 +192,7 @@
 			]
 		}
 		{
-			id: "9E3DB02C61CB85E7"
+			id: "1E3DB02C61CB85E7"
 			x: 6.0d
 			y: 0.0d
 			title: "Fire for effect"
@@ -201,13 +201,13 @@
 				"With a gun standing at a strongpoint, four heavy shells buy a call on the guns: wider, heavier, twenty seconds out."
 			]
 			dependencies: [
-				"A1F988CF156889C3"
+				"21F988CF156889C3"
 			]
 			hide_until_deps_complete: true
 			can_repeat: true
 			tasks: [
 				{
-					id: "C8DCA01D6B559F9F"
+					id: "48DCA01D6B559F9F"
 					type: "advancement"
 					advancement: "gscraft:stage/gun_fired"
 					criterion: "set"
@@ -240,7 +240,7 @@
 				"With Radio 2 up, four rockets buy the Cobra: a rocket and gun run on the smoke, thirty seconds out."
 			]
 			dependencies: [
-				"A1F988CF156889C3"
+				"21F988CF156889C3"
 			]
 			hide_until_deps_complete: true
 			can_repeat: true
@@ -252,7 +252,7 @@
 					criterion: "set"
 				}
 				{
-					id: "E8ED5F7B932E8A3D"
+					id: "68ED5F7B932E8A3D"
 					type: "item"
 					item: "superbwarfare:medium_rocket_he"
 					count: 4
@@ -261,7 +261,7 @@
 			]
 			rewards: [
 				{
-					id: "D39E0F9ADB7FFA7C"
+					id: "539E0F9ADB7FFA7C"
 					type: "item"
 					auto: "enabled"
 					item: "gscraft:strike_air"

@@ -195,7 +195,7 @@ Where things are, and (new) **Driving**, which appears with Garage 1. Under sixt
 ## 4. The screens
 
 ### 4.1 The journal (FTB Quests)
-> **2026-09-17:** the compound chapter is the hub - Wake up, then six visible Meet quests (where each survivor stands; ticked by the right-click), then the gate; a survivor's own chapter holds their work. Item rewards auto-claim. The notebook (§3.9) is built and in the kit. Auto-pinning the newest quest is still not done.
+> **2026-09-17:** the compound chapter is the hub - Wake up, then six visible Meet quests (where each survivor stands; ticked by the right-click), then the gate; a survivor's own chapter holds their work. Item rewards auto-claim. The notebook (§3.9) is built and in the kit. **2026-09-18:** the pin is built (`journal/Pins.java`): the first three quests a player can start are pinned for them through FTB Quests' own API (by reflection), so its pinned-quest overlay shows what to do next; the mod only touches pins it set, and `/gscraft journal pins <player> off` stops it for that player. **Field notes** is built too (§3.8).
 - **Opening it:** `J`, or right-click any survivor (KubeJS entity interact → `/ftbquests open_book` on that
   survivor's chapter; the subcommand exists in 2001.4.22). There is **no quest book item**: the survivors are
   the book, and the kit's five slots stay for tools.

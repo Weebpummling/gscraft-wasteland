@@ -1,0 +1,126 @@
+{
+	id: "2458CA74EEE4F87C"
+	group: ""
+	order_index: 7
+	filename: "notes"
+	title: "Field notes"
+	default_quest_shape: ""
+	default_hide_dependency_lines: false
+	tags: [
+		"notes"
+	]
+	quests: [
+		{
+			id: "0AD9EB2CB3141483"
+			x: 0.0d
+			y: 0.0d
+			title: "The first death"
+			subtitle: "It happens to everyone once."
+			description: [
+				"You came back in the compound. What you carried lies where you fell; a friend can get you up before it comes to that."
+			]
+			icon: "minecraft:skeleton_skull"
+			invisible: true
+			invisible_until_tasks: 1
+			tasks: [
+				{
+					id: "27FCF4DA522C67E9"
+					type: "advancement"
+					advancement: "gscraft:stage/note_death"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "789E272B4030BFF1"
+			x: 2.0d
+			y: 0.0d
+			title: "Heavy"
+			subtitle: "Some things are carried, not pocketed."
+			description: [
+				"A bulky part slows you and stops you sprinting. One at a time; a car carries it better."
+			]
+			icon: "gscraft:steel_frame"
+			invisible: true
+			invisible_until_tasks: 1
+			tasks: [
+				{
+					id: "47B99753E560B83C"
+					type: "advancement"
+					advancement: "gscraft:stage/note_bulky"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "0E633A475B25CB48"
+			x: 4.0d
+			y: 0.0d
+			title: "Wheels"
+			subtitle: "It still runs."
+			description: [
+				"A seat is a right-click; out is sneak. The fuel and the rounds are the vehicle's own - the crews out there have the same ones."
+			]
+			icon: "minecraft:minecart"
+			invisible: true
+			invisible_until_tasks: 1
+			tasks: [
+				{
+					id: "0D2CE5717AD7969E"
+					type: "advancement"
+					advancement: "gscraft:stage/note_vehicle"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "1C824B7A36A289D0"
+			x: 6.0d
+			y: 0.0d
+			title: "Bitten"
+			subtitle: "It is in the blood now."
+			description: [
+				"An infection runs on a clock. Tony cures it once the clinic is his; until then, carry the cure or do not get bitten."
+			]
+			icon: "minecraft:rotten_flesh"
+			invisible: true
+			invisible_until_tasks: 1
+			tasks: [
+				{
+					id: "7E35B9F5155B19B6"
+					type: "advancement"
+					advancement: "gscraft:stage/note_infected"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "22A2CC3379802370"
+			x: 8.0d
+			y: 0.0d
+			title: "They are coming back"
+			subtitle: "Tune heard them first."
+			description: [
+				"A held strongpoint is counterattacked when its clock runs out. The warning comes ten minutes ahead; the walls you built are what meets them."
+			]
+			icon: "minecraft:bell"
+			invisible: true
+			invisible_until_tasks: 1
+			tasks: [
+				{
+					id: "03EF7472042ECD3E"
+					type: "advancement"
+					advancement: "gscraft:stage/note_warning"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+	]
+	quest_links: [ ]
+	icon: "minecraft:writable_book"
+}

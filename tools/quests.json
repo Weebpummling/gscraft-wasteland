@@ -3,7 +3,7 @@
   {
    "tag": "compound",
    "title": "The compound",
-   "id": "B084A3F9F0A3CED3"
+   "id": "3084A3F9F0A3CED3"
   },
   {
    "tag": "walker",
@@ -13,7 +13,7 @@
   {
    "tag": "tony",
    "title": "Tony",
-   "id": "E4F1B6A0C48BBB5C"
+   "id": "64F1B6A0C48BBB5C"
   },
   {
    "tag": "michael",
@@ -23,7 +23,7 @@
   {
    "tag": "tune",
    "title": "Tune",
-   "id": "BDE2656E95A66C18"
+   "id": "3DE2656E95A66C18"
   },
   {
    "tag": "james",
@@ -33,12 +33,17 @@
   {
    "tag": "marshall",
    "title": "Marshall",
-   "id": "E67E58949533EA40"
+   "id": "667E58949533EA40"
   },
   {
    "tag": "pocket",
    "title": "The pocket",
    "id": "5D227572CD0BCBA8"
+  },
+  {
+   "tag": "notes",
+   "title": "Field notes",
+   "id": "2458CA74EEE4F87C"
   }
  ],
  "quests": [
@@ -57,7 +62,7 @@
    ],
    "rewards": [],
    "deps": [],
-   "id": "AF24D0F7F02E123D"
+   "id": "2F24D0F7F02E123D"
   },
   {
    "key": "meet_walker",
@@ -78,7 +83,7 @@
     "wake"
    ],
    "icon": "gscraft:wrench",
-   "id": "FBE6BDDCB8D785C1"
+   "id": "7BE6BDDCB8D785C1"
   },
   {
    "key": "W1",
@@ -167,7 +172,7 @@
      "stage": "storage_1"
     }
    ],
-   "id": "B61B131210590940"
+   "id": "361B131210590940"
   },
   {
    "key": "W3",
@@ -209,7 +214,7 @@
      "stage": "workshop_1"
     }
    ],
-   "id": "ED8D7105876E6B1C"
+   "id": "6D8D7105876E6B1C"
   },
   {
    "key": "meet_tony",
@@ -230,7 +235,7 @@
     "wake"
    ],
    "icon": "gscraft:bandage",
-   "id": "CC8C6FEF50EC1831"
+   "id": "4C8C6FEF50EC1831"
   },
   {
    "key": "T1",
@@ -321,7 +326,7 @@
     "wake"
    ],
    "icon": "gscraft:wire_spool",
-   "id": "B197DA86940AABFE"
+   "id": "3197DA86940AABFE"
   },
   {
    "key": "M1",
@@ -477,7 +482,7 @@
      "stage": "bp_circuit_assembly"
     }
    ],
-   "id": "CBEAB3D0BF7F532E"
+   "id": "4BEAB3D0BF7F532E"
   },
   {
    "key": "U2",
@@ -509,7 +514,7 @@
      "key": "map"
     }
    ],
-   "id": "CCC3254FA145A448"
+   "id": "4CC3254FA145A448"
   },
   {
    "key": "meet_james",
@@ -530,7 +535,7 @@
     "wake"
    ],
    "icon": "minecraft:compass",
-   "id": "D74CFA3B64761D9A"
+   "id": "574CFA3B64761D9A"
   },
   {
    "key": "J1",
@@ -577,7 +582,7 @@
      "count": 1
     }
    ],
-   "id": "90041807678DFDB1"
+   "id": "10041807678DFDB1"
   },
   {
    "key": "meet_marshall",
@@ -598,7 +603,7 @@
     "wake"
    ],
    "icon": "gscraft:claim_marker",
-   "id": "D8CB501597A05CE7"
+   "id": "58CB501597A05CE7"
   },
   {
    "key": "R1",
@@ -641,7 +646,7 @@
      "key": "speaks"
     }
    ],
-   "id": "B210B848C9E6E4CB"
+   "id": "3210B848C9E6E4CB"
   },
   {
    "key": "tube",
@@ -705,7 +710,7 @@
      "key": "tube"
     }
    ],
-   "id": "A1F988CF156889C3"
+   "id": "21F988CF156889C3"
   },
   {
    "key": "fire_mission",
@@ -734,7 +739,7 @@
      "count": 1
     }
    ],
-   "id": "C61D2B89EFA494BA"
+   "id": "461D2B89EFA494BA"
   },
   {
    "key": "fire_for_effect",
@@ -768,7 +773,7 @@
      "count": 1
     }
    ],
-   "id": "9E3DB02C61CB85E7"
+   "id": "1E3DB02C61CB85E7"
   },
   {
    "key": "air_support",
@@ -871,7 +876,7 @@
      "stage": "skadowsky_scouted"
     }
    ],
-   "id": "FF6BE292AA63A3F0"
+   "id": "7F6BE292AA63A3F0"
   },
   {
    "key": "gatehouse",
@@ -914,7 +919,7 @@
      "stage": "gatehouse_taken"
     }
    ],
-   "id": "A8661C3DC1C47CB3"
+   "id": "28661C3DC1C47CB3"
   },
   {
    "key": "clinic",
@@ -1050,6 +1055,111 @@
     }
    ],
    "id": "7BF4278C81041457"
+  },
+  {
+   "key": "note_death",
+   "chapter": "notes",
+   "title": "The first death",
+   "voice": "It happens to everyone once.",
+   "task": "You came back in the compound. What you carried lies where you fell; a friend can get you up before it comes to that.",
+   "x": 0,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "note_death"
+    }
+   ],
+   "rewards": [],
+   "deps": [],
+   "invisible": true,
+   "until_tasks": 1,
+   "icon": "minecraft:skeleton_skull",
+   "id": "0AD9EB2CB3141483"
+  },
+  {
+   "key": "note_bulky",
+   "chapter": "notes",
+   "title": "Heavy",
+   "voice": "Some things are carried, not pocketed.",
+   "task": "A bulky part slows you and stops you sprinting. One at a time; a car carries it better.",
+   "x": 2,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "note_bulky"
+    }
+   ],
+   "rewards": [],
+   "deps": [],
+   "invisible": true,
+   "until_tasks": 1,
+   "icon": "gscraft:steel_frame",
+   "id": "789E272B4030BFF1"
+  },
+  {
+   "key": "note_vehicle",
+   "chapter": "notes",
+   "title": "Wheels",
+   "voice": "It still runs.",
+   "task": "A seat is a right-click; out is sneak. The fuel and the rounds are the vehicle's own - the crews out there have the same ones.",
+   "x": 4,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "note_vehicle"
+    }
+   ],
+   "rewards": [],
+   "deps": [],
+   "invisible": true,
+   "until_tasks": 1,
+   "icon": "minecraft:minecart",
+   "id": "0E633A475B25CB48"
+  },
+  {
+   "key": "note_infected",
+   "chapter": "notes",
+   "title": "Bitten",
+   "voice": "It is in the blood now.",
+   "task": "An infection runs on a clock. Tony cures it once the clinic is his; until then, carry the cure or do not get bitten.",
+   "x": 6,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "note_infected"
+    }
+   ],
+   "rewards": [],
+   "deps": [],
+   "invisible": true,
+   "until_tasks": 1,
+   "icon": "minecraft:rotten_flesh",
+   "id": "1C824B7A36A289D0"
+  },
+  {
+   "key": "note_warning",
+   "chapter": "notes",
+   "title": "They are coming back",
+   "voice": "Tune heard them first.",
+   "task": "A held strongpoint is counterattacked when its clock runs out. The warning comes ten minutes ahead; the walls you built are what meets them.",
+   "x": 8,
+   "y": 0,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "note_warning"
+    }
+   ],
+   "rewards": [],
+   "deps": [],
+   "invisible": true,
+   "until_tasks": 1,
+   "icon": "minecraft:bell",
+   "id": "22A2CC3379802370"
   }
  ]
 }

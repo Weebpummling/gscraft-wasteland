@@ -11,7 +11,7 @@
 	]
 	quests: [
 		{
-			id: "90041807678DFDB1"
+			id: "10041807678DFDB1"
 			x: 2.0d
 			y: 0.0d
 			title: "Get your bearings"
@@ -20,11 +20,11 @@
 				"Reach the level crossing and the mast's field."
 			]
 			dependencies: [
-				"D74CFA3B64761D9A"
+				"574CFA3B64761D9A"
 			]
 			tasks: [
 				{
-					id: "8928AA958FEA2D1E"
+					id: "0928AA958FEA2D1E"
 					type: "location"
 					title: "Reach the level crossing"
 					dimension: "minecraft:overworld"
@@ -33,7 +33,7 @@
 					size: [I;35, 70, 31]
 				}
 				{
-					id: "A1539C533715A4B9"
+					id: "21539C533715A4B9"
 					type: "location"
 					title: "Reach the mast's field"
 					dimension: "minecraft:overworld"
@@ -51,7 +51,7 @@
 					count: 1
 				}
 				{
-					id: "F1E4ADD724ACFF59"
+					id: "71E4ADD724ACFF59"
 					type: "item"
 					auto: "enabled"
 					item: "minecraft:map"

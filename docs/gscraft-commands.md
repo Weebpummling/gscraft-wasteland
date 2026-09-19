@@ -84,6 +84,10 @@ called by the loop; the takes' torches are `function gscraft:torch_<name>`.
 | `/gscraft strike status` | each grenade ready or hot, the last call, rounds scheduled, runs in the air |
 | `/gscraft strike reset` | every cooldown cleared, every scheduled round dropped, any Cobra unloaded |
 | `/function gscraft:yard_mortar` | the tube stands in the yard (The tube's reward) |
+| `/gscraft journal status <player>` | what the player can start now, the mod's HUD pins for them, their field notes |
+| `/gscraft journal pins <player> on\|off` | the mod's pinning of the next quests for that player (the tag `gs_nopins`) |
+| `/gscraft journal note <player> <death\|bulky\|vehicle\|infected\|warning>` | write a field note by hand |
+| `/gscraft journal check` | whether FTB Quests' API is reachable for the pins |
 | `/give @s patchouli:guide_book{"patchouli:book":"gscraft:notebook"}` | the survivor's notebook (the kit gives it at the first join) |
 
 The numbers are settings under `strike.*` (`/gscraft settings strike`); the crews' turret sweep and its focus under fire are `armour.scan_arc`, `armour.scan_period_ticks`, `armour.scan_slew`, `armour.watch_arc`; the bail-out is stress: `armour.stress_hit`, `armour.stress_damage`, `armour.stress_decay`, `armour.stress_bail`. The design is `docs/gscraft-strikes-2026-09-13.md`.

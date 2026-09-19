@@ -413,6 +413,24 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-18, the journal made feature complete (owner: "mostly feature complete this session"; rulings R39):** the two
+pieces the design still owed. **The pin** (`journal/Pins.java`): every two seconds, per online player, the quests they can
+start now (visible, dependencies done, not done, not repeatable), in the book's reading order, and the first three are
+pinned through FTB Quests' own `TeamData.setQuestPinned` - so its pinned-quest overlay is the to-do list. FTB Quests is
+reached by **reflection** (`ServerQuestFile.INSTANCE`, `getOrCreateTeamData(Entity)`, `forAllQuests`, `isCompleted`,
+`canStartTasks`, `Quest.isVisible`, `canBeRepeated`, `QuestObjectBase.id`; verified with `javap` against 2001.4.22 - a
+version bump of FTB Quests means rerunning `/gscraft journal check`). The mod owns only the pins it set (the player's
+persistent `GscraftPins`, copied on death) and never unpins a player's own; the tag `gs_nopins` stops it
+(`/gscraft journal pins <player> on|off`). **Field notes** (`journal/FieldNotes.java`, the book's ninth chapter `notes`):
+per-player stages `note_death` (respawn), `note_bulky` (the bulky rule's tick), `note_vehicle` (mounting a Superb Warfare
+hull), `note_infected` (a `hordes:*infect*` effect), `note_warning` (the loop's ten-minute warning, everyone online);
+each grants tag + advancement like `seen_<npc>`, says "Field notes: a new entry" on the action bar, and its entry -
+`invisible` with `invisible_until_tasks: 1` - appears with two lines. The reset clears them. 75 stage advancements,
+9 chapters, 33 quests. `/gscraft journal status|pins|note|check` (commands guide). Test: `tools/war_phase42.py` -
+**needs one player online** (it waits for the WarTest client): 7/7 after a defect it found (first run 4/7). **THE DEFECT, since slice build 7:** the book's ids were the first 16 hex of a hash, and FTB Quests reads an id as a SIGNED long - 20 of 33 ids had the top bit set. Such a quest still loads, but FTB's commands call it an 'Invalid Object ID' and a dependency pointing at it resolves to nothing, so the quest behind it is startable from the first minute: a fresh player could start 17 quests, not 1, and 'Nuts and bolts' never waited for 'Meet Walker' - on live too. tools/chapters.py hex_id now clears the top bit (178 ids in the book, none high); the 20 re-id'd quests lose their progress once. Phase 33 8/8 on an empty server (it needs one: run with the test client on, its reset check reads other stages). Not built, on purpose: the Counters and tower
+chapters (later acts), replacing the vanilla join message (no Forge hook short of a mixin). The overlay and the pages on
+screen are the owner's check.
+
 **2026-09-17, the journal pass (owner: "the journal and quest system is not very intuitive to grasp"; rulings R38):**
 `tools/chapters.py` - the compound chapter is the **hub**: Wake up (its text names J, the right-click and the notebook,
 and asks for a tick), then six visible **Meet** quests in a fan to its right, each saying where the survivor stands

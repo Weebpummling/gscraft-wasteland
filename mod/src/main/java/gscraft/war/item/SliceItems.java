@@ -112,6 +112,7 @@ public final class SliceItems {
             }
         }
         if (!bulky) return;
+        if (p instanceof net.minecraft.server.level.ServerPlayer sp) gscraft.war.journal.FieldNotes.note(sp, "bulky");   // the first time: a field note
         p.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 1, false, false, true));
         if (p.isSprinting()) p.setSprinting(false);
     }

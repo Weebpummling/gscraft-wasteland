@@ -1,5 +1,5 @@
 {
-	id: "B084A3F9F0A3CED3"
+	id: "3084A3F9F0A3CED3"
 	group: ""
 	order_index: -1
 	filename: "compound"
@@ -11,7 +11,7 @@
 	]
 	quests: [
 		{
-			id: "AF24D0F7F02E123D"
+			id: "2F24D0F7F02E123D"
 			x: 0.0d
 			y: 0.0d
 			title: "Wake up"
@@ -28,7 +28,7 @@
 			rewards: [ ]
 		}
 		{
-			id: "FBE6BDDCB8D785C1"
+			id: "7BE6BDDCB8D785C1"
 			x: 2.0d
 			y: -2.0d
 			title: "Meet Walker"
@@ -36,7 +36,7 @@
 				"Walker is in the yard, at its south end. Right-click them; their chapter opens here."
 			]
 			dependencies: [
-				"AF24D0F7F02E123D"
+				"2F24D0F7F02E123D"
 			]
 			icon: "gscraft:wrench"
 			tasks: [
@@ -50,7 +50,7 @@
 			rewards: [ ]
 		}
 		{
-			id: "CC8C6FEF50EC1831"
+			id: "4C8C6FEF50EC1831"
 			x: 4.0d
 			y: 2.0d
 			title: "Meet Tony"
@@ -58,7 +58,7 @@
 				"Tony is in the annex, south of the hall. Right-click them; their chapter opens here."
 			]
 			dependencies: [
-				"AF24D0F7F02E123D"
+				"2F24D0F7F02E123D"
 			]
 			icon: "gscraft:bandage"
 			tasks: [
@@ -72,7 +72,7 @@
 			rewards: [ ]
 		}
 		{
-			id: "B197DA86940AABFE"
+			id: "3197DA86940AABFE"
 			x: 2.0d
 			y: 2.0d
 			title: "Meet Michael"
@@ -80,12 +80,12 @@
 				"Michael is in the brick works, east of the hall. Right-click them; their chapter opens here."
 			]
 			dependencies: [
-				"AF24D0F7F02E123D"
+				"2F24D0F7F02E123D"
 			]
 			icon: "gscraft:wire_spool"
 			tasks: [
 				{
-					id: "855B163280D3F5F0"
+					id: "055B163280D3F5F0"
 					type: "advancement"
 					advancement: "gscraft:stage/seen_michael"
 					criterion: "set"
@@ -102,12 +102,12 @@
 				"Tune is in the shed by the north gate. Right-click them; their chapter opens here."
 			]
 			dependencies: [
-				"AF24D0F7F02E123D"
+				"2F24D0F7F02E123D"
 			]
 			icon: "gscraft:circuit_board"
 			tasks: [
 				{
-					id: "DACAD27FB3775B8D"
+					id: "5ACAD27FB3775B8D"
 					type: "advancement"
 					advancement: "gscraft:stage/seen_tune"
 					criterion: "set"
@@ -116,7 +116,7 @@
 			rewards: [ ]
 		}
 		{
-			id: "D74CFA3B64761D9A"
+			id: "574CFA3B64761D9A"
 			x: 6.0d
 			y: 2.0d
 			title: "Meet James"
@@ -124,12 +124,12 @@
 				"James is in the road inside the north gate. Right-click them; their chapter opens here."
 			]
 			dependencies: [
-				"AF24D0F7F02E123D"
+				"2F24D0F7F02E123D"
 			]
 			icon: "minecraft:compass"
 			tasks: [
 				{
-					id: "A44E93C860827ACB"
+					id: "244E93C860827ACB"
 					type: "advancement"
 					advancement: "gscraft:stage/seen_james"
 					criterion: "set"
@@ -138,7 +138,7 @@
 			rewards: [ ]
 		}
 		{
-			id: "D8CB501597A05CE7"
+			id: "58CB501597A05CE7"
 			x: 4.0d
 			y: -2.0d
 			title: "Meet Marshall"
@@ -146,12 +146,12 @@
 				"Marshall is in the big hall, by the board. Right-click them; their chapter opens here."
 			]
 			dependencies: [
-				"AF24D0F7F02E123D"
+				"2F24D0F7F02E123D"
 			]
 			icon: "gscraft:claim_marker"
 			tasks: [
 				{
-					id: "A46284C94A167B3F"
+					id: "246284C94A167B3F"
 					type: "advancement"
 					advancement: "gscraft:stage/seen_marshall"
 					criterion: "set"

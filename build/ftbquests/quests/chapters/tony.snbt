@@ -1,5 +1,5 @@
 {
-	id: "E4F1B6A0C48BBB5C"
+	id: "64F1B6A0C48BBB5C"
 	group: ""
 	order_index: 1
 	filename: "tony"
@@ -20,11 +20,11 @@
 				"Hand in four bandages and two painkillers."
 			]
 			dependencies: [
-				"CC8C6FEF50EC1831"
+				"4C8C6FEF50EC1831"
 			]
 			tasks: [
 				{
-					id: "E8A241FF02E5F45D"
+					id: "68A241FF02E5F45D"
 					type: "item"
 					item: "gscraft:bandage"
 					count: 4
@@ -71,7 +71,7 @@
 			]
 			tasks: [
 				{
-					id: "DBC785C8AB1A37E8"
+					id: "5BC785C8AB1A37E8"
 					type: "item"
 					item: "gscraft:med_kit"
 					count: 2

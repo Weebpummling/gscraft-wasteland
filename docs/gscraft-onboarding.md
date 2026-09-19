@@ -91,7 +91,7 @@ The quest book (FTB Quests) is the **journal**. Rules for every quest in `gscraf
 4. **No chapter is visible before its NPC has spoken.** Marshall's chapter and the tower chapter both
    appear the moment the five introductions are done (owner, 2026-09-04); the tower's stages then stay
    locked behind their parts. The book grows with the game. A full book on day one is a manual.
-5. **Field notes:** one extra chapter that fills itself, two lines per entry, written when something
+5. **Field notes** (*built 2026-09-18: `journal/FieldNotes.java`, the book's `notes` chapter - death, bulky, vehicle, infected, warning; each entry invisible until its per-player `note_<key>` advancement is granted*)**:** one extra chapter that fills itself, two lines per entry, written when something
    happens for the first time (first infection, first bulky item, first attack warning, first vehicle,
    first death). This is where the rules get their names, after the fact.
 6. **Nothing in the book explains a control.** Controls are the notebook's job (§6).

@@ -153,6 +153,7 @@ public final class SurvivorEvents {
                     ServerPlayer p = EntityArgument.getPlayer(ctx, "player");
                     p.removeTag("joined");
                     for (Survivors.Def d : Survivors.ALL) p.removeTag("seen_" + d.id());
+                    gscraft.war.journal.FieldNotes.clear(p);
                     firstJoin(p);
                     return 1;
                 }))));

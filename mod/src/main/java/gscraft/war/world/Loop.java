@@ -397,6 +397,7 @@ public final class Loop {
         if (!p.warned && left <= WARNING_TICKS) {
             p.warned = true;
             level.getServer().getPlayerList().broadcastSystemMessage(Component.translatable("gscraft.line.tune.warning"), false);
+            gscraft.war.journal.FieldNotes.noteAll(level.getServer(), "warning");   // the first time: a field note
         }
         if (!p.twoMinutes && left <= TWO_MINUTES) {
             p.twoMinutes = true;

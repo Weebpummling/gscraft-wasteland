@@ -20,7 +20,7 @@
 				"Hand in eight bolts and eight nuts from the town's rooms. The reward is a wrench and two blueprint cards: a card in your station's top-left slot is an order."
 			]
 			dependencies: [
-				"FBE6BDDCB8D785C1"
+				"7BE6BDDCB8D785C1"
 			]
 			tasks: [
 				{
@@ -31,7 +31,7 @@
 					consume_items: true
 				}
 				{
-					id: "87E17298B7FF2A12"
+					id: "07E17298B7FF2A12"
 					type: "item"
 					item: "gscraft:nut"
 					count: 8
@@ -40,7 +40,7 @@
 			]
 			rewards: [
 				{
-					id: "99E0D6570C869356"
+					id: "19E0D6570C869356"
 					type: "item"
 					auto: "enabled"
 					item: "gscraft:wrench"
@@ -54,7 +54,7 @@
 					count: 1
 				}
 				{
-					id: "E7D49C8E1D1591C1"
+					id: "67D49C8E1D1591C1"
 					type: "item"
 					auto: "enabled"
 					item: "gscraft:card_hand_tools"
@@ -90,7 +90,7 @@
 			]
 		}
 		{
-			id: "B61B131210590940"
+			id: "361B131210590940"
 			x: 4.0d
 			y: 0.0d
 			title: "A place for everything"
@@ -112,7 +112,7 @@
 			]
 			rewards: [
 				{
-					id: "FD53A363744CCC8B"
+					id: "7D53A363744CCC8B"
 					type: "item"
 					auto: "enabled"
 					item: "sophisticatedbackpacks:backpack"
@@ -130,7 +130,7 @@
 			]
 		}
 		{
-			id: "ED8D7105876E6B1C"
+			id: "6D8D7105876E6B1C"
 			x: 6.0d
 			y: 0.0d
 			title: "Frame of mind"
@@ -139,11 +139,11 @@
 				"Bring twelve metal scrap and show me a welding torch."
 			]
 			dependencies: [
-				"B61B131210590940"
+				"361B131210590940"
 			]
 			tasks: [
 				{
-					id: "D9FE82E69E129DFA"
+					id: "59FE82E69E129DFA"
 					type: "item"
 					item: "gscraft:metal_scrap"
 					count: 12
@@ -166,7 +166,7 @@
 					count: 1
 				}
 				{
-					id: "A54B41E2D2541ECE"
+					id: "254B41E2D2541ECE"
 					type: "command"
 					title: "the stage bp_steel_frame"
 					command: "/gscraft stage add bp_steel_frame"

@@ -29,7 +29,11 @@ VERSION = 13
 
 
 def hex_id(name):
-    return hashlib.sha1(("gscraft:" + name).encode()).hexdigest()[:16].upper()
+    """a stable 16-hex id from the key, with the TOP BIT CLEARED: FTB Quests reads an id as a signed long, so one at or above
+    8000000000000000 is an "Invalid Object ID" to its commands and, worse, a dependency pointing at one resolves to nothing -
+    the quest behind it is startable from the first minute (found 2026-09-18 by phase 42: 20 of 33 ids were high, and
+    "Nuts and bolts" never waited for "Meet Walker"). Clearing the bit changed those ids once; progress on them reset."""
+    return format(int(hashlib.sha1(("gscraft:" + name).encode()).hexdigest()[:16], 16) & 0x7FFFFFFFFFFFFFFF, "016X")
 
 
 def site_box(site):
@@ -91,10 +95,11 @@ CHAPTERS = [
     # (chapter tag, title, order); the compound first, the six survivors from survivors.json, then the pocket
     ("compound", "The compound", -1),
     ("pocket", "The pocket", 6),
+    ("notes", "Field notes", 7),
 ]
 MEET_ICONS = {"walker": "gscraft:wrench", "tony": "gscraft:bandage", "michael": "gscraft:wire_spool", "tune": "gscraft:circuit_board", "james": "minecraft:compass", "marshall": "gscraft:claim_marker"}
 ICONS = {"compound": "gscraft:station", "walker": "gscraft:wrench", "tony": "gscraft:bandage", "michael": "gscraft:wire_spool", "tune": "gscraft:circuit_board",
-         "james": "minecraft:compass", "marshall": "gscraft:claim_marker", "pocket": "superbwarfare:sandbag"}
+         "james": "minecraft:compass", "marshall": "gscraft:claim_marker", "pocket": "superbwarfare:sandbag", "notes": "minecraft:writable_book"}
 
 QUESTS = [
     # The compound: the one page that says where you are (always visible)
@@ -178,6 +183,18 @@ QUESTS = [
     {"key": "mast", "chapter": "pocket", "title": "The mast's field", "voice": "The mast is dead. The field under it doesn't have to be.", "task": "Reach the field; hand in two fastener kits and sixteen scrap.",
      "x": 6, "y": 0, "tasks": [loc("the mast's field", site_box("mast")), item("gscraft:fastener_kit", 2), item("gscraft:metal_scrap", 16)], "deps": ["gatehouse", "clinic", "crossing"],
      "rewards": [stage("mast_taken"), stage("skadowsky_held")]},
+    # Field notes (onboarding §4.5): the chapter that writes itself - each entry invisible until its per-player note_<key>
+    # advancement is granted (journal/FieldNotes.java), two lines, no reward; the rule gets its name after the fact
+    {"key": "note_death", "chapter": "notes", "title": "The first death", "voice": "It happens to everyone once.", "task": "You came back in the compound. What you carried lies where you fell; a friend can get you up before it comes to that.",
+     "x": 0, "y": 0, "tasks": [adv("note_death")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:skeleton_skull"},
+    {"key": "note_bulky", "chapter": "notes", "title": "Heavy", "voice": "Some things are carried, not pocketed.", "task": "A bulky part slows you and stops you sprinting. One at a time; a car carries it better.",
+     "x": 2, "y": 0, "tasks": [adv("note_bulky")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "gscraft:steel_frame"},
+    {"key": "note_vehicle", "chapter": "notes", "title": "Wheels", "voice": "It still runs.", "task": "A seat is a right-click; out is sneak. The fuel and the rounds are the vehicle's own - the crews out there have the same ones.",
+     "x": 4, "y": 0, "tasks": [adv("note_vehicle")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:minecart"},
+    {"key": "note_infected", "chapter": "notes", "title": "Bitten", "voice": "It is in the blood now.", "task": "An infection runs on a clock. Tony cures it once the clinic is his; until then, carry the cure or do not get bitten.",
+     "x": 6, "y": 0, "tasks": [adv("note_infected")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:rotten_flesh"},
+    {"key": "note_warning", "chapter": "notes", "title": "They are coming back", "voice": "Tune heard them first.", "task": "A held strongpoint is counterattacked when its clock runs out. The warning comes ten minutes ahead; the walls you built are what meets them.",
+     "x": 8, "y": 0, "tasks": [adv("note_warning")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:bell"},
 ]
 
 
@@ -255,6 +272,8 @@ def quest_nbt(d):
         nbt["icon"] = d["icon"]
     if d.get("invisible"):
         nbt["invisible"] = True
+    if d.get("until_tasks"):
+        nbt["invisible_until_tasks"] = d["until_tasks"]   # a field note: it appears when its one task is done
     if d.get("hide_until_deps"):
         nbt["hide_until_deps_complete"] = True
     if d.get("repeat"):
