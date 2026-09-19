@@ -424,6 +424,23 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-19 16:46, LIVE DEPLOYED (owner: "deploy to live"; the first attempt had been refused by the permission system, the second
+ran).** `tools/live_deploy.py`: nobody on by the console's `list`, twice; 45 functions and the loot-modifier list into
+`gscraft_slice`; the book (9 chapters); stop (offline in 18 s); the jar (713,198 bytes, sha256 27825712...); start (Done in
+24 s, no gscraft error). Live's own boot lines: 62 items, 24 orders and 11 cards, the loot remap replacing foreign tables
+(19 rules), **45 zones ... 1 margins**. By console: `deploy_load` (86 chunks), `board_remove` (16), `yard_mortar_clear`
+(3), `old_compound_chests_clear` (19), `camp_signs_clear` (24), `loot_bind` (282 guarded commands), `deploy_unload`.
+Read back: 14 loot tables; no upgrade earned; the kit is the Superb Warfare Glock with 17 in it, the respawn list the pistol
+and the notebook; the med kit heals 12 and cures a bite; NO mortar anywhere; a Lootr chest stands in the hospital (-826 59
+-1269) and in the intake works (741 76 267); ten blocks from the compound's wall placement is REFUSED; no chunk left
+force-loaded. **Pack 2026.09.19.1** built, committed and pushed after the boot; the `pack-files` jar replaced (713,198).
+**THERE ARE NO SURVIVORS ON LIVE**: with the compound's whole area loaded, no villager carries `gscraft_npc`, and the log
+has no refusal by the duplicate guard, so they were gone before this deploy. It is what the owner wants to do by hand:
+`/gscraft npc place <id>` creates each where they stand (`/function gscraft:camp_npcs` would put all six on the computed
+spots instead). Until they stand, the six Meet quests cannot be done.
+**Not proven on live or anywhere, by the owner's choice (no client tests):** the respawn hand-out, the hospital's two
+hooks with a real player, the clinic's cure and revive, clean water, quest rewards arriving.
+
 **2026-09-19, THE SIGNS GONE AND THE DEPLOY READY - NOT RUN (owner: "Remove the signs ... then push to live so the only thing left
 for me to do is placing the npcs").** **Signs:** `tools/camp.py` writes none; the eight camp functions carry none;
 `camp_signs_clear.mcfunction` clears every one of the 24 positions any version of those functions ever wrote (from the
