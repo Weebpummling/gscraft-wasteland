@@ -52,12 +52,13 @@
    "chapter": "compound",
    "title": "Wake up",
    "voice": "Skadowsky. Somebody's town.",
-   "task": "You woke in the yard of a walled compound: the big hall east of you, the brick works beyond it, the road out through the north gate. Six survivors live here; meet them (the quests to the right). This journal opens with J or by right-clicking a survivor. The notebook in your pack has the controls. Tick this page to begin.",
+   "task": "You woke in the yard of a walled compound: the big hall east of you, the brick works beyond it, the road out through the north gate. Six survivors live here; meet them (the quests to the right). This journal opens with J or by right-clicking a survivor. The notebook in your pack has the controls.",
    "x": 0,
    "y": 0,
    "tasks": [
     {
-     "type": "checkmark"
+     "type": "advancement",
+     "stage": "joined"
     }
    ],
    "rewards": [],

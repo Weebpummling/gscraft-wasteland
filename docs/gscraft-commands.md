@@ -84,6 +84,13 @@ called by the loop; the takes' torches are `function gscraft:torch_<name>`.
 | `/gscraft strike status` | each grenade ready or hot, the last call, rounds scheduled, runs in the air |
 | `/gscraft strike reset` | every cooldown cleared, every scheduled round dropped, any Cobra unloaded |
 | `/function gscraft:yard_mortar` | the tube stands in the yard (The tube's reward) |
+| `/gscraft npc place <id>` | **put a survivor where you stand, facing the way you face**, and save it with the world (ids: walker, michael, marshall, tony, tune, james). This is the compound (start) spot |
+| `/gscraft npc place <id> building` | the same for where Marshall, Tony, Tune or James go once their building is taken (gatehouse, clinic, clinic, crossing); saved now, used when that stage is set |
+| `/gscraft npc place <id> <start\|building> <x> <y> <z> <yaw>` | the same from the console, by coordinates |
+| `/gscraft npc list` | every survivor: saved start and building spots, which is in force, where they stand now |
+| `/gscraft npc respawn [id]` | put everyone (or one) up again: your saved spot if there is one, else the datapack's computed one |
+| `/gscraft npc clear <id> [start\|building]` | forget a saved spot; the computed one stands again after a respawn |
+| `/gscraft npc export` | the saved spots as lines, to bake into `tools/camp.py` once they are final |
 | `/gscraft journal status <player>` | what the player can start now, the mod's HUD pins for them, their field notes |
 | `/gscraft journal pins <player> on\|off` | the mod's pinning of the next quests for that player (the tag `gs_nopins`) |
 | `/gscraft journal note <player> <death\|bulky\|vehicle\|infected\|warning>` | write a field note by hand |

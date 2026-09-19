@@ -413,6 +413,27 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-18, the survivors where the owner puts them** (owner: "provide a way for us to easily edit where the NPCs are
+placed. I am just going to manually place them"): `survivor/NpcPlaces.java` - stand on the spot, look the way they should
+look, `/gscraft npc place <id>` (or `... <id> building` for where Marshall, Tony, Tune and James go when `gatehouse_taken` /
+`clinic_taken` / `crossing_taken` is set). Spots are **saved with the world** (`gscraft_npc_places` SavedData, so they are
+per world: local and live each have their own), snapped to the block's centre, with the yaw. The one in force is the
+building's while its stage is set, else the start's. **Nothing else changed and everything still ends at the owner's spot:**
+the datapack's `camp_npcs` / `camp_npc_<id>` / `camp_start_<id>` (the deploy, the resets, the site loop's `held` lists) still
+summon at `tools/camp.py`'s computed coordinates, and an `EntityJoinLevelEvent` hook moves a `gscraft_npc_<id>` villager that
+arrives anywhere else onto the saved spot in force; no record, no move. The Java summon is the datapack's villager and keeps
+the **one disabled placeholder trade** (the autosave-hang guard of 2026-09-13; phase 43 asserts `maxUses: 0`). `list`,
+`respawn`, `clear`, `export` (lines to bake into `camp.py` when final). `tools/war_phase43.py` 6/6 (no player needed: the
+same command by coordinates). Known: the sign a datapack function sets stays beside the computed spot, not the owner's.
+**Local only; live untouched (the owner's standing order of this date: no live push without explicit authorization).**
+
+**OPEN, found 2026-09-18 (phase 36's junction check, red since the compound move):** observed directly - with a phantom
+at the junction (-940, 67, -979) the director placed a NATO squad whose anchor, a Gunner, stood under a roof 25 blocks away
+(legal: the indoor pool's `min_r` 10) and whose squad-mate, a Shield, was scattered onto OPEN ground 21 blocks away at
+(-930, 66, -997). Only the anchor passes the out-of-sight test (`Director.seen`); the scatter of the rest of the squad does
+not. Same family as the owner's "spawning right in front of players". Not fixed: the members' spots need the same test as
+the anchor's. It passed before the move only because the old compound's margin happened to cover that ground.
+
 **2026-09-18, the journal made feature complete (owner: "mostly feature complete this session"; rulings R39):** the two
 pieces the design still owed. **The pin** (`journal/Pins.java`): every two seconds, per online player, the quests they can
 start now (visible, dependencies done, not done, not repeatable), in the book's reading order, and the first three are

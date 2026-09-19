@@ -9,8 +9,8 @@ note writes once, its entry's advancement granted; pins off clears the mod's pin
 is in the kit. What it cannot see: the pinned overlay and the pages on screen - the owner's check.
 
 1. The API is reachable; 75 stage advancements include the five notes; the book has nine chapters.
-2. A fresh player: one quest available (compound/Wake up), one pin by the mod.
-3. Wake up completed: the six Meets available, three pinned.
+2. A fresh player: Wake up completes itself (its task is the `joined` advancement), so the six Meets are what there is to start.
+3. The first three Meets are pinned by the mod.
 4. A field note writes once (second write refused) and shows in the status; the advancement is granted.
 5. Pins off -> none by the mod; on -> three again.
 6. The kit lists six entries, the notebook among them.
@@ -75,15 +75,18 @@ for k in ("death", "bulky", "vehicle", "infected", "warning"):
     c(f"tag {player} remove note_{k}")
     c(f"advancement revoke {player} only gscraft:stage/note_{k}")
 time.sleep(3)
-n, names, pinned, off, _ = status(player)
-check("a fresh player has Wake up to start, pinned by the mod", n == 1 and "compound/Wake up" in (names or "") and pinned == 1, f"available {n} [{names}]; pinned {pinned}")
-
-# 3. Wake up done
-c(f"ftbquests change_progress {player} complete {wake}")
-time.sleep(3)
-n, names, pinned, off, _ = status(player)
+# Wake up's one task is the per-player `joined` advancement, which a joined player holds: after the reset FTB must find it
+# again on its own (no command completes it here) - the point of the change is that nobody has to find a checkmark
+done_wake = None
+for _ in range(20):
+    time.sleep(2)
+    n, names, pinned, off, _ = status(player)
+    if n is not None and "compound/Wake up" not in (names or ""):
+        done_wake = True
+        break
 meets = (names or "").count("compound/Meet ")
-check("Wake up completed: the six Meets available, the first three pinned", n == 6 and meets == 6 and pinned == 3, f"available {n} [{names}]; pinned {pinned}")
+check("a fresh player: Wake up completes itself, the six Meets are what there is to start", done_wake and n == 6 and meets == 6, f"available {n} [{names}]")
+check("the first three Meets are pinned by the mod", pinned == 3, f"pinned {pinned}")
 
 # 4. a field note
 first = c(f"gscraft journal note {player} bulky")

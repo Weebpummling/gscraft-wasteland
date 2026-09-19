@@ -17,12 +17,14 @@
 			title: "Wake up"
 			subtitle: "Skadowsky. Somebody's town."
 			description: [
-				"You woke in the yard of a walled compound: the big hall east of you, the brick works beyond it, the road out through the north gate. Six survivors live here; meet them (the quests to the right). This journal opens with J or by right-clicking a survivor. The notebook in your pack has the controls. Tick this page to begin."
+				"You woke in the yard of a walled compound: the big hall east of you, the brick works beyond it, the road out through the north gate. Six survivors live here; meet them (the quests to the right). This journal opens with J or by right-clicking a survivor. The notebook in your pack has the controls."
 			]
 			tasks: [
 				{
 					id: "27EB43080DA5DE54"
-					type: "checkmark"
+					type: "advancement"
+					advancement: "gscraft:stage/joined"
+					criterion: "set"
 				}
 			]
 			rewards: [ ]

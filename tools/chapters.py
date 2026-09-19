@@ -104,8 +104,8 @@ ICONS = {"compound": "gscraft:station", "walker": "gscraft:wrench", "tony": "gsc
 QUESTS = [
     # The compound: the one page that says where you are (always visible)
     {"key": "wake", "chapter": "compound", "title": "Wake up", "voice": "Skadowsky. Somebody's town.",
-     "task": "You woke in the yard of a walled compound: the big hall east of you, the brick works beyond it, the road out through the north gate. Six survivors live here; meet them (the quests to the right). This journal opens with J or by right-clicking a survivor. The notebook in your pack has the controls. Tick this page to begin.",
-     "x": 0, "y": 0, "tasks": [CHECK], "rewards": [], "deps": []},
+     "task": "You woke in the yard of a walled compound: the big hall east of you, the brick works beyond it, the road out through the north gate. Six survivors live here; meet them (the quests to the right). This journal opens with J or by right-clicking a survivor. The notebook in your pack has the controls.",
+     "x": 0, "y": 0, "tasks": [adv("joined")], "rewards": [], "deps": []},   # completes itself on the first join (the per-player `joined` stage): no checkmark to find
     # Walker
     meet("walker"),
     {"key": "W1", "chapter": "walker", "title": "Nuts and bolts", "voice": "Bring me anything with a thread on it.", "task": "Hand in eight bolts and eight nuts from the town's rooms. The reward is a wrench and two blueprint cards: a card in your station's top-left slot is an order.",
