@@ -424,6 +424,8 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**NEXT: `docs/gscraft-session-and-deploy-2026-09-19.md`** - the deploy live needs before a session (eight steps, none started, all waiting for the owner to name live), the ten things only a player can prove, and what to watch because it changed.
+
 **2026-09-19, NOTHING LEFT RED: the four checks triaged, and two more faults of the GAME's found (rulings R51, R52; local only).**
 **The Marksman (phase 3) was a real fault, and every crouching fighter had it.** `GunAttackGoal` fired when
 `hasLineOfSight` said yes - eye to eye - and aimed at the chest. Lowered behind a one-block rise a fighter sees a head and
