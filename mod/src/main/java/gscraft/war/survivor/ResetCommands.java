@@ -64,6 +64,7 @@ public final class ResetCommands {
         data.contested = "";
         data.setDirty();
         Stages.refresh(server);
+        run(server, "function gscraft:yard_mortar_clear");   // what the quest line built goes with it: The tube's mortar (2026-09-19)
         List<Advancement> stageAdvancements = new ArrayList<>();
         for (Advancement a : server.getAdvancements().getAllAdvancements()) {
             if (a.getId().getNamespace().equals(GscraftWar.MODID) && a.getId().getPath().startsWith("stage/")) stageAdvancements.add(a);

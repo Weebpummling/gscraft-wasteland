@@ -1,5 +1,5 @@
 {
- "note": "scavenger bodies (enemy review §7): scrap and a little ammunition; no dog tag (they are nobody's army), never a gun [2026-09-18: the scrap is gscraft:metal_scrap - it was an iron nugget / iron block nothing consumed (tools/itemflow.py)]",
+ "note": "scavenger bodies (enemy review §7): scrap and a little ammunition; no dog tag (they are nobody's army), never a gun [2026-09-18: the scrap is gscraft:metal_scrap - it was an iron nugget / iron block nothing consumed (tools/itemflow.py)] [2026-09-19: and fasteners - bolts, nuts, nails, screws at 0.25 - so the quests' bulk needs are renewable (tools/itemflow.py)]",
  "drops": [
   {
    "entity": "gscraft:scavenger",
@@ -42,6 +42,34 @@
    "chance": 0.1,
    "min": 1,
    "max": 1
+  },
+  {
+   "entity": "gscraft:scavenger",
+   "item": "gscraft:bolt",
+   "chance": 0.25,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "gscraft:scavenger",
+   "item": "gscraft:nut",
+   "chance": 0.25,
+   "min": 1,
+   "max": 2
+  },
+  {
+   "entity": "gscraft:scavenger",
+   "item": "gscraft:nail",
+   "chance": 0.25,
+   "min": 1,
+   "max": 3
+  },
+  {
+   "entity": "gscraft:scavenger",
+   "item": "gscraft:screw",
+   "chance": 0.25,
+   "min": 1,
+   "max": 3
   }
  ]
 }

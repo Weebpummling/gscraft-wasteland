@@ -1,16 +1,16 @@
 {
  "yard": {
   "x": -838,
-  "y": 72,
+  "y": 74,
   "z": -895,
-  "ground": "minecraft:grass_block",
+  "ground": "magnumtorch:diamond_magnum_torch",
   "start": true
  },
  "gap": {
   "x": -826,
-  "y": 72,
+  "y": 74,
   "z": -904,
-  "ground": "minecraft:stone",
+  "ground": "magnumtorch:diamond_magnum_torch",
   "start": true
  },
  "square": {
@@ -22,9 +22,9 @@
  },
  "gatehouse": {
   "x": -966,
-  "y": 70,
+  "y": 72,
   "z": -947,
-  "ground": "minecraft:gravel",
+  "ground": "magnumtorch:diamond_magnum_torch",
   "start": false
  },
  "clinic": {

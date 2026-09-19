@@ -413,6 +413,34 @@ flat (`GrenadeEvadeGoal`, `fight.grenade_flee_*`), a `damage.debug` log switch. 
 live. Research: `docs/gscraft-fighter-animation-research-2026-09-12.md` (recommendation: render fighters through a
 client fake player like TACZ: Npcs so TACZ's own gun clips and PlayerAnimator play on them; A1 first).
 
+**2026-09-19, the fasteners fixed and the mortar un-built (owner: "Need to be fixed, and also, the mortar is somehow already
+built"; rulings R42):** **THE MORTAR WAS MINE.** `yard_mortar` is The tube's reward and nothing else, and I had run it as a
+deploy step - at both live pushes (2026-09-13 and 09-17, where I even reported "one mortar in the yard" as a success) and on
+the local server at the compound move - so the tube stood before anyone built it. Now: the summon carries the tag
+`gscraft_yard_mortar`; `yard_mortar_clear.mcfunction` takes it down (by tag, plus box kills for the untagged ones the old
+function made, at the new yard and the old); `/gscraft reset quests` runs it - wiping the quest line takes down what the quest
+line built. Proven locally with nobody online and no forced chunk (the yard is in the spawn chunks): the reward builds a
+tagged mortar, a reset removes it. **LIVE STILL HAS THE ONE I PLACED** and is not mine to touch without the owner's word; on
+live's console: `kill @e[type=superbwarfare:mortar,x=-846,y=61,z=-901,dx=40,dy=20,dz=40]`. **NEVER list `yard_mortar` among
+a deploy's functions again**: a deploy runs `camp_npcs` and `camp_torches`, nothing else of the camp's.
+**The balance**, by three stated rules: (1) every bulk material the quests consume is RENEWABLE - scavengers drop bolts and
+nuts (0.25, 1-2) and nails and screws (0.25, 1-3); (2) the start area covers the first hour - bolts and nuts join the workshop
+table (weight 12 each; they were in the garage's six chests only) and the workshop rolls 4-6, not 3-5, so nails and screws
+did not thin; (3) what a quest needs exactly ONE of is not a coin flip - the three mortar parts and the welding torch leave
+the main pool for a pool of their own: every workshop chest gives exactly one of the four, a garage chest one half the time.
+Numbers, one player, the start area's chests (`tools/itemflow.py`): bolts and nuts 9.4 -> **28.1** expected (W1+W2 take 16;
+the slice 44, the rest from scavengers at 0.375 a kill, about forty kills); nails 22.8 -> 23.4; screws 29.0 -> 29.7; the
+**welding torch 39.9% -> 97.5%** to find one; **each mortar part 64.1% -> 97.5%** (all four about 90% for a lone player;
+Lootr rolls per player, so a team has spares). The numbers are dials, not findings. **itemflow's blind spot closed:** it
+counted consumed inputs only, so the welding torch - weight 1 of 79, the steel frame order's TOOL and what W3 asks to be
+SHOWN - was invisible to it; tools and show tasks are asks now, and anything needed once gets a chance-of-one, not an
+expectation. **Tests:** 29 5/5 (scavengers roll bolts and nails for real), 32 7/7, 33 8/8, 31 4/4 after two more faults of
+the same stale kind in it: it force-loaded the OLD south compound's rectangle (like `chests.py --apply` did), so "the
+containers stand" passed only because the spawn chunks keep the walled compound loaded, and it never saw the clinic - it now
+loads the record's three areas and samples three from each (9 of 9); and it assumed every table entry has a name, which the
+garage's new `empty` entry does not. **84 force-loaded chunks** had piled up around the test pad on the local server from
+interrupted phases (`forceload remove all`; none returned).
+
 **2026-09-18, the items and the drop tables audited (owner: "work on the items and drop tables now"; rulings R41):**
 `tools/itemflow.py` - every place an item comes FROM (the five building tables, the six drop tables, station orders' outputs,
 quest rewards, the kit) against every place one is ASKED FOR (quest hand-ins, order inputs, the card an order needs), read

@@ -83,7 +83,8 @@ only board-coloured blocks, over each board's footprint. The mod runs without `g
 | `/gscraft strike <mortar|artillery|air> <x y z>` | the call a landed grenade would make, from the console (no owner on the rounds): the spotting round, the barrage, or the Cobra's run; refused while the tube is hot |
 | `/gscraft strike status` | each grenade ready or hot, the last call, rounds scheduled, runs in the air |
 | `/gscraft strike reset` | every cooldown cleared, every scheduled round dropped, any Cobra unloaded |
-| `/function gscraft:yard_mortar` | the tube stands in the yard (The tube's reward) |
+| `/function gscraft:yard_mortar` | the tube stands in the yard. **The tube's reward only - never run it at a deploy** |
+| `/function gscraft:yard_mortar_clear` | the tube taken down (`/gscraft reset quests` runs this) |
 | `/gscraft npc place <id>` | **put a survivor where you stand, facing the way you face**, and save it with the world (ids: walker, michael, marshall, tony, tune, james). This is the compound (start) spot |
 | `/gscraft npc place <id> building` | the same for where Marshall, Tony, Tune or James go once their building is taken (gatehouse, clinic, clinic, crossing); saved now, used when that stage is set |
 | `/gscraft npc place <id> <start\|building> <x> <y> <z> <yaw>` | the same from the console, by coordinates |

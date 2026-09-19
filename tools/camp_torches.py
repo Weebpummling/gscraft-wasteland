@@ -57,13 +57,17 @@ def main(argv):
         placed[name] = {"x": x, "y": base + 1, "z": z, "ground": top, "start": name in START}
         print(f"  {name:11} ({x:5}, {base+1:3}, {z:5}) on {top.split(':')[-1]}{'  (start)' if name in START else ''}")
     FN.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    # the yard's mortar (Marshall's The tube): kill any tube at the spot (and at the old south compound's), summon one
+    # the yard's mortar: THE TUBE'S REWARD AND NOTHING ELSE. Never run yard_mortar at a deploy (2026-09-19: it had been,
+    # at both live pushes and locally, so the tube stood before anyone built it). Tagged, so yard_mortar_clear - which
+    # `/gscraft reset quests` runs - takes it down; the box kills catch the untagged ones the old function summoned.
     mx, mz = MORTAR
     my, mtop = g.top(mx, mz)
-    (FN.parent / "yard_mortar.mcfunction").write_text("\n".join([
-        f"kill @e[type=superbwarfare:mortar,x={mx - 10},y={my - 9},z={mz - 10},dx=20,dy=20,dz=20]",
-        "kill @e[type=superbwarfare:mortar,x=-956,y=55,z=-878,dx=20,dy=20,dz=20]",
-        f"summon superbwarfare:mortar {mx} {my + 1} {mz}"]) + "\n", encoding="utf-8")
+    clear = ["kill @e[type=superbwarfare:mortar,tag=gscraft_yard_mortar]",
+             f"kill @e[type=superbwarfare:mortar,x={mx - 10},y={my - 9},z={mz - 10},dx=20,dy=20,dz=20]",
+             "kill @e[type=superbwarfare:mortar,x=-956,y=55,z=-878,dx=20,dy=20,dz=20]"]
+    (FN.parent / "yard_mortar_clear.mcfunction").write_text("\n".join(clear) + "\n", encoding="utf-8")
+    (FN.parent / "yard_mortar.mcfunction").write_text("\n".join(clear + [
+        f"summon superbwarfare:mortar {mx} {my + 1} {mz} {{Tags:[\"gscraft_yard_mortar\"]}}"]) + "\n", encoding="utf-8")
     print(f"  mortar      ({mx:5}, {my + 1:3}, {mz:5}) on {mtop.split(':')[-1]}")
     (ROOT / "tools" / "camp_torches.json").write_text(json.dumps(placed, indent=1), encoding="utf-8")
     print("wrote", FN.name, len(placed), "torches")

@@ -76,21 +76,28 @@ own = all(expect[t] in rolled[t] for t in expect)
 # "its own items" means the table's own entries, read from the table: a hand-kept allow-list went stale when the fire
 # missions put the mortar's shell in the garage and its three parts in the workshop (f1cf9e0, 2026-09-13; the phase was red
 # from then until 2026-09-18), and would flake besides - a weight-2 part shows up in some samples and not others
-ENTRIES = {t: {e["name"] for p in json.loads((ROOT / f"mod/src/main/resources/data/gscraft/loot_tables/building/{t}.json").read_text(encoding="utf-8"))["pools"] for e in p["entries"]} for t in expect}
+ENTRIES = {t: {e["name"] for p in json.loads((ROOT / f"mod/src/main/resources/data/gscraft/loot_tables/building/{t}.json").read_text(encoding="utf-8"))["pools"] for e in p["entries"] if e.get("name")} for t in expect}   # an "empty" entry has no name (the garage's second pool, 2026-09-19)
 foreign = {t: [k for k in rolled[t] if k not in ENTRIES[t]] for t in expect}
 check("each of the five tables rolls its own items", own and not any(foreign.values()), f"{ {t: len(v) for t, v in rolled.items()} } distinct; foreign {foreign}")
 
-c("forceload add -1000 -1010 -900 -810")
+# the record's own extent, by area (each under the 256-chunk cap): the old fixed rectangle was the south compound's and,
+# after the move, the check passed only because the spawn chunks keep the walled compound loaded - and never saw the clinic
+AREAS = [(-902, -922, -718, -833), (-968, -1002, -912, -956), (-968, -1062, -928, -1018)]   # the compound, the junction, the clinic
+for a in AREAS:
+    c(f"forceload add {a[0]} {a[1]} {a[2]} {a[3]}")
 time.sleep(3)
-sample = TABLES[:: max(1, len(TABLES) // 6)][:6]
+by_area = [[ch for ch in TABLES if a[0] <= ch["x"] <= a[2] and a[1] <= ch["z"] <= a[3]] for a in AREAS]
+sample = [ch for group in by_area for ch in group[:: max(1, len(group) // 3)][:3]]   # three from each area, not six from wherever
 standing = sum(1 for ch in sample if "passed" in c(f"execute if block {ch['x']} {ch['y']} {ch['z']} #lootr:containers").lower() or "passed" in c(f"execute if block {ch['x']} {ch['y']} {ch['z']} lootr:lootr_chest").lower() or "passed" in c(f"execute if block {ch['x']} {ch['y']} {ch['z']} lootr:lootr_barrel").lower())
-c("forceload remove -1000 -1010 -900 -810")
-check("the bound containers stand, at least thirty", len(TABLES) >= 30 and standing == len(sample), f"record {len(TABLES)}; sample {standing} of {len(sample)} standing")
+for a in AREAS:
+    c(f"forceload remove {a[0]} {a[1]} {a[2]} {a[3]}")
+check("the bound containers stand, at least thirty", len(TABLES) >= 30 and standing == len(sample) and all(by_area),
+      f"record {len(TABLES)} ({[len(g) for g in by_area]} by area); sample {standing} of {len(sample)} standing")
 
 pools = {}
 for t in expect:
     d = json.loads((ROOT / f"mod/src/main/resources/data/gscraft/loot_tables/building/{t}.json").read_text(encoding="utf-8"))
-    pools[t] = {e["name"] for p in d["pools"] for e in p["entries"]}
+    pools[t] = {e["name"] for p in d["pools"] for e in p["entries"] if e.get("name")}   # an "empty" entry has no name
 covered = set().union(*pools.values())
 need = ["gscraft:bolt", "gscraft:nut", "gscraft:bandage", "gscraft:painkillers", "gscraft:wire_spool", "gscraft:power_cord", "gscraft:water_filter", "gscraft:circuit_board", "gscraft:capacitor", "gscraft:broken_radio", "gscraft:metal_scrap"]
 missing = [n for n in need if n not in covered]

@@ -208,7 +208,7 @@ x −900…−720, z −920…−835 is the bounding box of a walled enclosure.
 | A raised stone stand | x −826…−814, z −901…−893, y 71–75 | — | between the yard and the hall |
 
 **The layout** (`tools/camp.py`, `tools/camp_torches.py`, `tools/board.py`, `tools/chests.py`; the world functions
-`camp_npcs`, `camp_torches`, `yard_mortar`, `board_place`):
+`camp_npcs`, `camp_torches` at a deploy; `yard_mortar` only as The tube's reward):
 
 | Thing | Where | Rule |
 |---|---|---|
@@ -221,7 +221,7 @@ x −900…−720, z −920…−835 is the bounding box of a walled enclosure.
 | Tune (start) | the gate shed's door, (−836, 71, −904) | `camp_start_tune`; the shack when the north complex is taken |
 | James (start) | the road inside the gate, (−832, 71, −900) | `camp_start_james`; the signal box when the crossing is taken |
 | Torches | `yard` (−838, 72, −895); `gap` (−826, 72, −904), just inside the gate east of the road | `camp_torches` at the deploy |
-| The mortar | (−826, 71, −881), the yard's south-east | `yard_mortar` (Marshall's The tube); it also clears the old tube |
+| The mortar | (−826, 71, −881), the yard's south-east - **only once The tube is done** | `yard_mortar` is that quest's reward and **never a deploy step** (2026-09-19: it had been run at the deploys, so it stood unbuilt); tagged `gscraft_yard_mortar`; `yard_mortar_clear` and `/gscraft reset quests` take it down |
 | Lootr chests | the hall 8 (workshop), the brick works 6 (garage), the gate shed 3 (office), the annex 4 (apartment) | `chests.py --place` |
 
 **The systems' box** is the owner's rectangle: zone `camp_compound` [−900, −720, −920, −835] (the zone boxes are x0, x1, z0, z1) (excluded, margin 32), the

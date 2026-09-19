@@ -57,6 +57,8 @@ for o in orders:
         sinks[k].append(f"order:{o['id']}")
     if o.get("card"):
         sinks["gscraft:" + o["card"]].append(f"order:{o['id']} needs it")
+    if o.get("tool"):
+        sinks[o["tool"]].append(f"order:{o['id']} (tool)")
 
 # quests
 quests = json.loads((ROOT / "tools/quests.json").read_text(encoding="utf-8"))["quests"]
@@ -149,6 +151,24 @@ for table, n in placed.items():
         available[item] += n * y
 
 
+def chance_of_one(item):
+    """P(at least one) for one player over every bound chest: per chest, the item misses every roll of every pool"""
+    miss = 1.0
+    for table, n in placed.items():
+        f = RES / "loot_tables/building" / f"{table}.json"
+        if not f.exists():
+            continue
+        chest_miss = 1.0
+        for pool in json.loads(f.read_text(encoding="utf-8"))["pools"]:
+            rolls = pool.get("rolls", 1)
+            r = (rolls["min"] + rolls["max"]) / 2 if isinstance(rolls, dict) else rolls
+            total = sum(e.get("weight", 1) for e in pool["entries"])
+            w = sum(e.get("weight", 1) for e in pool["entries"] if e.get("name") == item)
+            chest_miss *= (1 - w / total) ** r
+        miss *= chest_miss ** n
+    return 1 - miss
+
+
 def lootable(item):
     """found by opening or killing something: a table, a drop, the kit - NOT a quest's reward (that is not a way to get
     what the quest itself asks for)"""
@@ -187,6 +207,19 @@ for q in quests:
         have = available.get(item, 0.0)
         report["scarcity"].append({"quest": q["key"], "item": item, "need": n, "start_area_expects": round(have, 1),
                                    "ratio": round(have / n, 2) if n else None, "renewable": renewable(item)})
+unique = {}
+for o in orders:
+    if o.get("tool"):
+        unique[o["tool"]] = f"the tool of order {o['id']}"
+for q in quests:
+    for t in q.get("tasks", []):
+        if t.get("type") == "item" and not t.get("consume", True):
+            unique[t["item"]] = unique.get(t["item"], "") + f" shown to {q['key']}"
+for i, n in total_need.items():
+    if n == 1:
+        unique.setdefault(i, "needed once")
+report["unique"] = sorted(({"item": i, "why": w.strip(), "chance_one_player_finds_one": round(chance_of_one(i), 3), "renewable": renewable(i),
+                            "rewarded": any(x.startswith("reward:") for x in sources.get(i, []))} for i, w in unique.items()), key=lambda x: x["chance_one_player_finds_one"])
 report["cumulative"] = sorted(({"item": i, "all_quests_need": n, "start_area_expects": round(available.get(i, 0.0), 1),
                                 "ratio": round(available.get(i, 0.0) / n, 2), "renewable": renewable(i)} for i, n in total_need.items()), key=lambda x: x["ratio"])
 
@@ -220,6 +253,10 @@ print("   CUMULATIVE - every non-repeatable quest's needs added up, against that
 for r_ in report["cumulative"]:
     flag = "drops" if r_["renewable"] else ("SHORT" if r_["ratio"] < 1 else ("tight" if r_["ratio"] < 2 else ""))
     print(f"      {r_['item']:34} all quests need {r_['all_quests_need']:3}   expect {r_['start_area_expects']:6}   x{r_['ratio']:<5} {flag}")
+print("   NEEDED ONCE - a tool, a thing to show, a single part: the chance ONE player finds at least one in the start area")
+for u in report["unique"]:
+    flag = "drops" if u["renewable"] else ("rewarded" if u["rewarded"] else ("COIN FLIP" if u["chance_one_player_finds_one"] < 0.8 else ("risky" if u["chance_one_player_finds_one"] < 0.95 else "")))
+    print(f"      {u['item']:34} {u['why'][:44]:44} {u['chance_one_player_finds_one'] * 100:5.1f}%  {flag}")
 print("   PER QUEST (each against the whole pool, so the cumulative rows above are the truer picture):")
 for r_ in sorted(report["scarcity"], key=lambda x: (x["ratio"] is None, x["ratio"])):
     if r_["ratio"] is not None and r_["ratio"] >= 2:
