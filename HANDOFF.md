@@ -438,7 +438,12 @@ compound's corner; the log said so in passing ("hospital wave armour ... for -94
 the walled compound; phase 6 hid it by summoning its attackers into the box, phase 25 had the same stale point copied in.
 Now (-833, -906), just inside the north gate; 25 reads it from the data. **Consequence to decide after a session: once R0
 bars the gate, a wave cannot walk in** (sandbags and a fence gate) - it has to be beaten at the wall, and the compound is
-lost only if something gets over. Walled-compound openings other than the north gate were not surveyed.
+lost only if something gets over. **Surveyed since (`tools/openings.py`, a flood fill over standable ground from the road
+north): the wall is NOT sealed.** The north gate is the short way (52 steps, 6 wide at -832 71 -912); with it plugged the
+yard is still reached through one-wide gaps in the north-east (-747 74 -918, -737 71 -912) and, however many are plugged,
+round the open north-west corner (x -910..-893, z -927..-907, ground 63-68, up to 4 wide), about 300 steps. So a barred
+gate sends a wave the long way round the west side; it does not make the compound safe. Whether the owner wants that
+corner walled is a building decision, not mine.
 **18, 19, 24 were stale or self-inflicted:** 18's blast of 900 kills a 500-health tank since the damage pass keeps 95% of
 a blast (380 now); 19's third report is the crew bailing out, which is right; 24's attacker stood in plain view, so the
 crew engaged and unloaded the bay before the hit (he stands in a stone box). 18 7/7, 19 4/4, 24 3/3, 25 5/5, 6 8/8.
