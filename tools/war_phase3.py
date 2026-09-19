@@ -28,10 +28,10 @@ EXPECT = {   # each rank's allowed guns (a rank may vary its weapon) and the off
     "NATO Sergeant": ({"tacz:m4a1", "tacz:hk416d", "tacz:scar_l"}, None),
     "NATO Marksman": ({"tacz:mk14", "tacz:m700", "tacz:spr15hb"}, None),
     "NATO Gunner": ({"tacz:m249"}, None),
-    "NATO Shield": ({"tacz:m9a4", "tacz:glock_17", "tacz:p320"}, "minecraft:shield"),
+    "NATO Shield": ({"tacz:m4a1"}, "minecraft:shield"),
     "RUAF Rifleman": ({"tacz:ak47", "cib:ak105", "cib:ak103"}, None), "RUAF Sergeant": ({"tacz:ak47", "cib:ak105", "cib:asval"}, None),
     "RUAF Marksman": ({"tacz:sks_tactical", "cib:svd", "tacz:kar98"}, None), "RUAF Gunner": ({"tacz:rpk", "cib:pkp"}, None),
-    "RUAF Shield": ({"tacz:cz75", "tacz:glock_17"}, "minecraft:shield"),
+    "RUAF Shield": ({"tacz:ak47"}, "minecraft:shield"),
 }
 
 r = L.Rcon("127.0.0.1", 25575, "gscraft-local-test")
@@ -100,10 +100,15 @@ def check(name, ok, detail):
 
 out = c("gscraft ranks")
 counts = {f: len(re.findall(r"\(", seg)) for f, seg in re.findall(r"(\w+):((?:\s[^:]+?\(\w+, \d+\))+)", out)}
-check("rank data loaded", counts.get("nato") == 5 and counts.get("ruaf") == 5 and counts.get("scavengers") == 6, counts)
+check("rank data loaded", counts.get("nato") == 6 and counts.get("ruaf") == 6 and counts.get("scavengers") == 6, counts)
 
 c(f"forceload add {X - 90} {Z - 90} {X + 90} {Z + 90}", 60)
 time.sleep(6)
+# this phase stands on the GROUND, found with `positioned over`; phases 7 and later build their platforms at y 200 over the
+# same pad, and whatever a crashed run left of one puts half of this phase's bodies 133 blocks over the other half (the
+# suite of 2026-09-19: the Marksman's target and the listening soldier stood on a platform). The sky over the pad is cleared.
+for z0 in range(Z - 90, Z + 91, 30):
+    c(f"fill {X - 90} 198 {z0} {X + 90} 203 {min(z0 + 29, Z + 90)} minecraft:air", 120)
 clear()
 
 # 2. every rank carries its role's gun

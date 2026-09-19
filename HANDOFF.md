@@ -424,6 +424,57 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-19, THE WORK ORDER STARTED (owner: "go ahead and start working on this"; rulings R43-R47). LOCAL ONLY: nothing
+here is on live, in the pack or in the release jar, and none of it may go there without the owner naming live.**
+Steps 1, 3, 5, 6, 7 and 8 of the review's nine are done; **2 (TACZ or Superb Warfare for the player's guns) and 4 (the
+pistol again on respawn, or keepInventory) are the owner's decisions and block step 9, the session.**
+**Play moves a strongpoint** (`world/SitePlay.java`): players on foot inside a strongpoint's box for `site.scout_seconds`
+(5) scout it - creative and spectator do not count; `site.loot_goal` (6) different Lootr containers opened inside it loot
+it, a search on unknown ground scouting it first. `SiteData.Progress.searched` holds the positions (saved; `Loop.reset`
+forgets them). Strongpoints only: a site with no alias. Console stand-ins, the same two methods the events call:
+`/gscraft site <id> presence <s>` and `... search <x y z>`. Marshall's chapter has the hospital now: **H1 Eyes on it**
+(`hospital_scouted`, after R1), **H2 What they left** (`hospital_looted`, two med kits), **H3 Plant it** (`hospital_held`).
+**Food:** `items.json` takes `"food": [nutrition, saturation]`; canned goods are 6 and 0.6; `/gscraft items` lists what
+is edible. **The marker:** its order is class `equipment` (five minutes, was `trip`, twenty); `Loop.assaultLost` drops a
+`gscraft:claim_marker` where the marker stood. **The gate:** `gate_close.mcfunction` (sandbags two high at x -835, -834,
+-831, -830, a fence gate at -833 and -832, all z -912) is R0's reward; `gate_open` restores the opening and
+`/gscraft reset quests` runs it. Like `yard_mortar`, **neither is ever a deploy step.**
+**Loot north of the wall** (`tools/chests.py`, now three more rectangles: the hospital's box and the road north in two
+halves, 20 + 10 + 10). What I learnt doing it: (1) the review's "none in the hospital" counted loot TABLES; the hospital
+holds 23 plain barrels, and they are FURNITURE - a table under a flower pot, a cabinet under a trapdoor. One is bound only
+if a hand can reach it (air beside or above) and it holds nothing: across the hospital and the road 19 are out of reach,
+and **two hold a written book -
+somebody's - and are never touched** (binding is a setblock). (2) The spot finder was written for the compound and
+north of the wall it chose, in turn: the crawlspace under a raised building and the grass under a spruce; then cellars
+and sewers; then a vine, a fern and a beehive for a floor. A spot is now a laid floor (a list of materials), two of air, a
+laid roof within ten, and at street level or above (some column within ten blocks has its surface no higher). (3)
+`--place` places only the SHORTFALL of a budget, or every rerun would double a building; and a container's own
+`gscraft:building/<t>` table is the record's truth (recomputing it by position disagreed with what `place()` had given
+seven of the square's). `tools/chests.json`: 144. Applied locally: 40 changed.
+**Phase 44, THE CHAIN PLAYED** (`tools/war_phase44.py`, 8 of 8): it may not use `site set` or `stage add`. A fresh
+hospital refuses the marker; presence scouts it; a floor block, a container outside the box and a repeat are refused and
+the sixth search loots it; the marker starts the assault; nobody inside loses it and one marker lies at the anchor; the
+gate closes (8 sandbags, 2 gates) and the reset opens it and forgets the searches; canned goods edible, the order five
+minutes, H1-H3 watch the three stages, R0 runs the gate. **Any new rung of the slice goes into this phase.**
+**The whole suite was run (43 phases, the first time ever in one go): 29 green, 14 red - and eleven of the red were the
+tests' fault.** The table is in the review (`docs/gscraft-slice-review-2026-09-19.md`, "Regression suite"). The one that
+was the game's: **`Director.placeBeside` - every member of a placed group after the first - checked neither the excluded
+margin nor whether a player could see the spot.** That is the owner's "spawning right in front of players" and the
+squad-mate scattered into the open on 2026-09-18. It now refuses both, and `Squad.walk` drops a waypoint that lies in an
+excluded zone or its margin. Phase 36 hid it: it still measured the SOUTH compound's box, so its margin check could not
+fail; it also sampled positions every ten seconds and called a squad walking its loop a placement (it counts what is new
+each second now, where it first stands). Four phases (4, 6, 31, 36) were still aimed at the south compound; **whatever
+moves a place must grep `tools/war_phase*.py` for the old coordinates.** Phase 3 stood half its bodies on pieces of a
+y-200 platform a crashed run had left over its pad; phase 5 read boot lines from a log that rolls over at midnight.
+**LEFT RED, not triaged:** 18, 19, 24 (the armour pass: a blast kills outright where it should wound, a broken part is
+reported three times, a hull hit leaves the riders aboard - red twice alone, probably stale against the damage pass
+ee8eb02) and phase 3's Marksman, who from cover at thirty blocks never hurts his target in twenty-five seconds.
+**Green on the final jar (686,275 bytes, local server and WarTest):** 44 8/8, 3 7/8, 4 13/13, 4b 14/14, 5 9/9, 6 8/8,
+7 7/7, 11 5/5, 20 6/6, 29 5/5, 31 4/4, 32 7/7, 33 8/8, 34 7/7, 35 6/6, 36 4/4, 43 6/6.
+**Not proven headless:** the two event hooks (a player's tick in the box, a right-click on a Lootr chest) - the stand-ins
+run the same methods. **Still open from the review:** T2's antiseptic is a raid that reads as an errand; the old south
+compound's 19 bound chests; party and quest sharing; live's divergence (the board, my mortar, an older jar).
+
 **2026-09-19, the fasteners fixed and the mortar un-built (owner: "Need to be fixed, and also, the mortar is somehow already
 built"; rulings R42):** **THE MORTAR WAS MINE.** `yard_mortar` is The tube's reward and nothing else, and I had run it as a
 deploy step - at both live pushes (2026-09-13 and 09-17, where I even reported "one mortar in the yard" as a success) and on

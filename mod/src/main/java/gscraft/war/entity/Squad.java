@@ -234,7 +234,10 @@ public final class Squad {
                 int y = level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, raw.getX(), raw.getZ());
                 stand = Director.nearestStand(level, new BlockPos(raw.getX(), y, raw.getZ()));
             }
-            if (stand != null) route.add(stand);
+            if (stand == null) continue;
+            Zone there = Zones.at(stand.getX(), stand.getZ());
+            if (there != null && there.exclude() || Zones.nearExcluded(stand.getX(), stand.getZ())) continue;   // a walk never leads into the compound or its margin (2026-09-19)
+            route.add(stand);
         }
         if (route.size() < 2) return;
         ls.route = route;

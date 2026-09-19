@@ -42,6 +42,15 @@
 					silent: true
 					auto: "invisible"
 				}
+				{
+					id: "277154B20377CA60"
+					type: "command"
+					title: "function"
+					command: "/function gscraft:gate_close"
+					elevate_perms: true
+					silent: true
+					auto: "invisible"
+				}
 			]
 		}
 		{

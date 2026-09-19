@@ -2,7 +2,7 @@
 so it drives the director through /gscraft director pass (placement at a point, ignoring the cap) and
 /gscraft garrison <zone> force. Run war_phase3.py and war_phase2.py after it as the regression.
 
-1. The zone map loaded: 40 zones.
+1. The zone map loaded: 45 zones.
 2. Zone lookup at known ground: the camp and KROT excluded; the hospital, the reactor hall, the Woods, an outpost.
 3. Nothing is ever placed in a build: a pass inside KROT places nothing.
 4. The town draws RUAF and the Dead; the hospital draws only the Dead, dressed as The Infected; the reactor hall's
@@ -75,9 +75,9 @@ def placed(reply):
 
 
 out = c("gscraft zones")
-check("zone map loaded", "40 zones" in out, out)
+check("zone map loaded", "45 zones" in out, out)
 
-lookups = {(-870, -950): "camp (excluded)", (-3233, -1185): "krot (excluded)", (-782, -1277): "sk_hosp",
+lookups = {(-830, -880): "camp (excluded)", (-3233, -1185): "krot (excluded)", (-782, -1277): "sk_hosp",
            (-642, 518): "pl_react", (-2000, -600): "woods", (-840, -540): "out_e1", (400, -3000): "open"}
 bad = []
 for (x, z), want in lookups.items():

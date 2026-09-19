@@ -91,4 +91,39 @@ spark's tick numbers with a counterattack and an APC on the front.
 
 *Every headless phase run in sequence on the local server (phase 42 needs a client and was not run).*
 
-RUNNING at the time of writing (about five minutes a phase, 42 phases). Results are appended here when it ends.
+**First run: 29 green, 14 red.** Every red phase was then run again alone and read. Eleven were the TEST's fault, one was
+the game's, and three are left red and said so.
+
+| Phase | What was wrong | Now |
+|---|---|---|
+| 3 | stale: a Crewman rank joined each side, the Shields carry the line rifle (b91fffd). And **leftover platforms**: phases 7 and later build at y 200 over the same pad, a crashed run left pieces, and `positioned over` stood half of phase 3's bodies on them, 133 blocks over the other half. The phase clears the sky over its pad now | 7 of 8; see below |
+| 4 | stale: 45 zones, not 40; it looked the camp up in the OLD south compound | 13 of 13 |
+| 4b | stale: NATO's trousers and RUAF's changed in bb6b532, one rifle a side since b91fffd | 14 of 14 |
+| 5 | stale counts (the Dead re-cut in slice build 2); and it read the boot lines from `latest.log`, which rolls over at midnight - it reads the console log too | 9 of 9 |
+| 6 | it stood its attackers in the OLD compound's yard; the loss box moved with the compound | 8 of 8 |
+| 7, 11, 20 | nothing: green when run alone. They fail only after other phases, on what those leave behind | green alone |
+| 34 | stale: nine chapters since the notes | 7 of 7 |
+| 36 | **a real fault, hidden by a stale box.** The phase still measured the OLD compound's margin, so it could not fail. Pointed at the walled compound: creatures inside the 32-block margin. `placeBeside` - every member of a group after the first - checked neither the margin nor whether a player could see the spot. **This is the owner's "spawning right in front of players".** Fixed (below) | 4 of 4 |
+| 18, 19, 24 | the armour pass: a blast that should wound kills outright (health -29); a broken part is reported three times, not once; a hull hit does not put the riders out. Red twice running, alone. They predate the damage pass (ee8eb02) and are probably stale against it - **not triaged**, outside the slice's spine | **RED** |
+| 3, check 5 | the Marksman at thirty blocks takes cover, leans out and back for twenty-five seconds (his magazine reads 4 at the end) and the target's health never moves from 200. Whether he fires into his own cover was not looked at. **Not triaged.** It favours the player | **RED** |
+
+What the suite says about the process: **a phase that passes is not a phase that tests.** Four phases (4, 6, 31, 36) were
+still aimed at the south compound weeks after the move, and two of them passed *because* of it. Anything that moves a
+place must grep the phases for the old coordinates.
+
+## Done against the work order (2026-09-19, local only)
+
+| # | | State |
+|---|---|---|
+| 1 | play moves a strongpoint | **done**: `SitePlay` - five seconds on foot inside scouts, six different Lootr containers opened loots; Marshall's chapter carries the hospital in three quests (Eyes on it, What they left, Plant it) |
+| 2 | a fight the player can have | **the owner's decision**: TACZ or Superb Warfare for the player's guns |
+| 3 | food | **done**: canned goods are eaten (6, 0.6). Water: undecided |
+| 4 | death | **the owner's decision**: the pistol again on respawn, or keepInventory |
+| 5 | the marker's cost | **done**: five minutes, not twenty; a lost assault leaves the marker on the ground where it stood |
+| 6 | the gate | **done**: R0's reward bars the opening (sandbags, a fence gate); the quest reset opens it |
+| 7 | loot where the quests send people | **done locally**: 20 in the hospital (11 of the map's own barrels, 9 placed), 10 and 10 along the road north. The old south compound's 19 are still bound |
+| 8 | the end-to-end phase | **done**: `tools/war_phase44.py`, 8 of 8, and it may not use `site set` or `stage add` |
+| 9 | the session | waits on 2 and 4 |
+
+Not proven headless: the two event hooks themselves (a real player's tick inside the box, a real right-click on a Lootr
+chest). The console stand-ins run the same two methods; the hooks are six lines. The first session shows it.

@@ -28,6 +28,8 @@ public final class SiteData extends SavedData {
 
     public static final class Progress {
         public State state = State.UNKNOWN;
+        /** the Lootr containers searched inside the box while scouted (SitePlay): block positions as longs */
+        public final java.util.Set<Long> searched = new java.util.HashSet<>();
         public boolean lost;
         public Phase phase = Phase.NONE;
         /** online tick the phase ends at: the assault's end, the fortify clock's end, the counterattack's last chance */
@@ -58,6 +60,7 @@ public final class SiteData extends SavedData {
             t.putInt("GuardTarget", guardTarget);
             t.putBoolean("BossPlaced", bossPlaced);
             if (marker != null) t.putIntArray("Marker", new int[]{marker.getX(), marker.getY(), marker.getZ()});
+            if (!searched.isEmpty()) t.putLongArray("Searched", searched.stream().mapToLong(Long::longValue).toArray());
             return t;
         }
 
@@ -74,6 +77,7 @@ public final class SiteData extends SavedData {
             p.lossTicks = t.getInt("LossTicks");
             p.guardTarget = t.getInt("GuardTarget");
             p.bossPlaced = t.getBoolean("BossPlaced");
+            for (long l : t.getLongArray("Searched")) p.searched.add(l);
             if (t.contains("Marker")) {
                 int[] m = t.getIntArray("Marker");
                 if (m.length == 3) p.marker = new BlockPos(m[0], m[1], m[2]);

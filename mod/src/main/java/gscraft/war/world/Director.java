@@ -301,13 +301,16 @@ public final class Director {
             int x = beside.getX() + random.nextInt(9) - 4;
             int z = beside.getZ() + random.nextInt(9) - 4;
             Zone here = Zones.at(x, z);
-            if (here == null || here.exclude() || Loop.suppressedAt(level, x, z)) continue;
+            // the same refusals as the first of the group (2026-09-19: only the anchor was checked, so a squad-mate could land
+            // inside the compound's margin, or in the open in front of a player - the owner's "spawning right in front of players")
+            if (here == null || here.exclude() || Zones.nearExcluded(x, z) || Loop.suppressedAt(level, x, z)) continue;
             boolean rider = RIDER.equals(kind);
             EntityType<?> type = rider ? EntityType.ZOMBIE_HORSE : type(kind);
             if (type == null) return null;
             boolean aquatic = type == EntityType.DROWNED;
             BlockPos pos = findStand(level, x, beside.getY(), z, env, aquatic);
             if (pos == null) continue;
+            if (seen(level, pos)) continue;
             if (env != Env.OPEN && !aquatic && !allowSealed && !reaches(level, pos, beside)) continue;
             if (type == EntityType.ZOMBIE && level.isDay() && env == Env.OPEN) type = EntityType.HUSK;
             Mob mob = rider ? spawnRider(level, pos, here) : spawn(level, type, pos, here);

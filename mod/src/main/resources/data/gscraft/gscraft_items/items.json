@@ -1,505 +1,509 @@
 {
-  "note": "the player layer's items (system doc 2026-09-13 §7 build 3; design §4.2 stack sizes, crafting §5, loot §3). The mod registers every entry (gscraft.war.item.SliceItems); tools/items.py writes the models, placeholder textures and names. gscraft:bandage is the mod's own item and is not listed here.",
-  "items": [
-    {
-      "id": "bolt",
-      "name": "Bolt",
-      "tip": "Hardware. Four with four nuts, screws and nails make a fastener kit.",
-      "role": "small",
-      "stack": 8,
-      "bulky": false
-    },
-    {
-      "id": "nut",
-      "name": "Nut",
-      "tip": "Hardware. Goes with a bolt.",
-      "role": "small",
-      "stack": 8,
-      "bulky": false
-    },
-    {
-      "id": "screw",
-      "name": "Screw",
-      "tip": "Hardware. A fastener kit wants four.",
-      "role": "small",
-      "stack": 8,
-      "bulky": false
-    },
-    {
-      "id": "nail",
-      "name": "Nail",
-      "tip": "Hardware. Boards, crates, kits.",
-      "role": "small",
-      "stack": 8,
-      "bulky": false
-    },
-    {
-      "id": "metal_scrap",
-      "name": "Metal scrap",
-      "tip": "Hardware. Frames, tools, casings: six make a steel frame.",
-      "role": "small",
-      "stack": 8,
-      "bulky": false
-    },
-    {
-      "id": "duct_tape",
-      "name": "Duct tape",
-      "tip": "Hardware. Holds a wiring harness together.",
-      "role": "small",
-      "stack": 8,
-      "bulky": false
-    },
-    {
-      "id": "insulating_tape",
-      "name": "Insulating tape",
-      "tip": "Hardware. For the electrical run.",
-      "role": "small",
-      "stack": 8,
-      "bulky": false
-    },
-    {
-      "id": "silicone_tube",
-      "name": "Silicone tube",
-      "tip": "Mechanical. A welding torch wants two.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "corrugated_hose",
-      "name": "Corrugated hose",
-      "tip": "Mechanical. A filter cartridge wants one.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "spark_plug",
-      "name": "Spark plug",
-      "tip": "Mechanical. An engine's.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "motor_oil",
-      "name": "Motor oil",
-      "tip": "Mechanical. Garages have it.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "car_battery",
-      "name": "Car battery",
-      "tip": "Mechanical. Heavy; one per stack.",
-      "role": "small",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "wire_spool",
-      "name": "Wire spool",
-      "tip": "Electrical. Three make a wiring harness with a cord and tape.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "power_cord",
-      "name": "Power cord",
-      "tip": "Electrical. Offices have them.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "capacitor",
-      "name": "Capacitor",
-      "tip": "Electrical. A circuit assembly wants two.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "circuit_board",
-      "name": "Circuit board",
-      "tip": "Electrical. The heart of a circuit assembly.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "relay",
-      "name": "Relay",
-      "tip": "Electrical. A circuit assembly wants one.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "light_bulb",
-      "name": "Light bulb",
-      "tip": "Electrical. Michael wants one to light the compound.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "computer_parts",
-      "name": "Computer parts",
-      "tip": "Electrical. Office salvage.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "hard_drive",
-      "name": "Hard drive",
-      "tip": "Electrical. Office salvage; Tune reads them.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "broken_radio",
-      "name": "Broken radio",
-      "tip": "Valuables. Tune can make a map of it.",
-      "role": "small",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "folder_of_documents",
-      "name": "Folder of documents",
-      "tip": "Paper. Someone's old office.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "water_filter",
-      "name": "Water filter",
-      "tip": "Filters. A filter cartridge starts here.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "bleach",
-      "name": "Bleach",
-      "tip": "Chemistry. Cleans a filter cartridge.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "solvent",
-      "name": "Solvent",
-      "tip": "Chemistry. Powder wants it.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "gas_mask_filter",
-      "name": "Gas-mask filter",
-      "tip": "Filters. For the mask, later.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "painkillers",
-      "name": "Painkillers",
-      "tip": "Medical. A med kit wants one blister.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "antiseptic",
-      "name": "Antiseptic",
-      "tip": "Medical. A med kit wants one.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "syringe",
-      "name": "Syringe",
-      "tip": "Medical. A med kit wants one.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "blood_bag",
-      "name": "Blood bag",
-      "tip": "Medical. The hospital's.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "canned_goods",
-      "name": "Canned goods",
-      "tip": "Food. Apartments are full of it.",
-      "role": "small",
-      "stack": 16,
-      "bulky": false
-    },
-    {
-      "id": "cloth",
-      "name": "Cloth",
-      "tip": "Two wool or four string at any station; sandbags and storage want it.",
-      "role": "small",
-      "stack": 8,
-      "bulky": false
-    },
-    {
-      "id": "pressure_gauge",
-      "name": "Pressure gauge",
-      "tip": "Mechanical. Workshops have them.",
-      "role": "small",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "damaged_pistol",
-      "name": "Damaged pistol",
-      "tip": "Salvage. The salvaging table takes it apart.",
-      "role": "small",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "wrench",
-      "name": "Wrench",
-      "tip": "Tool. Walker's first gift; three metal scrap at a station.",
-      "role": "tool",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "welding_torch",
-      "name": "Welding torch",
-      "tip": "Tool. A steel frame is welded; sits in the station's tool slot.",
-      "role": "tool",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "pliers",
-      "name": "Pliers",
-      "tip": "Tool. For the electrical run.",
-      "role": "tool",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "screwdriver_set",
-      "name": "Screwdriver set",
-      "tip": "Tool. For the electrical run.",
-      "role": "tool",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "hand_drill",
-      "name": "Hand drill",
-      "tip": "Tool. Rare in garages.",
-      "role": "tool",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "fastener_kit",
-      "name": "Fastener kit",
-      "tip": "4 bolts, 4 nuts, 4 screws, 4 nails; two minutes at a station.",
-      "role": "intermediate",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "steel_frame",
-      "name": "Steel frame",
-      "tip": "6 metal scrap and a fastener kit, welded; two minutes.",
-      "role": "intermediate",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "wiring_harness",
-      "name": "Wiring harness",
-      "tip": "3 wire spools, a power cord, duct tape; two minutes.",
-      "role": "intermediate",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "filter_cartridge",
-      "name": "Filter cartridge",
-      "tip": "A water filter, a corrugated hose, bleach; two minutes.",
-      "role": "intermediate",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "circuit_assembly",
-      "name": "Circuit assembly",
-      "tip": "A circuit board, 2 capacitors, a relay, a wire spool; two minutes.",
-      "role": "intermediate",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "med_kit",
-      "name": "Med kit",
-      "tip": "2 bandages, painkillers, antiseptic, a syringe; two minutes. Heals a wound.",
-      "role": "intermediate",
-      "stack": 4,
-      "bulky": false
-    },
-    {
-      "id": "casings",
-      "name": "Casings",
-      "tip": "2 metal scrap make 16, quick, at a station.",
-      "role": "intermediate",
-      "stack": 64,
-      "bulky": false
-    },
-    {
-      "id": "powder",
-      "name": "Powder",
-      "tip": "Gunpowder and solvent make 4, quick, at a station.",
-      "role": "intermediate",
-      "stack": 64,
-      "bulky": false
-    },
-    {
-      "id": "concrete_mix",
-      "name": "Concrete",
-      "tip": "4 gravel, 4 sand, a bucket of water make 8, quick; walls and stations want it.",
-      "role": "intermediate",
-      "stack": 64,
-      "bulky": false
-    },
-    {
-      "id": "card_fastener_kit",
-      "name": "Blueprint: fastener kit",
-      "tip": "Put it in a station's card slot; the station lists what the fastener kit needs.",
-      "role": "card",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "card_steel_frame",
-      "name": "Blueprint: steel frame",
-      "tip": "Put it in a station's card slot; the station lists what the steel frame needs.",
-      "role": "card",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "card_wiring_harness",
-      "name": "Blueprint: wiring harness",
-      "tip": "Put it in a station's card slot; the station lists what the wiring harness needs.",
-      "role": "card",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "card_filter_cartridge",
-      "name": "Blueprint: filter cartridge",
-      "tip": "Put it in a station's card slot; the station lists what the filter cartridge needs.",
-      "role": "card",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "card_circuit_assembly",
-      "name": "Blueprint: circuit assembly",
-      "tip": "Put it in a station's card slot; the station lists what the circuit assembly needs.",
-      "role": "card",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "card_med_kit",
-      "name": "Blueprint: med kit",
-      "tip": "Put it in a station's card slot; the station lists what the med kit needs.",
-      "role": "card",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "card_hand_tools",
-      "name": "Blueprint: hand tools",
-      "tip": "Put it in a station's card slot; the station lists what the hand tools needs.",
-      "role": "card",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "card_casings",
-      "name": "Blueprint: casings",
-      "tip": "Put it in a station's card slot; the station lists what the casings needs.",
-      "role": "card",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "card_powder",
-      "name": "Blueprint: powder",
-      "tip": "Put it in a station's card slot; the station lists what the powder needs.",
-      "role": "card",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "card_claim_marker",
-      "name": "Blueprint: claim marker",
-      "tip": "Put it in a station's card slot; the station lists what the claim marker needs.",
-      "role": "card",
-      "stack": 1,
-      "bulky": false
-    },
-    {
-      "id": "claim_marker",
-      "name": "Claim marker",
-      "tip": "4 steel frames, a circuit assembly, a wiring harness, a white banner. Plant it at a strongpoint's anchor to claim it.",
-      "role": "part",
-      "stack": 1,
-      "bulky": true
-    },
-    {
-      "id": "strike_mortar",
-      "name": "Fire mission: mortar",
-      "tip": "Marshall's tube. Throw it; the smoke marks the target.",
-      "stack": 4,
-      "role": "strike"
-    },
-    {
-      "id": "strike_artillery",
-      "name": "Fire mission: guns",
-      "tip": "The strongpoints' guns. Throw it; the smoke marks the target.",
-      "stack": 4,
-      "role": "strike"
-    },
-    {
-      "id": "strike_air",
-      "name": "Air support: Cobra",
-      "tip": "Tune's call to the Cobra. Throw it; the smoke marks the run.",
-      "stack": 4,
-      "role": "strike"
-    },
-    {
-      "id": "card_mortar_shell",
-      "name": "Blueprint: mortar shell",
-      "tip": "Put it in a station's card slot; the station lists what the shell needs.",
-      "stack": 1,
-      "role": "card"
-    }
-  ]
+ "note": "the player layer's items (system doc 2026-09-13 §7 build 3; design §4.2 stack sizes, crafting §5, loot §3). The mod registers every entry (gscraft.war.item.SliceItems); tools/items.py writes the models, placeholder textures and names. gscraft:bandage is the mod's own item and is not listed here.",
+ "items": [
+  {
+   "id": "bolt",
+   "name": "Bolt",
+   "tip": "Hardware. Four with four nuts, screws and nails make a fastener kit.",
+   "role": "small",
+   "stack": 8,
+   "bulky": false
+  },
+  {
+   "id": "nut",
+   "name": "Nut",
+   "tip": "Hardware. Goes with a bolt.",
+   "role": "small",
+   "stack": 8,
+   "bulky": false
+  },
+  {
+   "id": "screw",
+   "name": "Screw",
+   "tip": "Hardware. A fastener kit wants four.",
+   "role": "small",
+   "stack": 8,
+   "bulky": false
+  },
+  {
+   "id": "nail",
+   "name": "Nail",
+   "tip": "Hardware. Boards, crates, kits.",
+   "role": "small",
+   "stack": 8,
+   "bulky": false
+  },
+  {
+   "id": "metal_scrap",
+   "name": "Metal scrap",
+   "tip": "Hardware. Frames, tools, casings: six make a steel frame.",
+   "role": "small",
+   "stack": 8,
+   "bulky": false
+  },
+  {
+   "id": "duct_tape",
+   "name": "Duct tape",
+   "tip": "Hardware. Holds a wiring harness together.",
+   "role": "small",
+   "stack": 8,
+   "bulky": false
+  },
+  {
+   "id": "insulating_tape",
+   "name": "Insulating tape",
+   "tip": "Hardware. For the electrical run.",
+   "role": "small",
+   "stack": 8,
+   "bulky": false
+  },
+  {
+   "id": "silicone_tube",
+   "name": "Silicone tube",
+   "tip": "Mechanical. A welding torch wants two.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "corrugated_hose",
+   "name": "Corrugated hose",
+   "tip": "Mechanical. A filter cartridge wants one.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "spark_plug",
+   "name": "Spark plug",
+   "tip": "Mechanical. An engine's.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "motor_oil",
+   "name": "Motor oil",
+   "tip": "Mechanical. Garages have it.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "car_battery",
+   "name": "Car battery",
+   "tip": "Mechanical. Heavy; one per stack.",
+   "role": "small",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "wire_spool",
+   "name": "Wire spool",
+   "tip": "Electrical. Three make a wiring harness with a cord and tape.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "power_cord",
+   "name": "Power cord",
+   "tip": "Electrical. Offices have them.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "capacitor",
+   "name": "Capacitor",
+   "tip": "Electrical. A circuit assembly wants two.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "circuit_board",
+   "name": "Circuit board",
+   "tip": "Electrical. The heart of a circuit assembly.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "relay",
+   "name": "Relay",
+   "tip": "Electrical. A circuit assembly wants one.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "light_bulb",
+   "name": "Light bulb",
+   "tip": "Electrical. Michael wants one to light the compound.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "computer_parts",
+   "name": "Computer parts",
+   "tip": "Electrical. Office salvage.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "hard_drive",
+   "name": "Hard drive",
+   "tip": "Electrical. Office salvage; Tune reads them.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "broken_radio",
+   "name": "Broken radio",
+   "tip": "Valuables. Tune can make a map of it.",
+   "role": "small",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "folder_of_documents",
+   "name": "Folder of documents",
+   "tip": "Paper. Someone's old office.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "water_filter",
+   "name": "Water filter",
+   "tip": "Filters. A filter cartridge starts here.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "bleach",
+   "name": "Bleach",
+   "tip": "Chemistry. Cleans a filter cartridge.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "solvent",
+   "name": "Solvent",
+   "tip": "Chemistry. Powder wants it.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "gas_mask_filter",
+   "name": "Gas-mask filter",
+   "tip": "Filters. For the mask, later.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "painkillers",
+   "name": "Painkillers",
+   "tip": "Medical. A med kit wants one blister.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "antiseptic",
+   "name": "Antiseptic",
+   "tip": "Medical. A med kit wants one.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "syringe",
+   "name": "Syringe",
+   "tip": "Medical. A med kit wants one.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "blood_bag",
+   "name": "Blood bag",
+   "tip": "Medical. The hospital's.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "canned_goods",
+   "name": "Canned goods",
+   "tip": "Food: eat it. Apartments are full of it.",
+   "role": "small",
+   "stack": 16,
+   "bulky": false,
+   "food": [
+    6,
+    0.6
+   ]
+  },
+  {
+   "id": "cloth",
+   "name": "Cloth",
+   "tip": "Two wool or four string at any station; sandbags and storage want it.",
+   "role": "small",
+   "stack": 8,
+   "bulky": false
+  },
+  {
+   "id": "pressure_gauge",
+   "name": "Pressure gauge",
+   "tip": "Mechanical. Workshops have them.",
+   "role": "small",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "damaged_pistol",
+   "name": "Damaged pistol",
+   "tip": "Salvage. The salvaging table takes it apart.",
+   "role": "small",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "wrench",
+   "name": "Wrench",
+   "tip": "Tool. Walker's first gift; three metal scrap at a station.",
+   "role": "tool",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "welding_torch",
+   "name": "Welding torch",
+   "tip": "Tool. A steel frame is welded; sits in the station's tool slot.",
+   "role": "tool",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "pliers",
+   "name": "Pliers",
+   "tip": "Tool. For the electrical run.",
+   "role": "tool",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "screwdriver_set",
+   "name": "Screwdriver set",
+   "tip": "Tool. For the electrical run.",
+   "role": "tool",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "hand_drill",
+   "name": "Hand drill",
+   "tip": "Tool. Rare in garages.",
+   "role": "tool",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "fastener_kit",
+   "name": "Fastener kit",
+   "tip": "4 bolts, 4 nuts, 4 screws, 4 nails; two minutes at a station.",
+   "role": "intermediate",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "steel_frame",
+   "name": "Steel frame",
+   "tip": "6 metal scrap and a fastener kit, welded; two minutes.",
+   "role": "intermediate",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "wiring_harness",
+   "name": "Wiring harness",
+   "tip": "3 wire spools, a power cord, duct tape; two minutes.",
+   "role": "intermediate",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "filter_cartridge",
+   "name": "Filter cartridge",
+   "tip": "A water filter, a corrugated hose, bleach; two minutes.",
+   "role": "intermediate",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "circuit_assembly",
+   "name": "Circuit assembly",
+   "tip": "A circuit board, 2 capacitors, a relay, a wire spool; two minutes.",
+   "role": "intermediate",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "med_kit",
+   "name": "Med kit",
+   "tip": "2 bandages, painkillers, antiseptic, a syringe; two minutes. Heals a wound.",
+   "role": "intermediate",
+   "stack": 4,
+   "bulky": false
+  },
+  {
+   "id": "casings",
+   "name": "Casings",
+   "tip": "2 metal scrap make 16, quick, at a station.",
+   "role": "intermediate",
+   "stack": 64,
+   "bulky": false
+  },
+  {
+   "id": "powder",
+   "name": "Powder",
+   "tip": "Gunpowder and solvent make 4, quick, at a station.",
+   "role": "intermediate",
+   "stack": 64,
+   "bulky": false
+  },
+  {
+   "id": "concrete_mix",
+   "name": "Concrete",
+   "tip": "4 gravel, 4 sand, a bucket of water make 8, quick; walls and stations want it.",
+   "role": "intermediate",
+   "stack": 64,
+   "bulky": false
+  },
+  {
+   "id": "card_fastener_kit",
+   "name": "Blueprint: fastener kit",
+   "tip": "Put it in a station's card slot; the station lists what the fastener kit needs.",
+   "role": "card",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "card_steel_frame",
+   "name": "Blueprint: steel frame",
+   "tip": "Put it in a station's card slot; the station lists what the steel frame needs.",
+   "role": "card",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "card_wiring_harness",
+   "name": "Blueprint: wiring harness",
+   "tip": "Put it in a station's card slot; the station lists what the wiring harness needs.",
+   "role": "card",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "card_filter_cartridge",
+   "name": "Blueprint: filter cartridge",
+   "tip": "Put it in a station's card slot; the station lists what the filter cartridge needs.",
+   "role": "card",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "card_circuit_assembly",
+   "name": "Blueprint: circuit assembly",
+   "tip": "Put it in a station's card slot; the station lists what the circuit assembly needs.",
+   "role": "card",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "card_med_kit",
+   "name": "Blueprint: med kit",
+   "tip": "Put it in a station's card slot; the station lists what the med kit needs.",
+   "role": "card",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "card_hand_tools",
+   "name": "Blueprint: hand tools",
+   "tip": "Put it in a station's card slot; the station lists what the hand tools needs.",
+   "role": "card",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "card_casings",
+   "name": "Blueprint: casings",
+   "tip": "Put it in a station's card slot; the station lists what the casings needs.",
+   "role": "card",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "card_powder",
+   "name": "Blueprint: powder",
+   "tip": "Put it in a station's card slot; the station lists what the powder needs.",
+   "role": "card",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "card_claim_marker",
+   "name": "Blueprint: claim marker",
+   "tip": "Put it in a station's card slot; the station lists what the claim marker needs.",
+   "role": "card",
+   "stack": 1,
+   "bulky": false
+  },
+  {
+   "id": "claim_marker",
+   "name": "Claim marker",
+   "tip": "4 steel frames, a circuit assembly, a wiring harness, a white banner. Plant it at a strongpoint's anchor to claim it.",
+   "role": "part",
+   "stack": 1,
+   "bulky": true
+  },
+  {
+   "id": "strike_mortar",
+   "name": "Fire mission: mortar",
+   "tip": "Marshall's tube. Throw it; the smoke marks the target.",
+   "stack": 4,
+   "role": "strike"
+  },
+  {
+   "id": "strike_artillery",
+   "name": "Fire mission: guns",
+   "tip": "The strongpoints' guns. Throw it; the smoke marks the target.",
+   "stack": 4,
+   "role": "strike"
+  },
+  {
+   "id": "strike_air",
+   "name": "Air support: Cobra",
+   "tip": "Tune's call to the Cobra. Throw it; the smoke marks the run.",
+   "stack": 4,
+   "role": "strike"
+  },
+  {
+   "id": "card_mortar_shell",
+   "name": "Blueprint: mortar shell",
+   "tip": "Put it in a station's card slot; the station lists what the shell needs.",
+   "stack": 1,
+   "role": "card"
+  }
+ ]
 }

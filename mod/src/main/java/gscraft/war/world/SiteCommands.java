@@ -54,6 +54,13 @@ public final class SiteCommands {
                         .then(Commands.literal("clock").then(Commands.argument("seconds", IntegerArgumentType.integer(0, 36000)).executes(ctx ->
                                 withSite(ctx, (level, site) -> Loop.clock(level, site, IntegerArgumentType.getInteger(ctx, "seconds"))))))
                         .then(Commands.literal("marker").executes(ctx -> withSite(ctx, (level, site) -> Loop.claim(level, site))))
+                        // a player's feet and hands, for the console and the tests: the same two methods the events call (SitePlay)
+                        .then(Commands.literal("presence").then(Commands.argument("seconds", IntegerArgumentType.integer(1, 600)).executes(ctx ->
+                                withSite(ctx, (level, site) -> SitePlay.presence(level, site, IntegerArgumentType.getInteger(ctx, "seconds"))))))
+                        .then(Commands.literal("search").then(Commands.argument("pos", net.minecraft.commands.arguments.coordinates.BlockPosArgument.blockPos()).executes(ctx -> {
+                            net.minecraft.core.BlockPos pos = net.minecraft.commands.arguments.coordinates.BlockPosArgument.getLoadedBlockPos(ctx, "pos");   // throws: outside the lambda
+                            return withSite(ctx, (level, site) -> SitePlay.searched(level, pos, null));
+                        })))
                         .then(Commands.literal("guard").executes(ctx -> withSite(ctx, (level, site) ->
                                 site.id() + " site guard: " + Loop.keepGuard(level, site, SiteData.get(level).progress(site.id())) + " summoned, "
                                         + Loop.guardCount(level, site) + " standing")))))

@@ -56,7 +56,7 @@ mark = LOG.stat().st_size
 out = c("ftbquests reload")
 new = log_since(mark)
 errs = [l for l in new.splitlines() if re.search(r"ERROR|Exception", l)]
-check("eight chapter files installed; FTB Quests reloads them with no error", len(files) == 8 and all(f"{ch['tag']}.snbt" in files for ch in chapters) and not errs,
+check("nine chapter files installed; FTB Quests reloads them with no error", len(files) == 9 and all(f"{ch['tag']}.snbt" in files for ch in chapters) and not errs,
       f"files {len(files)}; reload [{out[:60]}]; errors {len(errs)}")
 for l in errs[:4]:
     print("     ", l[:200])

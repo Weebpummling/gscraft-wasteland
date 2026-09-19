@@ -115,7 +115,7 @@ check("the clock's end sends the first wave at the north approach", "counteratta
 
 # 6. lost
 for i in range(5):
-    c(f'summon minecraft:zombie {-956 + i} 65 -876 {{NoAI:1b,Tags:["gs_placed","gs_wave","gs_wave_hospital"]}}')   # the yard: the loss box is the compound since 2026-09-12
+    c(f'summon minecraft:zombie {-832 + i} 71 -893 {{NoAI:1b,Tags:["gs_placed","gs_wave","gs_wave_hospital"]}}')   # the yard: the loss box is the compound since 2026-09-12, the WALLED compound since 09-17 (the phase stood in the old yard until the suite of 09-19)
 time.sleep(34)
 info = c("gscraft site hospital")
 left = count("@e[tag=gs_wave_hospital]")

@@ -96,6 +96,8 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         }
         // the strongpoint loop
         i("loop.assault_ticks", () -> Loop.ASSAULT_TICKS, v -> Loop.ASSAULT_TICKS = (int) v, "the assault's length in online ticks");
+        i("site.scout_seconds", () -> SitePlay.SCOUT_SECONDS, v -> SitePlay.SCOUT_SECONDS = (int) v, "seconds of players on foot inside a strongpoint's box that scout it");
+        i("site.loot_goal", () -> SitePlay.LOOT_GOAL, v -> SitePlay.LOOT_GOAL = (int) v, "different Lootr containers searched inside a scouted strongpoint that loot it");
         i("loop.assault_waves", () -> Loop.ASSAULT_WAVES, v -> Loop.ASSAULT_WAVES = (int) v, "waves in an assault");
         i("loop.wave_gap_ticks", () -> Loop.WAVE_GAP, v -> Loop.WAVE_GAP = (int) v, "ticks between waves");
         i("loop.fortify_ticks", () -> Loop.FORTIFY_TICKS, v -> Loop.FORTIFY_TICKS = (int) v, "online ticks a held site gets before the counterattack");

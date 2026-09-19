@@ -288,7 +288,14 @@ public final class WarEvents {
                         else missing.add(d.id());
                     }
                     long registered = net.minecraftforge.registries.ForgeRegistries.ITEMS.getKeys().stream().filter(k -> k.getNamespace().equals(GscraftWar.MODID)).count();
-                    String line = registered + " items registered under gscraft; " + known + " of " + gscraft.war.item.SliceItems.DEFS.size() + " listed known; missing: " + missing;
+                    // what can be eaten, read from the REGISTERED items, not from items.json (slice review 2026-09-19: nothing could be)
+                    java.util.List<String> edible = new java.util.ArrayList<>();
+                    for (var e : net.minecraftforge.registries.ForgeRegistries.ITEMS.getEntries()) {
+                        if (e.getKey().location().getNamespace().equals(GscraftWar.MODID) && e.getValue().isEdible() && e.getValue().getFoodProperties() != null)
+                            edible.add(e.getKey().location().getPath() + "(" + e.getValue().getFoodProperties().getNutrition() + ")");
+                    }
+                    java.util.Collections.sort(edible);
+                    String line = registered + " items registered under gscraft; " + known + " of " + gscraft.war.item.SliceItems.DEFS.size() + " listed known; missing: " + missing + "; edible: " + edible;
                     ctx.getSource().sendSuccess(() -> net.minecraft.network.chat.Component.literal(line), false);
                     return known;
                 }))

@@ -167,8 +167,8 @@ with Site(450, 480) as s:
         c(f"tag @e[tag=nr{i}] add nr")
         chests[(val(f"@e[tag=nr{i},limit=1]", "ArmorItems[2].id") or "").strip('"')] += 1
         guns[(val(f"@e[tag=nr{i},limit=1]", "HandItems[0].tag.GunId") or "").strip('"')] += 1
-    check("NATO Riflemen wear one uniform and vary the rifle",
-          n >= 4 and list(chests) == ["superbwarfare:us_chest_iotv"] and set(guns) <= {"tacz:m4a1", "tacz:hk416d", "tacz:m16a4"},
+    check("NATO Riflemen wear one uniform and carry the M4A1 (b91fffd)",
+          n >= 4 and list(chests) == ["superbwarfare:us_chest_iotv"] and set(guns) == {"tacz:m4a1"},
           f"{n} riflemen; chests {dict(chests)}; rifles {dict(guns)}")
 
 with Site(-2000, -2600) as s:
@@ -184,16 +184,17 @@ with Site(-2000, -2600) as s:
     sergeant = c(f"summon gscraft:ruaf_soldier -2000 {sy} -2600 {{GscraftRank:\"RUAF Sergeant\",Tags:[\"rsgt\"]}}")
     time.sleep(1)
     sgt_chest = (val("@e[tag=rsgt,limit=1]", "ArmorItems[2].id") or "").strip('"')
-    check("RUAF Riflemen wear one uniform and vary the rifle",
+    check("RUAF Riflemen wear one uniform and carry the AK-47 (b91fffd)",
           n >= 4 and list(chests) == ["superbwarfare:ru_chest_6b43"]
-          and set(guns) <= {"tacz:ak47", "cib:ak105", "cib:ak103"} and len(guns) >= 2
+          and set(guns) == {"tacz:ak47"}
           and sgt_chest == "superbwarfare:ru_chest_6b43",
           f"{n} riflemen; chests {dict(chests)}; rifles {dict(guns)}; sergeant's chest {sgt_chest}")
 
 # every rank of a side wears that side's Rifleman uniform (owner, 2026-09-10: ranks will differ later, not by clothes)
-UNIFORM = {"nato": ("superbwarfare:us_chest_iotv", "dragonrise_reforge:kr06_pants",
+# the legs since bb6b532 (to match the vests): NATO msv_pants, RUAF gorka3_leggings
+UNIFORM = {"nato": ("superbwarfare:us_chest_iotv", "dragonrise_reforge:msv_pants",
                     {"superbwarfare:us_helmet_pasgt", "dragonrise_reforge:fast_helmet"}),
-           "ruaf": ("superbwarfare:ru_chest_6b43", "dragonrise_reforge:msv_pants", {"superbwarfare:ru_helmet_6b47"})}
+           "ruaf": ("superbwarfare:ru_chest_6b43", "dragonrise_reforge:gorka3_leggings", {"superbwarfare:ru_helmet_6b47"})}
 RANKS = {"nato": ["NATO Rifleman", "NATO Sergeant", "NATO Marksman", "NATO Gunner", "NATO Shield"],
          "ruaf": ["RUAF Rifleman", "RUAF Sergeant", "RUAF Gunner", "RUAF Marksman", "RUAF Shield"]}
 with Site(-2000, -2600) as s:

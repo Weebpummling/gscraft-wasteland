@@ -64,6 +64,8 @@ trip 20:00, scaled by the setting `station.speed`.
 | `/gscraft site <id>` | one site described |
 | `/gscraft site <id> set unknown|scouted|looted|held` | the next rung (`held` starts the assault from the console, no marker: it always holds at the end); `unknown` resets the site; `defended` is only won at the gate |
 | `/gscraft site <id> marker` | the claim marker's claim without the item: the assault, the banner at the anchor, the lamp; at the end the banner must stand and a player be inside, else lost back to looted |
+| `/gscraft site <id> presence <seconds>` | stands in for a player on foot inside the box for that long (`SitePlay.presence`, the code the tick calls): `site.scout_seconds` (5) in all scouts a strongpoint. For headless tests; a player just walks in |
+| `/gscraft site <id> search <x y z>` | stands in for a player opening the Lootr container there (`SitePlay.searched`): `site.loot_goal` (6) different ones inside the box loot a strongpoint; a repeat, a block that is no Lootr container and a place outside every strongpoint are refused |
 | `/gscraft site <id> clock <seconds>` | sets the running assault's or fortify clock |
 | `/gscraft site <id> guard` | tops up and counts the site guard |
 | `/gscraft board` | one line per strongpoint: state, clock, garrison. The board's blocks were removed 2026-09-18; this is what it said, as text |
@@ -84,6 +86,8 @@ only board-coloured blocks, over each board's footprint. The mod runs without `g
 | `/gscraft strike status` | each grenade ready or hot, the last call, rounds scheduled, runs in the air |
 | `/gscraft strike reset` | every cooldown cleared, every scheduled round dropped, any Cobra unloaded |
 | `/function gscraft:yard_mortar` | the tube stands in the yard. **The tube's reward only - never run it at a deploy** |
+| `/function gscraft:gate_close` | the north gate barred: sandbags two high each side, a fence gate in the middle (R0's reward - never a deploy step) |
+| `/function gscraft:gate_open` | the opening as the map had it (`/gscraft reset quests` runs this) |
 | `/function gscraft:yard_mortar_clear` | the tube taken down (`/gscraft reset quests` runs this) |
 | `/gscraft npc place <id>` | **put a survivor where you stand, facing the way you face**, and save it with the world (ids: walker, michael, marshall, tony, tune, james). This is the compound (start) spot |
 | `/gscraft npc place <id> building` | the same for where Marshall, Tony, Tune or James go once their building is taken (gatehouse, clinic, clinic, crossing); saved now, used when that stage is set |

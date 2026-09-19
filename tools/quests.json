@@ -650,6 +650,76 @@
    "id": "3210B848C9E6E4CB"
   },
   {
+   "key": "H1",
+   "chapter": "marshall",
+   "title": "Eyes on it",
+   "voice": "The hospital. Go and look, and come back breathing.",
+   "task": "North up the road, past the junction. Walk into the hospital's grounds; seeing it is enough.",
+   "x": 2,
+   "y": -2,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "hospital_scouted"
+    }
+   ],
+   "deps": [
+    "R1"
+   ],
+   "hide_until_deps": true,
+   "rewards": [],
+   "icon": "minecraft:spyglass",
+   "id": "2690D00757D9E54E"
+  },
+  {
+   "key": "H2",
+   "chapter": "marshall",
+   "title": "What they left",
+   "voice": "Tell me what is still on the shelves.",
+   "task": "Search six of the hospital's cupboards and lockers. What you find is yours.",
+   "x": 4,
+   "y": -2,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "hospital_looted"
+    }
+   ],
+   "deps": [
+    "H1"
+   ],
+   "rewards": [
+    {
+     "type": "item",
+     "item": "gscraft:med_kit",
+     "count": 2
+    }
+   ],
+   "icon": "gscraft:med_kit",
+   "id": "3EC82984032725E3"
+  },
+  {
+   "key": "H3",
+   "chapter": "marshall",
+   "title": "Plant it",
+   "voice": "Now we take it.",
+   "task": "Build the claim marker at your station and plant it at the hospital. Then hold for five minutes.",
+   "x": 6,
+   "y": -2,
+   "tasks": [
+    {
+     "type": "advancement",
+     "stage": "hospital_held"
+    }
+   ],
+   "deps": [
+    "H2"
+   ],
+   "rewards": [],
+   "icon": "gscraft:claim_marker",
+   "id": "62CF140C5B7CDAB2"
+  },
+  {
    "key": "tube",
    "chapter": "marshall",
    "title": "The tube",
@@ -843,6 +913,10 @@
     {
      "type": "stage",
      "stage": "compound_closed"
+    },
+    {
+     "type": "cmd",
+     "command": "/function gscraft:gate_close"
     }
    ],
    "id": "03F608F813A19429"

@@ -71,6 +71,84 @@
 			]
 		}
 		{
+			id: "2690D00757D9E54E"
+			x: 2.0d
+			y: -2.0d
+			title: "Eyes on it"
+			subtitle: "The hospital. Go and look, and come back breathing."
+			description: [
+				"North up the road, past the junction. Walk into the hospital's grounds; seeing it is enough."
+			]
+			dependencies: [
+				"3210B848C9E6E4CB"
+			]
+			icon: "minecraft:spyglass"
+			hide_until_deps_complete: true
+			tasks: [
+				{
+					id: "00F265EFE5FF2C36"
+					type: "advancement"
+					advancement: "gscraft:stage/hospital_scouted"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
+			id: "3EC82984032725E3"
+			x: 4.0d
+			y: -2.0d
+			title: "What they left"
+			subtitle: "Tell me what is still on the shelves."
+			description: [
+				"Search six of the hospital's cupboards and lockers. What you find is yours."
+			]
+			dependencies: [
+				"2690D00757D9E54E"
+			]
+			icon: "gscraft:med_kit"
+			tasks: [
+				{
+					id: "78DCF8B8A2A03B02"
+					type: "advancement"
+					advancement: "gscraft:stage/hospital_looted"
+					criterion: "set"
+				}
+			]
+			rewards: [
+				{
+					id: "64C835E90F1BFE13"
+					type: "item"
+					auto: "enabled"
+					item: "gscraft:med_kit"
+					count: 2
+				}
+			]
+		}
+		{
+			id: "62CF140C5B7CDAB2"
+			x: 6.0d
+			y: -2.0d
+			title: "Plant it"
+			subtitle: "Now we take it."
+			description: [
+				"Build the claim marker at your station and plant it at the hospital. Then hold for five minutes."
+			]
+			dependencies: [
+				"3EC82984032725E3"
+			]
+			icon: "gscraft:claim_marker"
+			tasks: [
+				{
+					id: "1E56CB7DCE12FBE6"
+					type: "advancement"
+					advancement: "gscraft:stage/hospital_held"
+					criterion: "set"
+				}
+			]
+			rewards: [ ]
+		}
+		{
 			id: "21F988CF156889C3"
 			x: 2.0d
 			y: 0.0d

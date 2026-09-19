@@ -36,7 +36,7 @@ import java.util.List;
 public final class SliceItems {
     private SliceItems() {}
 
-    public record Def(String id, int stack, boolean bulky, String role) {}
+    public record Def(String id, int stack, boolean bulky, String role, int nutrition, float saturation) {}
 
     public static final List<Def> DEFS = load();
     public static final List<RegistryObject<Item>> REGISTERED = new ArrayList<>();
@@ -54,7 +54,8 @@ public final class SliceItems {
             for (JsonElement el : items) {
                 JsonObject o = el.getAsJsonObject();
                 out.add(new Def(o.get("id").getAsString(), o.has("stack") ? o.get("stack").getAsInt() : 64,
-                        o.has("bulky") && o.get("bulky").getAsBoolean(), o.has("role") ? o.get("role").getAsString() : "item"));
+                        o.has("bulky") && o.get("bulky").getAsBoolean(), o.has("role") ? o.get("role").getAsString() : "item",
+                        o.has("food") ? o.getAsJsonArray("food").get(0).getAsInt() : 0, o.has("food") ? o.getAsJsonArray("food").get(1).getAsFloat() : 0f));
             }
         } catch (RuntimeException | java.io.IOException ex) {
             GscraftWar.LOG.error("[gscraft] items.json is invalid: {}", ex.toString());
@@ -78,6 +79,8 @@ public final class SliceItems {
         private static Item.Properties props(Def def) {
             Item.Properties p = new Item.Properties().stacksTo(def.bulky() ? 1 : def.stack());
             if (def.role().equals("tool")) p = p.durability(TOOL_USES);   // a tool loses one point per order in the station's tool slot
+            // "food": [nutrition, saturation] in items.json: nothing the mod registered could be eaten, on Hard (slice review 2026-09-19)
+            if (def.nutrition() > 0) p = p.food(new net.minecraft.world.food.FoodProperties.Builder().nutrition(def.nutrition()).saturationMod(def.saturation()).build());
             return p;
         }
 

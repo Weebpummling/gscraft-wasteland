@@ -160,7 +160,7 @@
     {
       "id": "claim_marker",
       "card": "card_claim_marker",
-      "class": "trip",
+      "class": "equipment",
       "out": "gscraft:claim_marker",
       "count": 1,
       "in": {
@@ -169,7 +169,7 @@
         "gscraft:wiring_harness": 1,
         "gscraft:cloth": 2
       },
-      "note": "cloth x2 stands in for the white banner the first cut asked for: benches are stripped, so a banner cannot be crafted, and nothing drops one (itemflow, 2026-09-18)"
+      "note": "cloth x2 stands in for the white banner the first cut asked for: benches are stripped, so a banner cannot be crafted, and nothing drops one (itemflow, 2026-09-18) | class equipment (5 min), not trip (20): the whole marker was 40 minutes of station time (slice review 2026-09-19)"
     },
     {
       "id": "cloth_wool",

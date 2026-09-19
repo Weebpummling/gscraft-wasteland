@@ -151,6 +151,15 @@ QUESTS = [
     {"key": "R1", "chapter": "marshall", "title": "Muster", "voice": "We're squatting in someone's town.", "task": "Marshall has a plan for the town. Hear him out.",
      "x": 0, "y": 0, "tasks": [CHECK], "deps": ["W1", "T1", "M1", "U1", "J1"], "hide_until_deps": True,
      "rewards": [give("gscraft:card_claim_marker"), stage("bp_claim_marker"), stage("marshall_speaks"), say("marshall", "speaks")]},
+    # The hospital (slice review 2026-09-19, finding 1): the strongpoint had no quest and no way to climb but the operator's
+    # command. Its three rungs are the stages the loop sets - scouted by walking in, looted by searching six containers
+    # (world/SitePlay.java), held by the marker - and each is an advancement task here.
+    {"key": "H1", "chapter": "marshall", "title": "Eyes on it", "voice": "The hospital. Go and look, and come back breathing.", "task": "North up the road, past the junction. Walk into the hospital's grounds; seeing it is enough.",
+     "x": 2, "y": -2, "tasks": [adv("hospital_scouted")], "deps": ["R1"], "hide_until_deps": True, "rewards": [], "icon": "minecraft:spyglass"},
+    {"key": "H2", "chapter": "marshall", "title": "What they left", "voice": "Tell me what is still on the shelves.", "task": "Search six of the hospital's cupboards and lockers. What you find is yours.",
+     "x": 4, "y": -2, "tasks": [adv("hospital_looted")], "deps": ["H1"], "rewards": [give("gscraft:med_kit", 2)], "icon": "gscraft:med_kit"},
+    {"key": "H3", "chapter": "marshall", "title": "Plant it", "voice": "Now we take it.", "task": "Build the claim marker at your station and plant it at the hospital. Then hold for five minutes.",
+     "x": 6, "y": -2, "tasks": [adv("hospital_held")], "deps": ["H2"], "rewards": [], "icon": "gscraft:claim_marker"},
     # Marshall's support (strikes note 2026-09-13): the tube, then the fire missions as repeatable hand-ins
     {"key": "tube", "chapter": "marshall", "title": "The tube", "voice": "A mortar is three pieces and a plate.", "task": "Find a mortar's barrel, bipod and base plate in the town's workshops; hand them in with two steel frames. The tube stands in the yard; its shells are a station order, and so is the powder that fills them.",
      "x": 2, "y": 0, "tasks": [item("superbwarfare:mortar_barrel", 1), item("superbwarfare:mortar_bipod", 1), item("superbwarfare:mortar_base_plate", 1), item("gscraft:steel_frame", 2)], "deps": ["R1"], "hide_until_deps": True,
@@ -169,7 +178,7 @@ QUESTS = [
     # The pocket: the gap, then the five takes (start-compound §5; ruling R22/R23)
     {"key": "R0", "chapter": "pocket", "title": "The north gate", "voice": "Marshall wants that gate shut before dark.", "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred.",
      "x": 0, "y": 0, "tasks": [item("superbwarfare:sandbag", 8)], "deps": ["W1"], "hide_until_deps": True,
-     "rewards": [stage("compound_closed")]},
+     "rewards": [stage("compound_closed"), cmd("/function gscraft:gate_close")]},
     {"key": "square", "chapter": "pocket", "title": "The junction", "voice": "The square is ours if we say it is.", "task": "Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch and the map wall.",
      "x": 2, "y": 0, "tasks": [loc("the square", site_box("square")), item("gscraft:metal_scrap", 8)], "deps": ["R0"],
      "rewards": [stage("square_taken"), stage("skadowsky_scouted")]},

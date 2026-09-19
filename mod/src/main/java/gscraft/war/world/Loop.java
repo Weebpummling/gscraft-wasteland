@@ -256,6 +256,7 @@ public final class Loop {
         Board.apply(level, site.id(), "unknown");
         Progress fresh = new Progress();
         p.state = fresh.state;
+        p.searched.clear();
         p.lost = false;
         p.phase = Phase.NONE;
         p.wave = 0;
@@ -313,9 +314,12 @@ public final class Loop {
         return standing && inside;
     }
 
-    /** the assault lost: the site stays looted, the marker is gone and re-crafted, Marshall says so */
+    /** the assault lost: the site stays looted, the marker falls where it stood to be planted again (it was destroyed, and one
+     *  marker is 25 minutes of orders and sixteen of each fastener: slice review 2026-09-19), Marshall says so */
     private static void assaultLost(ServerLevel level, SiteData data, SiteDef site, Progress p) {
         discardWave(level, site);
+        net.minecraft.world.item.Item markerItem = net.minecraftforge.registries.ForgeRegistries.ITEMS.getValue(new net.minecraft.resources.ResourceLocation(GscraftWar.MODID, "claim_marker"));
+        if (p.marker != null && markerItem != null) net.minecraft.world.level.block.Block.popResource(level, p.marker, new net.minecraft.world.item.ItemStack(markerItem));
         if (p.marker != null && level.getBlockState(p.marker).is(net.minecraft.tags.BlockTags.BANNERS)) level.removeBlock(p.marker, false);
         p.marker = null;
         p.phase = Phase.NONE;

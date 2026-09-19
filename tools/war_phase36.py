@@ -9,7 +9,8 @@ client loses sync on long multi-entity replies.
 
 1. The settings: director.hidden_from 64, env.indoor.min_r 10.
 2. Forty seconds of passes for a phantom in the yard place nothing within the compound's box + 32.
-3. Forty seconds for a phantom on the square: placements within 120, none within 30, none inside the margin.
+3. Forty seconds for a phantom on the square: placements within 120, none PLACED within 28 (first seen, sampled each
+   second: a squad walks from its first second), none inside the margin.
 4. No gscraft errors.
 """
 import re
@@ -26,7 +27,7 @@ results = []
 log_start = LOG.stat().st_size
 YARD = (-829, 71, -893)   # the walled compound's yard (2026-09-17)
 SQUARE = (-940, 64, -979)
-BOX = (-980, -920, -897, -818)
+BOX = (-900, -720, -920, -835)   # the walled compound (it was still the south compound's box after the move: found by the suite, 2026-09-19)
 M = 32
 
 
@@ -64,12 +65,19 @@ def run(p, seconds):
     c(f"gscraft director phantom set {p[0]} {p[1]} {p[2]}")
     c("gscraft director resume")
     c("gscraft clock free")
-    worst_margin, worst_near, most = 0, 0, 0
-    for _ in range(seconds // 10):
-        time.sleep(10)
-        worst_margin = max(worst_margin, in_margin())
-        worst_near = max(worst_near, near(p, 30))
-        most = max(most, near(p, 120))
+    # "none within 30" is about where a creature is PLACED, not where it walks to: every placed squad walks a loop of up to
+    # squads.walk_radius (28) from the first second, so a position sampled every ten seconds caught walkers 28 out and called
+    # them placements (found by the suite, 2026-09-19). Each second, whatever is new is counted once, where it first stands.
+    worst_margin, close_new, most = 0, 0, 0
+    for i in range(seconds):
+        time.sleep(1)
+        m = re.search(r"count: (\d+)", c(f"execute positioned {p[0]} {p[1]} {p[2]} if entity @e[tag=gs_director,tag=!p36_seen,distance=..28]"))
+        close_new += int(m.group(1)) if m else 0
+        c("tag @e[tag=gs_director,tag=!p36_seen] add p36_seen")
+        if i % 10 == 9:
+            worst_margin = max(worst_margin, in_margin())
+            most = max(most, near(p, 120))
+    worst_near = close_new
     c("gscraft director pause")
     c("gscraft director phantom clear")
     c("gscraft clock online")
