@@ -424,6 +424,13 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-19 17:03, LIVE AGAIN (owner: "push to live"): the placed-means-placed jar (713,061 bytes, sha256 8a605456...).** Nobody on, twice;
+stop; jar; Done in 28 s, no gscraft error; the same console steps, all idempotent (the guards found nothing new to do); the
+same checks read back the same. The functions' upload timed out at the panel (WinError 10060) - they are byte for byte the
+45 of the 16:46 deploy and every one ran after the boot, so nothing was missing; `live_deploy.py` does not retry a failed
+upload and should. **Pack 2026.09.19.2** pushed after the boot, the `pack-files` jar replaced (713,061). Live's `npc list`:
+every survivor "follows the functions; stands at not loaded" - none placed yet, none standing.
+
 **2026-09-19, PLACED MEANS PLACED (owner: "they don't need to move to a building. have them stay where I place them"; ruling R58).**
 `NpcPlaces.inForce` is the saved start spot and nothing else; `/gscraft npc place <id> building` is refused with a line saying
 so. The takes of the gatehouse, the clinic and the crossing still run the datapack function that summons their survivor in the
