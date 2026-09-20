@@ -5,4 +5,4 @@ side = "both"
 [download]
 url = "https://github.com/Weebpummling/gscraft-wasteland/releases/download/pack-files/gscraft-0.1.0.jar"
 hash-format = "sha512"
-hash = "444a9e6d52f00095c373aeddb20b2482af270ac11bfbe7eb8451500d3785b51111135a82ffd5a4426b4f0a11b0384a3c3cb7df9b5ff2e8f777569ecd7eb2564f"
+hash = "857fccdc7ca3caa20d9a9e0b16efafb402f333f51b2152d784c76b8e20de20721f8f6e5bb6ed7a88f09f01064d36b78793d7ece21d6cb374b33fa7868ba7e650"
