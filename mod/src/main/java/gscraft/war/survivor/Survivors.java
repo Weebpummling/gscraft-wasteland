@@ -46,7 +46,8 @@ public final class Survivors {
     }
 
     /** @param respawn given again after a death, if the player does not carry one (owner, 2026-09-19: re-issue the pistol) */
-    public record KitEntry(String item, int count, String gun, int magazines, String nbt, boolean respawn) {}
+    /** @param slot head|chest|legs|feet: worn, not carried (if that slot is free); @param respawnCount the count a respawn gives (0: the kit's own) */
+    public record KitEntry(String item, int count, String gun, int magazines, String nbt, boolean respawn, String slot, int respawnCount) {}
 
     public static final List<Def> ALL = new ArrayList<>();
     public static final List<String[]> JOIN_LINES = new ArrayList<>();
@@ -84,7 +85,8 @@ public final class Survivors {
                     JsonObject o = el.getAsJsonObject();
                     KIT.add(new KitEntry(o.has("item") ? o.get("item").getAsString() : null, o.has("count") ? o.get("count").getAsInt() : 1,
                             o.has("gun") ? o.get("gun").getAsString() : null, o.has("magazines") ? o.get("magazines").getAsInt() : 1,
-                            o.has("nbt") ? o.get("nbt").getAsString() : null, o.has("respawn") && o.get("respawn").getAsBoolean()));
+                            o.has("nbt") ? o.get("nbt").getAsString() : null, o.has("respawn") && o.get("respawn").getAsBoolean(),
+                            o.has("slot") ? o.get("slot").getAsString() : null, o.has("respawn_count") ? o.get("respawn_count").getAsInt() : 0));
                 }
             }
         } catch (RuntimeException | java.io.IOException ex) {
@@ -148,16 +150,55 @@ public final class Survivors {
                 GscraftWar.LOG.warn("[gscraft] kit item {} is not registered", k.item());
                 continue;
             }
-            ItemStack stack = new ItemStack(it, k.count());
-            if (k.nbt() != null) {   // the notebook: patchouli:guide_book with its book id
-                try {
-                    stack.setTag(net.minecraft.nbt.TagParser.parseTag(k.nbt()));
-                } catch (com.mojang.brigadier.exceptions.CommandSyntaxException ex) {
-                    GscraftWar.LOG.warn("[gscraft] kit item {} has bad nbt: {}", k.item(), ex.getMessage());
+            // a respawn may give less than the first join did (`respawn_count`); more than a stack is several stacks (150 rifle rounds)
+            int left = respawnOnly && k.respawnCount() > 0 ? k.respawnCount() : k.count();
+            while (left > 0) {
+                ItemStack stack = new ItemStack(it, Math.min(left, it.getMaxStackSize(new ItemStack(it))));
+                left -= stack.getCount();
+                if (k.nbt() != null) {   // the notebook: patchouli:guide_book with its book id; a gun: its loaded rounds
+                    try {
+                        stack.setTag(net.minecraft.nbt.TagParser.parseTag(k.nbt()));
+                    } catch (com.mojang.brigadier.exceptions.CommandSyntaxException ex) {
+                        GscraftWar.LOG.warn("[gscraft] kit item {} has bad nbt: {}", k.item(), ex.getMessage());
+                    }
                 }
+                if (k.slot() != null) stack.getOrCreateTag().putString(WEAR, k.slot());   // read and removed by give()
+                out.add(stack);
             }
-            out.add(stack);
         }
         return out;
+    }
+
+    private static final String WEAR = "GscraftKitSlot";
+
+    /**
+     * The kit into a player's hands - and onto their back: an entry with a `slot` is WORN if that slot is free, carried if it
+     * is not. On a respawn, an item the player already carries or wears is not given again. Returns the stacks given.
+     */
+    public static int give(net.minecraft.server.level.ServerPlayer p, boolean respawnOnly) {
+        int given = 0;
+        java.util.Set<Item> had = new java.util.HashSet<>();
+        if (respawnOnly) {
+            for (int i = 0; i < p.getInventory().getContainerSize(); i++) had.add(p.getInventory().getItem(i).getItem());
+        }
+        for (ItemStack s : kit(respawnOnly)) {
+            String wear = s.hasTag() && s.getTag().contains(WEAR) ? s.getTag().getString(WEAR) : null;
+            if (wear != null) {
+                s.getTag().remove(WEAR);
+                if (s.getTag().isEmpty()) s.setTag(null);
+            }
+            if (respawnOnly && had.contains(s.getItem())) continue;
+            net.minecraft.world.entity.EquipmentSlot slot = wear == null ? null : switch (wear) {
+                case "head" -> net.minecraft.world.entity.EquipmentSlot.HEAD;
+                case "chest" -> net.minecraft.world.entity.EquipmentSlot.CHEST;
+                case "legs" -> net.minecraft.world.entity.EquipmentSlot.LEGS;
+                case "feet" -> net.minecraft.world.entity.EquipmentSlot.FEET;
+                default -> null;
+            };
+            if (slot != null && p.getItemBySlot(slot).isEmpty()) p.setItemSlot(slot, s);
+            else if (!p.getInventory().add(s)) p.drop(s, false);
+            given++;
+        }
+        return given;
     }
 }

@@ -147,15 +147,18 @@ back = c("gscraft kit respawn")
 drops = json.dumps([json.loads(f.read_text(encoding="utf-8")) for f in (ROOT / "mod/src/main/resources/data/gscraft/gscraft_drops").glob("*.json")])
 tables = {t: (ROOT / f"mod/src/main/resources/data/gscraft/loot_tables/building/{t}.json").read_text(encoding="utf-8") for t in ("apartment", "office", "garage")}
 check("the kit's gun is Superb Warfare's, loaded, with rounds the world gives back; no TACZ in it; a death returns the pistol and the notebook",
-      "superbwarfare:glock_17" in kit and "Ammo:17" in kit and "34 superbwarfare:handgun_ammo" in kit and "tacz" not in kit
-      and "superbwarfare:glock_17" in back and "Ammo:17" in back and "patchouli:guide_book" in back and "handgun_ammo" not in back and "station" not in back
+      "superbwarfare:glock_17" in kit and "Ammo:17" in kit and "superbwarfare:ak_47" in kit and "Ammo:30" in kit and "tacz" not in kit
+      and sum(int(n) for n in re.findall(r"(\d+) superbwarfare:rifle_ammo", kit)) == 150 and sum(int(n) for n in re.findall(r"(\d+) superbwarfare:handgun_ammo", kit)) == 68
+      # the respawn is the BASIC GEAR (owner, 2026-09-20): both guns loaded, 60 rifle and 17 pistol rounds, the vest, the helmet, a bandage, the notebook - never the station
+      and "superbwarfare:glock_17" in back and "superbwarfare:ak_47" in back and "patchouli:guide_book" in back and "60 superbwarfare:rifle_ammo" in back and "17 superbwarfare:handgun_ammo" in back
+      and "ge_helmet_m_35" in back and "msv_chest" in back and "station" not in back
       and drops.count("superbwarfare:handgun_ammo") >= 4 and all("superbwarfare:handgun_ammo" in v for v in tables.values()),
       f"kit [{kit[:150]}]; back [{back[:120]}]; drop rules with rounds {drops.count('superbwarfare:handgun_ammo')}; tables with rounds {[t for t, v in tables.items() if 'handgun_ammo' in v]}")
 
 # 9: one step up before each fight (slice review, step 2): the rifle with the gate, the vest with the junction - and the game knows the items
-step = {"R0": ["superbwarfare:marlin", "superbwarfare:rifle_ammo"], "square": ["superbwarfare:ru_chest_6b43", "superbwarfare:armor_plate"]}
+step = {"R0": ["superbwarfare:rifle_ammo"], "square": ["superbwarfare:ru_chest_6b43", "superbwarfare:armor_plate"]}
 missing = [f"{k}:{i}" for k, items in step.items() for i in items if i not in json.dumps(quests[k]["rewards"])]
-unknown = [i for items in step.values() for i in items + ["superbwarfare:glock_17", "superbwarfare:handgun_ammo"] if "Unknown item" in c(f"clear @a {i} 0")]
+unknown = [i for items in step.values() for i in items + ["superbwarfare:glock_17", "superbwarfare:handgun_ammo", "superbwarfare:ak_47", "superbwarfare:ge_helmet_m_35", "dragonrise_reforge:msv_chest"] if "Unknown item" in c(f"clear @a {i} 0")]
 check("the gate's quest gives the rifle and its rounds, the junction's the vest and two plates; the server knows every one of those items",
       not missing and not unknown, f"missing from the rewards {missing}; unknown to the server {unknown}")
 

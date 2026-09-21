@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "The pistol holds seventeen. $(bold)Rounds$() go in your pocket first: right-click a handful to pocket them, sneak to pocket the lot. $(bold)R$() reloads from the pocket. The rifle is the same with rifle rounds.$(br)The soldiers and the scavengers carry both kinds; the rooms in town hold pistol rounds.$(br)$(bold)If you die$() you wake in the yard with the pistol, loaded, and this notebook. Everything else lies where you fell."
+      "text": "You start with a rifle - thirty in it - and a pistol, seventeen. $(bold)Rounds$() go in your pocket first: right-click a handful to pocket them, sneak to pocket the lot. $(bold)R$() reloads from the pocket.$(br)The soldiers and the scavengers carry both kinds; the rooms in town hold pistol rounds.$(br)$(bold)If you die$() you wake in the yard with the basic gear: both guns loaded, a little ammunition, the vest and helmet, a bandage, this notebook. What you carried lies where you fell."
     }
   ]
 }

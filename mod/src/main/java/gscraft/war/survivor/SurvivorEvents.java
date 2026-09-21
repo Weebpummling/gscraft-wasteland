@@ -120,13 +120,7 @@ public final class SurvivorEvents {
     }
 
     public static int reissue(ServerPlayer p) {
-        int given = 0;
-        for (ItemStack s : Survivors.kit(true)) {
-            if (p.getInventory().hasAnyOf(java.util.Set.of(s.getItem()))) continue;
-            if (!p.getInventory().add(s)) p.drop(s, false);
-            given++;
-        }
-        return given;
+        return Survivors.give(p, true);
     }
 
     /** the first join: the title card, the kit, Tune's lines from five seconds on and twenty apart */
@@ -138,7 +132,7 @@ public final class SurvivorEvents {
         if (!Survivors.SUBTITLE.isEmpty()) p.connection.send(new net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket(Component.literal(Survivors.SUBTITLE)));
         // the book opens on its first chapter once the title has faded: the one page that says where you are
         if (!Survivors.OPEN_CHAPTER.isEmpty()) later(p, 110, pl -> pl.server.getCommands().performPrefixedCommand(pl.createCommandSourceStack().withSuppressedOutput(), "ftbquests open_book #" + Survivors.OPEN_CHAPTER));
-        for (ItemStack s : Survivors.kit()) if (!p.getInventory().add(s)) p.drop(s, false);
+        Survivors.give(p, false);
         Say.hold(p, 100);
         for (String[] l : Survivors.JOIN_LINES) Say.queue(p, l[0], l[1], false);
         GscraftWar.LOG.info("[gscraft] first join: {}", p.getGameProfile().getName());
@@ -174,7 +168,7 @@ public final class SurvivorEvents {
                     return given;
                 }))).then(Commands.argument("player", EntityArgument.player()).executes(ctx -> {
                     ServerPlayer p = EntityArgument.getPlayer(ctx, "player");
-                    for (ItemStack s : Survivors.kit()) if (!p.getInventory().add(s)) p.drop(s, false);
+                    Survivors.give(p, false);
                     return 1;
                 })))
                 .then(Commands.literal("join").then(Commands.argument("player", EntityArgument.player()).executes(ctx -> {

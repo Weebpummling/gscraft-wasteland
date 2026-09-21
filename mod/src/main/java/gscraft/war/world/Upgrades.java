@@ -78,7 +78,7 @@ public final class Upgrades {
         for (String[] e : new String[][] {{"superbwarfare:handgun_ammo", String.valueOf(DEATH_ROUNDS)}, {"gscraft:bandage", String.valueOf(DEATH_BANDAGES)}}) {
             var item = ForgeRegistries.ITEMS.getValue(new ResourceLocation(e[0]));
             int n = Integer.parseInt(e[1]);
-            if (item == null || n <= 0 || p.getInventory().hasAnyOf(java.util.Set.of(item))) continue;
+            if (item == null || n <= 0) continue;   // on top of the basic gear the respawn gives (2026-09-20), so no 'already carried' test
             ItemStack s = new ItemStack(item, n);
             if (!p.getInventory().add(s)) p.drop(s, false);
             given++;
@@ -135,7 +135,7 @@ public final class Upgrades {
         return isBleeding != null && revive != null;
     }
 
-    private static boolean bleeding(ServerPlayer p) {
+    public static boolean bleeding(ServerPlayer p) {
         look();
         try {
             return isBleeding != null && (boolean) isBleeding.invoke(null, p);
@@ -175,7 +175,8 @@ public final class Upgrades {
                 }).then(Commands.literal("at").then(Commands.argument("pos", BlockPosArgument.blockPos()).executes(ctx -> {
                     BlockPos pos = BlockPosArgument.getBlockPos(ctx, "pos");
                     boolean refused = Zones.nearExcluded(pos.getX(), pos.getZ());
-                    ctx.getSource().sendSuccess(() -> Component.literal(pos.toShortString() + ": placement " + (refused ? "REFUSED (an excluded zone's margin)" : "allowed by the margins")), false);
+                    boolean soldiers = Director.tooCloseForSoldiers(pos.getX(), pos.getZ());
+                    ctx.getSource().sendSuccess(() -> Component.literal(pos.toShortString() + ": placement " + (refused ? "REFUSED (an excluded zone's margin)" : "allowed by the margins") + "; soldiers " + (refused || soldiers ? "REFUSED" : "allowed")), false);
                     return refused ? 0 : 1;
                 })))));
     }

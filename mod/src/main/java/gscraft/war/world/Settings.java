@@ -76,6 +76,7 @@ public final class Settings extends SimpleJsonResourceReloadListener {
         d("strike.artillery_explosion", () -> gscraft.war.strike.Strikes.ARTY_EXPLOSION, v -> gscraft.war.strike.Strikes.ARTY_EXPLOSION = (float) v, "a gun round's blast damage");
         d("strike.artillery_radius", () -> gscraft.war.strike.Strikes.ARTY_RADIUS, v -> gscraft.war.strike.Strikes.ARTY_RADIUS = (float) v, "a gun round's blast radius");
         i("strike.air_delay", () -> gscraft.war.strike.Strikes.AIR_DELAY, v -> gscraft.war.strike.Strikes.AIR_DELAY = (int) v, "ticks from the smoke to the Cobra's appearance");
+        i("director.soldier_margin", () -> Director.SOLDIER_MARGIN, v -> Director.SOLDIER_MARGIN = (int) v, "no NATO or RUAF soldier, garrison or armoured crew is placed within this many blocks of the compound's wall (0 = only the 32-block margin)");
         i("director.hidden_from", () -> Director.HIDDEN_FROM, v -> Director.HIDDEN_FROM = (int) v, "a placement must be out of the sight of every player this close (0 = off)");
         i("director.sweep_blocks", () -> Director.SWEEP, v -> Director.SWEEP = (int) v, "an ambient placement further than this from everyone, on two passes running, is taken back");
         i("director.player_ceiling", () -> Director.PLAYER_CEILING, v -> Director.PLAYER_CEILING = (int) v, "director creatures allowed within ceiling_box of one player, whatever the ground");

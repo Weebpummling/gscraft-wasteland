@@ -58,7 +58,7 @@ check("six survivors complete; three join lines; the kit resolves",
 
 kit = c("gscraft kit")
 check("the kit: station, loaded glock + a magazine, flashlight, battery, bandage",
-      "gscraft:station" in kit and "superbwarfare:glock_17" in kit and "Ammo:17" in kit and re.search(r"34 superbwarfare:handgun_ammo", kit) and "tacz" not in kit and "flashlight:flashlight" in kit and "flashlight:battery" in kit and "gscraft:bandage" in kit,
+      "gscraft:station" in kit and "superbwarfare:ak_47" in kit and "Ammo:30" in kit and "superbwarfare:glock_17" in kit and "Ammo:17" in kit and "superbwarfare:ge_helmet_m_35" in kit and "dragonrise_reforge:msv_chest" in kit and sum(int(n) for n in re.findall(r"(\d+) superbwarfare:rifle_ammo", kit)) == 150 and sum(int(n) for n in re.findall(r"(\d+) superbwarfare:handgun_ammo", kit)) == 68 and "tacz" not in kit and "flashlight:flashlight" in kit and "flashlight:battery" in kit and "gscraft:bandage" in kit,
       f"[{kit[:200]}]")
 
 line = c("gscraft say tune join_1")

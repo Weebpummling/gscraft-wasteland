@@ -304,6 +304,7 @@ public final class Director {
             // the same refusals as the first of the group (2026-09-19: only the anchor was checked, so a squad-mate could land
             // inside the compound's margin, or in the open in front of a player - the owner's "spawning right in front of players")
             if (here == null || here.exclude() || Zones.nearExcluded(x, z) || Loop.suppressedAt(level, x, z)) continue;
+            if (soldier(kind) && tooCloseForSoldiers(x, z)) continue;
             boolean rider = RIDER.equals(kind);
             EntityType<?> type = rider ? EntityType.ZOMBIE_HORSE : type(kind);
             if (type == null) return null;
@@ -367,6 +368,7 @@ public final class Director {
             if (here == null || here.exclude() || Zones.nearExcluded(x, z) || Loop.suppressedAt(level, x, z)) continue;
             ResourceLocation id = forced != null ? forced : pick(here.spawnsFor(env), random, level.isDay());
             if (id == null) continue;
+            if (soldier(id) && tooCloseForSoldiers(x, z)) continue;
             boolean rider = RIDER.equals(id);
             if (rider && env != Env.OPEN) continue;
             EntityType<?> type = rider ? EntityType.ZOMBIE_HORSE : type(id);
@@ -386,6 +388,23 @@ public final class Director {
             }
         }
         return null;
+    }
+
+    /**
+     * Soldiers keep further from the compound than everything else (owner, 2026-09-20: "let's make the soldiers spawn further
+     * out from the compound"): no NATO or RUAF soldier - ambient, a group's other members, a garrison, an armoured patrol's
+     * crew - is PLACED within this many blocks of the compound's wall. The Dead and the scavengers keep the 32-block margin.
+     * What is placed further out may still walk, patrol or be sent in; a counterattack is sent on purpose.
+     */
+    public static int SOLDIER_MARGIN = 120;
+
+    public static boolean soldier(ResourceLocation id) {
+        return id != null && id.getNamespace().equals(GscraftWar.MODID) && id.getPath().endsWith("_soldier");
+    }
+
+    /** a soldier may not be placed here: inside the soldiers' ring round the compound */
+    public static boolean tooCloseForSoldiers(double x, double z) {
+        return Zones.withinOfExcluded(x, z, SOLDIER_MARGIN);
     }
 
     /** blocks within which a placement must be out of every player's sight (0 turns the rule off) */
@@ -671,7 +690,7 @@ public final class Director {
         if (type == null) return 0;
         int spawned = 0;
         for (int i = 0; i < missing; i++) {
-            BlockPos pos = groundIn(level, zone);
+            BlockPos pos = groundIn(level, zone, soldier(def.entity()));
             if (pos == null) continue;
             Mob mob = spawn(level, type, pos, zone);
             if (mob == null) continue;
@@ -692,7 +711,7 @@ public final class Director {
      * Ground-floor standing room inside a zone: the lowest spot in a column that is not underground. The top of the
      * column is a roof as often as not - the garrison of a brick block belongs in the block, not on it.
      */
-    private static BlockPos groundIn(ServerLevel level, Zone zone) {
+    private static BlockPos groundIn(ServerLevel level, Zone zone, boolean soldiers) {
         RandomSource random = level.getRandom();
         for (int t = 0; t < 48; t++) {
             int x = zone.x0() + random.nextInt(Math.max(1, zone.x1() - zone.x0()));
@@ -701,12 +720,12 @@ public final class Director {
             // never inside an excluded zone or its margin. The rail-yard outpost's box overlapped the WALLED compound after the
             // start moved there, and its NATO garrison stood at the brick works, inside the players' wall (phase 36 named it, 2026-09-19)
             Zone here = Zones.at(x, z);
-            if (here != null && here.exclude() || Zones.nearExcluded(x, z)) continue;
+            if (here != null && here.exclude() || Zones.nearExcluded(x, z) || soldiers && tooCloseForSoldiers(x, z)) continue;
             BlockPos p = groundAt(level, x, z);
             if (p != null) return p;
         }
         // a zone of water and unloaded ground: the centre column, then nothing
-        if (level.hasChunkAt(new BlockPos(zone.centerX(), 64, zone.centerZ())) && !Zones.nearExcluded(zone.centerX(), zone.centerZ())) return groundAt(level, zone.centerX(), zone.centerZ());
+        if (level.hasChunkAt(new BlockPos(zone.centerX(), 64, zone.centerZ())) && !Zones.nearExcluded(zone.centerX(), zone.centerZ()) && !(soldiers && tooCloseForSoldiers(zone.centerX(), zone.centerZ()))) return groundAt(level, zone.centerX(), zone.centerZ());
         return null;
     }
 

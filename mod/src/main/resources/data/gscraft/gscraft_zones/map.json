@@ -280,12 +280,12 @@
   {
    "name": "sk_out_e",
    "box": [
-    -680,
-    -584,
+    -600,
+    -504,
     -958,
     -862
    ],
-   "note": "the rail yard outpost, east of the camp [2026-09-19: was -768..-640 x -1000..-820, which overlapped the WALLED compound the start moved to; its garrison stood inside the wall. Now 40 clear of it, and its home radius (48) ends outside the 32 margin]",
+   "note": "the rail yard outpost, east of the camp [2026-09-19: was -768..-640 x -1000..-820, which overlapped the WALLED compound the start moved to; its garrison stood inside the wall. 2026-09-20: east again, 120 clear of the wall - the soldiers' ring (director.soldier_margin)]",
    "cap": 5,
    "spawns": [
     {

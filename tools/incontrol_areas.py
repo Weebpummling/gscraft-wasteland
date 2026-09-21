@@ -101,7 +101,7 @@ BOXES = {
     # Widened 2026-09-09: at 70 x 80 and 100 x 100 a player had to stand inside the box to meet either
     # garrison, so Skadowsky read as empty of both armies. Still clear of the camp and of each other.
     "sk_out_w": (-784, -720, -1148, -1100, "RUAF's post inside Skadowsky: the brick and stone block between the camp and the hospital (owner, 2026-09-10); was the bridgehead at the river's edge"),
-    "sk_out_e": (-680, -584, -958, -862, "the rail yard outpost, east of the camp [2026-09-19: was -768..-640 x -1000..-820, which overlapped the WALLED compound the start moved to; its garrison stood inside the wall. Now 40 clear of it, and its home radius (48) ends outside the 32 margin]"),
+    "sk_out_e": (-600, -504, -958, -862, "the rail yard outpost, east of the camp [2026-09-19: was -768..-640 x -1000..-820, which overlapped the WALLED compound the start moved to; its garrison stood inside the wall. 2026-09-20: east again, 120 clear of the wall - the soldiers' ring (director.soldier_margin)]"),
 }
 
 BUILDS = ("camp", "krot", "mega", "indu", "lib", "runway", "hub", "plaza", "novo", "biogen")

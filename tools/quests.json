@@ -1166,7 +1166,7 @@
    "chapter": "pocket",
    "title": "The north gate",
    "voice": "Marshall wants that gate shut before dark.",
-   "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred. Marshall has a rifle for whoever goes out past it.",
+   "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred. Marshall has two magazines for whoever goes out past it.",
    "x": 0,
    "y": 0,
    "tasks": [
@@ -1192,13 +1192,8 @@
     },
     {
      "type": "item",
-     "item": "superbwarfare:marlin",
-     "count": 1
-    },
-    {
-     "type": "item",
      "item": "superbwarfare:rifle_ammo",
-     "count": 32
+     "count": 60
     }
    ],
    "id": "03F608F813A19429"
@@ -1437,7 +1432,7 @@
    "chapter": "notes",
    "title": "The first death",
    "voice": "It happens to everyone once.",
-   "task": "You came back in the compound with the pistol, loaded, and the notebook. Everything else lies where you fell; a friend can get you up before it comes to that.",
+   "task": "You came back in the compound with the basic gear. What you carried lies where you fell; a friend can get you up before it comes to that.",
    "x": 0,
    "y": 0,
    "tasks": [

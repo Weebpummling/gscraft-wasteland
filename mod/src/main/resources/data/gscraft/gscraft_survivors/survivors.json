@@ -65,13 +65,36 @@
         "item": "gscraft:station"
       },
       {
+        "item": "superbwarfare:ak_47",
+        "nbt": "{\"GunData\":{\"Ammo\":30}}",
+        "respawn": true
+      },
+      {
+        "item": "superbwarfare:rifle_ammo",
+        "count": 150,
+        "respawn": true,
+        "respawn_count": 60
+      },
+      {
         "item": "superbwarfare:glock_17",
         "nbt": "{\"GunData\":{\"Ammo\":17}}",
         "respawn": true
       },
       {
         "item": "superbwarfare:handgun_ammo",
-        "count": 34
+        "count": 68,
+        "respawn": true,
+        "respawn_count": 17
+      },
+      {
+        "item": "superbwarfare:ge_helmet_m_35",
+        "slot": "head",
+        "respawn": true
+      },
+      {
+        "item": "dragonrise_reforge:msv_chest",
+        "slot": "chest",
+        "respawn": true
       },
       {
         "item": "flashlight:flashlight"
@@ -80,7 +103,10 @@
         "item": "flashlight:battery"
       },
       {
-        "item": "gscraft:bandage"
+        "item": "gscraft:bandage",
+        "count": 2,
+        "respawn": true,
+        "respawn_count": 1
       },
       {
         "item": "patchouli:guide_book",
@@ -89,6 +115,7 @@
       }
     ],
     "subtitle": "Skadowsky",
-    "open_chapter": "compound"
+    "open_chapter": "compound",
+    "__kit_note": "owner, 2026-09-20: an AK-47 and five magazines (150 rounds beside the 30 in it), a starting vest and helmet (worn), the pistol with two more magazines than before (68 = 4 x 17), and the respawn gives the basic gear: both guns loaded, two rifle magazines, one pistol magazine, the vest, the helmet, a bandage, the notebook - each only if not carried. `respawn_count` is the respawn's count."
   }
 }

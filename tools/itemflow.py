@@ -114,9 +114,9 @@ for k in json.loads((ROOT / "mod/src/main/resources/data/gscraft/gscraft_survivo
 # about the game and is checked when it is written, not by this script.
 USED = {
     "gscraft:station": "placed: the station", "gscraft:claim_marker": "planted at a strongpoint",
-    "superbwarfare:rifle_ammo": "the Marlin's rounds (R0's reward)",
+    "superbwarfare:rifle_ammo": "the kit AK's rounds",
     "superbwarfare:handgun_ammo": "the kit gun's rounds", "superbwarfare:heavy_ammo": "a captured vehicle's guns", "superbwarfare:armor_plate": "refills a worn vest",
-    "superbwarfare:marlin": "a gun", "superbwarfare:glock_17": "a gun", "superbwarfare:ru_chest_6b43": "worn", "superbwarfare:sandbag": "placed, and R0",
+    "superbwarfare:ak_47": "a gun", "superbwarfare:ge_helmet_m_35": "worn", "dragonrise_reforge:msv_chest": "worn", "superbwarfare:glock_17": "a gun", "superbwarfare:ru_chest_6b43": "worn", "superbwarfare:sandbag": "placed, and R0",
     "sophisticatedbackpacks:backpack": "worn", "minecraft:compass": "held", "minecraft:map": "held", "flashlight:flashlight": "held", "flashlight:battery": "the flashlight's",
     "patchouli:guide_book": "read", "minecraft:bread": "eaten", "minecraft:rotten_flesh": "eaten, badly", "minecraft:dried_kelp": "eaten",
     "superbwarfare:small_shell_he": "a captured vehicle's gun", "superbwarfare:medium_anti_ground_missile": "a captured vehicle's launcher",

@@ -17,7 +17,7 @@
 			title: "The first death"
 			subtitle: "It happens to everyone once."
 			description: [
-				"You came back in the compound with the pistol, loaded, and the notebook. Everything else lies where you fell; a friend can get you up before it comes to that."
+				"You came back in the compound with the basic gear. What you carried lies where you fell; a friend can get you up before it comes to that."
 			]
 			icon: "minecraft:skeleton_skull"
 			invisible: true

@@ -104,6 +104,16 @@ minr = re.search(r"env.indoor.min_r = (\d+)", c("gscraft settings env.indoor.min
 # the margin itself, asked directly: it was wiped at every load until 2026-09-19 (Zones.apply cleared the map after filling it)
 near_wall, clear_of = c("gscraft upgrades at -830 70 -930"), c("gscraft upgrades at -830 70 -990")
 check("the compound's margin is in force: ten blocks from the wall is refused, seventy is not", "REFUSED" in near_wall and "allowed" in clear_of, f"[{near_wall[-44:]}] [{clear_of[-30:]}]")
+# the soldiers' ring (owner, 2026-09-20: "make the soldiers spawn further out from the compound"): 70 blocks north of the wall the Dead
+# may be placed and a soldier may not; 130 out both may. And no garrison's box reaches inside it.
+ring_in, ring_out = c("gscraft upgrades at -830 70 -990"), c("gscraft upgrades at -830 70 -1050")
+import json as _json
+_zones = _json.loads((Path(__file__).resolve().parents[1] / "mod/src/main/resources/data/gscraft/gscraft_zones/map.json").read_text(encoding="utf-8"))["zones"]
+# a garrison's HOME is its box's centre; its members are never placed inside the ring (Director.groundIn refuses), so it is the home that must be outside
+_near = [z["name"] for z in _zones if z.get("garrison") and "soldier" in z["garrison"]["entity"]
+         and BOX[0] - 120 <= (z["box"][0] + z["box"][1]) // 2 <= BOX[1] + 120 and BOX[2] - 120 <= (z["box"][2] + z["box"][3]) // 2 <= BOX[3] + 120]
+check("the soldiers' ring: 70 blocks out the margins allow and soldiers are refused, 130 out both are allowed; no soldier garrison is homed inside it",
+      "allowed by the margins; soldiers REFUSED" in ring_in and "soldiers allowed" in ring_out and not _near, f"[{ring_in[-52:]}] [{ring_out[-40:]}]; garrisons inside {_near}")
 check("the settings: hidden_from 64, indoor min_r 10", hidden and hidden.group(1) == "64" and minr and minr.group(1) == "10", f"hidden {hidden and hidden.group(1)}; indoor min_r {minr and minr.group(1)}")
 
 c(f"forceload add {SQUARE[0] - 100} {SQUARE[2] - 100} {SQUARE[0] + 100} {YARD[2] + 100}")

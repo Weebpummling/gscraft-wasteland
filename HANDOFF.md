@@ -424,6 +424,32 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-20, the owner's first play reports (rulings R59-R61). LOCAL ONLY - the owner: "don't update live". LIVE RUNS THE JAR OF 09-19
+17:03 AND HAS NONE OF THIS.**
+**1 and 4 were one bug: "on death, you can still use your weapons" and "the down screen does not advance past even with left
+click held, something is overlapping".** PlayerRevive counts its give-up while `options.keyAttack.isDown()` (read in its
+client tick, decompiled); Superb Warfare, with a gun in the main hand, takes the left mouse button for its fire key and
+cancels the click before the key mapping sees it. So a bleeding player kept firing and the give-up never counted. SW's
+`ShootEvent.Pre` is not cancellable. **`combat/Downed.java`**: each server tick, a bleeding player (PlayerRevive, by
+reflection through `Upgrades.bleeding`) whose main hand holds a gun (SW `GunItem` by class name, or a TACZ `IGun`) has the
+selected slot moved to an empty hotbar slot, else one without a gun, else the gun is put in the pack; the client is told
+(`ClientboundSetCarriedItemPacket`). **NOT TESTED: it needs a downed player. The owner is the test.** If the give-up still
+does not count with an EMPTY hand, the overlap is something else and the next suspect is any other mod that cancels
+`InputEvent.MouseButton` - ours has no input handler at all (checked).
+**2. The soldiers' ring:** `Director.SOLDIER_MARGIN` (`director.soldier_margin`, 120): no `gscraft:*_soldier` is placed within
+it of the compound's wall - `placeNear`, `placeBeside`, garrisons (`groundIn`) and armoured patrols (`Patrols.roadStandAt`,
+which had NO margin check at all). The Dead and scavengers keep the 32. `sk_out_e` moved east again (-600..-504). The
+junction is ~60 from the wall, so no soldier is placed there any more; they arrive on foot from further out.
+`/gscraft upgrades at <pos>` now also says whether soldiers may be placed there.
+**3. The kit:** AK-47 (30 in it) + 150 rifle rounds, Glock (17) + 68 pistol rounds, `superbwarfare:ge_helmet_m_35` and
+`dragonrise_reforge:msv_chest` WORN (kit entries take `"slot"`), station, flashlight and battery, 2 bandages, notebook.
+**Respawn = the basic gear**: both guns loaded, 60 + 17 rounds, helmet and vest worn, 1 bandage, the notebook
+(`"respawn_count"`), each only if not carried; never the station. `Survivors.give(player, respawnOnly)` is the one way a
+kit is handed out. R0 pays 60 rifle rounds instead of the Marlin; Medical 2 adds its rounds and bandages on top. The
+notebook's Guns page and the death note say so. **A death is now worth a loaded rifle and sixty rounds every time**: whoever
+walks back to their body doubles up. That is what was asked for; `respawn_count` is the dial.
+**Green on the local jar (717,547 bytes): 33 8/8, 36 6/6 (it asks the soldiers' ring directly), 44 10/10, 49 8/8, 43 7/7, 4 13/13, 10 8/8, 20 6/6, 25 5/5; itemflow's gate closes.**
+
 **2026-09-19 17:03, LIVE AGAIN (owner: "push to live"): the placed-means-placed jar (713,061 bytes, sha256 8a605456...).** Nobody on, twice;
 stop; jar; Done in 28 s, no gscraft error; the same console steps, all idempotent (the guards found nothing new to do); the
 same checks read back the same. The functions' upload timed out at the panel (WinError 10060) - they are byte for byte the

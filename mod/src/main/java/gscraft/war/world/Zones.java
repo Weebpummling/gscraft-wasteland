@@ -159,6 +159,16 @@ public final class Zones extends SimpleJsonResourceReloadListener {
         return false;
     }
 
+    /** within `margin` blocks of any excluded zone that carries a margin (the compound): the soldiers' wider ring reads this */
+    public static boolean withinOfExcluded(double x, double z, int margin) {
+        if (margin <= 0) return false;
+        for (Zone zone : zones) {
+            if (!margins.containsKey(zone.name()) || !zone.exclude() || !zone.hasBox()) continue;
+            if (x >= zone.x0() - margin && x <= zone.x1() + margin && z >= zone.z0() - margin && z <= zone.z1() + margin) return true;
+        }
+        return false;
+    }
+
     public static Zone named(String name) {
         for (Zone zone : zones) {
             if (zone.name().equals(name)) return zone;

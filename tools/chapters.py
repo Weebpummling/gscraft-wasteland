@@ -201,11 +201,11 @@ QUESTS = [
      "x": 8, "y": 0, "tasks": [adv("radio_2"), item("superbwarfare:medium_rocket_he", 4)], "deps": ["tube"], "repeat": True, "hide_until_deps": True,
      "rewards": [give("gscraft:strike_air")]},
     # The pocket: the gap, then the five takes (start-compound §5; ruling R22/R23)
-    {"key": "R0", "chapter": "pocket", "title": "The north gate", "voice": "Marshall wants that gate shut before dark.", "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred. Marshall has a rifle for whoever goes out past it.",
+    {"key": "R0", "chapter": "pocket", "title": "The north gate", "voice": "Marshall wants that gate shut before dark.", "task": "Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred. Marshall has two magazines for whoever goes out past it.",
      "x": 0, "y": 0, "tasks": [item("superbwarfare:sandbag", 8)], "deps": ["W1"], "hide_until_deps": True,
      # the long gun before the junction (slice review, step 2): Superb Warfare's Marlin, a lever action that takes the rifle rounds
      # every soldier drops - sixteen a shot, eight in the tube, slow. It comes empty: the rounds are pocketed and loaded, as the notebook says
-     "rewards": [stage("compound_closed"), cmd("/function gscraft:gate_close"), give("superbwarfare:marlin"), give("superbwarfare:rifle_ammo", 32)]},
+     "rewards": [stage("compound_closed"), cmd("/function gscraft:gate_close"), give("superbwarfare:rifle_ammo", 60)]},   # two magazines: the AK is in the kit since 2026-09-20, and the Marlin went with it
     # the vest with the junction: class 4, and the plates soldiers drop (0.15 a body) refill it - the armour the review found nothing led to
     {"key": "square", "chapter": "pocket", "title": "The junction", "voice": "The square is ours if we say it is.", "task": "Walk the paved junction north-west of the compound, across the rails, and bring back eight metal scrap from its streets. That lights its torch.",
      "x": 2, "y": 0, "tasks": [loc("the square", site_box("square")), item("gscraft:metal_scrap", 8)], "deps": ["R0"],
@@ -224,7 +224,7 @@ QUESTS = [
      "rewards": [stage("mast_taken"), stage("skadowsky_held")]},
     # Field notes (onboarding §4.5): the chapter that writes itself - each entry invisible until its per-player note_<key>
     # advancement is granted (journal/FieldNotes.java), two lines, no reward; the rule gets its name after the fact
-    {"key": "note_death", "chapter": "notes", "title": "The first death", "voice": "It happens to everyone once.", "task": "You came back in the compound with the pistol, loaded, and the notebook. Everything else lies where you fell; a friend can get you up before it comes to that.",
+    {"key": "note_death", "chapter": "notes", "title": "The first death", "voice": "It happens to everyone once.", "task": "You came back in the compound with the basic gear. What you carried lies where you fell; a friend can get you up before it comes to that.",
      "x": 0, "y": 0, "tasks": [adv("note_death")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "minecraft:skeleton_skull"},
     {"key": "note_bulky", "chapter": "notes", "title": "Heavy", "voice": "Some things are carried, not pocketed.", "task": "Some things are bulky - the tooltip says so in gold. Carrying one slows you and stops you sprinting; one at a time.",
      "x": 2, "y": 0, "tasks": [adv("note_bulky")], "rewards": [], "deps": [], "invisible": True, "until_tasks": 1, "icon": "gscraft:steel_frame"},
