@@ -222,6 +222,18 @@ public class Soldier extends Monster implements FactionMember, Skinned, GunUser,
 
     /** crouched and flat stances (feasibility A3): the box follows the pose the way a player's does */
     @Override
+    protected net.minecraft.world.phys.AABB makeBoundingBox() {
+        return getPose() == Pose.SWIMMING ? Fighters.proneBox(this) : super.makeBoundingBox();
+    }
+
+    /** the prone box follows the body as it turns, not only as it moves */
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        if (getPose() == Pose.SWIMMING) setBoundingBox(makeBoundingBox());
+    }
+
+    @Override
     public EntityDimensions getDimensions(Pose pose) {
         return switch (pose) {
             case CROUCHING -> EntityDimensions.scalable(0.6F, 1.5F);

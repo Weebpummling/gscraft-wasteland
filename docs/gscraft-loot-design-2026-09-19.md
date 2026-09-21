@@ -44,7 +44,7 @@ Weights; `(xA-B)` is the stack. Rolls are per chest, per player.
 | Table | Rolls | Pool |
 |---|---|---|
 | `building/apartment` | 2-4 | bandage 15 (x1-2), painkillers 8, canned_goods 20 (x1-3), bleach 6, water_filter 5, cloth 8 (x1-2), light_bulb 6, duct_tape 5, gas_mask_filter 3, handgun_ammo 8 (x4-10) |
-| `building/office` | 2-4 | wire_spool 12 (x1-2), power_cord 10, capacitor 12 (x1-2), circuit_board 10, relay 8, computer_parts 5, hard_drive 6, folder_of_documents 8, broken_radio 4, handgun_ammo 8 (x4-10) |
+| `building/office` | 2-4 | wire_spool 20 (x1-2), power_cord 10, capacitor 12 (x1-2), circuit_board 10, relay 8, computer_parts 5, hard_drive 6, folder_of_documents 8, broken_radio 4, handgun_ammo 8 (x4-10) |
 | `building/garage` | 3-5 | bolt 15 (x2-4), nut 15 (x2-4), screw 10 (x2-4), metal_scrap 20 (x2-4), duct_tape 8, silicone_tube 10, spark_plug 8, motor_oil 10, car_battery 6, wrench 2, hand_drill 1, damaged_pistol 2, handgun_ammo 6 (x4-10), solvent 6, mortar_shell 4 (x1-2); **one of** mortar_barrel, mortar_bipod, mortar_base_plate, welding_torch (or nothing, 4 in 8) |
 | `building/workshop` | 4-6 | metal_scrap 20 (x2-4), nail 15 (x2-4), screw 15 (x2-4), insulating_tape 8, pliers 3, screwdriver_set 3, pressure_gauge 6, corrugated_hose 8, bolt 12 (x2-4), nut 12 (x2-4), solvent 4, silicone_tube 5, spark_plug 5, motor_oil 5, car_battery 4; **one of** mortar_barrel, mortar_bipod, mortar_base_plate, welding_torch |
 | `building/hospital` | 2-4 | bandage 20 (x1-3), painkillers 15, syringe 12, antiseptic 12, blood_bag 4, gas_mask_filter 4, damaged_pistol 1 |
@@ -64,7 +64,7 @@ Weights; `(xA-B)` is the stack. Rolls are per chest, per player.
 | `sites/intake` | one of factory (1), workshop (1), whole | + 1-2 of: corrugated_hose 15, pressure_gauge 10, water_filter 8, solvent 6 |
 
 Four strongpoints stand in the world and each holds containers of its own table: the hospital 20, the switchyard
-12, the intake works 12, the turbine hall 12 - at least twice `site.loot_goal`, or the site could never be looted and
+10, the intake works 12, the turbine hall 12 - at least twice `site.loot_goal`, or the site could never be looted and
 claimed (the three plant sites held none until the completeness audit; `tools/war_phase47.py` climbs each by play). `sites/krot`
 is written, loads and rolls, and waits for KROT to be a site.
 
@@ -231,14 +231,18 @@ their mods wrote them. **Run it again whenever a mod is added or updated**, and 
 
 ## 10. The start area, for one player
 
-180 bound containers (50 apartment, 6 garage, 31 hospital, 27 office, 20 sites/hospital, 12 sites/intake, 12 sites/switchyard, 12 sites/turbine, 10 workshop). The gate holds the design to this:
+139 bound containers (33 apartment, 3 garage, 31 hospital, 11 office, 20 sites/hospital, 12 sites/intake, 10 sites/switchyard, 12 sites/turbine, 7 workshop). The gate holds the design to this:
 every non-repeatable quest's needs added up are covered by what one player expects from those containers (or drop from
 bodies), and every thing needed once is a nine-in-ten find or better, or the station makes it, or a quest gives it.
 `python tools/itemflow.py` prints the table; the tightest rows today:
 
 ```
-      gscraft:pliers                     the tool of order wiring_harness              85.4%  risky
-      gscraft:screwdriver_set            the tool of order salvage_computer            85.4%  risky
+      gscraft:spark_plug                 all quests need   2   expect    3.4   x1.69  tight
+      gscraft:folder_of_documents        all quests need   3   expect    5.8   x1.93  tight
+      gscraft:wire_spool                 all quests need  11   expect   21.8   x1.98  tight
+      gscraft:broken_radio               needed once                                   94.6%  risky
+      W4               gscraft:spark_plug                 need   2  expect    3.4  x1.69  tight
+      J2               gscraft:folder_of_documents        need   3  expect    5.8  x1.93  tight
 ```
 
 ## 11. Proof: `tools/war_phase46.py` (13 checks, no player)

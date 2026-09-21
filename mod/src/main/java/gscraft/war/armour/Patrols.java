@@ -226,7 +226,7 @@ public final class Patrols {
     public static BlockPos roadStandAt(ServerLevel level, int x, int y0, int z) {
         Zone here = Zones.at(x, z);
         if (here == null || here.exclude() || Loop.suppressedAt(level, x, z)) return null;
-        if (gscraft.war.world.Zones.nearExcluded(x, z) || gscraft.war.world.Director.tooCloseForSoldiers(x, z)) return null;   // a hull's crew are soldiers (2026-09-20); a hull had no margin at all
+        if (gscraft.war.world.Zones.nearExcluded(x, z) || gscraft.war.world.Director.tooCloseForSoldiers(level, x, z)) return null;   // a hull's crew are soldiers (2026-09-20); a hull had no margin at all
         // the road mod's surfaces are not full cubes, so the general standing test refuses them: road under, air over
         for (int d = 0; d <= 6; d++) {
             for (int sign = -1; sign <= 1; sign += 2) {

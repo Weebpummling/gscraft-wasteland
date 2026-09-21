@@ -71,4 +71,21 @@ public final class Fighters {
             if (mob.getPose() == net.minecraft.world.entity.Pose.SWIMMING && mob.getTarget() == null) stance(mob, net.minecraft.world.entity.Pose.STANDING);
         }
     }
+
+    /**
+     * A prone fighter's box (owner, 2026-09-20: "when the mobs are prone they aren't damagable from the side"). Flat, a
+     * fighter is drawn as a player crawling: the body lies about 1.8 blocks FORWARD of where the entity stands, and the box
+     * a swimming pose gives is a 0.6 cube at the hips. A round along the body's axis still reached the cube; one from the
+     * side, at the chest or the head the player can see, passed through nothing. The box now covers the body: from 0.3
+     * behind the hips to 1.5 ahead along the body's yaw, 0.35 either side, 0.6 high (an axis-aligned box, so a body lying
+     * diagonally gets a squarer one). Superb Warfare and TACZ both hit what {@code getBoundingBox()} says.
+     */
+    public static net.minecraft.world.phys.AABB proneBox(net.minecraft.world.entity.Mob mob) {
+        double yaw = Math.toRadians(mob.yBodyRot);
+        double fx = -Math.sin(yaw), fz = Math.cos(yaw);
+        double ax = mob.getX() - fx * 0.3D, az = mob.getZ() - fz * 0.3D;
+        double bx = mob.getX() + fx * 1.5D, bz = mob.getZ() + fz * 1.5D;
+        double w = 0.35D;
+        return new net.minecraft.world.phys.AABB(Math.min(ax, bx) - w, mob.getY(), Math.min(az, bz) - w, Math.max(ax, bx) + w, mob.getY() + 0.6D, Math.max(az, bz) + w);
+    }
 }

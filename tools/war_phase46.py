@@ -234,6 +234,16 @@ for cx, cz in CHUNKS:
     c(f"forceload remove {cx * 16} {cz * 16}")
 check(f"all {len(record)} recorded containers stand, Lootr, bound to their table; the hospital's {len(hosp)} to its site table", not bad and len(hosp) >= 12, bad[:4] or "every one")
 
+# 11b: what the tool PLACES (owner, 2026-09-20: "something that isn't an ornate box ... spread a little more out ... not spawning high above")
+ledger = {tuple(k) for k in json.loads((ROOT / "tools/chests_placed.json").read_text(encoding="utf-8"))}
+mine = [e for e in record if (e["x"], e["y"], e["z"]) in ledger]
+chests_left = [e for e in mine if "lootr_barrel" not in e["command"]]
+close = [(a["x"], a["y"], a["z"], b["x"], b["z"]) for i, a in enumerate(mine) for b in mine[i + 1:] if abs(a["x"] - b["x"]) < CH.SPACING and abs(a["z"] - b["z"]) < CH.SPACING]
+world = CH.Blocks(Path("G:/GSCraft/server/wasteland-v8"))
+high = [(e["x"], e["y"], e["z"], world.height_up(e["x"], e["y"] - 1, e["z"])) for e in mine if world.height_up(e["x"], e["y"] - 1, e["z"]) > CH.MAX_UP]
+check(f"the {len(mine)} placed containers are barrels, at least {CH.SPACING} apart, and no more than {CH.MAX_UP} above the ground", mine and not chests_left and not close and not high,
+      f"not barrels {len(chests_left)}; too close {close[:3]}; too high {high[:3]}")
+
 # 12
 lootr = Path("G:/GSCraft/server/config/lootr-common.toml").read_text(encoding="utf-8", errors="replace")
 reload_out = c("ftbquests reload", 180)

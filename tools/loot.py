@@ -25,7 +25,7 @@ ONCE = [(SW + "mortar_barrel", 1), (SW + "mortar_bipod", 1), (SW + "mortar_base_
 BUILDING = {
     "apartment": {"rolls": (2, 4), "pool": [(G + "bandage", 15, 1, 2), (G + "painkillers", 8), (G + "canned_goods", 20, 1, 3), (G + "bleach", 6), (G + "water_filter", 5),
                                             (G + "cloth", 8, 1, 2), (G + "light_bulb", 6), (G + "duct_tape", 5), (G + "gas_mask_filter", 3), (PISTOL[0], 8, 4, 10)]},
-    "office": {"rolls": (2, 4), "pool": [(G + "wire_spool", 12, 1, 2), (G + "power_cord", 10), (G + "capacitor", 12, 1, 2), (G + "circuit_board", 10), (G + "relay", 8),
+    "office": {"rolls": (2, 4), "pool": [(G + "wire_spool", 20, 1, 2), (G + "power_cord", 10), (G + "capacitor", 12, 1, 2), (G + "circuit_board", 10), (G + "relay", 8),
                                          (G + "computer_parts", 5), (G + "hard_drive", 6), (G + "folder_of_documents", 8), (G + "broken_radio", 4), (PISTOL[0], 8, 4, 10)]},
     "garage": {"rolls": (3, 5), "pool": [(G + "bolt", 15, 2, 4), (G + "nut", 15, 2, 4), (G + "screw", 10, 2, 4), (G + "metal_scrap", 20, 2, 4), (G + "duct_tape", 8),
                                          (G + "silicone_tube", 10), (G + "spark_plug", 8), (G + "motor_oil", 10), (G + "car_battery", 6), (G + "wrench", 2), (G + "hand_drill", 1),

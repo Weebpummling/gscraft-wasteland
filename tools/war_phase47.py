@@ -58,13 +58,14 @@ bad, thin, told = [], [], []
 for sid, d in sites.items():
     x0, x1, z0, z1 = d["box"]
     mine = [e for e in record if x0 <= e["x"] <= x1 and z0 <= e["z"] <= z1 and e["table"] == f"sites/{sid}"]
-    if len(mine) < 2 * goal:
+    if len(mine) < goal + 4:   # four to spare. It was twice the goal until the containers were spread out and kept low (2026-09-20): the switchyard has ten
         thin.append(f"{sid}: {len(mine)} containers of sites/{sid}, the goal is {goal}")
     if len(mine) < goal:
         bad.append(f"{sid}: cannot be looted, {len(mine)} containers")
         continue
-    xs, zs = [e["x"] for e in mine], [e["z"] for e in mine]
-    c(f"forceload add {min(xs) - 2} {min(zs) - 2} {max(xs) + 2} {max(zs) + 2}")
+    spots = sorted({(e["x"] >> 4, e["z"] >> 4) for e in mine[:goal]})   # chunk by chunk: one rectangle round the intake's is over the 256-chunk cap and is refused whole
+    for cx, cz in spots:
+        c(f"forceload add {cx * 16} {cz * 16}")
     time.sleep(4)
     refused = c(f"gscraft site {sid} marker")
     if "assault begins" in refused or "unknown" not in c(f"gscraft site {sid}"):
@@ -82,10 +83,11 @@ for sid, d in sites.items():
     told.append(f"{sid}: {len(mine)} containers, {started[:34]}")
     c(f"gscraft site {sid} set unknown")
     c("kill @e[tag=gs_wave]")
-    c(f"forceload remove {min(xs) - 2} {min(zs) - 2} {max(xs) + 2} {max(zs) + 2}")
+    for cx, cz in spots:
+        c(f"forceload remove {cx * 16} {cz * 16}")
 c("gscraft reset quests")
 check(f"every strongpoint climbs by play: refused, scouted, looted by {goal} searches, claimed ({len(sites)} sites)", not bad, bad[:4] or told)
-check("each strongpoint holds at least twice the loot goal in containers of its own site table", not thin, thin or f"{len(sites)} sites, at least {2 * goal} each")
+check("each strongpoint holds at least four more containers of its own site table than the loot goal", not thin, thin or f"{len(sites)} sites, at least {goal + 4} each")
 
 # 3
 items = c("gscraft items")

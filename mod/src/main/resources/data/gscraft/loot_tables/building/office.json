@@ -10,7 +10,7 @@
     {
      "type": "minecraft:item",
      "name": "gscraft:wire_spool",
-     "weight": 12,
+     "weight": 20,
      "functions": [
       {
        "function": "minecraft:set_count",

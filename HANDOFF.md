@@ -424,6 +424,33 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-20, second batch of the owner's play reports (rulings R62-R64). LOCAL ONLY: "don't update live" still stands.**
+**Cleared ground** (`world/Cleared.java`, `/gscraft cleared`): "make it so the soldiers don't respawn after clearing the area
+out", then "make it a kill count to clear up an area in fact". A soldier a player kills (directly, from a vehicle, or by kill
+credit) is one on the tally of the ground he fell on; kills within `cleared.merge` 48 share a tally, which lapses
+`cleared.count_minutes` 30 after its last kill; at `cleared.kills` **8** the ground is CLEARED - a gold line to everyone - and
+`Director.tooCloseForSoldiers` refuses every soldier placement (ambient, group members, garrison refills, armoured patrols)
+within `cleared.radius` 96 for `cleared.minutes` 120 (0 = for good); a kill on cleared ground renews it. Saved with the
+world (`gscraft_cleared`). The Dead and scavengers are never held back. Soldiers placed outside may still walk in.
+**The prone hitbox** ("when the mobs are prone they aren't damagable from the side and sometimes" - the message was cut
+there): a fighter flat on the ground is drawn as a crawling player, the body about 1.8 blocks FORWARD of the entity, while
+the swimming pose's box was a 0.6 cube at the hips - a round along the body's axis reached it, one from the side at the
+visible chest or head hit nothing. `Fighters.proneBox` is the box now (both `Soldier` and `Scavenger`, refreshed each
+`aiStep` so it turns with the body). NOT TESTED against a real shot: the owner is the test. If "sometimes" was a second
+symptom it is not addressed.
+**The containers** ("something that isn't an ornate box ... spread a little more out ... not spawning high above"): what
+`chests.py` places is a `lootr:lootr_barrel[facing=up]`; `SPACING` 9 (was 4; the turbine's stood in a row); `MAX_UP` 5 above
+the natural ground straight under the spot (the switchyard's stood 25 up; measuring against the lowest surface within ten
+blocks was tried first and called every hillside hall a tower). **`tools/chests_placed.json` is the LEDGER**: once applied, a
+placed container comes back from the scan looking like the map's own, and without it the turbine's and switchyard's could
+not be found to replace. Locally every one of mine was removed and placed again: 139 containers, 50 placed, all barrels
+(hospital 20, intake 12, turbine 12, switchyard 10; fewer in the compound's small buildings - the sheds hold none now).
+The office's wire spools went 12 -> 20 to keep the start area's quests fed with fewer offices. Both client instances have
+`vanilla_textures = true` in `lootr-client.toml` (the pack ships the GSCraft instance's), so Lootr containers look like
+plain barrels and chests. `tools/live_deploy.py` now also runs `loot_unplace` (a Lootr CHEST at a ledger position goes)
+before `loot_bind` (the tool's own go in as barrels, into air only). NOT RUN.
+**Green on the local jar (726,423 bytes): 49 9/9 (cleared ground), 46 14/14 (the placed containers: barrels, nine apart, low), 47 8/8, 44 10/10, 31, 36, 3, 8, 9, 10 green; 7 red once and green twice (the quiet fighter could not be read: a flake seen before); itemflow's gate closes.**
+
 **2026-09-20, the owner's first play reports (rulings R59-R61). LOCAL ONLY - the owner: "don't update live". LIVE RUNS THE JAR OF 09-19
 17:03 AND HAS NONE OF THIS.**
 **1 and 4 were one bug: "on death, you can still use your weapons" and "the down screen does not advance past even with left

@@ -8,6 +8,7 @@ changes a rule (world/Upgrades.java). What a server alone can prove:
 3. Generator 1: a spot 40 blocks from the compound's wall may be placed at before it and may not after.
 4. Radio 1: a held site's ten-minute warning goes unheard without it and is heard with it (the log says which).
 5. Radio 2: set by Tune's U3 in the book, and the rule reads it.
+6b. Cleared ground is earned by a kill count, holds soldiers back and nothing else, and can be forgotten.
 6. Every function stage a quest sets is one the upgrades read, or the backpack's: none is a flag with no rule.
 7. The quest reset takes every level back.
 8. No gscraft errors.
@@ -127,6 +128,23 @@ functions = {rw["stage"] for q in quests.values() for rw in q["rewards"] if rw.g
 idle = sorted(functions - read - {"storage_1"})
 listed = all(f"{s}:" in up for s in read)
 check("every function level a quest sets has a rule (storage_1 is the backpack)", not idle and listed, f"quests set {sorted(functions)}; with no rule {idle}")
+
+# 6b: CLEARED GROUND IS EARNED (owner, 2026-09-20: "make it so the soldiers don't respawn after clearing the area out", then "make it a
+# kill count"). Far from the compound, so only this rule speaks: seven kills leave soldiers allowed; the eighth clears the ground; 96
+# out they may not be placed and 200 out they may; the Dead are never held back; forgetting gives the ground back.
+c("gscraft cleared forget")
+kills = int(re.search(r"= (\d+)", c("gscraft settings cleared.kills")).group(1))
+CX, CZ = -2400, -2400
+first = [c(f"gscraft cleared mark {CX + 3 * i} {CZ}") for i in range(kills - 1)]
+short = c(f"gscraft upgrades at {CX} 70 {CZ + 20}")
+last = c(f"gscraft cleared mark {CX} {CZ + 5}")
+inside, outside = c(f"gscraft upgrades at {CX} 70 {CZ + 60}"), c(f"gscraft upgrades at {CX} 70 {CZ + 200}")
+listing = c("gscraft cleared")
+forgot = c("gscraft cleared forget")
+after = c(f"gscraft upgrades at {CX} 70 {CZ + 60}")
+check(f"cleared ground is earned: {kills - 1} kills change nothing, the {kills}th clears it; 60 out soldiers are refused and the Dead are not, 200 out both are allowed; forgetting gives it back",
+      "soldiers allowed" in short and "CLEARED" in last and "allowed by the margins; soldiers REFUSED" in inside and "soldiers allowed" in outside and "CLEARED" in listing and "soldiers allowed" in after,
+      f"after {kills - 1}: [{short[-18:]}]; the {kills}th: [{last[-24:]}]; 60 out [{inside[-44:]}]; 200 out [{outside[-18:]}]; [{forgot}]; then [{after[-18:]}]")
 
 # 7
 c("gscraft reset quests")

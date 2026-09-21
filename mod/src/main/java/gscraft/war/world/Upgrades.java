@@ -175,7 +175,7 @@ public final class Upgrades {
                 }).then(Commands.literal("at").then(Commands.argument("pos", BlockPosArgument.blockPos()).executes(ctx -> {
                     BlockPos pos = BlockPosArgument.getBlockPos(ctx, "pos");
                     boolean refused = Zones.nearExcluded(pos.getX(), pos.getZ());
-                    boolean soldiers = Director.tooCloseForSoldiers(pos.getX(), pos.getZ());
+                    boolean soldiers = Director.tooCloseForSoldiers(ctx.getSource().getLevel(), pos.getX(), pos.getZ());
                     ctx.getSource().sendSuccess(() -> Component.literal(pos.toShortString() + ": placement " + (refused ? "REFUSED (an excluded zone's margin)" : "allowed by the margins") + "; soldiers " + (refused || soldiers ? "REFUSED" : "allowed")), false);
                     return refused ? 0 : 1;
                 })))));

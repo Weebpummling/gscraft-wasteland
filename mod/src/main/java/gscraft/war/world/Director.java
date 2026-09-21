@@ -304,7 +304,7 @@ public final class Director {
             // the same refusals as the first of the group (2026-09-19: only the anchor was checked, so a squad-mate could land
             // inside the compound's margin, or in the open in front of a player - the owner's "spawning right in front of players")
             if (here == null || here.exclude() || Zones.nearExcluded(x, z) || Loop.suppressedAt(level, x, z)) continue;
-            if (soldier(kind) && tooCloseForSoldiers(x, z)) continue;
+            if (soldier(kind) && tooCloseForSoldiers(level, x, z)) continue;
             boolean rider = RIDER.equals(kind);
             EntityType<?> type = rider ? EntityType.ZOMBIE_HORSE : type(kind);
             if (type == null) return null;
@@ -368,7 +368,7 @@ public final class Director {
             if (here == null || here.exclude() || Zones.nearExcluded(x, z) || Loop.suppressedAt(level, x, z)) continue;
             ResourceLocation id = forced != null ? forced : pick(here.spawnsFor(env), random, level.isDay());
             if (id == null) continue;
-            if (soldier(id) && tooCloseForSoldiers(x, z)) continue;
+            if (soldier(id) && tooCloseForSoldiers(level, x, z)) continue;
             boolean rider = RIDER.equals(id);
             if (rider && env != Env.OPEN) continue;
             EntityType<?> type = rider ? EntityType.ZOMBIE_HORSE : type(id);
@@ -402,9 +402,9 @@ public final class Director {
         return id != null && id.getNamespace().equals(GscraftWar.MODID) && id.getPath().endsWith("_soldier");
     }
 
-    /** a soldier may not be placed here: inside the soldiers' ring round the compound */
-    public static boolean tooCloseForSoldiers(double x, double z) {
-        return Zones.withinOfExcluded(x, z, SOLDIER_MARGIN);
+    /** a soldier may not be placed here: inside the soldiers' ring round the compound, or on ground the players have cleared (Cleared) */
+    public static boolean tooCloseForSoldiers(ServerLevel level, double x, double z) {
+        return Zones.withinOfExcluded(x, z, SOLDIER_MARGIN) || Cleared.holds(level, x, z);
     }
 
     /** blocks within which a placement must be out of every player's sight (0 turns the rule off) */
@@ -720,12 +720,12 @@ public final class Director {
             // never inside an excluded zone or its margin. The rail-yard outpost's box overlapped the WALLED compound after the
             // start moved there, and its NATO garrison stood at the brick works, inside the players' wall (phase 36 named it, 2026-09-19)
             Zone here = Zones.at(x, z);
-            if (here != null && here.exclude() || Zones.nearExcluded(x, z) || soldiers && tooCloseForSoldiers(x, z)) continue;
+            if (here != null && here.exclude() || Zones.nearExcluded(x, z) || soldiers && tooCloseForSoldiers(level, x, z)) continue;
             BlockPos p = groundAt(level, x, z);
             if (p != null) return p;
         }
         // a zone of water and unloaded ground: the centre column, then nothing
-        if (level.hasChunkAt(new BlockPos(zone.centerX(), 64, zone.centerZ())) && !Zones.nearExcluded(zone.centerX(), zone.centerZ()) && !(soldiers && tooCloseForSoldiers(zone.centerX(), zone.centerZ()))) return groundAt(level, zone.centerX(), zone.centerZ());
+        if (level.hasChunkAt(new BlockPos(zone.centerX(), 64, zone.centerZ())) && !Zones.nearExcluded(zone.centerX(), zone.centerZ()) && !(soldiers && tooCloseForSoldiers(level, zone.centerX(), zone.centerZ()))) return groundAt(level, zone.centerX(), zone.centerZ());
         return null;
     }
 

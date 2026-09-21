@@ -36,7 +36,7 @@ def window(anchor, box, r=70):
 
 
 SWITCHYARD = window((-830, 110), (-957, -708, 37, 184), 130)   # the whole box: round the anchor it is pylons and open ground, the rooms are the admin block's
-INTAKE = window((890, 150), (606, 1180, -101, 413), 160)   # 70 found no roofed floor round the anchor either
+INTAKE = window((890, 150), (606, 1180, -101, 413), 230)   # 70 found no roofed floor round the anchor either
 TURBINE = window((400, 590), (-13, 824, 546, 634))
 # (x0, x1, z0, z1) -> table, first match wins
 RECTS = [
@@ -175,6 +175,26 @@ class Blocks:
             self.tops[k] = next((y for y in range(130, 30, -1) if self.solid(x, y, z) and "leaves" not in self.get(x, y, z) and "_log" not in self.get(x, y, z)), 30)
         return self.tops[k]
 
+    def ground_near(self, x, z):
+        """the lowest surface within ten blocks: the street a building stands on"""
+        return min(self.top(x + dx, z + dz) for dx in range(-10, 11, 2) for dz in range(-10, 11, 2))
+
+    def height_over_ground(self, x, y, z):
+        """how far this floor is above the NATURAL ground under it (grass, dirt, stone: not something laid). Measured straight down,
+        so a building on a slope is judged by its own footing - the lowest surface within ten blocks called a hillside hall a tower
+        and left the switchyard and the intake works short (2026-09-20). 99 when there is no ground within forty: a tower, a bridge."""
+        for yy in range(y - 1, y - 41, -1):
+            n = self.get(x, yy, z)
+            if self.solid(x, yy, z) and not built(n):
+                return y - yy
+        return 99
+
+    def height_up(self, x, y, z):
+        """how high a floor is, by the KINDER of two measures: over the natural ground straight under it (right for a hall on a slope,
+        wrong over a basement - the hospital's street floor has twenty blocks of cellars under it), or over the lowest surface within
+        ten blocks (right over a basement, wrong on a slope). High by both is high: a tower, a gantry."""
+        return min(self.height_over_ground(x, y, z), y - self.ground_near(x, z))
+
     def above_ground(self, x, y, z):
         """a floor at or over street level: within ten blocks some column's surface is no higher than this floor's"""
         return any(self.top(x + dx, z + dz) <= y + 1 for dx in range(-10, 11, 2) for dz in range(-10, 11, 2))
@@ -194,6 +214,10 @@ def built(name):
     """a block somebody laid: not the ground, not a tree. `stone` must not catch stone_bricks"""
     n = name.split(":", 1)[1]
     return not any(n == k or n.endswith(k) or (k in ("leaves", "_log", "_wood", "mushroom") and k in n) for k in NATURAL)
+
+
+SPACING = 9    # blocks between placed containers, and from any other (owner, 2026-09-20: "spread a little more out"; it was 4 and the turbine's stood in a row)
+MAX_UP = 5     # a placed container's floor is at most this far above the lowest ground within ten blocks: the ground floor or the one above
 
 
 def interior_spots(b, rect, budget, taken):
@@ -218,10 +242,12 @@ def interior_spots(b, rect, budget, taken):
     cands.sort()
     out = []
     for _, y, x, z in cands:
-        if any(abs(x - ox) < 4 and abs(z - oz) < 4 for ox, _, oz in out + taken):
+        if any(abs(x - ox) < SPACING and abs(z - oz) < SPACING for ox, _, oz in out + taken):
             continue
         if not b.above_ground(x, y, z):
             continue   # a cellar or a sewer: the second cut put fifteen of twenty-two down there
+        if b.height_up(x, y, z) > MAX_UP:
+            continue   # high above the ground (owner, 2026-09-20: "make sure they aren't spawning high above"): the switchyard's stood 25 up
         out.append((x, y + 1, z))
         if len(out) >= budget:
             break
@@ -242,9 +268,16 @@ def place(world, found):
         for i, (x, y, z) in enumerate(spots):
             t = table or ("office" if i % 2 == 0 else "apartment")
             placed.append({"x": x, "y": y, "z": z, "was": "air (placed)", "table": t, "building": name,
-                           "command": f'setblock {x} {y} {z} lootr:lootr_chest{{LootTable:"{table_id(t)}"}}'})
+                           "command": f'setblock {x} {y} {z} lootr:lootr_barrel[facing=up]{{LootTable:"{table_id(t)}"}}'})
             taken.append((x, y, z))
         print(f"  {name:12} {standing} standing, {len(spots)} new of a budget of {PLACE[name]}")
+    # THE LEDGER of every container this tool has ever placed (tools/chests_placed.json): once applied, a placed container
+    # comes back from the scan looking like any other, and without the ledger there is no telling mine from the map's - the
+    # turbine's and the switchyard's could not be found to replace (2026-09-20)
+    ledger = ROOT / "tools" / "chests_placed.json"
+    known = {tuple(k) for k in json.loads(ledger.read_text(encoding="utf-8"))} if ledger.exists() else set()
+    known |= {(f["x"], f["y"], f["z"]) for f in placed}
+    ledger.write_text(json.dumps(sorted(list(k) for k in known), indent=0) + "\n", encoding="utf-8")
     return placed
 
 
