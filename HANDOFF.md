@@ -424,6 +424,23 @@ objective is a military front entered with a pistol; `compound_closed` does noth
 each phase proves its build with operator commands standing in for the player: **the missing test is the one that plays the
 chain.** The review's nine-step work order starts with letting play move a strongpoint. Nothing was changed by the review.
 
+**2026-09-21 18:30, LIVE DEPLOYED (owner: "server is empty, go ahead and push the update to live"): the jar of both 09-20 batches
+(726,423 bytes, sha256 c39932dc...).** Nobody on, twice; 46 functions and the loot-modifier list; the book; stop (18 s); the
+jar; Done in 30 s, no gscraft error. By console: `deploy_load` (107 chunks), the four clears (idempotent), **`loot_unplace`
+(147: every ledger position that still held a Lootr CHEST is air)**, **`loot_bind` (150: the tool's barrels into air, the
+map's own bound where a vanilla container holds nothing)**, `deploy_unload`. Read back: 14 tables; no upgrade earned; the kit
+is the AK (30) + 150 rounds, the Glock (17) + 68, the M35 helmet and MSV vest (`GscraftKitSlot` shows in the console's
+listing only; `give` strips it); no mortar; the compound's margin AND the soldiers' ring refuse at ten blocks from the
+wall; `/gscraft cleared` says no ground is marked. **Barrels confirmed standing on live at one current placed position of
+each: hospital -854 60 -1311, intake 733 66 229, turbine 334 65 631, switchyard -940 92 96, the hall -785 71 -898.** The
+deploy's own two spot-checks said "Test failed" because they named the OLD placed positions (rightly emptied by
+`loot_unplace`); `live_deploy.py` now samples from the record. **Pack 2026.09.21.1** pushed after the boot; the
+`pack-files` jar replaced (726,423). The pack carries `lootr-client.toml` with `vanilla_textures = true`.
+**Trap, again:** a coordinates file written by Python on Windows carries CR; a console command built from it splits at the
+CR and the server sees two half-commands ("Unknown or incomplete command"). `tr -d ''` first.
+**Still on live and untested by anyone: the downed hand, the prone box, the respawn gear - the owner plays those.** No
+survivor stands on live yet: the owner places them (`/gscraft npc place <id>`).
+
 **2026-09-20, second batch of the owner's play reports (rulings R62-R64). LOCAL ONLY: "don't update live" still stands.**
 **Cleared ground** (`world/Cleared.java`, `/gscraft cleared`): "make it so the soldiers don't respawn after clearing the area
 out", then "make it a kill count to clear up an area in fact". A soldier a player kills (directly, from a vehicle, or by kill

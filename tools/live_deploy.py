@@ -138,11 +138,18 @@ for l in errs[:6]:
 time.sleep(70)   # the console's level is null for about a minute after Done
 
 # ---- by console: the chunks, the leftovers, the containers
+led_set = {tuple(k) for k in ledger}
+samples = []
+for t in ("sites/hospital", "sites/intake", "sites/turbine", "sites/switchyard", "workshop"):
+    e = next((e for e in record if e["table"] == t and (e["x"], e["y"], e["z"]) in led_set), None)
+    if e:
+        samples.append(e)
 console("function gscraft:deploy_load", 12)
 for fn in ("board_remove", "yard_mortar_clear", "old_compound_chests_clear", "camp_signs_clear", "loot_unplace", "loot_bind"):
     console(f"function gscraft:{fn}", 6)
 for cmd in ("gscraft loot tables", "gscraft upgrades", "gscraft kit", "gscraft kit respawn", "gscraft npc list", "gscraft site hospital", "gscraft items",
-            "execute if entity @e[type=superbwarfare:mortar]", "execute if block -826 59 -1269 lootr:lootr_chest", "execute if block 741 76 267 lootr:lootr_chest",
+            "execute if entity @e[type=superbwarfare:mortar]",
+            *[f"execute if block {e['x']} {e['y']} {e['z']} lootr:lootr_barrel" for e in samples],   # one placed barrel per site table, from the record: hard-coded spots went stale (2026-09-21)
             "gscraft upgrades at -830 70 -930"):
     console(cmd, 2)
 console("function gscraft:deploy_unload", 6)
