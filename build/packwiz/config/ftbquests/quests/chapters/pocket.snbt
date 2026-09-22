@@ -17,7 +17,7 @@
 			title: "The north gate"
 			subtitle: "Marshall wants that gate shut before dark."
 			description: [
-				"Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred. Marshall has a rifle for whoever goes out past it."
+				"Two cloth and four sand at any station make four sandbags; no card needed. Hand in eight, and the north gate is barred. Marshall has two magazines for whoever goes out past it."
 			]
 			dependencies: [
 				"0016A4AE37CD6D15"
@@ -55,15 +55,8 @@
 					id: "7B79AED16D6F98C5"
 					type: "item"
 					auto: "enabled"
-					item: "superbwarfare:marlin"
-					count: 1
-				}
-				{
-					id: "5950B8FF9533355F"
-					type: "item"
-					auto: "enabled"
 					item: "superbwarfare:rifle_ammo"
-					count: 32
+					count: 60
 				}
 			]
 		}

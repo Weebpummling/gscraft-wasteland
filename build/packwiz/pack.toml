@@ -1,12 +1,12 @@
 name = "GSCraft"
 author = "GSCraft"
-version = "2026.09.19.2"
+version = "2026.09.21.1"
 pack-format = "packwiz:1.1.0"
 
 [index]
 file = "index.toml"
 hash-format = "sha256"
-hash = "64936633a30360cd0cfb19fc52177f4eb12bed4c3f95ff2cf468155af8ce9a2f"
+hash = "f2875e2f6634264792ffbf305c5f80ff0f0c9d9b58c433e597c7b486bee6762e"
 
 [versions]
 forge = "47.4.23"

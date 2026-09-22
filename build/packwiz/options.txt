@@ -135,10 +135,10 @@ key_key.sophisticatedbackpacks.open_backpack:key.keyboard.b
 key_key.sophisticatedbackpacks.inventory_interaction:key.keyboard.c
 key_key.sophisticatedbackpacks.tool_swap:key.keyboard.unknown
 key_key.sophisticatedbackpacks.toggle_upgrade_4:key.keyboard.unknown
-key_key.sophisticatedbackpacks.toggle_upgrade_5:key.keyboard.unknown
-key_key.sophisticatedbackpacks.toggle_upgrade_1:key.keyboard.z:ALT
-key_key.sophisticatedbackpacks.toggle_upgrade_2:key.keyboard.x:ALT
 key_key.sophisticatedbackpacks.toggle_upgrade_3:key.keyboard.unknown
+key_key.sophisticatedbackpacks.toggle_upgrade_2:key.keyboard.x:ALT
+key_key.sophisticatedbackpacks.toggle_upgrade_1:key.keyboard.z:ALT
+key_key.sophisticatedbackpacks.toggle_upgrade_5:key.keyboard.unknown
 key_key.apotheosis.toggle_radial_mining:key.keyboard.unknown
 key_key.apotheosis.world_tiers_arent_real:key.keyboard.unknown
 key_key.superbwarfare.move_forward:key.keyboard.w
@@ -156,7 +156,7 @@ key_key.superbwarfare.interact:key.keyboard.x
 key_key.superbwarfare.dismount:key.keyboard.left.alt
 key_key.superbwarfare.breath:key.keyboard.unknown
 key_key.superbwarfare.config:key.keyboard.o:ALT
-key_key.superbwarfare.edit_mode:key.keyboard.unknown
+key_key.superbwarfare.edit_mode:key.keyboard.0
 key_key.superbwarfare.change_ammo_forward:key.keyboard.left
 key_key.superbwarfare.change_ammo_backward:key.keyboard.right
 key_key.superbwarfare.change_fire_mode_forward:key.keyboard.up

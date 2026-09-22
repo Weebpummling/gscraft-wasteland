@@ -174,11 +174,11 @@ hash = "67492cf8ec1cc59a1245314067465a82e377c6746226616859a73bb9b1c55988"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/notes.snbt"
-hash = "d97cd63a1ff931c5e5aa2ef685f9d87b94dedf0b177d4aa6509d55111639d9b6"
+hash = "b316a589c91a2750d4c766c6f664710a537bd69f3bd6e65796252476cdaeca8e"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/pocket.snbt"
-hash = "f77ea6517a5b21b4e3f4f238c04c4256a178a97ac05fd415865d7830848db322"
+hash = "b28f8995491c3b175a77f48fe0f30a15ccd94e7e4bcca855c62cc490edbeee48"
 
 [[files]]
 file = "config/ftbquests/quests/chapters/tony.snbt"
@@ -874,7 +874,7 @@ metafile = true
 
 [[files]]
 file = "mods/gscraft-0-1-0.pw.toml"
-hash = "156c458b96a75337342c85e57f1cd2b80dc7502150b34e71b06c74ec7d95ae59"
+hash = "214f437c1189df02ecb69cdaf4b1ab1fbc19a7fa9bb46f8e6e3cdaa1772f2cf8"
 metafile = true
 
 [[files]]
@@ -1189,7 +1189,7 @@ metafile = true
 
 [[files]]
 file = "options.txt"
-hash = "0192dce8b305308e8a3f0141301fde4e3c7e6a2198c7ebc1dd7fc4b5564fef2d"
+hash = "7123ec4368129ae12e400ddf79291abbf2652b2f30e27560d98079c72dea641b"
 preserve = true
 
 [[files]]
